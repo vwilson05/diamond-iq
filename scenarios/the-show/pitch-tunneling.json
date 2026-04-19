@@ -1,0 +1,210 @@
+{
+  "id": "the-show-pitch-tunneling",
+  "title": "Pitch Tunneling: Making Two Pitches Look Like One",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "defense",
+  "tags": ["pitching", "tunneling", "changeup", "fastball", "deception", "arm-speed"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 1, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on the mound with a 0-1 count. The hitter fouled off your fastball -- he was on it, just barely late. He's going to adjust his timing for the next pitch. You want to throw a changeup that looks IDENTICAL to the fastball out of your hand. The hitter needs to see the same arm speed, the same release point, the same spin -- and then the ball arrives 10 mph slower. That's pitch tunneling. What's the most important thing to focus on to make your changeup tunnel with your fastball?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "arm-speed",
+          "text": "Arm speed. The changeup MUST come out with the exact same arm speed as the fastball. The hitter reads my arm first -- if my arm slows down, he knows it's off-speed before the ball even leaves my hand.",
+          "nextNode": "decision-arm-speed-2"
+        },
+        {
+          "id": "release-point",
+          "text": "Release point. Both pitches need to leave my hand from the exact same spot. If the changeup comes out lower or more to the side, the hitter can pick up the difference in the first 10 feet of ball flight.",
+          "nextNode": "decision-release-2"
+        },
+        {
+          "id": "grip-hidden",
+          "text": "Grip. The hitter can sometimes see the grip in the pitcher's hand before the pitch. I need to hide the changeup grip so he can't distinguish it from the fastball grip.",
+          "nextNode": "outcome-grip-good"
+        }
+      ]
+    },
+    "decision-arm-speed-2": {
+      "type": "decision",
+      "narration": "Arm speed is your focus. You throw the changeup with the SAME arm velocity as your fastball -- your arm is whipping through at full speed. But the changeup grip (deep in the palm, spread fingers) takes the velocity off. The ball comes out looking exactly like a fastball... then arrives 10 mph slower. The hitter's eyes track the arm speed and his brain says 'FASTBALL!' But the ball says 'changeup.' His timing is wrecked. Now, where do you throw this perfectly-tunneled changeup?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P", "C"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "same-slot-low",
+          "text": "Throw it to the same initial trajectory as the fastball, but let the grip do the work -- the ball will fade lower and slower. The hitter sees the same tunnel as the fastball for the first 20 feet, then the pitch drops beneath the zone.",
+          "nextNode": "outcome-tunnel-perfect-great"
+        },
+        {
+          "id": "throw-it-high",
+          "text": "Throw the changeup up in the zone. He'll think it's a fastball up and swing over it when the ball doesn't have the velocity to reach that height.",
+          "nextNode": "outcome-changeup-high-bad"
+        },
+        {
+          "id": "aim-corner",
+          "text": "Throw the changeup to the outside corner. Even with perfect arm speed, mix the location so he can't sit on one spot.",
+          "nextNode": "outcome-changeup-corner-good"
+        }
+      ]
+    },
+    "decision-release-2": {
+      "type": "decision",
+      "narration": "Release point is your focus. You concentrate on releasing the changeup from the exact same arm slot and extension point as the fastball. The ball comes out of your hand from the same position -- for the first 10 feet of flight, the hitter can't tell if it's a fastball or changeup because the launch angle and release point are identical. This is the 'tunnel' -- the path where both pitches look the same. Now the pitches diverge: the fastball continues on a flatter trajectory while the changeup fades down and to your arm side. How long can you maintain the tunnel before the pitches separate?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "late-tunnel",
+          "text": "I want the pitches to look identical for as long as possible -- ideally until the ball is 20-25 feet from home plate. That's the 'decision point' where the hitter must commit to swing or take. If the pitches still look the same at that point, he's guessing.",
+          "nextNode": "outcome-late-tunnel-great"
+        },
+        {
+          "id": "early-separation",
+          "text": "Let the pitches separate early. The big break on the changeup is its best weapon. Even if the hitter recognizes it's off-speed, the movement will beat him.",
+          "nextNode": "outcome-early-separation-okay"
+        }
+      ]
+    },
+    "outcome-tunnel-perfect-great": {
+      "type": "outcome",
+      "narration": "The changeup comes out with identical arm speed and follows the same initial trajectory as your fastball. For the first 25 feet, the pitches are indistinguishable. The hitter's brain locks in: 'FASTBALL, swing NOW!' He commits his swing. But the changeup arrives 10 mph slower and drops 6 inches lower than the fastball would have. His swing is way out in front and way above the ball. Swinging strike! He had ZERO chance because by the time the pitches separated, he'd already committed to the fastball swing. That's perfect pitch tunneling.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Tunneled Changeup! Swing and Miss! Untouchable!",
+        "explanation": "This is pitch tunneling at its finest. The concept: two pitches that look identical for as long as possible, then diverge AFTER the hitter must commit to swinging. The science: a hitter must decide to swing approximately 170 milliseconds before the ball reaches home plate. At 93 mph, the ball is about 25 feet from the plate at that decision point. If your fastball and changeup look the same until that 25-foot mark, the hitter is making his swing decision based on INCOMPLETE information. He's guessing. And when a changeup arrives where a fastball was supposed to be, the timing mismatch is devastating. Three things made this tunnel work: 1) Identical arm speed. 2) Identical release point. 3) Same initial trajectory for the first 25 feet. The grip difference only shows up in velocity and movement AFTER the hitter commits.",
+        "whatToRemember": "Perfect tunneling means two pitches look identical until the hitter's decision point (25 feet from home plate). Match arm speed, release point, and initial trajectory. Let the grip create the difference -- not your arm or mechanics.",
+        "keyTerms": [
+          { "term": "Pitch Tunnel", "definition": "The shared flight path where two different pitches appear identical. The longer the tunnel (later the separation point), the more deceptive the pitch pair." },
+          { "term": "Decision Point", "definition": "The moment approximately 170 milliseconds before arrival where the hitter must commit to swinging or taking. At 93 mph, this is about 25 feet from home plate." },
+          { "term": "Arm Speed Deception", "definition": "Throwing a changeup with the same arm velocity as a fastball so the hitter cannot use arm speed as a cue to identify the pitch type." },
+          { "term": "Separation Point", "definition": "The distance from home plate where two tunneled pitches begin to diverge visually. Elite tunnelers keep pitches together until 20-25 feet from the plate." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-changeup-high-bad": {
+      "type": "outcome",
+      "narration": "You throw the changeup up in the zone with good arm speed. But a high changeup is a MISTAKE. The changeup's weapon is its downward fade -- throwing it high negates that movement. The ball arrives belt-high at 83 mph with very little vertical drop. The hitter adjusts mid-swing and barrels it. LINE DRIVE to center field for a hit! A changeup up in the zone is the most hittable mistake in pitching because it arrives at a comfortable height with reduced velocity -- basically a batting practice pitch. The hitter had extra time to read it AND it was in his wheelhouse.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.35 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Changeup Up = Mistake Pitch! Line Drive Hit!",
+        "explanation": "The changeup is designed to work DOWN in the zone or below it. Its primary weapons are velocity reduction and downward fade. When you throw it UP, you neutralize the downward movement (gravity helps less on a higher pitch) and put the ball at a height where hitters can extend their arms and generate maximum bat speed. A 83 mph pitch belt-high with no significant movement is the easiest pitch to hit in baseball. The tunnel was fine -- arm speed matched the fastball. But the location destroyed the pitch's effectiveness. Changeups belong in the lower third of the zone or below. The tunnel should take the pitch from fastball-trajectory to a spot that drops below the zone, making the hitter swing over the top of it.",
+        "whatToRemember": "Changeups must be thrown DOWN, not up. The pitch's movement is designed to work with gravity, fading below the zone. A high changeup is a batting practice pitch regardless of how well it's tunneled.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-changeup-corner-good": {
+      "type": "outcome",
+      "narration": "Changeup to the outside corner with great arm speed. The hitter reaches for it and makes weak contact -- grounds out to second. Out number two! The arm speed fooled him, but the corner location meant the tunnel wasn't as tight as it could have been. The fastball in the previous pitch was middle-in, and this changeup was away. The hitter might not have been completely fooled by the tunnel because the ball was going to a different part of the plate. A tighter tunnel would have started BOTH pitches on the same trajectory.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Groundout! But Tunnel Could Be Tighter.",
+        "explanation": "You got the out, and the arm speed deception worked. But the tunnel was imperfect because the fastball and changeup went to different parts of the plate. A true tunnel means both pitches start on the same trajectory and THEN diverge. If the fastball was middle-in and the changeup was outside, the hitter could distinguish them early based on the ball's horizontal direction, even if the arm speed was identical. The tightest tunnel pairs a middle-middle fastball with a changeup that starts on the same line but drops below the zone. Or an inside fastball with a changeup that starts inside but fades arm-side to the middle. The key: both pitches aim for the SAME initial target, then the changeup's grip does the rest.",
+        "whatToRemember": "For the tightest tunnel, both pitches should start on the same trajectory. Location changes should come from the pitch's MOVEMENT, not from aiming to a different spot. Same starting line, different ending point.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-late-tunnel-great": {
+      "type": "outcome",
+      "narration": "You focus on keeping the pitches identical for as long as possible. The changeup and fastball share the same tunnel for 30 feet past release -- the hitter sees identical pitch trajectory until the ball is about 23 feet from home plate. At that point, the changeup begins to fade down and arm-side. But the hitter already committed to the fastball swing 2 feet earlier -- at the 25-foot decision point, both pitches STILL looked the same! He's swinging at a ghost. The changeup drops under his bat. Swing and miss! STRIKE THREE! The late tunnel made it physically impossible for the hitter to identify the pitch before committing.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STRIKEOUT! Late Tunnel Made the Pitch Unhittable!",
+        "explanation": "The later the tunnel separation, the more unhittable the pitch pair becomes. Here's the math: if pitches separate at 40 feet from home (early), the hitter has about 100 milliseconds to adjust his swing. That's tight but possible for elite hitters. If pitches separate at 23 feet from home (late), the hitter has already committed 2 feet earlier. He has ZERO time to adjust. The pitch is physically unhittable because human reaction time can't process the new information fast enough. Late tunneling is achieved through matching release points to within 1-2 inches and matching initial pitch trajectories. The grip does ALL the work -- the arm, body, and release look identical. The best tunnelers in baseball have separation points under 25 feet, making their pitch pairs essentially ungovernable for hitters.",
+        "whatToRemember": "The later the tunnel separation, the more unhittable the pitches become. Target a separation point of 25 feet or less from home plate. This requires identical arm speed, release point, and initial trajectory -- let the grip be the ONLY difference.",
+        "keyTerms": [
+          { "term": "Late Tunnel Separation", "definition": "When two pitches don't diverge visually until after the hitter's decision point. Makes the pitch pair unhittable because the hitter commits to one pitch type before the other becomes visible." },
+          { "term": "Release Point Matching", "definition": "Delivering different pitch types from the exact same arm slot and extension point. The tighter the match (within 1-2 inches), the longer the tunnel stays intact." },
+          { "term": "Grip-Based Velocity Change", "definition": "Using the changeup grip (deep palm, spread fingers) to reduce velocity while maintaining identical arm mechanics. The grip slows the ball; the arm stays fast." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-early-separation-okay": {
+      "type": "outcome",
+      "narration": "Your changeup separates early from the fastball trajectory -- the big arm-side fade starts 35 feet from home plate. The movement is dramatic and impressive... but the hitter sees it coming. At 35 feet out, he still has 80 milliseconds to adjust his swing. He stays back, waits on the changeup, and pokes it the other way for a single to right field. The big movement actually HELPED the hitter because it gave him an early cue that the pitch was off-speed. He adjusted his timing and went the other way. Less movement with a later separation would have been more deceptive.",
+      "field": {
+        "ballPosition": { "x": 0.75, "y": 0.35 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Single! Hitter Read the Early Break.",
+        "explanation": "More movement is NOT always better when it comes at the expense of tunnel length. A changeup that separates early from the fastball trajectory gives the hitter time to identify 'that's not a fastball' and adjust. Even 80 milliseconds of adjustment time is enough for an elite hitter to slow his swing and put the ball in play. The best changeups don't have the MOST movement -- they have movement that arrives LATE. A changeup with 4 inches of fade that separates at 22 feet from home is more deceptive than a changeup with 8 inches of fade that separates at 35 feet. Deception is about WHEN the hitter can tell the pitches apart, not HOW MUCH they eventually differ.",
+        "whatToRemember": "Late separation beats big movement. A changeup with moderate fade that stays in the tunnel until the hitter's decision point is more effective than a changeup with huge break that tips off the hitter early.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    },
+    "outcome-grip-good": {
+      "type": "outcome",
+      "narration": "You focus on hiding the grip. You tuck the ball deep in your glove so the hitter can't see the spread fingers of the changeup grip. Good discipline -- but the grip is only visible to hitters in specific situations (high camera angle, overhead lights, certain glove positions). Most hitters can't see the grip at game speed. What they CAN read is your arm speed and release point. You throw the changeup with a slightly slower arm -- the hitter picks up the arm deceleration and sits on the off-speed pitch. He waits back and lines the changeup into the gap for a double. The hidden grip helped, but the arm speed told the real story.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.3 },
+        "highlight": ["RF", "CF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Double! Hitter Read Your Arm Speed, Not Your Grip.",
+        "explanation": "Hiding the grip is a secondary concern. Hitters almost never read grip at game speed -- the ball is in the glove until the last moment, and the pitcher's hand is moving too fast to distinguish finger positions. What hitters DO read is arm speed, arm slot, and release point. These are the primary cues that differentiate a fastball from a changeup. If your arm slows down even 5% on the changeup, good hitters will see it. The priority for tunneling, in order: 1) Arm speed (must match the fastball). 2) Release point (must match the fastball). 3) Initial trajectory (must overlap the fastball path). 4) Grip concealment (nice-to-have, not critical). Focus on the first three -- they're what the hitter actually reads.",
+        "whatToRemember": "Hitters read arm speed and release point, not grip. Focus your tunneling effort on matching arm mechanics between pitches. Grip concealment is a bonus but not the primary deception tool.",
+        "iqPoints": 5,
+        "next": "end"
+      }
+    }
+  }
+}

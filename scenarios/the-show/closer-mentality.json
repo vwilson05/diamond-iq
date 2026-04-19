@@ -1,0 +1,263 @@
+{
+  "id": "the-show-closer-mentality",
+  "title": "Closer Mentality: 9th Inning, 1-Run Lead, Heart of the Order",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "defense",
+  "tags": ["pitching", "closer", "save-situation", "mental-toughness", "attack-mode"],
+  "setup": {
+    "inning": 9,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 4, "away": 5 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Bottom of the 9th, you're on the mound protecting a 5-4 lead. This is the save situation. The heart of the order is due up -- their 3-4-5 hitters, all dangerous. Your stuff is electric tonight: 96 mph fastball with late life, a slider that's been unhittable, and a changeup you trust. Nobody on, nobody out. The crowd is on their feet. The adrenaline is pumping. How do you approach the first hitter -- their number 3 batter who has homered twice today?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "attack-aggressively",
+          "text": "Attack! Fastball, strike zone, first pitch. I'm the closer -- I don't pitch around guys. My best stuff against his best swing. Let him try to beat me.",
+          "nextNode": "decision-attack-2"
+        },
+        {
+          "id": "pitch-carefully",
+          "text": "Pitch carefully. He has two homers today -- I'm not giving him anything to pull. Work the outside edge, expand the zone, make him chase. If he walks, he walks.",
+          "nextNode": "decision-careful-2"
+        },
+        {
+          "id": "power-slider",
+          "text": "Start with the slider. He's sitting fastball because that's what closers throw. Flip the script on the first pitch and catch him off guard.",
+          "nextNode": "outcome-slider-first-good"
+        }
+      ]
+    },
+    "decision-attack-2": {
+      "type": "decision",
+      "narration": "You fire a 96 mph fastball right at the knees -- STRIKE ONE! The hitter swings and misses. He was ready for the heater but you located it perfectly -- down in the zone where it's hardest to lift. He's behind 0-1 and your confidence surges. You feel the adrenaline. What's the next pitch?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "slider-putaway",
+          "text": "Slider away! He just saw 96 -- now show him 87 with break. The speed change after the heater will destroy his timing. Classic closer combo.",
+          "nextNode": "decision-slider-putaway-3"
+        },
+        {
+          "id": "another-fastball",
+          "text": "Another fastball! I'm pumping 96 and he can't touch it. Keep throwing heat until he proves he can catch up. Closers live on the fastball.",
+          "nextNode": "outcome-attack-fb-fb-good"
+        },
+        {
+          "id": "changeup-surprise",
+          "text": "Changeup! He's not expecting it after a first-pitch heater. The 12 mph speed change will freeze him or make him look foolish.",
+          "nextNode": "outcome-attack-changeup-good"
+        }
+      ]
+    },
+    "decision-careful-2": {
+      "type": "decision",
+      "narration": "You start with a fastball on the outside edge -- ball one. Then a slider off the plate -- ball two. Now you're behind 2-0. You were trying to be careful and nibble the corners, but nothing hit the zone. Now at 2-0, the hitter has the advantage -- he can sit on the fastball and take anything off-speed. You've lost your leverage. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "come-to-zone",
+          "text": "I HAVE to throw a strike. Fastball, zone, and let him try to hit it. I can't walk the leadoff hitter in a save situation.",
+          "nextNode": "outcome-careful-come-to-zone-okay"
+        },
+        {
+          "id": "keep-nibbling",
+          "text": "Stay off the plate. If he walks, he walks. A solo homer beats me, a walk doesn't. Keep the ball away from the middle of the zone.",
+          "nextNode": "outcome-careful-keep-nibbling-bad"
+        }
+      ]
+    },
+    "decision-slider-putaway-3": {
+      "type": "decision",
+      "narration": "Slider, 87 mph, sweeping away from the hitter. He swings -- and MISSES! 0-2! The speed change from 96 to 87 froze his timing completely. He's in survival mode now. Two pitches, two swings, two misses. One more strike and he's gone. The crowd is going nuts. You can feel the save right there. What's the finishing pitch?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "elevated-fastball",
+          "text": "Elevated fastball! Up and in, 96 mph! After the slider down and away, go to the OPPOSITE location. He can't cover both. Blow him away up in the zone where he can't reach.",
+          "nextNode": "outcome-elevated-fb-great"
+        },
+        {
+          "id": "slider-again",
+          "text": "Another slider! He swung and missed at the last one. Why change? Same pitch, same spot. If it's working, keep throwing it.",
+          "nextNode": "outcome-slider-again-good"
+        },
+        {
+          "id": "fastball-paint",
+          "text": "Fastball on the outside corner. Hit the edge with heat. He'll be looking for the slider and the fastball will be a surprise on the other side of the plate.",
+          "nextNode": "outcome-fb-paint-good"
+        }
+      ]
+    },
+    "outcome-elevated-fb-great": {
+      "type": "outcome",
+      "narration": "Elevated fastball, 97 mph -- you reached back for a little extra! The pitch is letter-high, inside half. The hitter was geared for another slider low and away. When the fastball comes UP and IN at 97, his swing is in the wrong ZIP CODE. He swings UNDER the ball -- nothing but air. STRIKE THREE! One out! The closer combo is complete: fastball down for strike one, slider away for strike two, elevated fastball in for strike three. Three pitches, three different locations, two different speeds. The hitter never had a chance because every pitch attacked a different part of the zone.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "THREE-PITCH STRIKEOUT! Closer Dominance!",
+        "explanation": "This is the closer's classic three-pitch sequence: fastball down, slider away, fastball up. Each pitch attacks a different part of the zone, forcing the hitter to adjust his eye level AND his timing on every pitch. The final elevated fastball is the closer's signature weapon. Here's why it works: 1) After a low slider, the hitter's eyes are adjusted to the bottom of the zone. An elevated fastball moves his eyes 24+ inches vertically. 2) After 87 mph, 97 mph creates a 10 mph jump that arrives sooner than expected. 3) The elevated fastball has 'perceived rise' -- it stays on a flatter trajectory than gravity expects, making hitters swing under it. The combination of eye-level change, speed change, and perceived rise makes the elevated fastball after a low slider the most unhittable pitch combination in closing situations.",
+        "whatToRemember": "The closer's ultimate combo: fastball down, slider away, elevated fastball in. Each pitch moves the hitter's eyes to a different zone and changes the speed. The elevated fastball after a low slider is nearly unhittable.",
+        "keyTerms": [
+          { "term": "Elevated Fastball", "definition": "A fastball thrown above the strike zone or at the top of the zone. Most effective after low pitches because it forces the hitter to adjust his eye level vertically. Creates 'perceived rise' that makes hitters swing under it." },
+          { "term": "Closer Mentality", "definition": "The psychological approach of attacking hitters with conviction and maximum effort in save situations. Elite closers throw strikes first, use their best pitches early, and finish with power." },
+          { "term": "Perceived Rise", "definition": "A high fastball appears to 'rise' because it drops less than the hitter's brain expects based on gravity. The hitter's swing path goes under the ball, producing swings and misses or pop-ups." },
+          { "term": "Save Situation", "definition": "When the pitcher enters the 9th inning (or later) with a lead of 3 or fewer runs. The closer's job is to record the final outs without allowing the tying or go-ahead run." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-slider-again-good": {
+      "type": "outcome",
+      "narration": "Another slider, same spot. The hitter was looking for it this time -- he holds off! The slider dips out of the zone. BALL -- 1-2. He adjusted. Now you've thrown two sliders and the hitter knows it's in your sequence. On the next pitch, you throw a fastball up and he TAKES it -- strike three on the corner! But the at-bat stretched to 4 pitches instead of 3 because you doubled up on the slider and the hitter adjusted. The put-away pitch should have been the contrasting speed (fastball up) instead of the same pitch again.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Strikeout! But Extra Pitch Needed -- Hitter Adjusted to Slider.",
+        "explanation": "Throwing the same pitch in the same location twice in a row gives the hitter an adjustment opportunity. After the first slider (swing and miss), his brain cataloged the pitch: speed, location, movement. When the second slider arrived, he had a reference frame and could lay off. The better play was to contrast: slider low and away, then fastball up and in. The speed change (87 to 96), the location change (low-away to up-in), and the movement change (sweep to straight) create an impossible adjustment for the hitter. When you have two swings-and-misses and an 0-2 count, the put-away pitch should always CONTRAST with the previous pitch.",
+        "whatToRemember": "The put-away pitch should contrast with the setup pitch. After a slider low and away, go fastball up and in. After a fastball up, go slider down. The contrast makes the put-away pitch unhittable.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-fb-paint-good": {
+      "type": "outcome",
+      "narration": "Fastball on the outside corner at 96 mph. The hitter was expecting the slider and the fastball catches him off guard -- he swings late and tops it weakly to the pitcher! You field it, throw to first -- OUT! One down! But the pitch was risky: painting the outside corner requires pinpoint accuracy. If that pitch missed 2 inches inside, it's a belt-high fastball that a two-homer hitter can punish. The elevated fastball up and in was the safer and more dominant put-away because the hitter can't do damage on a pitch at his eyes.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Ground Out! But Elevated Fastball Was the Higher-Percentage Finish.",
+        "explanation": "You got the out, and the pitch selection was reasonable -- fastball on the corner after showing the slider. But let's compare: the elevated fastball at the top of the zone is a pitch the hitter can't do damage on even if he makes contact. Pop-ups and swings-and-misses are the two possible outcomes. The fastball on the outside corner, if it catches too much plate, becomes a hanger that a power hitter can crush. In a 1-run save with two homers against this hitter, the risk-adjusted best pitch is the elevated fastball because the WORST case scenario (weak contact up) is better than the worst case of the outside corner fastball (catch plate, get driven).",
+        "whatToRemember": "In save situations against power hitters, the elevated fastball is safer than the corner fastball because the hitter can't generate damaging contact on pitches at his eyes. Risk management matters when every run counts.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-attack-fb-fb-good": {
+      "type": "outcome",
+      "narration": "Another fastball, 96 mph -- this time up in the zone. The hitter adjusts from the first one and fouls this one straight back! 0-2 count, but he's on the fastball now. His timing adjusted after seeing the same speed twice. You throw a third fastball -- he's ready! He drives it deep to left field... it hooks foul! Close call. You finally throw the slider for strike three, but the at-bat took 5 pitches because you gave the hitter two fastballs to calibrate his timing. One fastball for the strikeout was all you needed, then switch speeds.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Strikeout! But Two Fastballs Let Him Calibrate.",
+        "explanation": "Two consecutive fastballs give the hitter a timing reference. After the first fastball, his brain has a rough estimate of your velocity. After the second, he's LOCKED IN on your timing. By the third fastball, he's driving it deep foul. The closer's fastball is most effective as a SURPRISE pitch -- either the first pitch of the at-bat or the put-away after off-speed. Using it consecutively reduces its effectiveness because the hitter's timing calibrates with each repetition. The elite closer sequence alternates: fastball, slider, fastball. Never three of the same in a row against a good hitter.",
+        "whatToRemember": "The fastball is most effective as a surprise pitch, not a repetition pitch. Against good hitters, never throw three of the same pitch type in a row. Alternate speeds to prevent the hitter from calibrating.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-attack-changeup-good": {
+      "type": "outcome",
+      "narration": "Changeup, 84 mph -- a 12 mph speed change from the first-pitch fastball! The hitter was recalibrating for another heater and the changeup arrives way late. He rolls over it and hits a weak grounder to third. Easy throw to first -- OUT! Great pitch selection. The changeup as the second pitch after a first-pitch fastball is an underused weapon because most closers are fastball/slider guys. By adding a third speed, you became unpredictable.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["3B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Ground Out! Changeup Surprise Gets Quick Out!",
+        "explanation": "The changeup after a first-pitch fastball is a smart efficiency play. The 12 mph speed change is devastating because the hitter was calibrated to 96 mph from the first pitch. The weak ground ball was a 2-pitch out -- even more efficient than a 3-pitch strikeout. In save situations, you don't need strikeouts. You need outs. Ground balls are the fastest path to recording outs, and the changeup is one of the best ground-ball-inducing pitches because hitters roll over the top of it when they're out in front. The closer who can mix in a changeup has a THIRD weapon that most hitters don't prepare for.",
+        "whatToRemember": "Closers don't need strikeouts -- they need outs. The changeup as a second pitch after a fastball induces weak ground balls, which are the most efficient outs available. A 2-pitch groundout saves more energy than a 5-pitch strikeout.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-careful-come-to-zone-okay": {
+      "type": "outcome",
+      "narration": "You come to the zone -- fastball, 96 mph, down the middle. But the hitter has been sitting on this EXACT pitch! At 2-0, he knew you had to throw a strike. He was looking fastball in the zone, and you gave him one. He swings and drives it deep to right-center! It's going... going... OFF THE WALL! Double! Leadoff runner in scoring position, nobody out, in a 1-run game. By pitching carefully for two pitches, you fell behind 2-0, then had to come to the zone with a predictable pitch. The hitter sat on it and crushed it.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.3 },
+        "highlight": ["RF", "CF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Double! Fell Behind 2-0, Forced Into a Hittable Pitch.",
+        "explanation": "This is the trap of careful pitching in save situations. By nibbling the edges and falling behind 2-0, you FORCED yourself to throw a strike -- which is exactly what the hitter was waiting for. At 2-0, the hitter knows a strike is coming, he can sit on one pitch type (fastball), and he can take a big, aggressive swing because even if he fouls it off, the count is only 2-1. You went from having ALL the leverage (nobody on, nobody out, 1-run lead) to having MINIMAL leverage (runner in scoring position, nobody out, 1-run lead). Closers succeed by attacking FIRST, not by being careful. When you attack, the hitter is reacting to YOUR best stuff. When you nibble, YOU are reacting to his patience.",
+        "whatToRemember": "Careful pitching in save situations leads to deep counts, which force predictable strikes. Attack the zone early with your best stuff. Make the hitter react to YOU, not the other way around.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    },
+    "outcome-careful-keep-nibbling-bad": {
+      "type": "outcome",
+      "narration": "You keep nibbling -- ball three, then ball four. Walk. Leadoff runner on first, nobody out. The crowd goes WILD. Now the 4-hitter steps in with the tying run on first. The pressure has doubled. You walked the first batter without making him earn it. No contact, no competitive at-bat -- just four balls off the plate. The walk is the worst outcome in a save situation because it gives the opponent a free baserunner AND momentum. Your team is deflated and the opposing dugout is energized.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Leadoff Walk! The Closer's Cardinal Sin!",
+        "explanation": "The leadoff walk in a save situation is the single worst outcome for a closer. Analytics show that when closers issue a leadoff walk in the 9th inning, the save conversion rate drops from 96% to approximately 72%. That's because: 1) A free baserunner puts the tying run on base with no outs to show for it. 2) The walk shifts momentum entirely to the offense. 3) The closer now has to pitch with runners on, which is harder mechanically and psychologically. 4) A double play is now in play, but so is a 2-run homer. The closer's job is to attack. Walking hitters -- especially the leadoff hitter -- is the opposite of attacking. Even if the hitter has homered twice, challenging him with strikes gives the closer a better expected outcome than walking him and facing the next hitter with a runner on.",
+        "whatToRemember": "Never walk the leadoff hitter in a save situation. The conversion rate drops from 96% to 72% with a leadoff walk. Attack the hitter with your best stuff -- even a hit is better than a walk because at least you made him earn it.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-slider-first-good": {
+      "type": "outcome",
+      "narration": "Slider first pitch, 87 mph -- the hitter was sitting fastball and freezes! Called strike one! 0-1. Great pitch to flip the script. He was gearing for 96 and got 87 with break. His body language shows confusion. Now you fire the 96 mph fastball -- strike two! He's totally off-balance between two speeds. You finish with another slider and he chases for strike three! Three pitches, three swings, one out. The slider-fastball-slider sequence worked because you pitched backwards from what closers traditionally throw.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Strikeout! Slider First Flipped the Script!",
+        "explanation": "Starting with the slider is a smart play against hitters who hunt first-pitch fastballs from closers. Most closers throw first-pitch fastballs 70%+ of the time. Hitters know this and gear up for heat. By throwing the slider first, you exploited that expectation -- the hitter was timed for 96 mph and got 87 mph with lateral break. However, the slider-first approach is slightly riskier than the fastball-first approach because: if the slider hangs or misses in the zone, it's an 87 mph pitch that the hitter can adjust to and drive. The fastball at 96 mph is harder to punish even if it catches the zone because the hitter has less time to react. The slider-first approach works best when you KNOW the hitter is sitting fastball.",
+        "whatToRemember": "Starting with the slider against fastball-hunting hitters flips the script effectively. Use this when scouting confirms the hitter sits dead-red on the first pitch. Otherwise, the attacking fastball is the safer opener.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    }
+  }
+}
