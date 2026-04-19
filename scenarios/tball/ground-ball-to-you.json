@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "transition",
-      "narration": "You're standing at first base, knees bent, glove down, ready for anything. The batter steps up and WHACK -- smacks a grounder right at you! The ball is bouncing across the dirt, heading straight for your glove. You scoop it up cleanly -- nice grab! Now... what do you do with it?",
+      "narration": "WHACK! A grounder comes right at you at first base. You scoop it up -- nice grab! Now what?",
       "field": {
         "ballPosition": { "x": 0.65, "y": 0.65 },
         "highlight": ["1B"],
@@ -64,6 +64,12 @@
         "result": "great",
         "headline": "Out at First! Textbook Play!",
         "explanation": "When you're playing first base and you field the ball yourself, the easiest and fastest play is to just step on the bag. Why? Because the batter HAS to run to first base -- they have no choice. That means you don't need to tag them. You just need to touch the base while holding the ball BEFORE they get there. This is called a 'force out' -- the runner is forced to go to first, so you just need the ball and the base.",
+        "keyTerms": [
+          { "term": "First Base", "definition": "The first base a batter runs to after hitting the ball. It's the white square on the right side of the diamond." },
+          { "term": "Force Out", "definition": "When a runner HAS to run to the next base, you can get them out just by touching that base while holding the ball. No tag needed!" },
+          { "term": "The Bag", "definition": "Another word for a base. Players call the bases 'bags' because that's what they look like!" },
+          { "term": "Grounder", "definition": "A ball that's hit on the ground, bouncing or rolling across the field." }
+        ],
         "whatToRemember": "If you're at first base and you field the ball, step on the bag! It's a force out -- the batter has to run there, so you just need to beat them to the base.",
         "iqPoints": 10,
         "animation": {

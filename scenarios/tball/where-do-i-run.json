@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "transition",
-      "narration": "It's your turn to bat! You walk up to the plate, grab the bat, and take a big swing. CRACK! The ball rolls into the grass between the pitcher and the shortstop. Nice hit! Your coach is yelling something... the crowd is cheering... now what?!",
+      "narration": "CRACK! You hit the ball into the grass! Nice hit! Now where do you go?",
       "field": {
         "ballPosition": { "x": 0.42, "y": 0.55 },
         "highlight": ["Home"],
@@ -66,6 +66,12 @@
         "result": "great",
         "headline": "Safe at First! Way to Hustle!",
         "explanation": "Every time you hit the ball into fair territory (that's the area between the two white lines), you MUST run to first base. It doesn't matter where the ball goes -- even if someone catches it, you should still run! Running hard to first base is the most important thing you do after hitting. Drop the bat (don't throw it!), and run as fast as you can down the line to first base. The first base line is the white chalk line on the right side.",
+        "keyTerms": [
+          { "term": "Fair Territory", "definition": "The area between the two white foul lines. If your hit lands here, it counts!" },
+          { "term": "First Base Line", "definition": "The white chalk line on the right side from home plate to first base. This is your running lane!" },
+          { "term": "Safe", "definition": "When you reach the base before the ball gets there. The umpire will spread their arms wide and yell 'Safe!'" },
+          { "term": "Hustle", "definition": "Running as fast as you can. Always hustle to first base -- you never know what might happen!" }
+        ],
         "whatToRemember": "Always run to first base after you hit the ball! Drop the bat, turn right, and run as fast as you can!",
         "iqPoints": 10,
         "animation": {

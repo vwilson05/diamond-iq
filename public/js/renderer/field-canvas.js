@@ -13,9 +13,9 @@ const POSITIONS = {
   '3B':  { x: 0.35, y: 0.55 },
   P:     { x: 0.50, y: 0.62 },
   C:     { x: 0.50, y: 0.90 },
-  LF:    { x: 0.25, y: 0.25 },
-  CF:    { x: 0.50, y: 0.20 },
-  RF:    { x: 0.75, y: 0.25 },
+  LF:    { x: 0.22, y: 0.30 },
+  CF:    { x: 0.50, y: 0.25 },
+  RF:    { x: 0.78, y: 0.30 },
   FIRST: { x: 0.70, y: 0.60 },
   SECOND:{ x: 0.50, y: 0.45 },
   THIRD: { x: 0.30, y: 0.60 },
@@ -37,6 +37,15 @@ export class FieldCanvas {
     this._highlightAlpha = 0;
     this._teamColors = { primary: '#1a3c6e', secondary: '#c8102e' };
     this._animating = false;
+
+    // Load field SVG as background image
+    this._fieldImg = new Image();
+    this._fieldImgReady = false;
+    this._fieldImg.onload = () => {
+      this._fieldImgReady = true;
+      this._redraw();
+    };
+    this._fieldImg.src = '/assets/field.svg';
 
     this._resize();
     window.addEventListener('resize', () => this._resize());
@@ -69,7 +78,7 @@ export class FieldCanvas {
   /* ── Public API ──────────────────────────────────────────────────── */
 
   /**
-   * Draw the full overhead field.
+   * Draw the full overhead field using the SVG background image.
    * @param {{ primary: string, secondary: string }} teamColors
    */
   drawField(teamColors = {}) {
@@ -80,74 +89,14 @@ export class FieldCanvas {
 
     ctx.clearRect(0, 0, w, h);
 
-    // ── Sky / background
-    ctx.fillStyle = '#0b1e0b';
-    ctx.fillRect(0, 0, w, h);
-
-    // ── Grass outfield — rich, subtly tinted with team primary
-    const grassGrad = ctx.createRadialGradient(
-      w * 0.5, h * 0.85, w * 0.05,
-      w * 0.5, h * 0.5, w * 0.7
-    );
-    const teamTint = this._tintGreen(this._teamColors.primary, 0.08);
-    grassGrad.addColorStop(0, '#2e7d32');
-    grassGrad.addColorStop(0.4, teamTint);
-    grassGrad.addColorStop(1, '#1b5e20');
-    ctx.fillStyle = grassGrad;
-
-    // Outfield arc shape
-    ctx.beginPath();
-    ctx.arc(w * 0.5, h * 0.85, w * 0.72, Math.PI * 1.18, Math.PI * 1.82);
-    ctx.lineTo(w * 0.5, h * 0.85);
-    ctx.closePath();
-    ctx.fill();
-
-    // ── Mow lines (alternating light/dark stripes)
-    this._drawMowLines(ctx, w, h);
-
-    // ── Outfield warning track
-    ctx.strokeStyle = '#5d4037';
-    ctx.lineWidth = w * 0.018;
-    ctx.beginPath();
-    ctx.arc(w * 0.5, h * 0.85, w * 0.70, Math.PI * 1.19, Math.PI * 1.81);
-    ctx.stroke();
-
-    // ── Outfield wall/fence
-    ctx.strokeStyle = '#1a3a1a';
-    ctx.lineWidth = w * 0.012;
-    ctx.beginPath();
-    ctx.arc(w * 0.5, h * 0.85, w * 0.72, Math.PI * 1.18, Math.PI * 1.82);
-    ctx.stroke();
-    // Fence shadow
-    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
-    ctx.lineWidth = w * 0.006;
-    ctx.beginPath();
-    ctx.arc(w * 0.5, h * 0.85, w * 0.725, Math.PI * 1.18, Math.PI * 1.82);
-    ctx.stroke();
-
-    // ── Dirt infield (diamond)
-    this._drawDirtInfield(ctx, w, h);
-
-    // ── Base paths (white lines)
-    this._drawBasePaths(ctx, w, h);
-
-    // ── Foul lines extending to outfield
-    this._drawFoulLines(ctx, w, h);
-
-    // ── Pitcher's mound
-    this._drawPitcherMound(ctx, w, h);
-
-    // ── Bases
-    this._drawBases(ctx, w, h);
-
-    // ── Batter's boxes and home plate area
-    this._drawHomePlateArea(ctx, w, h);
-
-    // ── Coach's boxes
-    this._drawCoachBoxes(ctx, w, h);
-
-    // ── On-deck circles
-    this._drawOnDeckCircles(ctx, w, h);
+    if (this._fieldImgReady) {
+      // Draw SVG background scaled to fill the canvas
+      ctx.drawImage(this._fieldImg, 0, 0, w, h);
+    } else {
+      // Fallback: dark green background while image loads
+      ctx.fillStyle = '#0b1e0b';
+      ctx.fillRect(0, 0, w, h);
+    }
   }
 
   /**
@@ -238,223 +187,6 @@ export class FieldCanvas {
     this._ball = null;
     this._highlightPos = null;
     this._redraw();
-  }
-
-  /* ── Drawing subroutines ─────────────────────────────────────────── */
-
-  _drawMowLines(ctx, w, h) {
-    ctx.save();
-    ctx.globalAlpha = 0.06;
-    const center = this._px(0.5, 0.85);
-    const stripeCount = 14;
-    const maxR = w * 0.68;
-    const stripeW = maxR / stripeCount;
-    for (let i = 0; i < stripeCount; i += 2) {
-      ctx.beginPath();
-      ctx.arc(center.x, center.y, stripeW * (i + 1), Math.PI * 1.2, Math.PI * 1.8);
-      ctx.arc(center.x, center.y, stripeW * i, Math.PI * 1.8, Math.PI * 1.2, true);
-      ctx.closePath();
-      ctx.fillStyle = '#ffffff';
-      ctx.fill();
-    }
-    ctx.restore();
-  }
-
-  _drawDirtInfield(ctx, w, h) {
-    const home = this._px(0.5, 0.85);
-    const first = this._px(0.7, 0.6);
-    const second = this._px(0.5, 0.45);
-    const third = this._px(0.3, 0.6);
-
-    // Dirt gradient
-    const dirtGrad = ctx.createRadialGradient(
-      home.x, second.y + (home.y - second.y) * 0.4, w * 0.02,
-      home.x, second.y + (home.y - second.y) * 0.4, w * 0.32
-    );
-    dirtGrad.addColorStop(0, '#c9a96e');
-    dirtGrad.addColorStop(0.6, '#b5915a');
-    dirtGrad.addColorStop(1, '#8d6e43');
-
-    // Infield dirt shape — slightly rounded diamond + expanded around bases
-    ctx.beginPath();
-    const pad = w * 0.06;
-    ctx.moveTo(home.x, home.y + pad * 0.4);
-    // Right side — toward first
-    ctx.quadraticCurveTo(first.x + pad, first.y + pad * 0.3, first.x + pad * 0.5, first.y - pad * 0.5);
-    // Top right — toward second
-    ctx.quadraticCurveTo(first.x + pad * 0.2, second.y - pad * 0.3, second.x, second.y - pad);
-    // Top left — toward third
-    ctx.quadraticCurveTo(third.x - pad * 0.2, second.y - pad * 0.3, third.x - pad * 0.5, third.y - pad * 0.5);
-    // Left side — toward home
-    ctx.quadraticCurveTo(third.x - pad, third.y + pad * 0.3, home.x, home.y + pad * 0.4);
-    ctx.closePath();
-    ctx.fillStyle = dirtGrad;
-    ctx.fill();
-
-    // Grass cutout (infield grass circle)
-    const cx = (home.x + second.x) / 2;
-    const cy = (home.y + second.y) / 2 - h * 0.01;
-    const grassR = w * 0.115;
-    ctx.beginPath();
-    ctx.arc(cx, cy, grassR, 0, Math.PI * 2);
-    const innerGrass = ctx.createRadialGradient(cx, cy, 0, cx, cy, grassR);
-    innerGrass.addColorStop(0, '#2e8b34');
-    innerGrass.addColorStop(1, '#267a2e');
-    ctx.fillStyle = innerGrass;
-    ctx.fill();
-  }
-
-  _drawBasePaths(ctx, w, h) {
-    const home = this._px(0.5, 0.85);
-    const first = this._px(0.7, 0.6);
-    const second = this._px(0.5, 0.45);
-    const third = this._px(0.3, 0.6);
-
-    ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-    ctx.lineWidth = Math.max(2, w * 0.004);
-    ctx.setLineDash([]);
-
-    ctx.beginPath();
-    ctx.moveTo(home.x, home.y);
-    ctx.lineTo(first.x, first.y);
-    ctx.lineTo(second.x, second.y);
-    ctx.lineTo(third.x, third.y);
-    ctx.closePath();
-    ctx.stroke();
-  }
-
-  _drawFoulLines(ctx, w, h) {
-    const home = this._px(0.5, 0.85);
-    ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-    ctx.lineWidth = Math.max(2, w * 0.003);
-
-    // Left foul line — home to left-field corner
-    const lfCorner = this._px(0.05, 0.13);
-    ctx.beginPath();
-    ctx.moveTo(home.x, home.y);
-    ctx.lineTo(lfCorner.x, lfCorner.y);
-    ctx.stroke();
-
-    // Right foul line — home to right-field corner
-    const rfCorner = this._px(0.95, 0.13);
-    ctx.beginPath();
-    ctx.moveTo(home.x, home.y);
-    ctx.lineTo(rfCorner.x, rfCorner.y);
-    ctx.stroke();
-  }
-
-  _drawPitcherMound(ctx, w, h) {
-    const mound = this._px(0.5, 0.62);
-    const moundR = w * 0.028;
-
-    // Mound circle (raised dirt)
-    const moundGrad = ctx.createRadialGradient(
-      mound.x, mound.y - moundR * 0.15, moundR * 0.1,
-      mound.x, mound.y, moundR
-    );
-    moundGrad.addColorStop(0, '#d4b07a');
-    moundGrad.addColorStop(1, '#a07a4a');
-    ctx.beginPath();
-    ctx.arc(mound.x, mound.y, moundR, 0, Math.PI * 2);
-    ctx.fillStyle = moundGrad;
-    ctx.fill();
-
-    // Pitching rubber (white rectangle)
-    const rubberW = w * 0.018;
-    const rubberH = w * 0.004;
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(mound.x - rubberW / 2, mound.y - rubberH / 2, rubberW, rubberH);
-  }
-
-  _drawBases(ctx, w, h) {
-    const baseSize = w * 0.016;
-    const bases = [
-      { pos: this._px(0.7, 0.6), name: '1st' },
-      { pos: this._px(0.5, 0.45), name: '2nd' },
-      { pos: this._px(0.3, 0.6), name: '3rd' },
-    ];
-
-    bases.forEach(b => {
-      ctx.save();
-      ctx.translate(b.pos.x, b.pos.y);
-      ctx.rotate(Math.PI / 4);
-      // Shadow
-      ctx.fillStyle = 'rgba(0,0,0,0.2)';
-      ctx.fillRect(-baseSize / 2 + 2, -baseSize / 2 + 2, baseSize, baseSize);
-      // Base
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(-baseSize / 2, -baseSize / 2, baseSize, baseSize);
-      ctx.restore();
-    });
-  }
-
-  _drawHomePlateArea(ctx, w, h) {
-    const home = this._px(0.5, 0.85);
-    const plateW = w * 0.018;
-
-    // Home plate (pentagon)
-    ctx.fillStyle = '#ffffff';
-    ctx.beginPath();
-    ctx.moveTo(home.x, home.y + plateW * 0.6);            // bottom point
-    ctx.lineTo(home.x - plateW * 0.5, home.y + plateW * 0.15);
-    ctx.lineTo(home.x - plateW * 0.5, home.y - plateW * 0.35);
-    ctx.lineTo(home.x + plateW * 0.5, home.y - plateW * 0.35);
-    ctx.lineTo(home.x + plateW * 0.5, home.y + plateW * 0.15);
-    ctx.closePath();
-    ctx.fill();
-
-    // Batter's boxes (left and right)
-    const boxW = w * 0.025;
-    const boxH = w * 0.05;
-    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
-    ctx.lineWidth = Math.max(1, w * 0.002);
-    // Left box
-    ctx.strokeRect(home.x - plateW * 0.5 - boxW - w * 0.006, home.y - boxH / 2, boxW, boxH);
-    // Right box
-    ctx.strokeRect(home.x + plateW * 0.5 + w * 0.006, home.y - boxH / 2, boxW, boxH);
-
-    // Catcher's box
-    const catchBoxW = w * 0.04;
-    const catchBoxH = w * 0.035;
-    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
-    ctx.strokeRect(home.x - catchBoxW / 2, home.y + plateW * 0.7, catchBoxW, catchBoxH);
-
-    // Dirt circle around home
-    ctx.beginPath();
-    ctx.arc(home.x, home.y, w * 0.055, 0, Math.PI * 2);
-    const homeDirt = ctx.createRadialGradient(home.x, home.y, 0, home.x, home.y, w * 0.055);
-    homeDirt.addColorStop(0, 'rgba(185,150,100,0.4)');
-    homeDirt.addColorStop(1, 'rgba(185,150,100,0)');
-    ctx.fillStyle = homeDirt;
-    ctx.fill();
-  }
-
-  _drawCoachBoxes(ctx, w, h) {
-    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-    ctx.lineWidth = Math.max(1, w * 0.002);
-    const boxW = w * 0.03;
-    const boxH = w * 0.045;
-
-    // First base coach box
-    ctx.strokeRect(w * 0.74, h * 0.68, boxW, boxH);
-    // Third base coach box
-    ctx.strokeRect(w * 0.23, h * 0.68, boxW, boxH);
-  }
-
-  _drawOnDeckCircles(ctx, w, h) {
-    const circleR = w * 0.014;
-    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-    ctx.lineWidth = Math.max(1, w * 0.002);
-
-    // Left on-deck
-    ctx.beginPath();
-    ctx.arc(w * 0.35, h * 0.92, circleR, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // Right on-deck
-    ctx.beginPath();
-    ctx.arc(w * 0.65, h * 0.92, circleR, 0, Math.PI * 2);
-    ctx.stroke();
   }
 
   _drawPlayers() {
@@ -609,14 +341,6 @@ export class FieldCanvas {
   }
 
   /* ── Color utilities ─────────────────────────────────────────────── */
-
-  _tintGreen(hex, amount) {
-    const { r, g, b } = this._hexToRgb(hex);
-    const gr = Math.round(lerp(46, r, amount));
-    const gg = Math.round(lerp(125, g, amount));
-    const gb = Math.round(lerp(50, b, amount));
-    return `rgb(${gr},${gg},${gb})`;
-  }
 
   _lighten(hex, amount) {
     const { r, g, b } = this._hexToRgb(hex);

@@ -1,0 +1,770 @@
+{
+  "id": "the-show-pitcher-batter-chess",
+  "title": "The Chess Match: Full At-Bat From the Mound",
+  "sport": ["baseball", "softball"],
+  "tier": "the-show",
+  "role": "pitching",
+  "tags": ["pitching", "full-at-bat", "strategy", "reading-hitters", "advanced", "chess-match"],
+  "setup": {
+    "inning": 7,
+    "topBottom": "bottom",
+    "outs": 2,
+    "score": { "home": 5, "away": 6 },
+    "runners": { "first": true, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Last inning. You're on the mound, clinging to a one-run lead. Two outs. But the tying run is on second and the go-ahead run is on first. Their cleanup hitter is walking to the plate -- this kid is DANGEROUS. They've been crushing fastballs all game long. You check the scouting card in your hat: 'Fastball hitter. Aggressive on first pitch. Struggles with off-speed down and away. Will chase high heat.' Four pitches in your arsenal: four-seam fastball, two-seam fastball (sinks), curveball, and changeup. This is it -- the whole game comes down to this at-bat.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 3000
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "0-0 count. The scouting report says this hitter is aggressive on the FIRST PITCH and crushes fastballs. What do you throw to start the at-bat?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "changeup-first",
+          "text": "Changeup on the outside corner! They're sitting fastball and they're aggressive -- the speed change will mess them up!",
+          "nextNode": "transition-1-changeup"
+        },
+        {
+          "id": "two-seam-first",
+          "text": "Two-seam fastball down and in! It looks like a regular fastball but it sinks -- they'll beat it into the ground!",
+          "nextNode": "transition-1-twoseam"
+        },
+        {
+          "id": "four-seam-first",
+          "text": "Four-seam fastball up in the zone! The report says they'll chase high heat!",
+          "nextNode": "transition-1-fourseam"
+        },
+        {
+          "id": "curve-first",
+          "text": "Start with the curveball! Total surprise on the first pitch!",
+          "nextNode": "transition-1-curve"
+        }
+      ]
+    },
+    "transition-1-changeup": {
+      "type": "transition",
+      "narration": "Changeup outside corner! The hitter was LOCKED IN for the fastball -- they started their swing early and rolled over on top of it, grounding it foul down the first base line. STRIKE ONE! 0-1! The hitter steps out of the box and takes a deep breath. They weren't expecting that speed. Your catcher gives you a subtle nod. The seed of doubt is planted.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-2-ahead",
+      "delay": 2000
+    },
+    "transition-1-twoseam": {
+      "type": "transition",
+      "narration": "Two-seam fastball down and in! The hitter was looking for something to pull and the sinker dove right into their bat handle. They hit a weak grounder foul on the first base side. STRIKE ONE! 0-1! They're shaking their hands -- the ball jammed them. Your two-seamer is working tonight. Now what?",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-2-ahead",
+      "delay": 2000
+    },
+    "transition-1-fourseam": {
+      "type": "transition",
+      "narration": "Four-seam fastball up! The hitter's eyes widen -- they were looking for it! They swing HARD and... just foul it straight back! STRIKE ONE! 0-1! But that was CLOSE. The hitter's timing was almost perfect on that pitch. They just missed it. If you throw that same pitch again, they might not miss. Something to think about.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.86 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-2-ahead-caution",
+      "delay": 2000
+    },
+    "transition-1-curve": {
+      "type": "transition",
+      "narration": "Curveball! It starts up and breaks down but misses the zone -- BALL ONE! 1-0. The hitter smiled a little. They took it easily because they were looking for the fastball and the curveball was nothing like it. Now you're behind in the count to a dangerous hitter. Time to adjust.",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-2-behind",
+      "delay": 2000
+    },
+    "decision-2-ahead": {
+      "type": "decision",
+      "narration": "You're ahead 0-1! The hitter was fooled on the first pitch. Now they're thinking: was that a changeup? Will they throw it again? Or will the fastball come now? The hitter is guessing. What do you throw?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "four-seam-inside",
+          "text": "Four-seam fastball inside! They just saw slow -- now bust them inside with heat! Change their eye level!",
+          "nextNode": "transition-3-ahead-great"
+        },
+        {
+          "id": "curve-down",
+          "text": "Curveball in the dirt! See if they chase with the count in my favor!",
+          "nextNode": "transition-3-curve-waste"
+        },
+        {
+          "id": "changeup-again",
+          "text": "Another changeup! They're probably looking fastball now -- fool them again!",
+          "nextNode": "transition-3-changeup-again"
+        }
+      ]
+    },
+    "decision-2-ahead-caution": {
+      "type": "decision",
+      "narration": "You're ahead 0-1, but the hitter ALMOST crushed that fastball! They fouled it straight back, which means their timing was right -- they just barely missed it. They're timed up to your velocity. What do you throw now?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "changeup-change-speed",
+          "text": "Changeup! They're locked in on my fastball speed -- take 10 mph off and watch them swing through it!",
+          "nextNode": "transition-3-ahead-great"
+        },
+        {
+          "id": "more-heat",
+          "text": "Another fastball up! I can blow it by them -- they barely missed it, so throw harder!",
+          "nextNode": "transition-3-more-heat-risky"
+        },
+        {
+          "id": "two-seam-sink",
+          "text": "Two-seam fastball low! Same speed but different movement -- the sink will fool them!",
+          "nextNode": "transition-3-twoseam-smart"
+        }
+      ]
+    },
+    "decision-2-behind": {
+      "type": "decision",
+      "narration": "You're behind 1-0 to the cleanup hitter. They're sitting on the fastball and they know you need a strike. What do you throw?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "two-seam-strike",
+          "text": "Two-seam fastball on the corner for a strike! I need to get back in this count, and the sinker gives them something different than the four-seam.",
+          "nextNode": "transition-3-behind-twoseam"
+        },
+        {
+          "id": "four-seam-middle",
+          "text": "Fastball for a strike! Just throw it over the plate and let them put it in play.",
+          "nextNode": "outcome-meatball-bad"
+        },
+        {
+          "id": "changeup-1-0",
+          "text": "Changeup! They're looking fastball, so surprise them. If it's a strike, great. If not, I'm 2-0 but I showed a different look.",
+          "nextNode": "transition-3-behind-changeup"
+        }
+      ]
+    },
+    "transition-3-ahead-great": {
+      "type": "transition",
+      "narration": "The pitch comes in and the hitter is FROZEN! They started their swing, then tried to hold up -- but the umpire rings them up! STRIKE TWO! 0-2! The hitter slams the bat on the plate. They're completely lost up there. You've shown them slow AND fast, inside AND outside. They have NO idea what's coming. This is the at-bat of your life. Time for the kill shot!",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "transition-3-curve-waste": {
+      "type": "transition",
+      "narration": "Curveball in the dirt! The hitter starts to swing then checks -- BALL! 1-1. They didn't chase it. Smart hitter. The waste pitch didn't work, but that's okay -- the count is still neutral. Now they've seen off-speed AND a curveball. They still haven't seen the fastball up close. You've got ammo.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-even",
+      "delay": 2000
+    },
+    "transition-3-changeup-again": {
+      "type": "transition",
+      "narration": "Another changeup... but this time the hitter was SITTING on it! They adjusted their timing, waited back, and lined it hard to right field -- FOUL by inches! STRIKE TWO! You got lucky! That ball was CRUSHED but hooked just foul. The hitter knows the changeup now. You can't go back to that well again. 0-2, but be careful!",
+      "field": {
+        "ballPosition": { "x": 0.78, "y": 0.4 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "transition-3-more-heat-risky": {
+      "type": "transition",
+      "narration": "Another fastball up! This time the hitter is READY -- they were sitting dead-red! CRACK! They HAMMER it deep to left field! It's going... going... FOUL BALL! By a foot! The hitter JUST missed a walk-off three-run homer! Your knees are shaking. That was the scariest moment of your life. The hitter was timed up PERFECTLY. You can NOT throw that fastball up there again. 0-2, but you're on thin ice.",
+      "field": {
+        "ballPosition": { "x": 0.2, "y": 0.15 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-putaway-scared",
+      "delay": 2000
+    },
+    "transition-3-twoseam-smart": {
+      "type": "transition",
+      "narration": "Two-seam fastball low! Same speed as the four-seam, but the ball dives down at the last second! The hitter swings where they THOUGHT the ball would be, but the sinker drops under the bat. Swing and a miss! STRIKE TWO! 0-2! Brilliant pitch -- you used the hitter's fastball timing against them but changed the plane. The sink fooled them completely. Now... finish it!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.92 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "transition-3-behind-twoseam": {
+      "type": "transition",
+      "narration": "Two-seam fastball on the corner -- CALLED STRIKE! The hitter thought it was going to miss outside but the sinker dove BACK over the plate at the last second! Count is 1-1. You showed them a pitch with fastball speed but different movement. They're starting to see your full arsenal. Good counter-punch.",
+      "field": {
+        "ballPosition": { "x": 0.52, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-even",
+      "delay": 2000
+    },
+    "transition-3-behind-changeup": {
+      "type": "transition",
+      "narration": "Changeup on 1-0 -- that takes guts! The hitter was looking fastball and started their swing... then tried to check. The umpire asks for help -- 'Did he go?' The base umpire says YES! STRIKE! 1-1! Risky pitch behind in the count, but it WORKED because the hitter was SO locked in on the fastball. Great feel for the moment.",
+      "field": {
+        "ballPosition": { "x": 0.53, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "next": "decision-3-even",
+      "delay": 2000
+    },
+    "decision-3-putaway": {
+      "type": "decision",
+      "narration": "0-2 count! You've dominated this at-bat. The hitter is guessing, off-balance, and desperate. One more strike and the game is OVER. What's your put-away pitch?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "curve-bury",
+          "text": "Curveball starting at the belt and breaking into the dirt! They'll chase it -- the scouting report says they struggle with off-speed down!",
+          "nextNode": "outcome-k-curve-great"
+        },
+        {
+          "id": "changeup-bury",
+          "text": "Changeup down and away off the plate! Make them fish for it!",
+          "nextNode": "outcome-k-change-great"
+        },
+        {
+          "id": "four-seam-up",
+          "text": "Blow them away with a four-seam fastball up! The scouting card says they chase high heat!",
+          "nextNode": "outcome-k-heat-good"
+        },
+        {
+          "id": "fastball-down-middle",
+          "text": "Fastball, let's go right at them -- down the middle with everything I've got!",
+          "nextNode": "outcome-meatball-bad"
+        }
+      ]
+    },
+    "decision-3-putaway-scared": {
+      "type": "decision",
+      "narration": "0-2 count, but the hitter JUST missed a homer on the last pitch! They are TIMED UP to your fastball. You need to be very careful here. What do you throw to finish them?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "changeup-putaway-scared",
+          "text": "Changeup! They're sitting on my fastball -- take ALL the speed off and watch them wave at it!",
+          "nextNode": "outcome-k-change-great"
+        },
+        {
+          "id": "curve-putaway-scared",
+          "text": "Curveball in the dirt! They're swinging at everything up -- show them something DOWN!",
+          "nextNode": "outcome-k-curve-great"
+        },
+        {
+          "id": "more-heat-scared",
+          "text": "They got lucky -- throw the fastball again, just locate it better!",
+          "nextNode": "outcome-homer-terrible"
+        }
+      ]
+    },
+    "decision-3-even": {
+      "type": "decision",
+      "narration": "1-1 count. Even battle. The hitter has seen a couple of your pitches and you've seen their reactions. This is chess. What do you throw on 1-1?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Tying run (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Go-ahead (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "changeup-1-1",
+          "text": "Changeup away! Get ahead and set up the put-away pitch!",
+          "nextNode": "outcome-even-change-great"
+        },
+        {
+          "id": "four-seam-1-1",
+          "text": "Four-seam fastball on the outside corner for a called strike! Show them I can paint corners!",
+          "nextNode": "outcome-even-fb-good"
+        },
+        {
+          "id": "two-seam-1-1",
+          "text": "Two-seam sinker low! Get a ground ball double play and end this game!",
+          "nextNode": "outcome-even-sinker-great"
+        }
+      ]
+    },
+    "outcome-k-curve-great": {
+      "type": "outcome",
+      "narration": "You grip the curveball, take a deep breath, and let it rip! The ball starts at the hitter's belt -- it looks like a fastball at first! The hitter starts their swing... but the ball DROPS off the table! It dives into the dirt! The hitter swings over the top by SIX INCHES! STRIKE THREE! GAME OVER! YOU WIN! Your teammates mob you on the mound! The catcher leaps into your arms! You struck out the best hitter on the team to save the game! THAT is pitching!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STRIKE THREE! GAME OVER! CURVEBALL IN THE DIRT!",
+        "explanation": "Everything in this at-bat led to this moment. The curveball worked because of everything you threw BEFORE it. The hitter's brain was processing all the different speeds and locations you showed them. When the curveball started at the belt, their brain screamed 'FASTBALL -- SWING!' But then the ball broke straight down and the bat cut through empty air. This is called 'pitch tunneling' -- the curveball traveled through the same 'tunnel' as your fastball for the first 20 feet, making it nearly impossible to distinguish until it was too late. The scouting report said 'struggles with off-speed down' and you delivered EXACTLY that. Intelligence + execution = dominance.",
+        "whatToRemember": "The put-away pitch works because of everything before it. Set up the hitter with different speeds and locations, then finish with the pitch that exploits their KNOWN weakness. Read the scouting report, execute the plan.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.95 },
+              "entity": "ball",
+              "duration": 550
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-k-change-great": {
+      "type": "outcome",
+      "narration": "Changeup down and away! You sell it with your arm speed -- it LOOKS like a fastball out of the hand! The hitter lunges forward, reaching for it... their front knee buckles... the bat comes through weakly and they tap a dribbler right back to you on the mound. You field it, take two calm steps, and flip to first. GAME OVER! YOU WIN! The changeup completely destroyed the hitter's timing. They looked like they were swinging underwater!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B", "Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "GAME OVER! Changeup Freezes the Hitter!",
+        "explanation": "The changeup is arguably the most devastating pitch in baseball when thrown correctly. Here's why it worked: 1) Your arm speed was identical to your fastball -- the hitter's eyes read 'fastball!' 2) But the ball arrived 10-12 mph SLOWER, so the hitter's bat was way out in front. 3) By throwing it down and AWAY, even if they made contact, it would be weak and to the opposite field. The result -- a dribbler back to you -- is exactly what a perfectly executed changeup produces. The hitter was OFF BALANCE, their weight was forward, and they couldn't generate any power. That's the changeup at its finest.",
+        "whatToRemember": "The changeup's power comes from ARM SPEED deception. Throw it with the same arm speed as your fastball but let the grip do the work. Down and away is the kill zone for the changeup.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.55, "y": 0.9 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.55, "y": 0.9 },
+              "to": { "x": 0.52, "y": 0.65 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.52, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.62 },
+              "entity": "fielder",
+              "duration": 200
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-k-heat-good": {
+      "type": "outcome",
+      "narration": "Four-seam fastball up! You reach back for everything you've got and the ball EXPLODES out of your hand! The hitter swings and... FOUL TIP into the catcher's mitt! STRIKE THREE! GAME OVER! The catcher squeezes the foul tip and you pump your fist! But wow -- the hitter just barely tipped it. An inch higher on their bat and that's a home run. You got away with one!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.9 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "GAME OVER! But That Was Scary Close!",
+        "explanation": "You got the result, but you were living dangerously! The scouting report said the hitter 'chases high heat' but it also said they 'crush fastballs.' Those two facts are in tension. Yes, they chase pitches up -- but they also HIT pitches up when they connect. The foul tip means the hitter was RIGHT on your fastball's plane -- they just missed by a fraction. In a perfect world, the put-away pitch should be something the hitter CAN'T hit even if they swing at it -- like a curveball that breaks into the dirt or a changeup off the plate. The fastball up CAN work, but it's higher risk against a fastball hunter.",
+        "whatToRemember": "The best put-away pitch is one the hitter can't square up even if they swing. Off-speed in the dirt or changeups off the plate are safer than fastballs to a fastball hitter, even if the fastball is up.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.86 },
+              "entity": "ball",
+              "duration": 350
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-meatball-bad": {
+      "type": "outcome",
+      "narration": "Fastball right down the middle... The cleanup hitter's eyes go WIDE. This is the pitch they've been waiting for ALL GAME. They uncoil and DEMOLISH the ball! It rockets off the bat, soaring deep to left-center field! It's going... going... GONE! THREE-RUN WALK-OFF HOME RUN! The other team storms the field! You stand on the mound in disbelief as runners circle the bases. The hitter does a bat flip to the moon. Game over. You lose.",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.05 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Run scored" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Run scored" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "HOMER" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "WALK-OFF THREE-RUN HOMER. Game Over.",
+        "explanation": "A fastball down the middle to the cleanup hitter -- the best hitter on the team, a known fastball crusher -- is the single worst pitch you can throw in this situation. It doesn't matter what the count is. The middle of the plate is called the 'happy zone' because EVERY hitter is happy to see a pitch there. Even in an 0-2 count, you had room to throw pitches off the plate! The hitter COULDN'T hit a curveball in the dirt or a changeup off the plate, but they could absolutely destroy a fastball middle-middle. You gave the most dangerous hitter the easiest pitch to hit at the most important moment. NEVER challenge a power hitter over the heart of the plate.",
+        "whatToRemember": "NEVER throw a fastball down the middle to a dangerous hitter, regardless of the count. Pitch to the EDGES. With 0-2, throw unhittable stuff off the plate and make them chase. The middle of the plate is the danger zone.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.35, "y": 0.05 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1200
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "batter",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "batter",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-homer-terrible": {
+      "type": "outcome",
+      "narration": "Another fastball to a hitter who JUST missed a homer on the last one?! You throw it... and this time they DON'T miss! CRACK -- the sound echoes through the entire park! The ball is launched into orbit! It clears the fence by 30 feet! WALK-OFF THREE-RUN HOMER! The other team goes berserk! You watch the ball disappear and think, 'I should NOT have thrown that...' When a hitter shows you they can time your fastball, BELIEVE THEM!",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.05 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Run scored" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Run scored" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "HOMER" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "WALK-OFF HOMER! They Were Ready for It!",
+        "explanation": "The hitter showed you on the PREVIOUS pitch that they were perfectly timed to your fastball -- they hit a FOUL HOME RUN! That was a HUGE warning sign! When a hitter hits a long foul ball, that means their timing and bat angle are almost perfect. They just need one tiny adjustment and the next fastball is gone. Instead of changing speeds with a changeup or changing planes with a curveball, you threw the SAME pitch again and hoped for a different result. That's not strategy -- that's stubbornness. In the chess match between pitcher and batter, you have to ADJUST when the hitter shows you they're on your fastball.",
+        "whatToRemember": "When a hitter shows you they can time your fastball (long foul balls, line drives foul, almost-homers), CHANGE SPEEDS immediately. A changeup or curveball disrupts their timing. Never throw the pitch they just nearly crushed.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.86 },
+              "entity": "ball",
+              "duration": 380
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.86 },
+              "to": { "x": 0.3, "y": 0.05 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-even-change-great": {
+      "type": "outcome",
+      "narration": "Changeup on 1-1! The hitter was looking for heat and you pulled the rug out from under them! They swing and hit a weak pop fly to shallow left field. The shortstop drifts back, the left fielder charges in, and the shortstop calls them off and catches it! GAME OVER! Three up, three down! You won the chess match!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.4 },
+        "highlight": ["SS"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "GAME OVER! Pop Fly to Shortstop!",
+        "explanation": "A changeup on 1-1 against an aggressive fastball hitter is the perfect chess move. The hitter was gearing up for a fastball to drive, and you took 10 mph off and moved it down. The result: a weak popup with no power behind it. This whole at-bat was about one concept -- DECEPTION. You used the hitter's aggression against them. They WANTED to swing hard, so you gave them something soft. Their bat was out in front, their weight was forward, and they couldn't generate any force. That's pitching intelligence. You won the chess match by thinking one move ahead of the hitter at every turn.",
+        "whatToRemember": "Against aggressive fastball hitters, the changeup is your greatest weapon on even counts. They're swinging to hit, so give them something to swing through. The pitcher who thinks one pitch ahead always wins the chess match.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.53, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.53, "y": 0.88 },
+              "to": { "x": 0.35, "y": 0.42 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.35, "y": 0.42 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.35, "y": 0.42 },
+              "to": { "x": 0.35, "y": 0.4 },
+              "entity": "ball",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-even-fb-good": {
+      "type": "outcome",
+      "narration": "Fastball on the outside corner! The hitter watches it and... the umpire RINGS THEM UP! Called strike! 1-2! You've got the hitter in a hole! But now the at-bat continues and the hitter is fighting for their life. They foul off three pitches... work the count to 2-2... then 3-2... full count. The tension is unbearable. You throw a changeup low and they reach out and poke a soft single through the left side. The tying run scores from second. Tie game. The chess match goes on.",
+      "field": {
+        "ballPosition": { "x": 0.32, "y": 0.42 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Tying run (SCORED)" },
+          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Single. Tying Run Scores. Battle Continues.",
+        "explanation": "You made good pitches throughout the at-bat, but a great hitter will eventually adjust and compete. Getting ahead 1-2 was the right approach, but the hitter battled back by fouling off tough pitches and extending the at-bat. When a hitter fouls off multiple pitches in a row, it means they're catching up to your timing. This is when you need your BEST pitch in your BEST location. The single through the left side was a quality at-bat by the hitter -- sometimes great pitching meets great hitting and the hitter wins. That's baseball. The important thing is that you competed and executed a plan. You didn't beat yourself with a bad pitch.",
+        "whatToRemember": "Sometimes the hitter just wins -- and that's okay IF you made quality pitches. Never beat yourself by throwing a bad pitch. Make THEM earn it. A hitter who has to fight through an 8-pitch at-bat to get a bloop single is still losing the war even if they won that battle.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.88 },
+              "entity": "ball",
+              "duration": 450
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.52, "y": 0.88 },
+              "to": { "x": 0.32, "y": 0.42 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-even-sinker-great": {
+      "type": "outcome",
+      "narration": "Two-seam sinker down in the zone! The hitter swings and POUNDS it into the ground! It's a hard grounder to shortstop! The shortstop fields it cleanly, flips to the second baseman at the bag -- force out on the runner from first! The second baseman pivots and fires to first -- DOUBLE PLAY! GAME OVER! YOU WIN! You got the ground ball double play when you needed it most! The sinker did EXACTLY what it's designed to do!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B", "SS"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "DOUBLE PLAY! GAME OVER! SINKER DOES THE JOB!",
+        "explanation": "THIS is why the two-seam sinker exists! With runners on first and second and 2 outs, a ground ball double play ends the game. The sinker is designed to produce ground balls because it moves DOWN and INTO the bat, causing the hitter to hit the top of the ball. The hitter swung at what they thought was a regular fastball, but the sink made it dive under the sweet spot of the bat. Result: a hard grounder right at a fielder. You didn't need to strike the hitter out -- you just needed them to hit the ball on the ground. That's called 'pitching for contact' and it's just as valuable as a strikeout when the defense is behind you.",
+        "whatToRemember": "Sometimes the BEST pitch isn't the strikeout pitch -- it's the pitch that gets the ground ball your defense needs. The sinker with runners on is devastating because it creates double play opportunities. Pitch to the game situation, not just the batter.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.48, "y": 0.88 },
+              "entity": "ball",
+              "duration": 450
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.48, "y": 0.88 },
+              "to": { "x": 0.4, "y": 0.5 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.78 },
+              "to": { "x": 0.65, "y": 0.64 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

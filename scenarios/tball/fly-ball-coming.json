@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "transition",
-      "narration": "You're standing in the outfield, watching the batter. The sun feels warm on your face. Suddenly -- POW! The batter hits a big fly ball and it's going UP, UP, UP into the sky! It's coming right at you! The ball is getting bigger and bigger as it floats toward your glove.",
+      "narration": "POW! The batter hits a big fly ball and it's coming right at you in the outfield!",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.35 },
         "highlight": ["CF"],
@@ -28,7 +28,7 @@
     },
     "decision-1": {
       "type": "decision",
-      "narration": "The fly ball is floating through the air, coming right at you in center field! Your teammate in left field is nearby too. What do you do?",
+      "narration": "The fly ball is coming right at you! Your teammate is nearby too. What do you do?",
       "field": {
         "ballPosition": { "x": 0.4, "y": 0.3 },
         "highlight": ["CF", "LF"],
@@ -68,6 +68,11 @@
         "result": "great",
         "headline": "Caught It! Great Communication!",
         "explanation": "You did TWO important things right! First, you called the ball by yelling 'I got it!' This tells your teammates to back off so you don't crash into each other. That's called 'communication' and it's super important. Second, you got under the ball and caught it. When a fly ball is caught, the batter is OUT. Calling the ball is one of the most important skills in baseball and softball -- it keeps everyone safe and makes sure someone actually catches it!",
+        "keyTerms": [
+          { "term": "Fly Ball", "definition": "A ball hit high up into the air. If you catch it before it hits the ground, the batter is out!" },
+          { "term": "Calling the Ball", "definition": "Yelling 'I got it!' so your teammates know you're going to catch it and they don't crash into you." },
+          { "term": "Communication", "definition": "Talking to your teammates during the game. It keeps everyone safe and helps your team play better!" }
+        ],
         "whatToRemember": "Always call 'I got it!' when a fly ball is coming to you. This tells your teammates to let you have it so nobody crashes into each other.",
         "iqPoints": 10,
         "animation": {

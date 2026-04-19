@@ -52,7 +52,8 @@ function renderTeamGrid() {
     card.addEventListener('click', () => {
       game.selectTeam(team);
       setTeamColors(team);
-      showScreen('sportSelect');
+      showScreen('difficultySelect');
+      renderDifficultyCards();
     });
     grid.appendChild(card);
   });
@@ -63,8 +64,7 @@ function initSportPicker() {
   document.querySelectorAll('.sport-card').forEach(card => {
     card.addEventListener('click', () => {
       game.selectSport(card.dataset.sport);
-      showScreen('difficultySelect');
-      renderDifficultyCards();
+      startGame(TIERS.find(t => t.id === game.state.tier));
     });
   });
 }
@@ -93,7 +93,7 @@ function renderDifficultyCards() {
     `;
     card.addEventListener('click', () => {
       game.selectTier(tier.id);
-      startGame(tier);
+      showScreen('sportSelect');
     });
     container.appendChild(card);
   });
@@ -345,9 +345,18 @@ function renderOutcome(node, nodeId) {
   // Outcome display
   const outcomeDiv = document.createElement('div');
   outcomeDiv.className = 'outcome-display';
+  // Build key terms HTML if present
+  const termsHtml = outcome.keyTerms ? `
+    <div class="outcome-terms">
+      <div class="outcome-terms-label">Key Terms</div>
+      ${outcome.keyTerms.map(t => `<div class="outcome-term"><strong>${t.term}</strong> — ${t.definition}</div>`).join('')}
+    </div>
+  ` : '';
+
   outcomeDiv.innerHTML = `
     <div class="outcome-headline ${outcome.result}">${outcome.headline}</div>
     <div class="outcome-explanation">${outcome.explanation}</div>
+    ${termsHtml}
     <div class="outcome-remember">
       <div class="outcome-remember-label">Remember This</div>
       <div class="outcome-remember-text">${outcome.whatToRemember}</div>

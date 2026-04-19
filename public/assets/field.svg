@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <!-- Grass gradient -->
+    <radialGradient id="grassGrad" cx="400" cy="680" r="580" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2e7d32"/>
+      <stop offset="50%" stop-color="#2a7230"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </radialGradient>
+    <!-- Dirt gradient -->
+    <radialGradient id="dirtGrad" cx="400" cy="520" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c9a96e"/>
+      <stop offset="60%" stop-color="#b5915a"/>
+      <stop offset="100%" stop-color="#8d6e43"/>
+    </radialGradient>
+    <!-- Infield grass -->
+    <radialGradient id="infieldGrass" cx="400" cy="510" r="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2e8b34"/>
+      <stop offset="100%" stop-color="#267a2e"/>
+    </radialGradient>
+    <!-- Mound gradient -->
+    <radialGradient id="moundGrad" cx="400" cy="493" r="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d4b07a"/>
+      <stop offset="100%" stop-color="#a07a4a"/>
+    </radialGradient>
+    <!-- Home dirt -->
+    <radialGradient id="homeDirt" cx="400" cy="680" r="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(185,150,100,0.5)"/>
+      <stop offset="100%" stop-color="rgba(185,150,100,0)"/>
+    </radialGradient>
+    <!-- Warning track gradient -->
+    <radialGradient id="warningTrack" cx="400" cy="680" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="93%" stop-color="transparent"/>
+      <stop offset="94%" stop-color="#6d5237"/>
+      <stop offset="97%" stop-color="#5d4037"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Clip for the field shape -->
+    <clipPath id="fieldClip">
+      <path d="M400,680 L40,105 A575,575 0 0,1 760,105 Z"/>
+    </clipPath>
+    <!-- Mow lines pattern -->
+    <pattern id="mowLines" x="0" y="0" width="800" height="800" patternUnits="userSpaceOnUse">
+      <!-- Concentric arcs for mow stripes -->
+      <g opacity="0.06" clip-path="url(#fieldClip)">
+        <circle cx="400" cy="680" r="80" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="155" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="230" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="305" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="380" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="455" fill="none" stroke="#fff" stroke-width="38"/>
+        <circle cx="400" cy="680" r="530" fill="none" stroke="#fff" stroke-width="38"/>
+      </g>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#0b1e0b"/>
+
+  <!-- Outfield grass (pie-slice shape from home plate) -->
+  <path d="M400,680 L28,100 A580,580 0 0,1 772,100 L400,680 Z" fill="url(#grassGrad)"/>
+
+  <!-- Mow lines overlay -->
+  <g clip-path="url(#fieldClip)">
+    <g opacity="0.06">
+      <path d="M400,680 m0,-80 a80,80 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-155 a155,155 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-230 a230,230 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-305 a305,305 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-380 a380,380 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-455 a455,455 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+      <path d="M400,680 m0,-530 a530,530 0 1,0 0.01,0" fill="none" stroke="#fff" stroke-width="38"/>
+    </g>
+  </g>
+
+  <!-- Warning track arc -->
+  <g clip-path="url(#fieldClip)">
+    <circle cx="400" cy="680" r="556" fill="none" stroke="#5d4037" stroke-width="14"/>
+  </g>
+
+  <!-- Outfield wall/fence -->
+  <g clip-path="url(#fieldClip)">
+    <circle cx="400" cy="680" r="570" fill="none" stroke="#1a3a1a" stroke-width="9"/>
+    <!-- Fence shadow -->
+    <circle cx="400" cy="680" r="574" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="5"/>
+  </g>
+
+  <!-- Foul lines (from home plate to outfield corners) -->
+  <!-- Left foul line -->
+  <line x1="400" y1="680" x2="40" y2="104" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+  <!-- Right foul line -->
+  <line x1="400" y1="680" x2="760" y2="104" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+
+  <!-- Dirt infield (rounded diamond shape) -->
+  <path d="M400,683
+           Q565,510 560,445
+           Q555,385 400,348
+           Q245,385 240,445
+           Q235,510 400,683 Z"
+        fill="url(#dirtGrad)"/>
+
+  <!-- Infield grass cutout circle -->
+  <circle cx="400" cy="515" r="90" fill="url(#infieldGrass)"/>
+
+  <!-- Base paths (white diamond) -->
+  <!-- Home=400,680  1B=560,480  2B=400,360  3B=240,480 -->
+  <polygon points="400,680 560,480 400,360 240,480"
+           fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="3"/>
+
+  <!-- Pitcher's mound -->
+  <circle cx="400" cy="496" r="22" fill="url(#moundGrad)"/>
+  <!-- Pitching rubber -->
+  <rect x="393" y="494.5" width="14" height="3" fill="#ffffff" rx="0.5"/>
+
+  <!-- Bases (rotated squares) -->
+  <!-- 1st base -->
+  <rect x="553" y="473" width="13" height="13" fill="#ffffff" transform="rotate(45,559.5,479.5)"/>
+  <!-- 2nd base -->
+  <rect x="393.5" y="353.5" width="13" height="13" fill="#ffffff" transform="rotate(45,400,360)"/>
+  <!-- 3rd base -->
+  <rect x="233.5" y="473.5" width="13" height="13" fill="#ffffff" transform="rotate(45,240,480)"/>
+
+  <!-- Home plate (pentagon) -->
+  <polygon points="400,690 392,680 392,674 408,674 408,680" fill="#ffffff"/>
+
+  <!-- Home plate dirt circle -->
+  <circle cx="400" cy="680" r="44" fill="url(#homeDirt)"/>
+
+  <!-- Batter's boxes -->
+  <!-- Left box -->
+  <rect x="366" y="660" width="20" height="40" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <!-- Right box -->
+  <rect x="414" y="660" width="20" height="40" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+
+  <!-- Catcher's box -->
+  <rect x="384" y="692" width="32" height="28" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+
+  <!-- Coach's boxes -->
+  <!-- First base coach box -->
+  <rect x="592" y="544" width="24" height="36" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Third base coach box -->
+  <rect x="184" y="544" width="24" height="36" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+
+  <!-- On-deck circles -->
+  <circle cx="280" cy="736" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <circle cx="520" cy="736" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+</svg>
