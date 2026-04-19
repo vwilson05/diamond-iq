@@ -90,8 +90,11 @@ export class FieldCanvas {
     ctx.clearRect(0, 0, w, h);
 
     if (this._fieldImgReady) {
-      // Draw SVG background scaled to fill the canvas
+      // Draw SVG background scaled to fill canvas
       ctx.drawImage(this._fieldImg, 0, 0, w, h);
+      // Darken for night-game look that fits the dark UI theme
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+      ctx.fillRect(0, 0, w, h);
     } else {
       // Fallback: dark green background while image loads
       ctx.fillStyle = '#0b1e0b';

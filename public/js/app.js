@@ -249,25 +249,21 @@ function processNode(nodeId) {
 }
 
 function renderTransition(node, nodeId) {
-  const panel = document.getElementById('scenario-panel');
-  const setup = game.state.currentScenario.setup;
+  // Instead of showing a separate transition screen, merge the transition
+  // narration with the next decision node and show it all at once.
+  const scenario = game.state.currentScenario;
+  const nextNode = node.next ? scenario.nodes[node.next] : null;
 
-  panel.innerHTML = '';
-
-  // Situation bar
-  const sitBar = createSituationBar(setup);
-  panel.appendChild(sitBar);
-
-  // Narration with typewriter
-  const narDiv = document.createElement('div');
-  narDiv.className = 'narration-text';
-  panel.appendChild(narDiv);
-  typewriter(narDiv, node.narration, () => {
-    // Auto-advance after delay
-    setTimeout(() => {
-      if (node.next) processNode(node.next);
-    }, node.delay || 1500);
-  });
+  if (nextNode && nextNode.type === 'decision') {
+    // Combine narrations and render as a single decision screen
+    const combinedNarration = node.narration + ' ' + nextNode.narration;
+    const mergedNode = { ...nextNode, narration: combinedNarration };
+    game.advanceToNode(node.next);
+    renderDecision(mergedNode, node.next);
+  } else if (node.next) {
+    // No merge possible — just advance immediately (skip the pause)
+    processNode(node.next);
+  }
 }
 
 function renderDecision(node, nodeId) {
