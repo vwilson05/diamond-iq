@@ -3,35 +3,38 @@
  * Renders 5 vertical tier cards styled in the selected team's colors.
  */
 
+const TIER_ICONS = {
+  tball: `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="6" x2="16" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  rookie: `<svg viewBox="0 0 32 32" fill="none"><path d="M8 22c0-6 3.5-14 8-14s8 8 8 14" stroke="currentColor" stroke-width="2" fill="none"/><ellipse cx="16" cy="22" rx="5" ry="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  minors: `<svg viewBox="0 0 32 32" fill="none"><path d="M10 4h12v10c0 4-2.5 7-6 7s-6-3-6-7V4z" stroke="currentColor" stroke-width="2" fill="none"/><rect x="11" y="24" width="10" height="3" rx="1" fill="currentColor"/><path d="M10 8H7c0 3 1.5 5 3 5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M22 8h3c0 3-1.5 5-3 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`,
+  majors: `<svg viewBox="0 0 32 32" fill="none"><path d="M16 3l3.5 7 7.5 1.5-5.5 5.3 1.3 7.7L16 21l-6.8 3.5 1.3-7.7L5 11.5l7.5-1.5z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  'the-show': `<svg viewBox="0 0 32 32" fill="none"><path d="M16 2L30 16L16 30L2 16Z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 8L24 16L16 24L8 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`,
+};
+
 const TIERS = [
   {
     id: 'tball',
     name: 'T-Ball',
-    emoji: '\u26be',
     description: 'Learn the basics \u2014 where to throw, where to run',
   },
   {
     id: 'rookie',
     name: 'Rookie',
-    emoji: '\ud83e\udde4',
     description: 'Fundamentals \u2014 force outs, tagging up, base running',
   },
   {
     id: 'minors',
     name: 'Minors',
-    emoji: '\ud83c\udfc6',
     description: 'Game IQ \u2014 cutoffs, relays, situational hitting',
   },
   {
     id: 'majors',
     name: 'Majors',
-    emoji: '\ud83d\udd25',
     description: 'Advanced \u2014 double plays, pitch sequencing, defensive schemes',
   },
   {
     id: 'the-show',
     name: 'The Show',
-    emoji: '\ud83c\udf1f',
     description: 'Elite \u2014 squeeze plays, shifts, pitcher/batter chess',
   },
 ];
@@ -91,8 +94,17 @@ export class DifficultyPicker {
         box-shadow: 0 0 0 2px #FFD700, 0 4px 16px rgba(255,215,0,0.35);
       }
       .dp-emoji {
-        font-size: 2rem;
+        width: 36px;
+        height: 36px;
         flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dp-emoji svg {
+        width: 32px;
+        height: 32px;
       }
       .dp-info {
         display: flex;
@@ -133,7 +145,7 @@ export class DifficultyPicker {
 
       const emoji = document.createElement('div');
       emoji.className = 'dp-emoji';
-      emoji.textContent = tier.emoji;
+      emoji.innerHTML = TIER_ICONS[tier.id] || '';
 
       const info = document.createElement('div');
       info.className = 'dp-info';

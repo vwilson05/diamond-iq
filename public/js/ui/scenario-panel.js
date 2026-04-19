@@ -232,7 +232,7 @@ export class ScenarioPanel {
 
       const icon = document.createElement('div');
       icon.className = 'sp-remember-icon';
-      icon.textContent = '\ud83e\udde0'; // brain emoji
+      icon.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C9 2 7 4 7 6.5C5.5 7 4 8.5 4 10.5c0 1.5.8 2.8 2 3.5 0 2 1 3.5 2.5 4.5L9 22h6l.5-3.5C17 17.5 18 16 18 14c1.2-.7 2-2 2-3.5 0-2-1.5-3.5-3-4C17 4 15 2 12 2z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 6v10M9 9h6M9 13h6" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>`;
 
       const content = document.createElement('div');
 

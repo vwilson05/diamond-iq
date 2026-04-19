@@ -3,15 +3,19 @@
  * Separate page at /coach for coaches to view team progress.
  */
 
-const AVATARS = {
-  slugger: '\u26BE',
-  rocket: '\uD83D\uDE80',
-  glove: '\uD83E\uDD4E',
-  lightning: '\u26A1',
-  fire: '\uD83D\uDD25',
-  star: '\u2B50',
-  diamond: '\uD83D\uDC8E',
-  trophy: '\uD83C\uDFC6',
+const AVATAR_SVGS = {
+  slugger: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><rect x="14" y="2" width="4" height="24" rx="2" fill="currentColor"/><rect x="12" y="24" width="8" height="4" rx="1" fill="currentColor" opacity="0.7"/><circle cx="16" cy="4" r="2" fill="currentColor"/></svg>`,
+  glove: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M8 18c0-6 3-14 8-14s8 8 8 14c0 4-3 8-8 8s-8-4-8-8z" stroke="currentColor" stroke-width="2" fill="none"/><ellipse cx="16" cy="20" rx="5" ry="4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`,
+  cap: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M6 18c0-6 4.5-10 10-10s10 4 10 10" stroke="currentColor" stroke-width="2" fill="none"/><rect x="4" y="17" width="24" height="4" rx="2" fill="currentColor"/></svg>`,
+  diamond: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M16 2L30 16L16 30L2 16Z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  homeplate: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M8 6h16l0 12l-8 10l-8-10z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  ball: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 6c2 3 2 7 0 10s-2 7 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M22 6c-2 3-2 7 0 10s2 7 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  trophy: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M10 4h12v10c0 4-2.5 7-6 7s-6-3-6-7V4z" stroke="currentColor" stroke-width="2" fill="none"/><rect x="11" y="24" width="10" height="3" rx="1" fill="currentColor"/></svg>`,
+  star: `<svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M16 3l3.5 7 7.5 1.5-5.5 5.3 1.3 7.7L16 21l-6.8 3.5 1.3-7.7L5 11.5l7.5-1.5z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  // Legacy keys mapped to new icons
+  rocket: null,
+  lightning: null,
+  fire: null,
 };
 
 const RESULT_COLORS = {
@@ -339,7 +343,7 @@ function renderTeamSummary(summary, playerCount) {
 }
 
 function renderPlayerCard(player) {
-  const avatar = AVATARS[player.avatar] || '\u26BE';
+  const avatar = AVATAR_SVGS[player.avatar] || AVATAR_SVGS.ball;
   const categories = Object.entries(player.categories || {});
 
   const categoryBarsHTML = categories.map(([cat, data]) => {
@@ -364,7 +368,7 @@ function renderPlayerCard(player) {
     ? `<span class="coach-tag coach-tag-bad">${player.needs_work.join(', ')}</span>`
     : '';
 
-  const awardsHTML = (player.awards || []).map(a => `<span class="coach-award-badge" title="${a.award_name}">\u2B50</span>`).join('');
+  const awardsHTML = (player.awards || []).map(a => `<span class="coach-award-badge" title="${a.award_name}"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 1.5l2 4 4.5.8-3.2 3.2.8 4.5L8 12l-4.1 2l.8-4.5L1.5 6.3l4.5-.8z"/></svg></span>`).join('');
 
   return `
     <div class="coach-player-card">

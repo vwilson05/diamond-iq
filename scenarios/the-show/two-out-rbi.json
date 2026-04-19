@@ -1,0 +1,221 @@
+{
+  "id": "the-show-two-out-rbi",
+  "title": "Two-Out RBI: Approach Against a Tough Pitcher",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "offense",
+  "tags": ["two-out-hitting", "RISP", "plate-approach", "clutch-hitting", "strategy"],
+  "setup": {
+    "inning": 7,
+    "topBottom": "bottom",
+    "outs": 2,
+    "score": { "home": 3, "away": 4 },
+    "runners": { "first": false, "second": true, "third": true },
+    "count": { "balls": 1, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Bottom of the 7th, two outs, runners on second and third, down 4-3. The pitcher on the mound is their ace -- he's got a 95 mph fastball, a devastating slider, and a changeup that falls off the table. The count is 1-1 after you took a fastball for a ball and fouled off a slider. You need at least one run to tie. A base hit scores two and gives you the lead. What's your approach for the rest of this at-bat?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sit-fastball",
+          "text": "Sit on the fastball. He's got to come to me eventually -- when the heater comes, I'm turning on it. I can adjust to off-speed if I see it, but I'm geared for 95.",
+          "nextNode": "decision-sit-fb-2"
+        },
+        {
+          "id": "look-offspeed",
+          "text": "Look off-speed. His slider and changeup are his best pitches. I'm going to time the slow stuff and react up to the fastball if I need to. Let him beat me with the heater.",
+          "nextNode": "decision-look-off-2"
+        },
+        {
+          "id": "just-put-in-play",
+          "text": "No specific plan -- just see the ball, hit the ball. Put it in play somewhere. A ground ball through the infield scores two runs. Don't try to do too much.",
+          "nextNode": "outcome-no-plan-okay"
+        }
+      ]
+    },
+    "decision-sit-fb-2": {
+      "type": "decision",
+      "narration": "You're geared for the fastball. The pitcher delivers -- it's a changeup! 84 mph, looks like a fastball out of the hand but arrives late. You started your swing early because you were timed for 95. You're way out in front. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.82 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "try-to-adjust",
+          "text": "Try to adjust mid-swing! Slow my hands down and push the ball the other way. Even bad contact might find a hole with two outs.",
+          "nextNode": "outcome-fb-adjust-great"
+        },
+        {
+          "id": "check-swing",
+          "text": "Check my swing! Don't commit. Live to see another pitch. The count goes to 1-2 or stays 1-1.",
+          "nextNode": "outcome-fb-check-good"
+        },
+        {
+          "id": "swing-through",
+          "text": "Commit to the swing. I'm already going -- just swing hard and hope for the best.",
+          "nextNode": "outcome-fb-commit-bad"
+        }
+      ]
+    },
+    "decision-look-off-2": {
+      "type": "decision",
+      "narration": "You're looking off-speed. The pitcher delivers -- it's a 95 mph fastball on the inner half! You weren't timed for it. It arrives faster than expected. You have a split second to decide -- do you try to react and swing, or take it?",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.82 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "react-up",
+          "text": "React up to the fastball! I can adjust -- shorten my swing and try to get the bat head out. Being short to the fastball is better than being long.",
+          "nextNode": "outcome-off-react-great"
+        },
+        {
+          "id": "take-it",
+          "text": "Take it. I was looking off-speed, and that's a fastball. Called strike two. I'll be ready for the off-speed on the next pitch.",
+          "nextNode": "outcome-off-take-good"
+        }
+      ]
+    },
+    "outcome-fb-adjust-great": {
+      "type": "outcome",
+      "narration": "You recognize the changeup mid-swing and make the elite adjustment: you slow your hands, let the ball travel deeper, and push it to the opposite field! The ball floats over the second baseman's head and drops into right field for a single! The runner from third scores easily -- TIE GAME! The runner from second rounds third and slides home -- SAFE! Two-run single! You're up 5-4! The at-bat adjustment -- recognizing off-speed and going the other way -- turned a swing-and-miss into a clutch two-run hit.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.35 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "TWO-RUN SINGLE! Opposite-Field Adjustment Is Elite!",
+        "explanation": "This is the highest-level hitting skill: mid-swing adjustment. When you're sitting fastball and you get off-speed, the elite move is to let the ball travel deeper into the zone and push it to the opposite field. Here's the biomechanics: your hands started early because you were timed for 95 mph. By slowing your hands and keeping the bat head behind the ball longer, you matched the changeup timing and directed it the other way. This is called 'staying inside the ball' -- keeping your hands close to your body so the bat head doesn't fly open early. It's the hardest adjustment in hitting because it requires recognizing the pitch AND changing your swing plan in approximately 100 milliseconds.",
+        "whatToRemember": "When sitting fastball and you get off-speed, go opposite field. Slow your hands, let the ball travel deeper, and push it the other way. This turns a bad swing into a productive at-bat.",
+        "keyTerms": [
+          { "term": "Staying Inside the Ball", "definition": "Keeping your hands close to your body during the swing so the bat head stays behind the ball longer. Allows you to adjust to off-speed pitches by directing them to the opposite field." },
+          { "term": "Mid-Swing Adjustment", "definition": "Changing your swing mechanics after recognizing a different pitch type than expected. Requires slowing hands for off-speed or quickening them for fastballs." },
+          { "term": "Opposite-Field Approach", "definition": "Intentionally directing the ball to the 'wrong' field (right field for a right-handed hitter). Most effective against off-speed pitches because it naturally accounts for being early on the swing." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-fb-check-good": {
+      "type": "outcome",
+      "narration": "You check your swing -- the umpire says you held up! Ball two, 2-1 count. You're still ahead. Now you know the pitcher is willing to throw off-speed in this count. On the next pitch, he comes with the fastball you were waiting for -- 95 mph, middle of the plate. You're ready this time. You drive it up the middle for a single! Both runners score! 5-4, you take the lead! The check swing kept you alive in the at-bat, and the next pitch was the one you crushed.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.35 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Check Swing Saves the At-Bat! Two-Run Single Next Pitch!",
+        "explanation": "The check swing is an underrated skill. By recognizing the changeup and stopping your swing, you avoided a strike on a pitch you weren't going to drive. That kept the count favorable at 2-1, which forced the pitcher to come with a fastball on the next pitch. The at-bat information you gathered was also valuable: you now knew the pitcher was willing to throw off-speed early in the count, which helped you stay disciplined while still being ready for the fastball. Elite hitters don't just have great swings -- they have great non-swings. Knowing when NOT to commit is just as important as knowing when to attack.",
+        "whatToRemember": "A good check swing is an offensive weapon. It preserves favorable counts, gathers information about the pitcher's tendencies, and keeps you alive for the pitch you actually want. The ability to hold up on off-speed is a skill, not an accident.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-fb-commit-bad": {
+      "type": "outcome",
+      "narration": "You commit to the swing on the changeup -- your bat is way out in front. You roll over the top of it and hit a weak dribbler to the third baseman. He fields it and throws to first -- OUT! Inning over. Both runners are stranded. You were timed for 95 mph and got 84 mph with no adjustment. The changeup ate you alive because you committed to a fastball swing with no plan B.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["3B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Weak Grounder. No Adjustment, No Runs.",
+        "explanation": "Committing fully to a fastball swing when you get off-speed is the worst possible outcome. Your bat speed is calibrated to 95 mph, and the pitch arrives at 84 mph -- that's an 11 mph gap that produces the weakest possible contact. Without any adjustment (slowing hands, going opposite field, or checking the swing), you rolled over the ball and hit it on the ground weakly. Against elite pitchers with multiple pitch types, you MUST have a secondary plan. Sitting fastball is fine, but your adjustment to off-speed can't be 'swing the same way and hope.' It has to be 'recognize the slower speed and redirect to the opposite field.' That's the difference between getting on base and ending the inning.",
+        "whatToRemember": "Always have a plan B when sitting on one pitch type. If you're geared for fastball and get off-speed, your adjustment is to stay inside the ball and go opposite field -- not to swing through it with the same timing.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-off-react-great": {
+      "type": "outcome",
+      "narration": "You react up to the fastball! You shorten your swing, get the bat head out, and make contact. It's not your best swing -- but you square it up enough to line it into center field! The runner from third scores -- TIE GAME! The runner from second is racing around third... SAFE AT HOME! Two-run single! 5-4! Your ability to time off-speed and react up to the fastball gave you coverage of both pitches. The shortened swing produced a hard line drive instead of a home run swing, but the line drive was all you needed.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.35 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "TWO-RUN SINGLE! Reacted Up to the Fastball!",
+        "explanation": "This is the optimal two-strike/clutch approach: time off-speed, react up to fastball. Here's why it works: it's EASIER for a hitter to speed up his swing than to slow it down. When you're timed for 83-84 mph off-speed pitches, a 95 mph fastball requires you to shorten and quicken your swing -- which is biomechanically easier than trying to extend and slow your swing for off-speed when you're timed for fastball. The trade-off: your fastball contact won't be as powerful because you're shortening your swing. But in a two-out, RISP situation, you don't need a home run. You need the ball to find the outfield grass. A shortened swing that produces a line-drive single is worth more than a full swing that produces a fly-out or strikeout.",
+        "whatToRemember": "In clutch situations, time off-speed and react up to the fastball. It's easier to speed up than slow down. You sacrifice some power but gain pitch coverage, which is more valuable with runners in scoring position.",
+        "keyTerms": [
+          { "term": "React Up", "definition": "Adjusting your swing timing from off-speed to fastball by shortening your swing and quickening your hands. Biomechanically easier than adjusting from fast to slow." },
+          { "term": "Two-Strike Approach", "definition": "Adjusting your plate plan with two strikes to prioritize contact over power. Shortening the swing, widening the zone slightly, and accepting singles instead of hunting home runs." },
+          { "term": "RISP Approach", "definition": "With runners in scoring position, the priority shifts from power to contact. A ground ball through the infield or a line drive to the outfield scores the same runs as a home run -- with much higher probability." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-off-take-good": {
+      "type": "outcome",
+      "narration": "You take the fastball. Strike two -- 1-2. You were looking off-speed and the pitcher threw his best fastball for a strike. Now you're behind in the count. On the next pitch, the pitcher throws the slider -- the pitch you were waiting for! But with two strikes, you can't be as aggressive. You foul it off. Then another slider -- this time it dips just below the zone. You swing... and miss. Strike three. Runners stranded. By committing so hard to off-speed, you gave away a fastball strike that you could have handled with a shortened swing.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Struck Out Looking for Off-Speed. Couldn't React Up.",
+        "explanation": "Looking off-speed and TAKING the fastball is overly passive. The correct approach is 'look off-speed, REACT UP to the fastball.' That means your timing is set for the slower pitch, but you still swing at fastballs in the zone by shortening and quickening your swing. By taking the fastball outright, you went from 1-1 to 1-2, which completely changed the at-bat dynamic. On 1-1, the pitcher has to be careful. On 1-2, he can expand the zone with his nastiest stuff. You turned a hitter's count into a pitcher's count by being too passive. The lesson: have a primary plan (off-speed) but always maintain the ability to react to secondary pitches (fastball).",
+        "whatToRemember": "Looking off-speed doesn't mean TAKING the fastball. It means timing off-speed and reacting up to the fastball with a shortened swing. You must cover both halves of the speed spectrum even when you're sitting on one.",
+        "iqPoints": 5,
+        "next": "end"
+      }
+    },
+    "outcome-no-plan-okay": {
+      "type": "outcome",
+      "narration": "No specific plan -- just see ball, hit ball. The pitcher throws a slider that starts over the plate and breaks down and away. Without a plan, your swing decision is made in real-time. You reach for it and hit a weak grounder to the second baseman. Easy throw to first -- OUT. Inning over, runners stranded. Without a predetermined plan, your brain had to process pitch type, location, and swing decision all in 400 milliseconds. Against an elite pitcher with 95 mph heat and sharp breaking stuff, 'see ball hit ball' isn't enough. You need a plan.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Weak Grounder. No Plan = No Chance Against Elite Pitchers.",
+        "explanation": "At the elite level, 'see ball, hit ball' doesn't work because the pitcher's stuff is too good to react to without a plan. A 95 mph fastball reaches the plate in about 400 milliseconds. Your brain takes about 100 milliseconds to decide to swing and another 150 milliseconds to execute the swing. That leaves only 150 milliseconds to identify the pitch type, location, and decide whether to commit. With a pre-determined plan (sitting fastball or sitting off-speed), you eliminate the pitch-type decision and cut your reaction time significantly. Without a plan, you're processing too much information in too little time, which leads to weak, uncommitted swings.",
+        "whatToRemember": "Against elite pitchers, you need a pre-determined plan. 'See ball, hit ball' works against average pitching, but 95 mph fastballs and sharp breaking balls require you to narrow your focus to one pitch type or one zone to have any chance of driving the ball.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    }
+  }
+}

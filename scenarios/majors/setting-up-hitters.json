@@ -1,0 +1,215 @@
+{
+  "id": "majors-setting-up-hitters",
+  "title": "Ahead 0-2: The Kill Shot",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "pitching",
+  "tags": ["pitching", "0-2-count", "waste-pitch", "put-away", "count-leverage"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 2 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on the mound, ahead 0-2 on the hitter. Nobody on base, one out. You got strike one on a fastball on the inside corner, and strike two on a changeup that the batter swung through. The hitter is on the defensive now -- he's protecting the plate and just trying to survive. You have the advantage. What's your plan to finish this at-bat?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "waste-then-finish",
+          "text": "Throw a waste pitch first -- something tempting but off the plate. If he chases, great. If not, I'm still ahead 1-2. THEN throw the put-away pitch.",
+          "nextNode": "decision-waste-result"
+        },
+        {
+          "id": "go-for-it-now",
+          "text": "Go right after him! I'm ahead 0-2 -- throw my best put-away pitch right now and end this at-bat!",
+          "nextNode": "outcome-go-for-it-good"
+        },
+        {
+          "id": "challenge-fastball",
+          "text": "Blow a fastball right by him! He just saw the changeup -- the fastball will look extra fast!",
+          "nextNode": "outcome-challenge-fb-okay"
+        }
+      ]
+    },
+    "decision-waste-result": {
+      "type": "decision",
+      "narration": "You throw a curveball that starts in the zone but breaks down and away -- a 'get me over' that ends up a foot off the plate. The batter starts to swing, then holds up! Ball one! Count is 1-2. But look at his body language -- he ALMOST went. He's unsure, his hands twitched, and he barely held up. He's vulnerable. NOW it's time for the kill shot. What do you throw?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "same-pitch-zone",
+          "text": "Throw the SAME curveball but this time catch the bottom of the zone! He almost chased the one off the plate -- if it's a strike, he's frozen!",
+          "nextNode": "outcome-same-pitch-great"
+        },
+        {
+          "id": "fastball-up",
+          "text": "Fastball up in the zone! He just saw the slow curveball going DOWN -- the fast pitch going UP will look completely different!",
+          "nextNode": "outcome-fb-up-great"
+        },
+        {
+          "id": "another-waste",
+          "text": "Throw another waste pitch. I'm still ahead 1-2. Make him chase again.",
+          "nextNode": "outcome-another-waste-okay"
+        }
+      ]
+    },
+    "outcome-same-pitch-great": {
+      "type": "outcome",
+      "narration": "Same curveball, but this time you throw it to catch the bottom of the zone! The batter sees the same spin, same break -- but he held up on the LAST one and it was a ball. So he holds up again. But THIS one catches the corner! STRIKE THREE CALLED! The batter looks back at the umpire in disbelief! He thought it was the same pitch that was a ball, but you threw it one foot closer to the zone. The setup pitch made the put-away pitch UNHITTABLE!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STRIKE THREE CALLED! Frozen!",
+        "explanation": "This is pitching chess. Here's the two-pitch sequence that made this strikeout work: Pitch 1 (waste): Curveball off the plate. The batter almost chased it but held up. His brain registered: 'That pitch breaks down there -- it's a ball. I need to lay off that.' Pitch 2 (put-away): Same curveball, same spin, same break -- but starting one foot closer to the zone, ending up ON the plate. The batter's brain says: 'Same pitch as last time, that was a ball, lay off.' But this time it's a strike! The waste pitch PROGRAMMED the batter to take the put-away pitch. You showed him a pitch, let him think he knew it, then used his knowledge against him. That's called a 'set-up pitch' and it's the highest level of pitching.",
+        "keyTerms": ["set-up pitch", "pitch tunneling", "waste pitch strategy"],
+        "whatToRemember": "The waste pitch programs the hitter's brain. Show a pitch off the plate, then throw the SAME pitch in the zone. The hitter thinks it's the same ball he just laid off, but this time it's a strike. The setup makes the put-away unhittable.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fb-up-great": {
+      "type": "outcome",
+      "narration": "Fastball up! After the slow curveball going DOWN, the fast pitch going UP looks like it's rising out of a cannon! The batter's eyes go wide -- he swings but he's WAY underneath it! SWING AND A MISS! STRIKE THREE! The speed difference between the curveball and the fastball was almost 20 mph, and the direction change (down vs. up) made it impossible for the batter to adjust! Your coach gives you a nod from the dugout -- that's a perfectly planned sequence!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.86 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STRIKE THREE SWINGING! Speed and Direction Change!",
+        "explanation": "The curveball-then-fastball sequence is one of pitching's most lethal combinations. Here's the science: the batter's brain calibrates to the LAST pitch he saw. After seeing a slow curveball breaking downward, his timing is set for 'slow and low.' When you throw a fastball that's 15-20 mph faster and stays UP in the zone, his brain can't recalibrate fast enough. He swings underneath the fastball because his hands are geared for the curveball's speed and location. This is called 'changing the eye level' -- you move the hitter's vision from low to high, which is extremely difficult to adjust to. The waste pitch wasn't just a throwaway pitch. It was a SETUP for the kill shot.",
+        "keyTerms": ["changing eye levels", "speed differential", "sequence pitching"],
+        "whatToRemember": "After a slow breaking ball down, a fastball up changes the hitter's eye level and speed calibration. The bigger the speed difference, the more effective the sequence. Slow-low then fast-high is devastating.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.86 },
+              "entity": "ball",
+              "duration": 350
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-another-waste-okay": {
+      "type": "outcome",
+      "narration": "Another waste pitch -- this one is a fastball up and out of the zone. Ball two. Now it's 2-2. The hitter takes a deep breath and settles back in. He's seen four pitches now and he's starting to feel comfortable in the box. The count advantage you had is shrinking. You throw the put-away pitch -- a curveball -- and the hitter fouls it off. Then another foul. Then another. Then he lines a single to left field. The at-bat that was 0-2 turned into a seven-pitch battle that the HITTER won because you threw too many waste pitches.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.35 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Single! Too Many Waste Pitches!",
+        "explanation": "One waste pitch is strategy. Two or more is stalling. At 0-2, you have TWO balls to play with before the count is even. One waste pitch puts you at 1-2 -- still heavily in your favor. But a second waste pitch makes it 2-2, which is an EVEN count. You've given back all your advantage. Worse, every extra pitch the hitter sees helps him calibrate to your stuff. By the seventh pitch, he's seen your fastball, your curveball, and your changeup. He knows your speeds. He knows your breaks. He's no longer guessing -- he's reacting. Use ONE waste pitch, then go for the kill. Don't let the at-bat extend until the hitter gets comfortable.",
+        "whatToRemember": "Use ONE waste pitch at 0-2, then go for the strikeout. Multiple waste pitches give the hitter more looks at your stuff and erode your count advantage. Throw the set-up pitch, then the kill shot. Two pitches, not four.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.25, "y": 0.35 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-go-for-it-good": {
+      "type": "outcome",
+      "narration": "You throw your best put-away pitch immediately -- curveball in the dirt. The batter was protecting with two strikes and he starts to swing, then stops. He checks his swing -- the umpire asks the first-base umpire. Did he go? NO -- checked swing! Ball one. Count is 1-2. You still have the advantage, but you burned your best pitch without setting it up. The hitter saw your curveball's break and he'll be ready for it next time. Now you have to find another way to get him out.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Check Swing! Ball One. Wasted the Putaway.",
+        "explanation": "Going right for the kill at 0-2 seems aggressive and efficient, but it has a big downside: no setup. Without a waste pitch first, the batter was EXPECTING something nasty. He was short and compact, protecting the plate, ready to check his swing on anything close. The waste pitch exists to SET UP the put-away pitch. It shows the hitter a look that programs his brain for the next pitch. Without the setup, the hitter is in pure survival mode, which actually makes him HARDER to strike out because he's not committing to anything. Show him something first, make his brain process it, THEN throw the kill shot while his brain is busy.",
+        "keyTerms": ["checked swing"],
+        "whatToRemember": "At 0-2, don't go right for the kill. Use one waste pitch to set up the put-away. The setup pitch programs the hitter's brain and makes the next pitch more effective.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.95 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-challenge-fb-okay": {
+      "type": "outcome",
+      "narration": "Fastball, right at him! You throw it in the upper part of the zone. The batter was sitting on it -- after the changeup, he knew you might come back with heat. He fouls it straight back! That foul ball tells you something important: he was ON TIME. He timed your fastball perfectly but just barely got under it. If that pitch was an inch lower, that's a base hit. He's on your fastball now, and you've shown him the speed. Dangerous spot.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Foul Ball. Hitter Was On Your Fastball.",
+        "explanation": "Throwing a fastball at 0-2 without a waste pitch is risky. The hitter was in 'protect mode' and the fastball is the easiest pitch to time. Even though he fouled it off, the foul ball straight back tells you he was ON TIME -- his bat got to the ball at the right moment. That's a warning sign. A waste pitch first would have disrupted his timing. After seeing a slow curve off the plate, the fastball would have looked 5 mph faster because of the speed difference. Without the waste pitch, the hitter was timing fastball from the start. You essentially threw the same speed he was already calibrated for.",
+        "whatToRemember": "A foul ball straight back means the hitter's timing is locked in. At 0-2, use a waste pitch to disrupt timing before going for the kill. Throwing the pitch the hitter is timing is dangerous.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "id": "majors-damage-control",
+  "title": "Damage Control: Bases Loaded, No Outs",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "pitching",
+  "tags": ["pitching", "damage-control", "bases-loaded", "mental-toughness", "game-management"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 5, "away": 3 },
+    "runners": { "first": true, "second": true, "third": true },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Bases loaded, nobody out. You're up 5-3, but this inning has gone sideways -- a single, a walk, and an error loaded the bases. Your catcher calls time and jogs out to the mound. 'Forget what just happened,' he says. 'We just need outs. How do we limit the damage?' The infield is playing in, looking for a play at the plate. A grand slam ends the lead. But even giving up one or two runs is manageable. What's your mindset and approach?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "attack-get-outs",
+          "text": "Attack the zone! I need outs, and the best way to get outs is to throw strikes. Pitch to contact -- let the defense work. A double play gets me out of this. If they score a run on a grounder, that's fine. I'll take one run with two outs over three runs with nobody out.",
+          "nextNode": "decision-dp-opportunity"
+        },
+        {
+          "id": "strikeout-mode",
+          "text": "I need to strike everyone out! If the ball is put in play with the infield in, bad things can happen. I'm going for K's!",
+          "nextNode": "outcome-k-attempt-okay"
+        },
+        {
+          "id": "panic-nibble",
+          "text": "Don't throw anything hittable! Nibble the corners and don't give them anything to drive. I can't let them put the ball in play with the bases loaded!",
+          "nextNode": "outcome-panic-bad"
+        }
+      ]
+    },
+    "decision-dp-opportunity": {
+      "type": "decision",
+      "narration": "You attack the zone with a sinker down in the zone. The hitter swings and pounds a grounder toward short! The shortstop fields it -- BUT the infield is playing IN, so he's closer to home plate than normal. He has options: throw home for the force, start the 6-4-3 double play through second, or throw to first for the easy out. The runner on third is breaking home. What should the shortstop do?",
+      "field": {
+        "ballPosition": { "x": 0.42, "y": 0.55 },
+        "highlight": ["SS", "Home", "2B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.38, "y": 0.68 }, "label": "Runner (home)" },
+          { "id": "runner2nd", "position": { "x": 0.48, "y": 0.48 }, "label": "Runner (rounding 3rd)" },
+          { "id": "runner1st", "position": { "x": 0.58, "y": 0.52 }, "label": "Runner (going 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-home-dp",
+          "text": "Throw home! Get the force at the plate -- no run scores! Then the catcher throws to first for the double play!",
+          "nextNode": "outcome-home-dp-great"
+        },
+        {
+          "id": "turn-two-second",
+          "text": "Start the 6-4-3 double play through second base. Get two outs, even if a run scores.",
+          "nextNode": "outcome-642-good"
+        },
+        {
+          "id": "throw-first",
+          "text": "Throw to first for the sure out. Don't risk a bad throw at home.",
+          "nextNode": "outcome-first-only-okay"
+        }
+      ]
+    },
+    "outcome-home-dp-great": {
+      "type": "outcome",
+      "narration": "The shortstop fires home! The catcher catches it, steps on the plate -- FORCE OUT at home! No run scores! The catcher then fires to first base -- the batter is out by two steps! DOUBLE PLAY! 6-2-3! From bases loaded with nobody out to second and third with two outs -- and no runs scored! The dugout erupts! THAT is damage control! You limited a bases-loaded, nobody-out disaster to ZERO runs by attacking the zone and getting the double play!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "DOUBLE PLAY at Home! Zero Runs Score!",
+        "explanation": "The 6-2-3 double play (shortstop to catcher to first baseman) is the dream play with bases loaded. Here's why throwing home first was the best option: 1) The force at the plate prevents the RUN from scoring. Getting the out at home is the most valuable out because it keeps a run off the board. 2) After the force at home, the catcher has a clear throw to first because the batter-runner is the slowest runner (he just started running). 3) The bases are still loaded, but with TWO outs instead of zero. Now ONE more out ends the inning. The key to all of this was YOUR mindset as the pitcher: you attacked the zone and got a ground ball. That's damage control -- accepting that runners are on base and focusing on getting outs, not on being perfect.",
+        "keyTerms": ["6-2-3 double play", "force at home", "damage control mindset"],
+        "whatToRemember": "With bases loaded, throw strikes and pitch for ground balls. The force at home plate prevents runs AND starts double plays. Attack the zone and trust your defense to make the play.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-642-good": {
+      "type": "outcome",
+      "narration": "The shortstop throws to second for the force -- out one! The pivot man fires to first -- double play! 6-4-3! Two outs! But the runner from third scored during the play. It's now 5-4. You gave up a run, but you got two outs. Runners on third (the runner from second advanced) with two outs. The run hurts, but two outs with bases loaded nobody out is a great trade. One more out and you escape the inning.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Double Play! One Run Scores, Two Outs Made.",
+        "explanation": "The 6-4-3 double play is always a great play, but in this specific situation, throwing home first would have been better. Here's why: the force at home plate is the FIRST priority with bases loaded because it prevents a run. The 6-4-3 gets two outs but concedes a run. The 6-2-3 (through home) also gets two outs AND prevents the run. Both are double plays, but the route through home saves a run. That said, getting two outs with bases loaded, nobody out is excellent damage control. You're down to a one-run lead with two outs -- much better than where you were. Giving up one run to get two outs is an acceptable trade in damage control mode.",
+        "keyTerms": ["run prevention priority"],
+        "whatToRemember": "With bases loaded, the throw home first is usually the best option because it prevents a run AND starts the double play. The 6-4-3 gets outs but concedes a run. In damage control, prioritize preventing runs.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-first-only-okay": {
+      "type": "outcome",
+      "narration": "The shortstop throws to first for the easy out. One out, but the run from third scores. And the other runners advance -- now it's second and third with one out. 5-4 game. You got an out, but you chose the LEAST valuable out. The out at first didn't prevent a run. The out at home would have prevented the run AND started a double play. You played it safe, and safe wasn't good enough.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "One Out. Run Scores. Least Valuable Play.",
+        "explanation": "Throwing to first is the 'safest' play but also the least impactful. Here's the hierarchy of outs with bases loaded: 1) BEST: Force at home (prevents the run, starts DP). 2) GOOD: Double play through second (gets two outs, concedes a run). 3) OKAY: Throw to first (gets one out, concedes a run, runners advance). The force at every base means you have options. Don't default to first base just because it's easy. The out at HOME is the most valuable because it's the only base where getting the out PREVENTS A RUN. Every other out lets the run score. In damage control, preventing runs is the priority.",
+        "whatToRemember": "With bases loaded, the force at home is the most valuable out because it prevents a run. Don't default to the easy throw to first. The hardest play to make is often the most valuable.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-k-attempt-okay": {
+      "type": "outcome",
+      "narration": "You go into strikeout mode -- curveball in the dirt, fastball up, changeup away. A big three-pitch sequence designed to punch the hitter out. But with bases loaded, the hitter is patient -- he's not chasing anything. Ball one, ball two. Now you're behind 2-0 and HAVE to throw a strike. You groove a fastball and the hitter smacks a single to right field. Two runs score. It's 5-5 tie game with runners on the corners. Your strikeout attempt turned into a meatball because you fell behind.",
+      "field": {
+        "ballPosition": { "x": 0.72, "y": 0.35 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Two-Run Single! Strikeout Attempt Backfired!",
+        "explanation": "Going for strikeouts with bases loaded is a high-risk strategy. The hitter knows you need strikes, so he's patient. He can afford to take borderline pitches because a walk forces in a run -- putting pressure on YOU to throw strikes. When you try for strikeouts and miss the zone, you fall behind, which forces you to throw a hittable pitch. In contrast, if you attack the zone from pitch one, you get ahead in the count and can finish the at-bat on YOUR terms. With bases loaded, ground balls are your friend because they create force outs and double plays. Fly balls can be caught. You don't need strikeouts -- you need outs on contact.",
+        "keyTerms": ["contact pitching", "zone attack"],
+        "whatToRemember": "With bases loaded, pitch for contact, not strikeouts. Ground balls create force outs and double plays. Strikeout attempts lead to deep counts, walks, and hitter's counts. Attack the zone and let the defense work.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.72, "y": 0.35 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-panic-bad": {
+      "type": "outcome",
+      "narration": "You start nibbling -- nothing over the plate. Ball one, ball two, ball three, ball four. WALK! The run from third is FORCED in! 5-4, bases are STILL loaded, and STILL nobody out! You just gave up a run without the batter even swinging the bat. Walks with the bases loaded are the worst thing a pitcher can do. Your catcher slams his mitt in frustration. Another walk and it's a tie game. Your coach is walking to the mound.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED - walk)" },
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Walk (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Bases-Loaded Walk! Run Forced In!",
+        "explanation": "A bases-loaded walk is the WORST outcome for a pitcher. It scores a run without the batter doing ANYTHING. No hit, no sacrifice, no skill involved -- you just gave away a run. And the worst part? The bases are STILL loaded with nobody out! The situation didn't improve at all. When you're scared to throw strikes because of the runners, you become your own worst enemy. Here's the truth: with bases loaded, the defense has a force play at EVERY base. A ground ball is almost guaranteed to get at least one out, and possibly two (double play). A fly ball is a catch. The only thing that GUARANTEES a bad result is a walk. Throw strikes and let the defense play. That's the ONLY way out of a jam.",
+        "whatToRemember": "NEVER walk batters with the bases loaded. A walk forces in a run and keeps the bases loaded. Throw strikes and let the defense make plays. Ground balls and fly balls are your friends -- walks are the enemy.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.58, "y": 0.92 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

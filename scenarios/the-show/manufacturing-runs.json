@@ -1,0 +1,232 @@
+{
+  "id": "the-show-manufacturing-runs",
+  "title": "Manufacturing Runs: Bunt, Hit-and-Run, or Swing Away",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "offense",
+  "tags": ["small-ball", "hit-and-run", "bunting", "baserunning", "game-management"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 1, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Tied 1-1 in the bottom of the 6th. Runner on first, nobody out. The batter at the plate is your 5-hitter -- a .280 hitter with decent power. The pitcher on the mound throws a heavy sinker and gets a lot of ground balls. Your runner has above-average speed. You're the manager in the dugout deciding the approach. Do you bunt the runner over, call a hit-and-run, or let your hitter swing away? Each choice has a different risk profile and expected value.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sacrifice-bunt",
+          "text": "Sacrifice bunt. Move the runner to second with nobody out. Give up the out to get the tying run into scoring position. That's textbook situational baseball.",
+          "nextNode": "decision-bunt-2"
+        },
+        {
+          "id": "hit-and-run",
+          "text": "Hit-and-run! The runner breaks with the pitch, the hitter MUST put the ball in play. It opens holes in the infield and eliminates the double play.",
+          "nextNode": "decision-hitrun-2"
+        },
+        {
+          "id": "swing-away",
+          "text": "Swing away. My 5-hitter is batting .280 -- let him hit. A double clears the runner. Don't give away outs in a tie game.",
+          "nextNode": "decision-swing-2"
+        }
+      ]
+    },
+    "decision-bunt-2": {
+      "type": "decision",
+      "narration": "Your hitter squares to bunt. The pitcher delivers a sinker down -- the hitter pushes the bunt toward the first baseman. The bunt is decent -- about 20 feet in front of the plate toward first. The first baseman charges, fields it, and throws to second... no! The runner is already there safely! The first baseman throws to first instead -- batter is out. Runner on second, one out. Classic sacrifice. Now the 6-hitter steps in -- he's batting .255. How do you approach this at-bat with the go-ahead run on second?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "hit-away",
+          "text": "Let him swing away. A single scores the go-ahead run from second. Put the bat in his hands.",
+          "nextNode": "outcome-bunt-hit-good"
+        },
+        {
+          "id": "bunt-again",
+          "text": "Bunt again! Move the runner to third. Then a sac fly, a ground ball, or a wild pitch scores the run.",
+          "nextNode": "outcome-bunt-bunt-okay"
+        }
+      ]
+    },
+    "decision-hitrun-2": {
+      "type": "decision",
+      "narration": "Hit-and-run is on! The runner breaks on the pitch, and the shortstop cheats toward second to cover the steal, opening a hole on the left side of the infield. The pitcher throws a sinker -- it's low and in the dirt. Your hitter HAS to swing because the runner is going. What happens?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.92 },
+        "highlight": ["Home", "SS"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (going!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "swing-miss",
+          "text": "The hitter swings and misses the pitch in the dirt. The catcher blocks it. Now the runner is between first and second -- does the catcher throw?",
+          "nextNode": "outcome-hitrun-miss-okay"
+        },
+        {
+          "id": "makes-contact",
+          "text": "The hitter reaches down and puts the ball in play -- weak grounder to the right side where the shortstop USED to be. The hole is open!",
+          "nextNode": "outcome-hitrun-contact-great"
+        }
+      ]
+    },
+    "decision-swing-2": {
+      "type": "decision",
+      "narration": "Your 5-hitter swings away on the first pitch -- a sinker down in the zone. He's a .280 hitter who can drive the ball. He swings and hits a ground ball to the shortstop. It's a potential double play! The shortstop flips to second -- force out on the runner! The throw goes to first... the hitter is... what's the call?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.55 },
+        "highlight": ["SS", "2B", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.55, "y": 0.5 }, "label": "Runner (force at 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "dp-turned",
+          "text": "Double play! The relay beat him to first. Two outs, nobody on. The sinker did exactly what sinkers do -- induced a ground ball into the teeth of the defense.",
+          "nextNode": "outcome-swing-dp-bad"
+        },
+        {
+          "id": "dp-broken",
+          "text": "The hitter hustles and beats the throw! Runner is out at second, but the batter is safe at first. One out, runner on first -- back to square one.",
+          "nextNode": "outcome-swing-dp-broken-okay"
+        }
+      ]
+    },
+    "outcome-bunt-hit-good": {
+      "type": "outcome",
+      "narration": "Your 6-hitter swings at a 1-1 fastball and lines it into right field for a single! The runner from second reads the ball off the bat and takes off -- he rounds third and scores easily! Go-ahead run! 2-1! The sacrifice bunt moved the runner to second, and a simple single brought him home. That's manufacturing a run: bunt to advance, single to score. It took two plate appearances, but you got the run you needed.",
+      "field": {
+        "ballPosition": { "x": 0.75, "y": 0.35 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "Runner SCORES!" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Go-Ahead Run Scores! Small Ball Works!",
+        "explanation": "The sacrifice bunt into a single is the classic 'manufactured run.' It works, and here the run scored. But let's look at the analytics: the sacrifice bunt reduced your run expectancy. With a runner on first and nobody out, the expected runs are 0.83. After the sac bunt (runner on second, one out), expected runs drop to 0.67. You traded 0.16 expected runs for a higher probability of scoring EXACTLY one run. In a tie game late, that trade-off can be worthwhile because one run might be all you need. But in other situations -- early in the game, or when you need multiple runs -- the bunt costs you expected runs.",
+        "whatToRemember": "The sacrifice bunt trades total run expectancy for a higher chance of scoring exactly one run. It's most valuable in tie games late. In other situations, letting your hitter swing may produce more total runs over time.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-bunt-bunt-okay": {
+      "type": "outcome",
+      "narration": "You bunt again -- runner moves to third, two outs now. You've used two outs to move a runner 180 feet. The 7-hitter steps in -- he's your weakest batter at .220. He grounds out to second to end the inning. Zero runs scored despite having a runner on first with nobody out to start. You gave away two outs with bunts and left it up to your worst hitter. The analytics HATE this: you went from 0.83 expected runs (runner on first, 0 outs) to 0.27 expected runs (runner on third, 2 outs). That's a 68% reduction in scoring potential.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Bunted Twice, Scored Zero. Too Many Outs Sacrificed.",
+        "explanation": "Two sacrifice bunts in a row is almost never correct. You traded TWO outs to move a runner from first to third, and then relied on your weakest hitter to drive him in. The math is devastating: runner on 1st, 0 outs = 0.83 expected runs. After bunt 1 (runner on 2nd, 1 out) = 0.67 expected runs. After bunt 2 (runner on 3rd, 2 outs) = 0.27 expected runs. Each bunt reduced your scoring expectancy. The first bunt was defensible -- moving from first to second with one out used. The second bunt was wasteful -- you gave up your second out to gain 90 feet of baserunning advancement. Outs are the most precious resource in an inning. Don't give away two of them.",
+        "whatToRemember": "Never sacrifice bunt twice in the same inning. Outs are too valuable. One bunt to advance a runner is sometimes smart; two bunts to advance the same runner 180 feet over two at-bats is almost always wrong.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    },
+    "outcome-hitrun-miss-okay": {
+      "type": "outcome",
+      "narration": "The hitter swings and misses at the sinker in the dirt. The catcher blocks it and looks at the runner -- he's already at second! The runner's head start on the hit-and-run was enough to steal the base even though the hitter missed. The catcher holds the ball. Now it's 0-1, runner on second, nobody out. You're in a decent spot, but the count went from 0-0 to 0-1 and the hitter used a swing on a ball in the dirt. The hit-and-run failed to produce contact but the runner advanced anyway because of his speed.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Swing and Miss, But Runner Advances. Lucky Break.",
+        "explanation": "This is the risk of the hit-and-run: the hitter MUST swing regardless of pitch quality. When the pitcher throws a sinker in the dirt, the hitter is swinging at an unhittable pitch. You got lucky -- the runner's speed allowed him to reach second safely despite the missed swing. But in a worse scenario, the catcher catches the pitch cleanly and throws the runner out at second (now it's 0-1, one out, nobody on -- much worse). The hit-and-run works best when: 1) The pitcher is a strike-thrower (fewer bad pitches to chase). 2) The hitter is a good contact hitter who can put bad pitches in play. 3) The runner is fast enough to steal if the hitter misses. Against a sinker-ball pitcher who throws balls in the dirt, the hit-and-run is risky because the hitter is swinging at garbage.",
+        "whatToRemember": "The hit-and-run is risky against sinkerball pitchers who throw balls in the dirt. The hitter must swing at everything, including unhittable pitches. Use the hit-and-run when the pitcher throws strikes, not when he throws dirt.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-hitrun-contact-great": {
+      "type": "outcome",
+      "narration": "The hitter reaches down and pokes the sinker through the hole where the shortstop was playing! The shortstop had cheated toward second base to cover the steal, opening a huge gap on the left side. The ground ball rolls into left field for a single! The runner, already sprinting from first, rounds second and races to third! First and third, nobody out -- all because the hit-and-run opened the hole AND gave the runner a 90-foot head start. This is manufacturing at its best: one play, two bases advanced, zero outs used.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.4 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "First and Third, Nobody Out! Hit-and-Run Perfection!",
+        "explanation": "This is the hit-and-run at its best, and it produced the best possible outcome of all three strategies. Compare: 1) Sacrifice bunt = runner on second, 1 out (0.67 expected runs). 2) Swing away = risk of double play. 3) Hit-and-run = first and third, 0 outs (1.60 expected runs). The hit-and-run succeeded because: the runner's movement pulled the shortstop toward second, opening a gap in the infield; the hitter put the ball in play on the ground (the most important requirement); and the runner's head start allowed him to go first-to-third on a single. The run expectancy jumped from 0.83 (runner on first, 0 outs) to 1.60 (first and third, 0 outs) -- nearly DOUBLED. That's the power of the hit-and-run when it works.",
+        "whatToRemember": "The hit-and-run at its best produces the highest run expectancy of any manufacturing play: it opens infield holes, gives the runner a head start, eliminates the double play, and preserves outs. The key is the hitter making contact.",
+        "keyTerms": [
+          { "term": "Hit-and-Run", "definition": "A play where the runner breaks with the pitch and the hitter must put the ball in play. Opens holes in the infield as defenders move to cover the steal, and eliminates the double play." },
+          { "term": "Manufacturing Runs", "definition": "Using strategic plays (bunts, hit-and-runs, steals, sac flies) to advance runners and score without relying on extra-base hits. Most valuable in low-scoring, tight games." },
+          { "term": "Run Expectancy Matrix", "definition": "A 24-cell table showing expected runs for each combination of base-out states (8 base states x 3 out states). The fundamental tool for evaluating whether a strategic play increases or decreases scoring potential." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-swing-dp-bad": {
+      "type": "outcome",
+      "narration": "Double play. Rally over before it started. You went from runner on first with nobody out to nobody on with two outs in one pitch. The run expectancy crashed from 0.83 to 0.10. The sinker pitcher did exactly what he wanted: induced a ground ball with a runner on first, and the defense turned two. This is why the sinkerball pitcher is the worst matchup for swing-away with a runner on first -- he lives on ground balls, and ground balls with a runner on first are double play fodder.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS", "2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Double Play! Rally Killed in One Pitch!",
+        "explanation": "The double play is the most damaging offensive outcome because it kills the inning AND erases a baserunner simultaneously. Against a sinkerball pitcher who generates ground balls 55%+ of the time, the probability of a double play with a runner on first and nobody out is significantly elevated. This is the exact scenario where manufacturing plays (bunts or hit-and-runs) have their highest value: they ELIMINATE the double play risk. A sacrifice bunt takes the double play off the table entirely. A hit-and-run reduces it dramatically because the runner's head start makes the force at second much harder. Swinging away against a ground-ball pitcher with a runner on first is accepting the highest double-play risk available.",
+        "whatToRemember": "Against sinkerball pitchers who generate ground balls, the double play risk with a runner on first is at its highest. This is when bunts and hit-and-runs are most valuable -- they eliminate or reduce the rally-killing double play.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-swing-dp-broken-okay": {
+      "type": "outcome",
+      "narration": "The double play is broken up -- your hitter hustled down the line and beat the throw! One out, runner on first. But the original runner was erased at second. You're essentially back to where you started: runner on first, except now there's one out instead of zero. You burned an out and erased your faster runner, replacing him with the slower batter at first. Not a disaster, but not progress either. Against a sinkerball pitcher, the ground ball was almost inevitable -- a manufacturing play would have turned that ground ball into an advantage instead of a reset.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Double Play Broken, But Back to Square One.",
+        "explanation": "Breaking up the double play saved you from the worst outcome, but you're now in a worse spot than when you started. Runner on first, zero outs (0.83 expected runs) became runner on first, one out (0.51 expected runs). You lost 0.32 expected runs by swinging away against a ground-ball pitcher. The bunt would have given you runner on second, one out (0.67 expected runs). The hit-and-run (if contact is made) would have given you runners on first and second or first and third with zero outs (1.40-1.60 expected runs). Both manufacturing plays outperform the swing-away outcome against this type of pitcher.",
+        "whatToRemember": "Against ground-ball pitchers with a runner on first, swing-away is often the lowest-expected-value option. Even when you avoid the double play, the ground ball tends to erase progress. Consider bunts or hit-and-runs to turn the ground ball tendency in your favor.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "id": "the-show-batting-order-strategy",
+  "title": "Building the Lineup: Analytics Meet Strategy",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "offense",
+  "tags": ["lineup-construction", "batting-order", "analytics", "game-management", "OBP"],
+  "setup": {
+    "inning": 0,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the manager setting your lineup before the game. Your top three hitters are: Player A -- .380 OBP, good speed, .270 average, 8 HRs; Player B -- .350 OBP, best power bat, .290 average, 22 HRs; Player C -- .410 OBP, patient hitter, .300 average, 12 HRs, slower runner. Traditional thinking says your best hitter bats third or fourth. Modern analytics say your best hitters should bat first or second to maximize plate appearances. How do you arrange the top of your lineup?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "analytics-order",
+          "text": "Analytics order: Player C leads off (.410 OBP gets on base most), Player B bats second (best hitter gets most PA with runners on), Player A bats third (fills the table-setter role).",
+          "nextNode": "decision-analytics-2"
+        },
+        {
+          "id": "traditional-order",
+          "text": "Traditional order: Player A leads off (speed + good OBP), Player C bats second (OBP + moves runners), Player B bats third (cleanup power).",
+          "nextNode": "decision-traditional-2"
+        },
+        {
+          "id": "hybrid-order",
+          "text": "Hybrid: Player A leads off (speed + OBP), Player B bats second (best hitter gets max PA), Player C bats third (high OBP extends rallies behind the best hitter).",
+          "nextNode": "decision-hybrid-2"
+        }
+      ]
+    },
+    "decision-analytics-2": {
+      "type": "decision",
+      "narration": "Player C leads off with the .410 OBP. First inning, he works a walk -- on base! Player B steps in batting second with a runner on first. He's your power bat with 22 home runs. With the best OBP guy getting on first and the best power bat hitting immediately behind him, you've maximized the chance of an early run. Player B launches a double into the gap! Player C, despite being slow, scores from first because the ball rolled to the wall. 1-0! The analytics lineup produced a run in the first inning. But now your coach questions: should a slow runner really be leading off? A faster player might have scored more easily.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Player B (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "stick-analytics",
+          "text": "Stick with the analytics order. The OBP is more important than speed at the top. Over a full season, the .410 OBP leadoff guy produces more runs than the .380 OBP guy, even with less speed.",
+          "nextNode": "outcome-analytics-stick-great"
+        },
+        {
+          "id": "swap-speed",
+          "text": "Move Player A to leadoff next game for the speed. The OBP difference between .410 and .380 isn't worth the baserunning limitations of a slow leadoff hitter.",
+          "nextNode": "outcome-analytics-swap-good"
+        }
+      ]
+    },
+    "decision-traditional-2": {
+      "type": "decision",
+      "narration": "Traditional lineup: speed guy leads off, OBP guy bats second, power bat cleans up. First inning, Player A singles and steals second. Player C works a walk -- first and second, nobody out. Player B steps in with runners in scoring position. But Player B has already seen two at-bats from other hitters, and the pitcher has settled in. Player B hits a sac fly, scoring Player A from third. 1-0. The traditional lineup produced a run, but Player B -- your best hitter -- only got a sac fly because the rally was partially spent by the time he batted. With two outs, the next batter grounds out.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Player C (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "keep-traditional",
+          "text": "Traditional works. The leadoff single, stolen base, and sac fly is classic run manufacturing. Speed at the top matters.",
+          "nextNode": "outcome-traditional-keep-okay"
+        },
+        {
+          "id": "reconsider",
+          "text": "Player B only got a sac fly because he hit third. If he batted second, he would have come up with the leadoff runner on base and had a chance for a bigger hit earlier in the inning.",
+          "nextNode": "outcome-traditional-reconsider-good"
+        }
+      ]
+    },
+    "decision-hybrid-2": {
+      "type": "decision",
+      "narration": "Hybrid lineup: speed leadoff, best hitter second, high OBP third. Player A leads off with a single and takes second on a stolen base. Player B steps in batting second -- your best hitter with the runner in scoring position. He has his pick of pitches because the pitcher doesn't want to put the go-ahead run on with the high-OBP Player C on deck. Player B drives a double to the wall! Player A scores from second easily with his speed. 1-0! And Player C is now up with a runner on second, and his .410 OBP means the inning keeps going. He walks, and the next hitter singles -- 2-0! Two-run first inning.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "keep-hybrid",
+          "text": "The hybrid is perfect! Speed sets the table, power drives the runs, OBP extends the inning. This is the best of both worlds.",
+          "nextNode": "outcome-hybrid-great"
+        },
+        {
+          "id": "question-order",
+          "text": "But Player C with the highest OBP should bat even higher in the order to get more plate appearances over the season. Is the hybrid really optimal, or should I put C first or second?",
+          "nextNode": "outcome-hybrid-question-good"
+        }
+      ]
+    },
+    "outcome-analytics-stick-great": {
+      "type": "outcome",
+      "narration": "You stick with the analytics lineup all season. Over 40 games, Player C's .410 OBP at leadoff gives your team an extra 12 baserunners compared to where Player A's .380 OBP would have. Those 12 extra times on base translate to roughly 4-5 extra runs over the season. The slow speed occasionally costs you a run when Player C can't score from first on a double, but the extra times on base MORE than compensate. Your team finishes with 15 more runs scored than last year's identical roster with a traditional lineup.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Analytics Lineup Produces 15 More Runs Over the Season!",
+        "explanation": "The reason OBP matters more than speed at the top of the lineup comes down to plate appearances and run creation. The leadoff spot gets approximately 20 more plate appearances per season than the third spot. Each point of OBP at the top of the order is amplified by those extra plate appearances. Player C's .410 OBP versus Player A's .380 OBP is a .030 gap -- that's 30 extra times reaching base per 1,000 plate appearances. Over a season, that translates to real runs. Speed has value, but OBP has MORE value at the top of the lineup because getting on base is the single most important contribution a leadoff hitter can make. The best speed in the world doesn't matter if you don't reach base.",
+        "whatToRemember": "OBP is the most important stat for the top of the lineup because getting on base creates run-scoring opportunities. Speed is secondary -- a fast runner who makes outs is worth less than a slow runner who reaches base frequently.",
+        "keyTerms": [
+          { "term": "OBP (On-Base Percentage)", "definition": "The percentage of plate appearances where a hitter reaches base via hit, walk, or hit-by-pitch. The single most important stat for leadoff hitters because you can't score without getting on base." },
+          { "term": "Lineup Optimization", "definition": "Arranging the batting order to maximize run production by putting the best hitters (highest OBP and wOBA) at the top of the order where they get the most plate appearances." },
+          { "term": "Plate Appearance Leverage", "definition": "The concept that lineup spots higher in the order get more plate appearances per season. Each PA for your best hitters is more valuable than a PA for your worst hitters, so best hitters should bat earliest." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-analytics-swap-good": {
+      "type": "outcome",
+      "narration": "You swap Player A to leadoff for his speed, moving Player C to the 3-hole. Player A steals more bases and scores from first on doubles more often. But over the course of the season, the .030 OBP gap means Player A reaches base less frequently than Player C would have. Those missed opportunities -- the walks Player C would have drawn, the extra at-bats for the power bat behind him -- add up. Your team scores 5 fewer runs than the analytics lineup would have produced. Speed helps you on the bases, but OBP gets you to the bases more often.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Speed Helps But OBP Gap Costs Runs Over a Season.",
+        "explanation": "Speed and OBP are both valuable, but they operate on different scales. Speed adds value AFTER you reach base -- stolen bases, extra bases on hits, scoring from first on doubles. OBP adds value by getting you on base more often in the first place. The math: Player C's .410 OBP gets him on base about 30 more times per season than Player A's .380 OBP. Each time a leadoff hitter reaches base, the expected runs for the team increase by about 0.25 runs. That's 7.5 expected runs from the OBP advantage. Player A's speed advantage might save 2-3 runs through stolen bases and extra bases. Net: the OBP leadoff hitter produces 4-5 more runs. Speed is a nice-to-have at leadoff; OBP is a must-have.",
+        "whatToRemember": "A .030 OBP advantage at leadoff is worth more than a significant speed advantage over a full season. OBP creates opportunity; speed exploits it. You need opportunity before you can exploit it.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-traditional-keep-okay": {
+      "type": "outcome",
+      "narration": "You stick with the traditional lineup. Over the season, your speed leadoff hitter steals 25 bases and scores from first on doubles regularly. But your best hitter, Player B, batting third means he gets 15 fewer plate appearances than if he batted first or second. He also comes up in the first inning with outs already on the board more often, reducing his opportunities to drive in runs early. The traditional lineup produces runs, but the analytics say you're leaving 10-15 runs on the table over a season compared to an optimized order.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Traditional Lineup Works, But Not Optimally.",
+        "explanation": "The traditional lineup isn't BAD -- it produces runs and has been used successfully for over a century. But modern analytics have shown it's suboptimal for two key reasons: 1) The best hitter batting third means he comes up in the first inning with 0, 1, or 2 outs instead of 0 outs -- reducing his chances to drive in runs with runners on. 2) He gets fewer plate appearances over a season than if he batted first or second. Every 15 lost plate appearances for your best hitter is roughly 5 lost runs of production. The traditional model values roles (leadoff = speed, 2 = contact, 3 = best hitter, 4 = power) over actual production optimization.",
+        "whatToRemember": "The traditional batting order values roles over production. Modern analytics show that putting your best overall hitters at the top of the order (1st or 2nd) maximizes their plate appearances and run production potential.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-traditional-reconsider-good": {
+      "type": "outcome",
+      "narration": "Good observation. Player B batting third means he came up third in the first inning -- after two outs were potentially burned by other hitters. If he batted second, he would have come up immediately after the leadoff hitter, maximizing his chances to hit with runners on base and with fewer outs. Analytics research shows that the second spot in the lineup gets the most plate appearances with runners on base in the first inning, making it the highest-leverage spot for your best hitter. You decide to move Player B to second for the next game.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Smart Adjustment! Best Hitter Moves to Second.",
+        "explanation": "Recognizing that the 2-hole is the best spot for your best hitter is a key analytical insight. Here's the data: the #2 hitter gets approximately 7 more plate appearances per season with runners on base than the #3 hitter. He also comes up in the first inning guaranteed to have at most one out, not two. Over a full season, moving your best hitter from third to second produces an estimated 5-8 additional runs -- that's nearly a full win just from lineup positioning. The second spot in the lineup is where the highest-OBP, highest-wOBA hitter should bat because it maximizes both plate appearances AND opportunities with runners in scoring position.",
+        "whatToRemember": "The #2 spot in the batting order is the optimal position for your best overall hitter. It maximizes plate appearances with runners on base and ensures the hitter comes up early in every inning.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-hybrid-great": {
+      "type": "outcome",
+      "narration": "The hybrid lineup produces the best results all season. Player A's speed at leadoff creates stolen-base opportunities and extra-base advancement. Player B's power in the 2-hole gives him maximum plate appearances with runners on. Player C's .410 OBP in the 3-hole extends rallies after the power bat. Your team leads the league in first-inning runs scored. The hybrid combined the best of analytics (best hitter batting second, high OBP at top) with traditional wisdom (speed at leadoff to create pressure). Over the season, your team scores 20 more runs than any other lineup configuration would have produced.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Hybrid Lineup Maximizes Run Production!",
+        "explanation": "The hybrid lineup works because it assigns each hitter to the role that maximizes THEIR specific value: Player A (speed + good OBP) leads off where his speed creates immediate pressure and his .380 OBP is strong enough to get on base frequently. Player B (best overall hitter) bats second where he gets maximum plate appearances with the high-OBP Player A on base ahead of him. Player C (highest OBP) bats third where his patience extends rallies after the power bat and keeps the line moving. This is the modern analytical consensus: the lineup should be arranged so that each hitter's specific skills are deployed at the position where those skills have the highest impact. Speed has the most impact at leadoff. Power has the most impact with runners on (2nd). OBP has the most impact extending rallies (3rd).",
+        "whatToRemember": "The optimal lineup matches each player's primary skill to the lineup position where that skill has maximum impact: speed leadoff, best hitter second, high OBP third. This maximizes total run production over a season.",
+        "keyTerms": [
+          { "term": "Lineup Synergy", "definition": "The idea that batting order positions should be matched to player skill sets -- speed at leadoff, power at 2nd, OBP at 3rd -- to maximize the combined effect of all hitters working in sequence." },
+          { "term": "Run Production Chain", "definition": "The concept that runs are manufactured by a chain: getting on base (leadoff), driving runners in (2-hole), extending rallies (3-hole). Each link in the chain amplifies the others." },
+          { "term": "Modern 2-Hole", "definition": "In analytics-informed lineups, the #2 spot has replaced the #3 or #4 spot as the premium hitting position because it receives the most plate appearances with runners on base." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-hybrid-question-good": {
+      "type": "outcome",
+      "narration": "Good question! The analytics would say Player C (highest OBP) should bat first or second to maximize his plate appearances. But the hybrid acknowledges a real-world factor: speed at leadoff creates pressure that pure OBP doesn't. A fast leadoff hitter who reaches base forces the pitcher to throw over, changes the middle infield positioning, and creates stolen-base opportunities that slow the game in your favor. Player A at leadoff with .380 OBP is 'good enough' to get on base frequently, while his speed adds value that Player C's legs can't. The pure analytics lineup with Player C leading off is slightly better on paper, but the hybrid captures speed value that the analytics model underweights.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Valid Question! Pure Analytics vs. Hybrid Has Trade-Offs.",
+        "explanation": "The debate between pure analytics (highest OBP leads off) and hybrid (speed+OBP leads off) comes down to how much you value speed's unmeasured contributions. Traditional stats and even modern WAR models capture stolen bases and extra bases taken, but they don't fully capture: 1) The distraction a fast runner creates for the pitcher. 2) The positioning changes the defense makes for a speed threat. 3) The psychological pressure on the opposing team. If you value these 'invisible' speed contributions, the hybrid (Player A leading off) is better. If you trust pure run expectancy math, Player C leading off produces more runs on paper. Both approaches are defensible -- the key is understanding the trade-offs.",
+        "whatToRemember": "The debate between OBP-first and speed-first at leadoff has no definitive answer. Pure analytics favors OBP; hybrid approaches value speed's unmeasured contributions. Either way, the best hitter should bat second.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "id": "the-show-reading-pickoff-tells",
+  "title": "Reading the Pitcher: Pickoff Tells",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "offense",
+  "tags": ["baserunning", "pickoff-tells", "pitcher-reading", "stealing", "observation"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 1, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on first base, tie game, nobody out. You have the steal sign from your coach. The pitcher is a right-hander working from the stretch. You've been watching him for four innings and you've noticed some patterns. Before throwing to first, he tends to peek at you twice -- but before pitching home, he only peeks once. Also, when he's going home, his front heel lifts BEFORE his knee comes up. When he's going to first, his knee comes up first and the heel stays flat. What are you keying on to get your jump?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.72, "y": 0.58 }, "label": "You (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "read-heel",
+          "text": "Key on the front heel. The moment I see the heel lift, I know it's a pitch -- I break for second before the ball even leaves his hand. If the heel stays flat and the knee comes up first, I know it's a pickoff and I dive back.",
+          "nextNode": "decision-heel-2"
+        },
+        {
+          "id": "read-looks",
+          "text": "Key on the head peeks. One look = going home. Two looks = pickoff coming. After his first peek, I wait -- if he looks again, I stay. If he starts his delivery, I go.",
+          "nextNode": "decision-looks-2"
+        },
+        {
+          "id": "read-both",
+          "text": "Use BOTH tells together. Wait for one peek (not two) AND the heel lift. When both confirm 'going home,' I get my best jump because I have double confirmation.",
+          "nextNode": "outcome-both-great"
+        },
+        {
+          "id": "just-go",
+          "text": "Forget reading the pitcher -- just get a good secondary lead and go on first move. React to motion, not tells.",
+          "nextNode": "outcome-just-go-okay"
+        }
+      ]
+    },
+    "decision-heel-2": {
+      "type": "decision",
+      "narration": "You're keying on the front heel. The pitcher comes set, peeks at you once, and starts his delivery. His front heel lifts -- you BREAK for second! But wait -- his knee hasn't come up yet. Is this a pitch or a pickoff? You committed on the heel lift. What happens next?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.56 }, "label": "You (breaking!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "heel-correct",
+          "text": "The heel lift was the tell -- he's going home! His leg kicks up and the pitch heads to the plate. I'm gone with a great jump!",
+          "nextNode": "outcome-heel-correct-great"
+        },
+        {
+          "id": "heel-fake",
+          "text": "He lifts his heel BUT steps to first instead! The pitcher changed his pattern! The tell I was reading wasn't reliable this time. Now I'm caught between first and second.",
+          "nextNode": "outcome-heel-fake-bad"
+        }
+      ]
+    },
+    "decision-looks-2": {
+      "type": "decision",
+      "narration": "You're counting head peeks. The pitcher comes set, peeks at you once, and starts to coil his leg. One look = going home, right? You break! But the pitcher's leg drive is different this time. He looks like he's going to first, not home. Did the one-look tell fail?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.56 }, "label": "You (breaking!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "looks-worked",
+          "text": "The one-look tell holds! He goes home with the pitch. My jump is clean and I'm running to second!",
+          "nextNode": "outcome-looks-correct-good"
+        },
+        {
+          "id": "looks-failed",
+          "text": "The one-look tell failed -- he throws to first! He changed his pattern and only looked once before the pickoff. I'm hung out.",
+          "nextNode": "outcome-looks-failed-okay"
+        }
+      ]
+    },
+    "outcome-heel-correct-great": {
+      "type": "outcome",
+      "narration": "The heel lift was the tell -- he's going home! You break the instant you see it, a full beat before the pitch is released. Your jump is outstanding -- you're three steps toward second before the catcher even receives the ball. The catcher fires to second, but your head start is too much. You slide in SAFE standing up! Stolen base! The heel tell gave you the earliest possible read on the pitcher's intention, which translated into the biggest possible head start.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STOLEN BASE! Heel Tell Gave You the Perfect Jump!",
+        "explanation": "Reading the pitcher's front foot is one of the most reliable tells in baserunning because it's connected to the pitcher's core mechanics. When a right-handed pitcher goes home, his front leg must lift and drive toward home plate. The heel lift is the first micro-movement in that chain. When he throws to first, his front foot steps TOWARD first base -- a completely different motion that starts with a flat foot. By keying on the heel, you're reading the pitcher's body BEFORE his arm reveals the direction of the throw. This gives you a 200-300 millisecond head start compared to waiting for the arm motion. Over 90 feet, that head start is the difference between safe and out.",
+        "whatToRemember": "The front heel lift is one of the earliest and most reliable tells for a right-handed pitcher going home. Train your eyes to read the pitcher's feet, not his arms -- the feet commit before the hands do.",
+        "keyTerms": [
+          { "term": "Pitcher's Tell", "definition": "A subtle physical cue in a pitcher's delivery that reveals whether he's throwing to a base or to home plate. Tells can be in the feet, head, glove, or shoulder movement." },
+          { "term": "First-Move Read", "definition": "The baserunner's technique of reading the pitcher's first physical movement to determine whether the ball is going home or to a base. The earliest readable movement gives the biggest head start." },
+          { "term": "Jump Quality", "definition": "How quickly and decisively a baserunner breaks toward the next base after reading the pitcher. Measured in steps gained before the catcher receives the ball. A great jump is 3+ steps." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-heel-fake-bad": {
+      "type": "outcome",
+      "narration": "The pitcher lifted his heel -- your tell said 'going home' -- but he steps toward first and fires a throw! You're caught leaning! You scramble back toward first but the throw beats you. You're tagged out. The pitcher CHANGED his pattern because his catcher noticed you were reading the heel. Smart pitchers can fake or alter their tells once they realize a runner is keying on them. You relied on a single tell without backup confirmation, and the pitcher exploited it.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Picked Off! Pitcher Changed His Tell!",
+        "explanation": "This is the danger of relying on a SINGLE tell. Smart pitchers and catchers study baserunners just as carefully as baserunners study pitchers. When a pitcher notices a runner getting great jumps, he'll deliberately alter or fake his tells. The heel lift that meant 'going home' for four innings suddenly meant 'pickoff throw' in the fifth. The solution: never rely on ONE tell. Use multiple confirms. The head peek pattern PLUS the heel lift gives you redundancy. If the head says 'going home' AND the heel says 'going home,' the read is much more reliable than either tell alone. Double confirmation protects you against tell manipulation.",
+        "whatToRemember": "Never rely on a single tell. Pitchers can alter or fake tells. Use two or more confirms: head peeks AND body mechanics AND timing patterns. Multiple tells that all agree give you the safest jump.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-looks-correct-good": {
+      "type": "outcome",
+      "narration": "The one-look tell holds -- he goes home! You get a good jump and sprint toward second. The catcher throws, it's close, but you slide in SAFE! Stolen base! The head-peek tell worked, though your jump wasn't quite as early as it would have been if you'd read the heel. The head peek confirmed 'going home' but you had to wait a beat longer to be sure, which cost you a half-step of head start.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "SAFE! Head-Peek Tell Works But Jump Was Late.",
+        "explanation": "The head-peek tell is reliable but SLOWER than the heel tell. Here's why: the head peek happens BEFORE the pitcher begins his delivery motion. After the peek, there's still a pause before the heel lift, then the leg kick, then the pitch. By waiting to confirm the peek count, you missed the earlier heel lift that would have gotten you moving sooner. The head peek is a useful FIRST confirmation, but the heel lift is the ACTION signal. The ideal read is: count the peeks (one peek = likely going home), then confirm with the heel lift (heel lifts = definitely going home), then break. The peek is the pre-read; the heel is the go-signal.",
+        "whatToRemember": "Head peeks are good pre-reads but provide a later signal than body mechanics. Use peeks to anticipate what's coming, then confirm with the heel lift or leg kick to get your jump. Peeks alone give a safe but late jump.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-looks-failed-okay": {
+      "type": "outcome",
+      "narration": "The pitcher only looked once but threw to first! He changed his peek pattern. You're caught leaning toward second, but you manage to dive back to first just in time -- SAFE! Close call. The one-look tell that worked for four innings just failed. The pitcher or catcher noticed you were reading the peeks and adjusted. You need a more reliable confirmation than peek count alone.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "You (SAFE, barely)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Barely Safe! Head-Peek Tell Was Changed.",
+        "explanation": "Head-peek patterns are the easiest tells for pitchers to manipulate. A pitcher can simply look at the runner a different number of times on purpose to throw off the read. Physical tells (heel lifts, shoulder alignment, glove position) are harder to fake because they're connected to the pitcher's mechanics. Changing where you look is easy; changing how your body moves is hard. That's why the best baserunners use body mechanics as their primary read and head peeks as secondary confirmation. The peeks help you anticipate, but the body tells you the truth.",
+        "whatToRemember": "Head-peek patterns are easy for pitchers to manipulate. Body mechanics (heel lift, knee drive, shoulder turn) are harder to fake because they're tied to the delivery. Use body tells as your primary read.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-both-great": {
+      "type": "outcome",
+      "narration": "You use BOTH tells as a confirmation system. The pitcher comes set, peeks at you once -- first confirmation, likely going home. He starts his delivery, and the front heel lifts -- second confirmation, DEFINITELY going home! You BREAK with maximum confidence and explosive acceleration! The double confirmation eliminated all doubt, so your first step is aggressive and decisive. You're four steps toward second before the catcher receives the pitch. The throw to second isn't even close. SAFE standing up! The best stolen base of the game, because your jump quality was elite -- zero hesitation, full commitment, powered by double-confirmed certainty.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE standing!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "SAFE STANDING UP! Double-Confirmed Jump Is Unbeatable!",
+        "explanation": "Using two independent tells to confirm each other is the highest-IQ baserunning approach. Here's why it's better than either tell alone: 1) The head peek (one look = going home) gave you an EARLY pre-read. You knew the pitch was likely coming. 2) The heel lift confirmed the pre-read with a MECHANICAL signal that's harder to fake. 3) When both tells agreed, you had ZERO doubt. Zero doubt means maximum commitment on your first step. 4) Maximum commitment means the fastest acceleration, which produces the biggest head start. This is called 'stacking tells' -- each additional confirmation reduces your uncertainty and increases your commitment. A single tell gives you 70% confidence. Double tells give you 95%+ confidence. That confidence gap translates directly into jump quality because hesitation is the enemy of stolen bases.",
+        "whatToRemember": "Stack multiple tells for maximum jump quality. Use the head peek as a pre-read and the body mechanics (heel lift) as the confirmation. When both agree, commit with zero hesitation. Double confirmation = fastest first step.",
+        "keyTerms": [
+          { "term": "Stacking Tells", "definition": "Using two or more independent tells simultaneously to confirm the pitcher's intention. Reduces uncertainty and increases commitment, producing better jump quality." },
+          { "term": "Pre-Read", "definition": "An early tell (like head-peek count) that gives the baserunner an initial prediction of the pitcher's intention. Not definitive alone, but valuable when confirmed by a secondary tell." },
+          { "term": "Mechanical Tell", "definition": "A physical movement in the pitcher's delivery (heel lift, shoulder alignment, glove position) that is difficult to fake because it's connected to the biomechanics of throwing. More reliable than behavioral tells like head peeks." },
+          { "term": "Commitment Speed", "definition": "How quickly a runner transitions from reading the pitcher to explosive acceleration toward the next base. Directly correlated to confidence in the read -- higher confidence = faster commitment." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-just-go-okay": {
+      "type": "outcome",
+      "narration": "You decide to just react to the pitcher's first movement and run. No reading tells, no studying patterns -- just go. The pitcher comes set, and you break on his first movement. But that first movement was a pickoff throw! You're caught leaning and have to dive back. SAFE, barely. Next pitch, you try again -- you break on his first move, but you're a half-step slow because you didn't KNOW it was going to be a pitch until the ball was already on its way to the plate. The catcher throws you out at second by a step. Without reading tells, your jump was purely reactive, which is always slower than a read-based jump.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Thrown Out. Reactive Running Can't Beat a Good Catcher.",
+        "explanation": "Running without reading the pitcher is like driving without headlights -- you're reacting instead of anticipating. A purely reactive runner breaks AFTER the pitcher commits to home plate. A tell-reading runner breaks BEFORE the pitcher commits, because he's already identified the pre-delivery cues. That timing difference is typically 200-400 milliseconds, which translates to 2-4 feet over a 90-foot sprint. Against an average catcher, those feet don't matter much. Against a good catcher with a 1.9-second pop time, those feet are the difference between safe and out. Elite baserunning is about ANTICIPATION, not reaction. Read the pitcher, confirm the tell, and break with conviction.",
+        "whatToRemember": "Reacting to the pitcher's delivery is always slower than reading his tells and anticipating. The 200-400 millisecond advantage from reading tells translates to 2-4 feet of head start -- often the margin between safe and out.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    }
+  }
+}

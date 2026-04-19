@@ -8,7 +8,7 @@ import { FieldCanvas } from './renderer/field-canvas.js';
 import { Scoreboard } from './renderer/scoreboard.js';
 import { GameState } from './engine/game-state.js';
 import { loadScenarioList, loadScenario, getRandomScenario } from './engine/scenario-loader.js';
-import { PlayerAuth } from './ui/player-auth.js';
+import { PlayerAuth, AVATAR_SVGS } from './ui/player-auth.js';
 
 // ---- State ----
 const game = new GameState();
@@ -49,6 +49,7 @@ function renderTeamGrid() {
     card.className = 'team-card';
     card.style.background = team.primary;
     card.style.color = team.secondary;
+    card.style.setProperty('--team-glow', team.primary + '80');
     card.innerHTML = `
       <span class="team-abbr">${team.abbr}</span>
       <span class="team-name">${team.city} ${team.name}</span>
@@ -325,9 +326,9 @@ function renderDecision(node, nodeId) {
 
       if (choice.disabledReason) {
         btn.classList.add('disabled');
-        btn.innerHTML = `<span class="choice-letter">${letters[i]}.</span>${choice.text} <span style="font-size:0.8rem;color:var(--text-muted)">— ${choice.disabledReason}</span>`;
+        btn.innerHTML = `<span class="choice-letter">${letters[i]}</span><span class="choice-text">${choice.text} <span style="font-size:0.8rem;color:var(--text-muted)">-- ${choice.disabledReason}</span></span>`;
       } else {
-        btn.innerHTML = `<span class="choice-letter">${letters[i]}.</span>${choice.text}`;
+        btn.innerHTML = `<span class="choice-letter">${letters[i]}</span><span class="choice-text">${choice.text}</span>`;
         btn.addEventListener('click', () => {
           // Record choice in history (game-state's makeChoice auto-advances,
           // but we drive node transitions ourselves)
@@ -392,8 +393,12 @@ function renderOutcome(node, nodeId) {
     iqPoints: outcome.iqPoints,
   });
 
-  // Update IQ display
-  document.getElementById('game-iq-display').textContent = `IQ: ${game.state.totalIQ}`;
+  // Update IQ display with animation
+  const iqEl = document.getElementById('game-iq-display');
+  iqEl.textContent = `IQ: ${game.state.totalIQ}`;
+  iqEl.classList.remove('iq-bump');
+  void iqEl.offsetWidth; // force reflow to restart animation
+  iqEl.classList.add('iq-bump');
 
   // Save result to server if we have a session
   if (currentSessionId) {
@@ -483,12 +488,28 @@ function showReview() {
     currentSessionId = null;
   }
 
+  // Score ring SVG dimensions
+  const ringR = 58;
+  const ringCirc = 2 * Math.PI * ringR;
+  const ringOffset = ringCirc - (ringCirc * Math.min(pct, 100) / 100);
+  const gradeClass = grade.startsWith('A') ? 'grade-a' : grade.startsWith('B') ? 'grade-b' : grade.startsWith('C') ? 'grade-c' : 'grade-d';
+
   container.innerHTML = `
     <div class="review-header">
       <div class="logo">DIAMOND <span class="logo-accent">IQ</span></div>
       <div class="review-title">Session Complete</div>
+      <div class="review-score-ring">
+        <svg viewBox="0 0 140 140">
+          <circle class="ring-bg" cx="70" cy="70" r="${ringR}"/>
+          <circle class="ring-fill" cx="70" cy="70" r="${ringR}" stroke-dasharray="${ringCirc}" stroke-dashoffset="${ringOffset}"/>
+        </svg>
+        <div class="ring-label">
+          <span class="ring-grade ${gradeClass}" style="color: ${grade.startsWith('A') ? 'var(--great)' : grade.startsWith('B') ? 'var(--good)' : grade.startsWith('C') ? 'var(--okay)' : 'var(--bad)'}">${grade}</span>
+          <span class="ring-pct">${Math.round(pct)}%</span>
+        </div>
+      </div>
       <div class="review-iq-score">${totalIQ} IQ</div>
-      <div class="review-grade">Grade: ${grade} (${Math.round(pct)}%) &mdash; ${history.length} scenario${history.length !== 1 ? 's' : ''}</div>
+      <div class="review-grade">${history.length} scenario${history.length !== 1 ? 's' : ''} completed</div>
     </div>
     <div class="review-list">
       ${history.filter(h => h.outcome).map(h => `
@@ -539,13 +560,19 @@ function createSituationBar(setup) {
   if (setup.runners.third) runners.push('3rd');
   const runnerText = runners.length > 0 ? runners.join(', ') : 'Empty';
 
+  // Small SVG icons for situation bar
+  const inningSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>`;
+  const outsSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="5" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="11" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
+  const scoreSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="1"/></svg></span>`;
+  const runnerSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><path d="M8 2L14 8L8 14L2 8Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
+
   const sitBar = document.createElement('div');
   sitBar.className = 'situation-bar';
   sitBar.innerHTML = `
-    <div class="sit-item"><span class="sit-label">Inn</span> ${setup.topBottom === 'top' ? 'Top' : 'Bot'} ${setup.inning}</div>
-    <div class="sit-item"><span class="sit-label">Outs</span> ${setup.outs}</div>
-    <div class="sit-item"><span class="sit-label">Score</span> ${setup.score.away}-${setup.score.home}</div>
-    <div class="sit-item"><span class="sit-label">Runners</span> ${runnerText}</div>
+    <div class="sit-item">${inningSvg}<span class="sit-label">Inn</span> ${setup.topBottom === 'top' ? 'Top' : 'Bot'} ${setup.inning}</div>
+    <div class="sit-item">${outsSvg}<span class="sit-label">Outs</span> ${setup.outs}</div>
+    <div class="sit-item">${scoreSvg}<span class="sit-label">Score</span> ${setup.score.away}-${setup.score.home}</div>
+    <div class="sit-item">${runnerSvg}<span class="sit-label">Runners</span> ${runnerText}</div>
   `;
   return sitBar;
 }
@@ -592,13 +619,10 @@ function updatePlayerHeader() {
   if (existing) existing.remove();
 
   if (player) {
-    const AVATAR_MAP = {
-      slugger: '\u26BE', rocket: '\uD83D\uDE80', glove: '\uD83E\uDD4E', lightning: '\u26A1',
-      fire: '\uD83D\uDD25', star: '\u2B50', diamond: '\uD83D\uDC8E', trophy: '\uD83C\uDFC6',
-    };
+    const avatarSvg = AVATAR_SVGS[player.avatar] || AVATAR_SVGS.ball;
     const btn = document.createElement('button');
     btn.className = 'player-profile-btn';
-    btn.innerHTML = `<span class="profile-avatar">${AVATAR_MAP[player.avatar] || '\u26BE'}</span>
+    btn.innerHTML = `<span class="profile-avatar">${avatarSvg}</span>
       <span>${player.display_name}</span>
       <span class="profile-iq">${player.cumulative_iq || 0} IQ</span>`;
     btn.addEventListener('click', () => {

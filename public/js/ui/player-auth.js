@@ -4,16 +4,30 @@
  * Supports guest mode (skip login).
  */
 
+// SVG icon definitions for avatars — no emojis, pure vector
+const AVATAR_SVGS = {
+  slugger: `<svg viewBox="0 0 32 32" fill="none"><rect x="14" y="2" width="4" height="24" rx="2" fill="currentColor"/><rect x="12" y="24" width="8" height="4" rx="1" fill="currentColor" opacity="0.7"/><circle cx="16" cy="4" r="2" fill="currentColor"/></svg>`,
+  glove: `<svg viewBox="0 0 32 32" fill="none"><path d="M8 18c0-6 3-14 8-14s8 8 8 14c0 4-3 8-8 8s-8-4-8-8z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 12c0-3 1.5-6 4-6s4 3 4 6" stroke="currentColor" stroke-width="1.5" fill="none"/><ellipse cx="16" cy="20" rx="5" ry="4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`,
+  cap: `<svg viewBox="0 0 32 32" fill="none"><path d="M6 18c0-6 4.5-10 10-10s10 4 10 10" stroke="currentColor" stroke-width="2" fill="none"/><rect x="4" y="17" width="24" height="4" rx="2" fill="currentColor"/><path d="M4 19h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="8" x2="16" y2="14" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  diamond: `<svg viewBox="0 0 32 32" fill="none"><path d="M16 2L30 16L16 30L2 16Z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 8L24 16L16 24L8 16Z" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>`,
+  homeplate: `<svg viewBox="0 0 32 32" fill="none"><path d="M8 6h16l0 12l-8 10l-8-10z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+  ball: `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 6c2 3 2 7 0 10s-2 7 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M22 6c-2 3-2 7 0 10s2 7 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  trophy: `<svg viewBox="0 0 32 32" fill="none"><path d="M10 4h12v10c0 4-2.5 7-6 7s-6-3-6-7V4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 8H6c0 4 2 6 4 6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M22 8h4c0 4-2 6-4 6" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="13" y="21" width="6" height="3" rx="1" fill="currentColor" opacity="0.6"/><rect x="11" y="24" width="10" height="3" rx="1" fill="currentColor"/></svg>`,
+  star: `<svg viewBox="0 0 32 32" fill="none"><path d="M16 3l3.7 7.5L28 12l-6 5.8 1.4 8.2L16 22l-7.4 4 1.4-8.2L4 12l8.3-1.5z" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+};
+
 const AVATARS = [
-  { key: 'slugger', emoji: '\u26BE', label: 'Slugger' },
-  { key: 'rocket', emoji: '\uD83D\uDE80', label: 'Rocket Arm' },
-  { key: 'glove', emoji: '\uD83E\uDD4E', label: 'Gold Glove' },
-  { key: 'lightning', emoji: '\u26A1', label: 'Speed Demon' },
-  { key: 'fire', emoji: '\uD83D\uDD25', label: 'On Fire' },
-  { key: 'star', emoji: '\u2B50', label: 'All-Star' },
-  { key: 'diamond', emoji: '\uD83D\uDC8E', label: 'Diamond' },
-  { key: 'trophy', emoji: '\uD83C\uDFC6', label: 'Champ' },
+  { key: 'slugger', label: 'Slugger' },
+  { key: 'glove', label: 'Gold Glove' },
+  { key: 'cap', label: 'Cap' },
+  { key: 'diamond', label: 'Diamond' },
+  { key: 'homeplate', label: 'Home Plate' },
+  { key: 'ball', label: 'Ball' },
+  { key: 'trophy', label: 'Champ' },
+  { key: 'star', label: 'All-Star' },
 ];
+
+export { AVATAR_SVGS };
 
 export class PlayerAuth {
   constructor() {
@@ -109,7 +123,7 @@ export class PlayerAuth {
       const btn = document.createElement('button');
       btn.className = 'avatar-btn' + (av.key === 'slugger' ? ' selected' : '');
       btn.dataset.key = av.key;
-      btn.innerHTML = `<span class="avatar-emoji">${av.emoji}</span><span class="avatar-label">${av.label}</span>`;
+      btn.innerHTML = `<span class="avatar-icon">${AVATAR_SVGS[av.key]}</span><span class="avatar-label">${av.label}</span>`;
       btn.addEventListener('click', () => {
         avatarGrid.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');

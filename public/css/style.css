@@ -38,6 +38,10 @@ html, body {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-dark);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(245, 166, 35, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(255,255,255,0.02) 0%, transparent 40%);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
 }
@@ -48,10 +52,25 @@ body {
   position: absolute;
   inset: 0;
   overflow-y: auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .screen.active {
   display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Force the transition to play on activation via a tiny reflow trick */
+.screen.active {
+  animation: screenFadeIn 0.35s ease forwards;
+}
+
+@keyframes screenFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---- LOGO ---- */
@@ -127,15 +146,21 @@ body {
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all 0.2s ease, transform 0.15s ease;
   text-align: center;
   min-height: 80px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .team-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
   border-color: rgba(255,255,255,0.3);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 20px var(--team-glow, rgba(255,255,255,0.1));
+}
+
+.team-card:active {
+  transform: scale(1.08);
+  transition: transform 0.1s ease;
 }
 
 .team-card .team-abbr {
@@ -183,8 +208,15 @@ body {
 }
 
 .sport-icon {
-  font-size: 3rem;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sport-icon svg {
+  width: 56px;
+  height: 56px;
 }
 
 .sport-name {
@@ -327,7 +359,7 @@ body {
 
 .btn-menu {
   font-size: 1.2rem;
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   border: 1px solid rgba(255,255,255,0.15);
   background: transparent;
@@ -335,6 +367,11 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-menu:hover {
@@ -359,7 +396,8 @@ body {
 .menu-item {
   display: block;
   width: 100%;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
   font-family: inherit;
   font-size: 0.85rem;
   font-weight: 500;
@@ -460,6 +498,7 @@ body {
   gap: 1rem;
   padding: 0.8rem 1rem;
   background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-sm);
   margin-bottom: 1.2rem;
   font-size: 0.82rem;
@@ -470,7 +509,22 @@ body {
 .situation-bar .sit-item {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
+}
+
+.situation-bar .sit-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.situation-bar .sit-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 .situation-bar .sit-label {
@@ -488,42 +542,61 @@ body {
 }
 
 .choice-btn {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
   width: 100%;
   padding: 1rem 1.2rem;
   background: var(--bg-card);
   border: 2px solid rgba(255,255,255,0.08);
+  border-left: 4px solid var(--team-primary);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-family: inherit;
   font-size: 0.95rem;
   text-align: left;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all 0.2s ease;
   line-height: 1.4;
+  min-height: 48px;
 }
 
 .choice-btn:hover {
   border-color: var(--team-primary);
   background: var(--bg-card-hover);
-  transform: translateX(4px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 .choice-btn:active {
-  transform: translateX(2px);
+  transform: translateY(0);
 }
 
 .choice-btn.disabled {
   opacity: 0.4;
   cursor: not-allowed;
   transform: none !important;
+  box-shadow: none !important;
 }
 
 .choice-btn .choice-letter {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  color: var(--team-primary);
-  margin-right: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--team-secondary);
+  background: var(--team-primary);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  line-height: 1;
+}
+
+.choice-btn .choice-text {
+  flex: 1;
 }
 
 /* ---- OUTCOME DISPLAY ---- */
@@ -543,10 +616,10 @@ body {
   margin-bottom: 0.8rem;
 }
 
-.outcome-headline.great { color: var(--great); }
-.outcome-headline.good { color: var(--good); }
-.outcome-headline.okay { color: var(--okay); }
-.outcome-headline.bad { color: var(--bad); }
+.outcome-headline.great { color: var(--great); text-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+.outcome-headline.good { color: var(--good); text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+.outcome-headline.okay { color: var(--okay); text-shadow: 0 0 20px rgba(234, 179, 8, 0.3); }
+.outcome-headline.bad { color: var(--bad); text-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
 
 .outcome-explanation {
   font-size: 0.95rem;
@@ -557,11 +630,12 @@ body {
 
 .outcome-terms {
   background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-left: 3px solid var(--good);
-  border-radius: var(--radius-sm);
-  padding: 0.8rem 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-left: 4px solid var(--good);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .outcome-terms-label {
@@ -586,11 +660,12 @@ body {
 
 .outcome-remember {
   background: rgba(245, 166, 35, 0.08);
-  border: 1px solid rgba(245, 166, 35, 0.2);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 166, 35, 0.15);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
   padding: 1rem 1.2rem;
   margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .outcome-remember-label {
@@ -613,6 +688,24 @@ body {
   font-size: 1.2rem;
   color: var(--accent);
   margin-bottom: 1.5rem;
+  animation: iqPop 0.5s ease;
+}
+
+@keyframes iqPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.iq-display.iq-bump {
+  animation: iqHeaderBump 0.4s ease;
+}
+
+@keyframes iqHeaderBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); color: #fff; }
+  100% { transform: scale(1); }
 }
 
 .btn-next-scenario {
@@ -729,6 +822,54 @@ body {
   letter-spacing: 0.04em;
 }
 
+.review-score-ring {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 1rem auto;
+}
+
+.review-score-ring svg {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.review-score-ring .ring-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 8;
+}
+
+.review-score-ring .ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.review-score-ring .ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-score-ring .ring-grade {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.review-score-ring .ring-pct {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
 .review-iq-score {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem;
@@ -741,6 +882,17 @@ body {
   color: var(--text-secondary);
 }
 
+.review-grade-letter {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  margin-right: 0.3rem;
+}
+
+.review-grade-letter.grade-a { color: var(--great); }
+.review-grade-letter.grade-b { color: var(--good); }
+.review-grade-letter.grade-c { color: var(--okay); }
+.review-grade-letter.grade-d, .review-grade-letter.grade-f { color: var(--bad); }
+
 .review-list {
   display: flex;
   flex-direction: column;
@@ -750,8 +902,14 @@ body {
 .review-item {
   background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 1.2rem;
+  padding: 1.2rem 1.2rem 1.2rem 1.4rem;
   border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease;
+}
+
+.review-item:hover {
+  transform: translateX(3px);
 }
 
 .review-item.great { border-left-color: var(--great); }
@@ -933,8 +1091,9 @@ body {
   }
 
   .choice-btn {
-    padding: 0.8rem 1rem;
+    padding: 0.85rem 1rem;
     font-size: 0.85rem;
+    min-height: 48px;
   }
 
   .outcome-headline {
@@ -1029,28 +1188,37 @@ body {
 /* ---- PLAYER AUTH ---- */
 #screen-auth {
   overflow-y: auto;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(245, 166, 35, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-screen {
   max-width: 480px;
   margin: 0 auto;
   padding: 0 1.5rem 3rem;
+  width: 100%;
 }
 
 .auth-tabs {
   display: flex;
-  gap: 0;
+  gap: 4px;
   margin: 2rem 0 1.5rem;
-  border-radius: var(--radius-sm);
+  border-radius: 50px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  padding: 4px;
 }
 
 .auth-tab {
   flex: 1;
-  padding: 0.7rem;
+  padding: 0.65rem 0.8rem;
   background: transparent;
   border: none;
+  border-radius: 50px;
   color: var(--text-secondary);
   font-family: inherit;
   font-size: 0.85rem;
@@ -1061,6 +1229,11 @@ body {
 
 .auth-tab.active {
   background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.auth-tab:hover:not(.active) {
   color: var(--text-primary);
 }
 
@@ -1099,19 +1272,20 @@ body {
 
 .auth-field input {
   width: 100%;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
   background: var(--bg-card);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.1);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-family: inherit;
   font-size: 0.95rem;
   outline: none;
-  transition: border-color var(--transition);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .auth-field input:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
 }
 
 .auth-field input::placeholder {
@@ -1120,22 +1294,24 @@ body {
 
 .auth-btn {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.85rem;
   margin-top: 0.5rem;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, #e8941a 100%);
   color: var(--bg-dark);
   border: none;
   border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 12px rgba(245, 166, 35, 0.25);
 }
 
 .auth-btn:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.4);
+  filter: brightness(1.08);
 }
 
 .auth-error {
@@ -1196,8 +1372,18 @@ body {
   background: rgba(245, 166, 35, 0.08);
 }
 
-.avatar-emoji {
-  font-size: 1.5rem;
+.avatar-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
 }
 
 .avatar-label {
@@ -1228,7 +1414,17 @@ body {
 }
 
 .player-profile-btn .profile-avatar {
-  font-size: 1rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-profile-btn .profile-avatar svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 .player-profile-btn .profile-iq {
