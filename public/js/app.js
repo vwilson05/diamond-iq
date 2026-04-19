@@ -8,16 +8,20 @@ import { FieldCanvas } from './renderer/field-canvas.js';
 import { Scoreboard } from './renderer/scoreboard.js';
 import { GameState } from './engine/game-state.js';
 import { loadScenarioList, loadScenario, getRandomScenario } from './engine/scenario-loader.js';
+import { PlayerAuth } from './ui/player-auth.js';
 
 // ---- State ----
 const game = new GameState();
+const playerAuth = new PlayerAuth();
 let fieldCanvas = null;
 let scoreboard = null;
 let playedScenarioIds = [];
 let scenarioList = [];
+let currentSessionId = null;  // Server session ID for saving results
 
 // ---- DOM Refs ----
 const screens = {
+  auth: document.getElementById('screen-auth'),
   teamSelect: document.getElementById('screen-team-select'),
   sportSelect: document.getElementById('screen-sport-select'),
   difficultySelect: document.getElementById('screen-difficulty-select'),
@@ -103,6 +107,29 @@ function renderDifficultyCards() {
 async function startGame(tier) {
   showScreen('game');
   playedScenarioIds = [];
+  currentSessionId = null;
+
+  // Start a server session if player is logged in
+  const player = playerAuth.getPlayer();
+  if (player) {
+    try {
+      const res = await fetch('/api/sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          player_id: player.id,
+          tier: game.state.tier,
+          sport: game.state.sport,
+        }),
+      });
+      if (res.ok) {
+        const session = await res.json();
+        currentSessionId = session.id;
+      }
+    } catch {
+      // Non-fatal — continue without server session
+    }
+  }
 
   // Set up header
   document.getElementById('game-tier-badge').textContent = tier.name;
@@ -369,6 +396,27 @@ function renderOutcome(node, nodeId) {
   // Update IQ display
   document.getElementById('game-iq-display').textContent = `IQ: ${game.state.totalIQ}`;
 
+  // Save result to server if we have a session
+  if (currentSessionId) {
+    try {
+      fetch(`/api/sessions/${currentSessionId}/results`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          scenario_id: game.state.currentScenario.id,
+          scenario_title: game.state.currentScenario.title,
+          category: game.state.currentScenario.category || null,
+          tier: game.state.tier,
+          choice_id: game.state.history.length > 0 ? game.state.history[game.state.history.length - 1].choiceId : null,
+          result: outcome.result,
+          iq_points: outcome.iqPoints,
+        }),
+      }).catch(() => {});
+    } catch {
+      // Non-fatal
+    }
+  }
+
   // Next button
   const nextBtn = document.createElement('button');
   nextBtn.className = 'btn-next-scenario';
@@ -413,6 +461,28 @@ function showReview() {
   if (pct < 55) grade = 'C';
   if (pct < 45) grade = 'D';
   if (pct < 35) grade = 'F';
+
+  // End session on server
+  if (currentSessionId) {
+    fetch(`/api/sessions/${currentSessionId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        total_iq: totalIQ,
+        grade,
+        scenarios_played: outcomeCount,
+      }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (data.new_awards && data.new_awards.length > 0) {
+          showAwardsToast(data.new_awards);
+        }
+      })
+      .catch(() => {});
+
+    currentSessionId = null;
+  }
 
   container.innerHTML = `
     <div class="review-header">
@@ -481,6 +551,48 @@ function typewriter(element, text, onComplete, speed = 25) {
   type();
 }
 
+// ---- Awards Toast ----
+function showAwardsToast(awards) {
+  for (let i = 0; i < awards.length; i++) {
+    setTimeout(() => {
+      const toast = document.createElement('div');
+      toast.className = 'awards-toast';
+      toast.innerHTML = `
+        <div class="awards-toast-title">Award Earned!</div>
+        <div class="awards-toast-name">${awards[i].award_name} — ${awards[i].description}</div>
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }, i * 1500);
+  }
+}
+
+// ---- Player Profile in Header ----
+function updatePlayerHeader() {
+  const player = playerAuth.getPlayer();
+  const existing = document.querySelector('.player-profile-btn');
+  if (existing) existing.remove();
+
+  if (player) {
+    const AVATAR_MAP = {
+      slugger: '\u26BE', rocket: '\uD83D\uDE80', glove: '\uD83E\uDD4E', lightning: '\u26A1',
+      fire: '\uD83D\uDD25', star: '\u2B50', diamond: '\uD83D\uDC8E', trophy: '\uD83C\uDFC6',
+    };
+    const btn = document.createElement('button');
+    btn.className = 'player-profile-btn';
+    btn.innerHTML = `<span class="profile-avatar">${AVATAR_MAP[player.avatar] || '\u26BE'}</span>
+      <span>${player.display_name}</span>
+      <span class="profile-iq">${player.cumulative_iq || 0} IQ</span>`;
+    btn.addEventListener('click', () => {
+      playerAuth.logout();
+      game.reset();
+      showScreen('auth');
+      bootAuth();
+    });
+    document.querySelector('.game-header-left').appendChild(btn);
+  }
+}
+
 // ---- End Session Button ----
 document.getElementById('btn-end-session').addEventListener('click', () => {
   if (game.getHistory().length > 0) {
@@ -491,7 +603,31 @@ document.getElementById('btn-end-session').addEventListener('click', () => {
   }
 });
 
-// ---- Boot ----
-renderTeamGrid();
-initSportPicker();
-showScreen('teamSelect');
+// ---- Auth Boot ----
+function bootAuth() {
+  const authContainer = document.getElementById('auth-container');
+  playerAuth.render(authContainer, (player) => {
+    // player is null for guest mode
+    showScreen('teamSelect');
+    if (player) {
+      updatePlayerHeader();
+    }
+  });
+}
+
+async function boot() {
+  renderTeamGrid();
+  initSportPicker();
+
+  // Try auto-login
+  const player = await playerAuth.autoLogin();
+  if (player) {
+    showScreen('teamSelect');
+    updatePlayerHeader();
+  } else {
+    showScreen('auth');
+    bootAuth();
+  }
+}
+
+boot();

@@ -1,0 +1,548 @@
+/* ============================================
+   DIAMOND IQ — Coach Dashboard Styles
+   ============================================ */
+
+#coach-app {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* ---- Auth / Centered Layout ---- */
+.coach-centered {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.coach-auth-tabs {
+  display: flex;
+  gap: 0;
+  margin: 2rem 0 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.coach-auth-tab {
+  flex: 1;
+  padding: 0.7rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.coach-auth-tab.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.coach-auth-panel {
+  display: none;
+}
+
+.coach-auth-panel.active {
+  display: block;
+}
+
+.coach-field {
+  margin-bottom: 1rem;
+}
+
+.coach-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.coach-field input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.coach-field input:focus {
+  border-color: var(--accent);
+}
+
+.coach-field input::placeholder {
+  color: var(--text-muted);
+}
+
+.coach-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.coach-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.coach-error {
+  color: var(--bad);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  min-height: 1.2em;
+}
+
+.coach-back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.coach-back-link:hover {
+  color: var(--text-secondary);
+}
+
+/* ---- Header ---- */
+.coach-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.coach-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coach-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coach-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.coach-logout-btn,
+.coach-back-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.coach-logout-btn:hover,
+.coach-back-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- Content ---- */
+.coach-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.coach-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.coach-section-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 1rem;
+}
+
+.coach-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ---- Team List ---- */
+.coach-teams-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.coach-team-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.coach-team-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.coach-team-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+}
+
+.coach-team-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.coach-team-code {
+  text-align: right;
+}
+
+.coach-code-label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.coach-code-value {
+  font-family: 'Special Elite', monospace;
+  font-size: 1.4rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+}
+
+/* ---- Create Team ---- */
+.coach-create-team {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.coach-create-team h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.coach-create-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.coach-create-row input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.coach-create-row input:focus {
+  border-color: var(--accent);
+}
+
+.coach-create-row .coach-btn {
+  width: auto;
+  padding: 0.7rem 1.5rem;
+  margin-top: 0;
+}
+
+/* ---- Team Progress Header ---- */
+.coach-team-header-block {
+  margin-bottom: 1rem;
+}
+
+.coach-join-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.coach-join-info strong {
+  font-family: 'Special Elite', monospace;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+/* ---- Team Summary ---- */
+.coach-summary-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.coach-summary-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+}
+
+.coach-summary-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.coach-summary-text strong {
+  color: var(--text-primary);
+}
+
+/* ---- Category Bars ---- */
+.coach-category-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.coach-cat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.coach-cat-label {
+  width: 100px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+.coach-bar-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.coach-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.coach-cat-pct {
+  width: 40px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* ---- Player Grid ---- */
+.coach-player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.coach-player-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+
+.coach-player-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.coach-player-avatar {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.coach-player-info {
+  flex: 1;
+}
+
+.coach-player-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.coach-player-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.coach-player-awards {
+  display: flex;
+  gap: 2px;
+}
+
+.coach-award-badge {
+  font-size: 0.9rem;
+}
+
+/* ---- Player Category Bars ---- */
+.coach-player-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.coach-player-cat {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.coach-player-cat-name {
+  width: 85px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.coach-player-cat-bar {
+  flex: 1;
+  height: 8px;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+}
+
+.coach-cat-seg {
+  height: 100%;
+  min-width: 0;
+}
+
+/* ---- Tags ---- */
+.coach-player-tags {
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.coach-tag-row {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.coach-tag-label {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.coach-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.coach-tag-good {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--great);
+}
+
+.coach-tag-bad {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--bad);
+}
+
+.coach-player-empty {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .coach-content {
+    padding: 1rem;
+  }
+
+  .coach-player-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-header {
+    padding: 0.6rem 1rem;
+  }
+
+  .coach-create-row {
+    flex-direction: column;
+  }
+
+  .coach-create-row .coach-btn {
+    width: 100%;
+  }
+
+  .coach-team-card {
+    padding: 1rem;
+  }
+}
