@@ -1,0 +1,352 @@
+{
+  "id": "majors-hit-and-run",
+  "title": "The Hit-and-Run: Offense in Motion",
+  "sport": ["baseball"],
+  "tier": "majors",
+  "role": "offense",
+  "tags": ["hit-and-run", "strategy", "contact-hitting", "baserunning", "offensive-plays"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 3 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Tie game in the sixth inning, one out, and your fastest runner is dancing off first base. You're at the plate -- the team's best contact hitter, batting .310 on the season. You've only struck out eight times all year. The pitcher keeps glancing over at first, nervous about the runner's speed. Your third-base coach starts flashing signs... what's the play going to be?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Speed Runner (1st)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "Your coach touches his cap, swipes across the letters, touches his belt -- that's the hit-and-run sign! Or is it? You got the indicator, but now you need to decide: is this the right situation for a hit-and-run? Tie game, one out, fast runner, good contact hitter. What's your read?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "1B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Speed Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "execute-hnr",
+          "text": "Perfect situation for a hit-and-run! Fast runner, contact hitter, tie game. I'm locked in -- let's go!",
+          "nextNode": "transition-hnr-on"
+        },
+        {
+          "id": "rather-steal",
+          "text": "With a runner this fast, I'd rather just let him steal. No need to risk a hit-and-run.",
+          "nextNode": "outcome-steal-only-good"
+        },
+        {
+          "id": "rather-bunt",
+          "text": "I think a sacrifice bunt makes more sense here to move the runner to second.",
+          "nextNode": "outcome-bunt-okay"
+        }
+      ]
+    },
+    "transition-hnr-on": {
+      "type": "transition",
+      "narration": "You confirm the sign. The runner knows. YOU know. On this pitch, he breaks for second and you swing no matter what. The pitcher comes set, checks the runner, and delivers... The pitch is heading OUTSIDE -- off the plate, maybe two inches out. Your runner is flying toward second base. This is the moment of truth.",
+      "field": {
+        "ballPosition": { "x": 0.58, "y": 0.78 },
+        "highlight": ["Home", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (going!)" }
+        ]
+      },
+      "next": "decision-2",
+      "delay": 2000
+    },
+    "decision-2": {
+      "type": "decision",
+      "narration": "The pitch is outside -- not a strike. But your runner is sprinting full speed toward second base. The whole play depends on what you do RIGHT NOW. What's your move?",
+      "field": {
+        "ballPosition": { "x": 0.58, "y": 0.82 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.58, "y": 0.50 }, "label": "Runner (sprinting!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "swing-poke-right",
+          "text": "Swing! Reach out and try to poke it through the right side where the second baseman vacated!",
+          "nextNode": "outcome-poke-right-great"
+        },
+        {
+          "id": "swing-pull",
+          "text": "Swing! I'm going to try to yank this pitch to the left side for a hit!",
+          "nextNode": "outcome-pull-okay"
+        },
+        {
+          "id": "take-pitch",
+          "text": "That's a ball -- I'm not swinging at garbage. I'll take the walk.",
+          "nextNode": "outcome-take-bad"
+        }
+      ]
+    },
+    "outcome-poke-right-great": {
+      "type": "outcome",
+      "narration": "You extend your hands and POKE the outside pitch the other way -- right through the gap between first and second! The second baseman was sprinting toward the bag to cover the steal, so there's a MASSIVE hole on the right side! The ball skips into right field! Your runner was already at full speed -- he rounds second without breaking stride, the right fielder bobbles it, and he slides into third! You're standing on first with a single! Runners on the corners, one out, in a tie game. Your coach gives you a fist pump from the third-base box!",
+      "field": {
+        "ballPosition": { "x": 0.75, "y": 0.35 },
+        "highlight": ["RF", "1B", "3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd!)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Hit-and-Run Perfection! Runners on the Corners!",
+        "explanation": "This is the hit-and-run at its absolute finest, and here's why it's genius: When the runner breaks for second, either the second baseman or shortstop MUST move to cover the bag. That creates a hole in the infield that doesn't normally exist. By reaching out and poking the outside pitch to the RIGHT side, you hit the ball exactly where the fielder just vacated. But there's a second layer of brilliance: because the runner was already in full sprint, he went first-to-third on a single. In a tie game, that's enormous -- you now have a runner 90 feet from scoring with one out. The hit-and-run didn't just get a hit; it manufactured a massive scoring threat out of thin air.",
+        "whatToRemember": "On the hit-and-run, always think 'opposite field.' The fielder covering the steal creates a gap -- hit the ball through it. Outside pitch? Poke it to the right side. That's the whole magic trick.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.58, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 600,
+              "parallel": true
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.58, "y": 0.88 },
+              "to": { "x": 0.72, "y": 0.45 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner1st",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-pull-okay": {
+      "type": "outcome",
+      "narration": "You swing and try to pull the outside pitch... but that's a tough ask. You get jammed up trying to get around on a pitch that's away from you. You make weak contact -- a soft grounder to the shortstop. The shortstop was shading toward second to cover, but the ball was hit to the LEFT side where nobody moved. The SS recovers, fields it, and throws to first for the out. At least the runner advanced to second safely since you did swing and make contact. But that could have been so much better.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out at First, Runner Advances. Could Be Better.",
+        "explanation": "You did the right thing by swinging -- you protected the runner and he moved up to second. That's not nothing! But you left meat on the bone by trying to PULL an outside pitch. Here's the hitting lesson: outside pitches are meant to be hit the OTHER way. When you try to pull an outside pitch, you have to commit early, your bat drags through the zone, and you make weak contact. The smart play on a hit-and-run with an outside pitch is to go with the pitch -- let the ball travel deep, extend your hands, and poke it to the right side. That's where the gap is! Hit it where the fielder left, not where the fielder stayed.",
+        "whatToRemember": "Go with the pitch! Outside pitches go to the opposite field. Pulling an outside pitch leads to weak contact. On the hit-and-run, the gap is where the fielder left to cover the steal -- hit it there.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.58, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.58, "y": 0.88 },
+              "to": { "x": 0.38, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.38, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-take-bad": {
+      "type": "outcome",
+      "narration": "You hold the bat on your shoulder. Ball two! Great plate discipline, right? WRONG. Look at second base -- your runner is getting HOSED. The catcher received the ball cleanly, popped up, and fired a bullet to the shortstop covering second. Your runner slides in and -- he's OUT by two steps! The ump doesn't even hesitate. Your runner trots off the field shaking his head, looking right at you. The hit-and-run was ON and you didn't swing. You hung him out to dry.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Runner Gunned Down! You Didn't Protect Him!",
+        "explanation": "This is the cardinal sin of the hit-and-run: not swinging. Your runner put his trust in you. He broke early BECAUSE the play was called, and the only thing protecting him was your bat. When you don't swing, three terrible things happen: 1) The catcher gets a clean catch with no bat in the way. 2) The catcher gets a clean throwing lane with no batter leaning forward. 3) The defense knows instantly the runner is stealing, so the fielder is already at the bag waiting. Even a MISS is better than not swinging! A swing-and-miss still disrupts the catcher's timing. A foul ball kills the play entirely (in a good way). You MUST swing on the hit-and-run. That's the deal.",
+        "whatToRemember": "On the hit-and-run, you swing. Period. Every pitch, every location. Your runner's safety is in your hands. Even a whiff is better than watching the pitch go by.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.55, "y": 0.9 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.52, "y": 0.47 },
+              "entity": "runner1st",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.9 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.52, "y": 0.47 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-steal-only-good": {
+      "type": "outcome",
+      "narration": "You wave off the hit-and-run and let the runner steal on his own. He takes off on the next pitch -- the pitcher delivers a fastball and the catcher pops up and throws. Your runner is fast... he slides in... SAFE! He stole second! Now you've got a runner in scoring position with one out. Not bad! But your coach raises an eyebrow -- you had a chance to do even more damage with the hit-and-run.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Stolen Base! But You Left Opportunity on the Table.",
+        "explanation": "A straight steal worked here because your runner has elite speed. That's fine -- runner on second, one out, you're in business. But the hit-and-run would have been even better. Why? Because with the hit-and-run, you combine the stolen base attempt WITH a swing. If you make contact, the runner goes first-to-third (or even scores) instead of just first-to-second. The hit-and-run also opens up holes in the infield because a fielder has to cover the bag. A straight steal only gets you one base. A successful hit-and-run can get you TWO bases for the runner plus put the batter on base. In a tie game, maximizing your chance to score is everything.",
+        "whatToRemember": "A straight steal gets you one base. A hit-and-run can get you two bases for the runner AND put the batter on. When you have a contact hitter at the plate, the hit-and-run has a higher ceiling.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.9 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 900,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.9 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bunt-okay": {
+      "type": "outcome",
+      "narration": "You square around to bunt on the first pitch. The pitcher sees it coming and throws a high fastball -- tough to bunt! You get the bat on it but the bunt pops up softly. The pitcher charges in, catches the pop-up for an out, and looks the runner back to first. Two outs now, runner still on first, tie game. You burned an out to gain... nothing.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.68 },
+        "highlight": ["P"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (still 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Pop-Up Bunt. Wasted an Out.",
+        "explanation": "A sacrifice bunt can be the right call sometimes, but this wasn't the best spot for it. Here's why: 1) You're a .310 contact hitter -- your bat is a weapon, not something to give away! Bunting with your best contact hitter is like asking your best three-point shooter to only take layups. 2) In a TIE game, outs are precious. You can't afford to give one away cheaply. Sacrificing makes more sense when you're down and need exactly one run. 3) The hit-and-run accomplishes the same goal (moving the runner) while also giving you a chance to stay at bat and get on base yourself. Use the bunt when you have a weak hitter up, not your best contact guy.",
+        "whatToRemember": "Don't sacrifice bunt with your best contact hitter! His bat is too valuable. The hit-and-run moves the runner while keeping your hitter alive at the plate. Save the bunt for weaker hitters.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.52, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.72 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.65 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}
