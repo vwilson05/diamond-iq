@@ -26,7 +26,7 @@
     },
     "decision-1": {
       "type": "decision",
-      "narration": "You've got the ball in your glove and the batter is running toward you! Quick -- what's your move?",
+      "narration": "You're playing first base and WHACK -- the batter hits a grounder right at you! You scoop it up clean. The batter is running hard toward first base. You've got the ball -- what's your move?",
       "field": {
         "ballPosition": { "x": 0.7, "y": 0.6 },
         "highlight": ["1B"],

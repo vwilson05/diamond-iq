@@ -28,7 +28,7 @@
     },
     "decision-1": {
       "type": "decision",
-      "narration": "The fly ball is coming right at you! Your teammate is nearby too. What do you do?",
+      "narration": "You're playing center field and POW -- the batter hits a big fly ball right at you! It's going up, up, up! Your teammate in left field is running over too. The ball is coming down -- what do you do?",
       "field": {
         "ballPosition": { "x": 0.4, "y": 0.3 },
         "highlight": ["CF", "LF"],

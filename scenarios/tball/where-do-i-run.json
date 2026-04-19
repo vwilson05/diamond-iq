@@ -26,7 +26,7 @@
     },
     "decision-1": {
       "type": "decision",
-      "narration": "The ball is on the ground, the fielders are running toward it. You're standing at home plate with the bat. Where do you go?",
+      "narration": "It's your turn to bat and CRACK -- you hit the ball into the grass! Nice hit! The fielders are chasing it. You're still standing at home plate holding the bat. Where do you go?",
       "field": {
         "ballPosition": { "x": 0.42, "y": 0.55 },
         "highlight": ["Home", "1B"],

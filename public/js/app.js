@@ -279,19 +279,15 @@ function processNode(nodeId) {
 }
 
 function renderTransition(node, nodeId) {
-  // Instead of showing a separate transition screen, merge the transition
-  // narration with the next decision node and show it all at once.
+  // Skip transition screen — go straight to the next decision node.
+  // The decision node's narration is self-contained.
   const scenario = game.state.currentScenario;
   const nextNode = node.next ? scenario.nodes[node.next] : null;
 
   if (nextNode && nextNode.type === 'decision') {
-    // Combine narrations and render as a single decision screen
-    const combinedNarration = node.narration + ' ' + nextNode.narration;
-    const mergedNode = { ...nextNode, narration: combinedNarration };
     game.advanceToNode(node.next);
-    renderDecision(mergedNode, node.next);
+    renderDecision(nextNode, node.next);
   } else if (node.next) {
-    // No merge possible — just advance immediately (skip the pause)
     processNode(node.next);
   }
 }
