@@ -1,5 +1,5 @@
 /**
- * Diamond IQ — Coach Dashboard
+ * PlayIQ — Coach Dashboard
  * Separate page at /coach for coaches to view team progress.
  */
 
@@ -47,7 +47,7 @@ function showLogin() {
   app.innerHTML = `
     <div class="coach-centered">
       <div class="logo-header">
-        <h1 class="logo">DIAMOND <span class="logo-accent">IQ</span></h1>
+        <h1 class="logo">PLAY<span class="logo-accent">IQ</span></h1>
         <p class="tagline">Coach Dashboard</p>
       </div>
 
@@ -86,7 +86,7 @@ function showLogin() {
         <div class="coach-error" id="coach-reg-error"></div>
       </div>
 
-      <a href="/" class="coach-back-link">Back to Diamond IQ</a>
+      <a href="/" class="coach-back-link">Back to PlayIQ</a>
     </div>
   `;
 
@@ -163,7 +163,7 @@ function showLogin() {
 async function showTeamList() {
   app.innerHTML = `
     <div class="coach-header">
-      <div class="logo-sm">DIAMOND <span class="logo-accent">IQ</span></div>
+      <div class="logo-sm">PLAY<span class="logo-accent">IQ</span></div>
       <div class="coach-header-right">
         <span class="coach-name">${coach.display_name}</span>
         <button class="coach-logout-btn" id="coach-logout">Sign Out</button>
@@ -255,7 +255,7 @@ async function showTeamProgress(teamId) {
     <div class="coach-header">
       <div class="coach-header-left">
         <button class="coach-back-btn" id="coach-back">&larr; Teams</button>
-        <div class="logo-sm">DIAMOND <span class="logo-accent">IQ</span></div>
+        <div class="logo-sm">PLAY<span class="logo-accent">IQ</span></div>
       </div>
       <div class="coach-header-right">
         <span class="coach-name">${coach.display_name}</span>

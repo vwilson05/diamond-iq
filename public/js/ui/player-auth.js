@@ -1,5 +1,5 @@
 /**
- * Diamond IQ — Player Auth UI
+ * PlayIQ — Player Auth UI
  * Login/signup for players. Stores player_id in localStorage.
  * Supports guest mode (skip login).
  */
@@ -68,8 +68,8 @@ export class PlayerAuth {
     inner.className = 'auth-screen';
     inner.innerHTML = `
       <div class="logo-header">
-        <h1 class="logo">DIAMOND <span class="logo-accent">IQ</span></h1>
-        <p class="tagline">Think like a pro. Play like a pro.</p>
+        <h1 class="logo">PLAY<span class="logo-accent">IQ</span></h1>
+        <p class="tagline">Think the game. Play the game.</p>
       </div>
 
       <div class="auth-tabs">

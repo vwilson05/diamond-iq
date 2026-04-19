@@ -515,4 +515,4 @@ export default {
   fetch: app.fetch,
 };
 
-console.log(`Diamond IQ server running on port ${port}`);
+console.log(`PlayIQ server running on port ${port}`);

@@ -1,5 +1,5 @@
 /**
- * Diamond IQ — Main Application Entry Point
+ * PlayIQ — Main Application Entry Point
  * Wires together: game state, field renderer, scoreboard, scenario panel, UI screens
  */
 
@@ -496,7 +496,7 @@ function showReview() {
 
   container.innerHTML = `
     <div class="review-header">
-      <div class="logo">DIAMOND <span class="logo-accent">IQ</span></div>
+      <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
       <div class="review-title">Session Complete</div>
       <div class="review-score-ring">
         <svg viewBox="0 0 140 140">
@@ -721,7 +721,7 @@ function showPlayerProfile(player) {
 
       container.innerHTML = `
         <div class="review-header">
-          <div class="logo">DIAMOND <span class="logo-accent">IQ</span></div>
+          <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
           <div class="review-title">${data.display_name}</div>
           <div class="review-iq-score">${data.cumulative_iq || 0} IQ</div>
           <div class="review-grade">${data.total_sessions || 0} sessions played</div>

@@ -1,5 +1,5 @@
 /**
- * Diamond IQ — Fenway Park Green Monster style scoreboard
+ * PlayIQ — Fenway Park Green Monster style scoreboard
  */
 
 export class Scoreboard {
@@ -225,7 +225,7 @@ export class Scoreboard {
 
     // Header
     html += `<div class="diq-sb-header">
-      <span>Diamond IQ</span>
+      <span>PlayIQ</span>
       <span style="margin-left:auto;">
         <span class="diq-sb-inning-indicator">
           <span class="diq-sb-arrow">${s.isTop ? '\u25B2' : '\u25BC'}</span>
