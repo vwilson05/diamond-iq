@@ -1,0 +1,168 @@
+{
+  "id": "rookie-cover-base",
+  "title": "Cover First Base!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["first-base", "covering", "ground-ball", "pitcher", "teamwork"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 0, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Nobody on base, one out. The batter hits a slow ground ball to the right side of the mound. The pitcher fields it cleanly, but they're standing on the mound -- about 45 feet from first base. You're the first baseman. You were playing a few steps off the bag toward second base. The pitcher is looking at you with the ball. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.6 },
+        "highlight": ["1B", "Pitcher"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.58, "y": 0.78 }, "label": "Batter (running)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sprint-to-bag",
+          "text": "Sprint to first base, touch the bag, and give the pitcher a target with your glove!",
+          "nextNode": "outcome-cover-great"
+        },
+        {
+          "id": "yell-throw",
+          "text": "Stay where you are and yell at the pitcher to throw it to you!",
+          "nextNode": "outcome-stay-bad"
+        },
+        {
+          "id": "run-to-pitcher",
+          "text": "Run toward the pitcher to get the ball from them.",
+          "nextNode": "outcome-run-okay"
+        }
+      ]
+    },
+    "outcome-cover-great": {
+      "type": "outcome",
+      "narration": "You sprint back to first base and plant your foot on the inside edge of the bag. You stretch out your glove and give the pitcher a big target. The pitcher tosses the ball to you -- you catch it while your foot is on the bag. The batter is still two steps away. OUT! Great teamwork!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Out at First! Perfect Coverage!",
+        "explanation": "This is a play that happens all the time but a lot of young players forget about it. When the ball is hit near the pitcher (or to the second baseman), the first baseman might be away from the bag. Your job is to recognize the play and SPRINT back to first base so the fielder with the ball has someone to throw to. The key details: touch the INSIDE edge of the bag (so the runner doesn't step on your foot), stretch toward the throw, and give a big glove target. This is all about communication and knowing your job.",
+        "whatToRemember": "When a ground ball is fielded by the pitcher or second baseman, sprint to first base and cover the bag! Give a big target and touch the inside of the base.",
+        "keyTerms": [
+          { "term": "Covering a Base", "definition": "Running to a base and standing on it so a teammate can throw the ball to you for an out. If nobody covers the base, there's nobody to catch the throw!" },
+          { "term": "Target", "definition": "Holding your glove out toward the thrower so they can see exactly where to throw the ball. A good target helps your teammate make an accurate throw." },
+          { "term": "Inside Edge", "definition": "The side of the base that faces the infield. First basemen stand on this edge so they're not in the runner's path and won't get stepped on." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.57 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay a few steps away from the bag and yell 'Throw it!' The pitcher throws the ball toward first base, but you're not ON the bag! You catch the ball standing in the grass -- but your foot isn't touching first base. The batter runs right past the bag. The umpire yells 'SAFE!' You had the ball, but it doesn't count because you weren't on the base!",
+      "field": {
+        "ballPosition": { "x": 0.67, "y": 0.58 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Not on the Bag! Runner is Safe!",
+        "explanation": "For a force out at first base, you MUST be touching the base when you catch the ball. It doesn't matter if you have the ball in your glove -- if your foot isn't on the bag, the runner is safe. This is why first basemen practice stretching toward throws while keeping one foot on the base. You were close, but close doesn't count! Next time, sprint to the bag FIRST, then set up to receive the throw.",
+        "whatToRemember": "Always get to the base FIRST, then receive the throw. Having the ball doesn't matter if your foot isn't on the bag!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.6 },
+              "to": { "x": 0.67, "y": 0.58 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.58, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-run-okay": {
+      "type": "outcome",
+      "narration": "You run toward the pitcher to get the ball. The pitcher hands it to you, but now you're standing near the mound -- 45 feet from first base! You turn and try to beat the batter to the bag, but they're already there. SAFE! You had the ball, but you ran the wrong direction. If you had gone to first instead of toward the pitcher, you'd have been on the bag waiting for an easy toss.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.58 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE!)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Direction! Runner Beats You!",
+        "explanation": "You had the right idea -- get the ball and make the out. But you went toward the pitcher instead of toward first base. The pitcher already had the ball; what they needed was someone AT FIRST BASE to throw it to. If you run to the bag, the pitcher makes a short easy toss and the batter is out. By going to the pitcher, you created a race between you and the batter to first base, and you lost. Always go to where you NEED to be, not where the ball already is.",
+        "whatToRemember": "Go to the base, not to the ball! The fielder with the ball needs a target at first base, not another player running toward them.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.57 },
+              "to": { "x": 0.57, "y": 0.58 },
+              "entity": "fielder",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.58, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

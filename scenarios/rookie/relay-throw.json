@@ -1,0 +1,171 @@
+{
+  "id": "rookie-relay-throw",
+  "title": "Be the Relay Man!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["relay", "cutoff", "outfield", "throwing", "positioning"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A runner is on second base with nobody out. The batter smacks a line drive into the right-center field gap! The ball is rolling all the way to the warning track. The runner on second is rounding third and heading home. You're the shortstop and your coach is yelling 'Get out there! Be the relay!' Where do you position yourself for the relay throw?",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.15 },
+        "highlight": ["SS", "Home", "RF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.35, "y": 0.68 }, "label": "Runner (rounding 3rd)" },
+          { "id": "batter", "position": { "x": 0.6, "y": 0.7 }, "label": "Batter (running)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "line-up",
+          "text": "Run to shallow outfield and line up between the outfielder and home plate, arms up!",
+          "nextNode": "outcome-lineup-great"
+        },
+        {
+          "id": "stay-infield",
+          "text": "Stay in my normal shortstop position and wait for the throw.",
+          "nextNode": "outcome-stay-bad"
+        },
+        {
+          "id": "run-to-home",
+          "text": "Run toward home plate to help the catcher.",
+          "nextNode": "outcome-home-okay"
+        }
+      ]
+    },
+    "outcome-lineup-great": {
+      "type": "outcome",
+      "narration": "You sprint to the outfield grass and position yourself directly between the right fielder and home plate. You raise both arms high so the outfielder can see you. The right fielder picks up the ball, sees your arms, and fires a throw right at your chest. You catch it, spin, and rifle it home. The catcher catches it and slaps the tag -- OUT at the plate! What a relay!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Relay! Out at Home!",
+        "explanation": "A relay throw is like a chain -- the outfielder throws to you, and you throw to home. Two shorter, accurate throws are almost always faster and more accurate than one really long throw. The key is your POSITIONING. You lined up directly between the outfielder and the base they're throwing to (home plate), and you raised your arms so the outfielder could easily spot you. This gave the outfielder a clear target and kept the throw on a straight line to home plate.",
+        "whatToRemember": "As the relay man, line up between the outfielder and the target base. Raise your arms high so the outfielder can find you quickly. Two short throws beat one long one!",
+        "keyTerms": [
+          { "term": "Relay Throw", "definition": "When an infielder goes to the outfield to catch a throw from an outfielder, then quickly throws it to a base. It's like being the middle person in a chain -- two short throws are faster than one super long one!" },
+          { "term": "Cutoff Man", "definition": "The infielder who positions themselves between the outfielder and the base to receive the relay throw. They 'cut off' the long throw and redirect it." },
+          { "term": "Warning Track", "definition": "The dirt strip that runs along the outfield fence. It warns outfielders that they're getting close to the wall so they don't crash into it!" }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.55, "y": 0.35 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.15 },
+              "to": { "x": 0.55, "y": 0.35 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.35 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay at your normal shortstop position. The right fielder picks up the ball at the warning track and tries to throw it all the way home -- over 300 feet! The ball bounces three times, loses speed, and rolls slowly to the catcher. By the time it gets there, the runner has scored easily and the batter has made it to third base. Your coach sighs -- nobody was out there to help with the relay.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (at 3rd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Relay! Run Scores Easily!",
+        "explanation": "Without a relay man, the outfielder had to throw the ball over 300 feet to home plate. Very few players -- even in the pros -- can make that throw accurately. The ball bounced multiple times and lost all its speed. Meanwhile, the runner scored easily and the batter took an extra base. If you had gone out to be the relay, the outfielder only needed to throw about 150 feet to you, and then you'd throw 150 feet to home. Two strong, accurate throws would have beaten the runner!",
+        "whatToRemember": "When the ball goes deep to the outfield, an infielder MUST go out to be the relay. Never just stand in your normal spot -- the outfielder needs help!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.15 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 1200
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.68 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-home-okay": {
+      "type": "outcome",
+      "narration": "You run toward home plate to back up the catcher. That's a good instinct, but now there's nobody between the outfielder and home! The right fielder has to throw the ball all the way by themselves. The throw bounces twice and arrives late -- the runner scores. At least you were near home to keep the ball from getting past the catcher, which held the batter at second base.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Hustle, Wrong Spot!",
+        "explanation": "You showed great hustle by running to help, but you went to the wrong place. The catcher is already at home plate -- they don't need you there. What the outfielder needed was someone in the MIDDLE to relay the throw. As the shortstop, your job is to be the relay man: go to the outfield grass, line up between the outfielder and home plate, and give them a short throw. Backing up bases is important, but other players (like the pitcher) should back up home while you handle the relay.",
+        "whatToRemember": "Don't double up where someone already is. The catcher covers home, the pitcher backs up. YOUR job as the infielder is to go be the relay man in the outfield.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.48, "y": 0.82 },
+              "entity": "fielder",
+              "duration": 700
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.15 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

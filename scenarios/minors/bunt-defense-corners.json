@@ -1,0 +1,170 @@
+{
+  "id": "minors-bunt-defense-corners",
+  "title": "Bunt Defense!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["bunt-defense", "corners", "first-base", "third-base", "pitcher", "coverage"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on first, nobody out. You're the third baseman. The batter squares around to bunt! Your coach has been working on bunt defense all week. The pitcher delivers and the batter lays down a bunt toward the third base side. The ball is rolling slowly about 15 feet in front of home plate. Who should field this ball, and what's your job?",
+      "field": {
+        "ballPosition": { "x": 0.42, "y": 0.75 },
+        "highlight": ["3B", "Pitcher", "Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.66, "y": 0.58 }, "label": "Runner (breaking for 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "charge-field",
+          "text": "Charge hard! I'm the third baseman -- I need to field this bunt and throw to first!",
+          "nextNode": "outcome-charge-great"
+        },
+        {
+          "id": "stay-at-bag",
+          "text": "Stay at third base in case there's a play here.",
+          "nextNode": "outcome-stay-bad"
+        },
+        {
+          "id": "let-pitcher",
+          "text": "Let the pitcher handle it -- I'll just watch from third.",
+          "nextNode": "outcome-watch-okay"
+        }
+      ]
+    },
+    "outcome-charge-great": {
+      "type": "outcome",
+      "narration": "You charge in hard as soon as you see the batter square to bunt! You scoop the ball on the run, plant your right foot, and fire a strong throw to first base. OUT! The batter is retired! The runner advances to second, but you got the out. Meanwhile, your shortstop slid over to cover third base behind you -- great teamwork!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Charge! Bunt Defense Executed!",
+        "explanation": "On a bunt toward third, the third baseman's job is to CHARGE aggressively. You can't wait -- every split second matters because the batter is sprinting to first. Here's how bunt defense works: the third baseman charges in, the pitcher also breaks toward the ball, the catcher directs traffic by yelling who should field it, and the shortstop rotates over to cover third base. Everyone has a job. By charging hard, you fielded the ball close enough to first base to make a strong throw and get the out.",
+        "keyTerms": [
+          { "term": "Bunt defense", "definition": "A coordinated defensive play where corner infielders charge toward home plate, the pitcher covers the middle, and other infielders rotate to cover the vacated bases." },
+          { "term": "Corner rotation", "definition": "When the third baseman charges a bunt, the shortstop slides over to cover third base, preventing runners from advancing freely." },
+          { "term": "Catcher directing", "definition": "On bunt plays, the catcher yells which fielder should pick up the ball and where to throw it, since they have the best view of the whole field." }
+        ],
+        "whatToRemember": "When you see a bunt square, CHARGE immediately. Field it on the run and fire to first. Trust your shortstop to cover third behind you.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.58 },
+              "to": { "x": 0.42, "y": 0.73 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.42, "y": 0.75 },
+              "to": { "x": 0.42, "y": 0.73 },
+              "entity": "ball",
+              "duration": 200
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.73 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay at third base, waiting. The bunt just sits there on the grass, rolling slowly to a stop. The pitcher reacts late and jogs toward it, but by the time they pick it up, the batter is already past first base! Everyone is safe. Runner on first and second, nobody out. The bunt worked perfectly because nobody charged it.",
+      "field": {
+        "ballPosition": { "x": 0.42, "y": 0.73 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Nobody Charged! Free Bunt Single!",
+        "explanation": "On a bunt play, time is everything. The ball is only traveling 15-20 feet, and the batter only has to run 90 feet (or 60 feet in younger leagues). If nobody charges the bunt quickly, the batter will ALWAYS beat it out. Your job as the third baseman is to be the FIRST defender charging in on bunts to your side. You can't wait at third -- there's no play at third anyway because the runner from first is only going to second. Be aggressive!",
+        "whatToRemember": "On a bunt, you MUST charge immediately. A bunt sitting on the grass with nobody fielding it is a guaranteed base hit for the offense.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.66, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.85 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-watch-okay": {
+      "type": "outcome",
+      "narration": "You let the pitcher handle it. The pitcher hops off the mound and hustles toward the ball, but they had to change direction and it took an extra second. They bare-hand the ball and throw to first -- BARELY gets the batter! The runner is safe at second. The play worked, but it was way closer than it needed to be.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Close Play! Pitcher Bails You Out!",
+        "explanation": "The pitcher got the out, but it was way too close. On bunts toward the third base side, the third baseman is closer and gets to the ball faster. The pitcher has to jump off the mound, change direction, and run sideways -- that takes more time. If the bunt had been placed better or rolled a little more slowly, the batter would have been safe. In proper bunt defense, you charge the ball and the pitcher covers the area behind you. Everyone has their lane.",
+        "whatToRemember": "Don't rely on the pitcher to field every bunt. As the third baseman, you're closer to bunts on your side and can get there faster. Own your responsibility.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.42, "y": 0.73 },
+              "entity": "pitcher",
+              "duration": 700
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.73 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

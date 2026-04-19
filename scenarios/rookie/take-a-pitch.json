@@ -1,0 +1,133 @@
+{
+  "id": "rookie-take-a-pitch",
+  "title": "Know the Strike Zone!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "offense",
+  "tags": ["strike-zone", "pitch-selection", "discipline", "batting", "balls-strikes"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Scoreless game, you're leading off the inning. It's the first pitch of your at-bat. The pitcher winds up and throws -- the ball is heading WAY outside, at least two feet off the plate. It's nowhere near the strike zone. Your hands start to twitch. Do you swing at it or let it go?",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.82 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "take-it",
+          "text": "Let it go! That pitch is way outside -- it's a ball!",
+          "nextNode": "outcome-take-great"
+        },
+        {
+          "id": "swing-anyway",
+          "text": "Swing! I don't want to get behind in the count!",
+          "nextNode": "outcome-swing-bad"
+        },
+        {
+          "id": "flinch",
+          "text": "Start to swing but pull back at the last second.",
+          "nextNode": "outcome-flinch-okay"
+        }
+      ]
+    },
+    "outcome-take-great": {
+      "type": "outcome",
+      "narration": "You watch the ball sail way outside. The umpire yells 'BALL ONE!' The count is 1-0 in YOUR favor. Now the pitcher is behind in the count, which means they need to throw a strike. Their next pitch will probably be more hittable! You're sitting in a great position because you didn't chase a bad pitch.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Good Eye! Ball One!",
+        "explanation": "Knowing WHEN to swing is just as important as knowing HOW to swing. That pitch was two feet outside the strike zone -- even if you swung, you'd probably miss or hit a weak ground ball because the pitch was so far from your body. By letting it go, you got a 'ball' and now the count is 1-0, which is an advantage for you! When the pitcher has more balls than strikes, they have to throw the ball closer to the plate, which gives you a better pitch to hit. Patience at the plate puts pressure on the pitcher!",
+        "whatToRemember": "Don't swing at pitches outside the strike zone! Taking a ball puts the count in your favor and forces the pitcher to throw a more hittable pitch next time.",
+        "keyTerms": [
+          { "term": "Strike Zone", "definition": "The invisible box over home plate where a pitch must pass through to be called a strike. It goes from the batter's knees to the middle of their chest, and it's as wide as home plate (17 inches)." },
+          { "term": "Ball", "definition": "A pitch that is outside the strike zone AND the batter doesn't swing at it. After 4 balls, the batter gets to walk to first base for free!" },
+          { "term": "Count", "definition": "The number of balls and strikes on a batter. The first number is always balls, the second is strikes. So '2-1' means 2 balls and 1 strike." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.6, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-swing-bad": {
+      "type": "outcome",
+      "narration": "You reach out and swing at the pitch that's way outside. Your bat barely touches the ball and it dribbles weakly to the right side for an easy ground out. Even worse, if you had missed completely, that pitch would have been a BALL. Instead, you turned a free ball into a strike (or an out). The pitcher smiles -- they tricked you into swinging at a bad pitch.",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.65 },
+        "highlight": [],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Chased a Bad Pitch! Weak Out!",
+        "explanation": "Swinging at pitches outside the strike zone is called 'chasing.' Pitchers WANT you to chase! They throw pitches outside on purpose, hoping you'll swing at something that's almost impossible to hit well. When you swing at a ball that's two feet outside, your bat has to reach way out, which means you lose power and you can't square the ball up. The result is almost always a weak ground ball, a pop-up, or a swing-and-miss. Be patient! If the pitch isn't in your zone, let it go and wait for a better one.",
+        "whatToRemember": "Don't chase pitches outside the zone! Pitchers want you to swing at bad pitches. Be patient and wait for one you can drive.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.6, "y": 0.82 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-flinch-okay": {
+      "type": "outcome",
+      "narration": "You start your swing but realize the ball is way outside and try to stop. Your bat crosses past the front of the plate. The umpire looks at the third base umpire for help... 'Did he go?' The third base umpire signals YES -- you went around! STRIKE ONE! Even though the pitch was a ball, your half-swing turned it into a strike. The count is 0-1 and the pitcher has the advantage now.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Check Swing! Strike Called!",
+        "explanation": "A check swing is when you start to swing but try to stop. The problem is, if the umpire thinks your bat went past the front of home plate, it counts as a swing -- and if the pitch was outside the zone, you just turned a ball into a strike. That's the worst trade in baseball! The fix is to commit BEFORE the pitch: decide early whether you're going to swing or not. If the pitch is outside, don't even start your swing. Keep your hands back and your bat still. It takes practice, but a disciplined batter who doesn't chase wins the battle against the pitcher.",
+        "whatToRemember": "Commit to swinging or not swinging. A check swing can turn a free ball into a strike against you. If it's outside, keep your bat on your shoulder!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.6, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "minors-count-leverage",
+  "title": "Hitter's Count!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["count", "pitch-selection", "hitters-count", "approach", "plate-discipline"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 2, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on second, one out, you're behind by a run. The count is 2-0 -- two balls, no strikes. That's a hitter's count! The pitcher has thrown two balls and NEEDS to throw a strike or they'll fall behind 3-0. You're standing in the batter's box. Your coach always says '2-0 is YOUR count.' What pitch are you looking for?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (on 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "look-fastball",
+          "text": "Look for a fastball in my favorite zone! The pitcher needs a strike, so they'll probably throw a fastball. If I get it, I crush it!",
+          "nextNode": "outcome-fastball-great"
+        },
+        {
+          "id": "take-pitch",
+          "text": "Take the pitch no matter what -- try to get to 3-0 and maybe walk.",
+          "nextNode": "outcome-take-okay"
+        },
+        {
+          "id": "swing-at-anything",
+          "text": "Swing at whatever comes -- I don't want to fall behind in the count!",
+          "nextNode": "outcome-anything-bad"
+        }
+      ]
+    },
+    "outcome-fastball-great": {
+      "type": "outcome",
+      "narration": "You pick your zone -- belt-high, middle of the plate. The pitcher winds and delivers... FASTBALL, right where you were looking! You unload with a smooth, powerful swing. CRACK! Line drive to the gap in left-center! The ball rolls to the wall! The runner scores from second easily, and you cruise into second with a double! Game tied! THAT is what a hitter's count is all about!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.15 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Hitter's Count Crushed! RBI Double!",
+        "explanation": "On a 2-0 count, the pitcher is in trouble. They NEED a strike, which means they're most likely to throw their best pitch (usually a fastball) right over the plate. As a hitter, this is YOUR moment. You get to pick ONE zone (like belt-high, middle-in) and if the pitch is there, you attack it with your best swing. If it's NOT in your zone, you can take it -- worst case it's 3-0 or 2-1, both still good counts. The key is having a PLAN: know what you're looking for BEFORE the pitch is thrown.",
+        "keyTerms": [
+          { "term": "Hitter's count", "definition": "A count where the batter has the advantage, like 2-0, 3-1, or 2-1. The pitcher needs to throw a strike, so the hitter can be selective and look for their pitch." },
+          { "term": "Looking for your pitch", "definition": "Picking a specific zone and pitch type before the pitch is thrown. If you get it, you swing hard. If not, you take it." },
+          { "term": "Count leverage", "definition": "Understanding who has the advantage based on the ball-strike count. More balls = hitter's advantage. More strikes = pitcher's advantage." }
+        ],
+        "whatToRemember": "On 2-0, pick your zone and look for a fastball. The pitcher HAS to throw a strike, so wait for YOUR pitch in YOUR zone. If you get it, attack it!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.35, "y": 0.15 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 900,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 1000
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-take-okay": {
+      "type": "outcome",
+      "narration": "You decide to take the pitch. The pitcher throws a fastball right down the middle -- 2-1. You took a perfect pitch to hit! Next pitch is another fastball on the corner -- 2-2. Now the count is even and the pitcher has the leverage back. You end up grounding out to shortstop on a tough pitch. Your coach says 'On 2-0, you can be aggressive! That first fastball was yours to hit!'",
+      "field": {
+        "ballPosition": { "x": 0.4, "y": 0.52 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Took Your Pitch! Missed the Opportunity!",
+        "explanation": "Taking every pitch on 2-0 is too passive. Yes, getting to 3-0 would be nice, but you just watched a perfect pitch go by! On 2-0, the odds are heavily in your favor -- the pitcher usually throws a fastball for a strike. That's EXACTLY what happened, and you let it go. The beauty of 2-0 is that even if you swing and miss, the count is only 2-1, which is still a good count. You have a free swing! Being too patient in a hitter's count lets the pitcher back into the at-bat.",
+        "whatToRemember": "On 2-0, don't just take every pitch. If the fastball is in your zone, attack it! Even if you miss, 2-1 is still a good count. Hitter's counts are meant for hitting.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-anything-bad": {
+      "type": "outcome",
+      "narration": "You're so eager to swing that you'll hack at anything. The pitcher, knowing you're aggressive, throws a curveball in the dirt. You chase it -- SWING AND MISS! Now it's 2-1. Next pitch is another curve, low and away. You chase again -- 2-2. Now the pitcher has you right where they want you, and you pop up weakly to the infield. Out. Your advantage is gone.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Chased Bad Pitches! Wasted the Count!",
+        "explanation": "Swinging at ANYTHING on 2-0 is the opposite of what you should do. The whole point of a hitter's count is that YOU get to be picky. You're ahead! The pitcher is the one in trouble! When you swing at any pitch, including balls out of the zone, you're giving away your advantage. Smart pitchers know that some hitters get too excited on 2-0 and will throw a ball out of the zone to see if you chase. The key is: be aggressive on YOUR pitch in YOUR zone, but let everything else go.",
+        "whatToRemember": "Being aggressive doesn't mean swinging at everything. Be aggressive on pitches IN your zone. Let pitches OUT of your zone go by -- you can afford it on 2-0!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.92 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

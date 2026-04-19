@@ -1,0 +1,181 @@
+{
+  "id": "rookie-back-up-throw",
+  "title": "Back Up the Throw!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["backing-up", "outfield", "throws", "positioning", "fundamentals"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 3 },
+    "runners": { "first": true, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Tied game, runner on first, one out. The batter hits a sharp ground ball to the shortstop. The shortstop fields it and fires to third base to try to get the runner who's coming from first to third on the hit. You're the left fielder. The ball is in the air heading toward third base right now. Where should you be?",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.55 },
+        "highlight": ["LF", "3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.38, "y": 0.58 }, "label": "Runner (to 3rd)" },
+          { "id": "batter", "position": { "x": 0.6, "y": 0.7 }, "label": "Batter (to 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "back-up-third",
+          "text": "Sprint in behind third base to back up the throw! If it gets past the third baseman, you're there!",
+          "nextNode": "outcome-backup-great"
+        },
+        {
+          "id": "stay-in-left",
+          "text": "Stay in your normal left field position. That's the infield's job.",
+          "nextNode": "outcome-stay-bad"
+        },
+        {
+          "id": "run-to-third",
+          "text": "Run to third base and try to help the third baseman catch the ball.",
+          "nextNode": "outcome-crowd-okay"
+        }
+      ]
+    },
+    "outcome-backup-great": {
+      "type": "outcome",
+      "narration": "You sprint in behind third base, about 20 feet behind the bag. The shortstop's throw sails a little high and skips off the third baseman's glove! But YOU are right there! You scoop up the ball on one bounce and hold the runner at third. The batter stays at first. Crisis averted! Without you backing up, that ball rolls all the way to the left field fence and both runners score!",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.55 },
+        "highlight": ["LF", "3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Backup! Saved Extra Bases!",
+        "explanation": "Backing up throws is one of the most important -- and most forgotten -- jobs for outfielders. As the left fielder, you're responsible for backing up throws to third base and the left side of the infield. That means when a throw is heading to third, you need to sprint in behind the base so if the ball gets past the third baseman, you're there to stop it. You should be about 15-20 feet behind the base, in a direct line from where the throw is coming. This one play saved two runs!",
+        "whatToRemember": "Left fielders back up third base throws, right fielders back up first base throws, and center fielders help on throws to second. Always be moving toward the backup position when a throw is in the air!",
+        "keyTerms": [
+          { "term": "Backing Up", "definition": "Positioning yourself behind a base or teammate so that if the ball gets past them, you can stop it from rolling away. It's like being a safety net!" },
+          { "term": "Overthrow", "definition": "A throw that goes past the fielder it was aimed at. Overthrows can be really costly because the ball ends up in open space and runners can advance." },
+          { "term": "Hustle", "definition": "Running hard even when the play doesn't seem to involve you directly. Backing up throws is all about hustle -- sprinting to a spot 'just in case' something goes wrong." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.2, "y": 0.3 },
+              "to": { "x": 0.25, "y": 0.55 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.32, "y": 0.58 },
+              "entity": "ball",
+              "duration": 400,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.32, "y": 0.58 },
+              "to": { "x": 0.25, "y": 0.55 },
+              "entity": "ball",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay in your normal left field spot, watching the play from far away. The shortstop's throw to third is a little wild and bounces off the third baseman's glove! The ball rolls into foul territory behind third base -- and nobody is there! By the time you react and run in to grab it, the runner has scored from third and the batter has made it to second! Two extra bases given up because nobody was backing up the throw.",
+      "field": {
+        "ballPosition": { "x": 0.2, "y": 0.55 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Backup! Runs Score!",
+        "explanation": "This is what happens when outfielders don't back up. An overthrow or a ball that gets past an infielder has NOTHING stopping it -- it just rolls and rolls. Every second the ball is on the ground, runners are advancing. If you had been behind third base, you would have grabbed that ball immediately and held everyone. Instead, a manageable situation turned into a disaster. Outfielders should ALWAYS be moving on every pitch. Ask yourself: 'If this ball gets hit, where will the throw go? Where should I back up?'",
+        "whatToRemember": "Outfielders should be moving on EVERY play. Figure out where the throw will go and get behind that base to back it up. Never just stand and watch!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.2, "y": 0.55 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.38, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-crowd-okay": {
+      "type": "outcome",
+      "narration": "You sprint toward third base, but the third baseman is already there! Now you're standing right next to them. The throw comes in and the third baseman catches it -- great! But if that ball had gotten past the third baseman, it would have gotten past you too because you were right next to them. You weren't behind them, so you couldn't have backed anything up.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (OUT)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Right Idea, Wrong Spot!",
+        "explanation": "You showed great instincts by running in to help, but you need to be BEHIND the base, not right at it. If you're standing next to the third baseman and the ball gets past them, it gets past you too! The whole point of backing up is to be 15-20 feet behind the play, in a direct line from where the throw is coming. That way, if the ball bounces off the fielder's glove, it comes right to you. Think of yourself as a hockey goalie behind the fielder -- you're the last line of defense.",
+        "whatToRemember": "Back up 15-20 feet BEHIND the base, not next to it. You need space to react if the ball gets past the fielder. You're the safety net, not an extra glove at the base.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.2, "y": 0.3 },
+              "to": { "x": 0.3, "y": 0.58 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

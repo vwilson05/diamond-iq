@@ -1,0 +1,201 @@
+{
+  "id": "minors-rundown-play",
+  "title": "The Rundown!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["rundown", "pickle", "baserunning", "teamwork", "throwing", "tagging"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 4, "away": 3 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on second, one out. The pitcher picks off the runner at second! The runner is caught between second and third -- they're in a pickle! Your shortstop has the ball near second base, and the runner is dancing back and forth about 20 feet from second. You're the third baseman, standing at third. The rundown is on! What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.48 },
+        "highlight": ["SS", "3B"],
+        "runners": [
+          { "id": "runner", "position": { "x": 0.4, "y": 0.52 }, "label": "Runner (in pickle)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "run-at-runner",
+          "text": "Yell for the ball! Get the runner going back toward second, then chase them and tag or throw!",
+          "nextNode": "outcome-rundown-great"
+        },
+        {
+          "id": "stay-on-bag",
+          "text": "Stay on third base and wait for the shortstop to chase the runner toward me.",
+          "nextNode": "outcome-wait-okay"
+        },
+        {
+          "id": "both-chase",
+          "text": "Run toward the runner from the third base side while the shortstop chases from second base side -- trap them!",
+          "nextNode": "outcome-both-chase-bad"
+        }
+      ]
+    },
+    "outcome-rundown-great": {
+      "type": "outcome",
+      "narration": "You yell 'BALL! BALL!' and the shortstop tosses it to you. Now you sprint HARD at the runner, forcing them to turn and run back toward second base. You get them running full speed back toward second, and then -- just before you get too close -- you toss the ball to the shortstop who's waiting at second base. TAG! The runner is out! Perfect rundown executed in just ONE throw!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Rundown Perfection! One Throw, One Out!",
+        "explanation": "The golden rule of rundowns: get the runner going BACK to the base they came from, and use as FEW throws as possible. Every throw is a chance for an error. Here's the system: 1) The fielder with the ball runs hard at the runner, forcing them to commit to a direction. 2) Run them back toward the base they CAME from (second base in this case). 3) Toss the ball to your teammate at that base BEFORE you get too close to the runner. 4) Teammate catches and applies the tag. The best rundowns end with just one throw.",
+        "keyTerms": [
+          { "term": "Rundown (pickle)", "definition": "When a runner is caught between two bases and the defense tries to tag them out by chasing and throwing between fielders." },
+          { "term": "Run back rule", "definition": "In a rundown, always chase the runner back toward the base they CAME from. This prevents them from advancing to the next base." },
+          { "term": "Minimum throws", "definition": "Every throw in a rundown is a chance for an error. The best rundowns use one throw. Never throw more than you have to." }
+        ],
+        "whatToRemember": "In a rundown: run the runner BACK to where they came from, throw the ball EARLY (before you're too close), and try to get the out in ONE throw. Fewer throws = fewer errors.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.48, "y": 0.48 },
+              "to": { "x": 0.32, "y": 0.55 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.32, "y": 0.55 },
+              "to": { "x": 0.42, "y": 0.5 },
+              "entity": "fielder",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.48, "y": 0.47 },
+              "entity": "runner",
+              "duration": 500,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.5 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.48, "y": 0.47 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-wait-okay": {
+      "type": "outcome",
+      "narration": "You stay at third base and wait. The shortstop starts chasing the runner toward third. But the runner is a good athlete -- they juke left, juke right, and the shortstop has to throw the ball to you while running. You catch it, but the runner reverses back toward second! Now you have to throw back to the shortstop. Back and forth, back and forth -- four throws later, you finally get the tag. But it took WAY too long and almost got away!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Got the Out, But Too Many Throws!",
+        "explanation": "You got the out, so that's the good news. But four throws in a rundown is dangerous -- each one could have been dropped or thrown wild. The problem was that the shortstop was chasing the runner TOWARD third (the wrong direction), which let the runner get closer to advancing. Then you had to throw back, creating a back-and-forth mess. The fix: you should have called for the ball and run AT the runner yourself, pushing them back toward second. That way you control the direction.",
+        "whatToRemember": "Don't just stand on the bag and wait. Get the ball and run AT the runner to control the direction. Push them BACK toward the base they came from.",
+        "iqPoints": 5,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.48, "y": 0.48 },
+              "to": { "x": 0.42, "y": 0.52 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.52 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.48, "y": 0.47 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-both-chase-bad": {
+      "type": "outcome",
+      "narration": "You and the shortstop both run at the runner from opposite sides. The runner sees both of you closing in and does something smart -- they stop, duck, and let you two almost collide! In the confusion, they spin and sprint toward third base. Nobody is covering third because you left your base! The runner slides in safely at third. Now the tying run is 90 feet from home!",
+      "field": {
+        "ballPosition": { "x": 0.38, "y": 0.55 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Base Left Open! Runner Advances!",
+        "explanation": "When both fielders chase the runner, nobody is covering the bases! That's a disaster. The runner only needs one of you to make a mistake, and with two people running around, mistakes happen fast. The proper rundown technique is: ONE person chases with the ball, the OTHER person stays at the base and waits for the throw. It's a relay, not a stampede. Also, you ran the runner toward third -- the WRONG direction. Now they've advanced into scoring position instead of being tagged out.",
+        "whatToRemember": "In a rundown, ONE person chases with the ball, ONE person covers the base. Never leave a base uncovered, and never have two people chasing at the same time.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.58 },
+              "to": { "x": 0.4, "y": 0.52 },
+              "entity": "fielder",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.48, "y": 0.48 },
+              "to": { "x": 0.42, "y": 0.52 },
+              "entity": "fielder",
+              "duration": 500,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

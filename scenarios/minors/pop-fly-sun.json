@@ -1,0 +1,150 @@
+{
+  "id": "minors-pop-fly-sun",
+  "title": "Pop Fly in the Sun!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["pop-fly", "sun", "communication", "outfield", "technique", "sunglasses"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Nobody on, nobody out, early in the game. You're playing left field. The batter hits a towering pop fly headed right toward you. You start drifting under it, but as you look up -- the sun is RIGHT THERE, blinding you! You can barely see the ball against the bright sky. The ball is coming down fast. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.25 },
+        "highlight": ["LF"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "use-glove-shade",
+          "text": "Use my glove to shade my eyes from the sun while tracking the ball, and call for it loud!",
+          "nextNode": "outcome-shade-great"
+        },
+        {
+          "id": "look-away",
+          "text": "Look away from the sun completely and try to find the ball at the last second.",
+          "nextNode": "outcome-look-away-bad"
+        },
+        {
+          "id": "wave-off",
+          "text": "Wave my arms and yell for someone else to catch it -- I can't see!",
+          "nextNode": "outcome-wave-okay"
+        }
+      ]
+    },
+    "outcome-shade-great": {
+      "type": "outcome",
+      "narration": "Smart! You hold your glove up above your eyes, using it like a visor to block the sun. You can see the edge of the ball just above your glove as it falls. You keep tracking it, shift slightly to your left, and -- SQUEEZE! The ball lands right in your glove! One out! Your teammates clap and your coach gives you a thumbs up. That's how you handle the sun!",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.3 },
+        "highlight": ["LF"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Caught It! Sun Ball Handled!",
+        "explanation": "Using your glove to shade the sun is the go-to technique for any fly ball that takes you into the sun. Here's the trick: hold your glove up just below the sun so it blocks the bright light, but you can still see the ball right above or beside your glove. As the ball drops, you're already in position to catch it. This is why coaches tell outfielders to always wear sunglasses or a hat with a brim -- but your glove always works as a backup sun shield.",
+        "keyTerms": [
+          { "term": "Sun ball", "definition": "A fly ball hit in the direction of the sun, making it hard for fielders to track. Players use their glove, sunglasses, or hat brim to shade their eyes." },
+          { "term": "Glove shade technique", "definition": "Holding your glove above your eyes to block the sun while still tracking the ball, then adjusting your glove to make the catch as the ball drops." }
+        ],
+        "whatToRemember": "When the sun is in your eyes, use your glove as a sun shield. Hold it up to block the sun and track the ball just above or beside the glove. Never give up on a fly ball because of the sun.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.25, "y": 0.3 },
+              "to": { "x": 0.25, "y": 0.28 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.25, "y": 0.25 },
+              "to": { "x": 0.25, "y": 0.28 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-look-away-bad": {
+      "type": "outcome",
+      "narration": "You turn your head away from the sun completely. Big mistake -- now you've totally lost the ball! You spin around trying to find it again, but it's too late. The ball drops right behind you and bounces to the wall. The batter ends up on second base with a double. Your coach jogs out: 'Never take your eyes completely off the ball!'",
+      "field": {
+        "ballPosition": { "x": 0.2, "y": 0.15 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost It! Ball Drops for a Double!",
+        "explanation": "Once you take your eyes completely off a fly ball, it's almost impossible to find it again in time. The ball is moving fast and the sky is huge -- trying to re-locate a small white ball is like finding a needle in a haystack. Even when the sun is blinding, you need to keep some visual contact with the ball. Use your glove, your hat, or your free hand to block the sun while keeping your eyes near the ball. Losing track of the ball is the one thing you can't recover from.",
+        "whatToRemember": "Never completely look away from a fly ball. Use your glove to block the sun and maintain visual contact, even if it's tough to see.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.25, "y": 0.3 },
+              "to": { "x": 0.28, "y": 0.32 },
+              "entity": "fielder",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 1200,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-wave-okay": {
+      "type": "outcome",
+      "narration": "You wave your arms and yell 'Help! Help!' The center fielder sprints over and tries to get under the ball, but they had to cover a LOT of ground and the ball drops just in front of them for a single. Not the worst result -- at least you communicated -- but if you'd used the glove-shade technique, you could have caught it yourself.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.3 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Communication Was Good, But You Can Catch That!",
+        "explanation": "Calling for help is always better than letting the ball drop with no communication. That part was good. But here's the thing -- sun balls are YOUR ball to catch. You were right under it. Instead of waving off, you should use your glove to shade the sun and make the play yourself. Relying on a teammate who has to sprint 50 feet to get there is risky. The ball was yours to catch, and with the right technique, you can handle sun balls all day long.",
+        "whatToRemember": "Communication is great, but don't wave off a ball you can catch. Learn the glove-shade technique so sun balls become routine outs.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.25 },
+              "to": { "x": 0.28, "y": 0.28 },
+              "entity": "fielder",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

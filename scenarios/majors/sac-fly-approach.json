@@ -1,0 +1,260 @@
+{
+  "id": "majors-sac-fly-approach",
+  "title": "Sac Fly Approach: Elevating the Ball",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "offense",
+  "tags": ["sac-fly", "hitting", "situational", "fly-ball", "run-scoring"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 2, "away": 3 },
+    "runners": { "first": false, "second": false, "third": true },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on third, nobody out, your team trails by one. The runner is the fastest kid on the team. A fly ball to the outfield -- even a routine one -- will score the tying run. A ground ball is risky because the defense might throw home. You're a solid contact hitter. The pitcher is a hard thrower who likes to challenge hitters up in the zone. How do you approach this at-bat with the run 90 feet away?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "elevate-fly",
+          "text": "Look for a pitch I can elevate. I need to get the ball in the AIR -- a fly ball to the outfield scores the run. Sit on something up and drive it.",
+          "nextNode": "decision-fly-result"
+        },
+        {
+          "id": "ground-ball-right",
+          "text": "Put the ball on the ground to the right side. A grounder to second base scores the run because the throw to first takes the fielder away from home.",
+          "nextNode": "outcome-ground-right-good"
+        },
+        {
+          "id": "swing-for-fence",
+          "text": "Swing for the fences! A home run puts us AHEAD, not just tied!",
+          "nextNode": "outcome-swing-fence-bad"
+        }
+      ]
+    },
+    "decision-fly-result": {
+      "type": "decision",
+      "narration": "The pitcher throws a fastball up in the zone -- exactly what you were looking for! You swing with a slight uppercut and drive it high and deep to right-center field! It's carrying... carrying... the center fielder is going back... he catches it on the warning track! But the runner on third is tagging up! He's going to break for home the instant the catch is made. The outfielder catches it -- now what does the runner do?",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.15 },
+        "highlight": ["CF", "Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (tagging)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "tag-and-score",
+          "text": "Tag up and score! The catch was deep enough and the runner is fast -- he'll beat the throw home!",
+          "nextNode": "outcome-sac-fly-great"
+        },
+        {
+          "id": "hold-at-third",
+          "text": "Hold at third! That outfielder has a strong arm -- the throw might beat the runner.",
+          "nextNode": "outcome-hold-okay"
+        },
+        {
+          "id": "bluff-and-retreat",
+          "text": "Bluff going -- take a few hard steps and retreat to draw a bad throw.",
+          "nextNode": "outcome-bluff-good"
+        }
+      ]
+    },
+    "outcome-sac-fly-great": {
+      "type": "outcome",
+      "narration": "The runner tags up on the catch and sprints for home! The center fielder sets his feet and fires a throw toward the plate. It's going to be close! The ball arrives on one hop -- the runner slides feet-first and reaches for the plate -- SAFE! The catcher couldn't handle the one-hopper cleanly! TIE GAME! The sacrifice fly scores the run! You got out, but your at-bat produced a run. That's the definition of a productive out!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Sac Fly Scores the Tying Run!",
+        "explanation": "The sacrifice fly is one of baseball's most important plays, and THIS is how you set it up: 1) You recognized the situation: runner on third, less than two outs, need a fly ball. 2) You adjusted your swing to ELEVATE -- a slight uppercut on a pitch up in the zone produces a fly ball. 3) The fly ball didn't need to be a home run -- just deep enough that the runner could tag and score. 4) Even though you made an out, you drove in a run. That's called a 'productive out.' Not every at-bat needs to end with a hit. Sometimes the best thing you can do is put the ball in the air deep enough to score a runner. The sac fly counts as an RBI but does NOT count as an at-bat, so it doesn't hurt your batting average either.",
+        "keyTerms": ["sacrifice fly", "productive out", "elevating the ball"],
+        "whatToRemember": "With a runner on third and less than two outs, your job is to get the ball in the AIR to the outfield. A deep fly ball scores the run. Adjust your swing to elevate -- don't swing down on the ball.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.15 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-okay": {
+      "type": "outcome",
+      "narration": "The runner holds at third. The outfielder's throw sails over the cutoff man and bounces to the backstop. The runner COULD have scored easily if he'd tagged up. Instead, he's still on third with one out now. The run was there for the taking, but the runner was too cautious. Now you need the NEXT hitter to drive him in.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Held at Third. Should Have Tagged!",
+        "explanation": "On a fly ball that deep -- to the warning track -- the runner should tag and score almost every time. The throw from deep center field is one of the longest throws in baseball, and even outfielders with strong arms struggle to throw someone out from 350+ feet. The runner has to weigh the risk: if the throw is offline (which it was!), he scores easily. Even if the throw is perfect, a fast runner can still beat it from a deep fly ball. With nobody out, you have multiple chances to score. But why wait? The whole POINT of elevating the ball was to score on the tag. Be aggressive -- tag and go.",
+        "whatToRemember": "On deep fly balls with a runner on third, tag up and go. The deeper the fly ball, the more time the runner has. Don't be afraid of the outfielder's arm -- deep throws are hard to execute.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.15 },
+              "to": { "x": 0.5, "y": 0.92 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bluff-good": {
+      "type": "outcome",
+      "narration": "The runner takes three hard steps toward home then stops. The outfielder sees the runner going and rushes his throw -- it sails high and wide of the cutoff man! But the runner already retreated to third. He didn't score, and the bad throw didn't help because he wasn't going. Smart in theory, but the bluff didn't accomplish anything. Runner still on third, one out.",
+      "field": {
+        "ballPosition": { "x": 0.45, "y": 0.7 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Bluff Didn't Score. Runner Still at Third.",
+        "explanation": "The bluff can work in some situations -- if the throw goes all the way to the backstop, the runner might be able to score. But on a deep fly ball like this, the better play is to COMMIT to tagging and scoring. The bluff is a half-measure. If the fly ball is deep enough to score on (and this one was), just tag and go. If it's too shallow to score on, stay at third and wait for the next opportunity. The bluff occupies a middle ground that rarely produces the best result. Be decisive: either you're going or you're not.",
+        "whatToRemember": "On tag-up plays, be decisive. Either commit to tagging and scoring, or hold at third. Bluffing is a half-measure that usually doesn't help. Read the depth of the fly ball and make a clear decision.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.4, "y": 0.72 },
+              "entity": "runner3rd",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.72 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner3rd",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-ground-right-good": {
+      "type": "outcome",
+      "narration": "You ground a ball toward the right side. The second baseman fields it and immediately looks home -- the runner on third is breaking! The second baseman has a decision: throw home or throw to first? He throws to first for the sure out. The runner scores! TIE GAME! The ground ball to the right side worked, but it was risky -- if the second baseman had thrown home, the runner might have been out.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Run Scores on Groundout! Risky But Effective!",
+        "explanation": "The ground ball to the right side CAN score a runner from third because the second baseman's natural throw is to first base, away from home plate. It's a useful trick. But it's riskier than a fly ball for a few reasons: 1) A ground ball to the left side (third baseman or shortstop) gives the defense a direct throw home. 2) If the ball is hit too hard, the fielder has time to check the runner and throw home. 3) If the ball is hit too slowly, the pitcher or first baseman might field it and tag the runner. The fly ball is the safer play because once the ball is in the air, the runner SEES where it is and can make a clean decision. Ground balls create chaos. A fly ball is the textbook play here.",
+        "keyTerms": ["ground ball to the right side"],
+        "whatToRemember": "With a runner on third and less than two outs, a fly ball is safer than a ground ball. Ground balls to the right side CAN work, but they're riskier because the defense might throw home.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-swing-fence-bad": {
+      "type": "outcome",
+      "narration": "You swing for the fences! BIG cut -- your back foot spins, your head flies off the ball, and you swing right underneath a fastball up in the zone. Pop fly straight up in the air. The catcher catches it for an easy out. One out now, and you wasted a golden opportunity. A simple fly ball to the outfield would have scored the run. Instead, you popped it up 50 feet in the air. Your coach shakes his head -- the situation called for contact, not power.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.82 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Pop-Up! Overswinging Killed the At-Bat!",
+        "explanation": "This is the classic 'trying to do too much.' You had a runner on third with nobody out -- ALL you needed was a fly ball to the outfield. A 250-foot fly ball scores the run just as well as a 400-foot home run. But by swinging for the fence, you: 1) Swung too hard and lost your balance. 2) Got under the ball and popped it up instead of driving it. 3) Produced a pop-up to the catcher, which is the WORST possible outcome -- can't score a runner, can't advance a runner, pure wasted out. The situation dictated the approach: get the ball in the air to the outfield. A controlled, level swing would have done that. The home run swing produced a pop-up.",
+        "whatToRemember": "Don't swing for the fences when a fly ball wins the game. A controlled swing produces line drives and deep fly balls. A home run swing often produces pop-ups and strikeouts. Match your effort to the situation.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.82 },
+              "entity": "ball",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "rookie-popup-priority",
+  "title": "Who Calls the Pop-Up?",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["pop-up", "communication", "catcher", "pitcher", "calling-the-ball"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Nobody on, nobody out, scoreless game. The batter pops the ball straight up in the air! It's going to come down right between the pitcher's mound and home plate. You're the catcher. The pitcher is looking up at the ball, drifting toward home. You throw off your mask and look up too. You're both under it! Who should call for this ball?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.72 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.55, "y": 0.82 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "catcher-calls",
+          "text": "You call it! Yell 'I GOT IT! I GOT IT!' and wave the pitcher away!",
+          "nextNode": "outcome-catcher-great"
+        },
+        {
+          "id": "let-pitcher",
+          "text": "Let the pitcher have it -- they're closer to the ball.",
+          "nextNode": "outcome-pitcher-okay"
+        },
+        {
+          "id": "both-go",
+          "text": "Don't say anything and both go for the ball.",
+          "nextNode": "outcome-collision-bad"
+        }
+      ]
+    },
+    "outcome-catcher-great": {
+      "type": "outcome",
+      "narration": "You rip off your mask, toss it away from the play, and yell 'I GOT IT! I GOT IT!' loud and clear. The pitcher hears you, pulls off, and backs away. You settle under the ball, squeeze the catch, and that's one out! Clean, easy, no confusion. Your coach gives you a thumbs up for taking charge.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.78 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Nice Catch! Great Communication!",
+        "explanation": "On pop-ups between the pitcher and catcher, the CATCHER has priority. Why? Because the catcher is facing the field and the ball is coming toward them as it drifts. The pitcher has to turn around and look up awkwardly. The catcher also has a better angle because pop-ups near home plate tend to spin back toward the catcher. The most important thing is CALLING the ball -- yelling 'I GOT IT' loud and clear so your teammate knows to back off. You also tossed your mask AWAY from the play so you wouldn't trip on it. Smart details like that prevent errors!",
+        "whatToRemember": "The catcher has priority on pop-ups near home plate. Always call the ball LOUD and CLEAR. Toss your mask away from the play so you don't trip on it!",
+        "keyTerms": [
+          { "term": "Priority", "definition": "The rule for who should catch a pop-up when two players are close to it. The player moving FORWARD (toward the infield) usually has priority because they have a better view and angle." },
+          { "term": "Calling the Ball", "definition": "Yelling 'I GOT IT!' loud enough for your teammates to hear. This prevents collisions and confusion. The player who calls it gets to catch it -- everyone else backs off." },
+          { "term": "Pop Time", "definition": "How quickly a catcher can handle a play. For pop-ups, the catcher needs to remove their mask, find the ball, and get under it -- all in a few seconds!" }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.78 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.78 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-pitcher-okay": {
+      "type": "outcome",
+      "narration": "The pitcher turns around, looks up, and tries to catch the ball. It's drifting back toward home plate and the pitcher has to backpedal awkwardly. They reach up and... it tips off their glove! The ball falls to the ground! The batter sprints to first base and is safe. It was a tough play for the pitcher because the ball was moving away from them the whole time.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.75 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Dropped! Tough Play for the Pitcher!",
+        "explanation": "Pop-ups near home plate are tricky for pitchers because the ball drifts TOWARD the catcher (due to backspin). The pitcher has to turn around, look up, and run backward -- one of the hardest things to do in baseball. The catcher, on the other hand, is already facing the field and the ball comes toward them naturally. That's why the catcher has priority on these plays. Even if the pitcher is closer at first, the catcher has the better angle and body position to make the catch.",
+        "whatToRemember": "Pop-ups near home drift toward the catcher. The catcher has the better angle, so they should take priority over the pitcher on these plays.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.72 },
+              "entity": "fielder",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.75 },
+              "entity": "ball",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-collision-bad": {
+      "type": "outcome",
+      "narration": "Nobody calls the ball! You and the pitcher both drift under it, looking straight up. WHAM! You collide right as the ball comes down! The ball bounces off someone's glove and rolls away. The pitcher falls down, you stumble sideways, and the batter runs all the way to second base while everyone recovers. Your coach runs out to check on both of you. That's why we COMMUNICATE!",
+      "field": {
+        "ballPosition": { "x": 0.52, "y": 0.75 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Collision! Nobody Called It!",
+        "explanation": "This is one of the most dangerous plays in baseball -- two players running full speed into each other because nobody communicated. Collisions can cause injuries AND they always result in the ball being dropped. The FIX is simple: someone HAS to call the ball. Yell 'I GOT IT!' as loud as you can. And when you hear your teammate call it, you yell 'TAKE IT!' and get out of the way. One ball, one fielder. Communication isn't just about making the play -- it's about keeping everyone safe.",
+        "whatToRemember": "ALWAYS call the ball on pop-ups! If you're going for it, yell 'I GOT IT!' If your teammate calls it, yell 'TAKE IT!' and move away. Communication prevents collisions and errors.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.75 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.73 },
+              "entity": "fielder",
+              "duration": 400,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

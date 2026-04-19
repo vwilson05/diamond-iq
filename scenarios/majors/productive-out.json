@@ -1,0 +1,217 @@
+{
+  "id": "majors-productive-out",
+  "title": "The Productive Out: Moving the Runner",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "offense",
+  "tags": ["productive-out", "situational-hitting", "advancing-runners", "right-side", "team-hitting"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 1, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on second, nobody out, your team trails by one. You're a solid but not spectacular hitter -- .260 average. The leadoff hitter just doubled and your job is to move him to third so he can score on a sac fly, a wild pitch, a passed ball, or a ground ball. This is the classic 'move the runner' situation. Your coach gave you the green light to hit. How do you approach the at-bat to advance the runner from second to third?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "2B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "ground-right-side",
+          "text": "Hit a ground ball to the RIGHT side of the infield. A grounder to second base or first base advances the runner to third even if I'm thrown out.",
+          "nextNode": "outcome-ground-right-great"
+        },
+        {
+          "id": "try-for-hit",
+          "text": "Just try to get a hit! If I get a single, the runner scores from second. Don't worry about direction.",
+          "nextNode": "outcome-try-hit-okay"
+        },
+        {
+          "id": "bunt-him-over",
+          "text": "Sacrifice bunt to move the runner to third. Guaranteed advancement.",
+          "nextNode": "outcome-bunt-good"
+        },
+        {
+          "id": "swing-hard",
+          "text": "Swing hard and try to drive one to the gap! One swing can score the runner AND give us the lead!",
+          "nextNode": "outcome-swing-hard-bad"
+        }
+      ]
+    },
+    "outcome-ground-right-great": {
+      "type": "outcome",
+      "narration": "You look for a pitch on the outer half and try to drive it to the right side. The pitcher throws a fastball middle-away and you go with it -- solid grounder to the second baseman. He fields it and throws to first for the out. BUT -- the runner on second read the ground ball perfectly, took off on contact, and is now standing on third base! One out, runner on third. You made an out, but it was PRODUCTIVE. Now the runner can score on a fly ball, a wild pitch, a passed ball, a grounder to the right side -- there are so many ways to get him home from third.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Runner Advances to Third! Productive Out!",
+        "explanation": "This is the textbook productive out, and here's WHY the right side matters: When you hit a ground ball to the second baseman or first baseman, their natural throw is to first base -- AWAY from the runner advancing to third. The fielder has to choose: throw home to prevent the advance, or throw to first to get the out. They almost always throw to first because it's the sure out. But if you ground out to the LEFT side (shortstop or third baseman), the throw to first goes TOWARD the runner, and the fielder can check the runner before throwing. The right side of the infield is the key. By going with an outside pitch and driving it to the right side, you gave the runner a free trip to third.",
+        "keyTerms": ["productive out", "hitting to the right side", "advancing the runner"],
+        "whatToRemember": "To advance a runner from second to third, hit ground balls to the RIGHT side of the infield. The fielder's throw to first takes them away from the runner, giving him a free advance to third.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-try-hit-okay": {
+      "type": "outcome",
+      "narration": "You go up hacking, looking for a pitch to drive. The pitcher throws a fastball and you pull a sharp grounder to the shortstop. The shortstop fields it, looks the runner back to second, and throws to first for the out. One out -- but the runner is STILL on second. He couldn't advance because the ground ball went to the LEFT side, and the shortstop's throw went right toward the runner's path. The runner had to hold. Wasted at-bat.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out at First. Runner Stuck at Second.",
+        "explanation": "You made an out and the runner didn't advance -- that's a wasted at-bat. The problem was hitting the ball to the LEFT side of the infield. When the shortstop fields the ball, he can look the runner back to second before throwing to first because his natural throw goes across the diamond in the runner's direction. The runner can't advance because the fielder is between him and third base. If that SAME grounder goes to the RIGHT side -- to the second baseman -- the runner advances easily because the throw goes the other way. Situational hitting isn't just about making contact. It's about directing the ball to the right PLACE.",
+        "whatToRemember": "Ground balls to the LEFT side hold runners. Ground balls to the RIGHT side advance runners. Know which side of the infield to target based on the situation.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.4, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bunt-good": {
+      "type": "outcome",
+      "narration": "You square around and lay down a bunt toward first base. The first baseman charges, fields it, and throws to second -- wait, the runner is already standing on third! The first baseman threw to second out of instinct but nobody was there. You're safe at first! Runner on the corners, nobody out! The bunt moved the runner AND you reached base safely! Wait -- actually the pitcher covered first and the first baseman flips to him. You're out at first. But the runner is on third with one out. Solid execution.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Runner to Third. Sac Bunt Executed.",
+        "explanation": "The sacrifice bunt accomplished the goal: runner moved from second to third. But there's a trade-off. With nobody out, you had a chance to hit a ground ball to the right side that ALSO advances the runner, but with the added possibility of getting a hit. The bunt guarantees advancement but almost always results in an out. The ground ball to the right side advances the runner about 70% of the time AND gives you a chance at a base hit. For a .260 hitter, the ground ball approach has higher expected value. The bunt is the safer play with a weaker hitter, though. Know your own abilities.",
+        "keyTerms": ["sacrifice bunt", "run expectancy"],
+        "whatToRemember": "The sacrifice bunt guarantees advancement but costs an out. A ground ball to the right side often advances the runner AND gives you a chance at a hit. Use the bunt for weak hitters; stronger hitters should swing.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.72 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.72 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-swing-hard-bad": {
+      "type": "outcome",
+      "narration": "You swing as hard as you can, trying to drive one into the gap. The pitcher throws a curveball and you're WAY out in front. You roll over on it and produce a weak grounder to the third baseman. The third baseman checks the runner -- who can't go anywhere because the ball was hit right at the LEFT side -- and throws to first. Out. Runner still on second, one out. You tried to do too much and produced the worst possible result: an unproductive out to the left side.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Unproductive Out! Runner Stuck!",
+        "explanation": "Swinging hard and trying to be the hero produced the worst outcome: a weak grounder to the left side that didn't advance the runner. When you try to hit the ball harder than you can, you lose bat control, your timing gets disrupted, and you often roll over on pitches. The result is weak contact to the wrong part of the field. In a 'move the runner' situation, the goal isn't a double to the gap -- it's a ground ball to the RIGHT side. A controlled swing with a focus on direction is FAR more valuable than a wild hack hoping for extra bases. Know your role in the lineup and execute the team play.",
+        "whatToRemember": "Overswinging leads to weak contact and unproductive outs. In a 'move the runner' situation, a controlled swing targeting the right side is more valuable than a hard swing with no direction.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.35, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.35, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

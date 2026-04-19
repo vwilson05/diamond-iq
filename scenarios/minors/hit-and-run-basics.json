@@ -1,0 +1,184 @@
+{
+  "id": "minors-hit-and-run-basics",
+  "title": "Hit and Run!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["hit-and-run", "sign", "contact", "strategy", "baserunning", "team-play"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 1, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Tie game, runner on first, nobody out. The count is 1-0. Your third base coach touches their nose, taps their belt, and wipes their arm across their chest -- that's the hit-and-run sign! The runner on first knows to take off running with the pitch. The pitcher is getting set. As the batter, what do you HAVE to do on a hit-and-run play?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "1B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "must-swing",
+          "text": "I HAVE to swing no matter what! The runner is going, so I need to make contact to protect them!",
+          "nextNode": "outcome-swing-great"
+        },
+        {
+          "id": "wait-for-strike",
+          "text": "Wait for a good pitch to hit. If it's a ball, I'll take it.",
+          "nextNode": "outcome-take-bad"
+        },
+        {
+          "id": "bunt",
+          "text": "Square around to bunt since the runner is going.",
+          "nextNode": "outcome-bunt-okay"
+        }
+      ]
+    },
+    "outcome-swing-great": {
+      "type": "outcome",
+      "narration": "You know the deal -- on a hit-and-run, you SWING. The runner takes off with the pitch. The shortstop breaks to cover second base (because they think it's a steal). The pitcher throws a fastball on the outer half -- not your favorite pitch, but you reach out and slap it right through the hole where the shortstop was standing! Base hit to left! The runner, already sprinting, rounds second and makes it to third! First and third, nobody out!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.3 },
+        "highlight": ["1B", "3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Hit and Run Executed! Runners on the Corners!",
+        "explanation": "The hit-and-run is one of the smartest plays in baseball, and YOU did your job perfectly. Here's why it works: 1) The runner takes off, which forces the shortstop or second baseman to run to second base to cover the 'steal.' 2) That creates a HOLE in the infield. 3) The batter swings at whatever pitch is thrown (even if it's not perfect) and tries to hit the ball on the ground through that hole. The KEY rule: you MUST swing. If you don't swing, the catcher has a clear throw to second and the runner is probably out stealing. Your swing protects the runner.",
+        "keyTerms": [
+          { "term": "Hit and run", "definition": "A play where the runner takes off with the pitch and the batter MUST swing, trying to hit the ball through the hole created by the infielder covering second base." },
+          { "term": "Protecting the runner", "definition": "By swinging the bat, the batter blocks the catcher's view and throwing lane, giving the runner a better chance even if the batter misses." },
+          { "term": "Hole in the infield", "definition": "When an infielder leaves their position to cover a base, it creates a gap (hole) that a smart hitter can aim for." }
+        ],
+        "whatToRemember": "On a hit-and-run, you MUST swing no matter what. Your swing protects the runner. Try to hit the ball on the ground through the hole the infielder left when they went to cover second base.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 600
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.35, "y": 0.3 },
+              "entity": "ball",
+              "duration": 600,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner1st",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-take-bad": {
+      "type": "outcome",
+      "narration": "You decide to take the pitch because it's a little outside. But the runner is SPRINTING to second base! The catcher catches the pitch cleanly, pops up, and fires a bullet to second. The runner is out by five feet! Caught stealing. Your coach claps their hands: 'You had the hit-and-run! You've GOT to swing!' The runner did their job -- you didn't do yours.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Runner Thrown Out! You Didn't Swing!",
+        "explanation": "This is the cardinal sin of the hit-and-run -- not swinging. When the hit-and-run sign is on, the batter MUST swing at the pitch, even if it's not a great pitch. Here's why: the runner is committed to running. They're sprinting as hard as they can. If you don't swing, the catcher has a wide-open throwing lane and a clean ball to throw. Your swing does three important things: 1) It might result in a hit. 2) Even if you miss, it blocks the catcher's view for a split second. 3) The catcher has to wait for the pitch to pass the bat before throwing. Every fraction of a second helps the runner.",
+        "whatToRemember": "On a hit-and-run, swinging is NOT optional. The runner is counting on you. Even a swing and miss is better than standing there watching the runner get thrown out.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bunt-okay": {
+      "type": "outcome",
+      "narration": "You square to bunt as the runner takes off. You lay down a decent bunt toward the pitcher. The pitcher fields it and throws to first -- you're out. The runner advances to second safely. It works out okay, but it wasn't the play that was called. Your coach says 'Nice effort, but hit-and-run means SWING, not bunt. We could have had a bigger play.'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Runner Advanced, But Wrong Play!",
+        "explanation": "A bunt with the runner going is actually a different play called a 'bunt and run' or a sacrifice. On the HIT-and-run, your job is to SWING and try to hit the ball through the infield. Here's the difference: a bunt keeps the ball in the infield and you're almost certainly out. But a swing can result in a base hit, which puts runners on first and third (or even scores a run). The whole POINT of the hit-and-run is to use the infield hole created by the steal to get a hit. A bunt doesn't take advantage of that hole at all.",
+        "whatToRemember": "Hit-and-run means SWING, not bunt. The play is designed to exploit the hole in the infield when an infielder leaves to cover second base. Swing through that hole!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.48, "y": 0.68 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.48, "y": 0.68 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

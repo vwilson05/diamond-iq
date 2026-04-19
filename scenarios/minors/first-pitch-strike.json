@@ -1,0 +1,141 @@
+{
+  "id": "minors-first-pitch-strike",
+  "title": "First Pitch Fastball!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["first-pitch", "fastball", "aggressiveness", "pitch-recognition", "approach"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 0, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Nobody on, nobody out, early in the game. You're leading off the inning. The pitcher has been throwing mostly fastballs and you've been watching from the dugout. They wind up and deliver the FIRST pitch -- it's a fastball right down the middle of the plate, belt high. Your absolute favorite pitch. Do you swing?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "swing-rip",
+          "text": "YES! That's my pitch! I'm swinging and I'm swinging HARD!",
+          "nextNode": "outcome-swing-great"
+        },
+        {
+          "id": "take-first",
+          "text": "Take the first pitch -- I always take the first pitch to see what the pitcher has.",
+          "nextNode": "outcome-take-okay"
+        },
+        {
+          "id": "check-swing",
+          "text": "Start to swing but hold up -- I'm not sure if I should swing first pitch.",
+          "nextNode": "outcome-check-bad"
+        }
+      ]
+    },
+    "outcome-swing-great": {
+      "type": "outcome",
+      "narration": "You were ready from the moment you stepped in the box. Fastball, middle of the plate, belt high -- that's a batting-practice pitch and you CRUSH it! Line drive to right-center, it splits the outfielders and rolls to the wall! You sprint around first and slide into second with a leadoff double! Your dugout goes nuts!",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.12 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Leadoff Double! First-Pitch Swing!",
+        "explanation": "Here's a fact that might surprise you: the first pitch of an at-bat is the pitch MOST LIKELY to be a fastball over the plate. Why? Because the pitcher wants to get ahead in the count. They're thinking 'I'll throw a strike first.' Smart hitters KNOW this and come to the plate ready to jump on it. You don't have to swing at EVERY first pitch -- but when you get a first-pitch fastball in your favorite zone, you should absolutely attack it. Studies show that hitters bat over .350 when they swing at the first pitch and it's a strike. That's elite!",
+        "keyTerms": [
+          { "term": "First-pitch aggressiveness", "definition": "Being ready and willing to swing at the very first pitch if it's in your zone. Don't let the best pitch of the at-bat go by just because it's pitch number one." },
+          { "term": "Hunting a pitch", "definition": "Going to the plate with a specific pitch and zone in mind. If you get it, you swing. If not, you take." }
+        ],
+        "whatToRemember": "The first pitch is often the best pitch you'll see in the at-bat. If the pitcher throws a fastball in your zone on the first pitch, ATTACK IT. Don't let great pitches go by just because it's early in the count.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.55, "y": 0.12 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 1000
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-take-okay": {
+      "type": "outcome",
+      "narration": "You take the pitch. 'STRIKE ONE!' calls the umpire. You just watched a fastball right down the middle -- the best pitch you might see all at-bat. The pitcher grins. Now the count is 0-1 and they have the advantage. They throw you two tough pitches on the corners and you end up grounding out weakly to second base on a pitch you didn't really want to swing at.",
+      "field": {
+        "ballPosition": { "x": 0.58, "y": 0.52 },
+        "highlight": [],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Watched Your Best Pitch! 0-1 Hole!",
+        "explanation": "Taking the first pitch to 'see what the pitcher has' sounds smart, but you already SAW what they throw from the dugout -- fastballs! There's a difference between being patient and being passive. Patient means you take balls out of the zone. Passive means you take strikes that you should be hitting. When a first-pitch fastball is right in your wheelhouse, taking it puts you behind 0-1 and lets the pitcher throw tougher pitches the rest of the at-bat. Be ready to hit from pitch one.",
+        "whatToRemember": "Don't automatically take the first pitch. If you've been watching from the dugout and know the pitcher throws fastballs, be ready to swing if the first pitch is in your zone.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-check-bad": {
+      "type": "outcome",
+      "narration": "You start your swing but chicken out halfway through and try to hold up. The umpire checks with the first base umpire -- 'DID HE GO?' The first base umpire signals YES, you went around! Strike one! You didn't get the benefit of taking it OR the benefit of swinging at it. Worst of both worlds. You end up striking out two pitches later. Your coach says 'Be decisive! Swing or don't swing -- halfway doesn't work!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": [],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Check Swing! Worst of Both Worlds!",
+        "explanation": "A check swing is almost always a bad outcome. If the pitch is good enough to START swinging at, it's good enough to FINISH the swing. And if it's bad enough to hold up on, you shouldn't have started at all. The problem is indecisiveness. You need to make your decision BEFORE the pitch: 'I'm looking for a fastball in my zone, and if I get it, I'm swinging.' Then commit. A half-swing has zero chance of being a hit, but it CAN be called a strike. Commit to your plan.",
+        "whatToRemember": "Be decisive! Decide before the pitch whether you're swinging or taking. A check swing gives you the worst of both worlds -- it can't be a hit, but it can be a strike.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

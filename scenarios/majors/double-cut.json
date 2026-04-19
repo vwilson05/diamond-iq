@@ -1,0 +1,260 @@
+{
+  "id": "majors-double-cut",
+  "title": "Double Cut Relay: Deep in the Corner",
+  "sport": ["baseball"],
+  "tier": "majors",
+  "role": "defense",
+  "tags": ["relay", "cutoff", "outfield", "positioning", "team-defense"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the shortstop. The batter rips a line drive into the left-field corner -- it rattles around in the gap and rolls deep into foul territory. The left fielder is chasing it down, but he's 300+ feet from home plate. The runner from first is motoring around second and heading for third. The batter is rounding first hard. Your coach yells 'Double cut!' You and another infielder need to set up a two-man relay to get this ball back to the infield. Where do you position yourself?",
+      "field": {
+        "ballPosition": { "x": 0.15, "y": 0.2 },
+        "highlight": ["SS", "3B", "LF"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.4, "y": 0.5 }, "label": "Runner (rounding 2nd)" },
+          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (rounding 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "line-up-relay",
+          "text": "Sprint out toward left field and line up between the left fielder and third base. The third baseman trails me as the second cutoff man!",
+          "nextNode": "decision-relay-target"
+        },
+        {
+          "id": "stay-at-second",
+          "text": "Stay near second base to cover the bag in case the batter tries for second.",
+          "nextNode": "outcome-stay-second-bad"
+        },
+        {
+          "id": "go-to-third",
+          "text": "Run to third base to cover the bag since the third baseman might be out of position.",
+          "nextNode": "outcome-cover-third-okay"
+        }
+      ]
+    },
+    "decision-relay-target": {
+      "type": "decision",
+      "narration": "You sprint toward left field and set up about 150 feet from the outfielder, directly in line between him and third base. The third baseman trails you by 30 feet as the second relay man. Arms up, you're giving the outfielder a target. He picks up the ball and fires it toward you. The throw comes in on a hop -- you catch it cleanly, spin, and now you need to decide where to throw. The lead runner is rounding third and heading home. The batter is pulling into second.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.42 },
+        "highlight": ["SS", "3B", "Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (heading home)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "relay-home",
+          "text": "Fire it to the trailing cutoff man who relays home! We can get the runner at the plate!",
+          "nextNode": "outcome-relay-home-great"
+        },
+        {
+          "id": "throw-direct-home",
+          "text": "Skip the second cutoff -- throw it all the way home myself!",
+          "nextNode": "outcome-direct-home-okay"
+        },
+        {
+          "id": "throw-third",
+          "text": "Throw to third base to keep the batter from advancing to third.",
+          "nextNode": "outcome-throw-third-good"
+        }
+      ]
+    },
+    "outcome-relay-home-great": {
+      "type": "outcome",
+      "narration": "You spin and fire a chest-high throw to the third baseman, who's set up 30 feet closer to home. He catches it in stride, redirects, and fires a strike to the catcher. The catcher receives it, blocks the plate, and tags the runner sliding in -- OUT! The double cut relay just gunned down the tying run at the plate! The whole sequence -- outfielder to shortstop to third baseman to catcher -- was like a perfectly oiled machine!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "OUT AT HOME! Double Cut Relay Perfection!",
+        "explanation": "The double cut relay is one of baseball's most beautiful team defensive plays. Here's why it works: no outfielder can throw 300+ feet accurately. But THREE shorter throws, each 100-120 feet, can cover that distance faster and more accurately than one long throw. The keys to a perfect relay: 1) The first cutoff man (you) lines up directly between the outfielder and the target. 2) Arms up high so the outfielder has a clear target. 3) The second cutoff man trails by 20-30 feet as a safety valve. 4) Each throw is chest-high so the relay man can catch and redirect quickly. 5) The catcher calls 'HOME! HOME!' to direct the play. Every player has a role. That's team defense at its finest.",
+        "keyTerms": ["double cut relay", "cutoff alignment", "relay throw"],
+        "whatToRemember": "On deep balls to the corner, set up a two-man relay in a straight line between the outfielder and the target base. Arms up, chest-high throws, quick redirects. Three short throws beat one long one every time.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.15, "y": 0.2 },
+              "to": { "x": 0.3, "y": 0.42 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.42 },
+              "to": { "x": 0.38, "y": 0.55 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.38, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.48, "y": 0.85 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-direct-home-okay": {
+      "type": "outcome",
+      "narration": "You try to air-mail it all the way home -- it's about 200 feet. The throw has plenty of arm behind it, but it sails high and to the right. The catcher has to jump for it and by the time he comes down, the runner has already slid in safely. SAFE at home! Tie game. Meanwhile the batter took third on the wild relay. Your arm was strong but the throw was too long to be accurate.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Run Scores! Throw Was Too Long!",
+        "explanation": "Even the strongest arms in baseball don't try to throw 200+ feet with accuracy. That's why the double cut exists. Your second relay man was standing right there, 30 feet away, ready to redirect your throw. By skipping him, you turned a 100-foot accurate throw into a 200-foot prayer. The ball lost velocity, lost accuracy, and arrived too late. The double cut splits the distance into manageable throws. Your job as the first cutoff man is to make ONE accurate throw to the next relay man -- not to play hero and try to do it all yourself.",
+        "keyTerms": ["relay accuracy"],
+        "whatToRemember": "Trust the relay system. Your job is one accurate throw to the next man, not a 200-foot hero throw. The relay exists because shorter throws are faster and more accurate.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.42 },
+              "to": { "x": 0.55, "y": 0.85 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-throw-third-good": {
+      "type": "outcome",
+      "narration": "You throw to third base to hold the batter at second. Good throw, the batter stops at second. But the lead runner scored easily -- nobody was trying to get him at the plate. Run scores, tie game. You made a safe play, but the real target was home plate. The batter at second base is far less dangerous than the run that just crossed the plate.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Run Scores. Threw to the Wrong Base.",
+        "explanation": "You made an accurate throw and prevented the batter from advancing, but you targeted the wrong base. On a relay from deep in the outfield, the priority is always the LEAD runner. The catcher should be yelling 'HOME!' to direct you. Holding a batter at second is nice, but it doesn't compare to getting the runner out at the plate. In game management, always think: what's the most impactful play I can make? Preventing a run from scoring is always more impactful than preventing a baserunner from advancing one extra base.",
+        "whatToRemember": "On relay plays, target the lead runner. Listen for the catcher's call -- they can see the whole field and will tell you where to throw. Preventing a run beats preventing an extra base.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.42 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-second-bad": {
+      "type": "outcome",
+      "narration": "You stay near second base while the ball rattles around in the corner. The left fielder finally picks it up, but there's nobody to throw to! No relay, no cutoff. He heaves a long throw that bounces three times and rolls past the mound. The lead runner scores easily. The batter cruises into third standing up. Nobody covered the relay spot, so the outfielder had to make an impossible 300-foot throw on his own.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.6 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Relay! Ball Bounces Around!",
+        "explanation": "When the ball goes deep into the corner, the shortstop MUST go out to set up the relay. That's your primary job on this play. The second baseman covers your position, and the right-side fielders rotate to cover the other bases. By staying at second base, you left the outfielder stranded with no one to throw to. He had to attempt a 300+ foot throw, which is nearly impossible to do accurately. The relay system only works if the middle infielder sprints out to give the outfielder a target. You are the critical link in the chain.",
+        "whatToRemember": "On balls deep into the left-field corner, the shortstop sprints out to be the first relay man. You are the link between the outfield and the infield. Without you, the relay chain is broken.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.15, "y": 0.2 },
+              "to": { "x": 0.4, "y": 0.55 },
+              "entity": "ball",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-cover-third-okay": {
+      "type": "outcome",
+      "narration": "You run to cover third base. The third baseman sprints out to be the relay man instead, but he's not as practiced at lining up the relay. His positioning is off -- he's not in a straight line between the outfielder and home. The relay throw goes to him, but his redirect to home is offline. The runner scores, and the batter ends up at second. You made a reasonable choice, but the wrong player ended up in the relay spot.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Run Scores. Wrong Player in the Relay.",
+        "explanation": "Your instinct to make sure third base was covered shows good awareness, but on a double cut to the left-field corner, the shortstop is ALWAYS the first relay man. That's a defined assignment, practiced in drills. The third baseman is the second cutoff man (the trailer). If you go to third instead, the whole relay gets jumbled -- players end up in unfamiliar positions making throws they haven't practiced. In team defense, everyone has a specific job on each play. When you do your job, the whole machine works. When you do someone else's job, everything falls apart.",
+        "whatToRemember": "Know your relay assignments before the ball is hit. On balls to left field, the shortstop is always the first relay man. Don't freelance -- do YOUR job and trust teammates to do theirs.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.15, "y": 0.2 },
+              "to": { "x": 0.35, "y": 0.5 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.35, "y": 0.5 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

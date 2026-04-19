@@ -1,0 +1,163 @@
+{
+  "id": "minors-secondary-lead",
+  "title": "Secondary Lead!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "baserunning",
+  "tags": ["secondary-lead", "baserunning", "first-base", "timing", "aggressiveness"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the runner on first base, one out, tied game. The pitcher comes set and delivers the pitch to home plate. The batter doesn't swing. As the pitcher is delivering the ball, you should be taking a secondary lead -- extra steps toward second base while the pitch is in the air. How do you take your secondary lead?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.68, "y": 0.58 }, "label": "You (on 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "shuffle-steps",
+          "text": "Take 2-3 quick shuffle steps toward second as the pitch is thrown, staying balanced and ready to go back or advance!",
+          "nextNode": "outcome-shuffle-great"
+        },
+        {
+          "id": "stand-still",
+          "text": "Stay where I am. I don't want to get picked off.",
+          "nextNode": "outcome-still-bad"
+        },
+        {
+          "id": "sprint-forward",
+          "text": "Sprint hard toward second base the moment the pitcher throws home!",
+          "nextNode": "outcome-sprint-okay"
+        }
+      ]
+    },
+    "outcome-shuffle-great": {
+      "type": "outcome",
+      "narration": "As the pitcher delivers, you take two quick shuffle steps toward second -- left foot, right foot, left foot -- staying on the balls of your feet and keeping your weight balanced. The pitch goes to the catcher and you stop, balanced and ready. You're now 10 feet closer to second base than before. If the ball is hit, you have a head start! If the catcher throws, you can get back. Then -- the batter hits a grounder to the right side. Because of your secondary lead, you easily make it to second base! Your extra steps gave you the head start!",
+      "field": {
+        "ballPosition": { "x": 0.62, "y": 0.52 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (safe at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Secondary Lead! Extra Base Gained!",
+        "explanation": "The secondary lead is one of the most important baserunning skills. Here's the technique: as the pitcher releases the ball toward home plate (NOT before), take 2-3 quick shuffle steps toward second base. Key points: 1) SHUFFLE, don't cross your feet. Shuffling keeps you balanced so you can go back if needed. 2) Stay on the balls of your feet, not your heels. 3) Time it with the pitch -- start moving as the ball leaves the pitcher's hand. 4) If the ball isn't hit, get back to first. Those extra 8-10 feet of lead make a HUGE difference on hit-and-runs, stolen bases, and getting to the next base on ground balls.",
+        "keyTerms": [
+          { "term": "Secondary lead", "definition": "Extra steps a baserunner takes toward the next base while the pitch is being delivered. It's taken AFTER the pitcher releases the ball, not before." },
+          { "term": "Shuffle steps", "definition": "Quick lateral steps without crossing your feet. This keeps you balanced and ready to move in either direction." },
+          { "term": "Reading the ball", "definition": "Watching the pitch to see if the batter hits it, the catcher catches it, or it gets past the catcher. Your reaction depends on what happens." }
+        ],
+        "whatToRemember": "Take 2-3 shuffle steps toward second as the pitch is delivered. Stay balanced on the balls of your feet. This head start gets you to the next base faster on any batted ball.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.62, "y": 0.55 },
+              "entity": "you",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.62, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "you",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-still-bad": {
+      "type": "outcome",
+      "narration": "You stay planted on first base. The batter hits a ground ball through the right side -- base hit! But because you didn't take a secondary lead, you're starting from a standstill right next to first base. You run hard but can only make it to second. If you'd had a secondary lead, you might have made it to third on that hit! The extra base could matter later.",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.3 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Secondary Lead! Missed the Extra Base!",
+        "explanation": "By staying still on first base, you lost the 8-10 feet of head start that a secondary lead gives you. That might not sound like much, but it's the difference between being safe at third and being stuck at second. In a close game, being on third instead of second is HUGE -- you can score on a fly ball, a ground ball to the right side, a wild pitch, or a passed ball. Standing still on a base when the pitch is delivered is a wasted opportunity. Every pitch is a chance to take your secondary lead.",
+        "whatToRemember": "Standing still on the base when the pitch is delivered gives up free distance. Take your secondary lead on EVERY pitch to always have a head start.",
+        "iqPoints": 2,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "you",
+              "duration": 900
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-sprint-okay": {
+      "type": "outcome",
+      "narration": "You take off sprinting toward second the moment the pitcher releases. The catcher sees you going and thinks you're stealing -- they fire the ball to second base! But you weren't actually stealing, you just took too aggressive of a secondary lead. You're caught in no-man's land! You scramble back to first but the shortstop almost tags you. Safe, but BARELY. Your coach holds up both hands: 'Secondary lead, not a steal! Stay balanced!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (back at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Aggressive! Almost Caught!",
+        "explanation": "A secondary lead is NOT a steal attempt. The difference is balance and control. When you sprint hard, you commit your body fully toward second -- you can't stop and get back easily. A proper secondary lead uses SHUFFLE STEPS so you stay balanced and can stop on a dime. If the ball is hit, you explode toward second. If the catcher catches it, you retreat to first. The key is staying in control. Think of it like a basketball player in a defensive stance -- you're moving sideways, balanced, ready to go either direction.",
+        "whatToRemember": "A secondary lead is controlled shuffle steps, NOT a sprint. Stay balanced so you can go back to first or advance to second depending on what happens.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.58, "y": 0.52 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.58, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "you",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

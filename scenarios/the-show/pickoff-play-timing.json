@@ -1,0 +1,217 @@
+{
+  "id": "the-show-pickoff-play-timing",
+  "title": "The Pickoff Play: Timing the Runner",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "defense",
+  "tags": ["pickoff", "middle-infield", "timing-play", "baserunning-defense", "strategy"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 2, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 1, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Tie game in the 6th, runner on second, nobody out. You're the shortstop and you've noticed the runner at second is taking an aggressive secondary lead -- he drifts 3-4 steps off the bag every time the pitcher delivers. Your catcher has noticed too and flashes you the pickoff sign. The play is a timing play: you break toward second base on a predetermined count, the pitcher wheels and throws. But the timing has to be perfect -- break too early and the runner sees you coming, too late and you're not at the bag for the throw. When do you break for second base?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS", "2B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.42 }, "label": "Runner (2nd, big lead)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "break-with-pitch",
+          "text": "Break toward second the moment the pitcher starts his motion to the plate. The runner will be looking at the pitcher, not at me, and I'll be at the bag when the catcher or pitcher redirects.",
+          "nextNode": "outcome-break-with-pitch-okay"
+        },
+        {
+          "id": "daylight-play",
+          "text": "Use the daylight play -- when I see enough space between the runner and the bag, I break. The pitcher reads my movement and throws when he sees me going.",
+          "nextNode": "decision-daylight-2"
+        },
+        {
+          "id": "count-play",
+          "text": "Use a count play -- the pitcher counts to a specific number in his head, then wheels and throws. I break on the same count. We arrive at the bag at the same time without having to read each other.",
+          "nextNode": "decision-count-2"
+        },
+        {
+          "id": "verbal-signal",
+          "text": "Wait for the catcher to yell a verbal signal, then I break and the pitcher throws.",
+          "nextNode": "outcome-verbal-bad"
+        }
+      ]
+    },
+    "decision-daylight-2": {
+      "type": "decision",
+      "narration": "You set up the daylight play. From your normal shortstop position, you keep the runner in your peripheral vision. He takes his lead off second base... two steps... three steps... four steps. That's a big lead. You see daylight between the runner and the bag -- there's enough space to get him. Now the key question: do you break hard and fast to the bag, or do you use a controlled, deceptive approach?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.42 }, "label": "Runner (big lead)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "hard-break",
+          "text": "Sprint to the bag at full speed. Close the distance as fast as possible and trust the pitcher to deliver the throw on time.",
+          "nextNode": "outcome-hard-break-good"
+        },
+        {
+          "id": "deceptive-drift",
+          "text": "Drift casually toward the bag like I'm just repositioning, then accelerate at the last second. The runner won't see it coming because my body language says I'm not threatening.",
+          "nextNode": "outcome-deceptive-drift-great"
+        }
+      ]
+    },
+    "decision-count-2": {
+      "type": "decision",
+      "narration": "You and the pitcher agree on a count play: he'll count to 2 in his head after coming set, then wheel and throw to second. You'll break on the same count. The key is that you and the pitcher have practiced this -- you both count at the same tempo. The pitcher comes set, holds the ball, and starts counting. You start counting in your head too. One... two... but wait -- the runner took an extra step and is even further off the bag than before. Do you stick to the count or adjust?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS", "P"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.40 }, "label": "Runner (huge lead)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "stick-to-count",
+          "text": "Stick to the count. Trust the timing. If the pitcher and I both break on 'two,' the throw will be there and we'll nail him.",
+          "nextNode": "outcome-count-stick-great"
+        },
+        {
+          "id": "break-early",
+          "text": "He's so far off -- break early! Get to the bag before the count and wave the pitcher to throw now!",
+          "nextNode": "outcome-count-early-bad"
+        }
+      ]
+    },
+    "outcome-break-with-pitch-okay": {
+      "type": "outcome",
+      "narration": "You break toward second as the pitcher starts his motion to the plate. But the problem: the pitcher is already committed to throwing home. He can't redirect to second base mid-delivery without balking. The ball goes to the plate, the hitter takes it for a ball, and you're standing at second base with the runner scrambling back. He's safe easily because there was no throw coming. The catcher fires down to second, but the runner is already back. The pickoff play fizzled because the pitcher and the fielder weren't on the same page.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "No Throw! Pitcher Already Committed Home.",
+        "explanation": "Breaking during the pitcher's delivery doesn't work for a pickoff at second because the pitcher is already in his motion to home plate. He can't stop or redirect without committing a balk. Pickoff plays at second require the pitcher to be in the SET position, not delivering. The throw has to come BEFORE the pitch. That's why timing plays (count plays or daylight plays) work -- the pitcher hasn't started his delivery yet when he wheels and throws. You had the right instinct to use the pitcher's motion as cover, but the physics of the delivery make it impossible to redirect.",
+        "whatToRemember": "Pickoff plays at second require the pitcher to be in the set position. He can't redirect to second during his delivery without balking. The play happens BEFORE the pitch, not during it.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    },
+    "outcome-hard-break-good": {
+      "type": "outcome",
+      "narration": "You sprint at full speed toward the bag. The pitcher sees you moving and wheels to throw. The runner sees you coming -- your sprint tipped him off! He dives back toward the bag. The throw arrives and you slap the tag down... SAFE! Just barely. The runner got back because he saw your body language change from 'standing' to 'sprinting.' He read the play a split second before the throw came. You were close, but the aggressive break gave away the play.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["SS"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Almost! Runner Read Your Sprint.",
+        "explanation": "The daylight play worked mechanically -- you saw the gap, you broke, the pitcher threw on time. The problem was your approach. A full sprint toward the bag is the most obvious signal possible to a baserunner. Good runners are trained to watch the middle infielders in their peripheral vision. When a shortstop goes from standing still to sprinting, that's a neon sign that says 'GET BACK.' The deceptive approach -- drifting casually, then accelerating -- buys you a crucial half-second because the runner's brain processes 'he's just repositioning' instead of 'PICKOFF!' That half-second is the difference between safe and out.",
+        "whatToRemember": "On daylight pickoff plays, deception beats speed. A casual drift toward the bag that turns into a late burst gives the runner less time to react than an obvious sprint.",
+        "iqPoints": 6,
+        "next": "end"
+      }
+    },
+    "outcome-deceptive-drift-great": {
+      "type": "outcome",
+      "narration": "You start drifting toward second base like you're casually repositioning -- maybe shading the next hitter, maybe just adjusting. The runner glances at you and sees nothing threatening. His lead stays big. Then, two steps from the bag, you plant and accelerate. The pitcher reads your burst and wheels -- the throw is RIGHT there! The runner's eyes go wide. He dives back but you've already caught the ball and swept the tag. OUT! The runner never saw it coming because your body language was non-threatening until the last possible second. The dugout goes crazy. That's a textbook pickoff.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["SS"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "PICKED OFF! Deception Plus Timing Equals Out!",
+        "explanation": "This is how elite middle infielders execute the daylight play. The deceptive drift is the key -- you gave the runner's brain the message 'I'm not a threat' while closing the distance to the bag. When you accelerated at the last moment, the runner had less than a second to read the play, process it, and dive back. That's not enough time. The pitcher's role was perfect too: he read your acceleration (not your initial drift) as the trigger, ensuring the throw arrived exactly when you reached the bag. The whole play relies on synchronized deception -- the shortstop disguises his approach, the pitcher reads the acceleration, and the runner is caught in between.",
+        "whatToRemember": "The best pickoff plays are built on deception, not speed. Drift casually to close distance, then burst at the last moment. The runner's brain needs time to process the threat -- give him as little time as possible.",
+        "keyTerms": [
+          { "term": "Daylight Play", "definition": "A pickoff where the middle infielder breaks toward the bag when he sees enough 'daylight' (space) between the runner and the base. The pitcher reads the infielder's movement as the trigger to throw." },
+          { "term": "Secondary Lead", "definition": "The additional steps a runner takes off the base as the pitcher delivers. A big secondary lead is what makes runners vulnerable to pickoff plays." },
+          { "term": "Deceptive Approach", "definition": "Moving toward a base with non-threatening body language (casual drift) before accelerating at the last moment. Keeps the runner from reading the play early." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-count-stick-great": {
+      "type": "outcome",
+      "narration": "You trust the count. One... two... you break for the bag on 'two' and the pitcher wheels at the exact same moment! The throw is perfect -- right at the bag, chest-high. You catch it and the runner, who was four steps off, dives back desperately. The tag goes down... OUT! The count play worked because you and the pitcher were perfectly synchronized. Neither of you had to watch the other -- you both independently arrived at the same moment because you practiced the same internal count. The runner is stunned. Tie game, threat eliminated, momentum swings to your team.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["SS"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Count Play Perfection! Runner Picked Off!",
+        "explanation": "The count play is the most reliable pickoff system because it removes the need for either player to read the other in real time. Both the pitcher and the infielder execute based on an internal clock they've synchronized in practice. This means: 1) The shortstop doesn't have to watch the pitcher for a cue -- he can stay in his normal fielding position and break at the last moment. 2) The pitcher doesn't have to watch the shortstop -- he can look at the runner and sell the idea that he's just holding the ball. 3) The synchronization is invisible to the runner because there's no visible signal being exchanged. You trusted the system, stuck to the count, and the result was a perfectly timed pickoff. That's the power of practiced timing plays.",
+        "whatToRemember": "Count plays work because both players execute independently on a shared internal clock. Trust the count. Don't freelance. The synchronization is what makes the play invisible to the runner.",
+        "keyTerms": [
+          { "term": "Count Play", "definition": "A pickoff play where the pitcher and infielder both count to a predetermined number in their heads, then execute simultaneously. Eliminates the need for visible signals." },
+          { "term": "Timing Play", "definition": "Any defensive play where two or more players execute based on synchronized timing rather than reactive signals. Requires practice to ensure both players count at the same tempo." },
+          { "term": "Invisible Signal", "definition": "A communication system between defenders that cannot be detected by the runner because it exists only in the players' minds (internal counts, predetermined triggers)." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-count-early-bad": {
+      "type": "outcome",
+      "narration": "You can't resist -- the runner is SO far off! You break early, before the count of 'two.' The pitcher is still holding the ball because HIS count hasn't reached 'two' yet. He sees you sprinting at the bag and panics -- he rushes the throw and it sails over your head into center field! The runner, who was already diving back, pops up and races to third! Now you've got the go-ahead run on third with nobody out because you broke the timing play. The pitcher is furious. The whole point of the count play is that BOTH players execute on the same beat.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.35 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Throw Sails! Runner Advances to Third! Broken Timing!",
+        "explanation": "You broke the fundamental contract of the count play: both players execute on the SAME count. When you broke early, the pitcher wasn't ready. He saw you sprinting and tried to adjust on the fly, which rushed his arm action and produced a wild throw. This is the worst possible outcome -- you turned a pickoff attempt into an error that gave the runner an extra base. Count plays require discipline. The temptation to break early when the runner is far off the bag is strong, but the system only works when both players trust it completely. If you break early, you're not running a count play anymore -- you're freelancing, and you've turned a coordinated play into a chaotic one.",
+        "whatToRemember": "Never break early on a count play. The system works because both players execute on the same beat. Breaking early forces the pitcher into a rushed, unplanned throw. Trust the count -- always.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-verbal-bad": {
+      "type": "outcome",
+      "narration": "You wait for the catcher to yell a verbal signal. The catcher shouts 'NOW!' -- but the runner hears it too! He dives back to the bag before you even take your first step. The pitcher throws to second, but the runner is already safely back. Worse, the runner now knows you're running pickoff plays and shortens his lead for the rest of the at-bat. You burned the element of surprise with an audible signal that the runner and both coaches heard clear as day.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["SS"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe, short lead)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Runner Heard the Signal! Pickoff Blown!",
+        "explanation": "Verbal signals are the worst way to execute a pickoff play. The runner can hear them. The base coaches can hear them. The entire opposing dugout can hear them. A pickoff play's entire value comes from surprise -- if the runner knows it's coming, he simply shortens his lead and you've wasted an opportunity. Even worse, you've tipped the opposition that pickoff plays are in your game plan, making it harder to surprise them later. Use visual signals (glove touches, hat touches) or predetermined systems (count plays) that the runner cannot detect. The best plays are the ones the runner never sees coming.",
+        "whatToRemember": "Never use verbal signals for pickoff plays. The runner and coaches can hear them. Use silent systems -- count plays, daylight plays, or visual signs between pitcher, catcher, and infielder.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

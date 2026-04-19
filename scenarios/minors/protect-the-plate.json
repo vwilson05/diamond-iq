@@ -1,0 +1,164 @@
+{
+  "id": "minors-protect-the-plate",
+  "title": "Protect the Plate!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["two-strikes", "protect", "plate-discipline", "fouling-off", "contact", "battle"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 2, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 2, "strikes": 2 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on first, one out, tied game. The count is 2-2. You've been battling this pitcher all at-bat. The next pitch could be anything -- fastball, changeup, curveball. The pitcher winds and delivers a pitch on the outside corner. It's borderline -- could be a ball, could be a strike. It's close enough that the umpire MIGHT call it strike three. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "foul-it-off",
+          "text": "Swing and try to foul it off! I need to protect the plate on anything close!",
+          "nextNode": "outcome-foul-great"
+        },
+        {
+          "id": "take-pitch",
+          "text": "Take the pitch. I think it's a ball -- the umpire will call it a ball.",
+          "nextNode": "outcome-take-bad"
+        },
+        {
+          "id": "big-swing",
+          "text": "Swing hard and try to drive it! Maybe I can pull it for a hit!",
+          "nextNode": "outcome-big-swing-okay"
+        }
+      ]
+    },
+    "outcome-foul-great": {
+      "type": "outcome",
+      "narration": "You shorten up and fight it off -- FOUL BALL! Still alive! The pitcher throws another borderline pitch -- you foul that one off too! The pitcher is getting frustrated. They've thrown 8 pitches to you now. Finally, on the 9th pitch, they make a mistake -- a fastball over the plate. You're ready and line it to right field for a base hit! Runner goes to second! Your battle paid off!",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.3 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Battle Won! Great At-Bat!",
+        "explanation": "With two strikes, your job changes. You're no longer looking for the perfect pitch -- you're PROTECTING THE PLATE. That means anything close, you put the bat on it. Fouling off tough pitches keeps your at-bat alive and does several great things: 1) It wears out the pitcher by making them throw more pitches. 2) It gives you more chances to see their pitches. 3) Eventually, the pitcher will make a mistake, and that's when you strike. The best hitters in the game are the ones who can battle with two strikes and spoil tough pitches until they get one they can drive.",
+        "keyTerms": [
+          { "term": "Protecting the plate", "definition": "With two strikes, swinging at any borderline pitch to avoid getting called out on strikes. You'd rather foul it off than watch strike three." },
+          { "term": "Fouling off pitches", "definition": "Intentionally making contact with tough pitches just to stay alive. A foul ball with two strikes doesn't add a strike -- it keeps the at-bat going." },
+          { "term": "Battle at-bat", "definition": "A long at-bat where the hitter fouls off multiple pitches, wears out the pitcher, and waits for a mistake to hit." }
+        ],
+        "whatToRemember": "With two strikes, anything close to the plate -- SWING. Foul it off and live to see another pitch. The longer you battle, the more likely the pitcher makes a mistake.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.55, "y": 0.92 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.65, "y": 0.3 },
+              "entity": "ball",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-take-bad": {
+      "type": "outcome",
+      "narration": "You take the pitch. The umpire pauses... 'STRIKE THREE!' You're out! You slam your bat down -- 'That was outside!' But the umpire made the call, and with two strikes, you can't leave it up to the umpire. Your coach says it best: 'With two strikes, if it's close, you have to swing. Never let the umpire end your at-bat.'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (still on 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Called Strike Three! Umpire Ends It!",
+        "explanation": "This is one of the most frustrating ways to make an out -- called strike three on a borderline pitch. But here's the hard truth: with two strikes, you CAN'T take a pitch that's anywhere close to the zone. Why? Because every umpire has a slightly different strike zone, and borderline pitches could go either way. When you take a close pitch with two strikes, you're gambling that the umpire agrees with you. If you swing and foul it off, the worst thing that happens is... nothing. The count stays the same. But if you take it and it's called a strike, your at-bat is OVER. Control your own destiny.",
+        "whatToRemember": "With two strikes, NEVER let the umpire end your at-bat on a close pitch. If it's borderline, put the bat on it. A foul ball keeps you alive. A called strike three sends you to the bench.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-big-swing-okay": {
+      "type": "outcome",
+      "narration": "You take a big hack at the pitch. Since it's on the outside corner, your big pull-swing misses the sweet spot -- you hit a weak grounder to the second baseman. The second baseman flips to short for the force at second. One out, but at least you made contact and you're safe at first. Better than striking out, but the runner is erased.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Fielder's Choice. Runner Erased.",
+        "explanation": "You made contact, which is better than striking out. But a big swing on an outside pitch usually produces weak contact because you can't reach the outside part of the plate with a full swing. With two strikes, the approach should shift: shorten your swing, widen your zone a little, and focus on making SOLID contact rather than maximum power. If the pitch is on the outside corner, go with it the other way rather than trying to pull it. A short, controlled swing on an outside pitch can produce line drives the other way.",
+        "whatToRemember": "With two strikes on an outside pitch, shorten your swing and go with the pitch to the opposite field. Don't try to pull everything -- adjust your swing to match the pitch location.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.58, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.58, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

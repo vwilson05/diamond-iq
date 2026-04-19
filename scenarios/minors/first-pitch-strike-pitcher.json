@@ -1,0 +1,137 @@
+{
+  "id": "minors-first-pitch-strike-pitcher",
+  "title": "Get Ahead in the Count!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "pitching",
+  "tags": ["pitching", "first-pitch-strike", "count", "strategy", "command", "confidence"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Top of the third, nobody on, nobody out. You're the pitcher and your team leads by one. A new batter steps in. Your catcher puts down the sign. This is a 0-0 count -- the very first pitch of the at-bat. Your catcher is calling for a fastball. Your coach always says 'first pitch strikes win games.' What's your approach for this first pitch?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "throw-strike",
+          "text": "Throw my best fastball for a strike! Get ahead 0-1 right away!",
+          "nextNode": "outcome-strike-great"
+        },
+        {
+          "id": "nibble-corners",
+          "text": "Try to paint the perfect corner -- I don't want to give them anything to hit.",
+          "nextNode": "outcome-nibble-okay"
+        },
+        {
+          "id": "throw-offspeed",
+          "text": "Start with a curveball to surprise the batter!",
+          "nextNode": "outcome-offspeed-bad"
+        }
+      ]
+    },
+    "outcome-strike-great": {
+      "type": "outcome",
+      "narration": "You wind up and fire a confident fastball right over the plate. 'STRIKE ONE!' The batter wasn't expecting such an aggressive first pitch and watched it go right by. Now the count is 0-1 and YOU have the advantage. From here, you can expand the zone, throw off-speed pitches, or challenge with another fastball. The batter is on the defensive now. You end up getting the batter to ground out weakly three pitches later. Great start to the inning!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Pitcher"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "First Pitch Strike! Pitcher in Control!",
+        "explanation": "Here's a stat that will blow your mind: when pitchers throw a first-pitch strike, they get the batter out about 65-70% of the time. When they start with a ball, that drops to about 45%. That's a HUGE difference from just one pitch! Here's why: after strike one, the batter has to PROTECT the plate. They can't afford to take another strike. This lets you throw pitches on the edges, off-speed pitches, and pitches they don't want to swing at. But after ball one, the BATTER gets to be picky and wait for their pitch. First-pitch strikes put you in the driver's seat for the entire at-bat.",
+        "keyTerms": [
+          { "term": "First-pitch strike", "definition": "Throwing a strike on the very first pitch of an at-bat. This is the single most important pitch in any at-bat because it sets the tone." },
+          { "term": "Ahead in the count", "definition": "When the pitcher has more strikes than balls (0-1, 0-2, 1-2). The pitcher has the advantage because the batter has less room to be picky." },
+          { "term": "Strike percentage", "definition": "The percentage of pitches a pitcher throws for strikes. Great pitchers throw about 60-65% strikes." }
+        ],
+        "whatToRemember": "First-pitch strikes change everything. When you throw strike one, the batter's job gets harder on every pitch after that. Throw with confidence -- you don't have to be perfect, just get it over the plate.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-nibble-okay": {
+      "type": "outcome",
+      "narration": "You try to hit the perfect corner. You aim for the outside edge but miss just barely -- 'BALL ONE.' Now the count is 1-0. The batter relaxes a little, knowing they can be picky. You try another corner -- just misses. Ball two. Now it's 2-0 and the batter is sitting dead red on a fastball. You end up walking the batter on five pitches. Your coach jogs out: 'Strike one doesn't have to be perfect -- just get it over the plate!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (walked to 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Walked the Batter! Too Fine!",
+        "explanation": "Trying to be TOO perfect on the first pitch is called 'nibbling,' and it's a common trap for young pitchers. You're so worried about giving up a hit that you aim for the corners instead of the zone. But here's the thing: even if a batter swings at a first-pitch fastball over the plate, the odds are still in your favor. Most batters aren't ready to swing at the first pitch, and even if they do, they only get hits about 30% of the time. That means 70% of the time, your first-pitch strike leads to a good outcome. Don't be afraid of the strike zone!",
+        "whatToRemember": "Don't nibble on the first pitch! A strike over the middle of the plate is better than a ball on the corner. Get ahead first, THEN use the corners.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.55, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-offspeed-bad": {
+      "type": "outcome",
+      "narration": "You throw a curveball as the first pitch. It bounces in the dirt -- ball one. The batter didn't even flinch. Now you're behind 1-0 and the batter knows your curveball isn't sharp today. The batter sits on a fastball, you throw one over the plate on the next pitch, and they CRUSH it to the fence for a double. Starting behind put you in a bad spot all at-bat.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.12 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Behind in the Count! Extra-Base Hit!",
+        "explanation": "Starting with an off-speed pitch sounds surprising, but it usually backfires for two reasons: 1) Off-speed pitches are harder to control, so you're more likely to start with a ball. 2) Even if you throw it for a strike, it's slower, and batters who are ready for it can drive it. The fastball is your best first-pitch weapon because it's your most accurate pitch and the batter usually isn't ready for it (they're still getting their timing). Save the curveball and changeup for later in the count when the batter is expecting the fastball.",
+        "whatToRemember": "Start with your fastball! It's your most controllable pitch and the batter isn't expecting it yet. Save off-speed pitches for later in the count when they'll be most effective.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.92 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

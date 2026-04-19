@@ -1,0 +1,149 @@
+{
+  "id": "minors-pitch-with-runner-on",
+  "title": "Pitch from the Stretch!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "pitching",
+  "tags": ["pitching", "stretch", "windup", "holding-runners", "baserunning-defense"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on first, one out, your team leads by a run. You're the pitcher. The runner on first is taking a lead and looks like they want to steal. With no runners on, you pitched from the full windup. But now there's a runner on first base. How do you adjust your delivery?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "use-stretch",
+          "text": "Switch to the stretch! Come set, check the runner, then deliver. It's quicker and I can hold the runner!",
+          "nextNode": "outcome-stretch-great"
+        },
+        {
+          "id": "keep-windup",
+          "text": "Keep using my full windup -- I throw harder from the windup.",
+          "nextNode": "outcome-windup-bad"
+        },
+        {
+          "id": "quick-pitch",
+          "text": "Pitch as fast as possible so the runner doesn't have time to steal!",
+          "nextNode": "outcome-quick-okay"
+        }
+      ]
+    },
+    "outcome-stretch-great": {
+      "type": "outcome",
+      "narration": "You switch to the stretch. You start with the ball in your glove, come to a complete stop (the 'set' position), look over at the runner on first, and then deliver home. The runner sees you looking at them and stays close to first. Your catcher catches the pitch -- strike one! The runner didn't even attempt to steal because your stretch delivery was quick and you checked them with a look. You stay in control of the running game AND the at-bat.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (held at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Stretch Delivery! Runner Held!",
+        "explanation": "The stretch (also called the 'set position') is a MUST with runners on base. Here's why: the full windup takes longer -- you turn your back, kick your leg high, and then deliver. During all that movement, a baserunner can get a huge jump and steal easily. The stretch is quicker: you start facing the plate, come set (pause briefly), check the runner, and deliver. This means: 1) You can see the runner the whole time. 2) You can throw a pickoff attempt. 3) Your delivery to home is about 0.5 seconds faster, giving your catcher more time to throw out a stealer.",
+        "keyTerms": [
+          { "term": "Stretch (set position)", "definition": "A pitching position used with runners on base. The pitcher faces the plate, brings glove and ball together, pauses, then delivers. It's faster than the windup." },
+          { "term": "Coming set", "definition": "The brief, required pause in the stretch delivery where the pitcher stops all movement before pitching. Skipping this is a balk." },
+          { "term": "Holding the runner", "definition": "Techniques a pitcher uses to keep baserunners close to their base: looking at them, varying timing, and throwing pickoff attempts." }
+        ],
+        "whatToRemember": "With runners on base, ALWAYS pitch from the stretch. It's faster, lets you see the runner, and gives your catcher the best chance to throw out stealers. Come set, check the runner, then pitch.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-windup-bad": {
+      "type": "outcome",
+      "narration": "You go into your full windup -- you turn, kick your leg high, and start your delivery. But during all that time, the runner on first took off sprinting! By the time the ball reaches the catcher, the runner is sliding into second base. SAFE! Stolen base! You couldn't even look at the runner because your back was turned during the windup. Now the runner is in scoring position. Your catcher stands up frustrated: 'Use the stretch!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stole 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Stolen Base! Full Windup Too Slow!",
+        "explanation": "The full windup is great when there's nobody on base -- it lets you use your whole body and throw your hardest. But with a runner on base, it's a gift to the offense. During your windup, you turn your back to the runner. You can't see them, can't throw over to first, and your delivery takes much longer. The runner gets a massive head start. Even the fastest catchers in the world can't throw out a runner who gets a 3-4 second head start. The stretch is a little less comfortable, but it's the RIGHT way to pitch with runners on.",
+        "whatToRemember": "NEVER use the full windup with runners on base. The extra time and the fact that you can't see the runner makes it way too easy to steal. Stretch every time.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.68, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-quick-okay": {
+      "type": "outcome",
+      "narration": "You rush your delivery, trying to be as fast as possible. You skip the pause and fire immediately -- the pitch sails high and outside! Ball one. You were so focused on being quick that you lost your mechanics. The runner didn't steal, but now the count is 1-0 and you're behind. The umpire also warns you: 'You need to come set before you deliver, pitcher!'",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.82 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Wild Pitch! Too Rushed!",
+        "explanation": "Rushing your delivery is different from using the stretch. The stretch is a controlled, legal delivery that's DESIGNED to be quicker. Rushing means you skip important steps -- like coming set (which is required by the rules) -- and you lose control of your pitches. Here's the balance: from the stretch, you can vary your timing to keep the runner guessing. Hold the ball for 1 second, then 3 seconds, then 2 seconds. This variation keeps the runner off-balance without hurting your pitch quality. Quick-pitching (delivering without coming set) can also be called a balk, which gives the runner a free base!",
+        "whatToRemember": "Be quick but don't rush. Use the stretch position properly: come set (pause), check the runner, then deliver with good mechanics. Vary your hold time to keep runners guessing.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.55, "y": 0.82 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

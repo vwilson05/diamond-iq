@@ -1,0 +1,211 @@
+{
+  "id": "majors-steal-signs",
+  "title": "Reading Signs: Runner on Second",
+  "sport": ["baseball"],
+  "tier": "majors",
+  "role": "offense",
+  "tags": ["signs", "baserunning", "observation", "ethics", "gamesmanship"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the runner on second base in a tie game. From your position, you have a clear view of the catcher setting up behind the plate. You can see the catcher put down signals and shift his glove to set up the target. The catcher flashes one finger down and sets up on the inside part of the plate. Your teammate is batting. There's no rule against using your EYES to observe what the catcher is doing from second base. What do you do with this information?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "relay-location",
+          "text": "I can see the catcher's setup -- he's setting up inside! I'll give my teammate a subtle signal so he knows the pitch location is coming inside.",
+          "nextNode": "decision-how-to-relay"
+        },
+        {
+          "id": "use-for-steal",
+          "text": "I won't relay the sign to the batter, but I'll use the information for MY baserunning. If I see a breaking ball sign, I can get a better jump on a steal of third.",
+          "nextNode": "outcome-use-for-steal-great"
+        },
+        {
+          "id": "ignore-signs",
+          "text": "I'm not going to look at the catcher at all. That feels like cheating, and I don't want to get distracted from my baserunning.",
+          "nextNode": "outcome-ignore-okay"
+        }
+      ]
+    },
+    "decision-how-to-relay": {
+      "type": "decision",
+      "narration": "You decide to relay the catcher's setup location to the batter. But how you do it matters. There's a big difference between relaying what you can SEE (the catcher's glove position) and using electronic devices or other illegal methods. From second base, you can legally observe and relay using your body language. How do you communicate it?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "subtle-body",
+          "text": "Use a pre-arranged signal with the batter -- if I stand with my hands on my knees, the pitch is inside. If I stand upright, it's outside. Simple and subtle.",
+          "nextNode": "outcome-subtle-relay-great"
+        },
+        {
+          "id": "yell-location",
+          "text": "Yell out to the batter: 'Inside! Inside!' Let him know exactly what's coming!",
+          "nextNode": "outcome-yell-bad"
+        },
+        {
+          "id": "wave-arms",
+          "text": "Wave my arms toward the inside of the plate so the batter can see my signal from the corner of his eye.",
+          "nextNode": "outcome-wave-okay"
+        }
+      ]
+    },
+    "outcome-subtle-relay-great": {
+      "type": "outcome",
+      "narration": "You and the batter have a pre-arranged system. You casually put your hands on your knees -- the signal for 'inside.' The batter sees it from the corner of his eye without looking directly at you. The pitcher delivers inside, and the batter is ready -- he turns on it and pulls a line drive to left field for a single! You were already running on contact and advance to third! Runners on the corners, one out. The catcher has no idea how the batter knew. Your subtle system worked perfectly.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.35 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "RBI Single! Subtle Relay Worked!",
+        "explanation": "Relaying the catcher's setup from second base is a legal and time-honored part of baseball. Here's what makes it work: 1) You used your EYES to observe the catcher's setup -- no technology, no cheating. 2) You had a PRE-ARRANGED signal with the batter, set up before the game. 3) The signal was SUBTLE -- hands on knees vs. standing upright. The catcher and defense couldn't detect it. 4) The batter used the information without being obvious about it. This is called 'sign-reading' and every team from Little League to the Majors does it. The defense counters by using more complex signals when a runner is on second. It's a cat-and-mouse game, and both sides are playing within the rules.",
+        "keyTerms": ["sign relay", "pre-arranged signals", "catcher setup reading"],
+        "whatToRemember": "Reading the catcher's setup from second base is legal and part of the game. Use subtle, pre-arranged signals with the batter. Keep it simple: inside/outside is enough to help. Don't be obvious or the defense will adjust.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.25, "y": 0.35 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "you",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-yell-bad": {
+      "type": "outcome",
+      "narration": "You shout 'INSIDE! INSIDE!' loud enough for everyone to hear. The batter, the defense, the umpire, the crowd -- everyone knows what you just did. The opposing coach immediately calls time and walks to the umpire. While yelling out pitch location isn't technically illegal, the umpire warns you that any further disruption will result in an interference call. The catcher switches to a more complex sign system, and now you can't read anything. Plus, the defense is mad and the pitcher starts throwing harder. You helped for one pitch but made everything worse.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Warned by Umpire! Too Obvious!",
+        "explanation": "The VALUE of reading the catcher is that it's SUBTLE. When you yell it out, you lose every advantage: 1) The defense knows you're reading signs and immediately changes their system. 2) The umpire is now watching you, and any further attempts could be called interference. 3) You've motivated the opposing team -- they're angry and playing harder. 4) You look unsportsmanlike, which reflects badly on your team. The art of sign-reading is doing it quietly and naturally. A subtle body position change is all you need. Screaming the pitch location is like showing everyone your hand in poker -- you might win one hand, but you'll lose every one after that.",
+        "whatToRemember": "Sign-reading must be SUBTLE to be effective. If the defense knows you're doing it, they change their signs and you lose the advantage. Never yell out pitch information. Keep it quiet.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    },
+    "outcome-wave-okay": {
+      "type": "outcome",
+      "narration": "You wave your arms toward the inside of the plate. The batter sees it, but so does the catcher. The catcher calls time, walks to the mound, and changes the sign. New pitch, new location. Your signal helped for one pitch, but now the defense has adjusted. The catcher switches to a two-sign system with the runner on second, and you can't decipher the new signals. Your arm-waving was too obvious.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Defense Adjusted. Signals Detected.",
+        "explanation": "Waving your arms is better than yelling, but it's still too obvious. The catcher can see you in his peripheral vision, and any big movements from second base will tip him off. Effective sign-reading uses NATURAL body positions -- things you'd normally do on the basepath. Standing with hands on knees vs. standing upright. Adjusting your helmet vs. leaving it alone. Small, natural movements that blend in with normal baserunning behavior. The moment your signal looks like a SIGNAL, the defense catches on and changes their approach. Subtlety is everything.",
+        "whatToRemember": "Use natural body positions to relay signs, not obvious gestures. Hands on knees, helmet touch, standing position -- these blend in. Arm waving and pointing are too easy to detect.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    },
+    "outcome-use-for-steal-great": {
+      "type": "outcome",
+      "narration": "Smart! You watch the catcher's signs and see him put down two fingers and wiggle -- that's the curveball. Curveballs are slower, take longer to reach the plate, and are harder for catchers to handle. THIS is your chance to steal third! You extend your lead by half a step. The pitcher delivers the curveball -- it's slow and breaks down. You take off for third! The catcher receives the ball in the dirt, bobbles it, and by the time he throws, you're sliding in safely at third! SAFE! You used the information for your own baserunning instead of relaying it, and it worked perfectly!",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Stolen Third! Read the Breaking Ball Sign!",
+        "explanation": "Using sign information for your OWN baserunning is one of the highest-IQ plays in baseball. Here's why the curveball was the perfect time to steal third: 1) Curveballs are slower, giving you more time to run. 2) Curveballs often bounce in the dirt, making them harder for the catcher to handle. 3) Even if the catcher fields it cleanly, the slow pitch means his release is delayed. 4) You're not relaying to anyone -- you're using your own observation for your own decision. This is purely legal and it's what the best baserunners in the game do. They read the catcher, identify off-speed pitches, and run on those pitches. It's not stealing signs for someone else -- it's being a smart, observant baserunner.",
+        "keyTerms": ["reading the catcher", "stealing on off-speed", "baserunning intelligence"],
+        "whatToRemember": "Use sign information for your own baserunning. Off-speed pitches are the best time to steal because they're slower to the plate and harder to handle. Being observant from second base is a massive baserunning advantage.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "you",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-ignore-okay": {
+      "type": "outcome",
+      "narration": "You don't look at the catcher at all. You focus purely on your lead and your jump. The batter battles through the at-bat and eventually strikes out. You're still on second with two outs. Nothing bad happened, but you left an advantage on the table. Reading the catcher's setup isn't cheating -- it's paying attention. Every smart runner does it.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (still 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "No Advantage Gained. Eyes Closed to Info.",
+        "explanation": "There's nothing dishonest about observing the catcher from second base. You're using your EYES from a position you've legally earned on the basepath. Every professional baseball player reads the catcher from second base. It's like a basketball player watching the defender's feet to know which way they'll shift -- it's observation, not cheating. The catcher knows you can see him, which is why many catchers switch to more complex signs with a runner on second. That's the game within the game. By ignoring this information, you're leaving a real competitive advantage unused. Being a smart baserunner means using everything you can see.",
+        "whatToRemember": "Reading the catcher from second base is legal, ethical, and smart. Every good baserunner does it. Use your eyes -- that's part of being an intelligent player. Don't feel guilty about it.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "id": "majors-pinch-hit-situation",
+  "title": "Pinch Hit Thinking: Cold Off the Bench",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "offense",
+  "tags": ["pinch-hit", "preparation", "mental-game", "clutch", "situational"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "bottom",
+    "outs": 2,
+    "score": { "home": 3, "away": 5 },
+    "runners": { "first": true, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Bottom of the sixth, final inning. Your team trails 5-3 with runners on first and second and two outs. Your coach calls you off the bench to pinch hit. You haven't swung a bat in a game since the third inning. The pitcher is throwing hard -- 70+ mph fastball and a nasty curveball. You grab your bat and your helmet. As you walk to the plate, you have about 30 seconds to get mentally ready. What's your mental approach going into this at-bat?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "simplify-approach",
+          "text": "Simplify everything. I'm cold off the bench, so I need to see a pitch first. Look for the fastball, take the first pitch to get my timing, then be ready to attack on the second pitch.",
+          "nextNode": "decision-second-pitch"
+        },
+        {
+          "id": "first-pitch-swing",
+          "text": "Be aggressive from the jump! The pitcher might groove a first-pitch fastball thinking I'll take. If it's a fastball in my zone, I'm swinging!",
+          "nextNode": "outcome-first-pitch-good"
+        },
+        {
+          "id": "nervous-overthink",
+          "text": "This is a huge spot. I need to think about everything -- the count, the runners, the pitcher's tendencies. Let me analyze every pitch before I swing.",
+          "nextNode": "outcome-overthink-bad"
+        }
+      ]
+    },
+    "decision-second-pitch": {
+      "type": "decision",
+      "narration": "You take the first pitch -- a fastball on the outside corner. Strike one. But now you've SEEN his fastball. You've got the speed calibrated. Your eyes have adjusted. The pitcher comes set for the second pitch. You know he throws that curveball, and with the count 0-1, he might try to get you to chase one in the dirt. What are you looking for?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sit-fastball-zone",
+          "text": "Sit fastball, react to curveball. I've seen his fastball now -- if he throws another one in the zone, I'm jumping on it. If it's a curveball, I'll take it unless it's a perfect strike.",
+          "nextNode": "outcome-sit-fb-great"
+        },
+        {
+          "id": "look-breaking-ball",
+          "text": "Look for the curveball! He threw a fastball first, so he'll probably mix in the curve now. I'll sit on that.",
+          "nextNode": "outcome-look-curve-okay"
+        },
+        {
+          "id": "protect-the-plate",
+          "text": "With 0-1, I can't take another strike. I need to protect the plate and swing at anything close.",
+          "nextNode": "outcome-protect-bad"
+        }
+      ]
+    },
+    "outcome-sit-fb-great": {
+      "type": "outcome",
+      "narration": "You sit dead-red fastball. The pitcher delivers -- FASTBALL, up in the zone! You're ready. You've already seen his velocity, your timing is set, and you UNLOAD on it! CRACK! Line drive to the right-center field gap! The ball splits the outfielders and rolls to the fence! The runner from second scores! The runner from first rounds third and scores! You slide into second with a stand-up double! TIE GAME! The bench erupts! You came off the bench cold and delivered the biggest hit of the game!",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.15 },
+        "highlight": ["RF", "CF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "TWO-RUN DOUBLE! Pinch Hit Hero!",
+        "explanation": "This is how you pinch hit at a high level. Here's the sequence that made it work: 1) You simplified by taking the first pitch to calibrate your eyes to the pitcher's speed. 2) You picked ONE pitch to look for (the fastball) instead of trying to react to everything. 3) When the fastball came, you were 100% committed and put a great swing on it. The key insight is 'sit fastball, react to curveball.' The fastball is the easier pitch to hit because it's straighter and arrives at a predictable speed. By looking for the fastball and only reacting to the curveball if it's a clear strike, you give yourself the best chance of putting a good swing on a pitch you can handle.",
+        "keyTerms": ["sit fastball", "pitch selection", "pinch hit preparation"],
+        "whatToRemember": "When pinch hitting, simplify: take a pitch to see the speed, then sit on the fastball. You can't look for everything -- pick the pitch you can handle and commit to it. Sit fastball, react to off-speed.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.65, "y": 0.15 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1st",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-look-curve-okay": {
+      "type": "outcome",
+      "narration": "You sit on the curveball. The pitcher throws a fastball. You're not ready for it -- you were geared for something slow, and the fastball blows right past you. Strike two! Now you're 0-2 and in big trouble. The pitcher throws the curveball now -- down in the dirt -- and you chase it because you're desperate with two strikes. Strike three. Game over. You guessed wrong and the at-bat was over before it started.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.95 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Strikeout. Wrong Pitch to Sit On.",
+        "explanation": "Looking for the curveball first is almost always the wrong approach for a pinch hitter. Here's why: the curveball is HARDER to hit than the fastball. It changes speed AND direction. When you're cold off the bench and your timing isn't sharp, the LAST thing you want to look for is the most difficult pitch to hit. Always sit fastball because: 1) It's straighter and more predictable. 2) If you see it, you can time it. 3) If a curveball comes instead, you can usually lay off it because it's slower and gives you more time to recognize it. The saying is 'sit fast, adjust slow.' If you're looking for the fastball and see a curveball, you can take it. If you're looking for the curveball and see a fastball, you're toast.",
+        "whatToRemember": "Always sit fastball. If a curveball comes, you have more time to recognize it and lay off. If you sit curveball and a fastball comes, it's already past you. Sit fast, adjust slow.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.95 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-protect-bad": {
+      "type": "outcome",
+      "narration": "You go up in 'protect mode' -- swinging at anything close. The pitcher throws a curveball that starts at the top of the zone and breaks down. It's going to be close... but it's a BALL if you take it. You can't help yourself -- you're in protect mode -- and you swing weakly. Slow roller to the shortstop. Easy throw to first. Game over. You swung at a pitcher's pitch because you were protecting instead of attacking.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Weak Grounder. Protecting Led to Bad Swing.",
+        "explanation": "The 'protect the plate' mindset is a trap for pinch hitters. When you're thinking about NOT striking out instead of thinking about HITTING, you become defensive at the plate. You start chasing borderline pitches, you shorten your swing, and you swing at the pitcher's pitch instead of YOUR pitch. At 0-1, you're not in trouble yet. The count was only 0-1 -- you still had room to take a ball and make it 1-1. Being 'protective' at 0-1 is way too passive way too early. Stay aggressive, look for YOUR pitch (the fastball in your zone), and don't chase. An 0-1 count is still a hittable count.",
+        "whatToRemember": "Don't switch to 'protect mode' early in the count. 0-1 is not a crisis. Stay aggressive, look for your pitch, and attack when you get it. Protecting leads to weak swings on pitcher's pitches.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.42, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-first-pitch-good": {
+      "type": "outcome",
+      "narration": "You go up hacking first pitch. The pitcher throws a curveball -- not the fastball you wanted. You swing anyway because you committed to first-pitch swinging, and you get jammed. Pop fly to the second baseman. Easy out. The pitcher outsmarted you -- he knew an aggressive pinch hitter might hack at the first pitch, so he threw the pitch hardest to hit. One pitch, one out, game over.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.52 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Pop-Up. First-Pitch Aggression Backfired.",
+        "explanation": "First-pitch aggression CAN work, but it's high-risk for a pinch hitter. You haven't seen a pitch from this pitcher all game. You don't know his speed, his release point, or his movement. Swinging at the first pitch when you're cold means you're guessing, not reacting. The smarter play is to take the first pitch to calibrate your eyes, THEN be aggressive on the second pitch. That one-pitch investment gives you the information you need to put a quality swing on a pitch you can handle. The difference between a good pinch hitter and a great one is patience -- seeing a pitch before committing.",
+        "keyTerms": ["calibration pitch"],
+        "whatToRemember": "Pinch hitters should usually take the first pitch to see the pitcher's speed and release point. Being aggressive is great, but being aggressive AND informed is better. See one, then attack.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-overthink-bad": {
+      "type": "outcome",
+      "narration": "You step in and your brain is racing: 'What if he throws a curve? What about the runners? Should I look inside or outside? What's the count logic?' You're so lost in your head that the pitcher throws a fastball right down the middle -- your best pitch to hit -- and you WATCH IT. Strike one. Now you're behind and STILL thinking. Two more pitches, two more hesitations. Strike three looking. You never swung the bat. Your overthinking froze you at the plate.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Called Third Strike! Frozen by Overthinking!",
+        "explanation": "Analysis paralysis is the pinch hitter's worst enemy. When you try to process too many variables at once, your brain slows down and your body can't react. Hitting is a REACTIVE skill -- you need to trust your eyes and your swing, not calculate probabilities in real time. The best pinch hitters have a SIMPLE plan: one pitch to look for, one zone to attack. Everything else gets filtered out. Simplify your approach: 'I'm looking for a fastball in my happy zone. If I get it, I swing. If I don't, I take.' That's it. No more. Quiet your mind and let your body do what it's trained to do.",
+        "whatToRemember": "Don't overthink at the plate. Have a SIMPLE plan: look for one pitch in one zone. Quiet your mind and trust your hands. Overthinking leads to freezing.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

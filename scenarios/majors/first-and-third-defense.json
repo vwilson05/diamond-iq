@@ -1,0 +1,303 @@
+{
+  "id": "majors-first-and-third-defense",
+  "title": "First-and-Third Defense: Catcher's Call",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "defense",
+  "tags": ["first-and-third", "catcher", "steal-defense", "game-management", "strategy"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 4, "away": 3 },
+    "runners": { "first": true, "second": false, "third": true },
+    "count": { "balls": 1, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're catching in a tight game -- up one run, runners on first and third, one out. The pitcher delivers and the runner on first takes off for second base. You receive the ball cleanly. But wait -- the runner on third is edging down the line, watching you. This is the classic first-and-third steal situation. If you throw to second, the runner on third might break for home. If you hold it, they give up a free stolen base. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home", "2B", "3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (stealing 2nd)" },
+          { "id": "runner3rd", "position": { "x": 0.33, "y": 0.58 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-through-ss",
+          "text": "Throw to second, but tell the shortstop to cut it off and look the runner back to third!",
+          "nextNode": "decision-cut-play"
+        },
+        {
+          "id": "throw-direct-second",
+          "text": "Gun it straight to second base! I'll throw the runner out and dare the guy on third to go!",
+          "nextNode": "outcome-direct-throw-okay"
+        },
+        {
+          "id": "fake-and-snap",
+          "text": "Pump fake to second, then snap throw to third to catch the runner leaning!",
+          "nextNode": "outcome-fake-snap-great"
+        },
+        {
+          "id": "hold-ball",
+          "text": "Hold the ball and concede the stolen base. Can't risk giving up the tying run.",
+          "nextNode": "outcome-hold-bad"
+        }
+      ]
+    },
+    "decision-cut-play": {
+      "type": "decision",
+      "narration": "You fire the ball toward second, but it's aimed at the shortstop cutting across the mound area -- not all the way to the bag. The shortstop catches the cut in front of second base and immediately looks to third. The runner on third took two hard steps toward home but now freezes. The shortstop has options. What should the shortstop do?",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.52 },
+        "highlight": ["SS", "3B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.52, "y": 0.47 }, "label": "Runner (near 2nd)" },
+          { "id": "runner3rd", "position": { "x": 0.38, "y": 0.62 }, "label": "Runner (off 3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-back-third",
+          "text": "Fire to third! The runner took too many steps -- we can pick him off!",
+          "nextNode": "outcome-cut-to-third-great"
+        },
+        {
+          "id": "tag-runner-second",
+          "text": "Tag the runner at second who's coming in standing up!",
+          "nextNode": "outcome-tag-second-good"
+        },
+        {
+          "id": "hold-and-rundown",
+          "text": "Hold the ball -- the runner on third stopped. Just let the other runner have second.",
+          "nextNode": "outcome-hold-after-cut-okay"
+        }
+      ]
+    },
+    "outcome-cut-to-third-great": {
+      "type": "outcome",
+      "narration": "The shortstop wheels and fires to the third baseman! The runner on third took three aggressive steps toward home and can't get back in time! The third baseman slaps the tag down -- OUT! The runner is caught off the bag! That's an incredible play -- you and the shortstop executed the cut play perfectly, and the overaggressive runner paid the price. Two outs now, runner on second, and you kept the tying run off the scoreboard!",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Picked Off at Third! The Cut Play Works!",
+        "explanation": "This is the textbook first-and-third cut play. Here's how it works: instead of throwing all the way through to second base, the catcher throws to the shortstop who positions themselves in the cutoff spot -- about halfway between the mound and second base. The shortstop's job is to read the runner on third. If the runner breaks for home, the shortstop cuts the ball and throws home. If the runner drifts too far off third (like this one did), the shortstop fires to third for the pickoff. The beauty of this play is it eliminates the offense's advantage. They WANT you to throw through to second so the runner on third can score. The cut play takes that option away.",
+        "keyTerms": ["cut play", "first-and-third defense", "cutoff position"],
+        "whatToRemember": "The cut play on first-and-third is about reading the runner at third. The shortstop is the decision-maker. Practice this play so the shortstop knows exactly where to set up and what to look for.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.48, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.48, "y": 0.52 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.35, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-tag-second-good": {
+      "type": "outcome",
+      "narration": "The shortstop wheels toward the runner coming into second and applies the tag. The runner slides in and the shortstop tags him on the shoulder -- OUT! Good play, you got the runner at second. But the runner on third retreated safely back to the bag. Two outs, runner still on third. You got an out, but the tying run is still 90 feet away.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Out at Second! Runner Stays at Third.",
+        "explanation": "You got an out and that's always valuable. But the higher-IQ play was to look at the runner on third first. He was the more dangerous runner -- the tying run, only 90 feet from home. If he'd drifted too far (and he did take several steps), a throw to third would have caught him AND removed the bigger threat. The runner going to second was less dangerous because he can't score from second on most plays. In the first-and-third defense, always prioritize the lead runner. The runner stealing second is often just a decoy.",
+        "keyTerms": ["decoy steal", "lead runner priority"],
+        "whatToRemember": "In first-and-third situations, the runner stealing second is often the decoy. The real play is the runner at third. Always look at the lead runner first before committing to a throw.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.48, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.48, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.47 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-after-cut-okay": {
+      "type": "outcome",
+      "narration": "The shortstop holds the ball. The runner on third scurries back to the bag safely, and the runner from first stands up at second. You got the cut right, but the shortstop didn't pull the trigger on either option. Runner on second and third now, one out. The situation got worse.",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.52 },
+        "highlight": ["SS"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "No Play Made. Runners Advance.",
+        "explanation": "The cut was the right idea, but the shortstop hesitated. In the first-and-third defense, the shortstop has to be DECISIVE. If the runner on third takes too many steps, fire to third immediately. If the runner stays close to third, tag the runner coming into second. Holding the ball and doing nothing is the worst outcome because you gave the offense exactly what they wanted: a free base with no risk. The whole point of the cut play is to make ONE of the runners pay. Practice this play so the shortstop makes the read instantly.",
+        "whatToRemember": "The cut play only works if the shortstop makes a quick decision. Hesitation gives the offense a free base. The shortstop must commit to a play within one second of catching the cut.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.48, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-direct-throw-okay": {
+      "type": "outcome",
+      "narration": "You fire the ball all the way through to second base. The shortstop catches it and tags the runner -- OUT! But as soon as you released the ball, the runner on third broke for home! Your shortstop sees it too late. By the time the throw comes back to the plate, the runner has scored standing up. Tie game. You got the out at second but gave up the tying run.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out at Second, But Tying Run Scores!",
+        "explanation": "This is exactly what the offense wanted. The first-and-third play is designed to bait the catcher into throwing through to second. The moment the ball leaves your hand on that long throw, the runner on third has a free runway to home plate. Even if you throw the stealing runner out, you traded an out for a RUN -- and in a one-run game, that's a losing trade. A run is always worth more than an out in a close game. The cut play exists specifically to prevent this: by keeping the ball in the middle of the diamond, you can still defend home plate.",
+        "keyTerms": ["delayed steal"],
+        "whatToRemember": "Never throw through to second in a first-and-third situation without a plan for the runner at third. The cut play keeps the ball close enough to defend home plate while still threatening the runner at second.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.33, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fake-snap-great": {
+      "type": "outcome",
+      "narration": "You stand up aggressively like you're throwing to second -- the runner on third sees your arm go back and takes two hard steps toward home, expecting you to commit the throw. But you pump fake! Then you snap a throw to third base! The third baseman is ready, slaps the tag, and the runner is caught diving back! OUT! The runner on first took second during the play, but who cares? You just erased the tying run with a heads-up pump-and-snap!",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Picked Off at Third! Pump Fake Perfection!",
+        "explanation": "The pump fake to second, snap throw to third is one of the smartest plays a catcher can make in the first-and-third situation. Here's the psychology: the runner on third is trained to read the catcher's throwing motion. When they see your arm go back toward second, they instinctively lean toward home or take steps down the line. But you never let go of the ball! The pump fake freezes everyone for a split second, and then the snap throw to third catches the runner in no-man's-land. This play requires two things: 1) a catcher who can sell the fake, and 2) a third baseman who knows the play is on and stays at the bag ready for the throw.",
+        "keyTerms": ["pump fake", "snap throw", "catcher deception"],
+        "whatToRemember": "The pump fake to second, snap throw to third works because runners at third are trained to read your arm. Sell the fake, then fire to third. But make sure your third baseman knows the play is coming!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.33, "y": 0.58 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-bad": {
+      "type": "outcome",
+      "narration": "You hold the ball and watch the runner jog into second base. No throw, no play. The runner on third stays put. Now you've got runners on second and third with one out, and the offense got a free base without any risk. Your coach looks frustrated -- they had the first-and-third play called, but you didn't execute it. The offense just took advantage of your passivity.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Free Stolen Base. No Play Attempted.",
+        "explanation": "Holding the ball is the worst option in a first-and-third situation. Yes, you protected the run at third, but you gave the offense everything they wanted: a free base with zero risk. Now they have TWO runners in scoring position instead of one. The first-and-third defense exists precisely so you DON'T have to just concede the base. The cut play, the pump fake to third, even a strong direct throw to second -- all of these are better than doing nothing. A catcher has to be aggressive and decisive. The offense is running a play on YOU. You need to run one right back.",
+        "whatToRemember": "Never just concede a base in a first-and-third situation. Use the cut play or the pump fake to challenge the runners. Doing nothing lets the offense dictate the game.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

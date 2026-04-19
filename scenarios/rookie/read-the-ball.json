@@ -1,0 +1,180 @@
+{
+  "id": "rookie-read-the-ball",
+  "title": "Read the Ball Off the Bat!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "baserunning",
+  "tags": ["line-drive", "freezing", "reading-the-ball", "baserunning-decisions", "second-base"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on second base with nobody out. The batter swings and hits a hard line drive toward the left fielder. It's hit RIGHT AT the left fielder -- a low, screaming line drive. It could be caught or it could get past them. You're not sure yet. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.35 },
+        "highlight": ["2B", "3B", "LF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (on 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "freeze-read",
+          "text": "FREEZE! Stay near second base and watch. If it drops, run to third. If it's caught, get back to second!",
+          "nextNode": "outcome-freeze-great"
+        },
+        {
+          "id": "run-immediately",
+          "text": "Take off running to third immediately! Get a head start!",
+          "nextNode": "outcome-run-bad"
+        },
+        {
+          "id": "go-back",
+          "text": "Run back to second base and stay there no matter what.",
+          "nextNode": "outcome-back-okay"
+        }
+      ]
+    },
+    "outcome-freeze-great": {
+      "type": "outcome",
+      "narration": "You freeze and watch the line drive. It's a tough play for the left fielder... they dive and MISS it! The ball gets past them and rolls to the fence! Since you froze and read the play, you waited until you SAW it drop, and NOW you take off. You sprint to third and your coach waves you home! You score easily because the ball went all the way to the fence! By freezing first, you were safe to advance once you saw the ball drop.",
+      "field": {
+        "ballPosition": { "x": 0.15, "y": 0.25 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "You (SCORES!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Read! You Scored!",
+        "explanation": "On a line drive, the SMART play is to freeze (stay near your base) and READ the ball. Line drives are tricky because they can be caught OR they can drop. If you freeze: (1) If the ball is caught, you're safe at second because you never left. (2) If the ball drops or gets past the fielder, you can STILL advance because the ball is in the outfield. You might lose a step or two compared to running right away, but you eliminate the risk of getting doubled off. On line drives hit RIGHT AT a fielder, always freeze first, then react.",
+        "whatToRemember": "On line drives, FREEZE and read! If it drops, go. If it's caught, stay. Freezing protects you from getting doubled off while still letting you advance.",
+        "keyTerms": [
+          { "term": "Freeze", "definition": "Stopping in your tracks on the basepath when you're not sure if a line drive will be caught. You wait until you see what happens, THEN make your move." },
+          { "term": "Line Drive", "definition": "A ball hit hard and low in a straight line. Line drives are the hardest balls for runners to read because they can be caught or drop quickly." },
+          { "term": "Read the Ball", "definition": "Watching a batted ball to decide what to do. On fly balls, you tag up. On ground balls, you go. On line drives, you freeze and read. Each type of hit requires a different reaction!" }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.35 },
+              "to": { "x": 0.15, "y": 0.25 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner1",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-run-bad": {
+      "type": "outcome",
+      "narration": "You take off sprinting toward third the moment the ball leaves the bat. But the left fielder makes a great diving catch! The ball is caught -- that's one out! And you're 30 feet past second base, sprinting the wrong direction. The left fielder pops up and throws to second base. You try to get back but you're way too far away. DOUBLE PLAY! Two outs on one play, and your team's rally is over.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Doubled Off! Should've Frozen!",
+        "explanation": "This is the classic mistake on line drives -- running before you know if the ball is caught. Line drives hit RIGHT AT a fielder have about a 50/50 chance of being caught. By running immediately, you gambled and lost. The fielder caught it (one out), then threw to second base where you had already left (two outs). If you had frozen, you would have been safe at second when the catch was made. Yes, you lose a few steps of head start, but those steps aren't worth the risk of a double play. On line drives AT a fielder, freeze EVERY time.",
+        "whatToRemember": "Never run on a line drive hit at a fielder! Freeze first. If you get doubled off, it's a two-out swing that can kill your team's inning.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.4, "y": 0.52 },
+              "entity": "runner1",
+              "duration": 400
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.25, "y": 0.35 },
+              "to": { "x": 0.25, "y": 0.35 },
+              "entity": "fielder",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.35 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-back-okay": {
+      "type": "outcome",
+      "narration": "You immediately go back to second base and stay there. The line drive gets past the left fielder and rolls all the way to the fence! It's a clear double, but you're standing on second base watching it happen. By the time you realize the ball dropped and start running, you can only make it to third. You should have scored, but you played it too safe and only got one base.",
+      "field": {
+        "ballPosition": { "x": 0.15, "y": 0.25 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (at 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Only Got to Third! Could've Scored!",
+        "explanation": "Going back to second is safe, but it's TOO cautious. You gave up a chance to score because you committed to going back before you even saw what happened to the ball. The RIGHT play is to FREEZE -- not go back, not go forward. Just STOP and WATCH. Freezing near second base keeps all your options open. If the ball is caught, you're close enough to get back to second. If it drops, you can take off running with plenty of time. Going all the way back to second cost you at least one base, maybe two.",
+        "whatToRemember": "Don't retreat on a line drive -- FREEZE. Going back to your base is too cautious. Freezing keeps your options open for both outcomes.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.35 },
+              "to": { "x": 0.15, "y": 0.25 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner1",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "id": "rookie-cutoff-throw-home",
+  "title": "Cut Off the Throw!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["cutoff", "outfield-throw", "home-plate", "decision-making", "baserunning"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 4, "away": 3 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on second base, one out, and your team is winning by one run. The batter singles to left field! The runner on second is rounding third and sprinting home. You're the third baseman, standing in the cutoff position between the left fielder and home plate. The left fielder throws the ball and it's heading right at you on one hop. The runner is about 30 feet from home. Do you cut off the throw or let it go through to the catcher?",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.5 },
+        "highlight": ["3B", "Home", "LF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.4, "y": 0.72 }, "label": "Runner (heading home)" },
+          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "let-through",
+          "text": "Let it go through! The throw looks strong and on target to the catcher!",
+          "nextNode": "outcome-through-great"
+        },
+        {
+          "id": "cut-redirect",
+          "text": "Cut it off! The throw is bouncing too high -- redirect it to home with a better throw!",
+          "nextNode": "outcome-cut-okay"
+        },
+        {
+          "id": "cut-hold",
+          "text": "Cut it off and hold the ball. Don't throw anywhere, just keep the batter from advancing.",
+          "nextNode": "outcome-hold-bad"
+        }
+      ]
+    },
+    "outcome-through-great": {
+      "type": "outcome",
+      "narration": "You read the throw perfectly -- it's on a line, strong, and heading right toward the catcher's glove. You duck and let it go through! The catcher catches it on one hop and slaps the tag on the sliding runner -- OUT! The run doesn't score! Your team still leads! The key was reading the throw and knowing you didn't need to touch it.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Out at the Plate! Great Read!",
+        "explanation": "As the cutoff man, your job is to make a DECISION. If the throw from the outfield is strong and accurate, let it go through to the catcher! Cutting a good throw only slows it down. You have to quickly judge: Is the throw on line? Is it strong enough to reach the catcher? Will it beat the runner? In this case, the answer was yes to all three, so letting it through was the right call. The catcher did their job and tagged the runner out. Knowing WHEN to cut and when to let it go is what separates smart defenders.",
+        "whatToRemember": "As cutoff man, let strong, accurate throws go through to the catcher. Only cut it if the throw is off-line, weak, or too late to get the runner.",
+        "keyTerms": [
+          { "term": "Cutoff Man", "definition": "An infielder who stands between the outfielder and the base to decide whether to catch the throw and redirect it, or let it go through to the base." },
+          { "term": "On a Line", "definition": "When a throw goes straight from the thrower to the target without curving to the side. A throw 'on a line' is accurate and doesn't need to be cut off." },
+          { "term": "Tag Play", "definition": "When a runner is NOT forced to advance, the fielder must TAG them with the ball to get them out. This is different from a force out where they just touch the base." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-cut-okay": {
+      "type": "outcome",
+      "narration": "You reach up and grab the throw! It was bouncing pretty high, so cutting it might have been smart. You spin and fire it home, but the extra time it took for you to catch, turn, and throw was just enough. The runner slides in -- SAFE! Run scores, game is tied. Your throw was good, but the runner beat you by a half step. Sometimes cutting it works, sometimes it doesn't.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SAFE!)" },
+          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Run Scores! Close Play!",
+        "explanation": "Cutting the throw wasn't a terrible decision -- if the throw was truly bouncing off-line, redirecting it could help. But every time you cut a throw, you add time: you have to catch it, turn your body, and throw again. That takes about a full second, which is often the difference between safe and out. In this case, the original throw might have been good enough to get through to the catcher. The lesson is to only cut a throw when you're SURE it won't reach the catcher or it's way off target.",
+        "whatToRemember": "Cutting a throw adds time. Only cut when the throw is clearly off-line or too weak to reach the catcher. When in doubt, let it through!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.3 },
+              "to": { "x": 0.38, "y": 0.55 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.38, "y": 0.55 },
+              "to": { "x": 0.38, "y": 0.55 },
+              "entity": "fielder",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.38, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-bad": {
+      "type": "outcome",
+      "narration": "You cut the throw and just hold the ball. The runner crosses home plate easily and scores the tying run! You had a chance to throw him out, but instead you watched him score. Meanwhile, the batter sees you standing there with the ball and takes off for second base! Now the game is tied AND there's a runner in scoring position. Your coach calls out: 'If you cut it, throw it! Don't hold it!'",
+      "field": {
+        "ballPosition": { "x": 0.38, "y": 0.55 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (took 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Run Scores AND Runner Advances!",
+        "explanation": "This was a double mistake. First, you cut a throw that might have gotten the runner at home. Second, even after cutting it, you just held the ball and let the runner score without even trying. If you're going to cut the throw, you need to DO something with it -- either throw home to try to get the runner, or at least look around and throw to a base to prevent other runners from advancing. Holding the ball in the middle of the field while runners are moving is never the right play.",
+        "whatToRemember": "If you cut the throw, immediately redirect it! Either throw home or to another base. Never hold the ball while runners are moving.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.25, "y": 0.3 },
+              "to": { "x": 0.38, "y": 0.55 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 600,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

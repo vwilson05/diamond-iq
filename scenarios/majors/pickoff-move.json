@@ -1,0 +1,281 @@
+{
+  "id": "majors-pickoff-move",
+  "title": "The Pickoff: Controlling the Running Game",
+  "sport": ["baseball"],
+  "tier": "majors",
+  "role": "pitching",
+  "tags": ["pickoff", "pitcher", "baserunning-defense", "timing", "deception"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're a right-handed pitcher working from the stretch with a runner on first and one out. The runner has speed and a big lead -- he's been taking an aggressive secondary lead after each pitch, and you can tell he wants to steal. Your catcher has already told you to hold the runner. You come set and look over at first. The runner is three full steps off the bag, leaning toward second. How do you handle this runner?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.65, "y": 0.55 }, "label": "Runner (big lead)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "vary-timing",
+          "text": "Vary my hold time from the set position. Quick pitch one time, hold for 3 seconds the next. Keep him guessing when I'm going home.",
+          "nextNode": "decision-after-vary"
+        },
+        {
+          "id": "quick-pick",
+          "text": "Quick pickoff throw! He's leaning -- spin and fire to first right now!",
+          "nextNode": "outcome-quick-pick-good"
+        },
+        {
+          "id": "ignore-runner",
+          "text": "Forget the runner and focus on the hitter. If he steals, he steals. I need to get this out.",
+          "nextNode": "outcome-ignore-bad"
+        },
+        {
+          "id": "step-off",
+          "text": "Step off the rubber and reset. Make the runner go back to first and restart his timing.",
+          "nextNode": "outcome-step-off-okay"
+        }
+      ]
+    },
+    "decision-after-vary": {
+      "type": "decision",
+      "narration": "You come set and hold... hold... hold. Three seconds. The runner is shifting his weight, getting impatient. He can't get a good jump because he doesn't know when you're going home. You pitch -- the runner stays. Next pitch, you come set and go quickly to the plate -- one second hold. The runner barely gets a lead before the pitch is delivered. He's frustrated. He's starting to lean back toward first, unsure. Now he takes another big lead on the next set. You've held the ball for two seconds and he's creeping again. What do you do NOW?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.65, "y": 0.55 }, "label": "Runner (creeping)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "pick-after-vary",
+          "text": "NOW throw over! He thinks I'm going home because I've been varying. He'll be leaning the wrong way!",
+          "nextNode": "outcome-pick-after-vary-great"
+        },
+        {
+          "id": "pitch-slide-step",
+          "text": "Use a slide step to deliver quickly to the plate. Give the catcher a chance to throw him out if he goes.",
+          "nextNode": "outcome-slide-step-good"
+        },
+        {
+          "id": "keep-varying",
+          "text": "Keep varying but don't throw over. I've already disrupted his timing enough.",
+          "nextNode": "outcome-keep-varying-okay"
+        }
+      ]
+    },
+    "outcome-pick-after-vary-great": {
+      "type": "outcome",
+      "narration": "After varying your hold time for three pitches, the runner is starting to lean toward second, timing your pattern. He thinks you're about to pitch because you held for two seconds -- and THAT'S when you spin and fire to first! The runner is caught leaning the wrong way! He dives back but the first baseman slaps the tag on his back -- OUT! Pickoff! The bench goes crazy! You disrupted his timing with the varying holds and then sprung the trap at the perfect moment!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "PICKED OFF! Timing Disruption Pays Off!",
+        "explanation": "This is elite pickoff strategy. Here's the sequence: 1) You varied your hold times (long, short, medium) so the runner couldn't time your delivery. 2) You got the runner frustrated and uncertain. 3) When he started trying to predict your pattern, you threw over at an unexpected moment. The pickoff didn't work because of a great throw -- it worked because of the three pitches BEFORE the throw. You set a trap. The runner was trying to time you, and you used that against him. In pitching, the pickoff is just one tool in your running game arsenal. The hold time, the look, the step-off, and the slide step all work together to control the runner.",
+        "keyTerms": ["timing disruption", "pickoff sequence", "hold time variation"],
+        "whatToRemember": "Vary your hold times to disrupt the runner's timing, then throw over when he starts leaning. The pickoff works best when you set it up over multiple pitches. It's a sequence, not a single move.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.65, "y": 0.55 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-slide-step-good": {
+      "type": "outcome",
+      "narration": "You use a slide step -- a quick, compact delivery with no leg kick. The pitch gets to the catcher fast, but it's a little high because the slide step took away some of your mechanics. Ball two. The runner DID go, but your catcher pops up and fires to second. The runner slides in -- SAFE by a hair! Close play. The slide step helped, but the runner still got the bag. Count is 2-0 now and the runner is on second.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Stolen Base, But Slide Step Made It Close.",
+        "explanation": "The slide step is a useful tool -- it gets the ball to the catcher about 0.3 seconds faster than a full windup, which can be the difference between safe and out. But it comes with a trade-off: most pitchers lose velocity and command when they slide-step because they're shortening their delivery. You went from a 1-0 count to a 2-0 count because the slide step affected your accuracy. The ideal approach is to use the slide step selectively -- when you KNOW the runner is going -- and use your normal delivery (with varied hold times) the rest of the time. Don't let the runner turn you into a slide-step machine.",
+        "keyTerms": ["slide step"],
+        "whatToRemember": "The slide step gets the ball to the catcher faster but can hurt your command. Use it selectively, not on every pitch. Combine it with varied hold times and pickoff throws for the full package.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-keep-varying-okay": {
+      "type": "outcome",
+      "narration": "You keep varying but never actually throw over. The runner eventually gets his timing down -- he realizes you're NOT going to throw to first. On a two-second hold, he takes off for second. Your full delivery takes too long and the catcher's throw is late. SAFE! Stolen base. You disrupted his timing at first, but without an actual pickoff throw as a consequence, the runner figured out you were bluffing.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Stolen Base. Runner Called Your Bluff.",
+        "explanation": "Varying your hold time is step one, but you need step two: an actual pickoff attempt. Without the throw, the runner learns that your holds are just for show. He realizes you're never going to throw over, so he starts timing your delivery instead of worrying about the pickoff. The varying hold time only works as a SETUP for the pickoff throw. It's like a pitcher who shows a curveball but never throws it -- eventually hitters stop worrying about it. You have to actually throw over occasionally to keep the threat real.",
+        "whatToRemember": "Varying your hold time sets up the pickoff, but you MUST actually throw over occasionally. Without real pickoff attempts, the runner will call your bluff and steal anyway.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-quick-pick-good": {
+      "type": "outcome",
+      "narration": "You spin and fire to first! Quick throw, the runner dives back -- SAFE! He was leaning, but he was ready for it. First move of the game, no setup. The throw was decent, but the runner was expecting it because you hadn't done anything to set up the pickoff. He was leaning toward second but his weight was balanced. Now you've shown your pickoff move, and the runner knows what it looks like.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (safe at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Safe at First! Pickoff Not Set Up.",
+        "explanation": "A cold pickoff throw -- one without any setup -- rarely works against a smart baserunner. The runner is alert and ready for it. Pickoffs work best when they're set up over multiple pitches. By varying your hold times first, you get the runner guessing and leaning. THEN the pickoff throw catches them off guard. Think of it like a change of speed in pitching -- the changeup works because you showed the fastball first. The pickoff works because you showed the pitch-to-the-plate first. Set the trap before you spring it.",
+        "keyTerms": ["cold pickoff"],
+        "whatToRemember": "Don't throw cold pickoffs. Set up the pickoff by varying your hold times and looks first. The pickoff works best as the payoff of a sequence, not as the first move.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-ignore-bad": {
+      "type": "outcome",
+      "narration": "You ignore the runner completely and focus on the hitter. You come set, pause, and deliver. The runner takes off on first movement -- he had your timing perfectly because you never varied it. He's at full speed, gets a monster jump, and the catcher's throw isn't even close. SAFE at second by a mile. Now you've got the tying run in scoring position with one out, and it was completely preventable.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (easy steal)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy Stolen Base! Runner Timed You Perfectly!",
+        "explanation": "Ignoring a runner with speed is a recipe for disaster. When you don't hold the runner, three bad things happen: 1) The runner gets a bigger lead because he has no fear of the pickoff. 2) The runner can time your delivery because you never vary it. 3) The catcher has no chance because the runner's jump is too good. Controlling the running game is part of pitching. You don't have to pick the runner off, but you DO have to keep him honest. A look, a throw, a varied hold time -- any of these would have shortened his lead and disrupted his timing. Pitching isn't just about throwing to the plate.",
+        "whatToRemember": "Never ignore a baserunner. Controlling the running game is part of pitching. Vary your looks and hold times to keep the runner honest, even if you never throw over.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-step-off-okay": {
+      "type": "outcome",
+      "narration": "You step off the rubber. The runner retreats to first. You get back on the rubber, come set, and the runner creeps out again. You step off again. Then again. Now the umpire is getting annoyed, the crowd is restless, and your rhythm is completely broken. You finally pitch and leave a fastball up -- ball two. The step-off disrupted your rhythm more than it disrupted the runner's.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.65, "y": 0.55 }, "label": "Runner (still at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Rhythm Broken. Step-Offs Hurt You Too.",
+        "explanation": "Stepping off is the most conservative option. It's safe -- you can't balk, you can't make a bad throw -- but it doesn't accomplish much. The runner just goes back to first and then takes the same lead again. Worse, repeated step-offs can break YOUR rhythm as a pitcher. You lose your timing, your focus shifts from the hitter to the runner, and your pitches suffer. One step-off is fine to reset. But multiple step-offs mean you're stalling, not competing. Instead of stepping off repeatedly, use your hold time variation and mix in actual pickoff throws. Those tools keep the runner honest while letting you stay in rhythm.",
+        "whatToRemember": "One step-off to reset is fine. Multiple step-offs break your rhythm more than the runner's. Use hold time variation and actual pickoff throws instead of repeated step-offs.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "runner1st",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.65, "y": 0.55 },
+              "entity": "runner1st",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

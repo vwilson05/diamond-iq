@@ -1,0 +1,157 @@
+{
+  "id": "rookie-two-strike-approach",
+  "title": "Two Strikes — Adjust!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "offense",
+  "tags": ["two-strikes", "plate-discipline", "adjusting", "contact", "hitting-approach"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 1, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 2 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Tied game, runner on first, one out, and the count is 1-2 -- two strikes on you. The pitcher has been mixing fastballs and changeups all game. You've already swung and missed once and fouled one off. One more strike and you're out. The pitcher is getting ready for the next pitch. How does your approach change with two strikes?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "shorten-up",
+          "text": "Choke up on the bat, shorten your swing, and focus on making contact with anything close!",
+          "nextNode": "outcome-shorten-great"
+        },
+        {
+          "id": "bigger-swing",
+          "text": "Swing even HARDER! If you're going to go down, go down swinging big!",
+          "nextNode": "outcome-big-bad"
+        },
+        {
+          "id": "just-look",
+          "text": "Don't swing at all. Hope the pitcher throws a ball so the count evens up.",
+          "nextNode": "outcome-look-okay"
+        }
+      ]
+    },
+    "outcome-shorten-great": {
+      "type": "outcome",
+      "narration": "You slide your hands up on the bat an inch, widen your stance, and focus your eyes on the pitcher's release point. The pitch comes in -- a changeup on the outside corner. With your shorter swing, you're able to reach it and poke it into right field! It drops in for a single! The runner on first moves to second. You're on base, the inning continues, and you fought off a tough pitch because you adjusted with two strikes!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.4 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Two-Strike Single! Great Adjustment!",
+        "explanation": "With two strikes, the BEST hitters in baseball change their approach. They choke up on the bat (slide their hands up about an inch), which gives them more bat control. They shorten their swing so they can react to off-speed pitches. And they expand their zone slightly -- swinging at pitches that are close to the strike zone instead of waiting for a perfect pitch. The goal changes from 'hit it hard' to 'put the ball in play.' A short, controlled swing that makes contact is infinitely better than a big swing that misses. Contact creates chances!",
+        "whatToRemember": "With two strikes: choke up, shorten your swing, and focus on contact. The goal is to put the ball in play, not hit a home run.",
+        "keyTerms": [
+          { "term": "Choke Up", "definition": "Moving your hands up on the bat handle about an inch. This gives you more control over the bat and helps you make contact, even though you lose a little power." },
+          { "term": "Two-Strike Approach", "definition": "Changing the way you hit when you have two strikes. You shorten your swing, widen your zone slightly, and focus on making contact instead of swinging for power." },
+          { "term": "Changeup", "definition": "A pitch that looks like a fastball coming out of the pitcher's hand but is actually much slower. It tricks batters into swinging too early." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.52, "y": 0.84 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.52, "y": 0.84 },
+              "to": { "x": 0.7, "y": 0.4 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.82 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-big-bad": {
+      "type": "outcome",
+      "narration": "You grip the bat tight and take the biggest swing of your life! The pitcher throws a changeup and you're way out in front of it. Your bat whiffs through the air a full second before the ball even gets to the plate. STRIKE THREE! You spun yourself almost all the way around. The pitcher pumps their fist -- the big swing made you an easy out.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Swung Way Too Hard! Strikeout!",
+        "explanation": "Here's the problem with swinging harder when you have two strikes: the harder you swing, the LESS control you have over the bat. A big, powerful swing takes longer to get through the zone, which means you have less time to adjust to off-speed pitches like changeups and curveballs. With two strikes, pitchers throw MORE off-speed pitches because they know aggressive hitters will swing out of their shoes. It's a trap! The solution is the opposite of what feels natural: swing SHORTER and more controlled. You'll actually hit the ball harder because you'll make cleaner contact.",
+        "whatToRemember": "Don't swing harder with two strikes -- swing SHORTER. A compact swing with good contact is better than a big swing with no contact.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-look-okay": {
+      "type": "outcome",
+      "narration": "You decide not to swing no matter what. The pitcher throws a fastball right down the middle of the plate -- a perfect strike. You watch it go by with the bat on your shoulder. 'STRIKE THREE CALLED!' the umpire yells. You're out looking. That was the most hittable pitch you've seen all at-bat, and you let it go. Your teammates groan -- you had a meatball and didn't swing.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "Runner (on 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Called Strike Three! Should've Swung!",
+        "explanation": "With two strikes, you can NOT just decide to never swing. Pitchers know that if you're not going to swing, they'll just throw a strike and you're out. The two-strike approach isn't about NOT swinging -- it's about swinging SMARTER. Shorten up, protect the plate, and be ready for anything close. If a pitch is in the strike zone, you HAVE to swing. If it's close, you should swing. The only pitches you take with two strikes are ones that are clearly balls -- way outside, way high, in the dirt. Everything else, you need to battle.",
+        "whatToRemember": "With two strikes, you still have to swing at strikes! Don't freeze up. Be ready to swing at anything close. The goal is contact, not perfection.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

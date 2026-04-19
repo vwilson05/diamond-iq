@@ -1,0 +1,176 @@
+{
+  "id": "minors-freeze-on-line-drive",
+  "title": "Freeze! Line Drive!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "baserunning",
+  "tags": ["line-drive", "freeze", "baserunning", "tagging-up", "reading-the-ball"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the runner on second base, nobody out, your team is leading by a run. The batter swings and hits a HARD line drive toward the left fielder. It's a low, screaming liner -- it could be caught or it could be a base hit. It's still in the air, heading right at the left fielder. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.28 },
+        "highlight": ["2B", "3B", "LF"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (on 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "freeze",
+          "text": "FREEZE! Stay near second base and watch! If it's caught, I'm safe. If it drops, I can still advance!",
+          "nextNode": "outcome-freeze-great"
+        },
+        {
+          "id": "run-immediately",
+          "text": "Take off running for third! It's a base hit for sure!",
+          "nextNode": "outcome-run-bad"
+        },
+        {
+          "id": "go-back",
+          "text": "Run back and tag second base so I can tag up if it's caught.",
+          "nextNode": "outcome-tag-okay"
+        }
+      ]
+    },
+    "outcome-freeze-great": {
+      "type": "outcome",
+      "narration": "You freeze! You stay right near second base and watch the ball. The left fielder dives... and the ball bounces just past their glove! It's a hit! Now you take off -- you read the ball perfectly and sprint to third base, safe! If it HAD been caught, you'd have been safe at second. By freezing, you gave yourself the best of both worlds!",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.25 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (safe at 3rd!)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Freeze! Advanced Safely!",
+        "explanation": "On a line drive, the baserunner's first instinct should be to FREEZE. Here's why: line drives are caught about half the time. If you take off running and the ball is caught, you'll be doubled off (the fielder throws to second and you're out because you left the base). By freezing, you keep yourself safe either way. If the ball drops, you can still advance because you're right near the base with a clear view of what happened. You only lose about one second of running time by freezing, but you eliminate the risk of being doubled off.",
+        "keyTerms": [
+          { "term": "Freeze on a liner", "definition": "Staying near your base on a line drive until you see whether it's caught or drops. This prevents you from being doubled off if it's caught." },
+          { "term": "Doubled off", "definition": "When a runner leaves their base on a fly ball that is caught, and the defense throws to the runner's base before they can return. The runner is out." },
+          { "term": "Reading the ball", "definition": "Watching the batted ball to determine if it will be caught or drop for a hit before deciding to advance." }
+        ],
+        "whatToRemember": "On line drives, FREEZE first and watch. If the ball drops, go! If it's caught, you're safe at your base. Freezing protects you from being doubled off and still lets you advance on hits.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.49, "y": 0.46 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.49, "y": 0.46 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "you",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-run-bad": {
+      "type": "outcome",
+      "narration": "You take off sprinting for third the moment the ball is hit. But the left fielder makes a great catch! Now you're 30 feet off second base with nowhere to go. The left fielder looks up and fires to second. You try to scramble back but you're way too far -- DOUBLED OFF! Two outs on one play! Your teammates groan. One caught ball turned into a double play because you didn't freeze.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Doubled Off! Two Outs on One Play!",
+        "explanation": "This is one of the most painful outs in baseball -- the line-drive double play. You assumed the ball would be a hit and took off running. But line drives to outfielders are caught about half the time! When the ball was caught, you were stranded between bases with no chance of getting back. The defense gets two outs for the price of one: the catch AND throwing you out at second. This is why coaches drill 'FREEZE on line drives' into every player. The one to two seconds you save by running immediately is NOT worth the risk of being doubled off.",
+        "whatToRemember": "NEVER assume a line drive is a hit! Freeze and read it first. Getting doubled off on a line drive is one of the worst baserunning mistakes you can make.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.4, "y": 0.52 },
+              "entity": "you",
+              "duration": 500
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.3, "y": 0.28 },
+              "to": { "x": 0.3, "y": 0.3 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.48, "y": 0.47 },
+              "entity": "you",
+              "duration": 500,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-tag-okay": {
+      "type": "outcome",
+      "narration": "You sprint back and touch second base, ready to tag up. The left fielder dives and... the ball bounces past them! It's a hit! But now you wasted time running BACK to the base. You take off for third, but because you went backward first, you can only make it to third by the skin of your teeth. You could have been there easily if you'd just frozen.",
+      "field": {
+        "ballPosition": { "x": 0.22, "y": 0.22 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (barely safe at 3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Went Back Too Far! Wasted Steps!",
+        "explanation": "Going all the way back to the base to tag up is what you do on HIGH fly balls -- balls that are clearly going to be caught. On a LINE DRIVE, the ball arrives at the fielder so fast that there's no time to tag up and advance anyway. That's why you freeze instead. By running back to the base, you went 8-10 feet in the WRONG direction. When the ball dropped for a hit, you had to cover that extra distance plus the distance to third. On high fly balls: tag up. On line drives: FREEZE. Different types of hit-balls require different reactions.",
+        "whatToRemember": "High fly balls = tag up at the base. Line drives = freeze where you are. They look similar, but the reactions are different because line drives arrive at the fielder much faster.",
+        "iqPoints": 5,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.52, "y": 0.44 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.52, "y": 0.44 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "you",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

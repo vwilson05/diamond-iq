@@ -1,0 +1,168 @@
+{
+  "id": "rookie-ground-ball-charge",
+  "title": "Charge the Slow Roller!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["ground-ball", "charging", "third-base", "bare-hand", "throwing"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "top",
+    "outs": 2,
+    "score": { "home": 5, "away": 4 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Two outs in the top of the sixth, your team is winning by one. The batter hits a slow, dribbling ground ball toward third base. It's barely rolling! You're the third baseman. The ball is about 20 feet in front of you and losing speed fast. The batter is sprinting down the line to first base. Do you charge in or wait for the ball to come to you?",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.62 },
+        "highlight": ["3B", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.56, "y": 0.8 }, "label": "Batter (running!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "charge-hard",
+          "text": "Charge in hard! Get to the ball fast, scoop it, and throw on the run to first!",
+          "nextNode": "outcome-charge-great"
+        },
+        {
+          "id": "wait-back",
+          "text": "Stay back and wait for the ball to roll to you. Easier to field that way.",
+          "nextNode": "outcome-wait-bad"
+        },
+        {
+          "id": "jog-in",
+          "text": "Jog toward the ball at half speed, pick it up carefully, set your feet, and throw.",
+          "nextNode": "outcome-jog-okay"
+        }
+      ]
+    },
+    "outcome-charge-great": {
+      "type": "outcome",
+      "narration": "You sprint toward the ball aggressively! You scoop it with your bare hand on the run, plant your right foot, and fire a strong throw across the diamond to first base. The first baseman stretches and catches it -- the batter is out by half a step! THIRD OUT! Inning over! Your team keeps the lead! That play took guts and quick feet!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Charge! Out by a Step!",
+        "explanation": "On a slow roller, every tenth of a second counts. By charging the ball aggressively, you cut down the distance between you and the ball AND between you and first base. This gave you more time to make the throw. You also bare-handed it -- on slow rollers, sometimes using your bare hand is faster than trying to field it with your glove because you don't have to transfer the ball from glove to hand. The key is to field the ball out in front of your body and keep your momentum going toward first base so you can throw on the run.",
+        "whatToRemember": "On slow rollers, CHARGE the ball! Every step closer saves time. Bare-hand it if you need to, and throw on the run. Speed beats technique on these plays.",
+        "keyTerms": [
+          { "term": "Slow Roller", "definition": "A weakly hit ground ball that barely rolls along the ground. These are some of the trickiest plays in baseball because the fielder has to rush in to get the ball before the batter reaches first." },
+          { "term": "Bare-Hand Play", "definition": "Picking up the ball with your throwing hand instead of your glove. This saves the time of transferring the ball from glove to hand. Used on slow rollers and bunts." },
+          { "term": "Charging", "definition": "Running aggressively toward a slowly hit ball instead of waiting for it to come to you. Charging saves precious time on bang-bang plays." }
+        ],
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.35, "y": 0.62 },
+              "entity": "fielder",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.35, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.56, "y": 0.8 },
+              "to": { "x": 0.68, "y": 0.62 },
+              "entity": "batter",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-wait-bad": {
+      "type": "outcome",
+      "narration": "You wait back at your normal third base position for the ball to roll to you. The ball is rolling so slowly it practically stops! By the time you finally walk up and pick it up, the batter has already crossed first base. You throw it over there anyway, but it's way too late. SAFE! The batter is on first, the inning continues, and your coach is shaking their head. You gave the batter way too much time.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Slow! Runner Beats the Throw!",
+        "explanation": "On a slow roller, the ball barely has any speed. If you wait for it, you're wasting 2-3 seconds watching a ball that's basically stopped moving. Meanwhile, the batter is running full speed! By staying back, you also made the throw to first base LONGER because you were farther from first. Charging the ball solves both problems: you get to the ball faster AND you're closer to first base when you throw. On hard-hit ground balls, staying back is fine. On slow rollers, you HAVE to charge.",
+        "whatToRemember": "Never wait on a slow roller! The ball isn't coming to you fast enough. Sprint in, get the ball, and make a quick throw.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.56, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-jog-okay": {
+      "type": "outcome",
+      "narration": "You jog in at half speed, carefully pick up the ball, plant your feet, and make a nice throw to first base. But because you jogged instead of sprinting, the batter just barely beats the throw. SAFE! Your throw was accurate, but the extra half second you took jogging instead of charging was the difference. The umpire even says 'that was close!' That hurts.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE by a step)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Just Missed! Needed More Speed!",
+        "explanation": "You did almost everything right -- clean pickup, set your feet, accurate throw. But on a slow roller, 'almost' isn't good enough. Jogging at half speed cost you about half a second, and the batter beat the throw by half a step. See the connection? On a slow roller, you need FULL SPEED. Yes, it's harder to field the ball while running, but that's what practice is for. The play requires urgency. Sprint in, scoop it up, and throw on the run. You can practice setting your feet on regular ground balls, but slow rollers need pure hustle.",
+        "whatToRemember": "Half speed on a slow roller isn't fast enough. Sprint in full speed, even though it makes the pickup harder. Practice charging and throwing on the run!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.35, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.35, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.56, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

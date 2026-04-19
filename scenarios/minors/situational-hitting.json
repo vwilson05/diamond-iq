@@ -1,0 +1,173 @@
+{
+  "id": "minors-situational-hitting",
+  "title": "Drive the Runner In!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["situational-hitting", "runner-on-third", "productive-out", "fly-ball", "ground-ball"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 2, "away": 3 },
+    "runners": { "first": false, "second": false, "third": true }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on third, one out, your team is down by a run in the bottom of the fifth. You're walking up to the plate. Your coach says 'We just need a fly ball or a ground ball to the right side -- anything to get that run in!' The pitcher is throwing mostly fastballs. What's your approach at the plate?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "fly-ball-approach",
+          "text": "Look for a pitch up in the zone and try to hit a fly ball to the outfield -- the runner can tag up and score!",
+          "nextNode": "outcome-fly-great"
+        },
+        {
+          "id": "swing-hard",
+          "text": "Swing as hard as I can and try to crush a home run -- drive us both in!",
+          "nextNode": "outcome-homer-bad"
+        },
+        {
+          "id": "ground-right",
+          "text": "Try to hit a ground ball to the right side -- second baseman or first baseman -- so the runner can score while they throw me out.",
+          "nextNode": "outcome-ground-great"
+        }
+      ]
+    },
+    "outcome-fly-great": {
+      "type": "outcome",
+      "narration": "You look for a pitch up in the zone. The pitcher throws a fastball belt-high and you put a smooth swing on it -- FLY BALL to center field! It's deep enough! The runner on third tags up, waits for the catch, and sprints home. The throw from center field is too late -- RUN SCORES! You're out on the fly ball, but the game is tied! That's a sacrifice fly, and your team is celebrating!",
+      "field": {
+        "ballPosition": { "x": 0.45, "y": 0.2 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Sacrifice Fly! Game Tied!",
+        "explanation": "A sacrifice fly is one of the most valuable outs in baseball. With a runner on third and less than two outs, ANY fly ball deep enough to the outfield scores the run. The runner 'tags up' -- they wait on third base until the outfielder catches the ball, then they sprint home. Here's the approach: look for a pitch you can drive in the air (usually middle to up in the zone), and put a level-to-slightly-upward swing on it. You don't need to crush it -- you just need it deep enough that the runner has time to tag and score.",
+        "keyTerms": [
+          { "term": "Sacrifice fly", "definition": "A fly ball caught by an outfielder that allows a runner on third to tag up and score. The batter is out, but the run counts. It doesn't count as an at-bat!" },
+          { "term": "Tag up", "definition": "When a fly ball is caught, a baserunner must touch their base (tag up) before advancing. On a deep fly, runners on third can tag up and sprint home to score." },
+          { "term": "Productive out", "definition": "An out that accomplishes something useful -- like scoring a run or advancing a runner. Not all outs are equal!" }
+        ],
+        "whatToRemember": "With a runner on third and less than 2 outs, a fly ball to the outfield scores the run. Look for a pitch up in the zone and put it in the air. A sacrifice fly is a GREAT at-bat.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.45, "y": 0.2 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.45, "y": 0.2 },
+              "to": { "x": 0.45, "y": 0.2 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-homer-bad": {
+      "type": "outcome",
+      "narration": "You dig in and take the biggest swing you can. The pitcher throws a fastball and you swing from your heels -- STRIKE ONE! You missed it by a foot. Next pitch, same thing -- big swing, big miss. STRIKE TWO! Now you're behind 0-2 and the pitcher has all the leverage. You end up striking out on a curveball in the dirt. Runner stays at third. Two outs now. The hero swing backfired.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still at 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Strikeout! Runner Stranded!",
+        "explanation": "Trying to hit a home run in this situation is the WRONG approach. A home run is the hardest hit in baseball -- even the best hitters in the world only hit them about 5% of the time. But a fly ball to the outfield? That happens about 35% of the time! And a productive ground ball? Even more often! When the team needs ONE run, you don't need to be a hero. Put the ball in play and let the runner do the work. The home-run swing is big and wild, which leads to strikeouts. And a strikeout is the ONE thing that can't score the runner.",
+        "whatToRemember": "With a runner on third and less than 2 outs, put the ball in play! A strikeout is the worst possible outcome. Shorten your swing, make contact, and let the runner score.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-ground-great": {
+      "type": "outcome",
+      "narration": "Smart thinking! You look for a pitch on the outer half and try to hit it to the right side. The pitcher throws a fastball away and you slap it on the ground toward the second baseman. The second baseman fields it and throws to first -- you're out. But the runner on third broke for home the moment the ball was hit and scores easily! Game tied! That's called a productive ground ball!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "RBI Groundout! Run Scores!",
+        "explanation": "A ground ball to the right side (second baseman or first baseman) with a runner on third is a great play because the fielder has to throw AWAY from home plate. The runner sees the ball hit to the right side and takes off for home immediately. By the time the fielder throws to first, the runner has already scored. This is called a 'productive out' or an 'RBI groundout.' Why the RIGHT side specifically? Because the second baseman and first baseman have to throw to first, which faces them AWAY from home plate. A ground ball to the LEFT side (shortstop/third base) is trickier because those fielders can look the runner back.",
+        "keyTerms": [
+          { "term": "RBI groundout", "definition": "A ground ball out that drives in (scores) a runner. The batter is out, but they still get credit for an RBI (Run Batted In)." },
+          { "term": "Right side approach", "definition": "Trying to hit the ball to the right side of the infield (second baseman/first baseman area) so the throw goes away from home plate, allowing a runner on third to score." }
+        ],
+        "whatToRemember": "A ground ball to the right side scores the runner from third because the defense has to throw away from home plate. It's just as valuable as a hit in this situation!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

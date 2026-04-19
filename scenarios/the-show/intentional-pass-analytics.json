@@ -1,0 +1,174 @@
+{
+  "id": "the-show-intentional-pass-analytics",
+  "title": "The Intentional Walk: Analytics vs. Instinct",
+  "sport": ["baseball"],
+  "tier": "the-show",
+  "role": "defense",
+  "tags": ["intentional-walk", "analytics", "game-management", "run-expectancy", "strategy"],
+  "setup": {
+    "inning": 7,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Top of the 7th, you're up 3-2 with a runner on second and one out. First base is open. The hitter at the plate is their best -- a .320 hitter who crushes your pitcher's fastball. The on-deck hitter is batting .240 with less power and is 0-for-3 today. The analytics say the current hitter has a .410 wOBA against right-handed pitching while the on-deck guy is at .290. First base is open. Your pitching coach looks at you. Do you walk the dangerous hitter intentionally, pitch to him carefully, or compete and attack?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P", "1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "intentional-walk",
+          "text": "Walk him. The numbers are clear -- his .410 wOBA vs. the next guy's .290 is a massive gap. Put him on and pitch to the weaker hitter. Set up the double play.",
+          "nextNode": "decision-ibb-2"
+        },
+        {
+          "id": "pitch-careful",
+          "text": "Pitch to him, but carefully. Don't give him anything to hit -- nibble the corners and make him chase. If he walks, fine, but don't give him a free pass.",
+          "nextNode": "outcome-careful-okay"
+        },
+        {
+          "id": "attack-him",
+          "text": "Attack him. I'm not scared of any hitter. Go right at him with our best stuff. Let the defense make plays.",
+          "nextNode": "outcome-attack-bad"
+        }
+      ]
+    },
+    "decision-ibb-2": {
+      "type": "decision",
+      "narration": "You signal for the intentional walk. Four wide ones put the dangerous hitter on first. Now you've got runners on first and second, one out, and the .240 hitter stepping in. Your pitcher has double play depth set up in the infield. But here's the wrinkle -- you've put the go-ahead run on base. If this next hitter gets a hit, you could be down two. How do you pitch to this weaker hitter with runners on first and second?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P", "C"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "IBB Runner (1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "force-groundball",
+          "text": "Pitch for the ground ball. Throw sinkers and changeups low in the zone. We need the double play to end this inning.",
+          "nextNode": "outcome-groundball-great"
+        },
+        {
+          "id": "go-for-strikeout",
+          "text": "Go for the strikeout. This guy is weak -- blow him away with fastballs up and breaking stuff down. Don't give him a chance to put the ball in play.",
+          "nextNode": "outcome-strikeout-good"
+        },
+        {
+          "id": "nibble-again",
+          "text": "Pitch carefully to this guy too. Don't give him anything good. If he walks, it just loads the bases for an easier force play.",
+          "nextNode": "outcome-nibble-bad"
+        }
+      ]
+    },
+    "outcome-groundball-great": {
+      "type": "outcome",
+      "narration": "Sinker down, sinker down -- the hitter can't lay off. He hits a grounder right at the shortstop! The shortstop fields it, flips to second for the force, and the relay goes to first! DOUBLE PLAY! Inning over! Your strategy worked perfectly: you walked the dangerous hitter, set up double play depth, attacked the weaker hitter with ground-ball pitches, and turned two. The analytics told you the first hitter was 41% more productive than the second, and the second hitter did exactly what .240 hitters do -- put a routine ball in play. The math worked.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["SS", "2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "DOUBLE PLAY! Intentional Walk Strategy Perfection!",
+        "explanation": "This is the complete analytics-informed defensive sequence: 1) Identify the matchup disadvantage (your pitcher vs. their best hitter). 2) Avoid the bad matchup by issuing the intentional walk. 3) Create the advantageous matchup (your pitcher vs. their weaker hitter). 4) Set up the game state to maximize your defense's leverage (double play depth with a force at every base). 5) Execute the plan (ground-ball pitches to induce the double play). The wOBA gap between the two hitters (.410 vs .290) told you that the first hitter was 41% more productive per plate appearance. By walking him, you accepted a base runner (low cost) to face a hitter who is far less dangerous (high benefit). The double play turned the entire play into a zero-cost decision -- no runs, two outs, inning over.",
+        "whatToRemember": "The intentional walk is most powerful when first base is open, a force/double play can be created, and the on-deck hitter is significantly weaker. Use wOBA gaps of 100+ points as a trigger to seriously consider the walk.",
+        "keyTerms": [
+          { "term": "wOBA (Weighted On-Base Average)", "definition": "A stat that measures a hitter's total offensive contribution per plate appearance. Unlike batting average, it weights doubles, triples, and homers higher than singles. League average is around .310." },
+          { "term": "Intentional Walk Strategy", "definition": "Deliberately walking a dangerous hitter to face a weaker one, ideally creating a force play or double play opportunity. Most effective when the wOBA gap between hitters exceeds .100." },
+          { "term": "Double Play Depth", "definition": "An infield alignment where the middle infielders cheat toward second base to optimize the 6-4-3 or 4-6-3 double play pivot. Sacrifices range for turn-two speed." },
+          { "term": "Matchup Advantage", "definition": "Choosing which hitter your pitcher faces based on platoon splits, historical performance, and pitch-type weakness. The intentional walk is the tool that lets you choose your opponent." }
+        ],
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-strikeout-good": {
+      "type": "outcome",
+      "narration": "Your pitcher goes after the weak hitter aggressively -- fastball up, curveball down, fastball up again. The hitter fouls off the last one. On the fourth pitch, a slider away, the hitter waves and misses. STRIKE THREE! Two outs, runners still on first and second. The next batter pops out to end the inning. The intentional walk worked -- you avoided the dangerous hitter and struck out the weaker one. The only thing better would have been a ground-ball double play to end the inning in one play instead of two pitches.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["P"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Strikeout! But Ground Ball Would Have Been More Efficient.",
+        "explanation": "The strikeout worked and the intentional walk was the right call. The one concern: going for strikeouts costs more pitches than going for ground balls. Your pitcher threw 4 pitches to this hitter when a ground-ball approach might have gotten the double play on pitch 1 or 2. With runners on base, pitch efficiency matters because every extra pitch adds stress and fatigue. The ground-ball approach (sinkers and changeups low) is also statistically more likely to produce a double play, which ends the inning immediately. Strikeouts are great, but they're the least efficient way to record outs when a double play is available.",
+        "whatToRemember": "When a double play is set up, pitch for ground balls over strikeouts. Ground-ball outs can get you two outs on one pitch. Strikeouts only ever get one out and cost more pitches.",
+        "iqPoints": 7,
+        "next": "end"
+      }
+    },
+    "outcome-nibble-bad": {
+      "type": "outcome",
+      "narration": "You pitch carefully to the weaker hitter -- ball one, ball two, ball three. Now it's 3-0 and you've basically walked him too. Ball four loads the bases. You intentionally walked one hitter, then unintentionally walked the next one. The bases are loaded with one out and their 6-hitter is up -- a guy you definitely didn't want to face with the bases juiced. He lines a single to center and TWO runs score. You're down 4-3. The intentional walk was right, but walking the next hitter negated the entire strategy.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.35 },
+        "highlight": ["CF"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Walked Him Too! Bases Loaded, Runs Score!",
+        "explanation": "The intentional walk only works if you ATTACK the next hitter. Walking the dangerous hitter to pitch around the weak hitter defeats the entire purpose. You traded one bad matchup for two free baserunners and a bases-loaded situation. After an intentional walk, the pitcher MUST go after the next hitter with conviction. The whole strategy is built on the premise that the next hitter is significantly weaker -- so trust that weakness and attack. Nibbling the corners to a .240 hitter is playing scared against the hitter you chose to face. If you're going to be careful with both hitters, don't walk the first one -- at least keep the extra runner off base.",
+        "whatToRemember": "After an intentional walk, you MUST attack the next hitter. Nibbling negates the entire strategy and adds free baserunners. The intentional walk is a commitment to compete against the weaker hitter.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    },
+    "outcome-careful-okay": {
+      "type": "outcome",
+      "narration": "You pitch carefully to the dangerous hitter -- nibbling corners, throwing breaking balls off the plate. The count goes to 3-1. Now you're in a hitter's count. You throw a cutter trying to paint the corner and it catches too much plate -- the hitter drives a double down the line! The runner from second scores! Tie game, 3-3. By pitching around him without walking him intentionally, you got the worst of both worlds: you didn't get him out, AND you threw him a pitch he could drive because the count forced you to come to the zone.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.35 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "RBI Double! Pitching Around Him Backfired.",
+        "explanation": "Pitching 'carefully' is often the worst option because it puts you behind in the count, which FORCES you to throw a more hittable pitch. Here's the math: when a .320 hitter gets to a 3-1 count, his batting average jumps to approximately .370. You tried to avoid giving him anything good, but the count made you come to the zone anyway -- except now he was looking for a specific pitch in a specific location. The intentional walk would have cost you nothing -- just a free base to a guy you were probably going to walk anyway. Instead, you gave him a hittable pitch AND an RBI double. Either walk him with purpose or attack him with purpose. 'Careful' is a half-measure that usually fails.",
+        "whatToRemember": "Pitching 'carefully' is often worse than either walking the hitter or attacking him. It puts you behind in the count, where you're forced to throw hittable pitches anyway. Commit: walk him or attack him.",
+        "iqPoints": 3,
+        "next": "end"
+      }
+    },
+    "outcome-attack-bad": {
+      "type": "outcome",
+      "narration": "You go right at their best hitter -- fastball, strike zone, first pitch. He was ready. He unloads on it and drives a two-run homer to left! Just like that, it's 4-3 and you're losing. The .320 hitter with a .410 wOBA did exactly what .410 wOBA hitters do against pitches in the zone: he destroyed it. The on-deck hitter -- the .240 guy who's 0-for-3 today -- never got to hit. You chose to face the lion instead of the lamb, and the lion ate you alive.",
+      "field": {
+        "ballPosition": { "x": 0.25, "y": 0.15 },
+        "highlight": ["LF"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "HOME RUN! The Dangerous Hitter Did Dangerous Things!",
+        "explanation": "There's a difference between being competitive and being reckless. 'I'm not scared of any hitter' sounds tough, but it ignores the data that says this hitter produces 41% more offense per plate appearance than the next guy. Baseball is a game of probabilities. A .410 wOBA hitter facing your pitcher is a BAD probability. A .290 wOBA hitter facing your pitcher is a GOOD probability. The intentional walk would have traded a bad matchup for a good one at the cost of one free base. Instead, you challenged the best hitter with no plan beyond 'go at him,' and he made you pay with the biggest possible outcome -- a two-run homer. Courage is not a strategy. Data-informed decision-making is.",
+        "whatToRemember": "Ego is not a pitching strategy. When the numbers overwhelmingly favor walking a hitter to face a weaker one, the intentional walk is the smart play. Courage means trusting the math, not ignoring it.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

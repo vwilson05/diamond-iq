@@ -1,0 +1,165 @@
+{
+  "id": "minors-pitcher-covering-first",
+  "title": "Pitcher, Cover First!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "pitching",
+  "tags": ["pitcher", "covering-first", "ground-ball", "hustle", "teamwork", "first-base"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "bottom",
+    "outs": 2,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Two outs, nobody on. You're the pitcher. You deliver a pitch and the batter hits a ground ball to the right side. Your first baseman ranges far to their right to field it -- they're now 15 feet away from first base! They pick up the ball and look at you. There's nobody at first base to take the throw. The batter is sprinting down the line. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.72, "y": 0.55 },
+        "highlight": ["Pitcher", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.6, "y": 0.78 }, "label": "Batter (running)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sprint-to-first",
+          "text": "Sprint to first base! I need to cover the bag and take the throw!",
+          "nextNode": "outcome-cover-great"
+        },
+        {
+          "id": "yell-for-throw",
+          "text": "Stay on the mound and yell for the first baseman to run back and step on the bag themselves.",
+          "nextNode": "outcome-yell-bad"
+        },
+        {
+          "id": "run-to-ball",
+          "text": "Run toward the first baseman to take the ball from their hand.",
+          "nextNode": "outcome-handoff-okay"
+        }
+      ]
+    },
+    "outcome-cover-great": {
+      "type": "outcome",
+      "narration": "The moment the ball was hit to the right side, you break off the mound and sprint toward first base! You run along the inside of the baseline, arrive at the bag just in time, and touch the base with your foot while catching the first baseman's toss. OUT! Inning over! Your first baseman gives you a fist bump -- great teamwork!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Pitcher Covers First! Inning Over!",
+        "explanation": "This is one of the most important defensive plays a pitcher can make, and one of the most forgotten. Anytime the first baseman fields a ball far from the bag, the PITCHER must sprint over and cover first base. Here's the proper technique: run toward the foul line first, then turn and run along the baseline toward first base. This way you arrive at the bag running in the same direction as the throw, making it easy to catch. Touch the inside edge of the base with your foot as you catch the ball.",
+        "keyTerms": [
+          { "term": "Pitcher covering first", "definition": "When the first baseman fields a ball away from the bag, the pitcher sprints to first base to take the throw and record the out." },
+          { "term": "Banana route", "definition": "The curved path a pitcher takes to first base -- run toward the foul line first, then turn and run along the baseline. This lets you arrive moving in the right direction." },
+          { "term": "Inside edge", "definition": "Touch the inside (home plate side) edge of first base with your foot. This keeps you out of the runner's path and avoids collisions." }
+        ],
+        "whatToRemember": "On any ground ball to the right side, the pitcher MUST break toward first base immediately. Take the banana route -- curve toward the line, then run along the baseline. Touch the inside edge of the bag.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.68, "y": 0.62 },
+              "entity": "pitcher",
+              "duration": 700
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.72, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-yell-bad": {
+      "type": "outcome",
+      "narration": "You stay on the mound and yell for the first baseman to get back to the bag. But they're 15 feet away and the batter is running full speed! The first baseman tries to race back, but the batter beats them to the bag. SAFE! The inning continues. Your coach calls time: 'Pitcher, that's YOUR job! You have to cover first!'",
+      "field": {
+        "ballPosition": { "x": 0.72, "y": 0.55 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Batter Beats It Out! Pitcher Didn't Cover!",
+        "explanation": "The first baseman CAN'T get back to the bag in time -- they're too far away and have to change direction. That's exactly why the pitcher covers first base on these plays. You're closer to first base than you think -- from the mound, it's only about 60 feet. And you're already moving in your follow-through after the pitch. It's one of those plays that looks easy but you have to PRACTICE it so it becomes automatic. When you see a ground ball to the right side, your legs should start moving toward first before your brain even thinks about it.",
+        "whatToRemember": "Covering first base is the pitcher's responsibility on ground balls to the right side. Don't stand on the mound -- SPRINT to the bag!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.72, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.58 },
+              "entity": "fielder",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-handoff-okay": {
+      "type": "outcome",
+      "narration": "You run toward the first baseman to take the ball from their hand. The hand-off works, but now YOU have the ball and you're 10 feet away from first base! You have to run to the bag yourself. The batter is flying down the line -- you BARELY beat them to the bag. Safe... no, OUT! The umpire rings the batter up! Way too close though.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out, But Way Too Close!",
+        "explanation": "A hand-off (or underhand flip) between the first baseman and pitcher can work, but it's risky and wastes time. The proper play is for the pitcher to run DIRECTLY to first base, and the first baseman makes a short toss. This is faster because: 1) The throw gets the ball to the base quicker than running it there. 2) The pitcher arrives at the bag moving in the right direction. The hand-off forced you to run to the first baseman, take the ball, then run back to the base -- extra steps that almost cost you the out.",
+        "whatToRemember": "Run to the base, not to the fielder. Let the first baseman make the toss to you AT the bag. A throw is faster than a hand-off.",
+        "iqPoints": 5,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.57 },
+              "entity": "pitcher",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.57 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "pitcher",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

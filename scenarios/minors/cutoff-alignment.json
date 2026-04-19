@@ -1,0 +1,181 @@
+{
+  "id": "minors-cutoff-alignment",
+  "title": "Line Up the Cutoff!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["cutoff", "alignment", "shortstop", "positioning", "relay", "outfield-gap"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": false, "second": true, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Runner on second, one out, and your team leads by a run. You're the shortstop. The batter swings and drives a ball into the right-center field gap! It's rolling toward the wall! The runner on second is rounding third and heading home. Your center fielder is chasing the ball down. You need to be the cutoff man -- but where exactly do you line up?",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.1 },
+        "highlight": ["SS", "Home", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (rounding 3rd)" },
+          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (rounding 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "line-up-home",
+          "text": "Sprint out and line up directly between the outfielder and home plate, arms raised!",
+          "nextNode": "outcome-lineup-great"
+        },
+        {
+          "id": "line-up-third",
+          "text": "Line up between the outfielder and third base.",
+          "nextNode": "outcome-third-okay"
+        },
+        {
+          "id": "stay-shallow",
+          "text": "Stay on the infield dirt near your normal position and wait for the throw.",
+          "nextNode": "outcome-stay-bad"
+        }
+      ]
+    },
+    "outcome-lineup-great": {
+      "type": "outcome",
+      "narration": "You sprint into the outfield grass and get on a perfect line between the center fielder and home plate. You raise both arms high and yell 'HERE! HERE!' The outfielder fires the ball right to you on a line. You catch it, spin, and rifle it home. The catcher catches it and blocks the plate -- SAFE! The runner barely beats the throw, but you gave your team the best possible chance because the relay was on a perfect line!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Cutoff Alignment!",
+        "explanation": "Even though the runner scored, you executed the relay perfectly. The key is ALIGNMENT: you draw an imaginary straight line from the outfielder to the target base (home plate in this case) and you stand right on that line. Why? Because a straight throw travels the shortest distance. If you're off to one side, the ball has to travel a longer, angled path, wasting precious time. You also raised your arms -- outfielders are looking at the ball, not scanning the infield. Your arms and voice are their target.",
+        "keyTerms": [
+          { "term": "Cutoff alignment", "definition": "Standing on a direct line between the outfielder and the target base so the relay throw travels the shortest possible path." },
+          { "term": "Relay throw", "definition": "A two-part throw where an infielder catches the outfielder's throw and quickly throws it to a base. Two short throws are faster and more accurate than one long throw." },
+          { "term": "Target arms", "definition": "Raising both arms high so the outfielder can see where to throw, even from far away." }
+        ],
+        "whatToRemember": "Always line up between the outfielder and the base where the play is. Raise your arms, yell loud, and give the outfielder a clear target. Straight lines beat angles every time.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.52, "y": 0.32 },
+              "entity": "fielder",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.1 },
+              "to": { "x": 0.52, "y": 0.32 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.52, "y": 0.32 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-third-okay": {
+      "type": "outcome",
+      "narration": "You line up between the outfielder and third base. The outfielder throws it to you, and you relay it to third -- but the runner already scored! The batter holds at second. You made a relay, but it was aimed at the wrong base. The play was at home, not third.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Base! Run Scores Easily!",
+        "explanation": "You had the right idea -- being a cutoff man -- but you lined up to the wrong target. With a runner heading HOME, your alignment should be between the outfielder and home plate. By lining up to third, you added an extra angle to the throw and couldn't even make a play on the scoring runner. Before you sprint out, think: WHERE is the play going to happen? That's the base you line up to.",
+        "whatToRemember": "Before you move to be the cutoff man, identify WHERE the play is. The runner closest to scoring tells you which base to align to.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.1 },
+              "to": { "x": 0.42, "y": 0.38 },
+              "entity": "ball",
+              "duration": 700
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.42, "y": 0.38 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay near your normal shortstop spot on the infield dirt. The outfielder picks up the ball at the wall and looks up -- you're way too far away and off to the side! They try to throw all the way home, but the ball bounces four times and rolls to the backstop. The runner scores easily, and the batter ends up at third. Two-run disaster!",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.95 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (at 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Cutoff! Ball Gets Away!",
+        "explanation": "Without a cutoff man in position, the outfielder had to try to throw the ball over 250 feet on their own. That's like trying to throw from one end zone to the other on a football field! Almost nobody can do that accurately. The ball bounced all over the place and extra bases were taken. Your job as shortstop is to MOVE to be the relay. On any ball to the gap, you should be sprinting into the outfield grass to cut the distance in half for the outfielder.",
+        "whatToRemember": "Never stand and watch on a ball to the gap. Sprint out immediately to be the cutoff man. You are the bridge between outfield and infield.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.1 },
+              "to": { "x": 0.55, "y": 0.95 },
+              "entity": "ball",
+              "duration": 1500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}
