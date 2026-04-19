@@ -1,0 +1,179 @@
+{
+  "id": "tball-ground-ball-to-you",
+  "title": "Ground Ball Right to You!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "defense",
+  "tags": ["first-base", "ground-ball", "fielding", "basics"],
+  "setup": {
+    "inning": 1,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "You're standing at first base, knees bent, glove down, ready for anything. The batter steps up and WHACK -- smacks a grounder right at you! The ball is bouncing across the dirt, heading straight for your glove. You scoop it up cleanly -- nice grab! Now... what do you do with it?",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.65 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "next": "decision-1",
+      "delay": 2000
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "You've got the ball in your glove and the batter is running toward you! Quick -- what's your move?",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "step-on-bag",
+          "text": "Step on first base! You're right there!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "throw-to-pitcher",
+          "text": "Throw the ball to the pitcher on the mound.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "chase-runner",
+          "text": "Run after the batter and tag them!",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You step right on the bag -- OUT! The umpire pumps their fist. Your teammates cheer! That was the fastest, smartest play you could make.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Out at First! Textbook Play!",
+        "explanation": "When you're playing first base and you field the ball yourself, the easiest and fastest play is to just step on the bag. Why? Because the batter HAS to run to first base -- they have no choice. That means you don't need to tag them. You just need to touch the base while holding the ball BEFORE they get there. This is called a 'force out' -- the runner is forced to go to first, so you just need the ball and the base.",
+        "whatToRemember": "If you're at first base and you field the ball, step on the bag! It's a force out -- the batter has to run there, so you just need to beat them to the base.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "catch",
+              "from": { "x": 0.65, "y": 0.65 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.65, "y": 0.65 },
+              "entity": "batter",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You throw the ball over to the pitcher... but wait, the pitcher isn't standing on first base! The batter runs right past you and is safe at first. The pitcher catches the ball but there's nothing they can do with it over there.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (safe)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Runner is Safe!",
+        "explanation": "Throwing to the pitcher doesn't help here because the pitcher is standing on the pitcher's mound, not on a base. To get the batter out, someone needs to either touch first base while holding the ball (force out) or tag the runner. Since YOU were already at first base, the smartest play was to just step on the bag yourself! No throw needed.",
+        "whatToRemember": "The pitcher's mound is NOT a base! You can only get outs at actual bases. Since you were already at first base, just step on it!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.62 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You take off running after the batter! You're chasing them down the baseline... you reach out and tag them. The umpire calls them out! But whew -- that was a lot of work, and it was close. If the batter was faster, they might have beaten you!",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.7 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out! But That Was the Hard Way",
+        "explanation": "You got the out -- nice hustle! But chasing the runner down is risky. What if they were faster than you? What if you tripped? You were already standing right next to first base! All you had to do was step on the bag. That would have been way easier and way faster. Running after someone is always harder than just stepping on the base when you're already there.",
+        "whatToRemember": "Don't chase runners when you can step on the base! Stepping on first base is faster and easier than chasing someone down.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.65, "y": 0.7 },
+              "entity": "batter",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.65, "y": 0.7 },
+              "entity": "fielder",
+              "duration": 700
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.65, "y": 0.7 },
+              "to": { "x": 0.65, "y": 0.7 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

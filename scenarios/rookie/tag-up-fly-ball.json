@@ -1,0 +1,189 @@
+{
+  "id": "rookie-tag-up-fly-ball",
+  "title": "Tag Up and Score!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "baserunning",
+  "tags": ["tag-up", "fly-ball", "scoring", "base-running", "third-base"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 3, "away": 4 },
+    "runners": { "first": false, "second": false, "third": true }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Bottom of the fifth, your team is down by one run, and YOU are the runner standing on third base! Your heart is pounding -- you're only 90 feet from home plate. The batter swings and launches a HIGH fly ball deep to center field. The center fielder is drifting back, back, back under it...",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.18 },
+        "highlight": ["3B", "Home", "CF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "The fly ball is deep to center field! You're on third base with 1 out. If the ball is caught, the batter will be out (that's 2 outs). The center fielder is setting up to catch it. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.18 },
+        "highlight": ["3B", "Home", "CF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "tag-up",
+          "text": "Go back and touch third base, wait for the catch, then sprint home!",
+          "nextNode": "outcome-tag-great"
+        },
+        {
+          "id": "run-early",
+          "text": "Start running home right now while the ball is in the air!",
+          "nextNode": "outcome-early-bad"
+        },
+        {
+          "id": "stay-put",
+          "text": "Just stay on third base. Too risky to run.",
+          "nextNode": "outcome-stay-okay"
+        }
+      ]
+    },
+    "outcome-tag-great": {
+      "type": "outcome",
+      "narration": "You hustle back to third base and put your foot on the bag. You watch the center fielder... they squeeze the catch! The moment the ball hits their glove, you EXPLODE off the base and sprint toward home! The outfielder throws, but you slide across the plate just ahead of the tag. SAFE! TIE GAME! Your whole team rushes out to celebrate!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "You (SAFE!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "You Scored! Perfect Tag-Up!",
+        "explanation": "This is called 'tagging up' and it's one of the smartest plays in baseball! Here's the rule: after a fly ball is CAUGHT, a runner can advance to the next base, BUT they have to be touching their current base when the ball is caught. That's why you went BACK to third first. Once the outfielder catches it, you're allowed to run. The key is reading the fly ball -- this one was deep to center field, which means the outfielder has a long throw to home plate. That gives you time to score! You timed it perfectly.",
+        "whatToRemember": "On a fly ball with less than 2 outs, go back to your base and 'tag up.' Once the fielder catches it, you can run! Deep fly balls give you more time to advance.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner1",
+              "duration": 300
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.18 },
+              "to": { "x": 0.5, "y": 0.2 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.2 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 900,
+              "parallel": true
+            },
+            {
+              "type": "slide",
+              "from": { "x": 0.5, "y": 0.82 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-early-bad": {
+      "type": "outcome",
+      "narration": "You take off running toward home while the ball is still in the air... The center fielder catches the fly ball -- that's 2 outs. But WAIT! You left third base before the catch! The center fielder throws the ball to third base and the umpire yells 'OUT!' You didn't tag up, so you're out too. That's THREE outs. Inning over! Your team's rally is dead.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Double Play! You Didn't Tag Up!",
+        "explanation": "This is a really important rule: when a fly ball is caught, you MUST be touching your base (or go back and touch it) before you can advance. If you leave your base before the ball is caught and the defense throws the ball to the base you left, you're OUT. This is called being 'doubled off.' It doesn't matter that you were close to scoring -- the RULE says you have to wait for the catch. The result? Two outs on one play, inning over, and a run that should have scored never crosses the plate.",
+        "whatToRemember": "NEVER leave your base on a fly ball until the fielder catches it. If you leave too early, the defense can throw to your base and you're out. Wait for the catch!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.4, "y": 0.75 },
+              "entity": "runner1",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.18 },
+              "to": { "x": 0.5, "y": 0.2 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.2 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-stay-okay": {
+      "type": "outcome",
+      "narration": "You stay put on third base. The center fielder catches the fly ball -- that's 2 outs now. You had a great chance to score because that ball was hit really deep, but you played it safe. You're still on third with 2 outs. Your team's next batter will have to get a hit to bring you home.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.2 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (still on 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Still on Third. Missed a Chance.",
+        "explanation": "You didn't do anything wrong by staying -- you're still safe on third. But you missed a golden opportunity! That fly ball was deep to center field, which means the outfielder would have had to throw over 300 feet to get you at home. With a proper tag-up, you almost certainly would have scored and tied the game. When you're on third with less than 2 outs and a deep fly ball is hit, tagging up is usually the right call. It gets more risky on shallow fly balls or when there are already 2 outs (because you can just run on a dropped ball with 2 outs).",
+        "whatToRemember": "On deep fly balls from third base with less than 2 outs, tag up and GO! The deeper the fly ball, the longer the throw home, and the better your chance of scoring.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.18 },
+              "to": { "x": 0.5, "y": 0.2 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

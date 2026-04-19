@@ -1,0 +1,345 @@
+{
+  "id": "rookie-force-out-basics",
+  "title": "Force Out at Second!",
+  "sport": ["baseball", "softball"],
+  "tier": "rookie",
+  "role": "defense",
+  "tags": ["force-out", "shortstop", "double-play", "ground-ball", "throwing"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "There's a runner on first base and nobody out. You're the shortstop, crouched down and ready. The pitcher winds up and delivers -- the batter chops a grounder right at you! You field it cleanly on one hop. The runner on first is already sprinting toward second base!",
+      "field": {
+        "ballPosition": { "x": 0.4, "y": 0.52 },
+        "highlight": ["SS", "2B", "1B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "Runner" },
+          { "id": "batter", "position": { "x": 0.55, "y": 0.82 }, "label": "Batter" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2000
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "You've got the ball at shortstop! The runner from first is headed to second, and the batter is running to first. Zero outs. Where do you throw?",
+      "field": {
+        "ballPosition": { "x": 0.4, "y": 0.5 },
+        "highlight": ["SS", "2B", "1B", "Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.6, "y": 0.55 }, "label": "Runner" },
+          { "id": "batter", "position": { "x": 0.55, "y": 0.78 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-second",
+          "text": "Fire it to second base for the force out!",
+          "nextNode": "outcome-second-good"
+        },
+        {
+          "id": "throw-first",
+          "text": "Throw to first base to get the batter.",
+          "nextNode": "outcome-first-okay"
+        },
+        {
+          "id": "throw-home",
+          "text": "Throw home -- can't let anyone score!",
+          "nextNode": "outcome-home-bad"
+        }
+      ]
+    },
+    "outcome-second-good": {
+      "type": "outcome",
+      "narration": "You snap a throw to your second baseman covering the bag at second. FORCE OUT! The runner from first is out at second! Your second baseman catches it and looks at first base... should they try to turn two?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.6, "y": 0.72 }, "label": "Batter" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Force Out at Second! Smart Play!",
+        "explanation": "This is the best play because of two reasons. First, second base is the CLOSEST base to you at shortstop, so the throw is short and quick. Second, this is a 'force out' -- the runner from first HAD to go to second because the batter was running to first behind them. When a runner is forced to advance, the fielder just needs to touch the base while holding the ball. No tag needed! Also, by getting the out at second first, you might be able to start a double play!",
+        "whatToRemember": "With a runner on first and a ground ball, always think 'get the lead runner' at second base first. It's the closest throw from shortstop AND it starts a possible double play.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.48 },
+              "entity": "runner1",
+              "duration": 600,
+              "parallel": true
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "decision-2"
+      }
+    },
+    "outcome-first-okay": {
+      "type": "outcome",
+      "narration": "You throw it over to first base -- the first baseman catches it and the batter is OUT! But... the runner from first made it safely to second base. There's now a runner in scoring position with one out.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out at First, But Runner Advances",
+        "explanation": "You got an out, which is good! But you didn't get the BEST out. By throwing to first, you let the lead runner advance to second base safely -- that's called 'scoring position' because they can score on a single hit now. If you had thrown to second instead, you would have gotten the force out on the lead runner AND maybe had a chance at a double play. In baseball, the general rule is 'get the lead runner' -- always try to get the out on the runner closest to home plate.",
+        "whatToRemember": "Always try to get the 'lead runner' -- the runner closest to home. Getting them out prevents runs better than getting the batter at first.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-home-bad": {
+      "type": "outcome",
+      "narration": "You throw all the way home... but there's nobody even close to scoring! The catcher catches it, looks around confused, and has nobody to tag. Meanwhile, the runner from first is standing safely on second, and the batter made it to first. Now you've got runners on first AND second with nobody out!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.9 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Play at Home! No Outs!",
+        "explanation": "Throwing home only makes sense when a runner is actually trying to score. In this situation, the runner from first was going to second -- they were nowhere NEAR home plate! By throwing home, you wasted the ball. Nobody got out, and now both runners are safe. Always think about WHERE the runners are going. If nobody is heading home, there's no reason to throw there. Look at the bases in order: can I get the lead runner? Can I get the out at second? Then what about first?",
+        "whatToRemember": "Only throw home when a runner is actually trying to score. Look at where the runners ARE and where they're GOING before you throw.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.5, "y": 0.9 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1",
+              "duration": 900,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "decision-2": {
+      "type": "decision",
+      "narration": "Your second baseman just caught the ball at second for the force out! One out now! The batter is still running to first -- should the second baseman try to turn the double play?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.6, "y": 0.72 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "turn-two",
+          "text": "Throw to first! Try for the double play!",
+          "nextNode": "outcome-double-play"
+        },
+        {
+          "id": "hold-ball",
+          "text": "Hold the ball. One out is enough, don't rush it.",
+          "nextNode": "outcome-hold-good"
+        },
+        {
+          "id": "throw-wild",
+          "text": "Hurry! Throw as fast as possible -- don't even set your feet!",
+          "nextNode": "outcome-wild-bad"
+        }
+      ]
+    },
+    "outcome-double-play": {
+      "type": "outcome",
+      "narration": "Your second baseman plants their foot, turns, and fires to first -- JUST in time! The first baseman squeezes it. DOUBLE PLAY! The dugout erupts! Two outs on one play -- that's huge!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Double Play! What a Turn!",
+        "explanation": "A double play is one of the most exciting plays in baseball! You got TWO outs on one batted ball. The key is that the second baseman caught the ball, touched the bag (force out on the lead runner), then made a strong, accurate throw to first before the batter got there. The reason this works is because BOTH outs are force outs -- the runner from first was forced to second, and the batter is forced to first. No tags needed, just touch the bases!",
+        "whatToRemember": "A double play starts by getting the force out at second base first, then throwing to first. Always get the sure out at second before trying to turn two.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.72 },
+              "to": { "x": 0.68, "y": 0.63 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "fielder",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-good": {
+      "type": "outcome",
+      "narration": "Your second baseman holds onto the ball. Smart play -- they didn't have a clean throw to first anyway. The batter reaches first base, but you've got one out and cleared the lead runner off second base. Nice work keeping things under control!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "One Out, Runner on First. Solid!",
+        "explanation": "Sometimes the smart play is to take the sure out and not force a throw you're not confident about. A wild throw to first could let the batter end up at second or even third! You already got the most important out -- the lead runner. Now there's a runner on first with one out, which is much better than runners everywhere with no outs. Knowing when to hold the ball is a sign of a smart, mature player.",
+        "whatToRemember": "Always take the sure out. A wild throw trying to do too much can turn one out into zero outs AND extra bases for the runner.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.72 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-wild-bad": {
+      "type": "outcome",
+      "narration": "Your second baseman rushes the throw without setting their feet and -- oh no! The ball sails over the first baseman's head and rolls down the right field line! The batter, who would have been out, is now sprinting all the way to second base! You got one out but gave up a runner in scoring position because of a rushed throw.",
+      "field": {
+        "ballPosition": { "x": 0.8, "y": 0.5 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Wild Throw! Runner Advances!",
+        "explanation": "Rushing throws is one of the BIGGEST causes of errors in baseball. Your second baseman had plenty of time to plant their feet, aim, and make a good throw. Instead, they panicked and threw off-balance, and the ball sailed away. A double play is great, but ONLY if you can make the throw. If the play feels rushed or you're off-balance, just hold the ball! One out is way better than zero outs with a runner on second.",
+        "whatToRemember": "Never rush a throw! Set your feet, aim, and throw with control. A wild throw trying for two outs is worse than holding the ball with one out.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.8, "y": 0.5 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.72 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

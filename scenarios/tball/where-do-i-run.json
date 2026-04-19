@@ -1,0 +1,181 @@
+{
+  "id": "tball-where-do-i-run",
+  "title": "You Hit the Ball! Now Where Do You Go?",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "baserunning",
+  "tags": ["hitting", "baserunning", "basics", "first-at-bat"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 1, "away": 2 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "It's your turn to bat! You walk up to the plate, grab the bat, and take a big swing. CRACK! The ball rolls into the grass between the pitcher and the shortstop. Nice hit! Your coach is yelling something... the crowd is cheering... now what?!",
+      "field": {
+        "ballPosition": { "x": 0.42, "y": 0.55 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "next": "decision-1",
+      "delay": 2000
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "The ball is on the ground, the fielders are running toward it. You're standing at home plate with the bat. Where do you go?",
+      "field": {
+        "ballPosition": { "x": 0.42, "y": 0.55 },
+        "highlight": ["Home", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You!" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "run-to-first",
+          "text": "Drop the bat and run as fast as you can to first base!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "run-to-pitcher",
+          "text": "Run toward the pitcher's mound to get the ball back.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "stay-at-home",
+          "text": "Stay at home plate and watch what happens.",
+          "nextNode": "outcome-bad-2"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You drop the bat and ZOOM -- you take off running down the first base line! Your feet are flying, your arms are pumping, and you touch first base just before the throw gets there. SAFE! You're on base! Your team is cheering and your coach gives you a big thumbs up!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Safe at First! Way to Hustle!",
+        "explanation": "Every time you hit the ball into fair territory (that's the area between the two white lines), you MUST run to first base. It doesn't matter where the ball goes -- even if someone catches it, you should still run! Running hard to first base is the most important thing you do after hitting. Drop the bat (don't throw it!), and run as fast as you can down the line to first base. The first base line is the white chalk line on the right side.",
+        "whatToRemember": "Always run to first base after you hit the ball! Drop the bat, turn right, and run as fast as you can!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You start running toward the pitcher's mound... but wait! The shortstop already picked up the ball and threw it to first base. Your coach is waving their arms and pointing to first base. You weren't supposed to go get the ball -- you're the batter, not a fielder right now!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.47, "y": 0.6 }, "label": "You (oops!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Out! Wrong Way!",
+        "explanation": "When you're the batter, your job changes the moment you hit the ball. You go from being a 'hitter' to being a 'runner.' And runners don't go get the ball -- that's what the OTHER team does! Your only job now is to run to first base as fast as possible. The other team is trying to get the ball to first base before you get there. It's a race!",
+        "whatToRemember": "After you hit the ball, you become a runner -- not a fielder! Your job is to run to first base, not go get the ball.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.47, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad-2": {
+      "type": "outcome",
+      "narration": "You just stand there at home plate, watching the ball roll across the grass. The shortstop jogs over, picks it up, and casually throws it to first base. You're out without even trying! Your coach jogs over and says, 'Hey buddy, next time -- RUN!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You (still here)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Out! Gotta Run!",
+        "explanation": "Standing at home plate after you hit the ball means you'll ALWAYS be out. The other team just has to pick up the ball and throw it to first base before you get there. If you don't even start running, they'll beat you every single time! It doesn't matter how far the ball goes or where it lands. Hit the ball? RUN! Every single time!",
+        "whatToRemember": "Never stand at home plate after you hit the ball. Always run! Even if you think someone will catch it, RUN!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.42, "y": 0.55 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.42, "y": 0.55 },
+              "to": { "x": 0.4, "y": 0.5 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

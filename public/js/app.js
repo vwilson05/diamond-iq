@@ -1,0 +1,497 @@
+/**
+ * Diamond IQ — Main Application Entry Point
+ * Wires together: game state, field renderer, scoreboard, scenario panel, UI screens
+ */
+
+import { TEAMS } from './renderer/teams.js';
+import { FieldCanvas } from './renderer/field-canvas.js';
+import { Scoreboard } from './renderer/scoreboard.js';
+import { GameState } from './engine/game-state.js';
+import { loadScenarioList, loadScenario, getRandomScenario } from './engine/scenario-loader.js';
+
+// ---- State ----
+const game = new GameState();
+let fieldCanvas = null;
+let scoreboard = null;
+let playedScenarioIds = [];
+let scenarioList = [];
+
+// ---- DOM Refs ----
+const screens = {
+  teamSelect: document.getElementById('screen-team-select'),
+  sportSelect: document.getElementById('screen-sport-select'),
+  difficultySelect: document.getElementById('screen-difficulty-select'),
+  game: document.getElementById('screen-game'),
+  review: document.getElementById('screen-review'),
+};
+
+// ---- Screen Management ----
+function showScreen(name) {
+  Object.values(screens).forEach(s => s.classList.remove('active'));
+  screens[name].classList.add('active');
+}
+
+function setTeamColors(team) {
+  document.documentElement.style.setProperty('--team-primary', team.primary);
+  document.documentElement.style.setProperty('--team-secondary', team.secondary);
+}
+
+// ---- Team Picker ----
+function renderTeamGrid() {
+  const grid = document.getElementById('team-grid');
+  grid.innerHTML = '';
+  TEAMS.forEach(team => {
+    const card = document.createElement('button');
+    card.className = 'team-card';
+    card.style.background = team.primary;
+    card.style.color = team.secondary;
+    card.innerHTML = `
+      <span class="team-abbr">${team.abbr}</span>
+      <span class="team-name">${team.city} ${team.name}</span>
+    `;
+    card.addEventListener('click', () => {
+      game.selectTeam(team);
+      setTeamColors(team);
+      showScreen('sportSelect');
+    });
+    grid.appendChild(card);
+  });
+}
+
+// ---- Sport Picker ----
+function initSportPicker() {
+  document.querySelectorAll('.sport-card').forEach(card => {
+    card.addEventListener('click', () => {
+      game.selectSport(card.dataset.sport);
+      showScreen('difficultySelect');
+      renderDifficultyCards();
+    });
+  });
+}
+
+// ---- Difficulty Picker ----
+const TIERS = [
+  { id: 'tball', name: 'T-Ball', num: '1', desc: 'Learn the basics — where to throw, where to run, how to catch' },
+  { id: 'rookie', name: 'Rookie', num: '2', desc: 'Fundamentals — force outs, tagging up, base running decisions' },
+  { id: 'minors', name: 'Minors', num: '3', desc: 'Game IQ — cutoffs, relays, situational hitting, defensive positioning' },
+  { id: 'majors', name: 'Majors', num: '4', desc: 'Advanced — double plays, pitch sequencing, hit-and-run, defensive schemes' },
+  { id: 'the-show', name: 'The Show', num: '5', desc: 'Elite — squeeze plays, shifts, pitcher/batter chess, full-game strategy' },
+];
+
+function renderDifficultyCards() {
+  const container = document.getElementById('difficulty-cards');
+  container.innerHTML = '';
+  TIERS.forEach(tier => {
+    const card = document.createElement('button');
+    card.className = 'difficulty-card';
+    card.innerHTML = `
+      <div class="tier-number">${tier.num}</div>
+      <div class="tier-info">
+        <div class="tier-name">${tier.name}</div>
+        <div class="tier-desc">${tier.desc}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => {
+      game.selectTier(tier.id);
+      startGame(tier);
+    });
+    container.appendChild(card);
+  });
+}
+
+// ---- Game Start ----
+async function startGame(tier) {
+  showScreen('game');
+  playedScenarioIds = [];
+
+  // Set up header
+  document.getElementById('game-tier-badge').textContent = tier.name;
+  document.getElementById('game-iq-display').textContent = 'IQ: 0';
+  document.getElementById('game-scenario-count').textContent = '';
+
+  // Initialize field canvas
+  const canvas = document.getElementById('field-canvas');
+  const rightPane = document.querySelector('.game-right');
+  canvas.width = rightPane.clientWidth;
+  canvas.height = rightPane.clientHeight * 0.7;
+  fieldCanvas = new FieldCanvas(canvas);
+  fieldCanvas.drawField({
+    primary: game.state.team.primary,
+    secondary: game.state.team.secondary,
+  });
+
+  // Initialize scoreboard
+  const sbContainer = document.getElementById('scoreboard-container');
+  scoreboard = new Scoreboard(sbContainer);
+
+  // Handle resize
+  window.addEventListener('resize', () => {
+    if (!fieldCanvas) return;
+    canvas.width = rightPane.clientWidth;
+    canvas.height = rightPane.clientHeight * 0.7;
+    fieldCanvas.drawField({
+      primary: game.state.team.primary,
+      secondary: game.state.team.secondary,
+    });
+  });
+
+  // Load scenarios for this tier
+  scenarioList = await loadScenarioList(tier.id);
+
+  // Load first scenario
+  await loadNextScenario();
+}
+
+async function loadNextScenario() {
+  const panel = document.getElementById('scenario-panel');
+
+  if (scenarioList.length === 0) {
+    panel.innerHTML = `<div class="narration-text">No scenarios available for this tier yet. More coming soon!</div>
+      <button class="btn-next-scenario" onclick="location.reload()">Back to Menu</button>`;
+    return;
+  }
+
+  const pick = getRandomScenario(scenarioList, playedScenarioIds);
+  if (!pick) {
+    // All scenarios played — go to review
+    showReview();
+    return;
+  }
+
+  panel.innerHTML = '<div class="loading-spinner">Loading scenario</div>';
+
+  const scenario = await loadScenario(game.state.tier, pick.id);
+  if (!scenario) {
+    panel.innerHTML = '<div class="narration-text">Failed to load scenario. Try again.</div>';
+    return;
+  }
+
+  playedScenarioIds.push(scenario.id);
+  game.loadScenario(scenario);
+
+  // Update scoreboard with setup
+  const setup = scenario.setup;
+  const awayInnings = new Array(setup.inning).fill(0);
+  const homeInnings = new Array(setup.inning).fill(0);
+  // Distribute runs across innings roughly
+  if (setup.score.away > 0) awayInnings[Math.max(0, setup.inning - 2)] = setup.score.away;
+  if (setup.score.home > 0) homeInnings[Math.max(0, setup.inning - 3)] = setup.score.home;
+
+  scoreboard.update({
+    away: {
+      abbr: 'AWAY',
+      color: '#888888',
+      innings: awayInnings,
+      runs: setup.score.away,
+      hits: setup.score.away + Math.floor(Math.random() * 3),
+      errors: 0,
+    },
+    home: {
+      abbr: game.state.team.abbr,
+      color: game.state.team.primary,
+      innings: homeInnings,
+      runs: setup.score.home,
+      hits: setup.score.home + Math.floor(Math.random() * 3),
+      errors: 0,
+    },
+    currentInning: setup.inning,
+    isTop: setup.topBottom === 'top',
+    outs: setup.outs,
+    balls: setup.count?.balls || 0,
+    strikes: setup.count?.strikes || 0,
+  });
+
+  // Set defensive positions on field
+  fieldCanvas.drawField({
+    primary: game.state.team.primary,
+    secondary: game.state.team.secondary,
+  });
+  // Set default defensive positions (using position keys that match POSITIONS in field-canvas)
+  const defPositions = ['P', 'C', '1B', '2B', 'SS', '3B', 'LF', 'CF', 'RF'];
+  fieldCanvas.setPositions(defPositions.map(pos => ({
+    position: pos,
+    label: pos,
+    color: game.state.team.secondary,
+  })));
+
+  // Convert runners object {first: bool, second: bool, third: bool} to array format
+  const runnerArr = [];
+  if (setup.runners.first) runnerArr.push({ base: 'FIRST' });
+  if (setup.runners.second) runnerArr.push({ base: 'SECOND' });
+  if (setup.runners.third) runnerArr.push({ base: 'THIRD' });
+  fieldCanvas.setRunners(runnerArr);
+
+  // Update scenario count
+  const count = game.state.scenariosCompleted + 1;
+  document.getElementById('game-scenario-count').textContent = `Scenario ${count}`;
+
+  // Start at root node
+  processNode('root');
+}
+
+// ---- Node Processing ----
+function processNode(nodeId) {
+  const scenario = game.state.currentScenario;
+  const node = scenario.nodes[nodeId];
+  if (!node) {
+    console.error('Node not found:', nodeId);
+    return;
+  }
+
+  game.advanceToNode(nodeId);
+
+  switch (node.type) {
+    case 'transition':
+      renderTransition(node, nodeId);
+      break;
+    case 'decision':
+      renderDecision(node, nodeId);
+      break;
+    case 'outcome':
+      renderOutcome(node, nodeId);
+      break;
+  }
+}
+
+function renderTransition(node, nodeId) {
+  const panel = document.getElementById('scenario-panel');
+  const setup = game.state.currentScenario.setup;
+
+  panel.innerHTML = '';
+
+  // Situation bar
+  const sitBar = createSituationBar(setup);
+  panel.appendChild(sitBar);
+
+  // Narration with typewriter
+  const narDiv = document.createElement('div');
+  narDiv.className = 'narration-text';
+  panel.appendChild(narDiv);
+  typewriter(narDiv, node.narration, () => {
+    // Auto-advance after delay
+    setTimeout(() => {
+      if (node.next) processNode(node.next);
+    }, node.delay || 1500);
+  });
+}
+
+function renderDecision(node, nodeId) {
+  const panel = document.getElementById('scenario-panel');
+  const setup = game.state.currentScenario.setup;
+  const sport = game.state.sport;
+
+  panel.innerHTML = '';
+
+  // Situation bar
+  const sitBar = createSituationBar(setup);
+  panel.appendChild(sitBar);
+
+  // Narration
+  const narDiv = document.createElement('div');
+  narDiv.className = 'narration-text';
+  panel.appendChild(narDiv);
+
+  // Choices container (hidden until typewriter done)
+  const choicesDiv = document.createElement('div');
+  choicesDiv.className = 'choices-container';
+  panel.appendChild(choicesDiv);
+
+  typewriter(narDiv, node.narration, () => {
+    // Render choices
+    const letters = ['A', 'B', 'C', 'D', 'E'];
+    node.choices.forEach((choice, i) => {
+      // Check sport-specific filtering
+      if (choice.onlyIn && choice.onlyIn !== sport) return;
+
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+
+      if (choice.disabledReason) {
+        btn.classList.add('disabled');
+        btn.innerHTML = `<span class="choice-letter">${letters[i]}.</span>${choice.text} <span style="font-size:0.8rem;color:var(--text-muted)">— ${choice.disabledReason}</span>`;
+      } else {
+        btn.innerHTML = `<span class="choice-letter">${letters[i]}.</span>${choice.text}`;
+        btn.addEventListener('click', () => {
+          // Record choice in history (game-state's makeChoice auto-advances,
+          // but we drive node transitions ourselves)
+          game.state.history.push({
+            scenarioId: game.state.currentScenario.id,
+            scenarioTitle: game.state.currentScenario.title,
+            choiceId: choice.id,
+            choiceText: choice.text,
+            nodeId: game.state.currentNode,
+            timestamp: Date.now(),
+          });
+          processNode(choice.nextNode);
+        });
+      }
+
+      choicesDiv.appendChild(btn);
+    });
+  });
+}
+
+function renderOutcome(node, nodeId) {
+  const panel = document.getElementById('scenario-panel');
+  const outcome = node.outcome;
+
+  panel.innerHTML = '';
+
+  // Animate the play on the field
+  if (outcome.animation && outcome.animation.steps) {
+    fieldCanvas.animate(outcome.animation.steps);
+  }
+
+  // Outcome display
+  const outcomeDiv = document.createElement('div');
+  outcomeDiv.className = 'outcome-display';
+  outcomeDiv.innerHTML = `
+    <div class="outcome-headline ${outcome.result}">${outcome.headline}</div>
+    <div class="outcome-explanation">${outcome.explanation}</div>
+    <div class="outcome-remember">
+      <div class="outcome-remember-label">Remember This</div>
+      <div class="outcome-remember-text">${outcome.whatToRemember}</div>
+    </div>
+    <div class="outcome-iq">+${outcome.iqPoints} IQ Points</div>
+  `;
+
+  // Record outcome
+  game.recordOutcome({
+    scenarioId: game.state.currentScenario.id,
+    scenarioTitle: game.state.currentScenario.title,
+    result: outcome.result,
+    headline: outcome.headline,
+    explanation: outcome.explanation,
+    whatToRemember: outcome.whatToRemember,
+    iqPoints: outcome.iqPoints,
+  });
+
+  // Update IQ display
+  document.getElementById('game-iq-display').textContent = `IQ: ${game.state.totalIQ}`;
+
+  // Next button
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'btn-next-scenario';
+
+  if (outcome.next && outcome.next !== 'end') {
+    // More nodes in this scenario
+    nextBtn.textContent = 'Continue';
+    nextBtn.addEventListener('click', () => processNode(outcome.next));
+  } else {
+    // Scenario complete (scenariosCompleted already incremented by recordOutcome)
+    nextBtn.textContent = playedScenarioIds.length >= scenarioList.length ? 'See Results' : 'Next Scenario';
+    nextBtn.addEventListener('click', () => {
+      if (playedScenarioIds.length >= scenarioList.length) {
+        showReview();
+      } else {
+        loadNextScenario();
+      }
+    });
+  }
+
+  outcomeDiv.appendChild(nextBtn);
+  panel.appendChild(outcomeDiv);
+}
+
+// ---- Review Screen ----
+function showReview() {
+  showScreen('review');
+  game.startReview();
+
+  const container = document.getElementById('review-container');
+  const history = game.getHistory();
+  const totalIQ = game.state.totalIQ;
+  const outcomeCount = history.filter(h => h.outcome).length;
+  const maxIQ = outcomeCount * 10;
+  const pct = maxIQ > 0 ? (totalIQ / maxIQ) * 100 : 0;
+
+  let grade = 'A+';
+  if (pct < 95) grade = 'A';
+  if (pct < 85) grade = 'B+';
+  if (pct < 75) grade = 'B';
+  if (pct < 65) grade = 'C+';
+  if (pct < 55) grade = 'C';
+  if (pct < 45) grade = 'D';
+  if (pct < 35) grade = 'F';
+
+  container.innerHTML = `
+    <div class="review-header">
+      <div class="logo">DIAMOND <span class="logo-accent">IQ</span></div>
+      <div class="review-title">Session Complete</div>
+      <div class="review-iq-score">${totalIQ} IQ</div>
+      <div class="review-grade">Grade: ${grade} (${Math.round(pct)}%) &mdash; ${history.length} scenario${history.length !== 1 ? 's' : ''}</div>
+    </div>
+    <div class="review-list">
+      ${history.filter(h => h.outcome).map(h => `
+        <div class="review-item ${h.outcome.result}">
+          <div class="review-item-situation">${h.scenarioTitle}</div>
+          <div class="review-item-choice">${h.outcome.headline}</div>
+          <div class="review-item-why">${h.outcome.explanation}</div>
+          <div style="margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid rgba(255,255,255,0.06);">
+            <div class="outcome-remember-label" style="font-size:0.65rem;">Remember This</div>
+            <div style="font-size:0.82rem;color:var(--text-primary);margin-top:0.2rem;">${h.outcome.whatToRemember}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <button class="btn-play-again">PLAY AGAIN</button>
+  `;
+
+  container.querySelector('.btn-play-again').addEventListener('click', () => {
+    game.reset();
+    showScreen('teamSelect');
+  });
+}
+
+// ---- Helpers ----
+function createSituationBar(setup) {
+  const runners = [];
+  if (setup.runners.first) runners.push('1st');
+  if (setup.runners.second) runners.push('2nd');
+  if (setup.runners.third) runners.push('3rd');
+  const runnerText = runners.length > 0 ? runners.join(', ') : 'Empty';
+
+  const sitBar = document.createElement('div');
+  sitBar.className = 'situation-bar';
+  sitBar.innerHTML = `
+    <div class="sit-item"><span class="sit-label">Inn</span> ${setup.topBottom === 'top' ? 'Top' : 'Bot'} ${setup.inning}</div>
+    <div class="sit-item"><span class="sit-label">Outs</span> ${setup.outs}</div>
+    <div class="sit-item"><span class="sit-label">Score</span> ${setup.score.away}-${setup.score.home}</div>
+    <div class="sit-item"><span class="sit-label">Runners</span> ${runnerText}</div>
+  `;
+  return sitBar;
+}
+
+function typewriter(element, text, onComplete, speed = 25) {
+  let i = 0;
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+
+  function type() {
+    if (i < text.length) {
+      element.textContent = text.slice(0, i + 1);
+      element.appendChild(cursor);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      cursor.remove();
+      if (onComplete) onComplete();
+    }
+  }
+  type();
+}
+
+// ---- End Session Button ----
+document.getElementById('btn-end-session').addEventListener('click', () => {
+  if (game.getHistory().length > 0) {
+    showReview();
+  } else {
+    game.reset();
+    showScreen('teamSelect');
+  }
+});
+
+// ---- Boot ----
+renderTeamGrid();
+initSportPicker();
+showScreen('teamSelect');

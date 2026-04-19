@@ -1,0 +1,624 @@
+{
+  "id": "majors-pitch-sequence",
+  "title": "Setting Up the Hitter: Pitch by Pitch",
+  "sport": ["baseball", "softball"],
+  "tier": "majors",
+  "role": "pitching",
+  "tags": ["pitching", "pitch-sequence", "strategy", "strikeout", "game-planning"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "You're on the mound with a runner on second and one out. The opposing team's best hitter is walking up to the plate. This kid can HIT -- they're batting .400 and they crushed your fastball last at-bat for a double. You've got a fastball, a changeup, and a curveball in your arsenal. Your catcher puts down one finger... but you shake them off. YOU know how you want to attack this hitter.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "0-0 count. First pitch to the team's best hitter. They crushed your fastball last time. What's your opening pitch?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "first-pitch-changeup",
+          "text": "Start with a changeup! They're sitting fastball -- surprise them with something slow!",
+          "nextNode": "transition-after-first-changeup"
+        },
+        {
+          "id": "first-pitch-fastball",
+          "text": "Throw the fastball but on the OUTSIDE corner. Show them I'm not afraid!",
+          "nextNode": "transition-after-first-fb"
+        },
+        {
+          "id": "first-pitch-curve",
+          "text": "Start with the curveball! Catch them off guard on the first pitch!",
+          "nextNode": "transition-after-first-curve"
+        }
+      ]
+    },
+    "transition-after-first-changeup": {
+      "type": "transition",
+      "narration": "You throw the changeup with perfect arm speed -- it looks like a fastball coming out of your hand, but it arrives about 10 mph slower. The batter was geared up for the heat and swings WAY out in front. SWING AND A MISS! Strike one! The batter steps out of the box, confused. They were expecting gas and got a change of speed. Count is 0-1.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-2-changeup",
+      "delay": 2000
+    },
+    "transition-after-first-fb": {
+      "type": "transition",
+      "narration": "Fastball, outside corner -- the batter watches it go by. The umpire rings them up! STRIKE ONE! Good pitch -- you put it exactly where you wanted it, painting the outside corner. The batter thought about swinging but held back. Now they know you can locate. Count is 0-1.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-2-fb",
+      "delay": 2000
+    },
+    "transition-after-first-curve": {
+      "type": "transition",
+      "narration": "You throw the curveball on the first pitch. It starts high and breaks down... but it misses the zone! Ball one. The batter didn't swing -- they weren't looking for that pitch and it ended up being a free ball. Starting with breaking balls can be risky if you can't throw them for strikes. Count is 1-0.",
+      "field": {
+        "ballPosition": { "x": 0.45, "y": 0.92 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-2-curve",
+      "delay": 2000
+    },
+    "decision-2-changeup": {
+      "type": "decision",
+      "narration": "You're ahead 0-1 after the changeup fooled them. The batter is now thinking: 'Was that a changeup? Is another one coming?' What do you throw second?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "fb-inside-after-change",
+          "text": "NOW throw the fastball inside! They just saw slow, so the fast pitch will blow by them!",
+          "nextNode": "transition-3-from-change-fb"
+        },
+        {
+          "id": "another-change",
+          "text": "Throw another changeup. They'll be looking for the fastball now!",
+          "nextNode": "outcome-double-change-good"
+        },
+        {
+          "id": "curve-after-change",
+          "text": "Curveball! They've seen slow and now they'll see break!",
+          "nextNode": "outcome-curve-after-change-okay"
+        }
+      ]
+    },
+    "decision-2-fb": {
+      "type": "decision",
+      "narration": "You're ahead 0-1 after the outside fastball. The batter is now thinking: 'That was outside, I need to cover that corner.' What do you throw next?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "changeup-after-fb",
+          "text": "Changeup! They're geared up for another fastball -- fool them with speed change!",
+          "nextNode": "transition-3-from-fb-change"
+        },
+        {
+          "id": "fb-inside-after-fb",
+          "text": "Fastball inside! They're leaning out over the plate to cover that outside corner!",
+          "nextNode": "transition-3-from-fb-fb"
+        },
+        {
+          "id": "curve-after-fb",
+          "text": "Curveball in the dirt! See if they chase it!",
+          "nextNode": "outcome-curve-after-fb-okay"
+        }
+      ]
+    },
+    "decision-2-curve": {
+      "type": "decision",
+      "narration": "You're behind 1-0 after missing with the curve. The batter is sitting back, waiting for something to hit. You need a strike. What do you throw?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "fb-strike-after-curve",
+          "text": "Fastball for a strike! I need to get back in this count!",
+          "nextNode": "outcome-fb-behind-okay"
+        },
+        {
+          "id": "changeup-after-curve",
+          "text": "Changeup on the outside corner. Keep them off balance!",
+          "nextNode": "outcome-change-behind-bad"
+        },
+        {
+          "id": "another-curve-strike",
+          "text": "Curveball again, but this time throw it for a strike!",
+          "nextNode": "outcome-curve-strike-okay"
+        }
+      ]
+    },
+    "transition-3-from-change-fb": {
+      "type": "transition",
+      "narration": "FASTBALL inside! After seeing the slow changeup, the fastball looks like it's coming out of a CANNON! The batter flinches and takes it -- but it catches the inside corner! STRIKE TWO! The batter shakes their head. First they saw slow, now they saw fast inside. They have NO idea what's coming next. Count is 0-2. Time for the kill shot!",
+      "field": {
+        "ballPosition": { "x": 0.47, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "transition-3-from-fb-change": {
+      "type": "transition",
+      "narration": "Changeup! The batter was looking for another fastball and is WAYYY out in front! Their bat comes around early and they foul it weakly to the right side. STRIKE TWO! You've got them 0-2 now! They showed you they're looking fastball, which means the changeup is your weapon. Time for the finishing blow!",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "transition-3-from-fb-fb": {
+      "type": "transition",
+      "narration": "Fastball inside! The batter was leaning over the plate to cover the outside corner and the inside heat jams them! They swing and foul it straight back. STRIKE TWO! 0-2 count! They can't cover both sides of the plate. Now you've shown outside AND inside -- they have no idea where the next pitch is going!",
+      "field": {
+        "ballPosition": { "x": 0.47, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-3-putaway",
+      "delay": 2000
+    },
+    "decision-3-putaway": {
+      "type": "decision",
+      "narration": "You're ahead 0-2! The batter is on their heels -- they don't know what's coming. This is the put-away pitch. What do you throw to finish them off?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "curve-in-dirt",
+          "text": "Curveball in the dirt! Start it at the top of the zone so it looks like a strike, then watch it drop!",
+          "nextNode": "outcome-k-curve-great"
+        },
+        {
+          "id": "changeup-away",
+          "text": "Changeup down and away! They'll chase it off the plate!",
+          "nextNode": "outcome-k-change-great"
+        },
+        {
+          "id": "fb-up-and-in",
+          "text": "Blow them away with a fastball up and in! Power vs. power!",
+          "nextNode": "outcome-fb-putaway-good"
+        },
+        {
+          "id": "fb-middle",
+          "text": "Fastball right down the middle -- they won't expect it!",
+          "nextNode": "outcome-fb-middle-bad"
+        }
+      ]
+    },
+    "outcome-k-curve-great": {
+      "type": "outcome",
+      "narration": "You throw the curveball and it starts at the batter's chest -- it looks like a fastball up in the zone. The batter starts to swing, but the ball DROPS off the table! It dives into the dirt! The batter swings over the top of it by a FOOT! STRIKE THREE! You pumped your fist -- you just struck out the best hitter on the team with a perfectly set-up sequence!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "STRUCK THEM OUT! Curveball in the Dirt!",
+        "explanation": "This is called 'pitch tunneling' -- your curveball looked exactly like your fastball for the first 20 feet out of your hand. The batter's brain said 'fastball!' and started the swing. But then the ball broke HARD downward and the batter swung over the top. Here's what made the whole at-bat work: 1) You showed them slow first (changeup or off-speed), which made them THINK about speed. 2) You showed them fast (fastball), which showed them you have velocity. 3) You finished with the curve that LOOKS like the fastball but breaks away. The first two pitches set up the third. That's a sequence!",
+        "whatToRemember": "A strikeout pitch is only as good as the pitches before it. Set up the hitter by showing different speeds and locations so they can't predict the finish. The best put-away pitches START in the strike zone and BREAK out of it.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.95 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-k-change-great": {
+      "type": "outcome",
+      "narration": "Changeup down and away! The batter reaches for it, extending their arms way out over the plate. They make contact but just barely -- the ball dribbles weakly to the second baseman for an easy out! The hitter slams the bat down in frustration. Your changeup completely took the power out of their swing!",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.52 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Weak Groundout! Changeup Does It!",
+        "explanation": "The changeup down and away is one of the most effective put-away pitches in baseball. Why? Because the batter has to reach for it (it's away from them) AND they're out in front (because it's slower than they expect). When a batter is fooled on speed AND location, they can only make weak contact. Even though they technically hit the ball, the result was basically as good as a strikeout -- a weak grounder that's an easy out. Notice: it was off the plate, which is important. Even with 0-2, you didn't throw it over the middle. Always pitch to the EDGES with your put-away pitch.",
+        "whatToRemember": "With 0-2, expand the zone! Throw put-away pitches just OFF the plate. If the batter chases, great. If not, you're still ahead 0-2. Never throw a hittable pitch when you're way ahead in the count.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.55, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.55, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.6, "y": 0.5 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fb-putaway-good": {
+      "type": "outcome",
+      "narration": "Fastball up and in! The pitch explodes past the batter's hands -- they swing and foul it straight back! Still alive! 0-2 count still. The batter fouls off two more pitches... then you throw another fastball and they lace it into right field for a single. The runner scores from second. Tie game. Power vs. power -- sometimes the hitter wins.",
+      "field": {
+        "ballPosition": { "x": 0.75, "y": 0.3 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Single! Hitter Caught Up to the Fastball!",
+        "explanation": "Trying to blow a good fastball hitter away with MORE fastballs is a dangerous game. Yes, the up-and-in fastball is exciting, but remember -- this batter already crushed your fastball earlier in the game! They can TIME it. Once they foul off a few, they get their timing down. The smarter play is to use your off-speed pitches as put-away options. Curves and changeups are much harder to adjust to than fastballs because they change speed AND direction. Save the fastball for when they're looking off-speed, not when they're already geared up for it.",
+        "whatToRemember": "Don't try to out-muscle a good fastball hitter. If they've already shown they can hit your fastball, use off-speed to finish them. Work with your full arsenal, not just one pitch.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.48, "y": 0.86 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.48, "y": 0.86 },
+              "to": { "x": 0.75, "y": 0.3 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 1200,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fb-middle-bad": {
+      "type": "outcome",
+      "narration": "Fastball right down the middle! The batter's eyes light up -- THAT'S what they've been waiting for! They unload on it and CRACK -- the ball rockets into the left-center field gap! It rolls to the wall! The runner scores from second easily, and the batter cruises into third with a triple! Your coach jogs to the mound. Not the result you wanted...",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.1 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (triple!)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "TRIPLE! Middle-Middle is a Meatball!",
+        "explanation": "A fastball right down the middle of the plate is called a 'meatball' -- it's the easiest pitch in baseball to hit. Even bad hitters can crush a pitch right down the middle, and THIS batter is their best hitter! The idea that 'they won't expect it' is almost always wrong. Good hitters are ALWAYS looking for a pitch over the middle of the plate. That's their happy zone! With an 0-2 count, you have room to throw pitches OFF the plate and see if they chase. You were ahead -- there was no reason to throw the most hittable pitch possible.",
+        "whatToRemember": "NEVER throw a fastball down the middle to a good hitter on purpose. With 0-2, expand the zone -- throw off-speed pitches off the plate and make them chase. You have room to waste a pitch!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.35, "y": 0.1 },
+              "entity": "ball",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner2nd",
+              "duration": 1000,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-double-change-good": {
+      "type": "outcome",
+      "narration": "Another changeup! But this time the batter is ready -- they adjusted their timing and poke a single through the right side. The runner holds at third. Not a terrible result, but the batter figured out your pattern.",
+      "field": {
+        "ballPosition": { "x": 0.72, "y": 0.45 },
+        "highlight": ["RF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Single. They Adjusted to the Changeup.",
+        "explanation": "Throwing the same pitch twice in a row can work sometimes, but good hitters adjust quickly. After seeing the changeup once, this batter slowed down their swing timing to match the slower speed. That's why MIXING pitches is so important. If you throw a changeup, the next pitch should usually be something with a DIFFERENT speed or a different movement. The element of surprise is your biggest weapon as a pitcher. Once a hitter knows what's coming, even a great pitch becomes hittable.",
+        "whatToRemember": "Don't fall in love with one pitch. Good hitters adjust fast. After showing off-speed, come back with something different to keep them guessing. Variety is a pitcher's best friend.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.53, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.53, "y": 0.88 },
+              "to": { "x": 0.72, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-curve-after-change-okay": {
+      "type": "outcome",
+      "narration": "Curveball! You've shown slow, now you show break... but you throw two slow pitches in a row. The batter is sitting on something soft and gets enough of it to flare a bloop single over the shortstop's head. Runner moves to third. Not ideal -- two off-speed pitches in a row without mixing in the fastball.",
+      "field": {
+        "ballPosition": { "x": 0.38, "y": 0.38 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Bloop Single. Needed More Variety.",
+        "explanation": "Changeup then curveball are BOTH slower pitches. Even though they move differently, the batter was able to time up the slower speed. Think of a pitch sequence like hot and cold: you need to show the batter FAST before you can effectively use SLOW. If you go slow-slow, the batter sits back and adjusts. Go slow-FAST-slow and suddenly every pitch looks different. The fastball sets up the off-speed, and the off-speed sets up the fastball. They work TOGETHER like a team.",
+        "whatToRemember": "Mix speeds! After an off-speed pitch, come back with the fastball to re-establish speed in the hitter's eyes. Slow only works when fast has been shown recently.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 550
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.38, "y": 0.38 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-curve-after-fb-okay": {
+      "type": "outcome",
+      "narration": "Curveball in the dirt! It bounces before the plate. The batter starts to swing but holds up -- ball one! Count is 1-1. Not a bad pitch, but the batter didn't chase it. Now you're even in the count instead of ahead.",
+      "field": {
+        "ballPosition": { "x": 0.48, "y": 0.95 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Ball. Batter Didn't Chase.",
+        "explanation": "Throwing a curveball in the dirt with an 0-1 count isn't a terrible idea, but it works best when the batter is more desperate to swing -- like when they're down 0-2. At 0-1, the batter knows they can afford to take a ball, so they're more patient and less likely to chase pitches out of the zone. The ideal 0-1 pitch is something that looks like a strike but is hard to hit -- like a changeup on the outside corner or a fastball inside. Save the 'chase' pitches for when you're ahead 0-2.",
+        "whatToRemember": "Save your chase pitches (curves in the dirt, changeups way outside) for 0-2 or 1-2 counts when the batter HAS to protect. At 0-1, throw competitive pitches near the zone.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.48, "y": 0.95 },
+              "entity": "ball",
+              "duration": 550
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fb-behind-okay": {
+      "type": "outcome",
+      "narration": "Fastball for a strike! You need it and you pump it right down the zone. The batter fouls it off -- strike one! Count is 1-1. You're back in the fight. But this batter has now seen your fastball... and they timed it well enough to foul it off. They're on it.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Foul Ball, 1-1 Count. Back in It.",
+        "explanation": "You needed a strike and you got one -- but you had to throw a hittable fastball to do it. This is WHY you want to throw strikes on the first pitch! When you fall behind 1-0 by starting with a breaking ball for a ball, you're forced to come back with something the batter can hit. Starting with a strike-one fastball or a first-pitch changeup for a strike puts YOU in control of the at-bat. Behind in the count, the batter is looking for the fastball and you have to give it to them. Ahead in the count, you get to use your fun pitches.",
+        "whatToRemember": "Get ahead in the count! When you're behind, you have to throw strikes, which means more hittable pitches. When you're ahead, you get to throw your nastiest stuff.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-change-behind-bad": {
+      "type": "outcome",
+      "narration": "Changeup on the outside corner -- but you miss! Ball two! Now the count is 2-0 and the batter is in the driver's seat. They're sitting fastball and licking their chops. You eventually have to throw a strike and the batter lines a double down the line. Runner scores. You fell behind and paid for it.",
+      "field": {
+        "ballPosition": { "x": 0.22, "y": 0.35 },
+        "highlight": ["LF"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Double! Fell Behind in the Count!",
+        "explanation": "Going 2-0 against a good hitter is a nightmare. At 2-0, the batter can sit on one pitch -- usually the fastball -- and wait for it. If it comes, they unload. If it doesn't, it's probably ball three. You put yourself in this hole by throwing TWO breaking balls that missed the zone. When you're behind in the count (1-0, 2-0, 2-1, 3-1), you lose your biggest weapon: deception. You can't throw pitches off the plate because you can't afford another ball. The lesson? Get ahead early with a strike, and you keep all your options open.",
+        "whatToRemember": "Don't compound a first-pitch ball by throwing MORE off-speed. Get a strike early to stay ahead! Being behind in the count takes away your ability to use your best pitches effectively.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.58, "y": 0.92 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-curve-strike-okay": {
+      "type": "outcome",
+      "narration": "Curveball for a strike! It breaks right into the zone and the batter watches it. STRIKE ONE! Count is 1-1. But the batter just got a good look at your curveball -- they saw how it breaks and how fast it spins. They'll be ready for it next time.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Pitcher"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Strike! But They Got a Good Look.",
+        "explanation": "You got the strike you needed, which is good. But throwing the same pitch twice in a row gave the batter a FREE look at your curveball. Even though they didn't swing, they watched it spin, saw how much it breaks, and stored that info for later. A better approach after missing with the curve: come back with the fastball to establish speed, THEN use the curve later when the batter is geared up for something else. Pitching is about keeping hitters OFF BALANCE, which means showing them something different each time.",
+        "whatToRemember": "Avoid showing the same pitch twice in a row, especially to a good hitter. Even if they don't swing, they're learning your pitch. Change speeds and locations to keep them guessing.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 550
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

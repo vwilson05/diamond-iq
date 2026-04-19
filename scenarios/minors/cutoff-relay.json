@@ -1,0 +1,335 @@
+{
+  "id": "minors-cutoff-relay",
+  "title": "Be the Cutoff Man!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["cutoff", "relay", "shortstop", "outfield", "positioning", "communication"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 0, "strikes": 1 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Runner on first, one out, and your team is up by a run. You're the shortstop. The batter swings and RIPS a line drive into the right-center field gap! The ball is rolling to the wall! The outfielders are chasing it, and the runner on first is flying around second base headed for third!",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.12 },
+        "highlight": ["SS", "CF", "RF"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.45, "y": 0.48 }, "label": "Runner (rounding 2nd)" },
+          { "id": "batter", "position": { "x": 0.65, "y": 0.62 }, "label": "Batter (at 1st)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2000
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "The ball is in the gap and the outfielder is picking it up near the wall. You're the shortstop -- you need to be the cutoff man! But where do you go?",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.1 },
+        "highlight": ["SS", "3B", "Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.4, "y": 0.52 }, "label": "Runner" },
+          { "id": "batter", "position": { "x": 0.6, "y": 0.55 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "line-up-third",
+          "text": "Run to a spot between the outfielder and third base, line yourself up for the relay!",
+          "nextNode": "outcome-lineup-great"
+        },
+        {
+          "id": "stay-at-position",
+          "text": "Stay at your normal shortstop position and wait for the ball.",
+          "nextNode": "outcome-stay-bad"
+        },
+        {
+          "id": "run-to-outfield",
+          "text": "Run out to the outfield to help chase the ball.",
+          "nextNode": "outcome-chase-bad"
+        }
+      ]
+    },
+    "outcome-lineup-great": {
+      "type": "outcome",
+      "narration": "You sprint into the outfield grass, lining yourself up perfectly between the right fielder and third base. You raise both arms high and yell 'HIT ME! HIT ME!' so the outfielder knows where to throw. The right fielder scoops the ball and fires it to you on a line -- you catch it on the run! Now you've got a decision to make...",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.35 },
+        "highlight": ["3B", "Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.35, "y": 0.55 }, "label": "Runner (heading to 3rd)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Cutoff Position!",
+        "explanation": "You did everything right! As the cutoff man, your job is to get between the outfielder and the base where the play will happen. You raise your arms so the outfielder can SEE you easily -- they're looking at the ball and need a clear target. You also yell so they can HEAR you. The reason you line up on a straight line between the outfielder and third base is simple: a straight throw is the fastest throw. If you're off to the side, the outfielder has to throw at an angle, which wastes time and distance.",
+        "whatToRemember": "The cutoff man lines up between the outfielder and the target base. Raise your arms high and yell 'HIT ME' so the outfielder has a target. Straight lines are faster than angles!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.55, "y": 0.35 },
+              "entity": "fielder",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.1 },
+              "to": { "x": 0.55, "y": 0.35 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.55, "y": 0.35 },
+              "to": { "x": 0.55, "y": 0.35 },
+              "entity": "ball",
+              "duration": 200
+            }
+          ]
+        },
+        "next": "decision-2"
+      }
+    },
+    "outcome-stay-bad": {
+      "type": "outcome",
+      "narration": "You stay at your normal shortstop spot. The right fielder picks up the ball at the wall and looks up, but you're way too far from them! Their throw from deep right-center has to go ALL the way to the infield without any help. The ball bounces three times, hops past you, and rolls toward the dugout. The lead runner scores and the batter ends up at third!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.55 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "No Cutoff! Extra Bases!",
+        "explanation": "The whole reason cutoff men exist is that outfielders usually can't throw the ball accurately all the way from the outfield fence to a base. That's over 250 feet! By staying at your normal position, you gave the outfielder no help. Two shorter, accurate throws are ALWAYS better than one long, wild throw. Think of it like a relay race with a baton -- the ball gets there faster when teammates work together. Your job as shortstop is to go OUT to where the outfielder can easily reach you with a throw.",
+        "whatToRemember": "On a ball to the gap, the shortstop MUST move out to be the cutoff/relay man. Two short throws beat one long throw every time.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.1 },
+              "to": { "x": 0.45, "y": 0.55 },
+              "entity": "ball",
+              "duration": 1200
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 1500,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-chase-bad": {
+      "type": "outcome",
+      "narration": "You run all the way out to the outfield to help get the ball -- but your outfielders already have it covered! Now nobody is in the infield to receive the relay throw. The right fielder picks up the ball, turns to throw, and there's nobody to throw to! The runner scores easily and the batter jogs into third. Your coach is waving their arms -- wrong play!",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.15 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Nobody Home! No Relay Available!",
+        "explanation": "There are already outfielders out there to chase the ball -- they don't need your help! When you ran out to the outfield, you left a huge hole in the relay system. The cutoff man's job is to be the MIDDLE of the relay, not to be at the end near the ball. Think of it like a chain -- the outfielder is one link, you're the next link, and the infielder at the base is the last link. If you break the chain by going to the wrong spot, the whole system falls apart.",
+        "whatToRemember": "Never chase the ball into the outfield! Your outfielders have it. Your job is to be the relay man in the MIDDLE, connecting the outfield to the infield.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.6, "y": 0.18 },
+              "entity": "fielder",
+              "duration": 1000
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 1500,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "decision-2": {
+      "type": "decision",
+      "narration": "You've caught the relay throw! You spin toward the infield. The lead runner is rounding third and heading home. The batter has reached second. Your third baseman is yelling 'HOME! HOME!' but your catcher is setting up at the plate. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.35 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (heading home)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (at 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-home",
+          "text": "Throw home! Try to get the runner at the plate!",
+          "nextNode": "outcome-home-great"
+        },
+        {
+          "id": "throw-third",
+          "text": "Throw to third to get the batter who's trying to advance.",
+          "nextNode": "outcome-third-okay"
+        },
+        {
+          "id": "hold-ball",
+          "text": "Hold the ball. I don't have a good throw to make.",
+          "nextNode": "outcome-hold-okay"
+        }
+      ]
+    },
+    "outcome-home-great": {
+      "type": "outcome",
+      "narration": "You plant your back foot and fire a strike to home plate! The catcher catches it, blocks the plate, and applies the tag. The runner slides... THE UMPIRE RINGS THEM UP! OUT AT HOME! What a relay! The crowd goes crazy! Your team kept the lead because of that incredible cutoff play!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "OUT AT HOME! Relay Nails the Runner!",
+        "explanation": "This is why the cutoff relay exists -- to throw out runners at home! Here's what made this work: 1) You got to the right position quickly. 2) You caught the relay cleanly. 3) You listened to your teammates calling 'HOME!' -- they can see the runner better than you can since you're facing the outfield. 4) You made a strong, accurate throw. The runner was the lead runner trying to score, which is the MOST important out to get because it prevents a run. Great relay plays are about everyone doing their job perfectly.",
+        "whatToRemember": "When you're the cutoff man, listen to your teammates behind you -- they'll tell you where to throw! 'HOME!' means throw home. 'CUT!' means hold it. Trust your teammates' eyes.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.35 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.65 },
+              "to": { "x": 0.48, "y": 0.83 },
+              "entity": "runner1",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "slide",
+              "from": { "x": 0.48, "y": 0.83 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 300
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-third-okay": {
+      "type": "outcome",
+      "narration": "You throw to third base to try to catch the batter going for a triple... but the run scores! The lead runner crosses home plate. The batter is safe at third anyway because your third baseman wasn't on the bag yet. Run scores, batter at third.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Target! Run Scores!",
+        "explanation": "The lead runner scoring is the WORST thing that can happen here -- it ties the game! You threw to third trying to get the batter, but even if you got that out, the run already scored. The lead runner is always your priority because they're the one who can put a run on the board. Remember: always think about RUNS FIRST. An out at third base that lets a run score is way worse than a throw home that could prevent the run. Your teammates were yelling 'HOME' for a reason -- they could see the play developing.",
+        "whatToRemember": "The most important runner is the one closest to scoring. Always prioritize preventing runs over getting outs on trailing runners.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.55, "y": 0.35 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-okay": {
+      "type": "outcome",
+      "narration": "You hold the ball and look around. The lead runner scores easily. The batter stays at second base. You kept the ball safe -- no errors -- but the run scored and the game is now tied.",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.35 },
+        "highlight": [],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
+          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Run Scores. Ball Held.",
+        "explanation": "Holding the ball is never a terrible play because at least you didn't throw it away. But in this case, you had a REAL chance to throw the runner out at home! Your catcher was set up, your teammates were calling for it, and you had a clear line. Sometimes you have to be aggressive and trust your arm. The worst that happens on a throw home is the ball gets past the catcher and the batter moves up -- but you would have had a real shot at saving a run. Playing it too safe can cost your team just as much as making errors.",
+        "whatToRemember": "Don't be afraid to make the throw when the play is there! Holding the ball when you have a chance to get a runner at home lets the run score for free.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner1",
+              "duration": 1000
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

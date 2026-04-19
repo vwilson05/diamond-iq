@@ -1,0 +1,359 @@
+{
+  "id": "minors-runners-on-corners",
+  "title": "Runners on the Corners!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "defense",
+  "tags": ["runners-on-corners", "pitcher", "catcher", "strategy", "preventing-runs"],
+  "setup": {
+    "inning": 5,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 4, "away": 3 },
+    "runners": { "first": true, "second": false, "third": true },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Tricky situation here! Runners on first AND third with one out. Your team is up by a run. You're the pitcher. The runner on third is taking a big lead, eyeing home plate. The runner on first looks antsy too -- they might try to steal second. The batter digs in. This is a chess match and you're in the middle of it!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "1B", "3B", "Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.28, "y": 0.58 }, "label": "Runner (3rd)" },
+          { "id": "runner1st", "position": { "x": 0.66, "y": 0.58 }, "label": "Runner (1st)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "The batter tops a grounder right back to you on the mound. You field it cleanly. The runner on third is frozen halfway down the line, watching you. The runner on first is halfway to second. Where do you go with the ball?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Pitcher", "Home", "2B", "1B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.35, "y": 0.62 }, "label": "Runner (between 3rd & Home)" },
+          { "id": "runner1st", "position": { "x": 0.58, "y": 0.52 }, "label": "Runner (between 1st & 2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "check-third-then-first",
+          "text": "Look the runner on third back to the bag, then throw to first for the out!",
+          "nextNode": "outcome-check-great"
+        },
+        {
+          "id": "throw-home",
+          "text": "Throw home right away to make sure the runner on third can't score!",
+          "nextNode": "outcome-home-okay"
+        },
+        {
+          "id": "throw-second",
+          "text": "Throw to second base to get the runner from first!",
+          "nextNode": "outcome-second-bad"
+        }
+      ]
+    },
+    "outcome-check-great": {
+      "type": "outcome",
+      "narration": "Smart play! You look right at the runner on third -- they freeze and scramble back to third base. Now you turn and fire to first -- OUT! The batter is retired. Two outs now! The runner on third is still stuck there. You kept the run from scoring AND got an out. That's called 'managing the situation!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (back to 3rd)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Heads-Up Play! Out at First, Run Held!",
+        "explanation": "This is the veteran move. The runner on third is the DANGEROUS runner because they can score. By looking right at them, you froze them -- they couldn't run home because you might throw them out. But you didn't actually throw to third (that would have been risky and might not get an out). Instead, once the runner was frozen, you turned and threw to first for the easy force out. You got the sure out WITHOUT letting the run score. The runner from first advanced to second, but that's okay -- preventing the run was priority number one.",
+        "whatToRemember": "With runners on the corners and a grounder to the pitcher: LOOK the runner back to third first (freezes them), THEN throw to first for the out. Eyes beat throws!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "catch",
+              "from": { "x": 0.48, "y": 0.65 },
+              "to": { "x": 0.5, "y": 0.62 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.62 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner3rd",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.58, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "decision-2"
+      }
+    },
+    "outcome-home-okay": {
+      "type": "outcome",
+      "narration": "You throw home immediately. The catcher catches it, but the runner on third wasn't even going! They were bluffing! Now the catcher has the ball at home, the batter is safe at first, and the runner from first moved to second. You didn't get any outs, and the bases are loaded!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.9 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "No Outs! Bases Loaded!",
+        "explanation": "You made a safe play by protecting home plate -- the run didn't score, which is good. But you fell for the runner's bluff! They took a big lead to TRICK you into throwing home, which let the batter reach first safely. Now the bases are loaded, which is an even MORE dangerous situation. The key is to use your EYES first, not your arm. If you had just LOOKED at the runner on third, they would have frozen. A look is faster than a throw and doesn't give up the out at first base. Not every runner who takes a big lead is actually going to run.",
+        "whatToRemember": "Don't panic-throw home every time a runner takes a lead from third. Use your EYES to freeze the runner first, then make the smart play.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.9 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.58, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.78 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-second-bad": {
+      "type": "outcome",
+      "narration": "You throw to second base to get the runner from first. But the MOMENT you turned away from the runner on third, they broke for home! Your second baseman catches the throw and gets the out, but the runner from third slides in and scores! The game is tied. You got an out, but you gave up the tying run!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["Home", "2B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Run Scores! Wrong Priority!",
+        "explanation": "You got an out, but you gave up the tying run -- that's a bad trade! The runner on third was WAITING for you to throw to second base. That's the whole trap of 'runners on the corners.' The offense WANTS you to focus on the runner at first so the runner on third can sneak home. Rule number one: NEVER let the lead runner score if you can help it. The runner going to second base is much less dangerous than the runner trying to score. Always handle the dangerous runner first, THEN go for the secondary out.",
+        "whatToRemember": "With runners on corners, the runner on third is the priority. Never turn your back on them to throw to second -- that's exactly what the offense wants!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "decision-2": {
+      "type": "decision",
+      "narration": "Nice work -- two outs now, runners on second and third. The next pitch is delivered and -- the runner on first (now at second) takes off trying to steal third! Your catcher pops up with the ball. But wait... the runner on third is edging down the line too. What should the catcher do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.9 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.28, "y": 0.62 }, "label": "Runner (3rd, edging home)" },
+          { "id": "runner2nd", "position": { "x": 0.42, "y": 0.48 }, "label": "Runner (stealing 3rd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "hold-and-watch",
+          "text": "Hold the ball! Don't throw -- the runner on third might break for home!",
+          "nextNode": "outcome-hold-smart"
+        },
+        {
+          "id": "throw-third",
+          "text": "Throw to third base to get the stealing runner!",
+          "nextNode": "outcome-throw-third-risky"
+        },
+        {
+          "id": "fake-throw-look",
+          "text": "Pump-fake to third, then check if the runner on third broke for home!",
+          "nextNode": "outcome-fake-good"
+        }
+      ]
+    },
+    "outcome-hold-smart": {
+      "type": "outcome",
+      "narration": "Your catcher holds the ball and doesn't throw. Smart! The runner on third was creeping toward home, HOPING the catcher would throw to third so they could score. The runner steals third safely, but you now have runners on second and third with two outs. The game is still yours to win because the run DIDN'T score.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.9 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Run Saved! Smart Restraint!",
+        "explanation": "This is the savvy play. Yes, you gave up the stolen base, but you prevented the TYING RUN from scoring. With 2 outs, the runner stealing third doesn't really hurt you -- they were already in scoring position at second. But if the catcher throws to third and the ball gets away, or the runner on third breaks home during the throw, you could give up the tying run. When there are two outs and a runner on third, the catcher should almost NEVER throw to another base. Protect home plate above all else.",
+        "whatToRemember": "With 2 outs and a runner on third, the catcher should hold the ball and protect home plate. Don't risk throwing to another base and giving up the tying run.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.42, "y": 0.48 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-throw-third-risky": {
+      "type": "outcome",
+      "narration": "The catcher fires to third! But the runner on third was waiting for exactly that -- the MOMENT the catcher released the ball, the runner on third broke for home! The third baseman catches the throw and tags the stealing runner -- out! But the runner from third crosses the plate! Wait... did the tag happen before the run scored? The umpires get together... the run COUNTS! The runner scored before the tag was applied at third. Game tied!",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Run Scores on the Throw! Tied Game!",
+        "explanation": "This is the classic 'runners on corners' trap, and the offense executed it perfectly. The runner from second INTENTIONALLY got into a steal/rundown situation to draw the throw away from home plate. The runner on third was watching the catcher's arm -- the instant the ball left the catcher's hand toward third base, they sprinted home. Even though you got the out at third, the run scored because it crossed the plate before the tag. This is why experienced teams DON'T throw to third with a runner on third and 2 outs.",
+        "whatToRemember": "The 'first-and-third steal' is a TRAP. The offense wants you to throw to third so the runner on third can score. With 2 outs, eat the stolen base and protect home!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.9 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.28, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.35, "y": 0.58 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-fake-good": {
+      "type": "outcome",
+      "narration": "Your catcher fakes the throw to third -- pumps their arm but holds the ball! The runner on third takes two steps toward home, thinking the ball was thrown. The catcher sees them off the bag and fires to third! The third baseman applies the tag -- but the runner dives back safely. Close! But the run didn't score, and you kept control.",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Nice Fake! Almost Got Them!",
+        "explanation": "The pump-fake is a high-IQ play! By faking the throw, the catcher tried to get the runner on third to commit -- if the runner had taken off for home, the catcher still had the ball and could tag them. It didn't get the out this time, but it showed great awareness. The key thing is that the run didn't score. The pump-fake is a tool that works best when the runner on third is aggressive. Just be careful -- if the catcher isn't great at faking, they might accidentally throw the ball away, which would be a disaster.",
+        "whatToRemember": "The pump-fake is a clever tool to check the runner on third. But if you're not confident in the fake, just holding the ball is perfectly fine too.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.9 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 200
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.28, "y": 0.62 },
+              "to": { "x": 0.35, "y": 0.68 },
+              "entity": "runner3rd",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.35, "y": 0.68 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner3rd",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.42, "y": 0.48 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 800,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

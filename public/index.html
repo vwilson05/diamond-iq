@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diamond IQ — Baseball & Softball Situational Training</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- TEAM SELECT SCREEN -->
+  <div id="screen-team-select" class="screen active">
+    <div class="select-screen-inner">
+      <div class="logo-header">
+        <h1 class="logo">DIAMOND <span class="logo-accent">IQ</span></h1>
+        <p class="tagline">Think like a pro. Play like a pro.</p>
+      </div>
+      <h2 class="select-heading">Pick Your Team</h2>
+      <div id="team-grid" class="team-grid"></div>
+    </div>
+  </div>
+
+  <!-- SPORT SELECT SCREEN -->
+  <div id="screen-sport-select" class="screen">
+    <div class="select-screen-inner">
+      <div class="logo-header small">
+        <h1 class="logo">DIAMOND <span class="logo-accent">IQ</span></h1>
+      </div>
+      <h2 class="select-heading">Choose Your Game</h2>
+      <div class="sport-cards">
+        <button class="sport-card" data-sport="baseball">
+          <div class="sport-icon">&#9918;</div>
+          <div class="sport-name">Baseball</div>
+          <div class="sport-desc">90ft bases, leadoffs allowed, 6-inning Little League games</div>
+        </button>
+        <button class="sport-card" data-sport="softball">
+          <div class="sport-icon">&#129358;</div>
+          <div class="sport-name">Softball</div>
+          <div class="sport-desc">60ft bases, no leadoffs, pitcher throws underhand</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFFICULTY SELECT SCREEN -->
+  <div id="screen-difficulty-select" class="screen">
+    <div class="select-screen-inner">
+      <div class="logo-header small">
+        <h1 class="logo">DIAMOND <span class="logo-accent">IQ</span></h1>
+      </div>
+      <h2 class="select-heading">Choose Your Level</h2>
+      <div id="difficulty-cards" class="difficulty-cards"></div>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN (split view) -->
+  <div id="screen-game" class="screen">
+    <div class="game-header">
+      <div class="game-header-left">
+        <span class="logo-sm">DIAMOND <span class="logo-accent">IQ</span></span>
+        <span id="game-tier-badge" class="tier-badge"></span>
+      </div>
+      <div class="game-header-center">
+        <span id="game-iq-display" class="iq-display">IQ: 0</span>
+      </div>
+      <div class="game-header-right">
+        <span id="game-scenario-count" class="scenario-count"></span>
+        <button id="btn-end-session" class="btn-end-session">End Session</button>
+      </div>
+    </div>
+    <div class="game-body">
+      <div class="game-left">
+        <div id="scenario-panel" class="scenario-panel"></div>
+      </div>
+      <div class="game-right">
+        <canvas id="field-canvas"></canvas>
+        <div id="scoreboard-container" class="scoreboard-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEW SCREEN -->
+  <div id="screen-review" class="screen">
+    <div id="review-container" class="review-container"></div>
+  </div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

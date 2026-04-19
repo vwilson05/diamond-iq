@@ -1,0 +1,246 @@
+{
+  "id": "rookie-stealing-second",
+  "title": "Stealing Second Base!",
+  "sport": ["baseball"],
+  "tier": "rookie",
+  "role": "baserunning",
+  "tags": ["stealing", "base-running", "pitcher", "lead-off", "timing"],
+  "setup": {
+    "inning": 4,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false },
+    "count": { "balls": 1, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "You're the runner on first base in a tie game! Your coach flashes you the steal sign -- two tugs on their ear. That means GO on the next pitch! The pitcher is in the stretch position, looking over at you. You take your lead off first base -- three big steps. Your heart is racing. The pitcher checks you once... twice...",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B", "2B", "Pitcher"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You (leading off)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "The pitcher is in the stretch, watching you. You've got the steal sign. When do you go?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B", "2B", "Pitcher"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "read-pitcher",
+          "text": "Watch the pitcher's front leg. The MOMENT it moves toward home plate, explode toward second!",
+          "nextNode": "outcome-read-great"
+        },
+        {
+          "id": "go-early",
+          "text": "Just take off running right now! Don't wait!",
+          "nextNode": "outcome-early-bad"
+        },
+        {
+          "id": "wait-for-pitch",
+          "text": "Wait until you hear the ball hit the catcher's glove, then run.",
+          "nextNode": "outcome-late-okay"
+        },
+        {
+          "id": "dont-go",
+          "text": "I'm nervous. I'll stay on first and ignore the steal sign.",
+          "nextNode": "outcome-ignore-bad",
+          "disabledReason": null
+        }
+      ]
+    },
+    "outcome-read-great": {
+      "type": "outcome",
+      "narration": "You're locked in on the pitcher's front leg. They lift it and you see it start moving toward home plate -- GO! You explode off the base! Your legs are pumping, arms swinging. The catcher receives the pitch, pops up, and fires to second base, but you're already there! You slide in headfirst -- SAFE! You stole second base! Now you're in scoring position!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Stolen Base! Perfect Read!",
+        "explanation": "The secret to stealing a base is your JUMP -- and the jump depends on reading the pitcher. When a pitcher is in the stretch position, their front leg tells you everything. If their leg moves toward home plate, they're delivering the pitch and you GO. If their leg moves toward first base, they're throwing over to pick you off and you dive BACK. By watching that front leg, you got the earliest possible jump, which gave you a head start on the catcher's throw. That's the difference between safe and out!",
+        "whatToRemember": "Watch the pitcher's front leg! Toward home = GO! Toward your base = GET BACK! A good jump starts with reading the pitcher.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.66, "y": 0.58 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1",
+              "duration": 1000,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.47 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "slide",
+              "from": { "x": 0.5, "y": 0.48 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-early-bad": {
+      "type": "outcome",
+      "narration": "You take off running before the pitcher even moves! The pitcher sees you going and throws to first base instead of home plate. You're caught in no-man's land -- stuck between first and second! The first baseman throws to the shortstop, and you're tagged out in a rundown. That's a wasted out!",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.52 },
+        "highlight": [],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Picked Off! Too Early!",
+        "explanation": "Going before the pitcher commits to home plate is called getting 'picked off.' The pitcher saw you leaving too early and threw to first base instead of pitching. Since you were already running, you couldn't get back in time. This is why reading the pitcher is SO important. You need to wait until the pitcher's front leg moves toward home plate -- that's the moment they're committed to throwing the pitch and CANNOT throw to your base anymore. Going early is actually WORSE than going late because the pitcher gets a free out.",
+        "whatToRemember": "Never leave early! Wait for the pitcher to commit. If you go before they start their pitching motion, they'll throw you out at first base.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.66, "y": 0.58 },
+              "to": { "x": 0.58, "y": 0.52 },
+              "entity": "runner1",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.55, "y": 0.52 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.55, "y": 0.52 },
+              "to": { "x": 0.58, "y": 0.52 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-late-okay": {
+      "type": "outcome",
+      "narration": "You wait until you hear the ball smack the catcher's mitt... then you take off! But the catcher already has the ball and pops up quickly. They fire a laser to second base. You slide, but the tag is there. OUT! You're called out by half a step. So close!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Thrown Out! Late Jump!",
+        "explanation": "You had the right idea, but you waited too long! By the time you heard the ball hit the catcher's mitt, the catcher already had the ball in their hand and was starting their throw. That lost you about half a second compared to reading the pitcher's front leg -- and in stealing, half a second is EVERYTHING. The best base stealers don't react to the pitch being thrown; they react to the pitcher's BODY. When the front leg commits toward home, that's your cue. It gives you a much bigger head start.",
+        "whatToRemember": "Don't wait to hear the pitch land -- that's too late! React to the pitcher's front leg moving toward home plate. That gives you the best possible head start.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.66, "y": 0.58 },
+              "to": { "x": 0.52, "y": 0.47 },
+              "entity": "runner1",
+              "duration": 1200
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 600,
+              "parallel": true
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.52, "y": 0.47 },
+              "entity": "fielder",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-ignore-bad": {
+      "type": "outcome",
+      "narration": "You stay on first base and don't go. The pitch comes in for a strike. Your coach looks over at you, confused. They gave you the steal sign, but you didn't run. Your coach calls timeout and jogs over. 'Hey, I gave you the sign. If you're not sure, ask me -- but when the sign is on, we need you to go. I believe in you!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You (1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed the Sign! Communication Matters!",
+        "explanation": "When your coach gives you a sign, it means they TRUST you. They've watched the game, they know the situation, and they believe this is the right time to steal. Ignoring signs can mess up your team's whole strategy -- maybe the batter was expecting you to go and was going to swing a certain way to help you! If you're unsure about the sign, you can always ask your coach to repeat it. But once you know the sign is on, trust your coach and GO. Being nervous is normal -- every player gets butterflies. But you're faster than you think!",
+        "whatToRemember": "Always follow your coach's signs. If you're nervous about stealing, practice getting good jumps. And if you're confused about the sign, ask! Communication goes both ways.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 500
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

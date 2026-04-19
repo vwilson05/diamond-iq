@@ -1,0 +1,351 @@
+{
+  "id": "minors-sacrifice-bunt",
+  "title": "Bunt the Runner Over!",
+  "sport": ["baseball", "softball"],
+  "tier": "minors",
+  "role": "offense",
+  "tags": ["bunting", "sacrifice", "manufacturing-runs", "strategy", "late-game"],
+  "setup": {
+    "inning": 6,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 3, "away": 3 },
+    "runners": { "first": false, "second": true, "third": false },
+    "count": { "balls": 0, "strikes": 0 }
+  },
+  "nodes": {
+    "root": {
+      "type": "transition",
+      "narration": "Bottom of the sixth in a tie game! Your teammate just ripped a double and is standing on second base, clapping their hands. Nobody out. Your coach calls you over before you walk to the plate. 'We need that run. Think about moving the runner to third...' You nod and grab your bat. This is a big moment!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "2B", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "next": "decision-1",
+      "delay": 2500
+    },
+    "decision-1": {
+      "type": "decision",
+      "narration": "Tie game, runner on second, nobody out. Your coach hinted at moving the runner. The pitcher is getting ready. What's your plan at the plate?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "2B", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "sacrifice-bunt",
+          "text": "Square around and sacrifice bunt! Move the runner to third!",
+          "nextNode": "transition-bunt"
+        },
+        {
+          "id": "swing-away",
+          "text": "Forget bunting -- swing for a hit and try to drive the runner in!",
+          "nextNode": "outcome-swing-okay"
+        },
+        {
+          "id": "bunt-for-hit",
+          "text": "Try to bunt for a base hit! Get the runner over AND get on base!",
+          "nextNode": "outcome-bunt-hit-okay"
+        }
+      ]
+    },
+    "transition-bunt": {
+      "type": "transition",
+      "narration": "You square around to bunt as the pitcher delivers. You angle the bat, cushion the ball, and tap it down the third base line. It rolls about 20 feet and stops on the grass. The third baseman charges in to field it! The runner on second is sprinting to third!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.72 },
+        "highlight": ["3B", "1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.38, "y": 0.52 }, "label": "Runner (heading to 3rd)" },
+          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "You (running to 1st)" }
+        ]
+      },
+      "next": "decision-2",
+      "delay": 2000
+    },
+    "decision-2": {
+      "type": "decision",
+      "narration": "The third baseman fields your bunt and has to make a choice. But think about it from YOUR perspective -- where do you think the defense should throw, and why is this bunt such a smart play?",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.7 },
+        "highlight": ["1B", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.33, "y": 0.55 }, "label": "Runner (almost at 3rd)" },
+          { "id": "batter", "position": { "x": 0.6, "y": 0.75 }, "label": "You (running)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "they-throw-first",
+          "text": "They'll throw to first to get me out -- but the runner reaches third. That's the sacrifice!",
+          "nextNode": "outcome-sacrifice-great"
+        },
+        {
+          "id": "they-throw-third",
+          "text": "They might throw to third to get the lead runner!",
+          "nextNode": "outcome-throw-third"
+        },
+        {
+          "id": "they-hold",
+          "text": "Maybe they just hold the ball since they can't get anyone.",
+          "nextNode": "outcome-everyone-safe"
+        }
+      ]
+    },
+    "outcome-sacrifice-great": {
+      "type": "outcome",
+      "narration": "Exactly right! The third baseman throws to first base and you're out. But your teammate slides safely into third base! Now there's a runner on third with just one out. Your next teammate can score the winning run with a simple fly ball, a ground ball, a wild pitch, a passed ball, or even a squeeze play. You gave yourself up for the team -- that's what a sacrifice is all about!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Sacrifice! Runner on Third!",
+        "explanation": "A sacrifice bunt is one of the most selfless plays in baseball. You KNOW you're probably going to be out -- and that's okay! Here's the math: with a runner on SECOND and 0 outs, there are only a few ways to score them (a hit to the outfield, basically). But with a runner on THIRD and 1 out, there are TONS of ways to score: a fly ball to the outfield (tag up!), a ground ball to the right side, a wild pitch, a passed ball, a balk, a squeeze bunt, a sacrifice fly. You traded one out for a much better chance to score the winning run. That's smart baseball!",
+        "whatToRemember": "A sacrifice bunt moves the runner closer to home. You give up an out, but a runner on third with 1 out is WAY more dangerous than a runner on second with 0 outs. Selfless play wins games!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.35, "y": 0.72 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.35, "y": 0.72 },
+              "to": { "x": 0.35, "y": 0.7 },
+              "entity": "fielder",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.35, "y": 0.7 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.68, "y": 0.63 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-throw-third": {
+      "type": "outcome",
+      "narration": "The third baseman looks at third but the runner is already there -- they're safe! The third baseman decides not to risk a throw and just holds the ball. You're safe at first too! Everyone is safe! Your bunt was so good that the defense couldn't make a play on anyone!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.7 },
+        "highlight": ["1B", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe at 1st!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Bunt Single! Nobody Out!",
+        "explanation": "This is the dream scenario! Your bunt was placed so well that the third baseman couldn't make a play on anyone. The runner advanced to third AND you're on first. Zero outs. That's even better than the sacrifice because you didn't use up an out. This happens when the bunt is placed perfectly -- not too hard (so the third baseman can field it quickly), not too soft (so it doesn't stop before reaching the grass), and angled so the fielder has a long throw. A well-placed bunt is like an artist's brushstroke!",
+        "whatToRemember": "A great bunt puts the defense in an impossible position. Aim for the area between the pitcher and third baseman where nobody can make a quick play.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.35, "y": 0.72 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-everyone-safe": {
+      "type": "outcome",
+      "narration": "The defense freezes! The third baseman holds the ball, unsure where to throw. Your runner slides into third safely, and you reach first safely too! It's a great outcome -- you got the runner to third AND stayed on base. No outs used!",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.7 },
+        "highlight": ["1B", "3B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe at 1st!)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Everyone Safe! Bunt Beats the Defense!",
+        "explanation": "Good read! Sometimes a well-placed bunt paralyzes the defense. When the third baseman can't get the lead runner and the throw to first is too long, they have no choice but to hold it. This is why the sacrifice bunt is such a valuable tool -- even when the defense KNOWS it's coming, a well-executed bunt is really hard to defend. The key is placement: you want the ball to land in no-man's-land where neither the pitcher, catcher, nor third baseman can make a quick play.",
+        "whatToRemember": "A well-placed bunt can beat the defense even when they're expecting it. Aim for the area between fielders to create confusion.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.35, "y": 0.72 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-swing-okay": {
+      "type": "outcome",
+      "narration": "You decide to swing away! The pitcher delivers a fastball and you take a big hack... GROUND BALL to shortstop. The shortstop fields it, looks the runner back to second, and throws to first. You're out. The runner is still stuck on second base with one out now. The chance to move them to third was missed.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out at First. Runner Stuck.",
+        "explanation": "Swinging away isn't always wrong, but in this situation the bunt was the smarter play. Here's why: a ground ball to the LEFT side of the infield (shortstop or third base) actually HURTS the runner on second. The fielder can look the runner back before throwing to first. But a bunt down the THIRD base line forces the third baseman to come forward, which opens up third base for the runner. The sacrifice bunt is about controlling WHERE the ball goes and making the defense react to YOU instead of the other way around.",
+        "whatToRemember": "Ground balls to the left side can freeze the runner on second. A sacrifice bunt gives YOU control of where the ball goes, pulling the third baseman out of position.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.4, "y": 0.52 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.66, "y": 0.64 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bunt-hit-okay": {
+      "type": "outcome",
+      "narration": "You try to bunt for a hit -- pushing the ball harder toward the first base side. But you push it too hard! The first baseman fields it easily, throws to second to get the runner (wait, no force there), holds it, and tags you on the baseline. You're out, but the runner did advance to third on the commotion. Well... you kind of got the job done, but it wasn't pretty!",
+      "field": {
+        "ballPosition": { "x": 0.65, "y": 0.7 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out, But Runner Advances. Messy.",
+        "explanation": "Bunting for a hit is exciting, but it's riskier than a sacrifice bunt. With a sacrifice, you KNOW you're giving yourself up, so you focus 100% on placement -- putting the ball in the perfect spot. When you try to bunt for a hit, you're trying to bunt AND run at the same time, which means you often don't place the bunt as well. In a tie game with a runner in scoring position, the SMART play is to focus on the team goal (getting the runner to third) rather than the individual goal (getting on base yourself). The runner did advance, but a clean sacrifice bunt would have been more reliable.",
+        "whatToRemember": "In key sacrifice situations, focus on the BUNT, not the hit. Place the ball perfectly. A well-placed sacrifice bunt is more reliable than trying to be a hero.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.65, "y": 0.72 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.5, "y": 0.45 },
+              "to": { "x": 0.3, "y": 0.6 },
+              "entity": "runner2nd",
+              "duration": 800,
+              "parallel": true
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.65, "y": 0.72 },
+              "to": { "x": 0.68, "y": 0.68 },
+              "entity": "fielder",
+              "duration": 300
+            },
+            {
+              "type": "tag",
+              "from": { "x": 0.68, "y": 0.68 },
+              "to": { "x": 0.6, "y": 0.75 },
+              "entity": "fielder",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}
