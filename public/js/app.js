@@ -161,7 +161,7 @@ async function loadNextScenario() {
     return;
   }
 
-  playedScenarioIds.push(scenario.id);
+  playedScenarioIds.push(pick.id);  // Use filename-based id to match the list
   game.loadScenario(scenario);
 
   // Update scoreboard with setup
