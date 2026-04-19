@@ -328,7 +328,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex: 1;
-  overflow: hidden;
+  min-height: 0;
 }
 
 .game-left {
@@ -336,18 +336,22 @@ body {
   flex-direction: column;
   overflow-y: auto;
   border-right: 1px solid rgba(255,255,255,0.06);
+  min-height: 0;
 }
 
 .game-right {
   display: flex;
   flex-direction: column;
   background: #0d1117;
+  min-height: 0;
+  overflow: hidden;
 }
 
 #field-canvas {
-  flex: 1;
   width: 100%;
-  min-height: 0;
+  aspect-ratio: 650 / 500;
+  max-height: 55vh;
+  object-fit: contain;
 }
 
 .scoreboard-container {
