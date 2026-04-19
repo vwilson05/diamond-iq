@@ -111,9 +111,6 @@ async function startGame(tier) {
 
   // Initialize field canvas
   const canvas = document.getElementById('field-canvas');
-  const rightPane = document.querySelector('.game-right');
-  canvas.width = rightPane.clientWidth;
-  canvas.height = rightPane.clientHeight * 0.7;
   fieldCanvas = new FieldCanvas(canvas);
   fieldCanvas.drawField({
     primary: game.state.team.primary,
@@ -127,8 +124,6 @@ async function startGame(tier) {
   // Handle resize
   window.addEventListener('resize', () => {
     if (!fieldCanvas) return;
-    canvas.width = rightPane.clientWidth;
-    canvas.height = rightPane.clientHeight * 0.7;
     fieldCanvas.drawField({
       primary: game.state.team.primary,
       secondary: game.state.team.secondary,

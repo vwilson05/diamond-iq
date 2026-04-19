@@ -1,195 +1,154 @@
 {
   "id": "the-show-squeeze-play",
-  "title": "The Squeeze Play: Win or Lose Right Here",
+  "title": "Squeeze Play: Do or Die",
   "sport": ["baseball"],
   "tier": "the-show",
   "role": "offense",
-  "tags": ["squeeze", "bunting", "clutch", "game-winning", "advanced-strategy", "late-game"],
+  "tags": ["squeeze-play", "bunting", "clutch", "late-inning", "run-scoring", "strategy"],
   "setup": {
     "inning": 7,
     "topBottom": "bottom",
     "outs": 1,
     "score": { "home": 4, "away": 5 },
     "runners": { "first": false, "second": false, "third": true },
-    "count": { "balls": 1, "strikes": 1 }
+    "count": { "balls": 0, "strikes": 0 }
   },
   "nodes": {
     "root": {
       "type": "transition",
-      "narration": "Bottom of the last inning. Down by one. Runner on third with one out. The tying run is 90 feet away. The pitcher is rattled -- you can see the sweat on their forehead. Your coach calls timeout and jogs over. 'Listen carefully. We might squeeze here. Watch for the sign.' You nod. This is what you live for.",
+      "narration": "Bottom of the seventh -- the last inning in your league. You're down by one with a runner on third and one out. Your runner on third is your team captain -- he's smart, reads pitchers well, and he's got decent speed. You're at the plate with a .260 average. Not a slugger, not a strikeout machine. The infield is playing at normal depth. Your coach is about to give you a sign. This run TIES the game. How do you want to bring it home?",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.62 },
         "highlight": ["Home", "3B"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (3rd)" }
         ]
       },
       "next": "decision-1",
-      "delay": 2500
+      "delay": 3000
     },
     "decision-1": {
       "type": "decision",
-      "narration": "1-1 count, runner on third, 1 out, down by 1 in the last inning. Your coach is about to put on a play. What should it be?",
+      "narration": "Your coach calls time and jogs over. 'What do you think? Suicide squeeze, safety squeeze, or do you want to swing away?' He's actually asking YOUR opinion here. This is a massive moment -- the wrong call ends the game. The right one ties it up. The pitcher throws hard but he's been wild today -- two walks this inning. The third baseman is playing back. What's your call?",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.62 },
         "highlight": ["Home", "3B"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (3rd)" }
         ]
       },
       "choices": [
         {
           "id": "suicide-squeeze",
-          "text": "Suicide squeeze! The runner breaks for home when the pitcher starts their motion. I HAVE to bunt it!",
+          "text": "Suicide squeeze! The runner breaks on the pitch and I bunt it on the ground. High risk, high reward -- if I get it down, the run scores for sure!",
           "nextNode": "transition-suicide-pitch"
         },
         {
           "id": "safety-squeeze",
-          "text": "Safety squeeze! I'll try to bunt, but the runner waits to see if I get it down before running.",
+          "text": "Safety squeeze. I'll bunt, but the runner waits to see if I get it down before he commits. Safer for both of us.",
           "nextNode": "transition-safety-pitch"
         },
         {
           "id": "swing-away",
-          "text": "Swing away! I'm a good hitter -- I'll drive the runner in with a hit!",
-          "nextNode": "outcome-swing-good"
+          "text": "Swing away! I want to hit a sac fly or drive the ball. A bunt is too risky with the game on the line.",
+          "nextNode": "transition-swing-pitch"
         }
       ]
     },
     "transition-suicide-pitch": {
       "type": "transition",
-      "narration": "The coach puts on the SUICIDE squeeze! This is the most exciting play in baseball. Here's how it works: the runner on third will sprint toward home the INSTANT the pitcher starts their motion. There's no going back. You MUST get the bunt down -- if you miss, the runner is dead meat at the plate. The pitcher comes set... checks the runner... and delivers!",
+      "narration": "Suicide squeeze is ON! Your runner knows the sign. On this pitch, he's breaking for home the instant the pitcher commits to the plate. Everything -- EVERYTHING -- depends on you getting the bunt down on the ground. The pitcher comes set, starts his delivery, and your runner GOES! The pitch is coming in high and tight -- up near your hands! This is NOT a good pitch to bunt!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.72 },
+        "ballPosition": { "x": 0.48, "y": 0.75 },
         "highlight": ["Home", "3B"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (GOING!)" }
+          { "id": "runner3rd", "position": { "x": 0.4, "y": 0.72 }, "label": "Runner (GOING!)" }
         ]
       },
-      "next": "decision-2-suicide",
+      "next": "decision-suicide",
       "delay": 2000
     },
-    "transition-safety-pitch": {
-      "type": "transition",
-      "narration": "The coach puts on the safety squeeze. Your runner on third takes their normal lead and watches you. You're going to try to bunt, and the runner will only go home IF you get the bunt down in a good spot. Less risky than the suicide squeeze, but the runner gets a later jump. The pitcher delivers...",
-      "field": {
-        "ballPosition": { "x": 0.5, "y": 0.72 },
-        "highlight": ["Home", "3B"],
-        "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (watching)" }
-        ]
-      },
-      "next": "decision-2-safety",
-      "delay": 2000
-    },
-    "decision-2-suicide": {
+    "decision-suicide": {
       "type": "decision",
-      "narration": "The pitch is coming and the runner is ALREADY sprinting home! The pitch is high -- up near your shoulders! This is the scariest moment in baseball. What do you do?",
+      "narration": "The pitch is high and inside -- tough to bunt! But your runner is already committed, sprinting home. He can't stop. He's a dead duck if you don't bunt this ball. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.78 },
+        "ballPosition": { "x": 0.48, "y": 0.82 },
         "highlight": ["Home"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.4, "y": 0.72 }, "label": "Runner (sprinting home!)" }
+          { "id": "runner3rd", "position": { "x": 0.42, "y": 0.78 }, "label": "Runner (committed!)" }
         ]
       },
       "choices": [
         {
-          "id": "bunt-high-pitch",
-          "text": "Bunt it anyway! Even though it's high, I have to get it down! The runner is coming!",
-          "nextNode": "outcome-suicide-great"
+          "id": "bunt-anyway",
+          "text": "Get the bunt down no matter what! Even a bad bunt is better than no bunt -- the runner is dead if I pull back!",
+          "nextNode": "outcome-suicide-bunt-great"
         },
         {
           "id": "pull-back",
-          "text": "It's too high! Pull the bat back and let the runner get thrown out.",
+          "text": "That pitch is too high to bunt -- I have to pull back and protect myself.",
           "nextNode": "outcome-suicide-pullback-bad"
         },
         {
-          "id": "swing-at-it",
-          "text": "Forget the bunt -- swing at the high pitch and try to hit it!",
+          "id": "swing-hit",
+          "text": "Forget the bunt -- I'm going to swing at it and try to drive the runner in!",
           "nextNode": "outcome-suicide-swing-bad"
         }
       ]
     },
-    "decision-2-safety": {
-      "type": "decision",
-      "narration": "The pitch is a fastball on the outside half. You square around to bunt. Where do you try to place it?",
-      "field": {
-        "ballPosition": { "x": 0.53, "y": 0.82 },
-        "highlight": ["Home", "1B", "3B"],
-        "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (watching)" }
-        ]
-      },
-      "choices": [
-        {
-          "id": "bunt-third-line",
-          "text": "Bunt it down the third base line! Make the third baseman field it far from home!",
-          "nextNode": "outcome-safety-third-great"
-        },
-        {
-          "id": "bunt-first-line",
-          "text": "Bunt it toward first base! The first baseman is playing back!",
-          "nextNode": "outcome-safety-first-good"
-        },
-        {
-          "id": "bunt-back-pitcher",
-          "text": "Bunt it right back at the pitcher. Hard enough that it's not a pop-up.",
-          "nextNode": "outcome-safety-pitcher-bad"
-        }
-      ]
-    },
-    "outcome-suicide-great": {
+    "outcome-suicide-bunt-great": {
       "type": "outcome",
-      "narration": "You reach up and get the bat on the high pitch! It's not a pretty bunt -- the ball dribbles slowly up the first base line. But it doesn't matter! The runner is already crossing the plate! The pitcher charges off the mound, bare-hands the ball, and throws to first. You're OUT, but the runner SCORES! TIE GAME! The crowd goes absolutely BERSERK! Two outs now, but who cares -- the game is TIED!",
+      "narration": "You stab the bat up at the high pitch and manage to deaden it! The bunt isn't pretty -- it dribbles toward the pitcher -- but the ball is ON THE GROUND and that's all that matters! The pitcher has to stop, field the ball, and by the time he picks it up and looks home, your runner is SLIDING across the plate! TIE GAME! The pitcher throws to first and gets you out, but who cares -- THE RUN SCORED! Your whole dugout erupts! You sacrificed yourself to tie the game, and that's exactly what heroes do!",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.72 },
+        "ballPosition": { "x": 0.5, "y": 0.72 },
         "highlight": ["Home"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" }
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "SCORES!" }
         ]
       },
       "outcome": {
         "result": "great",
-        "headline": "TIE GAME! Suicide Squeeze Works!",
-        "explanation": "The suicide squeeze is called 'suicide' because if you DON'T get the bunt down, the runner is dead. But you DID get it down, even on a tough pitch! Here's why this play is so effective: 1) The runner gets a HUGE jump because they go on the pitcher's first movement -- there's no waiting. 2) Even a bad bunt works because the runner is already so close to home. 3) The defense can only get one out -- they have to choose between throwing you out at first or trying to tag the runner at home. Since the runner is already there, they can only get you. You sacrificed yourself to tie the game. That's a HERO play!",
-        "whatToRemember": "On the suicide squeeze, get the bunt down NO MATTER WHAT. It doesn't have to be pretty -- even a weak dribbler works because the runner has such a huge head start. The bunt is more important than your at-bat.",
+        "headline": "SQUEEZE SCORES THE RUN! TIE GAME!",
+        "explanation": "This is the art of the suicide squeeze: once the runner commits, your ONLY job is to get the bunt on the ground. It doesn't have to be a good bunt. It doesn't have to be pretty. It just needs to hit the dirt. Here's the math: from third base, a runner at full sprint reaches home plate in about 3.3 seconds. The pitcher has to field the bunt, set his feet, and throw. That takes at LEAST 2-3 seconds on a ball hit near the mound. Even a terrible bunt that rolls right back to the pitcher usually scores the run because the runner had such a huge head start. The suicide squeeze is baseball's most exciting play because when you commit, there's no turning back. You committed, and you delivered.",
+        "whatToRemember": "On a suicide squeeze, get the bunt down NO MATTER WHAT. Ugly bunt? Fine. Dribbler to the pitcher? Fine. The runner is coming and the ball must hit the ground. Any bunt on the ground scores the run.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
               "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.84 },
+              "to": { "x": 0.48, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": { "x": 0.32, "y": 0.58 },
+              "to": { "x": 0.42, "y": 0.72 },
               "entity": "runner3rd",
-              "duration": 800,
+              "duration": 500,
               "parallel": true
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.84 },
-              "to": { "x": 0.6, "y": 0.75 },
+              "from": { "x": 0.48, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.72 },
               "entity": "ball",
               "duration": 300
             },
             {
-              "type": "catch",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.55, "y": 0.7 },
-              "entity": "fielder",
-              "duration": 500
+              "type": "run",
+              "from": { "x": 0.42, "y": 0.72 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 600
             },
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.7 },
+              "from": { "x": 0.5, "y": 0.68 },
               "to": { "x": 0.7, "y": 0.6 },
               "entity": "ball",
-              "duration": 500
+              "duration": 400
             }
           ]
         },
@@ -198,41 +157,41 @@
     },
     "outcome-suicide-pullback-bad": {
       "type": "outcome",
-      "narration": "You pull the bat back. The high pitch goes into the catcher's mitt for a ball... but your runner is ALREADY RUNNING! The catcher catches the ball, looks up, and sees the runner barreling toward them. Easy tag. OUT! Your runner never had a chance because you didn't bunt. The tying run is erased. Two outs, nobody on. The air comes out of the stadium.",
+      "narration": "You pull back the bat -- it IS a ball, high and inside. But LOOK AT THIRD BASE! Your runner is halfway home! He's COMMITTED! The catcher catches the ball and your runner is hung out to dry in no-man's land. The catcher takes two steps and tags him easily. He's OUT. Your runner just stares at you as he walks back to the dugout. The tying run was just erased because you didn't hold up your end of the deal. Two outs now. The go-ahead run was right there, 90 feet away, and now he's sitting on the bench.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "ballPosition": { "x": 0.48, "y": 0.9 },
         "highlight": ["Home"],
         "runners": []
       },
       "outcome": {
         "result": "bad",
-        "headline": "Runner Tagged Out! Squeeze Failed!",
-        "explanation": "This is the worst possible outcome of a suicide squeeze -- and it happened because you didn't bunt. On a SUICIDE squeeze, the word 'suicide' means the runner is COMMITTED. They're going home no matter what. If you don't bunt, the catcher has the ball and the runner is running right into a tag. It's an automatic out. That's why the suicide squeeze requires total commitment from the batter too. You MUST get the bat on the ball. Even a terrible bunt that goes straight to the pitcher is better than not bunting at all, because at least the pitcher has to field it, which takes time.",
-        "whatToRemember": "On a suicide squeeze, NEVER pull back the bat. The runner is committed -- if you don't bunt, they're out automatically. Get the bat on the ball no matter how bad the pitch is!",
+        "headline": "Runner Tagged Out! You Abandoned the Play!",
+        "explanation": "This is the nightmare scenario of the suicide squeeze, and it happened because you didn't understand the most important word in 'suicide squeeze': SUICIDE. The runner committed his entire existence on this play to YOU. He left third base the moment the pitcher started his delivery. He CANNOT go back. He is running no matter what. When you don't bunt, the catcher catches the ball and tags your runner out standing up. It's not even close. Here's the iron law: on a suicide squeeze, you bunt. Period. Even if the pitch is at your head, you try to get the bat on it. Even a foul bunt gives the runner a chance to retreat. Pulling back completely leaves him with zero chance.",
+        "whatToRemember": "NEVER pull back on a suicide squeeze. The runner is committed. If you don't bunt, he's dead. Even a foul ball is better than pulling back. The word 'suicide' means total commitment from both players.",
         "iqPoints": 1,
         "animation": {
           "steps": [
             {
               "type": "throw",
               "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.48, "y": 0.9 },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.48, "y": 0.83 },
+              "from": { "x": 0.32, "y": 0.58 },
+              "to": { "x": 0.45, "y": 0.78 },
               "entity": "runner3rd",
-              "duration": 800,
+              "duration": 700,
               "parallel": true
             },
             {
               "type": "tag",
               "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.48, "y": 0.85 },
+              "to": { "x": 0.45, "y": 0.78 },
               "entity": "fielder",
-              "duration": 300
+              "duration": 400
             }
           ]
         },
@@ -241,106 +200,143 @@
     },
     "outcome-suicide-swing-bad": {
       "type": "outcome",
-      "narration": "You swing at the high pitch and -- POPUP! The ball goes straight up in the air! The catcher catches the popup easily for out number two. Your runner, who was sprinting home, has to slam on the brakes. But they were already past the point of no return -- the catcher fires to third and the runner is doubled off! DOUBLE PLAY! GAME OVER!",
+      "narration": "You swing at the high inside pitch and foul it straight back into the screen. Strike one. Your runner -- who was sprinting home -- has to slam on the brakes. He tries to scramble back to third but the foul ball saved him. He gets back safely, but barely. Your coach is NOT happy. The sign was bunt, not swing. You got lucky with the foul -- if you had missed entirely, the catcher guns the runner. If you hit a line drive, your runner could have been doubled off. The squeeze play requires a BUNT, not a swing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
-        "runners": []
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (back to 3rd)" }
+        ]
       },
       "outcome": {
         "result": "bad",
-        "headline": "Double Play! Game Over! Popup Kills the Rally!",
-        "explanation": "Swinging instead of bunting on a squeeze is a DISASTER. Here's what went wrong: 1) A full swing on a high pitch often produces popups. 2) A popup is an easy out. 3) Your runner was running on the pitch (suicide squeeze), so they were far from third base. 4) After the popup catch, the runner has to get back to third (tag-up rule), but they can't because they're too far away. Double play, game over. The squeeze play is a BUNT play. That's the whole point. Even if you make solid contact on a swing, you might line out or ground into a double play. The bunt keeps the ball on the ground and gives the runner the best chance.",
-        "whatToRemember": "On a squeeze play, BUNT. Never swing. A full swing can result in a popup (easy double play), a line drive (easy catch), or a grounder right at someone. The bunt keeps the ball on the ground where the defense has the hardest time making a play.",
+        "headline": "Wrong Play! Squeeze Means BUNT!",
+        "explanation": "You got bailed out by the foul ball, but this was a dangerous mistake. On a squeeze play, swinging is the wrong action for multiple reasons: 1) If you swing and miss, the catcher has the ball and your runner is toast. At least with a bunt attempt and miss, your bat angle might interfere with the catcher. 2) If you hit a line drive, the fielder catches it and your runner -- who left early -- gets doubled off third base. That's a double play and the inning is over. 3) If you hit a ground ball, the infielder might turn two because the runner is going on contact anyway. The bunt is called for a reason: a ball on the ground close to home plate gives the defense the LEAST time to react. A swing introduces too many bad outcomes.",
+        "whatToRemember": "Squeeze play = bunt. Always. Swinging on a squeeze is dangerous: line drives become double plays, swings-and-misses expose the runner, and ground balls to infielders can turn two. The bunt keeps the ball close to home where the defense has the least time.",
         "iqPoints": 1,
         "animation": {
           "steps": [
             {
               "type": "throw",
               "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.84 },
+              "to": { "x": 0.48, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.84 },
-              "to": { "x": 0.5, "y": 0.86 },
-              "entity": "ball",
-              "duration": 600
+              "type": "run",
+              "from": { "x": 0.32, "y": 0.58 },
+              "to": { "x": 0.42, "y": 0.72 },
+              "entity": "runner3rd",
+              "duration": 600,
+              "parallel": true
             },
             {
-              "type": "catch",
-              "from": { "x": 0.5, "y": 0.86 },
-              "to": { "x": 0.5, "y": 0.88 },
-              "entity": "ball",
-              "duration": 400
-            },
-            {
-              "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.3, "y": 0.6 },
-              "entity": "ball",
-              "duration": 500
+              "type": "run",
+              "from": { "x": 0.42, "y": 0.72 },
+              "to": { "x": 0.32, "y": 0.58 },
+              "entity": "runner3rd",
+              "duration": 800
             }
           ]
         },
         "next": "end"
       }
     },
-    "outcome-safety-third-great": {
-      "type": "outcome",
-      "narration": "You angle the bat and deaden the ball perfectly down the third base line! It rolls about 15 feet and stops on the grass. The third baseman charges in, but they're SO far from home plate now! Your runner sees the bunt hit the ground and takes off! The third baseman fields it and has to make a choice -- throw home or throw to first? They hesitate... and throw to first. You're OUT, but the RUNNER SCORES! TIE GAME!",
+    "transition-safety-pitch": {
+      "type": "transition",
+      "narration": "Safety squeeze it is! The runner knows the deal: he stays close to third base and only breaks for home AFTER you get the bunt down on the ground. If you miss, he stays put. If you pop it up, he stays put. Only a bunt on the dirt triggers the run. The pitcher checks the runner and delivers -- it's a fastball, middle of the plate, belt-high. That's a GREAT pitch to bunt!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "ballPosition": { "x": 0.5, "y": 0.75 },
+        "highlight": ["Home", "3B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (waiting)" }
+        ]
+      },
+      "next": "decision-safety",
+      "delay": 2000
+    },
+    "decision-safety": {
+      "type": "decision",
+      "narration": "The pitch is right down the middle -- perfect to bunt! Your runner is watching from third, ready to sprint home if you get it down. Where do you try to place the bunt?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.82 },
         "highlight": ["Home"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" }
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (reading bunt)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "bunt-third-base-line",
+          "text": "Bunt it down the third-base line! The third baseman is playing back -- he'll have a long throw!",
+          "nextNode": "outcome-safety-third-great"
+        },
+        {
+          "id": "bunt-first-base-line",
+          "text": "Bunt it toward first base! Push it past the pitcher on the right side.",
+          "nextNode": "outcome-safety-first-good"
+        },
+        {
+          "id": "bunt-back-pitcher",
+          "text": "Just deaden it -- I don't care where it goes, I just want it on the ground.",
+          "nextNode": "outcome-safety-dead-okay"
+        }
+      ]
+    },
+    "outcome-safety-third-great": {
+      "type": "outcome",
+      "narration": "You angle the bat perfectly and the bunt rolls down the third-base line like it's on a rail! The third baseman was playing BACK -- he charges in, but by the time he bare-hands the ball, your runner is already rounding the line and heading home! The third baseman has to make a long, off-balance throw... he throws to first to get YOU out, because the play at home is too late! RUN SCORES! TIE GAME! Sac bunt, one out, but who cares -- you moved from down one to TIED with a perfectly placed safety squeeze!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["Home", "1B"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "SCORES!" }
         ]
       },
       "outcome": {
         "result": "great",
-        "headline": "TIE GAME! Safety Squeeze Perfection!",
-        "explanation": "The third base line bunt is ideal for the safety squeeze because of geometry! When the third baseman charges forward to field the bunt, they move AWAY from third base and AWAY from home plate. Now they have a long throw to either base. Meanwhile, the runner was waiting at third to make sure you got the bunt down (that's the 'safety' part) and THEN they sprinted home. The third baseman chose to throw to first because the runner at home was too close to get -- which means you sacrificed yourself for the tying run. Beautiful execution!",
-        "whatToRemember": "On a safety squeeze, bunt toward third base! It pulls the third baseman away from the runner and creates a long throw home. The runner only goes once the bunt is on the ground -- that's what makes it 'safe.'",
+        "headline": "Safety Squeeze Perfection! Run Scores!",
+        "explanation": "Beautiful execution! Here's why the third-base line was the perfect target: 1) The third baseman was playing BACK at normal depth, so he had to charge a long way to field the bunt. 2) Once he commits forward to field the ball, there's nobody covering third and the throw home is long and off-balance. 3) He's forced to take the out at first instead of trying to get the runner -- it's the safer play for the defense, and that's GREAT for you because the run scores! The safety squeeze gave your runner the best of both worlds: he could read the bunt before committing, and your placement made it impossible for the defense to get the run.",
+        "whatToRemember": "On a safety squeeze, bunt toward the third-base line when the third baseman is playing back. He has the longest distance to charge and the hardest throw. The run almost always scores.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.37, "y": 0.72 },
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.35, "y": 0.72 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
+              "from": { "x": 0.32, "y": 0.58 },
               "to": { "x": 0.5, "y": 0.85 },
               "entity": "runner3rd",
-              "duration": 1000,
+              "duration": 1000
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.35, "y": 0.72 },
+              "entity": "fielder",
+              "duration": 700,
               "parallel": true
             },
             {
-              "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.37, "y": 0.7 },
-              "entity": "fielder",
-              "duration": 600
-            },
-            {
-              "type": "catch",
-              "from": { "x": 0.37, "y": 0.72 },
-              "to": { "x": 0.37, "y": 0.7 },
-              "entity": "ball",
-              "duration": 200
-            },
-            {
               "type": "throw",
-              "from": { "x": 0.37, "y": 0.7 },
+              "from": { "x": 0.35, "y": 0.72 },
               "to": { "x": 0.7, "y": 0.6 },
               "entity": "ball",
-              "duration": 600
+              "duration": 500
             }
           ]
         },
@@ -349,98 +345,54 @@
     },
     "outcome-safety-first-good": {
       "type": "outcome",
-      "narration": "You push the bunt toward first base. The first baseman charges in and fields it. Your runner sees the bunt and takes off for home. The first baseman turns and throws home -- it's going to be CLOSE! The runner slides... the catcher applies the tag... SAFE! TIE GAME! It worked, but just barely -- the throw almost got there!",
+      "narration": "You push the bunt toward the first-base side! It rolls past the pitcher and the first baseman has to come in to field it. Your runner sees the bunt hit the ground and TAKES OFF for home! The first baseman fields the ball, looks home -- the runner is close! He decides to eat the ball and take the out at first instead... wait, nobody's covering first! The pitcher runs over to cover, the first baseman flips to him, and you're out. But the RUN SCORES! Tie game! It worked, but it wasn't clean -- if the first baseman had gone home instead, it would've been a bang-bang play.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["Home", "1B"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SAFE!)" }
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "SCORES!" }
         ]
       },
       "outcome": {
         "result": "good",
-        "headline": "SAFE at Home! Close Call!",
-        "explanation": "It worked! But bunting toward first base on a safety squeeze is riskier than bunting toward third. Here's why: the first baseman fields the ball while FACING home plate. They can see the runner coming and make a quick throw. The third baseman, if they field it, has to turn their body around before throwing home -- that costs precious time. Also, the first baseman is generally closer to the plate than the third baseman charging in. It worked this time because your runner is fast, but the ideal squeeze bunt goes toward the third base side to maximize the runner's advantage.",
-        "whatToRemember": "On a squeeze, bunt toward third base when possible. The third baseman has a longer throw home and has to turn their body, giving the runner more time. First base bunts are riskier because the first baseman faces home.",
+        "headline": "Run Scores! But First-Base Side Was Risky.",
+        "explanation": "The run scored, so this is a success! But bunting to the first-base side on a safety squeeze is riskier than the third-base side. Here's why: the first baseman is typically playing CLOSER to home plate than the third baseman in a bunt situation, so he gets to the ball faster. Also, his throw home is shorter and on a straight line. If the first baseman had been more aggressive, he might have thrown home and nailed your runner. The third-base line is almost always the better target on a squeeze because: the third baseman plays deeper, his charge to the ball is longer, and his throw home is at a bad angle. You got the job done, but the third-base side would have been a higher-percentage play.",
+        "whatToRemember": "On a squeeze bunt, the third-base line is usually safer than the first-base line. The third baseman plays deeper, charges farther, and has a harder throw home. First-base side can work but it's a coin flip.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.62, "y": 0.72 },
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.62, "y": 0.72 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
+              "from": { "x": 0.32, "y": 0.58 },
               "to": { "x": 0.5, "y": 0.85 },
               "entity": "runner3rd",
               "duration": 1000,
               "parallel": true
             },
             {
-              "type": "catch",
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.62, "y": 0.72 },
+              "entity": "fielder",
+              "duration": 600
+            },
+            {
+              "type": "throw",
               "from": { "x": 0.62, "y": 0.72 },
-              "to": { "x": 0.64, "y": 0.7 },
-              "entity": "fielder",
-              "duration": 400
-            },
-            {
-              "type": "throw",
-              "from": { "x": 0.64, "y": 0.7 },
-              "to": { "x": 0.5, "y": 0.88 },
-              "entity": "ball",
-              "duration": 500
-            },
-            {
-              "type": "slide",
-              "from": { "x": 0.48, "y": 0.82 },
-              "to": { "x": 0.5, "y": 0.85 },
-              "entity": "runner3rd",
-              "duration": 300
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-safety-pitcher-bad": {
-      "type": "outcome",
-      "narration": "You bunt it right back at the pitcher! They field it easily, just 10 feet from home plate. The runner on third sees the bunt go straight to the pitcher and FREEZES -- they can't go home because the pitcher is RIGHT THERE! The pitcher looks at the runner, freezes them, then throws to first. You're out. Runner is still on third. Two outs now. The squeeze failed because the bunt went to the worst possible place.",
-      "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
-        "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still on 3rd)" }
-        ]
-      },
-      "outcome": {
-        "result": "bad",
-        "headline": "Squeeze Failed! Bunt to the Pitcher!",
-        "explanation": "The pitcher is the WORST person to bunt to on a squeeze play! Why? Because they're standing 60 feet from home plate with a clear view of the runner. They can field the ball, check the runner, and throw to first easily. The runner on third can't go home because the pitcher would just tag them or throw them out. The whole point of a squeeze bunt is to put the ball in a spot where the fielder has to choose between throwing you out OR getting the runner. The pitcher doesn't have to choose -- they can do BOTH because they're so close to home. Always bunt to the CORNERS (first base line or third base line), not back to the middle.",
-        "whatToRemember": "NEVER bunt back to the pitcher on a squeeze play! Bunt to the corners -- down the first or third base line -- where the fielder has a long throw and has to make a tough choice.",
-        "iqPoints": 1,
-        "animation": {
-          "steps": [
-            {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.7 },
-              "entity": "ball",
-              "duration": 300
-            },
-            {
-              "type": "catch",
-              "from": { "x": 0.5, "y": 0.7 },
-              "to": { "x": 0.5, "y": 0.65 },
-              "entity": "fielder",
-              "duration": 300
-            },
-            {
-              "type": "throw",
-              "from": { "x": 0.5, "y": 0.65 },
               "to": { "x": 0.7, "y": 0.6 },
               "entity": "ball",
               "duration": 400
@@ -450,45 +402,198 @@
         "next": "end"
       }
     },
-    "outcome-swing-good": {
+    "outcome-safety-dead-okay": {
       "type": "outcome",
-      "narration": "You swing away. The pitcher delivers a fastball low and you pound it on the ground to shortstop. The shortstop fields it and looks the runner back to third -- the runner can't go. Throw to first. You're out. Runner still on third with two outs. You've still got a chance, but only one more at-bat to work with. A squeeze might have been the safer play to guarantee the tying run.",
+      "narration": "You deaden the ball right in front of home plate -- it dies about five feet in front of the catcher. The catcher pounces on it immediately. Your runner was reading the bunt and started home, but he sees the catcher pick it up RIGHT THERE and stops! He's stuck! He retreats back to third just barely in time. The catcher fires to first to get you out. Two outs now, runner still on third. You burned an out and the runner didn't score. Not a disaster, but the bunt was too soft and too close to the catcher.",
       "field": {
         "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "highlight": ["1B", "3B"],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (still 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Runner Held. Bunt Too Soft.",
+        "explanation": "On a safety squeeze, placement matters more than anything. You got the bunt down -- that's good! But it died right in front of the catcher, which is the WORST place it could go. The catcher barely had to move. He grabbed it instantly and the runner -- smartly using the 'safety' part of the safety squeeze -- saw that the catcher had the ball and stopped. At least he didn't get thrown out! The lesson: on a squeeze bunt, you need to push the ball AWAY from the catcher. Down the third-base line or past the pitcher toward first. The goal is to make a fielder run toward the ball, giving your runner time to score. A bunt that stays near home plate defeats the entire purpose.",
+        "whatToRemember": "On a squeeze, push the bunt AWAY from the catcher. A bunt that dies at the catcher's feet is the worst outcome. Aim down a baseline to force a fielder to charge the ball and make a long throw.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "ball",
+              "duration": 200
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.32, "y": 0.58 },
+              "to": { "x": 0.38, "y": 0.65 },
+              "entity": "runner3rd",
+              "duration": 500,
+              "parallel": true
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.38, "y": 0.65 },
+              "to": { "x": 0.32, "y": 0.58 },
+              "entity": "runner3rd",
+              "duration": 500
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "transition-swing-pitch": {
+      "type": "transition",
+      "narration": "You decide to swing away! Your coach nods -- he trusts your bat. The pitcher delivers... it's a fastball, up in the zone but hittable. You take a hack!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.78 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.32, "y": 0.58 }, "label": "Runner (3rd)" }
+        ]
+      },
+      "next": "decision-swing-result",
+      "delay": 1500
+    },
+    "decision-swing-result": {
+      "type": "decision",
+      "narration": "You swing! The ball is hit in the air to medium-depth center field. The center fielder settles under it. Your runner is tagging up at third base. The catch is made -- that's two outs now. Does your runner tag and go for home?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.3 },
+        "highlight": ["CF", "Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (tagging)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "tag-and-go",
+          "text": "Go! Tag up and run! The center fielder has a long throw -- we can make it!",
+          "nextNode": "outcome-sac-fly-good"
+        },
+        {
+          "id": "hold-runner",
+          "text": "Hold! It's too shallow -- the throw will beat him. Don't risk the last out.",
+          "nextNode": "outcome-hold-okay"
+        }
+      ]
+    },
+    "outcome-sac-fly-good": {
+      "type": "outcome",
+      "narration": "Your runner tags up and races home! The center fielder catches the ball and unleashes a throw toward the plate. It's going to be close... your runner slides... SAFE! TIE GAME! The throw was slightly up the third-base line and the catcher couldn't get the tag down in time! What a play! But look -- you're at two outs now with nobody on base. You tied the game, but a squeeze bunt might have done the same thing with only one out, giving your team more chances to take the lead.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "SCORES!" }
         ]
       },
       "outcome": {
         "result": "good",
-        "headline": "Groundout. Runner Held. Two Outs.",
-        "explanation": "Swinging away isn't wrong here -- you could have driven the runner in with a hit! But a ground ball to the left side of the infield is the WORST result when there's a runner on third with less than two outs. The shortstop and third baseman can see the runner and hold them. Here's the thing about the squeeze play: it virtually GUARANTEES the runner scores. A ground ball to the left side has maybe a 30% chance of scoring the runner. A fly ball might work (sacrifice fly), but a ground ball to the left side almost never does. The squeeze removes that risk by keeping the ball on the ground on the RIGHT side of the field, away from the fielders who can check the runner.",
-        "whatToRemember": "With a runner on third and less than 2 outs in a tie game, the squeeze is often the highest-percentage play. Swinging away risks a ground ball to the left side, which almost never scores the runner from third.",
+        "headline": "Sac Fly Ties It! But Two Outs Now.",
+        "explanation": "The sac fly worked! Your runner scored and the game is tied. But let's look at the bigger picture: swinging away used two outs to score one run (the fly ball out + you're done). A successful squeeze bunt would have scored that same run using only ONE out, leaving more batters to potentially take the lead. In a tie game with one out, the squeeze play is statistically better because: 1) A good bunt scores the run almost 100% of the time. 2) It only costs one out instead of potentially two. 3) You still have runners coming up to bat. Swinging away has more upside (home run, extra-base hit) but also more downside (strikeout, pop-up, line drive double play). The squeeze is the higher-percentage play with runner on third and less than two outs.",
+        "whatToRemember": "Swinging away with a runner on third can work (sac flies!), but a squeeze bunt is usually the higher-percentage play because it uses fewer outs to score the same run. Think efficiency, not power.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.3 },
               "entity": "ball",
-              "duration": 500
+              "duration": 600
             },
             {
-              "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.25 },
               "entity": "ball",
-              "duration": 500
+              "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.66, "y": 0.64 },
-              "entity": "batter",
-              "duration": 900,
+              "from": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.85 },
+              "entity": "runner3rd",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.25 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 700,
               "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-hold-okay": {
+      "type": "outcome",
+      "narration": "Your runner holds at third. Smart -- the throw did come in pretty quickly and it might have been a close play. But now you've got two outs, runner on third, and the next batter has to get a hit to bring the run home. The pressure shifts to someone else. Your fly ball used up an out without scoring the run. If you had bunted instead, the run very likely would have scored with only one out used.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["3B", "Home"],
+        "runners": [
+          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (still 3rd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Fly Out. Runner Stuck. Pressure Mounts.",
+        "explanation": "You chose to swing away and hit a fly ball that was too shallow to score the runner. Now it's two outs with a runner on third -- the next batter absolutely MUST get a hit to score the tying run. Compare this to the squeeze: if you had bunted the ball down the third-base line, the run almost certainly scores, it's only one out, and your team still has more chances to take the lead. Swinging away with a runner on third and one out is a gamble. Sometimes it pays off (home run, deep fly ball, line drive hit). But sometimes you get a shallow fly ball, a strikeout, or a ground ball that doesn't score the run. The squeeze is the steady, reliable play -- and in a do-or-die situation, reliable is usually the smarter choice.",
+        "whatToRemember": "With a runner on third and less than two outs, a squeeze bunt is more reliable than swinging away. Fly balls might not be deep enough, and strikeouts score nobody. The bunt puts the ball in play and almost guarantees the run.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.5, "y": 0.35 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.35 },
+              "to": { "x": 0.5, "y": 0.3 },
+              "entity": "ball",
+              "duration": 300
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.62 },
+              "entity": "ball",
+              "duration": 500
             }
           ]
         },

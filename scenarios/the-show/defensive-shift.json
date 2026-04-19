@@ -1,219 +1,137 @@
 {
   "id": "the-show-defensive-shift",
-  "title": "Shifting the Defense: Positioning for the Pull Hitter",
-  "sport": ["baseball", "softball"],
+  "title": "The Defensive Shift: Positioning Chess",
+  "sport": ["baseball"],
   "tier": "the-show",
   "role": "defense",
-  "tags": ["shift", "positioning", "analytics", "pull-hitter", "advanced-defense", "strategy"],
+  "tags": ["defensive-shift", "positioning", "analytics", "lefty-hitter", "strategy", "advanced-defense"],
   "setup": {
-    "inning": 6,
+    "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 3, "away": 2 },
+    "score": { "home": 2, "away": 1 },
     "runners": { "first": true, "second": false, "third": false },
     "count": { "balls": 0, "strikes": 0 }
   },
   "nodes": {
     "root": {
       "type": "transition",
-      "narration": "Top of the 6th, your team leads by one. Runner on first, nobody out. The next batter is a strong lefty who pulls EVERYTHING. Your scouting report shows that 78% of their ground balls go to the right side of the infield. Your coach calls out to the infield: 'How do we want to play this one?' This is your call, captain.",
+      "narration": "You're the defensive coordinator calling the shots from the dugout. Top of the fourth, you're up by one with a runner on first and nobody out. Stepping into the box is their cleanup hitter -- a left-handed power bat who pulls EVERYTHING. Your scouting report says 78% of his batted balls go to the right side of the field. He's hit two ground balls to the right side already today. Your pitcher is going to throw him fastballs on the outer half. Time to set your defense.",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "1B", "3B"],
+        "highlight": ["1B", "2B", "SS", "3B"],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
         ]
       },
       "next": "decision-1",
-      "delay": 2500
+      "delay": 3000
     },
     "decision-1": {
       "type": "decision",
-      "narration": "This lefty pulls almost everything to the right side. 78% of their grounders go right. How do you set up the defense?",
+      "narration": "With a dead-pull lefty hitter at the plate, you need to decide your defensive alignment. Your infielders are looking to the dugout for direction. The data is clear: this guy hits it to the right side nearly 4 out of 5 times. But there's a runner on first -- that complicates things. What's your call?",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "1B", "3B"],
+        "highlight": ["1B", "2B", "SS", "3B"],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
         ]
       },
       "choices": [
         {
-          "id": "moderate-shift",
-          "text": "Shift the shortstop to the right side of second base, but keep the third baseman at third. Cover the pull AND protect against the bunt!",
-          "nextNode": "transition-ball-hit-moderate"
+          "id": "full-shift",
+          "text": "Full shift! Move the shortstop to the right side of second base, put three infielders on the right side. The data says he pulls everything -- play the percentages!",
+          "nextNode": "transition-full-shift"
         },
         {
-          "id": "full-shift",
-          "text": "Full shift! Move everyone to the right side. Three infielders on the right, third baseman plays short right field.",
-          "nextNode": "transition-ball-hit-full"
+          "id": "partial-shift",
+          "text": "Partial shift. Shade everyone a few steps toward the right side, but keep the shortstop on the left. Respect the data but don't leave the left side wide open.",
+          "nextNode": "transition-partial-shift"
         },
         {
           "id": "no-shift",
-          "text": "Play straight up. I don't trust the numbers -- stay in normal positions.",
-          "nextNode": "transition-ball-hit-normal"
+          "text": "Standard alignment. I don't want to get burned by a shift. If he goes the other way, we're toast. Play it straight.",
+          "nextNode": "transition-no-shift"
         }
       ]
     },
-    "transition-ball-hit-moderate": {
+    "transition-full-shift": {
       "type": "transition",
-      "narration": "Smart setup! Your shortstop moves to the right of second base, your second baseman shades toward first. The third baseman stays at third to prevent a bunt or a slap to the left side. You've got good coverage on the pull side AND you're not giving away the bunt. The pitcher delivers... the batter swings and RIPS a hard ground ball!",
+      "narration": "You put on the full shift! Your shortstop jogs over to the RIGHT side of second base. You now have three infielders between first and second base -- the first baseman near the line, the second baseman in the normal shortstop area, and the shortstop in the normal second baseman area. The third baseman slides over to where the shortstop usually plays. The left side of the infield is COMPLETELY open. Your pitcher delivers a fastball on the outer half... the hitter swings!",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B"],
+        "highlight": ["1B", "2B", "SS"],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
         ]
       },
-      "next": "decision-2-moderate",
-      "delay": 2000
+      "next": "decision-full-shift-result",
+      "delay": 2500
     },
-    "transition-ball-hit-full": {
-      "type": "transition",
-      "narration": "Full shift! You move the third baseman over to the right side of the infield. Now you've got three infielders on the right side of second base and the left side is WIDE OPEN. The batter notices the shift and starts thinking... The pitcher delivers and the batter chops a ground ball!",
-      "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
-        ]
-      },
-      "next": "decision-2-full",
-      "delay": 2000
-    },
-    "transition-ball-hit-normal": {
-      "type": "transition",
-      "narration": "You play everyone in their standard positions. The pitcher delivers and the batter does exactly what the scouting report said -- they pull a hard grounder to the right side!",
-      "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
-        ]
-      },
-      "next": "decision-2-normal",
-      "delay": 2000
-    },
-    "decision-2-moderate": {
+    "decision-full-shift-result": {
       "type": "decision",
-      "narration": "The batter pulls a hard grounder right at your shifted shortstop, who's now playing on the right side of second base! The ball is right at them!",
+      "narration": "The hitter swings and pulls a HARD ground ball toward the right side -- exactly where you predicted! The ball is rocketing between what would normally be the first and second baseman gap. But because of the shift, your second baseman (playing in the shortstop hole) is RIGHT THERE! He fields it cleanly! Now -- the runner from first was going on contact. What's the play?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.5 },
+        "ballPosition": { "x": 0.55, "y": 0.52 },
         "highlight": ["2B"],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.6, "y": 0.55 }, "label": "Runner" },
-          { "id": "batter", "position": { "x": 0.55, "y": 0.78 }, "label": "Batter" }
+          { "id": "runner1st", "position": { "x": 0.58, "y": 0.50 }, "label": "Runner (running)" }
         ]
       },
       "choices": [
         {
-          "id": "turn-dp-shift",
-          "text": "Field it and flip to second for the force! The second baseman covers the bag!",
-          "nextNode": "outcome-shift-dp-great"
+          "id": "turn-two",
+          "text": "Turn the double play! Flip to the shortstop covering second, then to first! The shift put fielders in perfect position!",
+          "nextNode": "outcome-full-shift-dp-great"
         },
         {
-          "id": "throw-first-shift",
-          "text": "Field it and throw to first! Get the sure out!",
-          "nextNode": "outcome-shift-first-okay"
-        },
-        {
-          "id": "tag-second-self",
-          "text": "I'm right next to second base -- step on it myself for the force!",
-          "nextNode": "outcome-shift-self-good"
+          "id": "go-to-first",
+          "text": "Just get the out at first. Don't risk the double play throw -- take the sure out.",
+          "nextNode": "outcome-full-shift-first-good"
         }
       ]
     },
-    "decision-2-full": {
-      "type": "decision",
-      "narration": "The batter sees the full shift and does something unexpected -- they push a BUNT down the THIRD base line! With no third baseman, the left side is completely empty! The ball is rolling slowly toward where the third baseman WOULD be!",
-      "field": {
-        "ballPosition": { "x": 0.3, "y": 0.68 },
-        "highlight": ["3B"],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.62, "y": 0.55 }, "label": "Runner (to 2nd)" },
-          { "id": "batter", "position": { "x": 0.55, "y": 0.78 }, "label": "Batter (running)" }
-        ]
-      },
-      "choices": [
-        {
-          "id": "pitcher-charge",
-          "text": "Pitcher has to charge over and field it! They're the closest!",
-          "nextNode": "outcome-full-shift-bunt-bad"
-        },
-        {
-          "id": "catcher-go",
-          "text": "Catcher sprints out from behind the plate to get it!",
-          "nextNode": "outcome-full-shift-catcher-bad"
-        },
-        {
-          "id": "accept-hit",
-          "text": "Nobody can get there. It's a hit. We gave that up by shifting fully.",
-          "nextNode": "outcome-full-shift-accept-okay"
-        }
-      ]
-    },
-    "decision-2-normal": {
-      "type": "decision",
-      "narration": "The grounder is pulled hard to the right side -- but it's in the gap between the first baseman and second baseman! In normal positioning, nobody can reach it!",
-      "field": {
-        "ballPosition": { "x": 0.65, "y": 0.52 },
-        "highlight": ["1B", "2B"],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.58, "y": 0.52 }, "label": "Runner" },
-          { "id": "batter", "position": { "x": 0.57, "y": 0.78 }, "label": "Batter" }
-        ]
-      },
-      "choices": [
-        {
-          "id": "second-baseman-dive",
-          "text": "Second baseman dives to their right! Try to make a great play!",
-          "nextNode": "outcome-no-shift-dive-okay"
-        },
-        {
-          "id": "first-baseman-backhand",
-          "text": "First baseman ranges to their left for the backhand!",
-          "nextNode": "outcome-no-shift-first-okay"
-        },
-        {
-          "id": "let-it-go",
-          "text": "It's through! Nobody can get it. Base hit to right field.",
-          "nextNode": "outcome-no-shift-hit-bad"
-        }
-      ]
-    },
-    "outcome-shift-dp-great": {
+    "outcome-full-shift-dp-great": {
       "type": "outcome",
-      "narration": "Your shifted shortstop fields the ball cleanly right at their position! They flip to the second baseman covering the bag -- FORCE OUT! The second baseman turns and fires to first -- DOUBLE PLAY! The shift put your shortstop in the PERFECT position for this ball! What would have been a base hit through the normal 3-4 hole is now a double play! Your coach pumps their fist. Data wins!",
+      "narration": "Your second baseman fires to the shortstop, who is covering second -- FORCE OUT on the runner! The shortstop pivots and throws to first -- DOUBLE PLAY! The shift turned what would have been a single into a rally-killing 4-6-3 double play! Two outs just like that! Your pitcher fist-pumps off the mound. The data told you where the ball was going, you positioned your fielders accordingly, and they made the play. That's analytics meeting execution!",
       "field": {
         "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "highlight": ["1B", "2B"],
         "runners": []
       },
       "outcome": {
         "result": "great",
-        "headline": "Double Play! The Shift Wins!",
-        "explanation": "THIS is why we shift! The scouting report said 78% of this batter's grounders go to the right side, and that's exactly what happened. By moving your shortstop to the right side of second base, you turned what would have been a base hit into a double play. The moderate shift was the best choice because: 1) It covered the pull side with extra fielders. 2) It kept the third baseman at third to prevent bunts. 3) It allowed for a natural double play because the shortstop was close to second base. The analytics gave you the information, and your positioning used it perfectly.",
-        "whatToRemember": "The moderate shift gives you the best of both worlds: extra coverage on the pull side AND protection against bunts on the open side. Trust the scouting data, but don't over-shift!",
+        "headline": "DOUBLE PLAY! The Shift Worked Perfectly!",
+        "explanation": "This is the defensive shift at its best. Let's break down why it worked: 1) The scouting data said this hitter pulls the ball 78% of the time. That's not a guess -- that's a PATTERN. 2) By putting three infielders on the right side, you tripled your coverage of the area where the ball was most likely to go. 3) The ball was hit HARD into what would normally be a gap for a hit. But because your fielder was shifted into that gap, he caught it cleanly. 4) The shift also put your fielders in perfect double-play position because they were already on the right side of the diamond. The defensive shift doesn't change what the hitter does -- it changes where your fielders ARE when the hitter does what he always does. You used the data, trusted the percentages, and it paid off.",
+        "whatToRemember": "The defensive shift works because most hitters have patterns. If the data says a hitter pulls the ball 78% of the time, put your fielders where the ball goes 78% of the time. You're trading the 22% chance of getting burned for a 78% chance of making an out.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.55, "y": 0.5 },
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
-              "type": "catch",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.55, "y": 0.5 },
-              "entity": "fielder",
-              "duration": 200
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.55, "y": 0.48 },
+              "entity": "runner1st",
+              "duration": 600,
+              "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.5 },
+              "from": { "x": 0.6, "y": 0.52 },
               "to": { "x": 0.5, "y": 0.45 },
               "entity": "ball",
               "duration": 300
@@ -223,24 +141,104 @@
               "from": { "x": 0.5, "y": 0.45 },
               "to": { "x": 0.7, "y": 0.6 },
               "entity": "ball",
-              "duration": 500
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.65, "y": 0.64 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
+              "duration": 400
             }
           ]
         },
         "next": "end"
       }
     },
-    "outcome-shift-first-okay": {
+    "outcome-full-shift-first-good": {
       "type": "outcome",
-      "narration": "You field it and throw to first. The batter is out, but the runner from first advances to second. One out, runner in scoring position. You got the out but didn't get the lead runner.",
+      "narration": "Your second baseman fields the grounder cleanly and throws to first for the out! One down. The runner from first advances to second safely. That's fine -- you got the out, and the shift turned a potential hit into a routine groundout. But you left a double play on the table! Your shortstop was right there at second base, ready for the flip. You could have turned two and basically ended the inning.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "good",
+        "headline": "Out at First! But You Missed the Double Play.",
+        "explanation": "You got the most important thing right: the shift worked! The ground ball that would have been a hit went straight to your shifted fielder. Taking the out at first is the safe play and there's nothing wrong with it. But in this situation, turning the double play was the higher-IQ play because: 1) The runner was going on contact, so the force at second was easy. 2) Your shortstop was already positioned on the right side, giving you a short throw for the relay. 3) A double play with nobody out goes from bases-loaded potential to a near-empty inning. The best defenses don't just make outs -- they make MULTIPLE outs when the opportunity is there.",
+        "whatToRemember": "When the shift gives you fielders in perfect position for a double play, take it! The out at first is safe, but two outs are better than one. The whole point of the shift is to create advantageous positioning -- use ALL of it.",
+        "iqPoints": 7,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.6, "y": 0.52 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "runner1st",
+              "duration": 700,
+              "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.52 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "transition-partial-shift": {
+      "type": "transition",
+      "narration": "Smart compromise! You shade everyone a few steps toward the pull side. The shortstop moves from his normal position to almost directly behind second base. The second baseman moves a couple steps toward first. The third baseman shades toward the shortstop hole. You've got better coverage on the right side without abandoning the left entirely. The pitcher delivers... the hitter swings and pulls a ground ball to the right side!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B", "2B", "SS", "3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "next": "decision-partial-result",
+      "delay": 2500
+    },
+    "decision-partial-result": {
+      "type": "decision",
+      "narration": "The ground ball is hit sharply to the right side! Your second baseman, who shaded a few steps that direction, dives and snags it! Great play! But the dive took him to the ground -- he can't turn a double play from there. He pops up on one knee. What's the play?",
+      "field": {
+        "ballPosition": { "x": 0.62, "y": 0.55 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (running)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "throw-first",
+          "text": "Throw to first! Get the sure out -- can't turn two from his knees anyway.",
+          "nextNode": "outcome-partial-first-good"
+        },
+        {
+          "id": "flip-second",
+          "text": "Flip to the shortstop at second for the force! Stop the lead runner!",
+          "nextNode": "outcome-partial-force-good"
+        }
+      ]
+    },
+    "outcome-partial-first-good": {
+      "type": "outcome",
+      "narration": "Your second baseman fires from his knee to first -- OUT! Great throw! The runner from first advances to second. One out, runner on second. The partial shift did its job -- that ground ball would have been through the infield for a hit if your fielders were in standard position. Your shade to the right side got your second baseman just close enough to make the diving play. Not as dominant as a full shift double play, but solid defense!",
       "field": {
         "ballPosition": { "x": 0.7, "y": 0.6 },
         "highlight": ["1B"],
@@ -249,36 +247,50 @@
         ]
       },
       "outcome": {
-        "result": "okay",
-        "headline": "Out at First, Runner Advances.",
-        "explanation": "You got the out, which is good. But with the shortstop shifted right next to second base, you had a great chance to flip to second for the force on the lead runner AND turn a double play. By throwing to first, you chose the less valuable out and let the lead runner advance. When you're positioned near second base after the shift, think force-at-second first. The double play is available, and it's worth more than a simple putout at first.",
-        "whatToRemember": "When the shift puts you near second base, use it! Flip to second for the force, then turn two. Don't default to throwing to first when a better play is right next to you.",
-        "iqPoints": 4,
+        "result": "good",
+        "headline": "Out at First! Partial Shift Paid Off.",
+        "explanation": "The partial shift worked well here! By shading your fielders a few steps toward the pull side, you turned a hit into an out. That's the core promise of the shift -- turning hits into outs using data and positioning. However, the full shift would have made this play EASIER. Your second baseman had to dive because he was only shaded a few steps, not fully repositioned. In a full shift, he would have been standing right where the ball was hit and could have turned a double play. The partial shift is a compromise: you get SOME of the benefit of the shift while keeping some coverage on the left side. It's a good call when you're not fully confident in the data or when the game situation demands you protect against the opposite-field hit.",
+        "whatToRemember": "A partial shift is a solid middle-ground. You get some of the shift's benefits without fully committing. Use it when you want to respect the data but aren't ready to leave one side completely empty.",
+        "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
-              "duration": 500
+              "duration": 400
+            },
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.62, "y": 0.55 },
+              "entity": "ball",
+              "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.55 },
+              "from": { "x": 0.7, "y": 0.6 },
               "to": { "x": 0.5, "y": 0.45 },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.62, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 400
             }
           ]
         },
         "next": "end"
       }
     },
-    "outcome-shift-self-good": {
+    "outcome-partial-force-good": {
       "type": "outcome",
-      "narration": "You're right next to second base, so you step on the bag yourself for the force out on the lead runner. One out! But the batter reaches first safely because nobody was in position to take a throw there. Still, you got the more important out -- the lead runner.",
+      "narration": "Your second baseman flips from his knees to the shortstop covering second -- FORCE OUT! The lead runner is retired! The shortstop can't complete the double play because the throw from the knees was a little low and he had to scoop it. One out, batter safe at first. You stopped the lead runner from getting into scoring position, which is the smart play with nobody out.",
       "field": {
         "ballPosition": { "x": 0.5, "y": 0.45 },
         "highlight": ["2B"],
@@ -289,276 +301,64 @@
       "outcome": {
         "result": "good",
         "headline": "Force at Second! Lead Runner Erased!",
-        "explanation": "Good instinct to get the lead runner! Stepping on second yourself got the force out on the more dangerous runner. But ideally, you'd flip to the second baseman covering the bag and then they'd relay to first for the double play. Doing it yourself means you can't throw to first in time because you've already committed your momentum to reaching the bag. In a shift, practice the flip to the covering fielder so you can still turn two. But between this and throwing to first, getting the lead runner is the smarter choice.",
-        "whatToRemember": "Getting the lead runner at second is more valuable than the batter at first. But for the double play, flip to the covering fielder rather than tagging the base yourself -- it keeps the relay alive.",
+        "explanation": "Getting the lead runner is smart baseball. Here's why: with nobody out, you want to prevent runners from advancing into scoring position (second and third base). By getting the force at second, you erased the runner who was closest to scoring and replaced him with a slower batter at first. The trade-off is that a full shift might have positioned your fielders for a clean double play instead of a diving play that only got one out. But you still turned a potential hit into an out, which is exactly what the shift is supposed to do. The partial shift gave you enough coverage to make the play without fully committing.",
+        "whatToRemember": "When you can't turn two, get the LEAD runner. Erasing the runner closest to scoring is almost always the right call with less than two outs. Don't let runners advance into scoring position if you can help it.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
-              "entity": "fielder",
-              "duration": 400
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-full-shift-bunt-bad": {
-      "type": "outcome",
-      "narration": "The pitcher runs toward the third base line but the ball is rolling too slowly and too far from them. By the time they pick it up, the batter is already past first! The runner from first cruises into second. Everybody's safe -- runners on first and second, nobody out. The batter BEAT the full shift with a simple bunt!",
-      "field": {
-        "ballPosition": { "x": 0.3, "y": 0.68 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
-        ]
-      },
-      "outcome": {
-        "result": "bad",
-        "headline": "Bunt Base Hit! Shift Beaten!",
-        "explanation": "This is the BIGGEST weakness of the full shift -- it gives up the entire left side of the infield! A smart batter will see no third baseman and just push a bunt or slap the ball down the third base line for a free hit. The full shift works great against batters who are stubborn and keep pulling the ball. But against smart hitters who can bunt or go the other way, the full shift gives them a gift. That's why the MODERATE shift (moving the shortstop but keeping the third baseman) is usually better -- it covers the pull side without giving up a free base on bunts.",
-        "whatToRemember": "The full shift gives up the bunt to the open side. If the batter can bunt, use a moderate shift instead. Never give a smart hitter a free base!",
-        "iqPoints": 1,
-        "animation": {
-          "steps": [
-            {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.3, "y": 0.68 },
-              "entity": "ball",
-              "duration": 400
-            },
-            {
-              "type": "run",
+              "type": "throw",
               "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.35, "y": 0.68 },
-              "entity": "fielder",
-              "duration": 800
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
-              "entity": "runner1st",
-              "duration": 800,
-              "parallel": true
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-full-shift-catcher-bad": {
-      "type": "outcome",
-      "narration": "The catcher rips off their mask and sprints out from behind the plate... but it's way too far! They can't get to the ball in time. The bunt sits on the third base line, and by the time anyone gets there, everyone is safe. Runners on first and second, nobody out. And now the catcher has to hustle back behind the plate.",
-      "field": {
-        "ballPosition": { "x": 0.3, "y": 0.68 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
-        ]
-      },
-      "outcome": {
-        "result": "bad",
-        "headline": "Too Far! Catcher Can't Reach It!",
-        "explanation": "The catcher starts behind home plate, which is nearly 90 feet from where the bunt stopped on the third base line. That's way too far to field and make a throw. Also, sending the catcher out leaves home plate uncovered, which is dangerous if there's a play there. The real problem isn't who fields the bunt -- it's that the full shift left the entire left side open. When you shift that dramatically, you're INVITING the bunt. If the batter takes you up on it, there's no good answer. That's why the moderate shift (keeping the third baseman at third) is the smarter approach against any batter who can bunt.",
-        "whatToRemember": "The catcher should stay behind the plate. The full shift's weakness (open left side) can't be solved by moving the catcher -- solve it by not fully shifting. Use the moderate shift instead.",
-        "iqPoints": 1,
-        "animation": {
-          "steps": [
-            {
-              "type": "run",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.4, "y": 0.75 },
-              "entity": "fielder",
-              "duration": 800
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-full-shift-accept-okay": {
-      "type": "outcome",
-      "narration": "You accept it -- the bunt is a hit and nobody can reach it. The runner moves to second, the batter reaches first. Runners on first and second, nobody out. You acknowledge that the full shift was beaten. The batter adjusted, and you have to adjust back next time.",
-      "field": {
-        "ballPosition": { "x": 0.3, "y": 0.68 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
-        ]
-      },
-      "outcome": {
-        "result": "okay",
-        "headline": "Hit. Adjust for Next Time.",
-        "explanation": "Smart to recognize that you can't panic and make a wild play. The full shift was beaten by a bunt -- that's a known weakness. The lesson here is for NEXT time: if this batter shows they'll bunt against the full shift, you need to adjust. Use the moderate shift (shortstop to the right side but keep third baseman) or even play straight up. Baseball is a constant chess match of adjustments. The analytics said to shift, but analytics don't account for a batter who's willing to change their approach. The BEST defenders combine data with game-time awareness.",
-        "whatToRemember": "When a batter beats your shift with a bunt, ADJUST next time. Use a moderate shift or play straight up. Defense is a chess match -- always adapt to what the batter is showing you.",
-        "iqPoints": 4,
-        "animation": {
-          "steps": [
-            {
-              "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
-              "entity": "runner1st",
-              "duration": 700
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-no-shift-dive-okay": {
-      "type": "outcome",
-      "narration": "The second baseman dives to their right... stretches out... and just barely knocks it down! But they can't make a throw from the ground. The batter reaches first, and the runner advances to second. No outs. The ball went right to where your shifted shortstop WOULD HAVE BEEN standing.",
-      "field": {
-        "ballPosition": { "x": 0.58, "y": 0.52 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
-        ]
-      },
-      "outcome": {
-        "result": "okay",
-        "headline": "Knocked Down But No Out. Shift Would Have Had It!",
-        "explanation": "That ball went RIGHT to where a shifted shortstop would have been standing! Instead, your second baseman had to make a diving play and couldn't complete the throw. If you had used the moderate shift, the shortstop would have been standing right there -- no dive needed -- and could have started a double play. The scouting report was RIGHT: the batter pulled the ball to the right side. By ignoring the data and playing straight up, you turned what should have been an easy play into a diving knockdown with no out. Trust the analytics!",
-        "whatToRemember": "When the scouting report says a batter pulls 78% of the time, BELIEVE IT. The shift puts your fielders where the ball is most likely to go. Playing straight up ignores valuable information.",
-        "iqPoints": 4,
-        "animation": {
-          "steps": [
-            {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.62, "y": 0.52 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
-              "type": "run",
-              "from": { "x": 0.6, "y": 0.5 },
-              "to": { "x": 0.62, "y": 0.52 },
-              "entity": "fielder",
-              "duration": 400
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
-              "entity": "runner1st",
-              "duration": 800,
-              "parallel": true
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
-              "entity": "batter",
-              "duration": 900,
-              "parallel": true
-            }
-          ]
-        },
-        "next": "end"
-      }
-    },
-    "outcome-no-shift-first-okay": {
-      "type": "outcome",
-      "narration": "The first baseman ranges to their left and gets a glove on it... but the ball skips off the edge of their glove and into right field! Base hit! The runner from first races to third on the error, and the batter is on first. Runners on first and third, nobody out. That ball was in the gap where a shifted fielder would have been.",
-      "field": {
-        "ballPosition": { "x": 0.75, "y": 0.4 },
-        "highlight": [],
-        "runners": [
-          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
-        ]
-      },
-      "outcome": {
-        "result": "okay",
-        "headline": "Error! Ball Gets Through!",
-        "explanation": "The first baseman made a valiant effort, but that ball was hit to the pull side -- exactly where the scouting report said it would go. With a shift, either the second baseman or the shifted shortstop would have been standing right there, no stretching needed. Instead, you asked the first baseman to make a highlight-reel play just to keep it to a single, and the ball got through. The numbers were clear: 78% of ground balls go to the right side. Ignoring that information cost you a potential double play and gave the other team runners on the corners.",
-        "whatToRemember": "Positioning is about putting fielders where the ball is LIKELY to go, not where tradition says they should stand. Trust the data and shift accordingly!",
-        "iqPoints": 4,
-        "animation": {
-          "steps": [
-            {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.68, "y": 0.55 },
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.62, "y": 0.55 },
               "entity": "ball",
-              "duration": 400
+              "duration": 350
             },
             {
               "type": "run",
               "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.68, "y": 0.56 },
-              "entity": "fielder",
-              "duration": 400
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.68, "y": 0.55 },
-              "to": { "x": 0.75, "y": 0.4 },
-              "entity": "ball",
-              "duration": 400
-            },
-            {
-              "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "to": { "x": 0.55, "y": 0.48 },
               "entity": "runner1st",
-              "duration": 1200,
+              "duration": 600,
               "parallel": true
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.62, "y": 0.55 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 350
             }
           ]
         },
         "next": "end"
       }
     },
-    "outcome-no-shift-hit-bad": {
+    "transition-no-shift": {
+      "type": "transition",
+      "narration": "You keep the standard alignment. Everybody stays put -- shortstop in the hole, second baseman in his normal spot, third baseman on the line. The pitcher delivers a fastball on the outer half... and the hitter does what he ALWAYS does -- he pulls it! Hard ground ball to the right side!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "highlight": ["1B", "2B", "SS", "3B"],
+        "runners": [
+          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+        ]
+      },
+      "next": "outcome-no-shift-result",
+      "delay": 2000
+    },
+    "outcome-no-shift-result": {
       "type": "outcome",
-      "narration": "The ball goes right through the gap between first and second -- clean single to right field! The runner from first rounds second and heads to third. Nobody could even get close to the ball. Your shortstop, standing on the LEFT side of second base, watches the ball sail past them 15 feet to their right. A shift would have had them standing right there.",
+      "narration": "The ground ball sizzles through the gap between first and second base! Your second baseman, playing in his standard position, dives but the ball is two steps to his right -- he can't reach it! The ball rolls into right field for a clean single! The runner from first races to third base on the hit! Now you've got runners on first and third with nobody out! That ground ball was hit to EXACTLY the spot where a shift would have had a fielder standing. You had the data, you had the scouting report, and you ignored it.",
       "field": {
         "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": [],
+        "highlight": ["RF"],
         "runners": [
           { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
           { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
@@ -566,29 +366,36 @@
       },
       "outcome": {
         "result": "bad",
-        "headline": "Base Hit Through the Hole! Shift Would Have Caught It!",
-        "explanation": "The scouting report was 100% right. The batter pulled the ball to the right side, exactly where 78% of their ground balls go. Your fielders were in their traditional positions, which means the shortstop was on the WRONG side of the field. If you had shifted even moderately, the shortstop would have been standing right where that ball went. You had the information to prevent this hit and you chose to ignore it. In modern baseball and softball, positioning is based on DATA, not just tradition. The shift exists because it works -- when used wisely.",
-        "whatToRemember": "When you have scouting data showing where a batter hits the ball, USE IT! Traditional positioning is a starting point, but smart teams adjust based on each batter's tendencies.",
+        "headline": "Base Hit! Runners on the Corners! The Shift Would Have Had That.",
+        "explanation": "This is exactly why the defensive shift exists. Your scouting report TOLD you this hitter pulls the ball 78% of the time. He did exactly what the data predicted. And your fielders were standing in the 22% zone instead of the 78% zone. That ground ball would have been a routine play for a shifted infielder -- instead, it's a hit with runners on the corners and nobody out. Playing it safe with standard alignment FEELS like the cautious play, but in reality, it's the riskier one! You're putting your fielders where the ball is LEAST likely to go. The shift isn't about being fancy -- it's about putting your fielders in the best position to make plays based on what the hitter actually does, not what he theoretically might do.",
+        "whatToRemember": "Ignoring the data isn't 'playing it safe' -- it's putting your fielders in the wrong spot. If a hitter pulls the ball 78% of the time, standard alignment leaves you exposed to the most likely outcome. Trust the numbers.",
         "iqPoints": 1,
         "animation": {
           "steps": [
             {
-              "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.65, "y": 0.52 },
+              "type": "throw",
+              "from": { "x": 0.5, "y": 0.62 },
+              "to": { "x": 0.5, "y": 0.88 },
               "entity": "ball",
               "duration": 400
             },
             {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.88 },
+              "to": { "x": 0.65, "y": 0.5 },
+              "entity": "ball",
+              "duration": 350
+            },
+            {
               "type": "run",
-              "from": { "x": 0.65, "y": 0.52 },
+              "from": { "x": 0.65, "y": 0.5 },
               "to": { "x": 0.75, "y": 0.35 },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
+              "from": { "x": 0.7, "y": 0.6 },
               "to": { "x": 0.3, "y": 0.6 },
               "entity": "runner1st",
               "duration": 1200,
@@ -596,10 +403,10 @@
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
+              "from": { "x": 0.5, "y": 0.85 },
               "to": { "x": 0.7, "y": 0.6 },
               "entity": "batter",
-              "duration": 900,
+              "duration": 1000,
               "parallel": true
             }
           ]

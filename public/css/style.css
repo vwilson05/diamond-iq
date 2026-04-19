@@ -730,6 +730,8 @@ body {
 }
 
 /* ---- RESPONSIVE ---- */
+
+/* Tablet */
 @media (max-width: 768px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -737,16 +739,33 @@ body {
 
   .game-body {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    overflow-y: auto;
   }
 
   .game-right {
     order: -1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    max-height: 200px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  #field-canvas {
+    width: 50%;
+    max-height: 200px;
+    flex-shrink: 0;
+  }
+
+  .scoreboard-container {
+    width: 50%;
+    overflow: hidden;
   }
 
   .game-left {
     border-right: none;
+    overflow-y: auto;
   }
 
   .logo {
@@ -764,6 +783,7 @@ body {
   }
 }
 
+/* Phone */
 @media (max-width: 480px) {
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -779,12 +799,134 @@ body {
     font-size: 1.3rem;
   }
 
+  .game-header {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .logo-sm {
+    font-size: 1.1rem;
+  }
+
+  .iq-display {
+    font-size: 1.1rem;
+  }
+
+  .game-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    overflow-y: auto;
+  }
+
+  .game-right {
+    order: -1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    max-height: 160px;
+    min-height: 160px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  #field-canvas {
+    width: 55%;
+    max-height: 160px;
+    flex-shrink: 0;
+  }
+
+  .scoreboard-container {
+    width: 45%;
+    overflow: hidden;
+    font-size: 0.7rem;
+  }
+
+  .game-left {
+    border-right: none;
+    overflow-y: auto;
+  }
+
   .scenario-panel {
-    padding: 1rem;
+    padding: 0.8rem;
+  }
+
+  .situation-bar {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
   }
 
   .narration-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .choice-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .outcome-headline {
+    font-size: 1.4rem;
+  }
+
+  .outcome-explanation {
+    font-size: 0.85rem;
+  }
+
+  .outcome-terms {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .outcome-remember {
+    padding: 0.8rem 1rem;
+  }
+
+  .btn-next-scenario {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .difficulty-card {
+    padding: 1rem 1.2rem;
+  }
+
+  .difficulty-card .tier-number {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .difficulty-card .tier-name {
+    font-size: 1.2rem;
+  }
+
+  .select-heading {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .logo-header {
+    padding: 2rem 0 0.5rem;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .review-container {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .review-iq-score {
+    font-size: 2.5rem;
+  }
+
+  .review-title {
+    font-size: 2rem;
   }
 }
 
