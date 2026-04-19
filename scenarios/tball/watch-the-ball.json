@@ -1,0 +1,166 @@
+{
+  "id": "tball-watch-the-ball",
+  "title": "Eyes on the Batter!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "defense",
+  "tags": ["attention", "ready-position", "field-awareness", "basics"],
+  "setup": {
+    "inning": 1,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're standing out in the field and the batter is getting ready to hit. You notice a cool airplane flying overhead, and there's a funny bug crawling near your foot, and your friend on the other team is waving at you from the dugout. The batter steps up to the tee. What should you be looking at?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["CF"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "watch-batter",
+          "text": "Watch the batter! They're about to hit the ball and I need to be ready!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "watch-airplane",
+          "text": "Look up at the cool airplane! I can watch the batter later.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "wave-friend",
+          "text": "Wave back at my friend in the dugout and say hi!",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You keep your eyes right on the batter. They swing and CRACK -- the ball flies right toward you! Because you were watching, you see it coming right away. You run forward, get under it, and CATCH it with two hands! OUT! Your coach says, 'Way to be ready! You were watching the whole time!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.3 },
+        "highlight": ["CF"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Ready and Watching! Great Catch!",
+        "explanation": "Keeping your eyes on the batter is one of the most important things in baseball! When you're watching, you see the ball the SECOND it's hit. That gives you the most time to react -- to run toward it, get your glove up, and make the catch. If you're looking at something else when the ball is hit, you won't see where it's going and you'll be late getting there. Be ready EVERY time the batter swings!",
+        "keyTerms": [
+          { "term": "Ready Position", "definition": "Standing with your knees bent, glove up, and eyes on the batter. This is how you stand when you're ready for action!" },
+          { "term": "Focus", "definition": "Paying attention to what's important right now. When you're in the field, the batter is the most important thing to watch!" },
+          { "term": "React", "definition": "Moving quickly after something happens. The sooner you see the ball, the sooner you can react!" }
+        ],
+        "whatToRemember": "Always watch the batter when you're in the field! The ball can come to you at any time, so be ready!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.3 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.5, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.25 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You tilt your head way back to watch the airplane and -- CRACK! The batter hits the ball! You hear it but you don't see where it went! You look around confused... and the ball lands right next to you with a THUD. By the time you pick it up, the batter is already at second base. Oops!",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.28 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed It! Wasn't Watching!",
+        "explanation": "When you're not watching the batter, you don't see the ball get hit. By the time you figure out where it went, the runners have already taken extra bases! There are lots of cool things to look at during a game, but when you're in the field, your eyes need to be on the batter. You can look at airplanes and bugs between innings. When the batter is hitting, it's game time!",
+        "keyTerms": [
+          { "term": "Distracted", "definition": "When you're looking at something other than the game. In the field, distractions can cost your team!" },
+          { "term": "Game Time", "definition": "When the ball is in play and you need to be paying attention. Save the fun stuff for between innings!" }
+        ],
+        "whatToRemember": "Airplanes, bugs, and friends can wait! When you're in the field, ALWAYS watch the batter!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.28 },
+              "entity": "ball",
+              "duration": 800
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "batter",
+              "duration": 1200
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You turn to wave at your friend and -- CRACK! You hear the bat hit the ball! You spin back around and see the ball bouncing in front of you. You run forward and grab it, but you're a couple steps late. You throw to first but the batter is already there. Safe! If you had been watching, you would have gotten there in time.",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (safe)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Late! Runner is Safe!",
+        "explanation": "It's nice to wave at your friends, but when you're in the field, you need to be watching the batter! Those two seconds you spent waving were two seconds you lost reacting to the ball. In baseball, two seconds is a LOT. That's the difference between an out and a runner being safe. Wave to your friends before the game or between innings -- but when the ball is in play, eyes on the batter!",
+        "keyTerms": [
+          { "term": "Reaction Time", "definition": "How fast you move after seeing the ball hit. The sooner you see it, the faster you react!" },
+          { "term": "Between Innings", "definition": "The break between when your team is in the field and when your team is batting. This is a good time to wave at friends!" }
+        ],
+        "whatToRemember": "Wave at friends between innings! When you're in the field, keep your eyes on the batter so you can react fast.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.4 },
+              "entity": "ball",
+              "duration": 700
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 1000,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

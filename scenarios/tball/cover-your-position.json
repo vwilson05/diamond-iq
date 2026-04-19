@@ -1,0 +1,158 @@
+{
+  "id": "tball-cover-your-position",
+  "title": "Stay at Your Spot!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "defense",
+  "tags": ["positioning", "discipline", "field-awareness", "basics"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're playing second base, standing at your spot on the right side of the field. WHACK! The batter hits a ground ball all the way to the LEFT side, toward the third baseman. Your teammate at third is already running to get it. You really want to go help -- what do you do?",
+      "field": {
+        "ballPosition": { "x": 0.3, "y": 0.55 },
+        "highlight": ["2B", "3B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "stay-position",
+          "text": "Stay at your spot near second base and get ready for a throw!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "chase-ball",
+          "text": "Run across the field to help get the ball!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "stand-watch",
+          "text": "Just stand there and watch what happens.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You stay right at your spot near second base. Your teammate at third fields the ball and looks up -- there you are, ready at your position! They throw it to first base and the runner is OUT! Your coach says, 'Great job staying at your spot! That's heads-up baseball!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["2B", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Play! You Held Your Position!",
+        "explanation": "Every player on the field has a special spot they're supposed to stand -- that's called your 'position.' When the ball goes to the other side of the field, you might WANT to run over and help, but your job is to stay at your spot. Why? Because if everyone runs to the ball, nobody is covering the bases! Your teammates need YOU to be at your position in case they need to throw the ball your way.",
+        "keyTerms": [
+          { "term": "Position", "definition": "Your special spot on the field. Every player has one, and it's important to stay near it!" },
+          { "term": "Covering a Base", "definition": "Standing near a base so you can catch a throw and make an out. Someone always needs to be there!" },
+          { "term": "Heads-Up Play", "definition": "When you think about what's happening and make a smart decision instead of just reacting." }
+        ],
+        "whatToRemember": "Stay at your position even when the ball goes somewhere else! Your teammates need you at your spot.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "catch",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.3, "y": 0.55 },
+              "entity": "ball",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You run all the way across the field to help... but your teammate at third already picked it up! Now you're way out of position. They throw the ball toward first base but the throw goes wide -- and nobody is near second base to back it up because YOU left your spot! The batter ends up safe at second base.",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.5 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Nobody's Covering Second!",
+        "explanation": "When everyone chases the ball, the bases are left wide open! Your teammate at third base had the ball -- they didn't need help picking it up. But when their throw went past first base, nobody was at second base to stop the runner because you had left your position. In baseball, every player has a job. Your job is to stay at YOUR spot and be ready, not to chase the ball everywhere it goes.",
+        "keyTerms": [
+          { "term": "Out of Position", "definition": "When you leave your spot on the field and you're not where you're supposed to be." },
+          { "term": "Backup", "definition": "Standing behind a teammate in case the ball gets past them. You can only do this if you stay near your spot!" }
+        ],
+        "whatToRemember": "Don't chase the ball across the whole field! Stay at your position so the bases are covered.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.45 },
+              "to": { "x": 0.35, "y": 0.5 },
+              "entity": "fielder",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.75, "y": 0.55 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You stand at your spot and watch. Your teammate at third picks up the ball and throws it to first -- OUT! But you were just standing there like a statue. You stayed at your position, which is good, but you should have been READY -- bent your knees, had your glove up, in case the ball came to you!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["2B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out! But Get Ready Next Time!",
+        "explanation": "You did the right thing by staying at your position -- nice! But there's a difference between standing around and being READY. When the ball is hit, you should bend your knees, get your glove up, and be ready for anything. Maybe the throw goes wild and comes to you. Maybe a runner tries to go to second. You need to be ready at your spot, not just standing there.",
+        "keyTerms": [
+          { "term": "Ready Position", "definition": "Knees bent, glove out, eyes on the ball. This is how you stand when you're ready for action!" },
+          { "term": "Alert", "definition": "Paying attention and being ready for the ball to come to you at any moment." }
+        ],
+        "whatToRemember": "Stay at your position AND be ready! Bend your knees, get your glove up, and watch the play.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.3, "y": 0.55 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

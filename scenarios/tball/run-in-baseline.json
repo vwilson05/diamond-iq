@@ -1,0 +1,183 @@
+{
+  "id": "tball-run-in-baseline",
+  "title": "Run in a Straight Line!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "baserunning",
+  "tags": ["baserunning", "baseline", "speed", "basics"],
+  "setup": {
+    "inning": 1,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "SMACK! You hit the ball and take off running toward first base! You're pumping your arms and going as fast as you can. You can see first base ahead of you. The fielder is picking up the ball -- this is going to be close! How do you run to first base?",
+      "field": {
+        "ballPosition": { "x": 0.4, "y": 0.5 },
+        "highlight": ["Home", "1B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.55, "y": 0.8 }, "label": "You (running!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "straight-line",
+          "text": "Run in a straight line right to first base! Shortest path!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "zigzag",
+          "text": "Zigzag back and forth so they can't tag me!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "wide-arc",
+          "text": "Run in a big wide curve out toward the field!",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You run in a perfectly straight line down the first base line -- like a rocket heading straight to its target! ZOOM! Your feet fly across the dirt and you hit the base at full speed. SAFE! The throw was close, but because you ran the shortest path, you beat it! Your coach says, 'Perfect line to first!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "SAFE! Straight Line to First!",
+        "explanation": "A straight line is the FASTEST way to get from home plate to first base! Why? Because a straight line is the shortest distance between two points. If you zigzag or run in a curve, you're running EXTRA distance -- and that extra distance means extra time. In a close play, those extra steps could be the difference between safe and out. Run straight, run fast, run through the base!",
+        "keyTerms": [
+          { "term": "Baseline", "definition": "The straight path between two bases. Running on the baseline is the fastest way to get there!" },
+          { "term": "Shortest Path", "definition": "A straight line is always the shortest way between two points. That means it's the fastest!" },
+          { "term": "Running Lane", "definition": "The area along the baseline where you should run. Stay near the white chalk line!" }
+        ],
+        "whatToRemember": "Run in a straight line to first base! A straight line is the shortest and fastest path. No zigzags, no curves!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "you",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You start zigzagging back and forth as you run! Left, right, left, right -- like a snake! But all that zigzagging makes you SO much slower. The throw gets to first base way before you do. OUT! Plus, the umpire says you ran out of the baseline. Your coach says, 'Run STRAIGHT, not sideways!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Out! Zigzagging Slowed You Down!",
+        "explanation": "Zigzagging might seem like a good idea to dodge tags, but it actually makes you way slower! Every time you change direction, you lose speed. And in baseball, you have to stay near the baseline -- you can't run way off to the side. That's called running out of the baseline and the umpire can call you out for it! The fastest path is always a straight line. Run straight and trust your speed!",
+        "keyTerms": [
+          { "term": "Out of the Baseline", "definition": "Running too far away from the straight line between bases. The umpire can call you out for this!" },
+          { "term": "Zigzag", "definition": "Running back and forth. This wastes time and distance -- don't do it!" }
+        ],
+        "whatToRemember": "Never zigzag! Run in a straight line along the baseline. It's the fastest way and you won't get called out for leaving the base path.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.6, "y": 0.75 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.75 },
+              "to": { "x": 0.55, "y": 0.7 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.7 },
+              "to": { "x": 0.63, "y": 0.65 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You run in a big wide curve, swinging out toward the field and then coming back to first base. You make it there, but just barely! It was close because your path was much longer than it needed to be. Your coach says, 'You made it, but run STRAIGHT next time -- you'll be faster!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (barely safe)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe! But You Took the Long Way!",
+        "explanation": "Running in a wide curve adds extra distance to your run. It's like walking around the outside of a building instead of cutting through the middle -- you'll get there, but it takes longer! When you're running to first base, go as straight as possible. The only time you might run a curve is if you KNOW you're going to keep running to second base -- then you round the base in a slight curve. But for getting to first base quickly, straight is best!",
+        "keyTerms": [
+          { "term": "Direct Path", "definition": "Going straight from where you are to where you want to be. No extra distance!" },
+          { "term": "Rounding", "definition": "Running in a slight curve to prepare for going to the next base. Only do this if you plan to keep running!" }
+        ],
+        "whatToRemember": "Run straight to first base for the fastest time! Only take a curved path if you're planning to keep going to second.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.55, "y": 0.8 },
+              "to": { "x": 0.65, "y": 0.72 },
+              "entity": "you",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.72 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "you",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

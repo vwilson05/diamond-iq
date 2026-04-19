@@ -1,0 +1,160 @@
+{
+  "id": "tball-touch-the-base",
+  "title": "Touch the Base!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "baserunning",
+  "tags": ["baserunning", "fundamentals", "first-base", "basics"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 2, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "WHACK! You hit the ball into the outfield and you're running to first base! Your coach is waving you to keep going to second! You're rounding first base now -- do you need to step on the first base bag, or can you just run near it?",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.3 },
+        "highlight": ["1B", "2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.65, "y": 0.68 }, "label": "You (rounding 1st)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "step-on-bag",
+          "text": "Step right on the base as I run past it, then keep going to second!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "run-past",
+          "text": "Run near the base but don't bother stepping on it -- I need to hurry!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "stop-on-base",
+          "text": "Stop on the base and wait there even though coach is waving me on!",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You run hard and make sure your foot touches the first base bag as you round the corner. STOMP! Right on the bag! Then you keep running toward second base. You touch second base too -- SAFE! A double! Your coach is clapping and says, 'Great job touching every base!'",
+      "field": {
+        "ballPosition": { "x": 0.4, "y": 0.35 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (safe at 2nd!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Double! Touched Every Base!",
+        "explanation": "You MUST step on every base as you go by! This is one of the most important rules in baseball. If you miss a base and the other team notices, they can get you out! When you're rounding a base to go to the next one, touch the inside corner of the bag with your foot as you run past. It doesn't slow you down much, and it keeps you safe. Every base, every time!",
+        "keyTerms": [
+          { "term": "Rounding the Base", "definition": "Running in a curved path around a base when you're heading to the next one. Touch the bag as you go!" },
+          { "term": "Double", "definition": "When you hit the ball and make it all the way to second base! That's two bases on one hit!" },
+          { "term": "Inside Corner", "definition": "The corner of the base closest to the next base. Step on this part when you're rounding the base!" }
+        ],
+        "whatToRemember": "Always step on every base as you run past! Touch the inside corner of the bag and keep running!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.68 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "you",
+              "duration": 400
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.7, "y": 0.6 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "you",
+              "duration": 800
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You run as fast as you can and cut the corner wide, skipping right past first base without touching it! You make it to second base but -- uh oh! The other team's coach saw you miss first base. They throw the ball to first base and the umpire says you're OUT because you never touched the bag! All that running for nothing!",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Out! Missed the Base!",
+        "explanation": "If you skip a base, the other team can 'appeal' -- that means they throw the ball to the base you missed and the umpire calls you out. You MUST touch every single base. It doesn't matter how fast you're running or how far you hit the ball. Miss a base and you can be called out! It only takes a split second to step on the bag, and it saves you from this disaster.",
+        "keyTerms": [
+          { "term": "Appeal", "definition": "When the other team tells the umpire you missed a base. They throw the ball to that base and you could be called out!" },
+          { "term": "Touch the Bag", "definition": "Stepping on the base with your foot as you run by. You MUST do this at every base!" }
+        ],
+        "whatToRemember": "Never skip a base! Always step on every bag as you run by, even when you're in a hurry!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.68 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "you",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.35 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You stop right on first base even though your coach was waving you to second. The ball is still in the outfield and you could have made it to second easily! Your coach says, 'Good job touching the base! But when I wave you on, keep running! You can touch the base AND keep going!'",
+      "field": {
+        "ballPosition": { "x": 0.35, "y": 0.3 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe! But You Could Have Had More!",
+        "explanation": "You did the right thing by touching the base -- that's important! But you didn't need to STOP there. When your coach waves you on, it means you have time to run to the next base. You can touch the bag with your foot AND keep running at the same time! Just hit the inside corner of the base as you run past and keep going. You'll get to second base and be safe there too!",
+        "keyTerms": [
+          { "term": "Wave On", "definition": "When the coach swings their arm in a circle, it means keep running to the next base! You have time!" },
+          { "term": "Extra Base", "definition": "Any base beyond first base on a hit. Getting extra bases is awesome!" }
+        ],
+        "whatToRemember": "You can touch the base AND keep running! Step on the bag as you go by and listen to your coach for whether to stop or keep going.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.65, "y": 0.68 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "you",
+              "duration": 600
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

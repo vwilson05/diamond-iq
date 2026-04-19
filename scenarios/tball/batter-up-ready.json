@@ -1,0 +1,136 @@
+{
+  "id": "tball-batter-up-ready",
+  "title": "Batter Up! Get Ready!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "offense",
+  "tags": ["batting", "stance", "fundamentals", "basics"],
+  "setup": {
+    "inning": 1,
+    "topBottom": "bottom",
+    "outs": 1,
+    "score": { "home": 0, "away": 0 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's your turn to bat! You walk up to home plate and the tee is set up with the ball on top. You grab the bat and get ready to swing. How should you stand at the plate?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "choices": [
+        {
+          "id": "good-stance",
+          "text": "Stand sideways to the tee, feet apart, knees bent, bat up by your shoulder!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "face-tee",
+          "text": "Face the tee straight on and hold the bat out in front of you!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "too-far",
+          "text": "Stand way far away from the tee and reach the bat out to hit it!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You stand sideways with your feet apart like a superhero. Your knees are bent and the bat is up by your shoulder. You look at the ball on the tee, take a big swing and -- CRACK! The ball rockets into the outfield! What a hit! Your coach says, 'Perfect stance! That's how a hitter stands!'",
+      "field": {
+        "ballPosition": { "x": 0.45, "y": 0.35 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You!" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "CRACK! Great Hit!",
+        "explanation": "Standing sideways to the tee is the right way! When you stand sideways with your feet apart and knees bent, you can TWIST your body and swing the bat with power. Your back foot pushes, your hips turn, and your arms swing -- that's where the power comes from! Keep the bat up by your shoulder before you swing, keep your eye on the ball, and swing LEVEL -- not up and not down.",
+        "keyTerms": [
+          { "term": "Batting Stance", "definition": "How you stand when you're ready to hit. Sideways, feet apart, knees bent, bat up!" },
+          { "term": "Eye on the Ball", "definition": "Watching the ball the whole time you swing. If you look away, you might miss!" },
+          { "term": "Level Swing", "definition": "Swinging the bat straight across, not chopping down or swinging up. This gives you the best hits!" }
+        ],
+        "whatToRemember": "Stand sideways, feet apart, knees bent, bat by your shoulder. Watch the ball and take a level swing!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.45, "y": 0.35 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You face the tee straight on and push the bat forward... BONK. The ball dribbles off the tee and rolls a few feet in front of you. It's a hit, but not a very strong one. Your coach says, 'Try standing SIDEWAYS next time -- you'll get way more power!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.8 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Weak Hit! Try a Different Stance!",
+        "explanation": "When you face the tee straight on, you can only push the bat forward -- like poking it. There's no power in that! When you stand SIDEWAYS, you can twist your whole body into the swing. Think about it like this: when you throw a ball, you don't face the person and push it. You turn sideways and whip your arm. Hitting is the same idea! Turn sideways for more power.",
+        "keyTerms": [
+          { "term": "Power", "definition": "How hard you can hit the ball. Standing sideways and twisting your body gives you the most power!" },
+          { "term": "Hip Rotation", "definition": "Turning your hips during the swing. This is what makes the ball go far!" }
+        ],
+        "whatToRemember": "Stand SIDEWAYS to the tee, not facing it! Twist your body when you swing for more power!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "hit",
+              "from": { "x": 0.5, "y": 0.85 },
+              "to": { "x": 0.5, "y": 0.8 },
+              "entity": "ball",
+              "duration": 400
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You stand really far from the tee and streeeetch the bat out to reach it. You swing and -- WHIFF! You miss the ball completely because you're too far away. The bat barely touched the tee. You try again and -- WHIFF! Your coach walks over and says, 'Come closer! Stand right next to the tee.'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Swing and a Miss! Too Far Away!",
+        "explanation": "If you stand too far from the tee, you have to reach way out and you'll miss the ball or barely hit it. You need to stand close enough so that when you swing, the FAT part of the bat (that's called the barrel) hits the ball. Here's a trick: stand sideways next to the tee and make sure you can touch the tee with the barrel of the bat without leaning. That's the perfect distance!",
+        "keyTerms": [
+          { "term": "Barrel", "definition": "The fat part of the bat -- the part you want to hit the ball with!" },
+          { "term": "Whiff", "definition": "When you swing and miss the ball completely. Stand closer and watch the ball to avoid this!" }
+        ],
+        "whatToRemember": "Stand close enough to the tee so the fat part of the bat can reach the ball without stretching!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    }
+  }
+}

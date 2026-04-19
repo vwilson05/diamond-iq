@@ -1,0 +1,168 @@
+{
+  "id": "tball-run-through-first",
+  "title": "Run Through the Base!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "offense",
+  "tags": ["baserunning", "first-base", "hustle", "basics"],
+  "setup": {
+    "inning": 1,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 0, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "CRACK! You hit the ball and you're running as fast as you can to first base! ZOOM! The fielder picks up the ball and throws it -- this is going to be close! You're almost at first base and the ball is almost there too. What do you do?",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.55 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.63, "y": 0.72 }, "label": "You (almost there!)" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "run-through",
+          "text": "Keep running full speed right through the base! Don't slow down!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "slow-down",
+          "text": "Slow down so you can stop right on the base!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "slide",
+          "text": "Slide into first base like a pro!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You keep running at FULL SPEED and your foot hits the base -- SAFE! You run right through the base and slow down on the other side. The throw was close, but because you didn't slow down, you beat it! Your coach pumps their fist and yells, 'Way to run through the bag!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.75, "y": 0.55 }, "label": "You (safe!)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "SAFE! Full Speed Through the Bag!",
+        "explanation": "Running through first base is the smartest play! Here's a cool rule: at first base, you're allowed to run PAST the base and you're still safe, as long as you don't turn toward second base. So don't slow down! Run at full speed, step on the base, and keep going past it. Then slow down and walk back. If you slow down BEFORE the base, the throw might beat you. Every step counts!",
+        "keyTerms": [
+          { "term": "Run Through the Bag", "definition": "Running past first base at full speed without stopping. You're allowed to do this at first base and you'll still be safe!" },
+          { "term": "Full Speed", "definition": "Running as fast as you possibly can. Never slow down before first base!" },
+          { "term": "Beat the Throw", "definition": "Getting to the base before the ball gets there. You're safe!" }
+        ],
+        "whatToRemember": "Always run THROUGH first base at full speed! Don't slow down -- touch the base and keep running past it!",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.63, "y": 0.72 },
+              "to": { "x": 0.75, "y": 0.55 },
+              "entity": "batter",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You start slowing down as you get close to first base... your little steps get shorter and shorter... the throw arrives and -- OUT! The ball just barely beat you because you slowed down at the end! Your coach says, 'Aw, so close! Don't slow down next time -- run right through the base!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out by a Step! Don't Slow Down!",
+        "explanation": "Slowing down before first base is one of the biggest mistakes runners make! When you slow down, you take tiny little steps instead of big fast ones. Those tiny steps add up -- they can be the difference between SAFE and OUT. At first base, you don't need to stop on the bag. You can run right through it! So there's no reason to slow down. Keep those legs pumping all the way through!",
+        "keyTerms": [
+          { "term": "Out by a Step", "definition": "When the ball gets to the base just barely before you do. So close! Running full speed can prevent this." },
+          { "term": "Run Through", "definition": "Keeping your full speed all the way past the base. You're allowed to do this at first base!" }
+        ],
+        "whatToRemember": "Never slow down before first base! Every step counts. Run at full speed right through the bag!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.63, "y": 0.72 },
+              "to": { "x": 0.68, "y": 0.63 },
+              "entity": "batter",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You try to slide into first base feet-first... WHOMP! You hit the dirt and slide into the bag. But sliding actually SLOWED you down! The throw beats you and you're OUT. Plus your pants are all dirty and you scraped your knee. Ouch! Your coach says, 'No sliding into first! Just run through!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Out! Sliding Slowed You Down!",
+        "explanation": "Here's a surprise: sliding into first base actually makes you SLOWER, not faster! When you slide, you fall to the ground and the friction from the dirt slows you down. Running upright is always faster. Sliding is for OTHER bases where you need to avoid a tag, but at first base, you just need to touch the bag. Running through is faster, safer, and you won't scrape your knees! Save the slides for later.",
+        "keyTerms": [
+          { "term": "Sliding", "definition": "Dropping to the ground and sliding on the dirt to reach a base. Good for some bases, but NOT first base!" },
+          { "term": "Friction", "definition": "The dirt and grass slowing you down when you slide. That's why running is faster than sliding!" }
+        ],
+        "whatToRemember": "Never slide into first base! Running through the bag is always faster than sliding. Save slides for other bases!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.63, "y": 0.72 },
+              "to": { "x": 0.7, "y": 0.62 },
+              "entity": "batter",
+              "duration": 1000
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 600,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

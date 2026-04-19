@@ -1,0 +1,118 @@
+{
+  "id": "tball-wait-your-turn",
+  "title": "Wait Your Turn to Bat!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "offense",
+  "tags": ["dugout", "sportsmanship", "safety", "basics"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "bottom",
+    "outs": 0,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": true, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're sitting in the dugout waiting for your turn to bat. Your teammate is up at the plate right now. You really want to bat -- you're SO excited! But it's not your turn yet. There are two batters ahead of you in the lineup. What should you do?",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": [
+          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner on 1st" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "cheer-and-wait",
+          "text": "Cheer for your teammate and wait for your turn!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "grab-bat-wander",
+          "text": "Grab a bat and start swinging it around in the dugout!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "not-paying-attention",
+          "text": "Play in the dirt and don't pay attention to the game.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You sit on the bench, clap your hands, and cheer -- 'Let's go! You got this!' Your teammate hears you cheering and feels pumped up! They SMACK the ball! While you cheer, you also watch the game so you know what's happening. When it's finally your turn, you're ready to go! You know exactly how many outs there are and where the runners are.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Teammate! Ready to Hit!",
+        "explanation": "Being a good teammate means cheering for your friends when they're batting! Yelling 'Let's go!' and clapping makes them feel good and play better. Plus, while you're watching and cheering, you're also learning! You can see what the fielders are doing, where the ball is going, and get ready for YOUR turn. When your name gets called, you'll be ready because you were paying attention the whole time.",
+        "keyTerms": [
+          { "term": "Dugout", "definition": "The special bench area where your team sits when they're not on the field or batting." },
+          { "term": "Batting Order", "definition": "The list that tells you when it's your turn to bat. Everyone gets a turn!" },
+          { "term": "Good Sportsmanship", "definition": "Being a nice teammate, cheering for others, and following the rules. It makes the game fun for everyone!" }
+        ],
+        "whatToRemember": "Cheer for your teammates and watch the game while you wait! You'll be a great teammate AND you'll be ready when it's your turn.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You grab a bat and start swinging it in the dugout -- WHOOSH! WHOOSH! Your teammate next to you ducks out of the way just in time! Your coach runs over and says, 'WHOA! No swinging bats in the dugout! You could hurt someone!' That's really dangerous with other kids sitting so close.",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": [],
+        "runners": []
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Dangerous! No Bats in the Dugout!",
+        "explanation": "NEVER swing a bat in the dugout! The dugout is a small space with lots of people sitting close together. If you swing a bat, you could hit someone in the head and really hurt them. The only place to swing a bat is at home plate when it's YOUR turn, or in the on-deck circle if your league has one. Bats are for batting, not for playing around with. Keep everyone safe!",
+        "keyTerms": [
+          { "term": "Dugout Safety", "definition": "Never swing bats, throw balls, or run around in the dugout. People are sitting close together and could get hurt!" },
+          { "term": "On-Deck Circle", "definition": "A special spot near home plate where the NEXT batter can warm up. This is the only place besides the plate to swing a bat!" }
+        ],
+        "whatToRemember": "Never swing a bat in the dugout! Save your swings for when it's your turn at the plate. Safety first!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You're drawing pictures in the dirt with a stick and not watching the game at all. Suddenly you hear, 'You're up!' Wait -- it's your turn already? You jump up, surprised, and run to home plate. But you don't know how many outs there are or if anyone is on base. You're not ready! Your coach says, 'Pay attention to the game, buddy!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "highlight": ["Home"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Not Ready! Pay Attention!",
+        "explanation": "It's totally normal to get bored waiting for your turn, but paying attention to the game is important! When you watch the game, you learn things -- like where the fielders are standing, how many outs there are, and where the runners are. All of this helps you when it's YOUR turn to bat. Plus, your teammates like it when you cheer for them! Try watching the game and cheering instead of playing in the dirt.",
+        "keyTerms": [
+          { "term": "Awareness", "definition": "Knowing what's happening in the game. How many outs? Who's on base? Being aware helps you play better!" },
+          { "term": "Cheer", "definition": "Clapping and yelling nice things to encourage your teammates. It makes them play better and it's fun!" }
+        ],
+        "whatToRemember": "Watch the game while you wait! Cheer for your teammates and pay attention so you're ready when it's your turn.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": []
+        },
+        "next": "end"
+      }
+    }
+  }
+}

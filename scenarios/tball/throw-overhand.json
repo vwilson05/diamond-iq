@@ -1,0 +1,172 @@
+{
+  "id": "tball-throw-overhand",
+  "title": "How Do You Throw It?",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "defense",
+  "tags": ["throwing", "mechanics", "fundamentals", "basics"],
+  "setup": {
+    "inning": 3,
+    "topBottom": "top",
+    "outs": 1,
+    "score": { "home": 3, "away": 2 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're playing in the outfield and CRACK -- the batter hits a ball that rolls right to you! You pick it up and now you need to throw it to your teammate at second base. They're pretty far away! How do you throw the ball?",
+      "field": {
+        "ballPosition": { "x": 0.6, "y": 0.3 },
+        "highlight": ["RF", "2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.6, "y": 0.75 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "overhand",
+          "text": "Throw overhand -- bring your arm up high and throw hard!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "underhand",
+          "text": "Throw underhand like bowling!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "roll-it",
+          "text": "Roll the ball on the ground toward your teammate!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You bring your arm way back, step toward your target, and fire the ball OVERHAND! It zips through the air and your teammate catches it at second base. WHAP! The batter only made it to first. Great throw! Your coach says, 'Beautiful overhand throw!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (at 1st)" }
+        ]
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Zip! Great Overhand Throw!",
+        "explanation": "Overhand throws are the best way to get the ball to your teammates! Here's why: when you throw overhand, the ball goes FAST and STRAIGHT through the air. It flies right to your teammate. Underhand throws are slower, and rolling the ball on the ground is the slowest of all because it bumps over the grass. When you throw overhand, step toward where you want the ball to go and follow through with your arm.",
+        "keyTerms": [
+          { "term": "Overhand Throw", "definition": "Throwing with your arm up high, like you're reaching for the sky and then throwing down. This makes the ball go fast and straight!" },
+          { "term": "Follow Through", "definition": "After you let go of the ball, keep your arm moving forward. This helps the ball go where you want it to go!" },
+          { "term": "Target", "definition": "The person or place you're trying to throw the ball to. Always look at your target before you throw!" }
+        ],
+        "whatToRemember": "Always throw overhand when you need to get the ball to a teammate! It's the fastest and straightest way to throw.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.75 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "batter",
+              "duration": 900,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You toss the ball underhand toward second base. It goes up in a big slow arc... your teammate waits... and catches it. But it took a long time to get there! The batter already made it safely to first base, and almost got to second. Your coach says, 'Try throwing overhand next time -- it's faster!'",
+      "field": {
+        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "highlight": ["2B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.65, "y": 0.55 }, "label": "Runner (almost at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Throw Was Too Slow!",
+        "explanation": "Underhand throws are okay for very short distances, like tossing the ball to someone standing right next to you. But when your teammate is far away, underhand throws go too high and too slow. The ball floats through the air like a rainbow, and that gives the runner extra time to run. Overhand throws are faster and more accurate for longer distances. Practice throwing overhand at home -- it gets easier every time!",
+        "keyTerms": [
+          { "term": "Underhand Throw", "definition": "Throwing with your arm low, swinging it forward like a bowling ball. Good for short tosses, but slow for long throws." },
+          { "term": "Arc", "definition": "The curved path the ball takes through the air. Underhand throws have a big high arc, which means they're slow!" }
+        ],
+        "whatToRemember": "Save underhand throws for short distances. When the throw is long, use an overhand throw to get it there fast!",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.3 },
+              "to": { "x": 0.5, "y": 0.45 },
+              "entity": "ball",
+              "duration": 1200
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.75 },
+              "to": { "x": 0.65, "y": 0.55 },
+              "entity": "batter",
+              "duration": 1100,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You bend down and roll the ball on the ground toward second base. The ball bumps and wobbles over the bumpy grass... it hits a clump of dirt and goes sideways... your teammate has to run after it! By the time they pick it up, the batter has rounded first and is heading to second. The ball was SO slow!",
+      "field": {
+        "ballPosition": { "x": 0.45, "y": 0.4 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.55, "y": 0.5 }, "label": "Runner (heading to 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Slow! Runner Keeps Going!",
+        "explanation": "Rolling the ball on the ground is the SLOWEST way to get it to a teammate. The grass is bumpy and the ball bounces all over the place. It can hit dirt clumps, rocks, or even stop in the grass! When you throw overhand, the ball flies through the air where nothing can slow it down. It goes straight and fast. Rolling is great for bowling, but in baseball, we need to throw the ball!",
+        "keyTerms": [
+          { "term": "Ground Ball", "definition": "A ball that rolls or bounces on the ground. When the batter hits one, that's okay. But when YOU throw one, that's too slow!" },
+          { "term": "Overhand Throw", "definition": "The best way to throw! Bring your arm up high and throw the ball through the air, not on the ground." }
+        ],
+        "whatToRemember": "Never roll the ball to a teammate! Pick it up and throw it overhand through the air. It's way faster!",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.6, "y": 0.3 },
+              "to": { "x": 0.45, "y": 0.4 },
+              "entity": "ball",
+              "duration": 1500
+            },
+            {
+              "type": "run",
+              "from": { "x": 0.6, "y": 0.75 },
+              "to": { "x": 0.55, "y": 0.5 },
+              "entity": "batter",
+              "duration": 1200,
+              "parallel": true
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}

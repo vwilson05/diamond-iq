@@ -1,0 +1,165 @@
+{
+  "id": "tball-back-up-the-play",
+  "title": "Back Up Your Teammate!",
+  "sport": ["baseball", "softball"],
+  "tier": "tball",
+  "role": "defense",
+  "tags": ["backup", "teamwork", "positioning", "basics"],
+  "setup": {
+    "inning": 2,
+    "topBottom": "top",
+    "outs": 0,
+    "score": { "home": 0, "away": 1 },
+    "runners": { "first": false, "second": false, "third": false }
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're playing right field and WHACK -- the batter hits a grounder to the shortstop! Your teammate scoops it up and throws the ball to first base. You can see the ball flying through the air toward the first baseman. What should YOU do?",
+      "field": {
+        "ballPosition": { "x": 0.55, "y": 0.55 },
+        "highlight": ["RF", "1B"],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+        ]
+      },
+      "choices": [
+        {
+          "id": "back-up-first",
+          "text": "Run behind first base in case the ball gets past the first baseman!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-watch",
+          "text": "Stay in right field and watch the play.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "run-to-ball",
+          "text": "Run toward the shortstop to help them throw.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You sprint toward first base and get behind your teammate. The throw from the shortstop bounces in the dirt and gets past the first baseman -- but YOU are right there! You grab the ball and flip it to first base. The batter is OUT! Your coach yells, 'THAT is what backing up looks like! Amazing!'",
+      "field": {
+        "ballPosition": { "x": 0.75, "y": 0.55 },
+        "highlight": ["RF", "1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "great",
+        "headline": "Great Backup! You Saved the Play!",
+        "explanation": "Backing up means getting behind a teammate who is about to catch a throw. Why? Because throws don't always go perfectly! Sometimes they bounce, sometimes they go a little wide. If nobody is behind the first baseman and the ball gets past them, it rolls into the outfield and the runners keep going. But because YOU were there, you stopped the ball and still got the out! That's being a great teammate.",
+        "keyTerms": [
+          { "term": "Backing Up", "definition": "Standing behind a teammate who's catching a throw, just in case the ball gets past them." },
+          { "term": "Overthrow", "definition": "When a throw goes past the person trying to catch it. That's why we need backups!" },
+          { "term": "Teamwork", "definition": "Working together with your teammates to help each other out. Baseball is a team sport!" }
+        ],
+        "whatToRemember": "Always back up the play! Run behind the base where the throw is going in case the ball gets past your teammate.",
+        "iqPoints": 10,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.8, "y": 0.35 },
+              "to": { "x": 0.75, "y": 0.55 },
+              "entity": "fielder",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.73, "y": 0.58 },
+              "entity": "ball",
+              "duration": 600
+            },
+            {
+              "type": "catch",
+              "from": { "x": 0.73, "y": 0.58 },
+              "to": { "x": 0.75, "y": 0.55 },
+              "entity": "ball",
+              "duration": 300
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You stay in right field and watch. The throw from the shortstop is a little high... the first baseman jumps and catches it! OUT! Whew, that was close. But what if the ball had gotten past them? It would have rolled right out to you in the outfield and the batter could have kept running. Your coach says, 'Next time, run in and back up that throw!'",
+      "field": {
+        "ballPosition": { "x": 0.7, "y": 0.6 },
+        "highlight": ["1B"],
+        "runners": []
+      },
+      "outcome": {
+        "result": "okay",
+        "headline": "Out! But You Got Lucky!",
+        "explanation": "The play worked out this time because the first baseman made a nice catch. But what if the throw had been wild? The ball would have rolled into the outfield and the batter would have made it to second or even third base! As the right fielder, you should always move toward first base when a throw is going there. You're the backup plan! Even if the ball doesn't get past, it's smart to be ready.",
+        "keyTerms": [
+          { "term": "Wild Throw", "definition": "A throw that doesn't go where it's supposed to. That's why we always need a backup!" },
+          { "term": "Right Fielder", "definition": "The player who stands in right field. Part of their job is backing up throws to first base!" }
+        ],
+        "whatToRemember": "Don't just watch the play -- move toward first base and be the backup! Even if the throw is good, you should be ready.",
+        "iqPoints": 4,
+        "animation": {
+          "steps": [
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.7, "y": 0.6 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You start running toward the shortstop, but they already threw the ball! The throw sails over the first baseman's head and rolls into the outfield -- right where you USED to be standing! But you're not there anymore because you ran the wrong way. The batter rounds first and runs all the way to second base!",
+      "field": {
+        "ballPosition": { "x": 0.85, "y": 0.3 },
+        "highlight": [],
+        "runners": [
+          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+        ]
+      },
+      "outcome": {
+        "result": "bad",
+        "headline": "Ball Gets Away! Runner Advances!",
+        "explanation": "Running toward the shortstop didn't help -- they already threw the ball! And by leaving your spot in right field, nobody was there to stop the overthrow. The right fielder's job on this play is to back up first base, not run toward the infield. If you had been behind first base, you could have grabbed that wild throw and kept the runner at first.",
+        "keyTerms": [
+          { "term": "Overthrow", "definition": "When a throw goes past the person trying to catch it and keeps rolling." },
+          { "term": "Advance", "definition": "When a runner moves to the next base. We want to stop them from advancing!" }
+        ],
+        "whatToRemember": "Don't run toward the thrower -- run behind the CATCHER! That's where you can help if the throw is bad.",
+        "iqPoints": 1,
+        "animation": {
+          "steps": [
+            {
+              "type": "run",
+              "from": { "x": 0.8, "y": 0.35 },
+              "to": { "x": 0.5, "y": 0.5 },
+              "entity": "fielder",
+              "duration": 800
+            },
+            {
+              "type": "throw",
+              "from": { "x": 0.4, "y": 0.5 },
+              "to": { "x": 0.85, "y": 0.3 },
+              "entity": "ball",
+              "duration": 700
+            }
+          ]
+        },
+        "next": "end"
+      }
+    }
+  }
+}
