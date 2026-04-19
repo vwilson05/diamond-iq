@@ -72,6 +72,12 @@
         "headline": "Force Out at Second! Smart Play!",
         "explanation": "This is the best play because of two reasons. First, second base is the CLOSEST base to you at shortstop, so the throw is short and quick. Second, this is a 'force out' -- the runner from first HAD to go to second because the batter was running to first behind them. When a runner is forced to advance, the fielder just needs to touch the base while holding the ball. No tag needed! Also, by getting the out at second first, you might be able to start a double play!",
         "whatToRemember": "With a runner on first and a ground ball, always think 'get the lead runner' at second base first. It's the closest throw from shortstop AND it starts a possible double play.",
+        "keyTerms": [
+          { "term": "Force Out", "definition": "When a runner HAS to run to the next base because another runner is coming up behind them. The fielder just needs to touch the base with the ball -- no tag needed!" },
+          { "term": "Double Play", "definition": "Getting two outs on the same play! Usually the fielder gets one out at second base, then throws to first for the second out." },
+          { "term": "Shortstop", "definition": "The defensive player who stands between second base and third base. They handle a lot of ground balls and are usually one of the best fielders on the team." },
+          { "term": "Pivot", "definition": "When a fielder catches the ball at second base, spins, and throws to first base to try to complete a double play. It's called a pivot because they 'pivot' or turn their body quickly." }
+        ],
         "iqPoints": 10,
         "animation": {
           "steps": [
@@ -236,6 +242,12 @@
         "headline": "Double Play! What a Turn!",
         "explanation": "A double play is one of the most exciting plays in baseball! You got TWO outs on one batted ball. The key is that the second baseman caught the ball, touched the bag (force out on the lead runner), then made a strong, accurate throw to first before the batter got there. The reason this works is because BOTH outs are force outs -- the runner from first was forced to second, and the batter is forced to first. No tags needed, just touch the bases!",
         "whatToRemember": "A double play starts by getting the force out at second base first, then throwing to first. Always get the sure out at second before trying to turn two.",
+        "keyTerms": [
+          { "term": "Double Play", "definition": "Two outs on one play! The fielder gets one runner out, then quickly throws to get a second runner out. It's one of the most exciting plays in baseball." },
+          { "term": "Force Out", "definition": "An out where the fielder just has to touch the base while holding the ball. This works when a runner HAS to run to that base because someone is coming up behind them." },
+          { "term": "Turn Two", "definition": "A nickname for completing a double play. When someone says 'turn two,' they mean get the out at second and then throw to first for the second out." },
+          { "term": "Pivot", "definition": "The quick spin move a fielder makes at second base -- they catch the ball, touch the bag, turn their body, and fire to first. Good footwork makes a great pivot!" }
+        ],
         "iqPoints": 10,
         "animation": {
           "steps": [

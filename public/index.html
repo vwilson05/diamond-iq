@@ -72,7 +72,16 @@
       </div>
       <div class="game-header-right">
         <span id="game-scenario-count" class="scenario-count"></span>
-        <button id="btn-end-session" class="btn-end-session">End Session</button>
+        <div class="menu-wrapper">
+          <button id="btn-menu" class="btn-menu" aria-label="Menu">&#9776;</button>
+          <div id="game-menu" class="game-menu hidden">
+            <button class="menu-item" id="menu-profile">My Profile</button>
+            <button class="menu-item" id="menu-change-team">Change Team</button>
+            <button class="menu-item" id="menu-change-level">Change Level</button>
+            <button class="menu-item" id="menu-end">End Session</button>
+            <button class="menu-item menu-item-danger" id="menu-logout">Log Out</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="game-body">

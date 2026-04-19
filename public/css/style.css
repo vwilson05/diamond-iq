@@ -320,6 +320,74 @@ body {
   color: var(--bad);
 }
 
+/* ---- MENU ---- */
+.menu-wrapper {
+  position: relative;
+}
+
+.btn-menu {
+  font-size: 1.2rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  line-height: 1;
+}
+
+.btn-menu:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.game-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  min-width: 180px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition);
+}
+
+.menu-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item-danger {
+  color: var(--bad);
+}
+
+.menu-item-danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
 #screen-game {
   flex-direction: column;
 }

@@ -69,6 +69,12 @@
         "headline": "You Scored! Perfect Tag-Up!",
         "explanation": "This is called 'tagging up' and it's one of the smartest plays in baseball! Here's the rule: after a fly ball is CAUGHT, a runner can advance to the next base, BUT they have to be touching their current base when the ball is caught. That's why you went BACK to third first. Once the outfielder catches it, you're allowed to run. The key is reading the fly ball -- this one was deep to center field, which means the outfielder has a long throw to home plate. That gives you time to score! You timed it perfectly.",
         "whatToRemember": "On a fly ball with less than 2 outs, go back to your base and 'tag up.' Once the fielder catches it, you can run! Deep fly balls give you more time to advance.",
+        "keyTerms": [
+          { "term": "Tag Up", "definition": "Going back to touch your base during a fly ball so you can run to the next base after the fielder catches it. You MUST be touching the base when the catch happens!" },
+          { "term": "Sacrifice Fly", "definition": "A fly ball that gets the batter out, but lets a runner score by tagging up. The batter 'sacrifices' their at-bat to help the team score a run." },
+          { "term": "Third Base Coach", "definition": "The coach who stands near third base and tells runners when to run, stop, or slide. They help you decide whether to tag up or stay put." },
+          { "term": "Pop Fly vs Fly Ball", "definition": "A pop fly goes straight up and stays in the infield -- too close to tag up on. A fly ball goes high and deep to the outfield -- that's the kind you CAN tag up on because the throw home is long!" }
+        ],
         "iqPoints": 10,
         "animation": {
           "steps": [

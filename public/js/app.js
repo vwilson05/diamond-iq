@@ -511,7 +511,26 @@ function showReview() {
   `;
 
   container.querySelector('.btn-play-again').addEventListener('click', () => {
+    // Restart with saved preferences — don't make them re-pick
+    const savedTeam = localStorage.getItem('diamond_iq_team');
+    const savedTier = localStorage.getItem('diamond_iq_tier');
+    const savedSport = localStorage.getItem('diamond_iq_sport');
+
     game.reset();
+
+    if (savedTeam && savedTier && savedSport) {
+      const team = JSON.parse(savedTeam);
+      const tier = TIERS.find(t => t.id === savedTier);
+      if (team && tier) {
+        game.selectTeam(team);
+        setTeamColors(team);
+        game.selectTier(savedTier);
+        game.selectSport(savedSport);
+        if (playerAuth.getPlayer()) updatePlayerHeader();
+        startGame(tier);
+        return;
+      }
+    }
     showScreen('teamSelect');
   });
 }
@@ -596,8 +615,24 @@ function updatePlayerHeader() {
   }
 }
 
-// ---- End Session Button ----
-document.getElementById('btn-end-session').addEventListener('click', () => {
+// ---- Menu ----
+const menuBtn = document.getElementById('btn-menu');
+const gameMenu = document.getElementById('game-menu');
+
+menuBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  gameMenu.classList.toggle('hidden');
+});
+
+// Close menu on outside click
+document.addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
+});
+
+gameMenu.addEventListener('click', (e) => e.stopPropagation());
+
+document.getElementById('menu-end').addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
   if (game.getHistory().length > 0) {
     showReview();
   } else {
@@ -605,6 +640,102 @@ document.getElementById('btn-end-session').addEventListener('click', () => {
     showScreen('teamSelect');
   }
 });
+
+document.getElementById('menu-change-team').addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
+  localStorage.removeItem('diamond_iq_team');
+  game.reset();
+  showScreen('teamSelect');
+});
+
+document.getElementById('menu-change-level').addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
+  localStorage.removeItem('diamond_iq_tier');
+  localStorage.removeItem('diamond_iq_sport');
+  game.reset();
+  // Keep team
+  const savedTeam = localStorage.getItem('diamond_iq_team');
+  if (savedTeam) {
+    const team = JSON.parse(savedTeam);
+    game.selectTeam(team);
+    setTeamColors(team);
+  }
+  showScreen('difficultySelect');
+  renderDifficultyCards();
+});
+
+document.getElementById('menu-profile').addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
+  const player = playerAuth.getPlayer();
+  if (player) {
+    showPlayerProfile(player);
+  }
+});
+
+document.getElementById('menu-logout').addEventListener('click', () => {
+  gameMenu.classList.add('hidden');
+  playerAuth.logout();
+  localStorage.removeItem('diamond_iq_team');
+  localStorage.removeItem('diamond_iq_tier');
+  localStorage.removeItem('diamond_iq_sport');
+  game.reset();
+  showScreen('auth');
+  bootAuth();
+});
+
+function showPlayerProfile(player) {
+  showScreen('review');
+  const container = document.getElementById('review-container');
+
+  fetch(`/api/players/${player.id}`)
+    .then(r => r.ok ? r.json() : player)
+    .then(data => {
+      const cats = data.categories || [];
+      const catHtml = cats.map(c => `
+        <div class="review-item good">
+          <div class="review-item-situation">${(c.category || 'General').toUpperCase()}</div>
+          <div class="review-item-choice">${c.total} scenarios played</div>
+          <div class="review-item-why">Great: ${c.great} | Good: ${c.good} | Okay: ${c.okay} | Needs Work: ${c.bad}</div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="review-header">
+          <div class="logo">DIAMOND <span class="logo-accent">IQ</span></div>
+          <div class="review-title">${data.display_name}</div>
+          <div class="review-iq-score">${data.cumulative_iq || 0} IQ</div>
+          <div class="review-grade">${data.total_sessions || 0} sessions played</div>
+        </div>
+        <h3 style="color:var(--text-secondary);margin:1.5rem 0 1rem;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;">Progress by Category</h3>
+        <div class="review-list">${catHtml || '<p style="color:var(--text-muted)">Play some scenarios to see your progress here!</p>'}</div>
+        <button class="btn-play-again">BACK TO GAME</button>
+      `;
+
+      container.querySelector('.btn-play-again').addEventListener('click', () => {
+        const savedTeam = localStorage.getItem('diamond_iq_team');
+        const savedTier = localStorage.getItem('diamond_iq_tier');
+        const savedSport = localStorage.getItem('diamond_iq_sport');
+        game.reset();
+        if (savedTeam && savedTier && savedSport) {
+          const team = JSON.parse(savedTeam);
+          const tier = TIERS.find(t => t.id === savedTier);
+          if (team && tier) {
+            game.selectTeam(team);
+            setTeamColors(team);
+            game.selectTier(savedTier);
+            game.selectSport(savedSport);
+            updatePlayerHeader();
+            startGame(tier);
+            return;
+          }
+        }
+        showScreen('teamSelect');
+      });
+    })
+    .catch(() => {
+      container.innerHTML = '<p style="padding:2rem;color:var(--text-muted)">Could not load profile.</p>';
+    });
+}
 
 // ---- Auth Boot ----
 function bootAuth() {

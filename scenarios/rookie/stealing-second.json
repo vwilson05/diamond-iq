@@ -76,6 +76,12 @@
         "headline": "Stolen Base! Perfect Read!",
         "explanation": "The secret to stealing a base is your JUMP -- and the jump depends on reading the pitcher. When a pitcher is in the stretch position, their front leg tells you everything. If their leg moves toward home plate, they're delivering the pitch and you GO. If their leg moves toward first base, they're throwing over to pick you off and you dive BACK. By watching that front leg, you got the earliest possible jump, which gave you a head start on the catcher's throw. That's the difference between safe and out!",
         "whatToRemember": "Watch the pitcher's front leg! Toward home = GO! Toward your base = GET BACK! A good jump starts with reading the pitcher.",
+        "keyTerms": [
+          { "term": "Steal", "definition": "Running to the next base while the pitcher is throwing the ball to home plate. It's risky because the catcher can throw you out, but it moves you closer to scoring!" },
+          { "term": "Leadoff", "definition": "The few steps a runner takes away from their base toward the next one BEFORE the pitch. A bigger lead gives you a head start, but go too far and the pitcher might pick you off!" },
+          { "term": "The Stretch", "definition": "A shorter pitching position the pitcher uses when runners are on base. Instead of a full windup, they stand sideways so they can keep an eye on the runner and throw to the base quickly." },
+          { "term": "Jump", "definition": "How quickly you take off running when you steal. A 'good jump' means you read the pitcher perfectly and exploded toward the next base at just the right moment." }
+        ],
         "iqPoints": 10,
         "animation": {
           "steps": [
