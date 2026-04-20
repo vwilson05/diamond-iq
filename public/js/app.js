@@ -10,6 +10,12 @@ import { GameState } from './engine/game-state.js';
 import { loadScenarioList, loadScenario, getRandomScenario } from './engine/scenario-loader.js';
 import { PlayerAuth, AVATAR_SVGS } from './ui/player-auth.js';
 
+// ---- SVG Icons ----
+const TOKEN_COIN_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="rgba(245,166,35,0.15)"/><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">T</text></svg>`;
+const BRAIN_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C9 2 7 4 7 6.5C5.5 7 4 8.5 4 10.5C4 12 5 13.5 6 14V20C6 21 7 22 8 22H16C17 22 18 21 18 20V14C19 13.5 20 12 20 10.5C20 8.5 18.5 7 17 6.5C17 4 15 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2V22" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/></svg>`;
+const TARGET_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`;
+const TROPHY_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 21h8M12 17v4M6 3h12v4a6 6 0 01-12 0V3zM6 5H3v2a3 3 0 003 3M18 5h3v2a3 3 0 01-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
 // ---- State ----
 const game = new GameState();
 const playerAuth = new PlayerAuth();
@@ -145,6 +151,7 @@ async function startGame(tier) {
   document.getElementById('game-tier-badge').textContent = tier.name;
   document.getElementById('game-iq-display').textContent = 'IQ: 0';
   document.getElementById('game-scenario-count').textContent = '';
+  updateTokenDisplay(0);
 
   // Initialize field canvas
   const canvas = document.getElementById('field-canvas');
@@ -402,7 +409,7 @@ function renderOutcome(node, nodeId) {
     <div class="outcome-iq">+${outcome.iqPoints} IQ Points</div>
   `;
 
-  // Record outcome
+  // Record outcome (include category + whatToRemember for review breakdown)
   game.recordOutcome({
     scenarioId: game.state.currentScenario.id,
     scenarioTitle: game.state.currentScenario.title,
@@ -411,6 +418,7 @@ function renderOutcome(node, nodeId) {
     explanation: outcome.explanation,
     whatToRemember: outcome.whatToRemember,
     iqPoints: outcome.iqPoints,
+    category: game.state.currentScenario.role || 'general',
   });
 
   // Update IQ display with animation
@@ -419,6 +427,9 @@ function renderOutcome(node, nodeId) {
   iqEl.classList.remove('iq-bump');
   void iqEl.offsetWidth; // force reflow to restart animation
   iqEl.classList.add('iq-bump');
+
+  // Update token display
+  updateTokenDisplay(game.state.totalIQ);
 
   // Save result to server if we have a session
   if (currentSessionId) {
@@ -515,6 +526,69 @@ function showReview() {
   const ringOffset = ringCirc - (ringCirc * Math.min(pct, 100) / 100);
   const gradeClass = grade.startsWith('A') ? 'grade-a' : grade.startsWith('B') ? 'grade-b' : grade.startsWith('C') ? 'grade-c' : 'grade-d';
 
+  // --- Category Breakdown ---
+  const outcomesWithCat = history.filter(h => h.outcome);
+  const catMap = {};
+  const CATEGORY_ORDER = ['defense', 'offense', 'pitching', 'baserunning'];
+  outcomesWithCat.forEach(h => {
+    const cat = (h.outcome.category || 'general').toLowerCase();
+    if (!catMap[cat]) catMap[cat] = { total: 0, greatGood: 0 };
+    catMap[cat].total++;
+    if (h.outcome.result === 'great' || h.outcome.result === 'good') catMap[cat].greatGood++;
+  });
+
+  const catBarColor = (p) => p >= 80 ? 'var(--great)' : p >= 60 ? 'var(--good)' : p >= 40 ? 'var(--okay)' : 'var(--bad)';
+
+  const allCats = [...new Set([...CATEGORY_ORDER, ...Object.keys(catMap)])];
+  const catCards = allCats.filter(c => catMap[c]).map(cat => {
+    const d = catMap[cat];
+    const p = d.total > 0 ? Math.round((d.greatGood / d.total) * 100) : 0;
+    return `<div class="review-cat-card">
+      <div class="review-cat-label">${cat}</div>
+      <div class="review-cat-bar-track"><div class="review-cat-bar-fill" style="width:${p}%;background:${catBarColor(p)}"></div></div>
+      <span class="review-cat-pct">${p}%</span> <span class="review-cat-count">(${d.greatGood}/${d.total})</span>
+    </div>`;
+  }).join('');
+
+  // --- Focus Area (weakest category) ---
+  let weakestCat = null;
+  let weakestPct = 101;
+  allCats.filter(c => catMap[c]).forEach(cat => {
+    const d = catMap[cat];
+    const p = d.total > 0 ? (d.greatGood / d.total) * 100 : 100;
+    if (p < weakestPct) { weakestPct = p; weakestCat = cat; }
+  });
+  const focusHtml = weakestCat && weakestPct < 80 ? `
+    <div class="review-focus">
+      <div class="review-focus-icon">${TARGET_SVG}</div>
+      <div>
+        <div class="review-focus-label">Focus Area</div>
+        <div class="review-focus-text">Work on: ${weakestCat.charAt(0).toUpperCase() + weakestCat.slice(1)}</div>
+      </div>
+    </div>` : '';
+
+  // --- Key Facts to Review (non-great outcomes) ---
+  const factsToReview = outcomesWithCat.filter(h => h.outcome.result !== 'great' && h.outcome.whatToRemember);
+  const factsHtml = factsToReview.length > 0 ? `
+    <div class="review-facts">
+      <div class="review-facts-header">
+        <div class="review-facts-icon">${BRAIN_SVG}</div>
+        <div class="review-facts-title">Review These</div>
+      </div>
+      ${factsToReview.map(h => `
+        <div class="review-fact-item">
+          <div class="review-fact-scenario">${h.scenarioTitle}</div>
+          ${h.outcome.whatToRemember}
+        </div>
+      `).join('')}
+    </div>` : '';
+
+  // --- Tokens earned this round ---
+  const roundIQ = outcomesWithCat.reduce((sum, h) => sum + (h.outcome.iqPoints || 0), 0);
+  const tokensHtml = `<div class="review-tokens">
+    <span class="review-tokens-earned"><span class="token-coin">${TOKEN_COIN_SVG}</span> +${roundIQ} tokens earned this round</span>
+  </div>`;
+
   container.innerHTML = `
     <div class="review-header">
       <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
@@ -531,11 +605,16 @@ function showReview() {
       </div>
       <div class="review-iq-score">${totalIQ} IQ</div>
       <div class="review-grade">${history.length} scenario${history.length !== 1 ? 's' : ''} completed</div>
+      ${tokensHtml}
     </div>
+    ${catCards ? `<h3 class="profile-section-header">Category Breakdown</h3><div class="review-categories">${catCards}</div>` : ''}
+    ${focusHtml}
+    ${factsHtml}
+    <h3 class="profile-section-header">Decisions</h3>
     <div class="review-list">
       ${history.filter(h => h.outcome).map(h => `
         <div class="review-item ${h.outcome.result}">
-          <div class="review-item-situation">${h.scenarioTitle}</div>
+          <div class="review-item-situation">${h.scenarioTitle}${h.outcome.category ? ` <span style="opacity:0.5;font-size:0.65rem;">/ ${h.outcome.category}</span>` : ''}</div>
           <div class="review-item-choice">${h.outcome.headline}</div>
           <div class="review-item-why">${h.outcome.explanation}</div>
           <div style="margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid rgba(255,255,255,0.06);">
@@ -600,6 +679,13 @@ function showReview() {
 }
 
 // ---- Helpers ----
+function updateTokenDisplay(total) {
+  const el = document.getElementById('game-token-display');
+  if (el) {
+    el.innerHTML = `<span class="token-coin">${TOKEN_COIN_SVG}</span> ${total}`;
+  }
+}
+
 function createSituationBar(setup) {
   const runners = [];
   if (setup.runners.first) runners.push('1st');
@@ -671,7 +757,8 @@ function updatePlayerHeader() {
     btn.className = 'player-profile-btn';
     btn.innerHTML = `<span class="profile-avatar">${avatarSvg}</span>
       <span>${player.display_name}</span>
-      <span class="profile-iq">${player.cumulative_iq || 0} IQ</span>`;
+      <span class="profile-iq">${player.cumulative_iq || 0} IQ</span>
+      <span class="token-display" style="font-size:0.8rem;margin-left:0.2rem;"><span class="token-coin">${TOKEN_COIN_SVG}</span>${player.cumulative_iq || 0}</span>`;
     btn.addEventListener('click', () => {
       playerAuth.logout();
       game.reset();
@@ -738,9 +825,7 @@ document.getElementById('menu-change-level').addEventListener('click', () => {
 document.getElementById('menu-profile').addEventListener('click', () => {
   gameMenu.classList.add('hidden');
   const player = playerAuth.getPlayer();
-  if (player) {
-    showPlayerProfile(player);
-  }
+  showPlayerProfile(player);
 });
 
 document.getElementById('menu-logout').addEventListener('click', () => {
@@ -758,50 +843,155 @@ function showPlayerProfile(player) {
   showScreen('review');
   const container = document.getElementById('review-container');
 
-  fetch(`/api/players/${player.id}`)
-    .then(r => r.ok ? r.json() : player)
-    .then(data => {
-      const cats = data.categories || [];
-      const catHtml = cats.map(c => `
-        <div class="review-item good">
-          <div class="review-item-situation">${(c.category || 'General').toUpperCase()}</div>
-          <div class="review-item-choice">${c.total} scenarios played</div>
-          <div class="review-item-why">Great: ${c.great} | Good: ${c.good} | Okay: ${c.okay} | Needs Work: ${c.bad}</div>
-        </div>
-      `).join('');
+  const isGuest = !player || !player.id;
 
-      container.innerHTML = `
-        <div class="review-header">
-          <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
-          <div class="review-title">${data.display_name}</div>
-          <div class="review-iq-score">${data.cumulative_iq || 0} IQ</div>
-          <div class="review-grade">${data.total_sessions || 0} sessions played</div>
+  // Helper: render category mastery bars
+  function renderMasteryBars(cats) {
+    if (!cats || cats.length === 0) return '<p style="color:var(--text-muted)">Play some scenarios to see your progress here!</p>';
+    const barColor = (p) => p >= 80 ? 'var(--great)' : p >= 60 ? 'var(--good)' : p >= 40 ? 'var(--okay)' : 'var(--bad)';
+    return `<div class="profile-mastery">${cats.map(c => {
+      const total = c.total || 0;
+      const gg = (c.great || 0) + (c.good || 0);
+      const pct = total > 0 ? Math.round((gg / total) * 100) : 0;
+      return `<div class="profile-mastery-item">
+        <div class="profile-mastery-label">
+          <span class="profile-mastery-name">${(c.category || 'General')}</span>
+          <span class="profile-mastery-pct">${pct}%</span>
         </div>
-        <h3 style="color:var(--text-secondary);margin:1.5rem 0 1rem;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;">Progress by Category</h3>
-        <div class="review-list">${catHtml || '<p style="color:var(--text-muted)">Play some scenarios to see your progress here!</p>'}</div>
-        <button class="btn-play-again">BACK TO GAME</button>
-      `;
+        <div class="profile-mastery-bar-track"><div class="profile-mastery-bar-fill" style="width:${pct}%;background:${barColor(pct)}"></div></div>
+        <div class="profile-mastery-stats">${total} scenarios — Great: ${c.great || 0} | Good: ${c.good || 0} | Okay: ${c.okay || 0} | Needs Work: ${c.bad || 0}</div>
+      </div>`;
+    }).join('')}</div>`;
+  }
 
-      container.querySelector('.btn-play-again').addEventListener('click', () => {
-        const savedSport = localStorage.getItem('diamond_iq_sport');
-        const savedTeam = localStorage.getItem('diamond_iq_team');
-        const savedTier = localStorage.getItem('diamond_iq_tier');
-        game.reset();
-        if (savedSport && savedTeam && savedTier) {
-          const team = JSON.parse(savedTeam);
-          const tier = TIERS.find(t => t.id === savedTier);
-          if (team && tier) {
-            game.selectSport(savedSport);
-            game.selectTeam(team);
-            setTeamColors(team);
-            game.selectTier(savedTier);
-            updatePlayerHeader();
-            startGame(tier);
-            return;
-          }
-        }
-        showScreen('sportSelect');
-      });
+  // Helper: render awards
+  function renderAwards(awards) {
+    if (!awards || awards.length === 0) return '<p style="color:var(--text-muted)">Keep playing to earn awards!</p>';
+    return `<div class="profile-awards">${awards.map(a => `
+      <div class="profile-award-card">
+        <div class="profile-award-icon">${TROPHY_SVG}</div>
+        <div class="profile-award-name">${a.award_name || a.name}</div>
+        <div class="profile-award-date">${a.earned_at ? new Date(a.earned_at).toLocaleDateString() : ''}</div>
+      </div>
+    `).join('')}</div>`;
+  }
+
+  // Helper: render session history
+  function renderSessionHistory(sessions) {
+    if (!sessions || sessions.length === 0) return '<p style="color:var(--text-muted)">No sessions recorded yet.</p>';
+    return `<div class="profile-history">${sessions.slice(0, 5).map(s => `
+      <div class="profile-history-item">
+        <div class="profile-history-left">
+          <span class="profile-history-tier">${s.tier || 'Unknown'} ${s.grade ? '(' + s.grade + ')' : ''}</span>
+          <span class="profile-history-date">${s.created_at ? new Date(s.created_at).toLocaleDateString() : ''}</span>
+        </div>
+        <span class="profile-history-score">${s.total_iq || 0} IQ</span>
+      </div>
+    `).join('')}</div>`;
+  }
+
+  // Helper: render the full profile page
+  function renderProfile(data, awards, sessions) {
+    const cumIQ = data.cumulative_iq || 0;
+    const totalSessions = data.total_sessions || 0;
+    const overallGrade = cumIQ > 0 && totalSessions > 0 ? (() => {
+      const avg = cumIQ / totalSessions;
+      if (avg >= 45) return 'A+';
+      if (avg >= 40) return 'A';
+      if (avg >= 35) return 'B+';
+      if (avg >= 30) return 'B';
+      if (avg >= 25) return 'C';
+      return 'D';
+    })() : '--';
+
+    container.innerHTML = `
+      <div class="review-header">
+        <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
+        <div class="review-title">${data.display_name || 'Player'}</div>
+        <div class="review-iq-score">${cumIQ} IQ</div>
+        <div class="review-grade">${totalSessions} session${totalSessions !== 1 ? 's' : ''} played — Overall: ${overallGrade}</div>
+      </div>
+      <div class="profile-token-balance">
+        <div class="profile-token-amount"><span class="token-coin">${TOKEN_COIN_SVG}</span> Token Balance: ${cumIQ}</div>
+        <div class="profile-token-note">Tokens unlock rewards — coming soon</div>
+      </div>
+      <h3 class="profile-section-header">Category Mastery</h3>
+      ${renderMasteryBars(data.categories)}
+      <h3 class="profile-section-header">Awards</h3>
+      ${renderAwards(awards)}
+      <h3 class="profile-section-header">Recent Sessions</h3>
+      ${renderSessionHistory(sessions)}
+      <button class="btn-play-again">BACK TO GAME</button>
+    `;
+
+    container.querySelector('.btn-play-again').addEventListener('click', profileBackHandler);
+  }
+
+  function profileBackHandler() {
+    const savedSport = localStorage.getItem('diamond_iq_sport');
+    const savedTeam = localStorage.getItem('diamond_iq_team');
+    const savedTier = localStorage.getItem('diamond_iq_tier');
+    game.reset();
+    if (savedSport && savedTeam && savedTier) {
+      const team = JSON.parse(savedTeam);
+      const tier = TIERS.find(t => t.id === savedTier);
+      if (team && tier) {
+        game.selectSport(savedSport);
+        game.selectTeam(team);
+        setTeamColors(team);
+        game.selectTier(savedTier);
+        updatePlayerHeader();
+        startGame(tier);
+        return;
+      }
+    }
+    showScreen('sportSelect');
+  }
+
+  if (isGuest) {
+    // Guest mode — show session-local stats only
+    const localHistory = game.getHistory().filter(h => h.outcome);
+    const localCatMap = {};
+    localHistory.forEach(h => {
+      const cat = (h.outcome.category || 'general').toLowerCase();
+      if (!localCatMap[cat]) localCatMap[cat] = { category: cat, total: 0, great: 0, good: 0, okay: 0, bad: 0 };
+      localCatMap[cat].total++;
+      localCatMap[cat][h.outcome.result] = (localCatMap[cat][h.outcome.result] || 0) + 1;
+    });
+
+    container.innerHTML = `
+      <div class="review-header">
+        <div class="logo">PLAY<span class="logo-accent">IQ</span></div>
+        <div class="review-title">Guest Player</div>
+        <div class="review-iq-score">${game.state.totalIQ} IQ</div>
+        <div class="review-grade">This session only</div>
+      </div>
+      <div class="profile-guest-cta">
+        <div class="profile-guest-cta-text">Create an account to save your progress, earn awards, and track your improvement over time.</div>
+        <button class="profile-guest-cta-btn">Create Account to Save Progress</button>
+      </div>
+      <h3 class="profile-section-header">Session Stats</h3>
+      ${renderMasteryBars(Object.values(localCatMap))}
+      <button class="btn-play-again">BACK TO GAME</button>
+    `;
+
+    container.querySelector('.profile-guest-cta-btn')?.addEventListener('click', () => {
+      game.reset();
+      showScreen('auth');
+      bootAuth();
+    });
+    container.querySelector('.btn-play-again').addEventListener('click', profileBackHandler);
+    return;
+  }
+
+  // Logged-in player — fetch data from API
+  Promise.all([
+    fetch(`/api/players/${player.id}`).then(r => r.ok ? r.json() : player),
+    fetch(`/api/players/${player.id}/awards`).then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch(`/api/players/${player.id}/history`).then(r => r.ok ? r.json() : []).catch(() => []),
+  ])
+    .then(([data, awards, sessions]) => {
+      renderProfile(data, awards, sessions);
     })
     .catch(() => {
       container.innerHTML = '<p style="padding:2rem;color:var(--text-muted)">Could not load profile.</p>';
