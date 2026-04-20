@@ -1,0 +1,86 @@
+{
+  "id": "majors-chess-queen-trade",
+  "title": "Should You Trade Queens?",
+  "sport": ["chess"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "strategy",
+  "tags": ["queen-trade", "strategy", "endgame-transition", "material"],
+  "setup": {
+    "move": 25,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "winning",
+    "position": "r4rk1/ppp2ppp/3p4/8/3NP3/8/PPP2PPP/R2Q1RK1",
+    "lastMove": "d8d6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are up a full knight -- that is 3 extra points of material! Your opponent's queen is on d6 and your queen on d1 can trade queens by going to d6. When you are ahead in material, trading queens simplifies the game and makes it easier to convert your advantage into a win. But should you trade?",
+      "choices": [
+        {
+          "id": "trade-queens",
+          "text": "Trade queens! You are ahead in material, so trading pieces makes your advantage bigger and easier to use.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "keep-queens",
+          "text": "Keep the queens on the board. The queen is the best piece, why would you give it up?",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "queen-attack",
+          "text": "Move the queen to the kingside to attack. Go for checkmate instead!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You trade queens! Now the most powerful piece is off the board. Your extra knight is a huge advantage in the endgame. Your opponent has no way to create counterattacks because the queen was their best attacking piece. You calmly use your extra knight to win more pawns and eventually the game. Smooth and clean!",
+      "outcome": {
+        "result": "great",
+        "headline": "Queens Traded! Your Extra Piece Wins the Game!",
+        "explanation": "Here is one of the most important strategy rules: when you are ahead in material, TRADE pieces! Why? Because each trade makes your advantage relatively BIGGER. If you have 20 points of material and your opponent has 17, that is close. But if you trade queens (9 points each) and now you have 11 and your opponent has 8, your advantage is much more noticeable. Also, trading queens removes your opponent's best chance for a comeback attack. Keep it simple!",
+        "whatToRemember": "When ahead in material, trade pieces (especially queens) to simplify! Fewer pieces on the board = easier to win with your extra material.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Simplification", "definition": "Trading pieces when you are ahead. Fewer pieces means fewer tricks for your opponent and an easier win for you!" },
+          { "term": "Converting an Advantage", "definition": "Turning a material advantage into a win. Trade pieces, win pawns, and promote!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You decide to keep queens on the board. The game stays complicated. Your opponent's queen starts creating threats against your king, and suddenly you have to play very carefully to avoid getting checkmated. You are still ahead, but the game is much harder to win with queens still on.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Queens Stay On -- The Game Gets Messy!",
+        "explanation": "Keeping queens on when you are ahead in material is risky. Queens are the best attacking pieces, and your opponent can use theirs to create counterplay against your king. Even though you have more material, a queen can deliver checkmate almost by herself. By trading queens, you remove your opponent's best weapon and make the game about your extra material. When you are ahead, keep it simple!",
+        "whatToRemember": "Queens are dangerous! When ahead, trading queens removes your opponent's best chance for a comeback.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Counterplay", "definition": "When the losing side creates threats and complications to fight back. Trading queens reduces counterplay!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move the queen to the kingside to attack. But your opponent's king is safe behind pawns and your attack goes nowhere. Meanwhile, your opponent's queen raids your queenside, winning pawns and creating threats. Your advantage is slipping away because you went for a risky attack instead of a safe trade!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Risky Attack Backfires! Should Have Traded!",
+        "explanation": "When you are ahead in material, you do NOT need to attack. You are already winning! Going for a risky attack gives your opponent chances for counterplay. The smarter plan is to trade queens, simplify the position, and slowly use your extra piece to win. Think of it like a basketball team that is up by 20 points -- you do not need fancy plays, just keep it simple and run out the clock!",
+        "whatToRemember": "When ahead, do not take risks! Trade queens, simplify, and convert your advantage. Simple chess wins games!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Overextending", "definition": "Pushing for an attack when you do not need one. This gives your opponent chances they should not have." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

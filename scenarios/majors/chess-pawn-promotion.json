@@ -1,0 +1,87 @@
+{
+  "id": "majors-chess-pawn-promotion",
+  "title": "Race to Promote! Pawn to Queen!",
+  "sport": ["chess"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "endgame",
+  "tags": ["pawn-promotion", "endgame", "passed-pawn", "queening"],
+  "setup": {
+    "move": 50,
+    "phase": "endgame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "8/5k2/8/1P6/8/8/5p2/4K3",
+    "lastMove": "f8f7"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is a pawn race! You have a pawn on b5 racing to the 8th rank to become a queen, and your opponent has a pawn on f2 racing to the 1st rank to become a queen. Whoever promotes first gets a huge advantage. Your king is on e1 and can try to stop the enemy pawn, but that means you cannot help your own pawn. What do you do?",
+      "choices": [
+        {
+          "id": "push-pawn",
+          "text": "Push your pawn! b6, b7, b8 = Queen! Race to promote first and your new queen will dominate!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "block-their-pawn",
+          "text": "Move the king to f1 to block the opponent's pawn. Stop them from queening!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "king-wanders",
+          "text": "Move the king toward the center. You need to improve the king first.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You push b6! b7! b8 = QUEEN! Your pawn reaches the end of the board and transforms into a queen! Now you have a brand new queen on the board. Even if your opponent promotes their pawn too, you promoted FIRST, which means you get to use your queen to attack while they are still one move behind!",
+      "outcome": {
+        "result": "great",
+        "headline": "PAWN PROMOTES TO QUEEN! Brand New Army!",
+        "explanation": "Pawn promotion is one of the most exciting moments in chess! When a pawn reaches the other end of the board (rank 8 for white, rank 1 for black), it transforms into any piece you want -- almost always a queen! In a pawn race, the key is counting moves. Count how many moves YOUR pawn needs to promote, and how many moves the OPPONENT'S pawn needs. If you can promote first, push the pawn! Do not get distracted. In this position, your pawn promotes in 3 moves and their pawn also needs moves, so racing is correct!",
+        "whatToRemember": "In a pawn race, count the moves! If your pawn promotes first (or at the same time with check), push it forward. Do not get distracted!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Pawn Promotion", "definition": "When a pawn reaches the last rank, it becomes any piece you choose. Pick a queen -- it is the most powerful!" },
+          { "term": "Passed Pawn", "definition": "A pawn with no enemy pawns blocking its path to promotion. Passed pawns are super valuable in the endgame!" },
+          { "term": "Pawn Race", "definition": "When both sides have passed pawns racing to promote. Whoever queens first usually wins!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move the king to f1 to block the enemy pawn. Good -- their pawn cannot promote now. But while you are babysitting the enemy pawn, you are not pushing your own pawn. Your opponent's king walks over and captures your b5 pawn! Now nobody promotes and the advantage is gone.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pawn Stopped, But Yours Is Lost Too!",
+        "explanation": "Blocking the enemy pawn keeps things safe, but in a pawn race, you need to think about BOTH pawns at once. If you can promote first, your new queen can stop the enemy pawn later. Sometimes the best defense is a faster offense! Count the moves: if your pawn promotes before the enemy pawn, push it and deal with the enemy pawn after you have a queen.",
+        "whatToRemember": "In a pawn race, count moves carefully. If you can promote first, push your pawn! Your new queen can stop the enemy pawn later.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Counting Moves", "definition": "Figuring out how many moves each pawn needs to promote. The side that promotes first usually wins the race!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move the king toward the center for no clear reason. Your opponent pushes f1 = Queen! They promoted first! Now they have a queen and you do not. Their queen gobbles up your b5 pawn and the game is lost. You wasted a crucial move walking the king in the wrong direction.",
+      "outcome": {
+        "result": "bad",
+        "headline": "They Queened First! Game Over!",
+        "explanation": "In a pawn race, every single move counts. Moving the king to the center did nothing to help your pawn promote or stop the enemy pawn. In the endgame, passed pawns are the most important thing on the board. Your job is either (1) push your pawn to promote, or (2) stop the enemy pawn from promoting. Walking the king somewhere random does neither! Always have a clear plan with your passed pawns.",
+        "whatToRemember": "In the endgame, passed pawns are everything! Push them, protect them, or stop the enemy's. Do not waste moves!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Endgame Priority", "definition": "In the endgame, passed pawns and king activity matter most. Every move counts -- do not waste them!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

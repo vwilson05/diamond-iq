@@ -1,0 +1,88 @@
+{
+  "id": "the-show-chess-opposition",
+  "title": "The Opposition -- King vs King Showdown!",
+  "sport": ["chess"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "endgame",
+  "tags": ["opposition", "endgame", "king-pawn", "technique"],
+  "setup": {
+    "move": 60,
+    "phase": "endgame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "8/8/8/4k3/8/4K3/4P3/8",
+    "lastMove": "e6e5"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is a king and pawn endgame. Your pawn is on e2, your king is on e3, and the enemy king is on e5 directly in front of you. The two kings are facing off with one square between them. This face-off is called 'the opposition.' Whoever does NOT have to move has the advantage because the other king must step aside. What do you play?",
+      "choices": [
+        {
+          "id": "ke3-d3-outflank",
+          "text": "Move the king to d3! Step to the side and try to outflank the enemy king. Force them to give way!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "push-e4",
+          "text": "Push the pawn to e4 immediately. Get the pawn closer to promotion!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "ke3-f3",
+          "text": "Move the king to f3. Get the king to the other side.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You play Kd3! Now the enemy king must choose: go to d5 (and you play Ke4 gaining ground), or go to e6 (and you play Kd4, then push e4 with your king in front of the pawn). Either way, you are gaining ground and pushing toward promotion. By sidestepping, you outflanked the enemy king!",
+      "outcome": {
+        "result": "great",
+        "headline": "Outflanked! Your King Leads the Way!",
+        "explanation": "In king and pawn endgames, the most important rule is: the king must march IN FRONT of the pawn, not behind it. If your king is in front of the pawn, it clears the path for the pawn to promote. The opposition is a key concept: when kings face each other with one square between them, the player who does NOT have to move is winning. By sidestepping to d3, you force the enemy king to move and then your king gains ground. This is called outflanking.",
+        "whatToRemember": "In king + pawn endgames, get your king IN FRONT of the pawn! Use the opposition and outflanking to push the enemy king aside.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Opposition", "definition": "When two kings face each other with one square between them. The player who does NOT have to move has the advantage." },
+          { "term": "Outflanking", "definition": "Moving your king to the side to get around the enemy king. If they block one side, you go around the other!" },
+          { "term": "King in Front of the Pawn", "definition": "The golden rule of king+pawn endgames. Your king should walk ahead of the pawn to clear the path for promotion." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You play Kf3. The opponent plays Kf5, maintaining the opposition! The kings are face to face again and you have not made progress. You will need to try the other side next time. The idea is right but you need to choose the side more carefully based on how the opponent responds.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But the Opposition Held!",
+        "explanation": "Moving to f3 was a reasonable try, but the opponent mirrored you by going to f5 and kept the opposition. In some positions, one side works better than the other for outflanking. The key is to keep trying to get your king in front of the pawn. If the opponent mirrors you on one side, try the other. The opposition is like a dance -- you step, they step, but eventually you can find a way through.",
+        "whatToRemember": "If your opponent maintains the opposition, try outflanking from the other side. Keep probing until you break through!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Maintaining Opposition", "definition": "When the defending king mirrors the attacking king's sideways move, keeping one square between them." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You push e4 right away. The opponent plays Ke6, standing right in front of the pawn! Now you push e5 and the opponent plays Ke7. You push e6 and they play Ke8. You push e7 and they play Ke7. STALEMATE! Or the pawn falls. Your king was behind the pawn the whole time and could not help clear the path. The game is a draw!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Pawn Pushed Too Early! Draw!",
+        "explanation": "Pushing the pawn before your king is in front of it is the number one mistake in king+pawn endgames! When the pawn charges forward without king support, the enemy king just stands in front of it and blocks. Eventually the pawn runs into the king and either gets captured or causes stalemate. The CORRECT method is to advance the king first, use the opposition to push the enemy king aside, and only THEN push the pawn. King first, pawn second!",
+        "whatToRemember": "NEVER push the pawn until your king is in front of it! King first, pawn second. The king clears the path for promotion.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "King First, Pawn Second", "definition": "The golden rule of pawn endgames. The king must advance ahead of the pawn to push the enemy king out of the way." },
+          { "term": "Blockade", "definition": "When the defending king stands right in front of the pawn, blocking it from advancing. This leads to a draw!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

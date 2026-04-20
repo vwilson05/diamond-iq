@@ -1,0 +1,88 @@
+{
+  "id": "the-show-chess-sacrifice-open-king",
+  "title": "Sacrifice a Piece to Crack Open the King!",
+  "sport": ["chess"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "tactics",
+  "tags": ["sacrifice", "attack", "king-hunt", "combination"],
+  "setup": {
+    "move": 18,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP1QPPP/R1B2RK1",
+    "lastMove": "d7d6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your pieces are aimed at the enemy king. The opponent has castled kingside, hiding behind the pawns on f7, g7, h7. You notice that if you sacrifice your bishop by capturing on f7, the king is forced out of hiding. Then your knight and queen can attack the exposed king together. Should you make the sacrifice?",
+      "choices": [
+        {
+          "id": "sacrifice-on-f7",
+          "text": "Sacrifice the bishop on f7! Take the pawn, force the king into the open, and attack with your queen and knight!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "play-quietly",
+          "text": "Play a quiet developing move instead. Sacrificing a piece seems too risky.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "sacrifice-wrong-piece",
+          "text": "Sacrifice the knight on f7 instead. Knights are good at attacking kings!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Bishop takes f7, CHECK! The king is forced to capture on f7 because it is in check. Now the king is standing in the open on f7 with no pawn shield! Your knight jumps in with a devastating check, and your queen follows up. The king is being hunted across the board! Within a few moves you deliver checkmate. The sacrifice paid off big time!",
+      "outcome": {
+        "result": "great",
+        "headline": "SACRIFICE! King Hunt! CHECKMATE!",
+        "explanation": "Sometimes in chess, giving up a piece is actually WINNING if it exposes the enemy king to a deadly attack. This is called a sacrifice. The key to a good sacrifice is making sure your remaining pieces can follow up with a strong attack. Before sacrificing, ask these three questions: (1) After the sacrifice, is the enemy king exposed? (2) Do I have enough pieces nearby to continue the attack? (3) Can my opponent defend? If the king is in the open and you have pieces ready to pounce, the sacrifice will work! Great players throughout history have won with brilliant sacrifices.",
+        "whatToRemember": "A sacrifice works when the enemy king is exposed and you have pieces ready to attack. Give up a piece, gain a king!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Sacrifice", "definition": "Giving up material (a piece or pawn) to gain a bigger advantage, like a devastating attack on the king." },
+          { "term": "King Hunt", "definition": "When the king is driven out into the open and chased across the board by attacking pieces. Usually ends in checkmate!" },
+          { "term": "Follow-Up", "definition": "The moves that come after a sacrifice. A sacrifice is only good if you have strong follow-up moves!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You play a quiet move. Nothing wrong with it, but your opponent consolidates their position and shores up the defense. The window for the sacrifice on f7 closes. The game continues evenly. You had a chance for a brilliant attack but played it safe.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe Move, But the Brilliancy Was There!",
+        "explanation": "Playing safe is fine most of the time, but elite players recognize when a sacrifice is correct. The bishop sacrifice on f7 would have ripped open the king's defenses. When all your pieces are aimed at the enemy king and a sacrifice strips away the pawn shield, that is usually the right time to strike. Calculating sacrifices takes courage, but with practice you can learn to see when they work.",
+        "whatToRemember": "When your pieces are aimed at the king and you can strip away the pawn shield, consider a sacrifice! Fortune favors the bold!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Attacking Chances", "definition": "Opportunities to launch an assault on the enemy king. When you have pieces aimed at the king, look for breakthroughs!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You sacrifice the knight on f7 instead of the bishop. The king captures the knight, but now you do not have a knight to deliver the follow-up checks! Your queen comes in but the king slips away because there is no knight to control the escape squares. You gave up a piece and got nothing. Wrong piece to sacrifice!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Sacrifice! You Needed the Knight for the Attack!",
+        "explanation": "In a sacrifice combination, every piece has a role. The BISHOP sacrifices on f7 to open up the king, and then the KNIGHT delivers the follow-up checks because knights can reach squares that queens cannot. If you sacrifice the knight instead, you lose the piece you needed for the attack! Before making a sacrifice, think through the entire sequence: which piece opens the position, and which pieces deliver the follow-up? Every piece must play its part.",
+        "whatToRemember": "In a combination, every piece has a job. Make sure you sacrifice the RIGHT piece and keep the ones you need for follow-up!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Combination", "definition": "A series of forced moves, often involving a sacrifice, that leads to a big advantage or checkmate." },
+          { "term": "Calculation", "definition": "Thinking through all the moves in your head before playing. Calculate the whole combination before sacrificing!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

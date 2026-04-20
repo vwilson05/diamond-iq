@@ -1,0 +1,88 @@
+{
+  "id": "the-show-chess-deflection",
+  "title": "Deflection -- Lure the Defender Away!",
+  "sport": ["chess"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "tactics",
+  "tags": ["deflection", "combination", "tactics", "elite"],
+  "setup": {
+    "move": 28,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "2r2rk1/pp3ppp/3q4/3p4/8/1B3Q2/PPP2PPP/4R1K1",
+    "lastMove": "d8d6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You see that the opponent's queen on d6 is the only piece defending the rook on c8. Your rook on e1 wants to get to e8 for a back rank checkmate, but the queen defends that square too. If you could DEFLECT the queen away from defending, your rook could deliver checkmate! You notice your bishop on b3 can take the d5 pawn with check-like threats. What is your plan?",
+      "choices": [
+        {
+          "id": "deflect-queen",
+          "text": "Play Qf6! Threaten checkmate on g7 AND attack the queen. The queen cannot defend g7, defend c8, AND stay on d6 all at once!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "direct-attack",
+          "text": "Play Re8 directly to try for back rank mate.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "improve-pieces",
+          "text": "Move the bishop to a better square and build up slowly.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You play Qf6! Threatening Qg7 checkmate! The opponent's queen on d6 is the only piece that can stop it. If the queen takes your queen (Qxf6), then Re8 is back rank checkmate because the queen left the defense of c8! If the queen moves to g6 to block, Qxc8 wins the rook. The queen cannot do two jobs at once -- defend c8 AND stop checkmate on g7. This is deflection at its finest!",
+      "outcome": {
+        "result": "great",
+        "headline": "DEFLECTION! The Queen Cannot Do Two Jobs!",
+        "explanation": "Deflection is a brilliant tactic where you force a defending piece to abandon its post. The opponent's queen was doing two critical jobs: defending the back rank (c8) and guarding g7. By threatening checkmate on g7, you forced the queen to deal with that threat, which means it can no longer defend the back rank. The key to deflection is finding a piece that is overworked -- trying to protect multiple things -- and creating a threat it MUST respond to, leaving the other thing undefended.",
+        "whatToRemember": "Look for overworked pieces! If one enemy piece is doing two defensive jobs, create a threat that forces it to abandon one job.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Deflection", "definition": "Forcing a defending piece to move away from what it is guarding, leaving that target unprotected. Like luring a guard away from the gate!" },
+          { "term": "Overworked Piece", "definition": "A piece that is defending two or more things at once. It cannot do both jobs, so you can exploit this weakness!" },
+          { "term": "Dual Threat", "definition": "Creating two threats at the same time so the opponent cannot deal with both. Deflection creates a dual threat!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move the bishop and build up your position. Your opponent uses the time to reorganize and bring the rook from f8 to e8, now defending the back rank with two rooks. The chance for deflection is gone. The game is still equal but the winning shot has vanished.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Building Up, But the Tactic Was There!",
+        "explanation": "Improving your pieces slowly is usually a good plan, but not when a winning tactic is available right now! The opponent's queen was overloaded defending both g7 and the c8 rook. By threatening Qg7 mate, you could have forced the queen to abandon the back rank. Always scan for overworked pieces before settling for quiet moves. Tactics are time-sensitive -- they disappear if you do not act!",
+        "whatToRemember": "Before making slow moves, check if the opponent has any overworked pieces. A tactical shot might be available right now!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Tactical Awareness", "definition": "Constantly scanning the position for tricks, traps, and forced sequences. Do not miss hidden tactics!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You play Re8 directly, going for back rank mate. But the opponent's queen captures your rook! Qxe8 check. You just gave away a rook for nothing. The queen was still defending e8 and you walked right into it. You needed to deflect the queen FIRST, then go for the back rank.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Rook Captured! You Forgot the Defender!",
+        "explanation": "Before making a tactical move, always check if the target square is defended! The e8 square was guarded by the queen on d6. You needed to force the queen away from defending e8 FIRST (that is the deflection), and THEN play Re8. The correct sequence was Qf6 (threatening Qg7 mate), which forces the queen to deal with the mate threat, and only then Re8 becomes checkmate. Order of operations matters!",
+        "whatToRemember": "Do not attack a defended square! First deflect the defender away, THEN strike. Remove the guard before attacking!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Defended Square", "definition": "A square that is protected by an enemy piece. Do not move to a defended square without first dealing with the defender!" },
+          { "term": "Preparatory Move", "definition": "A move that sets up your main idea. Sometimes you need a deflection or decoy BEFORE the final blow." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

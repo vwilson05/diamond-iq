@@ -1,0 +1,88 @@
+{
+  "id": "the-show-chess-greek-gift",
+  "title": "The Greek Gift -- Bishop Sacrifice on h7!",
+  "sport": ["chess"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "tactics",
+  "tags": ["greek-gift", "sacrifice", "bishop", "attack", "classic"],
+  "setup": {
+    "move": 14,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bq1rk1/pppn1ppp/4pn2/3p4/3P4/3BPN2/PPP2PPP/R1BQ1RK1",
+    "lastMove": "b8d7"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You see a classic pattern! Your bishop is on d3, aimed at h7 right next to the enemy king on g8. The opponent has a knight on f6 but it just moved to d7, leaving h7 defended only by the king. Your queen is on d1 ready to jump to h5, and your knight on f3 can reach g5. All the conditions for the Greek Gift sacrifice are met! What do you play?",
+      "choices": [
+        {
+          "id": "bxh7-sacrifice",
+          "text": "Sacrifice the bishop! Bxh7 check! The king takes, then Ng5 check, then the queen comes to h5 with a devastating attack!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "play-quietly",
+          "text": "Play a quiet move like Re1. The sacrifice looks too risky.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "queen-h5-first",
+          "text": "Play Qh5 first to threaten the h7 pawn directly.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Bxh7 CHECK! The king must capture the bishop on h7. Now Ng5 CHECK! The knight leaps in and the king is in check again. The king retreats to g8. Now Qh5! The queen arrives with a ferocious attack. The threat is Qh7 checkmate! Your knight on g5, queen on h5, and open h-file create an unstoppable attack. This is the famous Greek Gift sacrifice -- one of the most beautiful patterns in chess!",
+      "outcome": {
+        "result": "great",
+        "headline": "THE GREEK GIFT! Brilliant Sacrifice on h7!",
+        "explanation": "The Greek Gift (Bxh7+) is one of the most famous attacking patterns in chess history. It works when these conditions are met: (1) Your bishop can capture on h7 with check, (2) Your knight can reach g5 quickly, (3) Your queen can reach h5 to join the attack, (4) The opponent's knight is NOT on f6 to defend. The sacrifice rips open the pawn shield and the queen + knight create deadly threats on the h-file. Once you learn this pattern, you will spot it in your own games. Many grandmaster games have been won with this exact combination!",
+        "whatToRemember": "The Greek Gift: Bxh7 check, Ng5 check, Qh5 -- devastation! Check for: bishop aims at h7, knight can reach g5, queen can reach h5, no defender on f6.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Greek Gift Sacrifice", "definition": "The classic Bxh7+ sacrifice followed by Ng5+ and Qh5, creating a deadly attack on the castled king. Named after the Trojan Horse!" },
+          { "term": "h7 Weakness", "definition": "The h7 pawn is a target when the king is castled kingside. A bishop sacrifice there can blow open the king's defenses." },
+          { "term": "Pattern Recognition", "definition": "Recognizing common tactical setups from experience. The more patterns you know, the faster you spot winning moves!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You play Re1 -- a normal move. Your opponent plays Nf6, putting the knight back on its best defensive square. Now the Greek Gift sacrifice no longer works because the knight on f6 guards h7 AND covers the g5 square. The window has closed. You missed a winning combination!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Cautious! The Greek Gift Was There!",
+        "explanation": "The Greek Gift sacrifice was available because all the conditions were perfect: bishop aimed at h7, knight ready for g5, queen ready for h5, and the defending knight was away from f6. These conditions do not last forever! Once the opponent puts the knight back on f6, the sacrifice does not work. In chess, you must strike when the iron is hot. Recognizing patterns and acting on them quickly is what separates good players from great ones.",
+        "whatToRemember": "When the Greek Gift conditions are met, act NOW! The defending knight will return to f6 and the opportunity vanishes.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Window of Opportunity", "definition": "A brief moment when a tactic works. If you wait too long, the opponent fixes the weakness and the chance is gone!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You play Qh5 first, threatening h7. But your opponent simply plays g6! The pawn blocks the queen and now h7 is defended by the pawn. The bishop sacrifice on h7 no longer works because the pawn structure is different. By tipping off your opponent, you gave them time to defend. The attack is over.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Move Order! You Warned Your Opponent!",
+        "explanation": "In a combination, the order of moves matters enormously! Bxh7 check MUST come first because it is a check -- the opponent HAS to capture and cannot defend with g6. If you play Qh5 first (not a check), the opponent has time to play g6 and shut down the entire attack. Always start a combination with the forcing move (a check or capture) so your opponent has no choice. This is called 'move order' and it is crucial for executing combinations correctly.",
+        "whatToRemember": "Move order matters in combinations! Start with the most forcing move (check or capture) so your opponent cannot escape.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Move Order", "definition": "The sequence in which you play moves in a combination. Playing them in the wrong order can ruin everything!" },
+          { "term": "Forcing Move", "definition": "A check, capture, or major threat that limits your opponent's options. Always start combinations with forcing moves!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

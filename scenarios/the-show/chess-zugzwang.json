@@ -1,0 +1,87 @@
+{
+  "id": "the-show-chess-zugzwang",
+  "title": "Zugzwang -- When Any Move Is a Bad Move!",
+  "sport": ["chess"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "endgame",
+  "tags": ["zugzwang", "endgame", "strategy", "elite"],
+  "setup": {
+    "move": 55,
+    "phase": "endgame",
+    "playerColor": "white",
+    "advantage": "winning",
+    "position": "8/8/1p1k4/1P1p4/1K1P4/8/8/8",
+    "lastMove": "d7d6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "This is a king and pawn endgame. Your opponent's king is on d6 and it is guarding the d5 and b6 pawns. Right now your opponent is holding everything together, but if they are FORCED to move, they will have to abandon one of their pawns! This situation is called zugzwang -- any move makes things worse. How do you put your opponent in zugzwang?",
+      "choices": [
+        {
+          "id": "wait-move",
+          "text": "Play a waiting move like Ka4! Give the opponent the move when all their moves are bad. They MUST move a piece and lose a pawn!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "capture-pawn",
+          "text": "Rush in and capture the pawn on d5 with your king!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "push-forward",
+          "text": "March the king to c5 to attack the b6 pawn directly.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You play Ka4 -- a quiet waiting move! Now it is your opponent's turn and they are in ZUGZWANG. Every move loses: if the king goes to c7 or e7, you take the d5 pawn. If the king goes to c5, you take b6. They are frozen! Whatever they do, they lose a pawn and you will promote. This is the power of zugzwang!",
+      "outcome": {
+        "result": "great",
+        "headline": "ZUGZWANG! Your Opponent Is Frozen!",
+        "explanation": "Zugzwang is a German word that means 'forced to move.' In chess, you MUST make a move on your turn -- you cannot pass. Sometimes a player would love to just pass and do nothing, but they cannot. Every possible move makes their position worse. This happens most often in endgames with kings and pawns. The trick is to make a WAITING move that puts the burden on your opponent. If you were to rush in too quickly, you might end up in zugzwang yourself! Patience is the key.",
+        "whatToRemember": "In the endgame, sometimes the best move is a quiet waiting move that forces your opponent into zugzwang. Patience wins!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Zugzwang", "definition": "A situation where any move a player makes will make their position worse. They would rather not move at all, but they must!" },
+          { "term": "Waiting Move", "definition": "A move that passes the turn to your opponent without changing the position much. Used to force zugzwang!" },
+          { "term": "Tempo", "definition": "Having the right to move. In zugzwang, you want your OPPONENT to have the tempo because all their moves are bad!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You march the king to c5 to attack b6. But wait -- your opponent plays Ke7! Now if you take the b6 pawn, your opponent captures d4 with their king. Both sides win a pawn and the position is a draw. You charged in too aggressively instead of using a waiting move!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Aggressive! The Advantage Slips Away!",
+        "explanation": "Rushing to attack directly does not always work in king and pawn endgames. By playing Kc5, you committed your king too early and your opponent could respond. The correct approach was a WAITING move like Ka4, which forces your opponent to move first and lose a pawn. In endgames, the player who moves at the wrong time often loses. Sometimes doing less is doing more!",
+        "whatToRemember": "In endgames, do not always rush forward. Sometimes a quiet waiting move is stronger than a direct attack!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Endgame Patience", "definition": "In the endgame, slow and careful moves are often better than aggressive ones. Let your opponent make the mistakes!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You rush to capture d5 with your king. But now your opponent's king slides to c5 and captures your b5 pawn! You traded one pawn for another and the position is equal. Both passed pawns are gone and neither side can win. It is a draw! You had a winning position but threw it away by being impatient.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Pawn Traded! Winning Advantage Gone!",
+        "explanation": "Grabbing a pawn immediately feels natural, but in this endgame it was wrong! When you took on d5, your opponent got counterplay by taking your b5 pawn. The winning method was a waiting move (Ka4) to put your opponent in zugzwang. THEY move, THEY lose a pawn, and you keep all your pawns. In chess, sometimes the hardest move to find is the move that does almost nothing -- but forces your opponent to self-destruct.",
+        "whatToRemember": "Do not grab material when you can force zugzwang! A waiting move can be stronger than capturing a pawn.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Hasty Capture", "definition": "Taking a pawn without thinking can ruin a winning position. Calculate first, capture second!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}
