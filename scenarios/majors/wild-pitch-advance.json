@@ -1,27 +1,60 @@
 {
   "id": "majors-wild-pitch-advance",
   "title": "Wild Pitch: How Far Do You Go?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["baserunning", "wild-pitch", "awareness", "secondary-lead", "advancing"],
+  "tags": [
+    "baserunning",
+    "wild-pitch",
+    "awareness",
+    "secondary-lead",
+    "advancing"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 1, "strikes": 2 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 2
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on second base with one out, trailing by a run. The count is 1-2 on the batter. The pitcher delivers a curveball that bounces in the dirt and skips past the catcher! Wild pitch! The ball rolls toward the backstop -- about 30 feet behind home plate. The catcher spins and chases it. You were already taking your secondary lead. How far do you advance?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.98 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.48, "y": 0.48 }, "label": "You (off 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.48,
+              "y": 0.48
+            },
+            "label": "You (off 2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +79,23 @@
       "type": "decision",
       "narration": "You sprint to third base easily -- the catcher is still chasing the ball at the backstop. You pull up at third with the base standing up. Now you're 90 feet from home with one out. The catcher retrieves the ball and throws it back to the pitcher. But you notice something: the backstop at this field is SHORT -- only about 20 feet behind the plate. If another wild pitch happens, the catcher can get to it quickly. The batter is still hitting with a 2-2 count now. What's your plan from third?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          }
         ]
       },
       "choices": [
@@ -74,23 +120,38 @@
       "type": "outcome",
       "narration": "You take a walking lead in foul territory as the pitcher delivers. The batter swings and hits a grounder to the second baseman. You're already moving toward home with your aggressive secondary lead! The second baseman fields it and throws to first for the out -- he can't throw home because you're already three-quarters of the way there. You score STANDING UP! TIE GAME! Your aggressive lead from third turned a routine grounder into a run!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "Run Scores! Aggressive Lead From Third!",
         "explanation": "This is why the secondary lead from third base is so important. With an aggressive walking lead in foul territory (so you don't get hit by a batted ball), you're already in motion when the ball is put in play. On a grounder to the right side (first baseman or second baseman), the fielder's natural throw goes to first base -- AWAY from home. With your momentum already going, the fielder can't pivot and throw home in time. The keys to a great third-base lead: 1) Start in foul territory to avoid interference. 2) Use a walking lead -- take secondary steps as the pitcher delivers. 3) On grounders to the right side, you're scoring. 4) On grounders to the left side, read and react. Your lead from third base is directly connected to how often you score.",
-        "keyTerms": ["secondary lead", "walking lead", "foul territory lead"],
+        "keyTerms": [
+          "secondary lead",
+          "walking lead",
+          "foul territory lead"
+        ],
         "whatToRemember": "From third base, take an aggressive walking lead in foul territory. The more momentum you have as the pitch arrives, the more likely you score on grounders, wild pitches, and passed balls.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 600
             }
@@ -103,10 +164,22 @@
       "type": "outcome",
       "narration": "You stay close to the bag with a small lead. The batter grounds out to the second baseman -- routine play to first. You don't score because you were flat-footed at third with no momentum. The fielder didn't even look at you. Two outs now, you're on third, and you need a HIT to score instead of just a grounder to the right side. Your conservative lead cost you a chance to tie the game.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (still 3rd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (still 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -125,30 +198,49 @@
       "type": "outcome",
       "narration": "You watch for the curveball spin. The pitcher throws -- it looks like a curveball! You break for home immediately! But wait -- it's a changeup, not a curveball, and it catches the inside corner for a STRIKE. The batter doesn't swing. The catcher catches it cleanly and you're caught in a rundown between home and third! After two throws, they tag you out. You read the pitch wrong and broke too early.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "good",
         "headline": "Caught in Rundown! Wrong Read on the Pitch!",
         "explanation": "The idea of reading the pitch type from the runner's perspective is advanced thinking, but it's extremely difficult to execute. From 90 feet away at third base, distinguishing a curveball from a changeup is nearly impossible -- they can look similar out of the hand. Breaking for home based on the pitch type is risky because: 1) You might misread the pitch. 2) Even if it IS a curveball, it might not be wild. 3) You're committing before you know the outcome. A better approach: take your aggressive secondary lead and react to what happens AFTER the pitch arrives. If it's wild, you score. If it's not, you hold. Let the RESULT tell you what to do, not your prediction.",
-        "keyTerms": ["pitch reading from bases"],
+        "keyTerms": [
+          "pitch reading from bases"
+        ],
         "whatToRemember": "Don't break for home based on predicting the pitch type. React to the RESULT -- if the ball gets past the catcher, go. If it doesn't, hold. Predictions are risky; reactions are reliable.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.42, "y": 0.75 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.75
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -161,8 +253,13 @@
       "type": "outcome",
       "narration": "You sprint all the way from second trying to score on the wild pitch! The ball only went about 30 feet behind the plate. The catcher grabs it quickly, spins, and you're still 30 feet from home. He's waiting for you with the ball. You try to stop but your momentum carries you toward home. The catcher tags you easily. OUT! You tried to go from second to home on a wild pitch that didn't go far enough. That's 180 feet of running on a ball that only went 30 feet past the catcher.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -175,15 +272,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.48, "y": 0.48 },
-              "to": { "x": 0.48, "y": 0.8 },
+              "from": {
+                "x": 0.48,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.8
+              },
               "entity": "you",
               "duration": 800
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.48, "y": 0.8 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.8
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -196,10 +305,22 @@
       "type": "outcome",
       "narration": "You stay at second base. The ball went 30 feet past the catcher and you didn't move. The catcher retrieves it casually, jogs back to the plate, and the at-bat continues. You wasted a FREE base. A wild pitch with a runner on second should result in the runner advancing to third -- it's almost automatic. By staying, you left yourself further from scoring and showed the defense you're not a threat on the bases.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (still 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (still 2nd)"
+          }
         ]
       },
       "outcome": {

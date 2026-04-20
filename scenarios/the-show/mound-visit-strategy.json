@@ -1,27 +1,59 @@
 {
   "id": "the-show-mound-visit-strategy",
   "title": "The Mound Visit: More Than Just Talk",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 3,
   "role": "defense",
-  "tags": ["mound-visit", "pitcher-management", "game-management", "psychology", "strategy"],
+  "tags": [
+    "mound-visit",
+    "pitcher-management",
+    "game-management",
+    "psychology",
+    "strategy"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 2, "strikes": 0 }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 2,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Top of the 5th, you're the catcher and your pitcher is struggling. He's walked the last two batters and just threw two balls to the current hitter -- the count is 2-0. A runner is on second after a walk and a stolen base. Your pitcher's body language is off -- he's rushing his delivery and his fastball command has disappeared. You're up by one. Your coach hasn't called for a pitching change yet, so it's on you. You have one mound visit to use without triggering a pitching change. What's your approach on this visit?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -51,10 +83,23 @@
       "type": "decision",
       "narration": "You walk slowly to the mound. Your pitcher looks frustrated, kicking at the dirt. You get there and start talking -- 'Hey, take a breath. You're fine. What did you eat for lunch?' He actually laughs. You can see his shoulders drop as the tension releases. He takes a deep breath. You've broken the cycle of panic. Now, before you head back, do you give him one mechanical reminder or just leave him with the calm?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -74,10 +119,23 @@
       "type": "decision",
       "narration": "You tell your pitcher he's rushing his delivery and dropping his arm slot. He nods, but you can see his eyes glazing over -- he's thinking about THREE things now: where to throw the ball, fixing his delivery, AND the runner on second. You gave him a lot of information. He looks more confused than when you walked out. The umpire is telling you to wrap it up. One last thing before you head back -- what do you say?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -97,10 +155,23 @@
       "type": "decision",
       "narration": "You shift the conversation entirely to the current hitter. 'Forget the walks. This guy? He can't hit the changeup. He's 0-for-his-last-8 against off-speed. Throw him two changeups, then bust him inside with the heater.' Your pitcher's eyes refocus -- he's got a target now, not just anxiety. He nods. Before you leave, do you also address the runner on second?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -120,8 +191,13 @@
       "type": "outcome",
       "narration": "You walk back to the plate. Your pitcher takes a deep breath, looks at your glove, and fires a fastball right down the middle -- strike one. 2-1. The next pitch hits the outside corner -- 2-2. He's locked in now, just playing catch with your glove, no overthinking. He finishes the hitter with a changeup in the dirt for a swinging strike three! The next batter grounds out to end the inning. The mound visit turned a spiral into a shutdown inning -- all because you slowed him down and gave him ONE simple thought to focus on.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -130,9 +206,18 @@
         "explanation": "This mound visit worked because you addressed both the psychological and the mechanical issue with the lightest possible touch. The slow walk broke the negative tempo. The humor released tension. And the single cue -- 'hit my glove' -- gave him one concrete thing to focus on instead of spiraling through everything that went wrong. Research on performance psychology shows that athletes in crisis need two things: an emotional reset and a simplified focus point. You gave him both. Loading him with mechanical adjustments or game-plan details when he's panicking adds cognitive load to an already overloaded mind. One cue. That's the elite approach.",
         "whatToRemember": "The best mound visits do two things: break the negative cycle with a tempo change, then give ONE simple focus cue. A panicking pitcher needs less information, not more.",
         "keyTerms": [
-          { "term": "Tempo Reset", "definition": "Intentionally breaking a pitcher's rhythm of failure by slowing everything down -- the walk, the conversation, the return. Changes the mental clock." },
-          { "term": "Cognitive Load", "definition": "The amount of mental processing a player is doing simultaneously. Under pressure, reducing cognitive load to one simple task dramatically improves execution." },
-          { "term": "Focus Cue", "definition": "A single, concrete instruction that gives a struggling athlete one thing to lock onto, replacing the spiral of negative thoughts with a clear target." }
+          {
+            "term": "Tempo Reset",
+            "definition": "Intentionally breaking a pitcher's rhythm of failure by slowing everything down -- the walk, the conversation, the return. Changes the mental clock."
+          },
+          {
+            "term": "Cognitive Load",
+            "definition": "The amount of mental processing a player is doing simultaneously. Under pressure, reducing cognitive load to one simple task dramatically improves execution."
+          },
+          {
+            "term": "Focus Cue",
+            "definition": "A single, concrete instruction that gives a struggling athlete one thing to lock onto, replacing the spiral of negative thoughts with a clear target."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -142,11 +227,30 @@
       "type": "outcome",
       "narration": "You walk back without adding mechanical instructions. Your pitcher looks calmer. He takes a breath and delivers -- it's a fastball, but it misses up and away. Ball three, 3-0 count. He ends up walking this batter too. The calm helped his emotions, but without a focus point, he went right back to the same mechanical issues that caused the walks in the first place. Your coach makes the pitching change. The visit helped his mind but didn't give him a tool to fix the execution.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -162,8 +266,13 @@
       "type": "outcome",
       "narration": "You catch yourself overloading him and simplify: 'Just throw fastballs and hit my glove.' He nods. Back behind the plate, he throws a fastball that catches the corner -- strike. Then another -- 2-2. He finishes with a groundout to second. Inning over without damage. The simplification saved the visit, but you burned mental energy on the mechanical talk before getting to the right message. Next time, lead with the simple cue.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -179,11 +288,30 @@
       "type": "outcome",
       "narration": "You pile on the pitch sequence for three different batters on top of the mechanical fixes. Your pitcher's eyes go wide. He's now thinking about arm slot, delivery timing, a changeup to the first batter, a fastball up to the second, a slider to the third, AND the runner on second. He throws the next pitch into the dirt -- ball three. Then ball four. Walk. Then a two-run double. Your pitcher is yanked from the game. The mound visit made things WORSE because you overloaded his brain when he needed simplicity.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -199,10 +327,22 @@
       "type": "outcome",
       "narration": "You get in your pitcher's face: 'Stop nibbling! Throw strikes! We're behind you!' He nods, jaw set. He rears back and fires a fastball right down the middle -- but it's flat and belt-high. The hitter ropes it into center for a single, scoring the runner from second. Tie game. Your pitcher was fired up but still had no plan and no focus -- he just threw harder into the same problems. Challenging works for some pitchers, but most need a plan, not just intensity.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -218,8 +358,13 @@
       "type": "outcome",
       "narration": "You head back to the plate without mentioning the runner. Your pitcher's entire focus is on the plan: changeup, changeup, fastball in. He throws a changeup low -- the hitter swings over it for strike one. Another changeup, same spot, the hitter fouls it off. 2-2 count now. Then the fastball in -- the hitter is geared up for another off-speed pitch and can't adjust. Swinging strike three! Your pitcher pumps his fist. He gets the next two hitters too. The game plan gave him a purpose and a target -- that's what he needed, not reminders about everything else that could go wrong.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -228,9 +373,18 @@
         "explanation": "By redirecting your pitcher's attention from 'what went wrong' to 'how we attack THIS hitter,' you replaced anxiety with intent. That's the key psychological shift: from reactive (worrying about walks) to proactive (executing a plan). Not mentioning the runner was equally important -- your pitcher can only process so much in a crisis. The runner is YOUR responsibility as a catcher. Let the pitcher focus on one thing: executing the plan against the hitter. Elite catchers manage their pitcher's mental bandwidth the way a coach manages a game -- by filtering out noise and amplifying what matters right now.",
         "whatToRemember": "Redirect a struggling pitcher from 'what went wrong' to 'how we attack this hitter.' Replace anxiety with a specific plan. Filter out everything that isn't the immediate next pitch.",
         "keyTerms": [
-          { "term": "Attentional Refocus", "definition": "Shifting a pitcher's mental attention from past failures to a specific, forward-looking task. Replaces rumination with intent." },
-          { "term": "Mental Bandwidth Management", "definition": "A catcher's skill of filtering information so the pitcher only processes what's essential for the next pitch, shielding him from distractions like runners or score." },
-          { "term": "Proactive Mindset", "definition": "Approaching each pitch with a plan of attack rather than reacting to anxiety or fear of failure. Pitchers with plans execute better than pitchers avoiding mistakes." }
+          {
+            "term": "Attentional Refocus",
+            "definition": "Shifting a pitcher's mental attention from past failures to a specific, forward-looking task. Replaces rumination with intent."
+          },
+          {
+            "term": "Mental Bandwidth Management",
+            "definition": "A catcher's skill of filtering information so the pitcher only processes what's essential for the next pitch, shielding him from distractions like runners or score."
+          },
+          {
+            "term": "Proactive Mindset",
+            "definition": "Approaching each pitch with a plan of attack rather than reacting to anxiety or fear of failure. Pitchers with plans execute better than pitchers avoiding mistakes."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -240,10 +394,22 @@
       "type": "outcome",
       "narration": "You remind him about the runner at second. Now he's thinking about the hitter AND the runner. He goes into the slide step -- which shortens his delivery and costs him velocity. His changeup doesn't have the same deception from the slide step. The hitter fouls it off, then singles on a fastball that was 2 mph slower than usual because of the abbreviated delivery. The run scores from second. You turned a single-focus plan into a dual-focus problem, and his execution suffered on both.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {

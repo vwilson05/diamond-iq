@@ -1,27 +1,61 @@
 {
   "id": "majors-intentional-walk-situation",
   "title": "Intentional Walk: Pick Your Poison",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "defense",
-  "tags": ["intentional-walk", "strategy", "game-management", "matchups", "coaching"],
+  "tags": [
+    "intentional-walk",
+    "strategy",
+    "game-management",
+    "matchups",
+    "coaching"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the coach. Sixth inning, up by one, runner on second with one out. The opposing team's best hitter is stepping in -- the kid batting .450 who has already homered once today. First base is open, and the next batter in the lineup is hitting .220 with three strikeouts today. Your pitcher is a strong ground-ball pitcher who's been inducing weak contact all game. Do you walk the big hitter intentionally to face the weaker batter, or do you pitch to the slugger?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +80,31 @@
       "type": "decision",
       "narration": "You signal for the intentional walk. Four wide ones, and the big hitter jogs to first. Now you've got runners on first and second, one out, and the .220 hitter is up. Your pitcher is a ground-ball specialist. The double play is in order. But the .220 hitter just saw you walk the guy in front of him -- he's either demoralized or motivated. How do you attack this hitter?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "IBB Hitter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "IBB Hitter (1st)"
+          }
         ]
       },
       "choices": [
@@ -75,37 +129,64 @@
       "type": "outcome",
       "narration": "Your pitcher attacks the zone with a sinker down in the zone. The hitter is overmatched -- he swings and pounds a grounder right to the shortstop! The shortstop fields it, flips to second, and the pivot man fires to first -- DOUBLE PLAY! 6-4-3! The inning is over! Your intentional walk set up the perfect scenario: a weaker hitter, double play depth, and your ground-ball pitcher doing exactly what he does best. Brilliant game management!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "DOUBLE PLAY! Intentional Walk Pays Off!",
         "explanation": "This is textbook game management. Here's why the intentional walk was the right call: 1) First base was open, so you could put the runner on without creating a force at home. 2) The next hitter was significantly weaker (.220 vs .450). 3) Putting the runner on first set up the double play opportunity. 4) Your pitcher is a ground-ball specialist, making the double play even more likely. 5) By attacking the zone against the weaker hitter, you got the ground ball you needed. The intentional walk isn't about fear -- it's about setting up a BETTER matchup and creating more ways to get outs.",
-        "keyTerms": ["intentional walk strategy", "matchup advantage", "double play setup"],
+        "keyTerms": [
+          "intentional walk strategy",
+          "matchup advantage",
+          "double play setup"
+        ],
         "whatToRemember": "The intentional walk is a strategic tool, not a sign of weakness. Use it when: 1) first base is open, 2) the next hitter is significantly weaker, and 3) it sets up a double play. Then ATTACK the next hitter.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.42, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.42, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.42,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -118,12 +199,38 @@
       "type": "outcome",
       "narration": "Your pitcher nibbles the corners against the weak hitter. Ball one, outside. Ball two, low. The hitter isn't chasing anything -- why would he? He knows he's not a great hitter, so he's being patient. Ball three. Now the count is 3-0 and you're about to walk TWO batters in a row. Your pitcher grooves a fastball to avoid the walk and the hitter lines it to left for a single! The runner from second scores! Tie game. Bases loaded, one out. You walked the wrong guy.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.35 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -136,15 +243,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.25, "y": 0.35 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.25,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
@@ -158,26 +277,53 @@
       "type": "outcome",
       "narration": "Your pitcher goes for the strikeout -- starts with a changeup, then a curveball, then a fastball up in the zone. The hitter swings and misses! STRIKE THREE! Two outs now, runners on first and second. But now you've still got the next hitter to deal with, and the strikeout took seven pitches. Your pitcher's count is getting up there. The out is good, but a quicker groundball double play would have ended the inning entirely.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
         "result": "good",
         "headline": "Strikeout! But the Inning Continues.",
         "explanation": "The strikeout is a good outcome -- two outs is always better than one. But in this situation, a ground ball was actually the better goal. Your pitcher is a ground-ball specialist, and you had double play depth set up. A grounder would have ended the inning on one pitch. The strikeout took seven pitches, ran up your pitcher's count, and still left runners on base. When you have a ground-ball pitcher and the double play is set up, pitch for CONTACT on the ground, not for strikeouts. Let the defense do the work. Save the punchouts for situations where you DON'T have the double play available.",
-        "keyTerms": ["pitch to contact"],
+        "keyTerms": [
+          "pitch to contact"
+        ],
         "whatToRemember": "With a double play set up, pitch for groundball contact rather than strikeouts. A one-pitch double play is more efficient than a seven-pitch strikeout that leaves runners on base.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -190,11 +336,30 @@
       "type": "outcome",
       "narration": "You decide to pitch to the big hitter. Your pitcher works carefully -- fastball outside, curveball low. The count goes to 2-1. Then your pitcher leaves a fastball over the middle of the plate and the hitter CRUSHES it! Line drive to the left-center field gap! The runner from second scores easily, and the batter stands up at second with an RBI double. Tie game. The best hitter in the lineup just did exactly what best hitters do -- he hurt you.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.2 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.2
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -207,15 +372,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.2 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.2
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
@@ -229,11 +406,30 @@
       "type": "outcome",
       "narration": "You try to pitch around the big hitter -- throwing just off the plate, hoping he chases. Ball one, outside. The hitter fouls one off. Ball two, low. Ball three, way outside. Now the count is 3-1. You basically gave him a free pass anyway, but instead of an intentional walk, you wasted four pitches doing it. He walks on the next pitch. Same result as the intentional walk, but you burned four pitches and let the runner on second take a bigger lead while your pitcher nibbled.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -246,8 +442,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.58, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }

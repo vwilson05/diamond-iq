@@ -1,26 +1,57 @@
 {
   "id": "rookie-bunt-or-swing",
   "title": "Bunt Sign Is On!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "offense",
-  "tags": ["bunting", "sacrifice", "signs", "coaching", "advancing-runners"],
+  "tags": [
+    "bunting",
+    "sacrifice",
+    "signs",
+    "coaching",
+    "advancing-runners"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 3, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Tied game, bottom of the fifth, runner on second, nobody out. Your coach touches their nose, swipes their arm, and taps their belt -- that's the BUNT sign! Your job is to sacrifice bunt and move the runner from second to third. The pitcher is winding up. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "3B", "Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "3B",
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (on 2nd)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +76,23 @@
       "type": "outcome",
       "narration": "You pivot and square your body toward the pitcher. You hold the bat out in front with soft hands. The pitch comes in and you angle the bat so the ball rolls slowly toward the third base side. The third baseman charges in, picks it up, and throws to first for the out. But the runner from second has rounded third and is standing safely at third base! One out, runner on third, and a hit or fly ball can win the game!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,32 +101,59 @@
         "explanation": "A sacrifice bunt is when you deliberately get yourself out to move a runner to the next base. It's called a 'sacrifice' because you're giving up your at-bat to help the team. The key to a good bunt is SOFT HANDS. You don't swing at the ball -- you let the ball hit the bat while keeping the bat still. Angle the bat so the ball rolls slowly toward third base or first base. The slower the bunt, the better, because the fielder has to run in to get it, which gives your runner more time to advance. You did your job perfectly!",
         "whatToRemember": "On a sacrifice bunt, use soft hands and let the ball hit the bat. Angle it to roll slowly so the runner has time to advance. You're helping the team, not trying to be a hero!",
         "keyTerms": [
-          { "term": "Sacrifice Bunt", "definition": "A bunt where the batter expects to be thrown out, but the purpose is to move a runner to the next base. It's 'sacrificing' your at-bat to help the team." },
-          { "term": "Square Around", "definition": "Turning your body to face the pitcher and holding the bat out in front of you in bunting position. You 'square up' so you can see the pitch clearly and control the bunt." },
-          { "term": "Soft Hands", "definition": "Holding the bat loosely so the ball doesn't bounce off hard. Soft hands make the ball roll slowly, which makes the bunt harder for the defense to field quickly." }
+          {
+            "term": "Sacrifice Bunt",
+            "definition": "A bunt where the batter expects to be thrown out, but the purpose is to move a runner to the next base. It's 'sacrificing' your at-bat to help the team."
+          },
+          {
+            "term": "Square Around",
+            "definition": "Turning your body to face the pitcher and holding the bat out in front of you in bunting position. You 'square up' so you can see the pitch clearly and control the bunt."
+          },
+          {
+            "term": "Soft Hands",
+            "definition": "Holding the bat loosely so the ball doesn't bounce off hard. Soft hands make the ball roll slowly, which makes the bunt harder for the defense to field quickly."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.4, "y": 0.7 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.7
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.7 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -95,10 +166,22 @@
       "type": "outcome",
       "narration": "You ignore your coach's bunt sign and swing away! You take a big cut and pop the ball up to the shortstop. Easy out. The runner stays on second base because they can't advance on a pop-up. Your coach is NOT happy. They gave you the bunt sign, and you ignored it. The next batter comes up with one out and the runner still on second -- the same situation, but with one fewer out to work with.",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.52 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.52
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (still on 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -111,15 +194,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "catch",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -132,10 +227,22 @@
       "type": "outcome",
       "narration": "You try to push the bunt hard to get a hit! But you push it TOO hard -- the ball shoots like a line drive right at the pitcher. The pitcher catches it in the air! The runner on second had started running toward third, and now the pitcher throws to second base. The runner dives back but they're barely safe. That was almost a DOUBLE PLAY. Close call!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (back to 2nd, barely SAFE)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (back to 2nd, barely SAFE)"
+          }
         ]
       },
       "outcome": {
@@ -148,22 +255,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.5, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.62
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.62
+              },
               "entity": "fielder",
               "duration": 200
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             }

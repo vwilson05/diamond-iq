@@ -1,25 +1,50 @@
 {
   "id": "the-show-pitching-backwards",
   "title": "Pitching Backwards: Flipping the Script",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "defense",
-  "tags": ["pitching", "backwards", "sequencing", "deception", "hitter-psychology"],
+  "tags": [
+    "pitching",
+    "backwards",
+    "sequencing",
+    "deception",
+    "hitter-psychology"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 2, "away": 1 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on the mound facing a dangerous hitter who DEMOLISHES first-pitch fastballs. He's batting .450 on first-pitch fastballs this season because he knows most pitchers start with heat to get ahead in the count. His scouting report says: 'Sits dead-red fastball on the first pitch. Vulnerable to off-speed when he's not expecting it.' Your catcher puts down the sign for a first-pitch fastball. Do you shake him off and pitch backwards, or follow the traditional approach?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +69,14 @@
       "type": "decision",
       "narration": "You shake off the fastball and throw a first-pitch changeup! 83 mph with good arm speed deception. The hitter was LOCKED IN on fastball -- his front foot was committed early. He swings and his timing is completely off. He rolls over it and hits a weak grounder foul past first base. STRIKE ONE! His body language is confused -- he didn't expect off-speed on the first pitch. Now at 0-1, what do you throw next? Traditional sequencing says: you threw off-speed first, now throw the fastball. But is that too predictable?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": []
       },
       "choices": [
@@ -70,8 +101,14 @@
       "type": "decision",
       "narration": "Fastball, 93 mph, up in the zone! After seeing 83 mph, the hitter's brain is still calibrated to off-speed. The 10 mph jump catches him flat-footed -- he takes it for a called strike! 0-2! Now you've shown him two completely different speeds and he's behind in the count with no idea what's coming next. This is the power of pitching backwards: you've used the off-speed to set up the fastball instead of the other way around. The hitter is guessing. What's the put-away pitch?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": []
       },
       "choices": [
@@ -96,8 +133,13 @@
       "type": "outcome",
       "narration": "You throw the first-pitch fastball. The hitter was sitting on EXACTLY this pitch. His timing is perfect, his weight transfer is explosive, and he launches it to deep left field. HOME RUN! The scouting report literally said he hits .450 on first-pitch fastballs, and you gave him one. He was looking for it, he was ready for it, and he destroyed it. The most predictable pitch in baseball is the first-pitch fastball, and the most predictable result against a first-pitch fastball hitter is damage.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.15 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.15
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -113,8 +155,14 @@
       "type": "outcome",
       "narration": "You throw a fastball off the plate -- ball one. The hitter takes it. You showed him 93 mph without giving him anything to hit. But now you're behind 1-0. In a hitter's count, the advantage shifts to the batter because he can sit on a specific pitch. And you've now confirmed for him that you HAVE a fastball -- he's seen the velocity. If you throw another fastball, he's ready. If you go off-speed, he might spit on it because he's ahead in the count and can take. The waste pitch gave you information but also gave the hitter a count advantage.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": []
       },
       "outcome": {
@@ -130,8 +178,13 @@
       "type": "outcome",
       "narration": "You throw ANOTHER off-speed pitch -- curveball, 75 mph! The hitter was certain the fastball was coming after the first-pitch changeup. His brain said 'he showed me off-speed, now it's the heater.' Instead, he gets a completely different off-speed pitch at a THIRD speed (83, now 75). He freezes. The curveball drops over the plate for a called strike. 0-2! In two pitches, you've shown him 83 mph and 75 mph, and he's STILL waiting for the fastball. His timing is completely scrambled. The fastball on the next pitch will look like it's fired out of a cannon because his eyes have adjusted to off-speed velocities.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -140,9 +193,18 @@
         "explanation": "Doubling up on off-speed is the ultimate commitment to pitching backwards. The hitter expected you to 'correct' to the fastball after the first off-speed pitch. By staying off-speed, you exploited his over-correction. Now at 0-2, you hold ALL the cards: the hitter has seen 83 and 75 mph. When the 93 mph fastball finally arrives, the 18 mph speed jump from the curveball will make the fastball look unhittable. His brain has calibrated to off-speed speeds, and the sudden velocity increase creates a perceptual illusion: the fastball appears faster than it actually is. This is called 'perceived velocity' -- after seeing slow pitches, a 93 mph fastball looks like 98 mph. You've turned your 93 mph heater into a weapon that plays like elite-level velocity.",
         "whatToRemember": "Doubling up on off-speed early in the count sets up the fastball as the surprise pitch. After two off-speed pitches, the hitter's brain calibrates to slow speeds, making the fastball appear significantly faster than its actual velocity.",
         "keyTerms": [
-          { "term": "Pitching Backwards", "definition": "Reversing the traditional pitch sequence by starting with off-speed and using the fastball as the surprise pitch. Most effective against hitters who hunt first-pitch fastballs." },
-          { "term": "Perceived Velocity", "definition": "How fast a pitch APPEARS to the hitter based on the speed of previous pitches. After seeing off-speed, a 93 mph fastball is perceived as 96-98 mph because the hitter's timing is calibrated to slower speeds." },
-          { "term": "Speed Oscillation", "definition": "Alternating between different velocity levels across pitches to prevent the hitter from calibrating to any single speed. Example: 83-93-75-93 creates constant timing disruption." }
+          {
+            "term": "Pitching Backwards",
+            "definition": "Reversing the traditional pitch sequence by starting with off-speed and using the fastball as the surprise pitch. Most effective against hitters who hunt first-pitch fastballs."
+          },
+          {
+            "term": "Perceived Velocity",
+            "definition": "How fast a pitch APPEARS to the hitter based on the speed of previous pitches. After seeing off-speed, a 93 mph fastball is perceived as 96-98 mph because the hitter's timing is calibrated to slower speeds."
+          },
+          {
+            "term": "Speed Oscillation",
+            "definition": "Alternating between different velocity levels across pitches to prevent the hitter from calibrating to any single speed. Example: 83-93-75-93 creates constant timing disruption."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -152,8 +214,13 @@
       "type": "outcome",
       "narration": "Cutter inside, 88 mph. The hitter was adjusting from the changeup at 83 mph and the cutter arrives slightly faster with late movement in on his hands. He fists it foul down the third-base line. 0-2! You've now shown two pitch types and two speeds, both off-speed-adjacent. The hitter hasn't seen the fastball yet. He's 0-2 and has no timing reference for your best pitch. When the heater comes, it'll look like a rocket. Smart sequence using three different looks.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -169,8 +236,13 @@
       "type": "outcome",
       "narration": "Changeup in the dirt! 83 mph, fading down and away. The hitter's brain was scrambled by the 83-93 oscillation and now the changeup returns at 83 mph. He commits his swing way too early -- the ball drops under his bat. SWINGING STRIKE THREE! Three pitches, three looks: changeup, fastball, changeup. Slow, fast, slow. The hitter never found a timing window because every pitch forced a recalibration in the opposite direction. That's pitching backwards at its finest -- off-speed dominance with the fastball as the change-of-pace, not the other way around.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -179,9 +251,18 @@
         "explanation": "The slow-fast-slow sequence is the most devastating three-pitch combo in pitching because it forces TWO timing recalibrations. Pitch 1 (83 mph) sets the hitter's clock to slow. Pitch 2 (93 mph) forces him to speed up dramatically. Pitch 3 (83 mph) forces him to slow down AGAIN. Each recalibration takes cognitive processing time, and by the third pitch, the hitter's timing system is overloaded. He's guessing, not reacting. The key to this sequence is conviction: you must throw the off-speed pitches with full arm speed (so the hitter can't read them) and the fastball with intent (so the speed change is maximized). The 10 mph gap between the pitches is what creates the timing disruption. Without that gap, the hitter can sit in between and cover both.",
         "whatToRemember": "Slow-fast-slow is the optimal three-pitch strikeout sequence. Each pitch forces the hitter to recalibrate in the opposite direction. By the third pitch, his timing is completely corrupted.",
         "keyTerms": [
-          { "term": "Slow-Fast-Slow Sequence", "definition": "A three-pitch pattern (off-speed, fastball, off-speed) that forces two timing recalibrations. The most effective strikeout sequence because the hitter is always adjusting to the LAST pitch." },
-          { "term": "Cognitive Overload", "definition": "When a hitter's brain receives too many conflicting timing signals to process effectively. Results in guessing, poor swing decisions, and weak contact or swings-and-misses." },
-          { "term": "Reversed Script", "definition": "Using off-speed as the primary weapon and the fastball as the surprise pitch, flipping traditional sequencing where fastball is the foundation." }
+          {
+            "term": "Slow-Fast-Slow Sequence",
+            "definition": "A three-pitch pattern (off-speed, fastball, off-speed) that forces two timing recalibrations. The most effective strikeout sequence because the hitter is always adjusting to the LAST pitch."
+          },
+          {
+            "term": "Cognitive Overload",
+            "definition": "When a hitter's brain receives too many conflicting timing signals to process effectively. Results in guessing, poor swing decisions, and weak contact or swings-and-misses."
+          },
+          {
+            "term": "Reversed Script",
+            "definition": "Using off-speed as the primary weapon and the fastball as the surprise pitch, flipping traditional sequencing where fastball is the foundation."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -191,8 +272,13 @@
       "type": "outcome",
       "narration": "Slider away, 87 mph with sharp lateral break. The hitter swings and misses -- strike three! Three different pitches (changeup, fastball, slider), three different speeds (83, 93, 87), three different movements (fade, straight, lateral break). He had zero chance to find a timing window. The hitter walks back to the dugout shaking his head. He went from being a .450 first-pitch fastball hitter to striking out in three pitches because you gave him everything EXCEPT the pitch he wanted.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -208,8 +294,13 @@
       "type": "outcome",
       "narration": "Another fastball -- 93 mph. The hitter adjusted from the previous pitch! He was sitting fastball this time because he watched the last one go by. He turns on it and drives a hard foul ball down the left-field line -- just foul! 0-2 still, but he was ON that pitch. If it had been fair, it's a double. By throwing the fastball again, you gave him the speed he'd just seen and he timed it well. Going back to the off-speed would have exploited his adjustment rather than playing into it.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {

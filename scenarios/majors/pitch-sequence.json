@@ -1,27 +1,60 @@
 {
   "id": "majors-pitch-sequence",
   "title": "Setting Up the Hitter: Pitch by Pitch",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "pitching",
-  "tags": ["pitching", "pitch-sequence", "strategy", "strikeout", "game-planning"],
+  "tags": [
+    "pitching",
+    "pitch-sequence",
+    "strategy",
+    "strikeout",
+    "game-planning"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "You're on the mound with a runner on second and one out. The opposing team's best hitter is walking up to the plate. This kid can HIT -- they're batting .400 and they crushed your fastball last at-bat for a double. You've got a fastball, a changeup, and a curveball in your arsenal. Your catcher puts down one finger... but you shake them off. YOU know how you want to attack this hitter.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +64,23 @@
       "type": "decision",
       "narration": "0-0 count. First pitch to the team's best hitter. They crushed your fastball last time. What's your opening pitch?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -59,10 +105,22 @@
       "type": "transition",
       "narration": "You throw the changeup with perfect arm speed -- it looks like a fastball coming out of your hand, but it arrives about 10 mph slower. The batter was geared up for the heat and swings WAY out in front. SWING AND A MISS! Strike one! The batter steps out of the box, confused. They were expecting gas and got a change of speed. Count is 0-1.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-2-changeup",
@@ -72,10 +130,22 @@
       "type": "transition",
       "narration": "Fastball, outside corner -- the batter watches it go by. The umpire rings them up! STRIKE ONE! Good pitch -- you put it exactly where you wanted it, painting the outside corner. The batter thought about swinging but held back. Now they know you can locate. Count is 0-1.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-2-fb",
@@ -85,10 +155,22 @@
       "type": "transition",
       "narration": "You throw the curveball on the first pitch. It starts high and breaks down... but it misses the zone! Ball one. The batter didn't swing -- they weren't looking for that pitch and it ended up being a free ball. Starting with breaking balls can be risky if you can't throw them for strikes. Count is 1-0.",
       "field": {
-        "ballPosition": { "x": 0.45, "y": 0.92 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.45,
+          "y": 0.92
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-2-curve",
@@ -98,10 +180,23 @@
       "type": "decision",
       "narration": "You're ahead 0-1 after the changeup fooled them. The batter is now thinking: 'Was that a changeup? Is another one coming?' What do you throw second?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -126,10 +221,23 @@
       "type": "decision",
       "narration": "You're ahead 0-1 after the outside fastball. The batter is now thinking: 'That was outside, I need to cover that corner.' What do you throw next?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -154,10 +262,23 @@
       "type": "decision",
       "narration": "You're behind 1-0 after missing with the curve. The batter is sitting back, waiting for something to hit. You need a strike. What do you throw?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -182,10 +303,22 @@
       "type": "transition",
       "narration": "FASTBALL inside! After seeing the slow changeup, the fastball looks like it's coming out of a CANNON! The batter flinches and takes it -- but it catches the inside corner! STRIKE TWO! The batter shakes their head. First they saw slow, now they saw fast inside. They have NO idea what's coming next. Count is 0-2. Time for the kill shot!",
       "field": {
-        "ballPosition": { "x": 0.47, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.47,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-3-putaway",
@@ -195,10 +328,22 @@
       "type": "transition",
       "narration": "Changeup! The batter was looking for another fastball and is WAYYY out in front! Their bat comes around early and they foul it weakly to the right side. STRIKE TWO! You've got them 0-2 now! They showed you they're looking fastball, which means the changeup is your weapon. Time for the finishing blow!",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-3-putaway",
@@ -208,10 +353,22 @@
       "type": "transition",
       "narration": "Fastball inside! The batter was leaning over the plate to cover the outside corner and the inside heat jams them! They swing and foul it straight back. STRIKE TWO! 0-2 count! They can't cover both sides of the plate. Now you've shown outside AND inside -- they have no idea where the next pitch is going!",
       "field": {
-        "ballPosition": { "x": 0.47, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.47,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-3-putaway",
@@ -221,10 +378,23 @@
       "type": "decision",
       "narration": "You're ahead 0-2! The batter is on their heels -- they don't know what's coming. This is the put-away pitch. What do you throw to finish them off?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -254,10 +424,22 @@
       "type": "outcome",
       "narration": "You throw the curveball and it starts at the batter's chest -- it looks like a fastball up in the zone. The batter starts to swing, but the ball DROPS off the table! It dives into the dirt! The batter swings over the top of it by a FOOT! STRIKE THREE! You pumped your fist -- you just struck out the best hitter on the team with a perfectly set-up sequence!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.95 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.95
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -270,8 +452,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -284,10 +472,22 @@
       "type": "outcome",
       "narration": "Changeup down and away! The batter reaches for it, extending their arms way out over the plate. They make contact but just barely -- the ball dribbles weakly to the second baseman for an easy out! The hitter slams the bat down in frustration. Your changeup completely took the power out of their swing!",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.52 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.52
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -300,22 +500,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "hit",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.6, "y": 0.52 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "catch",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.6, "y": 0.5 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.5
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -328,11 +546,30 @@
       "type": "outcome",
       "narration": "Fastball up and in! The pitch explodes past the batter's hands -- they swing and foul it straight back! Still alive! 0-2 count still. The batter fouls off two more pitches... then you throw another fastball and they lace it into right field for a single. The runner scores from second. Tie game. Power vs. power -- sometimes the hitter wins.",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.3 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -345,22 +582,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.48, "y": 0.86 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.86
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.48, "y": 0.86 },
-              "to": { "x": 0.75, "y": 0.3 },
+              "from": {
+                "x": 0.48,
+                "y": 0.86
+              },
+              "to": {
+                "x": 0.75,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 1200,
               "parallel": true
@@ -374,11 +629,28 @@
       "type": "outcome",
       "narration": "Fastball right down the middle! The batter's eyes light up -- THAT'S what they've been waiting for! They unload on it and CRACK -- the ball rockets into the left-center field gap! It rolls to the wall! The runner scores from second easily, and the batter cruises into third with a triple! Your coach jogs to the mound. Not the result you wanted...",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.1 },
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.1
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (triple!)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (triple!)"
+          }
         ]
       },
       "outcome": {
@@ -391,30 +663,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.1 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.1
+              },
               "entity": "ball",
               "duration": 700
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 1000,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1200
             }
@@ -427,11 +723,30 @@
       "type": "outcome",
       "narration": "Another changeup! But this time the batter is ready -- they adjusted their timing and poke a single through the right side. The runner holds at third. Not a terrible result, but the batter figured out your pattern.",
       "field": {
-        "ballPosition": { "x": 0.72, "y": 0.45 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.72,
+          "y": 0.45
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -444,15 +759,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.53, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.53,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "hit",
-              "from": { "x": 0.53, "y": 0.88 },
-              "to": { "x": 0.72, "y": 0.45 },
+              "from": {
+                "x": 0.53,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.72,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -465,11 +792,30 @@
       "type": "outcome",
       "narration": "Curveball! You've shown slow, now you show break... but you throw two slow pitches in a row. The batter is sitting on something soft and gets enough of it to flare a bloop single over the shortstop's head. Runner moves to third. Not ideal -- two off-speed pitches in a row without mixing in the fastball.",
       "field": {
-        "ballPosition": { "x": 0.38, "y": 0.38 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.38,
+          "y": 0.38
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -482,15 +828,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 550
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.38, "y": 0.38 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.38
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -503,10 +861,22 @@
       "type": "outcome",
       "narration": "Curveball in the dirt! It bounces before the plate. The batter starts to swing but holds up -- ball one! Count is 1-1. Not a bad pitch, but the batter didn't chase it. Now you're even in the count instead of ahead.",
       "field": {
-        "ballPosition": { "x": 0.48, "y": 0.95 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.48,
+          "y": 0.95
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -519,8 +889,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.48, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 550
             }
@@ -533,10 +909,22 @@
       "type": "outcome",
       "narration": "Fastball for a strike! You need it and you pump it right down the zone. The batter fouls it off -- strike one! Count is 1-1. You're back in the fight. But this batter has now seen your fastball... and they timed it well enough to foul it off. They're on it.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -549,8 +937,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -563,11 +957,30 @@
       "type": "outcome",
       "narration": "Changeup on the outside corner -- but you miss! Ball two! Now the count is 2-0 and the batter is in the driver's seat. They're sitting fastball and licking their chops. You eventually have to throw a strike and the batter lines a double down the line. Runner scores. You fell behind and paid for it.",
       "field": {
-        "ballPosition": { "x": 0.22, "y": 0.35 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.22,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -580,8 +993,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.58, "y": 0.92 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.92
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -594,10 +1013,22 @@
       "type": "outcome",
       "narration": "Curveball for a strike! It breaks right into the zone and the batter watches it. STRIKE ONE! Count is 1-1. But the batter just got a good look at your curveball -- they saw how it breaks and how fast it spins. They'll be ready for it next time.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -610,8 +1041,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 550
             }

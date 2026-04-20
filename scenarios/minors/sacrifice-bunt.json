@@ -1,27 +1,61 @@
 {
   "id": "minors-sacrifice-bunt",
   "title": "Bunt the Runner Over!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "offense",
-  "tags": ["bunting", "sacrifice", "manufacturing-runs", "strategy", "late-game"],
+  "tags": [
+    "bunting",
+    "sacrifice",
+    "manufacturing-runs",
+    "strategy",
+    "late-game"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 3, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "Bottom of the sixth in a tie game! Your teammate just ripped a double and is standing on second base, clapping their hands. Nobody out. Your coach calls you over before you walk to the plate. 'We need that run. Think about moving the runner to third...' You nod and grab your bat. This is a big moment!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "2B", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "2B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +65,24 @@
       "type": "decision",
       "narration": "Tie game, runner on second, nobody out. Your coach hinted at moving the runner. The pitcher is getting ready. What's your plan at the plate?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "2B", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "2B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -59,11 +107,31 @@
       "type": "transition",
       "narration": "You square around to bunt as the pitcher delivers. You angle the bat, cushion the ball, and tap it down the third base line. It rolls about 20 feet and stops on the grass. The third baseman charges in to field it! The runner on second is sprinting to third!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.72 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.72
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.38, "y": 0.52 }, "label": "Runner (heading to 3rd)" },
-          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "You (running to 1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.38,
+              "y": 0.52
+            },
+            "label": "Runner (heading to 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.8
+            },
+            "label": "You (running to 1st)"
+          }
         ]
       },
       "next": "decision-2",
@@ -73,11 +141,31 @@
       "type": "decision",
       "narration": "The third baseman fields your bunt and has to make a choice. But think about it from YOUR perspective -- where do you think the defense should throw, and why is this bunt such a smart play?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.7 },
-        "highlight": ["1B", "3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.7
+        },
+        "highlight": [
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.33, "y": 0.55 }, "label": "Runner (almost at 3rd)" },
-          { "id": "batter", "position": { "x": 0.6, "y": 0.75 }, "label": "You (running)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.33,
+              "y": 0.55
+            },
+            "label": "Runner (almost at 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.6,
+              "y": 0.75
+            },
+            "label": "You (running)"
+          }
         ]
       },
       "choices": [
@@ -102,10 +190,22 @@
       "type": "outcome",
       "narration": "Exactly right! The third baseman throws to first base and you're out. But your teammate slides safely into third base! Now there's a runner on third with just one out. Your next teammate can score the winning run with a simple fly ball, a ground ball, a wild pitch, a passed ball, or even a squeeze play. You gave yourself up for the team -- that's what a sacrifice is all about!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -118,37 +218,67 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.72 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.72
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "catch",
-              "from": { "x": 0.35, "y": 0.72 },
-              "to": { "x": 0.35, "y": 0.7 },
+              "from": {
+                "x": 0.35,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.7
+              },
               "entity": "fielder",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.7 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.68, "y": 0.63 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.68,
+                "y": 0.63
+              },
               "entity": "batter",
               "duration": 900,
               "parallel": true
@@ -162,11 +292,31 @@
       "type": "outcome",
       "narration": "The third baseman looks at third but the runner is already there -- they're safe! The third baseman decides not to risk a throw and just holds the ball. You're safe at first too! Everyone is safe! Your bunt was so good that the defense couldn't make a play on anyone!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.7 },
-        "highlight": ["1B", "3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.7
+        },
+        "highlight": [
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe at 1st!)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (safe at 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe at 1st!)"
+          }
         ]
       },
       "outcome": {
@@ -179,22 +329,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.72 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.72
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 700
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 900,
               "parallel": true
@@ -208,11 +376,31 @@
       "type": "outcome",
       "narration": "The defense freezes! The third baseman holds the ball, unsure where to throw. Your runner slides into third safely, and you reach first safely too! It's a great outcome -- you got the runner to third AND stayed on base. No outs used!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.7 },
-        "highlight": ["1B", "3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.7
+        },
+        "highlight": [
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe at 1st!)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (safe at 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe at 1st!)"
+          }
         ]
       },
       "outcome": {
@@ -225,22 +413,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.72 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.72
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 700
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 900,
               "parallel": true
@@ -254,10 +460,22 @@
       "type": "outcome",
       "narration": "You decide to swing away! The pitcher delivers a fastball and you take a big hack... GROUND BALL to shortstop. The shortstop fields it, looks the runner back to second, and throws to first. You're out. The runner is still stuck on second base with one out now. The chance to move them to third was missed.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (still on 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -270,22 +488,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.66, "y": 0.64 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.66,
+                "y": 0.64
+              },
               "entity": "batter",
               "duration": 900,
               "parallel": true
@@ -299,10 +535,22 @@
       "type": "outcome",
       "narration": "You try to bunt for a hit -- pushing the ball harder toward the first base side. But you push it too hard! The first baseman fields it easily, throws to second to get the runner (wait, no force there), holds it, and tags you on the baseline. You're out, but the runner did advance to third on the commotion. Well... you kind of got the job done, but it wasn't pretty!",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.7 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.7
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -315,30 +563,54 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.65, "y": 0.72 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.72
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
             },
             {
               "type": "catch",
-              "from": { "x": 0.65, "y": 0.72 },
-              "to": { "x": 0.68, "y": 0.68 },
+              "from": {
+                "x": 0.65,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.68,
+                "y": 0.68
+              },
               "entity": "fielder",
               "duration": 300
             },
             {
               "type": "tag",
-              "from": { "x": 0.68, "y": 0.68 },
-              "to": { "x": 0.6, "y": 0.75 },
+              "from": {
+                "x": 0.68,
+                "y": 0.68
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.75
+              },
               "entity": "fielder",
               "duration": 400
             }

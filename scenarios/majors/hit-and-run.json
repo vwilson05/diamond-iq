@@ -1,27 +1,59 @@
 {
   "id": "majors-hit-and-run",
   "title": "The Hit-and-Run: Offense in Motion",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "offense",
-  "tags": ["hit-and-run", "strategy", "contact-hitting", "baserunning", "offensive-plays"],
+  "tags": [
+    "hit-and-run",
+    "strategy",
+    "contact-hitting",
+    "baserunning",
+    "offensive-plays"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 3 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "Tie game in the sixth inning, one out, and your fastest runner is dancing off first base. You're at the plate -- the team's best contact hitter, batting .310 on the season. You've only struck out eight times all year. The pitcher keeps glancing over at first, nervous about the runner's speed. Your third-base coach starts flashing signs... what's the play going to be?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Speed Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "Speed Runner (1st)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +63,24 @@
       "type": "decision",
       "narration": "Your coach touches his cap, swipes across the letters, touches his belt -- that's the hit-and-run sign! Or is it? You got the indicator, but now you need to decide: is this the right situation for a hit-and-run? Tie game, one out, fast runner, good contact hitter. What's your read?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "1B", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Speed Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "Speed Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -59,10 +105,23 @@
       "type": "transition",
       "narration": "You confirm the sign. The runner knows. YOU know. On this pitch, he breaks for second and you swing no matter what. The pitcher comes set, checks the runner, and delivers... The pitch is heading OUTSIDE -- off the plate, maybe two inches out. Your runner is flying toward second base. This is the moment of truth.",
       "field": {
-        "ballPosition": { "x": 0.58, "y": 0.78 },
-        "highlight": ["Home", "2B"],
+        "ballPosition": {
+          "x": 0.58,
+          "y": 0.78
+        },
+        "highlight": [
+          "Home",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (going!)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "Runner (going!)"
+          }
         ]
       },
       "next": "decision-2",
@@ -72,10 +131,22 @@
       "type": "decision",
       "narration": "The pitch is outside -- not a strike. But your runner is sprinting full speed toward second base. The whole play depends on what you do RIGHT NOW. What's your move?",
       "field": {
-        "ballPosition": { "x": 0.58, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.58,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.58, "y": 0.50 }, "label": "Runner (sprinting!)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.58,
+              "y": 0.5
+            },
+            "label": "Runner (sprinting!)"
+          }
         ]
       },
       "choices": [
@@ -100,11 +171,32 @@
       "type": "outcome",
       "narration": "You extend your hands and POKE the outside pitch the other way -- right through the gap between first and second! The second baseman was sprinting toward the bag to cover the steal, so there's a MASSIVE hole on the right side! The ball skips into right field! Your runner was already at full speed -- he rounds second without breaking stride, the right fielder bobbles it, and he slides into third! You're standing on first with a single! Runners on the corners, one out, in a tie game. Your coach gives you a fist pump from the third-base box!",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["RF", "1B", "3B"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF",
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (1st)"
+          }
         ]
       },
       "outcome": {
@@ -117,37 +209,67 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.58, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "hit",
-              "from": { "x": 0.58, "y": 0.88 },
-              "to": { "x": 0.72, "y": 0.45 },
+              "from": {
+                "x": 0.58,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.72,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1st",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true
@@ -161,10 +283,23 @@
       "type": "outcome",
       "narration": "You swing and try to pull the outside pitch... but that's a tough ask. You get jammed up trying to get around on a pitch that's away from you. You make weak contact -- a soft grounder to the shortstop. The shortstop was shading toward second to cover, but the ball was hit to the LEFT side where nobody moved. The SS recovers, fields it, and throws to first for the out. At least the runner advanced to second safely since you did swing and make contact. But that could have been so much better.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -177,30 +312,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.58, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "hit",
-              "from": { "x": 0.58, "y": 0.88 },
-              "to": { "x": 0.38, "y": 0.52 },
+              "from": {
+                "x": 0.58,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.38, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.38,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -213,8 +372,13 @@
       "type": "outcome",
       "narration": "You hold the bat on your shoulder. Ball two! Great plate discipline, right? WRONG. Look at second base -- your runner is getting HOSED. The catcher received the ball cleanly, popped up, and fired a bullet to the shortstop covering second. Your runner slides in and -- he's OUT by two steps! The ump doesn't even hesitate. Your runner trots off the field shaking his head, looking right at you. The hit-and-run was ON and you didn't swing. You hung him out to dry.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -227,30 +391,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.9 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.9
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "runner1st",
               "duration": 800,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -263,10 +451,22 @@
       "type": "outcome",
       "narration": "You wave off the hit-and-run and let the runner steal on his own. He takes off on the next pitch -- the pitcher delivers a fastball and the catcher pops up and throws. Your runner is fast... he slides in... SAFE! He stole second! Now you've got a runner in scoring position with one out. Not bad! But your coach raises an eyebrow -- you had a chance to do even more damage with the hit-and-run.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -279,23 +479,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.9 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.9
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 900,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -308,10 +526,22 @@
       "type": "outcome",
       "narration": "You square around to bunt on the first pitch. The pitcher sees it coming and throws a high fastball -- tough to bunt! You get the bat on it but the bunt pops up softly. The pitcher charges in, catches the pop-up for an out, and looks the runner back to first. Two outs now, runner still on first, tie game. You burned an out to gain... nothing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.68 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.68
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (still 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (still 1st)"
+          }
         ]
       },
       "outcome": {
@@ -324,22 +554,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.52, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.52, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.72 },
+              "from": {
+                "x": 0.52,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.72
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.72 },
-              "to": { "x": 0.5, "y": 0.65 },
+              "from": {
+                "x": 0.5,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.65
+              },
               "entity": "ball",
               "duration": 400
             }

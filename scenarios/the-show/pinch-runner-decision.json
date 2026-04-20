@@ -1,27 +1,58 @@
 {
   "id": "the-show-pinch-runner-decision",
   "title": "The Pinch Runner: When to Deploy Your Speed",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 3,
   "role": "offense",
-  "tags": ["pinch-runner", "game-management", "roster-strategy", "late-innings", "speed"],
+  "tags": [
+    "pinch-runner",
+    "game-management",
+    "roster-strategy",
+    "late-innings",
+    "speed"
+  ],
   "setup": {
     "inning": 7,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 3, "away": 4 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 4
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 7th, down 4-3 with your slow-footed cleanup hitter on first and one out. Your fastest player is on the bench, available as a pinch runner -- he's your best base-stealer with 90th-percentile sprint speed. But here's the thing: once you use him as a pinch runner, he's in the game and your cleanup hitter is done for the day. The 8th and 9th innings might need a big bat. And if this rally fizzles, you've burned your best speed weapon. Do you deploy the pinch runner now, or save him?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Cleanup (slow, 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Cleanup (slow, 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +77,22 @@
       "type": "decision",
       "narration": "Your speed demon enters the game at first base. He takes an aggressive lead. The pitcher is clearly uncomfortable -- he throws over to first twice. The next batter steps in. With your fast runner on first, you have options that didn't exist before. The pitcher is distracted. What's the play?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.72, "y": 0.58 }, "label": "PR (fast, 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.72,
+              "y": 0.58
+            },
+            "label": "PR (fast, 1st)"
+          }
         ]
       },
       "choices": [
@@ -74,10 +117,24 @@
       "type": "decision",
       "narration": "You keep the slow cleanup hitter on first. The next batter hits a ground ball to the shortstop -- the shortstop flips to second for the force on your slow runner. The relay goes to first... your batter beats it out! No double play, but your cleanup hitter is out of the game anyway -- he was forced at second. Now there's a runner on first, two outs, and neither your pinch runner NOR your cleanup hitter is in the game for the rest of the day. You saved the pinch runner but lost the cleanup hitter to a fielder's choice.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "choices": [
@@ -97,11 +154,31 @@
       "type": "decision",
       "narration": "You wait one batter. The next hitter singles to right! Now you have runners on first and second, one out -- the rally is real! Your slow cleanup hitter is lumbering around first and heading to second. He makes it to second safely, but barely. Now do you put in the pinch runner? The tying run is on second base with a slow runner.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Cleanup (slow, 2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Cleanup (slow, 2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "choices": [
@@ -121,10 +198,22 @@
       "type": "outcome",
       "narration": "Your pinch runner gets a great jump and steals second standing up! The catcher's throw isn't even close. Tying run in scoring position, one out, no hit needed. The next hitter lines a single to center -- your pinch runner rounds third at full speed and scores easily! TIE GAME! A slower runner might have been held at third on that single. The pinch runner's speed turned a single into a go-ahead run. THAT is why you deploy speed early: it creates runs that wouldn't exist with a slow runner.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.88 }, "label": "PR SCORES!" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "PR SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -133,9 +222,18 @@
         "explanation": "The pinch runner changed the game in two ways: 1) He stole second base without needing a hit, putting the tying run in scoring position for free. 2) His speed allowed him to score from second on a single that would have held a slower runner at third. That's TWO bases of value from speed alone. The timing was right because: the rally was happening NOW (runner on first, one out, down one), the cleanup hitter was slow (limiting offensive options), and the game was late enough that creating a run in the present is worth more than preserving a bench option for the future. The rule of thumb: deploy your pinch runner when the run matters most and the rally is live.",
         "whatToRemember": "Deploy pinch runners when the rally is live and the run matters NOW. Speed creates runs that wouldn't exist with slow runners -- stolen bases move runners without hits, and sprint speed turns singles into scoring plays.",
         "keyTerms": [
-          { "term": "Sprint Speed", "definition": "A player's top running speed measured in feet per second. The MLB average is 27 ft/s. Elite runners reach 30+ ft/s, which translates to roughly 0.3 seconds faster on a 90-foot base path." },
-          { "term": "Base-Stealing Break-Even", "definition": "The stolen base success rate needed to add offensive value. At approximately 70% success rate, stealing breaks even. Above 80%, it adds significant value." },
-          { "term": "Pinch Runner Timing", "definition": "The strategic decision of when to insert a speed specialist into the game. Best deployed when a live rally exists, the runner on base is slow, and the game situation demands immediate run creation." }
+          {
+            "term": "Sprint Speed",
+            "definition": "A player's top running speed measured in feet per second. The MLB average is 27 ft/s. Elite runners reach 30+ ft/s, which translates to roughly 0.3 seconds faster on a 90-foot base path."
+          },
+          {
+            "term": "Base-Stealing Break-Even",
+            "definition": "The stolen base success rate needed to add offensive value. At approximately 70% success rate, stealing breaks even. Above 80%, it adds significant value."
+          },
+          {
+            "term": "Pinch Runner Timing",
+            "definition": "The strategic decision of when to insert a speed specialist into the game. Best deployed when a live rally exists, the runner on base is slow, and the game situation demands immediate run creation."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -145,10 +243,22 @@
       "type": "outcome",
       "narration": "Hit-and-run is on! The pinch runner breaks with the pitch, and the hitter grounds it to the right side. The second baseman fields it but the runner is already past second -- he rounds the bag and the second baseman has no play at second. He throws to first for the out. Two outs, pinch runner on second. The next hitter drives a single to center and the pinch runner scores from second easily! Tie game! The hit-and-run got the fast runner to second, and his speed scored him on a single.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.88 }, "label": "PR SCORES!" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "PR SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -164,11 +274,31 @@
       "type": "outcome",
       "narration": "You let the hitter swing away. He drives a double into the left-center gap! The pinch runner, with his elite speed, rounds second and races home -- he scores standing up! TIE GAME! A slower runner would have been held at third on that double -- the outfielder had a strong arm and the throw came in to the cutoff man. But the pinch runner's speed was so overwhelming that the third base coach didn't even hesitate: he waved him home. The speed turned a double-and-runner-on-third into a double-and-tying-run-scores.",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.3 },
-        "highlight": ["LF", "CF"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.3
+        },
+        "highlight": [
+          "LF",
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.88 }, "label": "PR SCORES!" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "PR SCORES!"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -184,8 +314,13 @@
       "type": "outcome",
       "narration": "You put in the pinch runner at first with two outs. He takes a lead, but the situation is worse than before: two outs, runner on first, down one. The next hitter flies out to center. Inning over. The pinch runner never got to use his speed. You saved him too long and the opportunity passed. The best chance to use the pinch runner was when there were runners in scoring position with fewer outs, not with two outs and the runner on first.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -201,8 +336,14 @@
       "type": "outcome",
       "narration": "You save the pinch runner. The inning ends with a strikeout. In the 8th, you get a runner on second with two outs -- and NOW you wish you had the pinch runner in the game, but the opportunity to insert him doesn't exist because there's nobody on base to replace. In the 9th, you get a pinch-hit opportunity and use your speed player as a pinch hitter -- he weakly grounds out. You lost 4-3. The pinch runner was never deployed in the role where he's most valuable: running the bases.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -218,11 +359,30 @@
       "type": "outcome",
       "narration": "You put the pinch runner in at second base. Smart -- the rally developed, so now you deploy the speed. The next hitter drives a single to right field. The pinch runner, with elite speed, rounds third and races home. The right fielder throws... the runner beats it by three steps! TIE GAME! A slower runner is held at third on that single. The pinch runner's speed scored the tying run on a play that isn't even close. You waited for the rally to develop, confirmed it was real, and then deployed your weapon at the perfect moment.",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "PR SCORES!" },
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "PR SCORES!"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -231,9 +391,18 @@
         "explanation": "Waiting one batter before deploying the pinch runner was the optimal strategy here. By waiting, you: 1) Confirmed the rally was real (the next hitter singled). 2) Deployed speed at a higher-leverage position (second base instead of first). 3) The pinch runner at second only needs a single to score, whereas from first he needed a double or a steal plus a single. The wait cost you nothing because the slow runner reached second safely on the single. The risk of waiting is that the next batter makes an out and the rally dies -- but the reward is deploying your speed in a higher-leverage position. When you're uncertain, waiting one batter to see if the rally develops is a smart compromise between deploying too early and too late.",
         "whatToRemember": "Waiting one batter to deploy a pinch runner can be optimal when the rally isn't confirmed yet. If the rally develops, you deploy speed at a better position. If it dies, you saved your weapon.",
         "keyTerms": [
-          { "term": "Rally Confirmation", "definition": "Waiting for evidence that an offensive rally is real (additional baserunners) before deploying limited bench resources like pinch runners. Prevents wasting assets on false rallies." },
-          { "term": "Position Leverage", "definition": "A runner on second base has higher scoring probability than first base. Deploying a pinch runner at second rather than first means speed is applied at a higher-value position." },
-          { "term": "Bench Management", "definition": "Strategic deployment of bench players (pinch hitters, pinch runners) to maximize their impact. Requires balancing immediate needs against future potential needs." }
+          {
+            "term": "Rally Confirmation",
+            "definition": "Waiting for evidence that an offensive rally is real (additional baserunners) before deploying limited bench resources like pinch runners. Prevents wasting assets on false rallies."
+          },
+          {
+            "term": "Position Leverage",
+            "definition": "A runner on second base has higher scoring probability than first base. Deploying a pinch runner at second rather than first means speed is applied at a higher-value position."
+          },
+          {
+            "term": "Bench Management",
+            "definition": "Strategic deployment of bench players (pinch hitters, pinch runners) to maximize their impact. Requires balancing immediate needs against future potential needs."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -243,10 +412,23 @@
       "type": "outcome",
       "narration": "You keep the slow cleanup hitter at second. The next batter singles to center. The cleanup hitter rounds third but he's slow -- the center fielder charges and throws home. The catcher gets the ball and the slow runner is... OUT at the plate! He was out by two full steps. The tying run was right there, 90 feet away, and your slow runner couldn't beat the throw. The pinch runner scores that play standing up. You had the perfect opportunity and didn't use your best weapon.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {

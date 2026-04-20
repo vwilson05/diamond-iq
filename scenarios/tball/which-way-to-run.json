@@ -1,26 +1,56 @@
 {
   "id": "tball-which-way-to-run",
   "title": "Which Way Do I Run?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "offense",
-  "tags": ["baserunning", "direction", "first-at-bat", "basics"],
+  "tags": [
+    "baserunning",
+    "direction",
+    "first-at-bat",
+    "basics"
+  ],
   "setup": {
     "inning": 1,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 0, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "It's your very first time batting! You step up to home plate, swing at the ball on the tee, and CRACK -- you hit it! The ball rolls into the grass and everyone is yelling 'RUN! RUN!' You look to your left and see third base. You look to your right and see first base. Which way do you run?",
       "field": {
-        "ballPosition": { "x": 0.45, "y": 0.55 },
-        "highlight": ["Home", "1B", "3B"],
+        "ballPosition": {
+          "x": 0.45,
+          "y": 0.55
+        },
+        "highlight": [
+          "Home",
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You!" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You!"
+          }
         ]
       },
       "choices": [
@@ -45,10 +75,22 @@
       "type": "outcome",
       "narration": "You turn to the RIGHT and run as fast as you can toward first base! Your feet fly across the dirt, you touch the base -- SAFE! You did it! Your whole team is cheering and your coach gives you a big thumbs up. You're on first base! That's the right way!",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.45 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.45
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +98,18 @@
         "headline": "Safe at First! You Went the Right Way!",
         "explanation": "After you hit the ball, you ALWAYS run to the right -- toward first base! That's the first base on the base path. You go first base, then second base, then third base, then home plate. It goes in a circle to the LEFT (counter-clockwise), but the FIRST step is always to the right toward first base. An easy way to remember: hit the ball, turn RIGHT, run FAST!",
         "keyTerms": [
-          { "term": "First Base", "definition": "The first base you run to after hitting. It's to your RIGHT when you're standing at home plate." },
-          { "term": "Base Path", "definition": "The order you run the bases: first, second, third, then home! It makes a diamond shape." },
-          { "term": "Counter-Clockwise", "definition": "The direction you run the bases. It looks like going backwards around a clock!" }
+          {
+            "term": "First Base",
+            "definition": "The first base you run to after hitting. It's to your RIGHT when you're standing at home plate."
+          },
+          {
+            "term": "Base Path",
+            "definition": "The order you run the bases: first, second, third, then home! It makes a diamond shape."
+          },
+          {
+            "term": "Counter-Clockwise",
+            "definition": "The direction you run the bases. It looks like going backwards around a clock!"
+          }
         ],
         "whatToRemember": "After you hit the ball, turn RIGHT and run to first base! First, second, third, home -- always in that order!",
         "iqPoints": 10,
@@ -66,15 +117,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.45, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000
             }
@@ -87,8 +150,14 @@
       "type": "outcome",
       "narration": "You turn LEFT and start running toward third base! Everyone is yelling, 'No, no! The OTHER way!' Your coach is waving their arms and pointing to the right. You stop, turn around, and run back toward first base, but it's too late -- the ball already got there. OUT! It's confusing, but now you know which way to go!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -96,8 +165,14 @@
         "headline": "Wrong Way! Out at First!",
         "explanation": "Running to third base first is the wrong way! In baseball, you MUST go to the bases in order: first base, then second, then third, then home. You can't skip ahead to third base! First base is to your RIGHT when you're standing at home plate. Here's a trick: the FIRST base coach stands near first base and will wave you in the right direction. Look for them!",
         "keyTerms": [
-          { "term": "Base Order", "definition": "You must run the bases in order: first, second, third, home. No skipping!" },
-          { "term": "First Base Coach", "definition": "The grown-up who stands near first base and tells you where to run. Listen for them!" }
+          {
+            "term": "Base Order",
+            "definition": "You must run the bases in order: first, second, third, home. No skipping!"
+          },
+          {
+            "term": "First Base Coach",
+            "definition": "The grown-up who stands near first base and tells you where to run. Listen for them!"
+          }
         ],
         "whatToRemember": "Always run to the RIGHT toward first base after you hit! First base is FIRST for a reason!",
         "iqPoints": 1,
@@ -105,15 +180,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.65 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.65
+              },
               "entity": "batter",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "batter",
               "duration": 600
             }
@@ -126,8 +213,13 @@
       "type": "outcome",
       "narration": "You run straight ahead toward the pitcher's mound! The pitcher is confused and the coach is yelling, 'No, turn right! Go to first base!' You stop, look around, and realize first base is to your right. You turn and run, but you've lost valuable time. The throw beats you to first. OUT! But hey, now you know for next time!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -135,8 +227,14 @@
         "headline": "Wrong Direction! But You'll Get It!",
         "explanation": "The pitcher's mound is NOT a base! It's just where the pitcher stands. After you hit the ball, you need to run to FIRST BASE, which is to your RIGHT. Don't run straight ahead and don't run left. Turn to the right and follow the white chalk line. That line leads you right to first base! It's okay to be confused your first time -- everyone is! Now you'll remember for next time.",
         "keyTerms": [
-          { "term": "Pitcher's Mound", "definition": "The raised dirt area in the middle of the field where the pitcher stands. It's NOT a base!" },
-          { "term": "Foul Line", "definition": "The white chalk line from home plate to first base (and to third base). Follow the line to the right to find first base!" }
+          {
+            "term": "Pitcher's Mound",
+            "definition": "The raised dirt area in the middle of the field where the pitcher stands. It's NOT a base!"
+          },
+          {
+            "term": "Foul Line",
+            "definition": "The white chalk line from home plate to first base (and to third base). Follow the line to the right to find first base!"
+          }
         ],
         "whatToRemember": "The pitcher's mound is not a base! Turn RIGHT after you hit and follow the white line to first base.",
         "iqPoints": 4,
@@ -144,15 +242,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.7 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.7
+              },
               "entity": "batter",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.7 },
-              "to": { "x": 0.65, "y": 0.65 },
+              "from": {
+                "x": 0.5,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.65
+              },
               "entity": "batter",
               "duration": 800
             }

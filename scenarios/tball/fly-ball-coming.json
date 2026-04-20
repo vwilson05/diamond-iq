@@ -1,26 +1,55 @@
 {
   "id": "tball-fly-ball-coming",
   "title": "Fly Ball Headed Your Way!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "defense",
-  "tags": ["outfield", "fly-ball", "catching", "communication", "basics"],
+  "tags": [
+    "outfield",
+    "fly-ball",
+    "catching",
+    "communication",
+    "basics"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "POW! The batter hits a big fly ball and it's coming right at you in the outfield!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "next": "decision-1",
@@ -30,10 +59,23 @@
       "type": "decision",
       "narration": "You're playing center field and POW -- the batter hits a big fly ball right at you! It's going up, up, up! Your teammate in left field is running over too. The ball is coming down -- what do you do?",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.3 },
-        "highlight": ["CF", "LF"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.3
+        },
+        "highlight": [
+          "CF",
+          "LF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "choices": [
@@ -58,10 +100,22 @@
       "type": "outcome",
       "narration": "You wave your arm and shout 'I GOT IT!' loud and clear. Your teammate in left field hears you and backs off. You get right under the ball, put your glove up, and SQUEEEZE -- you catch it! OUT! The whole team goes wild! What a play!",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.25 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.25
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "outcome": {
@@ -69,9 +123,18 @@
         "headline": "Caught It! Great Communication!",
         "explanation": "You did TWO important things right! First, you called the ball by yelling 'I got it!' This tells your teammates to back off so you don't crash into each other. That's called 'communication' and it's super important. Second, you got under the ball and caught it. When a fly ball is caught, the batter is OUT. Calling the ball is one of the most important skills in baseball and softball -- it keeps everyone safe and makes sure someone actually catches it!",
         "keyTerms": [
-          { "term": "Fly Ball", "definition": "A ball hit high up into the air. If you catch it before it hits the ground, the batter is out!" },
-          { "term": "Calling the Ball", "definition": "Yelling 'I got it!' so your teammates know you're going to catch it and they don't crash into you." },
-          { "term": "Communication", "definition": "Talking to your teammates during the game. It keeps everyone safe and helps your team play better!" }
+          {
+            "term": "Fly Ball",
+            "definition": "A ball hit high up into the air. If you catch it before it hits the ground, the batter is out!"
+          },
+          {
+            "term": "Calling the Ball",
+            "definition": "Yelling 'I got it!' so your teammates know you're going to catch it and they don't crash into you."
+          },
+          {
+            "term": "Communication",
+            "definition": "Talking to your teammates during the game. It keeps everyone safe and helps your team play better!"
+          }
         ],
         "whatToRemember": "Always call 'I got it!' when a fly ball is coming to you. This tells your teammates to let you have it so nobody crashes into each other.",
         "iqPoints": 10,
@@ -79,22 +142,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.3 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.2 },
-              "to": { "x": 0.4, "y": 0.25 },
+              "from": {
+                "x": 0.5,
+                "y": 0.2
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.25
+              },
               "entity": "fielder",
               "duration": 600
             },
             {
               "type": "catch",
-              "from": { "x": 0.4, "y": 0.3 },
-              "to": { "x": 0.4, "y": 0.25 },
+              "from": {
+                "x": 0.4,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.25
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -107,10 +188,23 @@
       "type": "outcome",
       "narration": "You wait... your teammate in left field waits... you both look at each other... and the ball drops right between you! PLOP! It hits the grass. Oops! You both thought the other person was going to get it. The runner on first takes off and makes it to second base.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.28 },
-        "highlight": ["CF", "LF"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.28
+        },
+        "highlight": [
+          "CF",
+          "LF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -123,15 +217,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.28 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.28
+              },
               "entity": "ball",
               "duration": 1000
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 1200,
               "parallel": true
@@ -145,11 +251,28 @@
       "type": "outcome",
       "narration": "You back away from the ball and... THUD! It lands right where you were standing. It bounces and rolls all the way to the fence! The batter rounds first, then second... by the time your teammate gets the ball, the runners have gone all the way around. That's a lot of runs for the other team!",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.1 },
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.1
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored!)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (still running)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (still running)"
+          }
         ]
       },
       "outcome": {
@@ -162,29 +285,53 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.25 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.25
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.2 },
-              "to": { "x": 0.55, "y": 0.15 },
+              "from": {
+                "x": 0.5,
+                "y": 0.2
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.15
+              },
               "entity": "fielder",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.25 },
-              "to": { "x": 0.4, "y": 0.1 },
+              "from": {
+                "x": 0.4,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.1
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 1500,
               "parallel": true

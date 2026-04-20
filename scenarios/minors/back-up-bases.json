@@ -1,27 +1,66 @@
 {
   "id": "minors-back-up-bases",
   "title": "Pitcher, Back Up!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "pitching",
-  "tags": ["pitching", "backup", "hustle", "base-coverage", "defense", "after-the-pitch"],
+  "tags": [
+    "pitching",
+    "backup",
+    "hustle",
+    "base-coverage",
+    "defense",
+    "after-the-pitch"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on second, nobody out, your team leads by one. You're the pitcher. You deliver a pitch and the batter lines a single to right field! The right fielder fields it cleanly and the runner on second is rounding third, heading home! The right fielder is throwing to home plate. You just pitched the ball -- your pitching job is done for this play. But what's your FIELDING job now?",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.25 },
-        "highlight": ["Pitcher", "Home", "3B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.25
+        },
+        "highlight": [
+          "Pitcher",
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (heading home)" },
-          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.35,
+              "y": 0.65
+            },
+            "label": "Runner (heading home)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.65
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +85,30 @@
       "type": "outcome",
       "narration": "You sprint to the area behind home plate, about 20 feet behind the catcher, right in line with the throw coming from right field. The throw from right field is a little high -- it bounces off the catcher's glove! But YOU'RE RIGHT THERE! You scoop up the ball and toss it to the catcher. The runner scores, but the batter stays at first because you prevented the ball from rolling to the backstop. Without your backup, the batter would have taken second or third!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.92 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (held at 1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (held at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -58,9 +116,18 @@
         "headline": "Great Backup! Prevented Extra Bases!",
         "explanation": "After you deliver a pitch and the ball is hit to the outfield, your job as a pitcher CHANGES. You're no longer a pitcher -- you're the backup fielder. On any throw to home plate from the outfield, you sprint behind home plate and position yourself about 15-20 feet behind the catcher, in a direct line with the throw. If the throw gets past the catcher (which happens a LOT), you're there to stop it from rolling to the backstop. Without a backup, an overthrow at home can turn a single into a triple. This is pure hustle and awareness -- and great pitchers do it on EVERY play.",
         "keyTerms": [
-          { "term": "Backing up home plate", "definition": "When the pitcher sprints behind the catcher to stop overthrows from the outfield. Position yourself 15-20 feet behind the catcher, in line with the throw." },
-          { "term": "Pitcher as fielder", "definition": "After you deliver the pitch, you become the fifth infielder. You have defensive responsibilities on every batted ball -- covering bases, fielding bunts, and backing up throws." },
-          { "term": "In line with the throw", "definition": "Standing directly behind the target on a straight line from where the throw is coming. This way the ball comes right to you if it gets through." }
+          {
+            "term": "Backing up home plate",
+            "definition": "When the pitcher sprints behind the catcher to stop overthrows from the outfield. Position yourself 15-20 feet behind the catcher, in line with the throw."
+          },
+          {
+            "term": "Pitcher as fielder",
+            "definition": "After you deliver the pitch, you become the fifth infielder. You have defensive responsibilities on every batted ball -- covering bases, fielding bunts, and backing up throws."
+          },
+          {
+            "term": "In line with the throw",
+            "definition": "Standing directly behind the target on a straight line from where the throw is coming. This way the ball comes right to you if it gets through."
+          }
         ],
         "whatToRemember": "After you pitch, your job isn't done! On outfield hits with a play at home, sprint behind the catcher to back up the throw. This hustle prevents extra bases and shows your team you're a complete player.",
         "iqPoints": 10,
@@ -68,38 +135,68 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.95
+              },
               "entity": "pitcher",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.7, "y": 0.25 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.7,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.92 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.92
+              },
               "entity": "ball",
               "duration": 200
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.92 },
-              "to": { "x": 0.5, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.92
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 200
             }
@@ -112,11 +209,28 @@
       "type": "outcome",
       "narration": "You stand on the mound and watch the play. The right fielder throws home -- it's a little offline and bounces off the catcher's glove! The ball rolls all the way to the backstop! Nobody is behind the catcher! The runner scores, and now the batter sees the loose ball and sprints to second, then to THIRD! What was a single with a runner scoring is now a runner scoring AND the batter on third -- all because nobody backed up home plate!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.98 },
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.98
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (at 3rd!)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -129,23 +243,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.7, "y": 0.25 },
-              "to": { "x": 0.5, "y": 0.98 },
+              "from": {
+                "x": 0.7,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.98
+              },
               "entity": "ball",
               "duration": 900
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.65, "y": 0.65 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.65,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1200
             }
@@ -158,11 +290,30 @@
       "type": "outcome",
       "narration": "You sprint to cover third base. That's not wrong -- it's a legitimate fielding play. But the throw from right field goes to HOME, not third. The throw gets past the catcher and nobody is backing up home plate. The ball rolls to the backstop and the batter advances to second. The runner scores, which was probably going to happen anyway, but the batter gained an extra base because home plate wasn't backed up.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.98 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -175,23 +326,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "pitcher",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.7, "y": 0.25 },
-              "to": { "x": 0.5, "y": 0.98 },
+              "from": {
+                "x": 0.7,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.98
+              },
               "entity": "ball",
               "duration": 900,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true

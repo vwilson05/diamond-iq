@@ -1,27 +1,62 @@
 {
   "id": "minors-reading-dirt-balls",
   "title": "Ball in the Dirt!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["dirt-ball", "wild-pitch", "passed-ball", "advancing", "reading", "baserunning-IQ"],
+  "tags": [
+    "dirt-ball",
+    "wild-pitch",
+    "passed-ball",
+    "advancing",
+    "reading",
+    "baserunning-IQ"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 1, "strikes": 2 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 2
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the runner on second base, one out, your team is down by a run. The count is 1-2 on the batter. The pitcher delivers a curveball and it bounces in the DIRT in front of home plate! The catcher drops down to block it but the ball kicks off to the left side, about 8 feet from the catcher. Do you advance to third?",
       "field": {
-        "ballPosition": { "x": 0.45, "y": 0.9 },
-        "highlight": ["2B", "3B", "Home"],
+        "ballPosition": {
+          "x": 0.45,
+          "y": 0.9
+        },
+        "highlight": [
+          "2B",
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (on 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (on 2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +81,22 @@
       "type": "outcome",
       "narration": "You read the ball in the dirt perfectly! The moment you saw it bounce away from the catcher, you broke for third. The catcher scrambles to find the ball, picks it up, and throws to third -- but you're already sliding in! SAFE! Now you're on third base with one out. You can score on a fly ball, a ground ball, a wild pitch, or even a passed ball. Your heads-up baserunning just put you in scoring position!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (safe at 3rd!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (safe at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,9 +104,18 @@
         "headline": "Heads-Up Baserunning! Advanced on the Dirt Ball!",
         "explanation": "Reading balls in the dirt is an elite baserunning skill. Here's what to watch for: 1) Did the ball bounce to the LEFT or RIGHT of the catcher? If it kicked sideways, the catcher has to move to get it -- that takes time. GO! 2) Did the ball bounce STRAIGHT down in front of the catcher? They probably blocked it and it's right in front of them -- stay put. 3) Did the ball go to the BACKSTOP? Definitely go! The key is watching the ball, not guessing. You should be taking your secondary lead and watching the pitch all the way to the catcher. If it hits the dirt and bounces away, REACT.",
         "keyTerms": [
-          { "term": "Ball in the dirt", "definition": "A pitch that bounces before reaching the catcher. This creates an opportunity for baserunners to advance if the ball bounces away from the catcher." },
-          { "term": "Reading the bounce", "definition": "Watching where the ball goes after it bounces in the dirt. Sideways or backward bounces = advance. Straight-down blocks = stay." },
-          { "term": "Wild pitch vs passed ball", "definition": "A wild pitch is the pitcher's fault (too far from the zone). A passed ball is the catcher's fault (should have caught it). Either way, smart runners can advance." }
+          {
+            "term": "Ball in the dirt",
+            "definition": "A pitch that bounces before reaching the catcher. This creates an opportunity for baserunners to advance if the ball bounces away from the catcher."
+          },
+          {
+            "term": "Reading the bounce",
+            "definition": "Watching where the ball goes after it bounces in the dirt. Sideways or backward bounces = advance. Straight-down blocks = stay."
+          },
+          {
+            "term": "Wild pitch vs passed ball",
+            "definition": "A wild pitch is the pitcher's fault (too far from the zone). A passed ball is the catcher's fault (should have caught it). Either way, smart runners can advance."
+          }
         ],
         "whatToRemember": "Watch every pitch all the way to the catcher. If it bounces in the dirt and kicks sideways or to the backstop, REACT and advance. Read the ball, don't guess.",
         "iqPoints": 10,
@@ -67,30 +123,54 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.45, "y": 0.9 },
-              "to": { "x": 0.45, "y": 0.88 },
+              "from": {
+                "x": 0.45,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.88
+              },
               "entity": "catcher",
               "duration": 500,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.45, "y": 0.88 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.45,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "slide",
-              "from": { "x": 0.33, "y": 0.58 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.33,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 300
             }
@@ -103,10 +183,20 @@
       "type": "outcome",
       "narration": "You stay at second base. The catcher picks up the ball a few seconds later and looks around -- you're still at second. Safe play, but you missed a free base. The ball was 8 feet from the catcher -- you had time. The next pitch, the batter grounds out to short and you're stuck at second. Two outs now. If you'd been at third, that ground ball would have scored you.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
         "highlight": [],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (still on 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (still on 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -119,15 +209,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.48, "y": 0.46 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.46
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.48, "y": 0.46 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.48,
+                "y": 0.46
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 400
             }
@@ -140,8 +242,13 @@
       "type": "outcome",
       "narration": "You go halfway between second and third and stop to watch. Bad idea! The catcher picks up the ball, sees you stranded between bases, and throws to the shortstop covering second. Now you're in a rundown! You try to make it to third but the shortstop throws to the third baseman -- TAG! You're out. Going halfway is the worst of both worlds. Your coach shakes their head: 'Either go or don't go. Never get stuck in the middle!'",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -154,36 +261,66 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.45, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.45,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.35, "y": 0.57 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.57
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.35, "y": 0.57 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.57
+              },
               "entity": "fielder",
               "duration": 200
             }

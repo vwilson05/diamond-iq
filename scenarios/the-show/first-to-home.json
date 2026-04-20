@@ -1,27 +1,59 @@
 {
   "id": "the-show-first-to-home",
   "title": "Second to Home: Reading the Outfielder",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 3,
   "role": "offense",
-  "tags": ["baserunning", "outfield-reading", "scoring-from-second", "arm-strength", "momentum"],
+  "tags": [
+    "baserunning",
+    "outfield-reading",
+    "scoring-from-second",
+    "arm-strength",
+    "momentum"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 1, "strikes": 1 }
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 1
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on second base, one out, down 3-2. The batter lines a single into left field. You're running on contact with one out. As you round third, you need to make a split-second decision: go home or hold at third? The left fielder is charging the ball. You need to read THREE things in the next two seconds: the outfielder's arm strength, his fielding angle (is he charging or drifting?), and his momentum (is he set to throw or still moving toward the ball?). What are you looking for?",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["LF", "Home"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "LF",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.35, "y": 0.58 }, "label": "You (rounding 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.35,
+              "y": 0.58
+            },
+            "label": "You (rounding 3rd)"
+          }
         ]
       },
       "choices": [
@@ -51,10 +83,23 @@
       "type": "decision",
       "narration": "You key on the left fielder's momentum. He's charging HARD toward the infield to field the single -- his body is moving toward home plate. Wait -- that means his momentum is actually carrying him toward the infield, which means he can use that momentum in his throw. But he's also moving, which makes the fielding harder. He barehand the ball while running -- his feet aren't set. The throw comes in off-balance. What do you decide?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.45 },
-        "highlight": ["LF", "Home"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.45
+        },
+        "highlight": [
+          "LF",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.38, "y": 0.68 }, "label": "You (approaching 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.38,
+              "y": 0.68
+            },
+            "label": "You (approaching 3rd)"
+          }
         ]
       },
       "choices": [
@@ -74,10 +119,23 @@
       "type": "decision",
       "narration": "You key on the fielding angle. The left fielder fields the ball on his GLOVE side -- his left hand (for a right-handed thrower). He has to field, transfer the ball to his throwing hand, plant his right foot, turn his body, and throw. That's at least three extra movements compared to fielding on his throwing side. Each movement adds time. You estimate an extra 0.5-0.8 seconds of transfer time. That's the equivalent of 10-15 extra feet of running distance for you. Do you go?",
       "field": {
-        "ballPosition": { "x": 0.28, "y": 0.42 },
-        "highlight": ["LF", "Home"],
+        "ballPosition": {
+          "x": 0.28,
+          "y": 0.42
+        },
+        "highlight": [
+          "LF",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.38, "y": 0.68 }, "label": "You (at 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.38,
+              "y": 0.68
+            },
+            "label": "You (at 3rd)"
+          }
         ]
       },
       "choices": [
@@ -97,10 +155,23 @@
       "type": "decision",
       "narration": "You look at the third base coach as you round the bag. He's... waving you home! His arms are windmilling. But you catch a glimpse of the left fielder -- he's already up with the ball and looks like he has a clear throw to the plate. The coach is waving, but your own eyes see danger. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.45 },
-        "highlight": ["LF", "Home"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.45
+        },
+        "highlight": [
+          "LF",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.38, "y": 0.68 }, "label": "You (at 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.38,
+              "y": 0.68
+            },
+            "label": "You (at 3rd)"
+          }
         ]
       },
       "choices": [
@@ -120,10 +191,22 @@
       "type": "outcome",
       "narration": "You commit and sprint home! The left fielder's throw comes in -- it's weak and offline, bouncing twice before the catcher can handle it. You slide in SAFE by five feet! It wasn't even close! The outfielder's charging momentum made it impossible for him to set up a strong throw. His body was moving laterally and his arm had to throw across his body. The ball had no carry and no accuracy. You read the momentum perfectly and it gave you all the information you needed: a charging outfielder who fields on the run CANNOT make a strong throw home.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "You SCORE!" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "You SCORE!"
+          }
         ]
       },
       "outcome": {
@@ -132,9 +215,18 @@
         "explanation": "The outfielder's momentum is the single most important factor in determining throw quality. Here's the physics: a strong throw requires the thrower's feet to be set, his body aligned toward the target, and his arm to come through with full extension. When an outfielder is charging the ball, NONE of those conditions are met: his feet are moving, his body is perpendicular to home, and his arm has to throw across his body. This typically reduces throw velocity by 15-25% and accuracy by 30-40%. The opposite is also true: an outfielder who gets behind the ball, sets his feet, and crow-hops toward home can deliver a missile. Reading momentum tells you EVERYTHING about the throw quality you're about to face.",
         "whatToRemember": "An outfielder charging the ball cannot make a strong, accurate throw home. His momentum is wrong, his body isn't aligned, and his arm has to throw across his body. Charging = go. Set = hold.",
         "keyTerms": [
-          { "term": "Outfielder Momentum", "definition": "The direction and speed of the outfielder's body when he fields the ball. Forward/lateral momentum degrades throw quality; controlled backward momentum with a crow-hop produces the strongest throws." },
-          { "term": "Throw Quality Indicators", "definition": "Visual cues that predict whether an outfielder's throw will be strong (set feet, aligned body, crow-hop) or weak (charging, off-balance, across body)." },
-          { "term": "Crow-Hop", "definition": "A small hop an outfielder takes after fielding to align his body and generate momentum toward his throwing target. Produces the strongest and most accurate throws." }
+          {
+            "term": "Outfielder Momentum",
+            "definition": "The direction and speed of the outfielder's body when he fields the ball. Forward/lateral momentum degrades throw quality; controlled backward momentum with a crow-hop produces the strongest throws."
+          },
+          {
+            "term": "Throw Quality Indicators",
+            "definition": "Visual cues that predict whether an outfielder's throw will be strong (set feet, aligned body, crow-hop) or weak (charging, off-balance, across body)."
+          },
+          {
+            "term": "Crow-Hop",
+            "definition": "A small hop an outfielder takes after fielding to align his body and generate momentum toward his throwing target. Produces the strongest and most accurate throws."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -144,10 +236,23 @@
       "type": "outcome",
       "narration": "You hold at third. The outfielder's throw comes in -- it bounces twice and arrives weakly to the cutoff man. The catcher never even received a throw at the plate. You would have scored easily. You were right that his momentum was toward the infield, but you overestimated how much that helped his throw. Charging momentum makes fielding easier but THROWING harder. His arm couldn't generate power while his body was moving laterally. You had 5 feet of margin and left the tying run at third instead of scoring it.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (held at 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (held at 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -163,10 +268,22 @@
       "type": "outcome",
       "narration": "You go! The left fielder picks up the ball on his glove side, transfers to his throwing hand, plants, turns, and throws -- by the time the ball leaves his hand, you're already past the cutoff man and sliding home. SAFE by three steps! The glove-side pickup added 0.7 seconds to his release time, which is the equivalent of 12 feet of running. That margin was more than enough. You read the angle correctly and exploited the extra transfer time to score the tying run.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "You SCORE!" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "You SCORE!"
+          }
         ]
       },
       "outcome": {
@@ -175,9 +292,18 @@
         "explanation": "The fielding angle is a critical tell because it directly affects the outfielder's release time. A right-handed thrower who fields on his glove side (left) must: 1) Catch with his glove. 2) Transfer ball to throwing hand. 3) Plant his right foot. 4) Rotate his body toward the target. 5) Throw. That's 5 steps. A right-handed thrower who fields on his throwing side can: 1) Field with glove. 2) Transfer while stepping toward target. 3) Throw. That's 3 steps with the last two happening simultaneously. The difference is 0.5-0.8 seconds, which translates to 10-15 feet of runner advancement. Reading the fielding angle gives you precise information about how much time you have to score.",
         "whatToRemember": "When the outfielder picks up the ball on his GLOVE side, he needs extra transfer time -- that's your green light. When he picks up on his THROWING side, he can release quickly -- that's your caution signal.",
         "keyTerms": [
-          { "term": "Glove-Side Pickup", "definition": "When an outfielder fields the ball on the side of his body opposite his throwing arm. Requires additional steps to transfer, plant, and rotate before throwing -- adding 0.5-0.8 seconds of release time." },
-          { "term": "Transfer Time", "definition": "The time it takes an outfielder to move the ball from his glove to his throwing hand and get into throwing position. Varies dramatically based on the fielding angle." },
-          { "term": "Fielding Angle", "definition": "The position of the outfielder's body relative to the ball when he fields it -- specifically whether the ball is on his glove side or throwing side. Determines the speed of his release." }
+          {
+            "term": "Glove-Side Pickup",
+            "definition": "When an outfielder fields the ball on the side of his body opposite his throwing arm. Requires additional steps to transfer, plant, and rotate before throwing -- adding 0.5-0.8 seconds of release time."
+          },
+          {
+            "term": "Transfer Time",
+            "definition": "The time it takes an outfielder to move the ball from his glove to his throwing hand and get into throwing position. Varies dramatically based on the fielding angle."
+          },
+          {
+            "term": "Fielding Angle",
+            "definition": "The position of the outfielder's body relative to the ball when he fields it -- specifically whether the ball is on his glove side or throwing side. Determines the speed of his release."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -187,10 +313,22 @@
       "type": "outcome",
       "narration": "You hold at third base. The left fielder's throw comes in -- it's strong but it goes to the cutoff man, not the plate. You would have been safe. The glove-side pickup added enough time that the throw couldn't have beaten you. But you made the conservative choice, and now you're at third with one out, down one. A sac fly ties it, a single gives you the lead. Holding isn't wrong -- it's safe. But the aggressive read would have scored the tying run without needing another at-bat.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -206,10 +344,22 @@
       "type": "outcome",
       "narration": "You've scouted the left fielder all game and know his arm is weak. You go without hesitation. The throw comes in -- it bounces three times and arrives late to the catcher. SAFE! The tying run scores! Your pre-game observation paid off. But what if the outfielder had made an unusually strong throw today? What if he'd been saving his arm? Scouting reports are valuable, but they should be combined with in-the-moment reads for maximum safety.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "You SCORE!" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "You SCORE!"
+          }
         ]
       },
       "outcome": {
@@ -225,8 +375,14 @@
       "type": "outcome",
       "narration": "You trust the coach and go! The left fielder's throw is strong and on-line -- the catcher receives it in time and puts down the tag. OUT at the plate! The coach's wave was wrong! He didn't account for the outfielder's quick release and strong throw. You're out, and the tying run is erased. Your eyes told you it was dangerous, but you deferred to the coach instead of trusting your own read.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home",
+          "C"
+        ],
         "runners": []
       },
       "outcome": {
@@ -242,10 +398,22 @@
       "type": "outcome",
       "narration": "You override the coach and hold at third. The throw comes in on a line -- it would have beaten you by two steps. Your coach is initially frustrated that you didn't go, but when he sees the throw, he nods. Good read. You're at third with one out, tying run 90 feet away, and you didn't get thrown out. The next hitter drives a sac fly and you score. The run comes home one batter later, but you're safe instead of out. Your in-the-moment read was better than the coach's.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          }
         ]
       },
       "outcome": {

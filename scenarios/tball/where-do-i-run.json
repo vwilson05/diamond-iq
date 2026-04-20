@@ -1,24 +1,45 @@
 {
   "id": "tball-where-do-i-run",
   "title": "You Hit the Ball! Now Where Do You Go?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["hitting", "baserunning", "basics", "first-at-bat"],
+  "tags": [
+    "hitting",
+    "baserunning",
+    "basics",
+    "first-at-bat"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 1, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "CRACK! You hit the ball into the grass! Nice hit! Now where do you go?",
       "field": {
-        "ballPosition": { "x": 0.42, "y": 0.55 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.42,
+          "y": 0.55
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "next": "decision-1",
@@ -28,10 +49,23 @@
       "type": "decision",
       "narration": "It's your turn to bat and CRACK -- you hit the ball into the grass! Nice hit! The fielders are chasing it. You're still standing at home plate holding the bat. Where do you go?",
       "field": {
-        "ballPosition": { "x": 0.42, "y": 0.55 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.42,
+          "y": 0.55
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You!" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You!"
+          }
         ]
       },
       "choices": [
@@ -56,10 +90,22 @@
       "type": "outcome",
       "narration": "You drop the bat and ZOOM -- you take off running down the first base line! Your feet are flying, your arms are pumping, and you touch first base just before the throw gets there. SAFE! You're on base! Your team is cheering and your coach gives you a big thumbs up!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe!)"
+          }
         ]
       },
       "outcome": {
@@ -67,10 +113,22 @@
         "headline": "Safe at First! Way to Hustle!",
         "explanation": "Every time you hit the ball into fair territory (that's the area between the two white lines), you MUST run to first base. It doesn't matter where the ball goes -- even if someone catches it, you should still run! Running hard to first base is the most important thing you do after hitting. Drop the bat (don't throw it!), and run as fast as you can down the line to first base. The first base line is the white chalk line on the right side.",
         "keyTerms": [
-          { "term": "Fair Territory", "definition": "The area between the two white foul lines. If your hit lands here, it counts!" },
-          { "term": "First Base Line", "definition": "The white chalk line on the right side from home plate to first base. This is your running lane!" },
-          { "term": "Safe", "definition": "When you reach the base before the ball gets there. The umpire will spread their arms wide and yell 'Safe!'" },
-          { "term": "Hustle", "definition": "Running as fast as you can. Always hustle to first base -- you never know what might happen!" }
+          {
+            "term": "Fair Territory",
+            "definition": "The area between the two white foul lines. If your hit lands here, it counts!"
+          },
+          {
+            "term": "First Base Line",
+            "definition": "The white chalk line on the right side from home plate to first base. This is your running lane!"
+          },
+          {
+            "term": "Safe",
+            "definition": "When you reach the base before the ball gets there. The umpire will spread their arms wide and yell 'Safe!'"
+          },
+          {
+            "term": "Hustle",
+            "definition": "Running as fast as you can. Always hustle to first base -- you never know what might happen!"
+          }
         ],
         "whatToRemember": "Always run to first base after you hit the ball! Drop the bat, turn right, and run as fast as you can!",
         "iqPoints": 10,
@@ -78,15 +136,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.42, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1200
             }
@@ -99,10 +169,22 @@
       "type": "outcome",
       "narration": "You start running toward the pitcher's mound... but wait! The shortstop already picked up the ball and threw it to first base. Your coach is waving their arms and pointing to first base. You weren't supposed to go get the ball -- you're the batter, not a fielder right now!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.47, "y": 0.6 }, "label": "You (oops!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.47,
+              "y": 0.6
+            },
+            "label": "You (oops!)"
+          }
         ]
       },
       "outcome": {
@@ -115,22 +197,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.42, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.47, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.47,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -143,10 +243,22 @@
       "type": "outcome",
       "narration": "You just stand there at home plate, watching the ball roll across the grass. The shortstop jogs over, picks it up, and casually throws it to first base. You're out without even trying! Your coach jogs over and says, 'Hey buddy, next time -- RUN!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You (still here)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You (still here)"
+          }
         ]
       },
       "outcome": {
@@ -159,22 +271,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.42, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "catch",
-              "from": { "x": 0.42, "y": 0.55 },
-              "to": { "x": 0.4, "y": 0.5 },
+              "from": {
+                "x": 0.42,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }

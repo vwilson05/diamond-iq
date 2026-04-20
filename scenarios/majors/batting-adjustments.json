@@ -1,25 +1,50 @@
 {
   "id": "majors-batting-adjustments",
   "title": "Batting Adjustments: Third Time Through",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "offense",
-  "tags": ["hitting", "adjustments", "curveball", "at-bat-approach", "in-game-learning"],
+  "tags": [
+    "hitting",
+    "adjustments",
+    "curveball",
+    "at-bat-approach",
+    "in-game-learning"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "This is your third at-bat of the game, and you've struck out TWICE on curveballs. First at-bat: fastball-fastball-curveball, swung over the top. Second at-bat: fastball-curveball, swung over the top again. The pitcher knows you can't hit his curveball. You're stepping in for your third look. What adjustment do you make to handle the curveball this time?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +69,13 @@
       "type": "decision",
       "narration": "You decide to sit on the curveball. The pitcher delivers his first pitch -- it's a FASTBALL on the inner half! Because you're looking for the curveball, the fastball looks extra fast. It zips past you for strike one. Now you're 0-1, and you realize the pitcher might not throw the curve right away since he knows you're looking for it. What do you do now?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "choices": [
@@ -70,32 +100,60 @@
       "type": "outcome",
       "narration": "You focus on keeping your weight back. The pitcher starts you with a fastball -- you stay back, recognize it, and foul it off. Then comes the curveball -- his go-to weapon. But this time, because you stayed back, you see the ball longer. You wait... wait... the ball breaks down and you drive it on a line to center field! Base hit! The adjustment WORKED! You stayed back, gave yourself more time to see the break, and drove the curveball instead of swinging over it!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.3 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.3
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (1st!)"
+          }
         ]
       },
       "outcome": {
         "result": "great",
         "headline": "Base Hit! Curveball Conquered!",
         "explanation": "THIS is how you make an in-game adjustment. The reason you were swinging over the curveball was TIMING, not recognition. You were starting your swing too early, which meant by the time the slower curveball arrived, your bat was already past the hitting zone. By staying back -- keeping your weight on your back leg and letting the ball travel deeper -- you gave yourself extra milliseconds to see the ball break. Those milliseconds are everything against a curveball. The adjustment wasn't about swinging differently. It was about WAITING differently. Same swing, better timing. That's the key to hitting curveballs: let it come to you.",
-        "keyTerms": ["staying back", "timing adjustment", "weight transfer"],
+        "keyTerms": [
+          "staying back",
+          "timing adjustment",
+          "weight transfer"
+        ],
         "whatToRemember": "When you're swinging over curveballs, the fix is to STAY BACK. Keep your weight on your back leg longer and let the ball travel deeper before committing. Same swing, better timing.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.3 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -108,8 +166,13 @@
       "type": "outcome",
       "narration": "You step in with the exact same approach -- see ball, hit ball, swing hard. The pitcher goes fastball-curveball AGAIN. The curveball breaks down and you swing over the top of it for the THIRD time today. Strike three. Three at-bats, three strikeouts on the same pitch. The pitcher barely had to think -- he threw the same sequence and you gave him the same result every time. Einstein said insanity is doing the same thing and expecting different results.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.95 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.95
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -122,8 +185,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -136,23 +205,36 @@
       "type": "outcome",
       "narration": "You stay on the curveball. The pitcher throws another fastball -- strike two. Now you're 0-2. Finally, here comes the curveball. You're ready for it, you see it, and you swing -- but you're so geared up for it that you pull the ball foul. Strike three. You were ON the curveball, but being 0-2 meant you had no margin for error. You fouled the one pitch you were looking for.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "good",
         "headline": "Foul Ball, Strike Three. Close But Not Enough.",
         "explanation": "Sitting on the curveball was a decent idea, but the execution had a problem: you let the fastball put you in an 0-2 hole before the curveball ever came. When you're looking for one specific pitch and the pitcher throws something else, you're a sitting duck on the other pitch. By the time the curveball came, you were in a two-strike desperation mode and couldn't put a quality swing on it. A better approach: stay back on EVERY pitch (which handles both fastball and curveball) instead of committing to looking for one pitch. The 'staying back' adjustment works against ALL pitches because it's about timing, not pitch selection.",
-        "keyTerms": ["pitch commitment trap"],
+        "keyTerms": [
+          "pitch commitment trap"
+        ],
         "whatToRemember": "Sitting on one pitch can leave you vulnerable to everything else. A mechanical adjustment (staying back) works against ALL pitches, while a pitch-selection adjustment (sitting curveball) only works against one.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -165,8 +247,13 @@
       "type": "outcome",
       "narration": "You switch back to looking for the fastball. The pitcher throws... a curveball. You're not ready for it, and you swing over the top -- AGAIN. Strike two. He went right back to the weapon that's been getting you out all day. Now you're 0-2 and flailing. He throws another curveball and you chase. Strike three. You kept switching your approach and never committed to a plan. The pitcher kept it simple while you complicated things.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.95 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.95
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -179,8 +266,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.95 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -193,32 +286,60 @@
       "type": "outcome",
       "narration": "Smart adjustment! You choke up an inch on the bat, widen your stance slightly, and commit to putting the ball in play. The pitcher throws a curveball -- his weapon. But this time, your shortened swing and wider base keep you balanced. You poke a single through the left side! Base hit! You didn't crush it, but you adjusted your approach, shortened your swing, and put the ball in play. That's baseball IQ -- knowing when to modify your swing based on the situation and your struggles.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.45 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.45
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (1st!)"
+          }
         ]
       },
       "outcome": {
         "result": "great",
         "headline": "Base Hit! Two-Strike Adjustment Pays Off!",
         "explanation": "Choking up and widening your stance is a classic two-strike or 'I'm struggling' adjustment. Here's why it works: 1) Choking up gives you more bat control because you're holding a shorter, lighter lever. 2) The wider stance lowers your center of gravity, keeping you balanced through the swing. 3) A shorter swing stays in the zone longer, giving you more time to make contact with breaking balls. 4) You gave up some power, but you gained bat control -- and in this situation, contact was more important than power. The best hitters in baseball history -- Tony Gwynn, Ichiro -- shortened up when they were behind or struggling. It's not weakness. It's intelligence.",
-        "keyTerms": ["choke up", "two-strike approach", "bat control"],
+        "keyTerms": [
+          "choke up",
+          "two-strike approach",
+          "bat control"
+        ],
         "whatToRemember": "When you're struggling against a pitch, choke up and shorten your swing. You trade power for bat control. Getting a single is better than striking out looking for a home run.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             }

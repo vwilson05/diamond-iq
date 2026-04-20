@@ -1,26 +1,57 @@
 {
   "id": "minors-rounding-bases",
   "title": "Round the Bag!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["rounding", "first-base", "baserunning", "extra-base", "technique", "hustle"],
+  "tags": [
+    "rounding",
+    "first-base",
+    "baserunning",
+    "extra-base",
+    "technique",
+    "hustle"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 1, "away": 1 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Tied game, nobody on, nobody out. You hit a line drive into the right-center field gap! The ball is rolling toward the wall! As you're running to first base, you know this could be extra bases. How do you approach first base?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.15 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.15
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.6, "y": 0.75 }, "label": "You (running to 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.6,
+              "y": 0.75
+            },
+            "label": "You (running to 1st)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +76,22 @@
       "type": "outcome",
       "narration": "About 15 feet before first base, you curve your path slightly to the RIGHT, into foul territory. Then you hit the INSIDE corner of first base with your right foot and your momentum carries you in a smooth arc toward second. You never slow down! You look up and see the outfielder still chasing the ball. You pour on the speed and slide into second -- SAFE! Stand-up double! Beautiful baserunning!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.12 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.12
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (safe at 2nd!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (safe at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +99,18 @@
         "headline": "Perfect Banana Turn! Easy Double!",
         "explanation": "The 'banana turn' is the proper technique for rounding any base when you might go to the next one. Here's how it works: about 10-15 feet before the base, you curve your running path slightly to the outside (toward foul territory at first base). Then you step on the INSIDE CORNER of the base -- the corner closest to the pitcher's mound. This creates a smooth, curved path (shaped like a banana) that lets you maintain your speed and head straight toward the next base. If you ran straight to first and then tried to turn, you'd have to slow down, stop, and change direction -- that wastes precious seconds.",
         "keyTerms": [
-          { "term": "Banana turn", "definition": "The curved path a runner takes when rounding a base. You arc out slightly before the base, hit the inside corner, and curve toward the next base without slowing down." },
-          { "term": "Inside corner", "definition": "The corner of the base closest to the pitcher's mound. Stepping on this corner lets you cut the sharpest angle toward the next base." },
-          { "term": "Rounding the base", "definition": "Taking a curved path around a base instead of running straight through it, allowing you to continue to the next base without stopping." }
+          {
+            "term": "Banana turn",
+            "definition": "The curved path a runner takes when rounding a base. You arc out slightly before the base, hit the inside corner, and curve toward the next base without slowing down."
+          },
+          {
+            "term": "Inside corner",
+            "definition": "The corner of the base closest to the pitcher's mound. Stepping on this corner lets you cut the sharpest angle toward the next base."
+          },
+          {
+            "term": "Rounding the base",
+            "definition": "Taking a curved path around a base instead of running straight through it, allowing you to continue to the next base without stopping."
+          }
         ],
         "whatToRemember": "When you might go for extra bases, start your turn BEFORE you reach the base. Arc out to the right, hit the inside corner, and let your momentum carry you toward second. The banana turn keeps you at full speed.",
         "iqPoints": 10,
@@ -66,22 +118,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.72, "y": 0.65 },
+              "from": {
+                "x": 0.6,
+                "y": 0.75
+              },
+              "to": {
+                "x": 0.72,
+                "y": 0.65
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.72, "y": 0.65 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.72,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 200
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 600
             }
@@ -94,10 +164,22 @@
       "type": "outcome",
       "narration": "You run full speed straight through first base. Safe! But now you stop, turn around, and look at the ball in the gap. You want to go to second, but you have to start from a dead stop. You take off but the outfielder has picked up the ball. You decide to stay at first. A single instead of a double, because your straight-line approach cost you time.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.15 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.15
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -110,8 +192,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.75
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 700
             }
@@ -124,10 +212,22 @@
       "type": "outcome",
       "narration": "You swing WAYYY out into foul territory, taking a massive loop around first base. You're practically in the right field coaching box! By the time you finally get pointed toward second base, you've run an extra 20 feet. The outfielder has the ball and throws it in -- you have to retreat to first. That huge loop cost you the chance at second. Your coach marks out the right path in the dirt: 'Smaller arc! Hit the inside corner!'",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.15 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.15
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -140,15 +240,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.78, "y": 0.65 },
+              "from": {
+                "x": 0.6,
+                "y": 0.75
+              },
+              "to": {
+                "x": 0.78,
+                "y": 0.65
+              },
               "entity": "you",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.78, "y": 0.65 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.78,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 500
             }

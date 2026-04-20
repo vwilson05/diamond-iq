@@ -1,27 +1,63 @@
 {
   "id": "tball-dont-pass-runner",
   "title": "Don't Pass Your Teammate!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["baserunning", "rules", "awareness", "basics"],
+  "tags": [
+    "baserunning",
+    "rules",
+    "awareness",
+    "basics"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 3, "away": 3 },
-    "runners": { "first": true, "second": false, "third": false }
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "WHACK! You smash the ball really hard into the outfield! You take off running from home plate and you're SO fast! You round first base and head to second. But wait -- your teammate who was on first base is running slowly and they're still between first and second! You're about to catch up to them. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.25 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.25
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "teammate", "position": { "x": 0.6, "y": 0.52 }, "label": "Teammate (slow)" },
-          { "id": "you", "position": { "x": 0.68, "y": 0.58 }, "label": "You (fast!)" }
+          {
+            "id": "teammate",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "Teammate (slow)"
+          },
+          {
+            "id": "you",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "You (fast!)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +82,31 @@
       "type": "outcome",
       "narration": "You slow down and stay behind your teammate. They make it to second base and you stop at first. You didn't get as far as you wanted, but you're both safe! Your coach says, 'Great job! You can NEVER pass the runner in front of you. Smart baserunning!'",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.4 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.4
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "teammate", "position": { "x": 0.5, "y": 0.45 }, "label": "Teammate (at 2nd)" },
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "teammate",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Teammate (at 2nd)"
+          },
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -58,9 +114,18 @@
         "headline": "Smart! Stayed Behind Your Teammate!",
         "explanation": "This is a really important rule: you can NEVER pass the runner in front of you! If you run past them, YOU are automatically out -- even if you hit the ball really hard! It doesn't matter how fast you are. You have to stay behind them. If the runner ahead of you is slow, just slow down and wait. You'll still be safe on a base, and nobody gets out. That's smart baserunning!",
         "keyTerms": [
-          { "term": "Passing a Runner", "definition": "Running past the teammate who is on the base ahead of you. This is NOT allowed -- you'll be called out!" },
-          { "term": "Base Runner", "definition": "Any player who is running the bases. There can be a runner on every base!" },
-          { "term": "Automatic Out", "definition": "When you break a rule and the umpire calls you out right away, no matter what." }
+          {
+            "term": "Passing a Runner",
+            "definition": "Running past the teammate who is on the base ahead of you. This is NOT allowed -- you'll be called out!"
+          },
+          {
+            "term": "Base Runner",
+            "definition": "Any player who is running the bases. There can be a runner on every base!"
+          },
+          {
+            "term": "Automatic Out",
+            "definition": "When you break a rule and the umpire calls you out right away, no matter what."
+          }
         ],
         "whatToRemember": "NEVER pass the runner in front of you! If they're slow, stay behind them and stop at the base behind theirs.",
         "iqPoints": 10,
@@ -68,15 +133,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "teammate",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 600
             }
@@ -89,10 +166,22 @@
       "type": "outcome",
       "narration": "You zoom right past your teammate -- you're way faster! But the umpire blows the whistle and yells 'YOU'RE OUT!' What?! But you hit the ball so far! Your coach explains that you can NEVER run past the runner in front of you. It's an automatic out, no matter what!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.25 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.25
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "teammate", "position": { "x": 0.55, "y": 0.5 }, "label": "Teammate" }
+          {
+            "id": "teammate",
+            "position": {
+              "x": 0.55,
+              "y": 0.5
+            },
+            "label": "Teammate"
+          }
         ]
       },
       "outcome": {
@@ -100,8 +189,14 @@
         "headline": "Out! You Passed the Runner!",
         "explanation": "Even though you hit the ball really hard, passing the runner in front of you is ALWAYS an automatic out. This rule exists because the bases have to be run in order by everyone. If runners could pass each other, it would be crazy! Think of it like cars on a road -- you have to stay in line. If the runner in front of you is slow, just stay behind them. A single is better than an out!",
         "keyTerms": [
-          { "term": "Automatic Out", "definition": "When you break certain rules, the umpire calls you out immediately. Passing a runner is one of those rules!" },
-          { "term": "Stay in Line", "definition": "On the base paths, runners must stay in order. You can't pass the person ahead of you!" }
+          {
+            "term": "Automatic Out",
+            "definition": "When you break certain rules, the umpire calls you out immediately. Passing a runner is one of those rules!"
+          },
+          {
+            "term": "Stay in Line",
+            "definition": "On the base paths, runners must stay in order. You can't pass the person ahead of you!"
+          }
         ],
         "whatToRemember": "NEVER pass the runner ahead of you! It's an automatic out, no matter how far you hit the ball!",
         "iqPoints": 1,
@@ -109,8 +204,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.48 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.48
+              },
               "entity": "you",
               "duration": 700
             }
@@ -123,11 +224,31 @@
       "type": "outcome",
       "narration": "You yell 'RUN! RUN! GO!' at your teammate. They hear you and start running a little faster! They make it to second base and you stop at first. You're both safe! But your coach says, 'Nice job encouraging them, but be careful -- your tone should always be nice, not mean. We're all on the same team!'",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.4 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.4
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "teammate", "position": { "x": 0.5, "y": 0.45 }, "label": "Teammate (at 2nd)" },
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "teammate",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Teammate (at 2nd)"
+          },
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -135,8 +256,14 @@
         "headline": "Both Safe! But Be Encouraging!",
         "explanation": "It's okay to encourage your teammate to run, but make sure you say it in a NICE way! Yelling at a teammate can hurt their feelings and make them nervous. A better way is to say 'Keep going! You got this!' in an encouraging voice. And the most important thing is: even if they're slow, never pass them! Stay behind them, be patient, and be a good teammate. Everyone runs at different speeds and that's okay!",
         "keyTerms": [
-          { "term": "Encouragement", "definition": "Saying nice things to help your teammate feel confident. 'You got this!' is better than 'HURRY UP!'" },
-          { "term": "Good Teammate", "definition": "Being kind, cheering for others, and helping everyone have fun. That's what baseball is all about!" }
+          {
+            "term": "Encouragement",
+            "definition": "Saying nice things to help your teammate feel confident. 'You got this!' is better than 'HURRY UP!'"
+          },
+          {
+            "term": "Good Teammate",
+            "definition": "Being kind, cheering for others, and helping everyone have fun. That's what baseball is all about!"
+          }
         ],
         "whatToRemember": "Encourage your teammates in a nice way! And never pass the runner ahead of you -- stay behind them and be patient.",
         "iqPoints": 4,
@@ -144,15 +271,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "teammate",
               "duration": 900
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 700
             }

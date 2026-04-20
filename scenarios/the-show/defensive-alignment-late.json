@@ -1,27 +1,61 @@
 {
   "id": "the-show-defensive-alignment-late",
   "title": "Bottom 9th: Infield In or Back?",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 5,
   "role": "defense",
-  "tags": ["infield-alignment", "late-innings", "game-management", "run-prevention", "strategy"],
+  "tags": [
+    "infield-alignment",
+    "late-innings",
+    "game-management",
+    "run-prevention",
+    "strategy"
+  ],
   "setup": {
     "inning": 9,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 4, "away": 4 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 4,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 9th, tie game, runner on second, nobody out. This is a walk-off situation -- if the runner scores, the game is over and you lose. The batter at the plate is a contact hitter who puts the ball in play. Your infield is looking to you for direction. Infield in cuts off the run at the plate on a ground ball but reduces your fielding range by about 25%. Infield back gives you maximum range and a chance at a double play but concedes the run on most ground balls to the outfield side. What's your call?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +80,31 @@
       "type": "decision",
       "narration": "Infield in across the board. Your fielders are 15 feet closer to home than normal. The batter swings and hits a sharp ground ball toward the hole between short and third. Your shortstop dives -- he gets a glove on it but can't make a clean play! The ball trickles into left field for a single. If the infield was at normal depth, the shortstop gets that ball cleanly. The runner from second is rounding third -- the throw comes in from left. Does the runner try to score?",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["SS", "LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "SS",
+          "LF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.35, "y": 0.58 }, "label": "Runner (rounding 3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.35,
+              "y": 0.58
+            },
+            "label": "Runner (rounding 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "choices": [
@@ -70,10 +124,25 @@
       "type": "decision",
       "narration": "Infield at normal depth, double play positioning. The batter grounds one right at the shortstop -- perfect double play ball! The shortstop fields it, flips to second... the relay goes to first... DOUBLE PLAY! But the runner from second advanced to third on the play. Now there are two outs, runner on third. The next hitter steps in. Do you bring the infield in now with two outs and the runner on third?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          }
         ]
       },
       "choices": [
@@ -93,11 +162,32 @@
       "type": "decision",
       "narration": "Corners in, middle back. The third baseman and first baseman creep in to guard against bunts and slow rollers. The shortstop and second baseman stay at double play depth. The batter squares to bunt! The ball rolls toward the third baseman -- he was playing in, so he charges and barehand it cleanly. The runner from second is going! Do you throw home or to first?",
       "field": {
-        "ballPosition": { "x": 0.38, "y": 0.7 },
-        "highlight": ["3B", "Home", "1B"],
+        "ballPosition": {
+          "x": 0.38,
+          "y": 0.7
+        },
+        "highlight": [
+          "3B",
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.4, "y": 0.55 }, "label": "Runner (going!)" },
-          { "id": "batter", "position": { "x": 0.55, "y": 0.85 }, "label": "Batter (running)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.4,
+              "y": 0.55
+            },
+            "label": "Runner (going!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.85
+            },
+            "label": "Batter (running)"
+          }
         ]
       },
       "choices": [
@@ -117,11 +207,33 @@
       "type": "outcome",
       "narration": "Runner holds at third. First and third, nobody out. You're in deep trouble. A fly ball scores the run. A ground ball with the infield in might not produce an out. A wild pitch or passed ball scores the run. The infield-in alignment cost you a play that the shortstop makes at normal depth, and now you're in the worst possible defensive situation: winning run 90 feet away with no outs and another runner on first. The analytics say run expectancy with runners on first and third, zero outs is 1.7 runs. You're likely to lose this game.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -137,10 +249,22 @@
       "type": "outcome",
       "narration": "The left fielder bobbles the ball and the runner scores! Walk-off loss! The ground ball that got through the infield was a ball the shortstop handles at normal depth 9 times out of 10. By playing in, you gave away the range your shortstop needed. The hit turned into a run because the infield-in alignment let the ball through AND the bobble in left gave the runner enough time to score from second. Two things went wrong, and the first one -- playing the infield in -- was entirely your decision.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "Runner SCORES!" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "Runner SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -156,8 +280,14 @@
       "type": "outcome",
       "narration": "You keep the infield back with two outs and a runner on third. The next hitter swings -- ground ball to the second baseman! At normal depth, it's a clean play. He throws to first -- OUT! Inning over! Your lead is intact! Wait -- it's a tie game. But you survived the inning! The runner on third is stranded. Your decision to play back from the start got you the double play, and staying back with two outs got you the third out. Three grounders, three outs, no runs. That's elite defensive management.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -166,9 +296,18 @@
         "explanation": "This is the optimal defensive outcome for a bottom-of-the-9th, tie-game situation. By playing at normal depth: 1) You got the double play (impossible from infield-in position). 2) You kept maximum range for the third out (also reduced from infield-in). 3) The runner on third never scored because with two outs, he needed a HIT, not just a ground ball. The key insight: with two outs, infield positioning doesn't matter for cutting off runs because the runner can only score on a ball that reaches the outfield. Ground balls to infielders end the inning regardless of whether the infield is in or back. So there's zero benefit to bringing the infield in with two outs -- you're only sacrificing range for no gain.",
         "whatToRemember": "With two outs, never bring the infield in. Ground balls to infielders end the inning regardless of depth. The runner can only score on a hit to the outfield, which infield positioning doesn't affect. Keep maximum range for the final out.",
         "keyTerms": [
-          { "term": "BABIP Impact of Infield-In", "definition": "Playing the infield in increases the opponent's batting average on balls in play by approximately .060 due to reduced range. This means roughly 6 extra hits per 100 balls in play." },
-          { "term": "Two-Out Strategy", "definition": "With two outs, infield-in provides zero benefit because any ground ball to an infielder ends the inning. The run can only score on a ball that reaches the outfield." },
-          { "term": "Walk-Off Defense", "definition": "Defensive strategy in the bottom of the last inning when any run ends the game. Prioritizes getting outs over preventing individual runs, because extending the inning creates more scoring opportunities." }
+          {
+            "term": "BABIP Impact of Infield-In",
+            "definition": "Playing the infield in increases the opponent's batting average on balls in play by approximately .060 due to reduced range. This means roughly 6 extra hits per 100 balls in play."
+          },
+          {
+            "term": "Two-Out Strategy",
+            "definition": "With two outs, infield-in provides zero benefit because any ground ball to an infielder ends the inning. The run can only score on a ball that reaches the outfield."
+          },
+          {
+            "term": "Walk-Off Defense",
+            "definition": "Defensive strategy in the bottom of the last inning when any run ends the game. Prioritizes getting outs over preventing individual runs, because extending the inning creates more scoring opportunities."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -178,10 +317,22 @@
       "type": "outcome",
       "narration": "You bring the infield in with two outs and a runner on third. The hitter hits a ground ball -- it's in the hole between short and third! Your shortstop, playing in, can't quite reach it. The ball squirts into left field and the runner scores! Walk-off loss. At normal depth, the shortstop has the range to field that ball and end the game with a throw to first. The infield-in alignment cost you the final out.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "Runner SCORES!" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "Runner SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -197,10 +348,23 @@
       "type": "outcome",
       "narration": "The third baseman fires home! The throw is offline -- it pulls the catcher up the first-base line. The runner slides... SAFE! Wait -- the umpire calls him OUT! The catcher dove back and made a swipe tag! Incredible play! But it took a spectacular athletic play to save your decision. The throw home on a bunt from second base is one of the lowest-percentage plays in baseball. The runner has to cover 180 feet (second to home) while the ball travels about 90 feet (third baseman to catcher). The math barely works.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home",
+          "C"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -216,10 +380,25 @@
       "type": "outcome",
       "narration": "You throw to first -- easy out! One down. The runner from second advances to third. Now it's one out, runner on third, tie game. The sac bunt did exactly what bunts are supposed to do: advance the runner 90 feet at the cost of one out. But that's FINE. You got the out you needed, and now the runner on third needs a hit, a sac fly, or a groundout to the right side to score. Your defense has options: play for the double play on the next hitter (if someone gets on), play the corners in and middle back, or even intentionally walk the next hitter to set up a force at every base.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -228,9 +407,18 @@
         "explanation": "Taking the out at first on a sacrifice bunt is the textbook play for a reason: it's nearly 100% successful, it reduces the number of outs you need, and it doesn't risk a throwing error that scores the winning run. Yes, the runner advanced to third. But he was going to advance anyway -- that's the point of a sacrifice bunt. By recording the out at first, you've changed the situation from 'runner on second, zero outs' (run expectancy: 1.1) to 'runner on third, one out' (run expectancy: 0.95). You actually LOWERED the run expectancy by taking the sure out instead of trying to cut off the runner. The opponent sacrificed an out to move the runner 90 feet. You accepted that trade because outs are the most valuable currency in baseball.",
         "whatToRemember": "On sac bunts in walk-off situations, take the sure out at first. The runner advancing is less important than recording the out. Run expectancy actually drops when you trade an out for a base advancement.",
         "keyTerms": [
-          { "term": "Sacrifice Bunt Defense", "definition": "The defensive response to a bunt designed to advance a runner. The priority is almost always to take the guaranteed out at first rather than attempt the risky play on the lead runner." },
-          { "term": "Run Expectancy Table", "definition": "A statistical chart showing the average number of runs expected to score based on the base-out state. Used to evaluate whether defensive decisions increase or decrease expected scoring." },
-          { "term": "Sure Out Principle", "definition": "In critical game situations, taking the guaranteed out is almost always more valuable than attempting a low-percentage play for the more exciting result. Outs reduce run expectancy; errors increase it dramatically." }
+          {
+            "term": "Sacrifice Bunt Defense",
+            "definition": "The defensive response to a bunt designed to advance a runner. The priority is almost always to take the guaranteed out at first rather than attempt the risky play on the lead runner."
+          },
+          {
+            "term": "Run Expectancy Table",
+            "definition": "A statistical chart showing the average number of runs expected to score based on the base-out state. Used to evaluate whether defensive decisions increase or decrease expected scoring."
+          },
+          {
+            "term": "Sure Out Principle",
+            "definition": "In critical game situations, taking the guaranteed out is almost always more valuable than attempting a low-percentage play for the more exciting result. Outs reduce run expectancy; errors increase it dramatically."
+          }
         ],
         "iqPoints": 10,
         "next": "end"

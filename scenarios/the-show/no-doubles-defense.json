@@ -1,25 +1,51 @@
 {
   "id": "the-show-no-doubles-defense",
   "title": "No-Doubles Defense: Protecting a Late Lead",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 3,
   "role": "defense",
-  "tags": ["outfield-positioning", "no-doubles", "late-innings", "lead-protection", "defensive-strategy"],
+  "tags": [
+    "outfield-positioning",
+    "no-doubles",
+    "late-innings",
+    "lead-protection",
+    "defensive-strategy"
+  ],
   "setup": {
     "inning": 8,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Top of the 8th, you're clinging to a 3-2 lead with nobody on and nobody out. Their 2-3-4 hitters are due up -- three dangerous bats who can all go deep. A single doesn't hurt you, but an extra-base hit puts the tying run in scoring position with no outs. Your outfielders are looking in for direction. Do you play them at normal depth, go to no-doubles defense with them deep and near the lines, or keep them shallow to cut off baserunners?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["LF", "CF", "RF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "LF",
+          "CF",
+          "RF"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,10 +70,24 @@
       "type": "decision",
       "narration": "Your outfielders shift back and toward the lines. The leadoff hitter rips a line drive into right-center -- your center fielder, playing deep, tracks it down on the warning track! Out number one. But the next hitter slaps a ground ball single through the left side. Runner on first, one out. Now the 4-hitter steps in -- their best power bat. Do you keep the no-doubles alignment, or adjust with a runner on first?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["LF", "CF", "RF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "LF",
+          "CF",
+          "RF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -72,10 +112,25 @@
       "type": "decision",
       "narration": "You keep standard depth. The leadoff hitter drives a ball deep into the right-center gap -- your center fielder gives chase but the ball splits the gap and rolls to the wall! The batter races into second with a stand-up double. No outs, tying run in scoring position already. A deeper alignment would have had a play on that ball. Now the 3-hitter steps in. Your outfield is at normal depth. What's your move with the infield?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -95,8 +150,13 @@
       "type": "outcome",
       "narration": "You hold the no-doubles alignment. Their cleanup hitter crushes a fly ball to deep right-center -- it looked like extra bases off the bat! But your center fielder, still playing deep, drifts back and makes the catch on the warning track! Two outs! The runner holds at first. The next batter flies out to left to end the inning. Your lead holds because you prevented the extra-base hit that would have changed the game. That ball in the gap at normal depth is a double, the tying run scores, and you're scrambling. No-doubles defense turned a potential disaster into a routine catch.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -105,9 +165,18 @@
         "explanation": "No-doubles defense is about understanding what BEATS you versus what HURTS you in late innings with a lead. A single with nobody on? That hurts, but it doesn't beat you -- the runner is still 180 feet from home. A double? That beats you -- the tying run is 90 feet away with no outs. By pushing outfielders deep and toward the lines, you concede the 70-foot single to eliminate the 200-foot extra-base hit. The analytics back this up: with a 1-run lead in the 8th, the run expectancy from a runner on second with 0 outs is 1.1 runs. From a runner on first with 0 outs, it's only 0.53 runs. That gap is the entire value of no-doubles defense.",
         "whatToRemember": "In late innings with a lead, the extra-base hit is what beats you, not the single. Push outfielders deep and toward the lines. Concede what doesn't kill you to prevent what does.",
         "keyTerms": [
-          { "term": "No-Doubles Defense", "definition": "A defensive alignment where outfielders play deeper than normal and shade toward the foul lines, sacrificing singles to prevent extra-base hits in the gaps and over their heads." },
-          { "term": "Run Expectancy", "definition": "The average number of runs expected to score in an inning based on the current base-out state. Used to quantify how much damage different hits cause." },
-          { "term": "Gap Coverage", "definition": "Positioning outfielders to protect the alleys between left-center and right-center field, where extra-base hits most commonly land." }
+          {
+            "term": "No-Doubles Defense",
+            "definition": "A defensive alignment where outfielders play deeper than normal and shade toward the foul lines, sacrificing singles to prevent extra-base hits in the gaps and over their heads."
+          },
+          {
+            "term": "Run Expectancy",
+            "definition": "The average number of runs expected to score in an inning based on the current base-out state. Used to quantify how much damage different hits cause."
+          },
+          {
+            "term": "Gap Coverage",
+            "definition": "Positioning outfielders to protect the alleys between left-center and right-center field, where extra-base hits most commonly land."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -117,10 +186,22 @@
       "type": "outcome",
       "narration": "You bring the outfielders back to normal depth. The cleanup hitter lines a single to center -- your center fielder charges hard and fires home, but the runner from first rounds third and scores easily. Tie game, 3-3. The single wouldn't have scored the runner if you'd stayed deep, because the center fielder would have been closer to the ball and held the runner at third. By coming in to 'normal,' you gave up the depth that was protecting you.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -136,10 +217,22 @@
       "type": "outcome",
       "narration": "You bring the outfielders way in with a runner on first. The cleanup hitter absolutely crushes one over your center fielder's head -- it rolls to the wall! The runner from first scores easily and the batter ends up on third with a triple! You're now down 4-3. By playing shallow, you turned a catchable fly ball into a triple. The outfield was playing so shallow that anything hit with authority went over their heads. In a 1-run game, you can't afford to give up extra bases trying to prevent a run on a single.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.2 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.2
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -155,10 +248,22 @@
       "type": "outcome",
       "narration": "You bring your outfielders in to cut off runs at the plate. But there's nobody in scoring position -- the bases are empty! The leadoff hitter crushes a ball over your shallow center fielder for a stand-up triple. One pitch, tying run 90 feet away, nobody out. That ball is caught at normal depth. At no-doubles depth, it's a routine fly ball. Instead, by playing in, you handed them a triple. Now you're in survival mode for the rest of the inning.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.2 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.2
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -174,10 +279,22 @@
       "type": "outcome",
       "narration": "You bring the infield in to cut off the run. The 3-hitter hits a sharp ground ball right at the shortstop -- but with the infield in, the ball gets through before he can react! It squirts into left field for a single and the runner scores from second! Tie game. With the infield at normal depth, that's a routine play and you might even turn a double play. Infield-in reduces your range by about 20%, and that ground ball found the extra space you gave away.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -193,8 +310,15 @@
       "type": "outcome",
       "narration": "You keep the infield at normal depth, playing for the double play. The 3-hitter hits a grounder to short -- the shortstop fields it, flips to second, and the relay goes to first. DOUBLE PLAY! The runner from second advances to third, but now there are two outs. A fly ball ends the inning. Your pitcher gets the next hitter to pop up -- inning over! Lead preserved at 3-2. The double play was only possible because you kept the infield at normal depth with the range to turn two.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {

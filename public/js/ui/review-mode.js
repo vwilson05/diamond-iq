@@ -28,9 +28,9 @@ function computeGrade(totalIQ, maxIQ, tier) {
   if (clamped >= 80) return { letter: 'B-', label: 'Getting There', color: '#64B5F6' };
   if (clamped >= 77) return { letter: 'C+', label: 'Room to Grow', color: '#FFA726' };
   if (clamped >= 73) return { letter: 'C', label: 'Average', color: '#FF9800' };
-  if (clamped >= 70) return { letter: 'C-', label: 'Needs Work', color: '#FFB74D' };
-  if (clamped >= 60) return { letter: 'D', label: 'Keep Practicing', color: '#EF5350' };
-  return { letter: 'F', label: 'Back to the Basics', color: '#E53935' };
+  if (clamped >= 70) return { letter: 'C-', label: 'Growing', color: '#FFB74D' };
+  if (clamped >= 60) return { letter: 'D', label: 'Keep Going', color: '#EF5350' };
+  return { letter: 'F', label: 'Great Practice', color: '#E53935' };
 }
 
 /**
@@ -41,7 +41,7 @@ function gradeColor(grade) {
     case 'great': return '#4CAF50';
     case 'good': return '#2196F3';
     case 'okay': return '#FFC107';
-    case 'bad': return '#F44336';
+    case 'bad': return '#FF9800'; // orange — "opportunity" not punishment
     default: return '#9E9E9E';
   }
 }

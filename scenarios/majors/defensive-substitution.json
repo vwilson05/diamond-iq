@@ -1,25 +1,50 @@
 {
   "id": "majors-defensive-substitution",
   "title": "Defensive Substitution: Protecting the Lead",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "defense",
-  "tags": ["substitution", "coaching", "defense", "late-game", "game-management"],
+  "tags": [
+    "substitution",
+    "coaching",
+    "defense",
+    "late-game",
+    "game-management"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 5, "away": 4 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 5,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the coach. Your team leads 5-4 heading into the bottom of the sixth inning (the final inning in your league). Your left fielder has been great at the plate today (2-for-3 with a double) but he's your weakest defensive player -- he's already misplayed two fly balls, and one turned into a run. Your bench has a kid who's an excellent outfielder with a strong arm but hasn't had an at-bat today. The game is almost over and you need to protect this one-run lead. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,10 +69,23 @@
       "type": "decision",
       "narration": "You make the substitution. Your defensive specialist jogs out to left field, puts on the glove, and pounds the pocket. Two batters in, the opposing team has a runner on first with one out. The batter smacks a sinking line drive to left field -- the exact kind of play your previous left fielder has been mishandling all day. Your defensive sub charges in and makes a beautiful sliding catch! OUT! But the runner on first tagged and is trying to advance to second. Your left fielder pops up -- does he throw?",
       "field": {
-        "ballPosition": { "x": 0.28, "y": 0.35 },
-        "highlight": ["LF", "2B"],
+        "ballPosition": {
+          "x": 0.28,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.55, "y": 0.5 }, "label": "Runner (tagging)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.55,
+              "y": 0.5
+            },
+            "label": "Runner (tagging)"
+          }
         ]
       },
       "choices": [
@@ -72,37 +110,64 @@
       "type": "outcome",
       "narration": "Your defensive sub pops up from the sliding catch and fires a laser to second base! The runner was halfway to second, assuming the ball would drop. The shortstop catches the throw and tags the runner sliding back -- OUT! DOUBLE PLAY! Inning over! Your defensive substitution just saved the game! The play that your previous left fielder would have mishandled turned into a game-ending double play because you put the right defender in the right spot at the right time!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "DOUBLE PLAY! Defensive Sub Saves the Game!",
         "explanation": "This is why defensive substitutions exist. In late-game, close-game situations, DEFENSE wins. Here's the math: 1) You're up by one run, so the other team needs to score. Every defensive play you make prevents that. 2) Your weak fielder had already cost you a run on a misplay. In the final inning, another error could tie or lose the game. 3) The defensive sub made two plays in one: the sliding catch AND the throw to double off the runner. That's a three-out swing (from potential rally to inning over). 4) You didn't need the bat anymore -- you were playing defense. Put your best defenders in when defense matters most.",
-        "keyTerms": ["defensive substitution", "late-game defense", "lineup management"],
+        "keyTerms": [
+          "defensive substitution",
+          "late-game defense",
+          "lineup management"
+        ],
         "whatToRemember": "In late innings with a lead, defense is more important than offense. Don't be afraid to sub in a better fielder. The bat you remove doesn't matter if you never bat again.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.28, "y": 0.38 },
-              "to": { "x": 0.28, "y": 0.35 },
+              "from": {
+                "x": 0.28,
+                "y": 0.38
+              },
+              "to": {
+                "x": 0.28,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.28, "y": 0.35 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.28,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -115,10 +180,22 @@
       "type": "outcome",
       "narration": "Your left fielder throws back to first for the appeal. The umpire rules the runner DID tag up properly -- no out on the appeal. Runner moves to second. Two outs now with a runner on second. Still a good position -- the catch was clutch. The appeal didn't work this time, but it showed awareness of the rules.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -131,8 +208,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.28, "y": 0.35 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.28,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -145,10 +228,22 @@
       "type": "outcome",
       "narration": "Your left fielder holds the ball after the catch. The runner advances to second without a throw. Two outs, runner on second. The catch was the big play, and you didn't risk a throwing error. Safe approach, but the runner is now in scoring position when he could have been held at first or even doubled off with a strong throw.",
       "field": {
-        "ballPosition": { "x": 0.28, "y": 0.35 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.28,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -161,8 +256,14 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.28, "y": 0.38 },
-              "to": { "x": 0.28, "y": 0.35 },
+              "from": {
+                "x": 0.28,
+                "y": 0.38
+              },
+              "to": {
+                "x": 0.28,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 300
             }
@@ -175,10 +276,22 @@
       "type": "outcome",
       "narration": "You keep your hot hitter in left field. Second batter of the inning hits a fly ball to left-center. Your left fielder drifts over, gets under it, and... it pops out of his glove! Error! Runner on second with nobody out. Two batters later, a single to right scores the runner. Tie game. Your left fielder's glove cost you again -- the same mistake he made earlier. The game goes to extra innings, and you're kicking yourself for not making the switch when you had the chance.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.3 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.3
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd on error)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd on error)"
+          }
         ]
       },
       "outcome": {
@@ -191,8 +304,14 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.3, "y": 0.3 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -205,25 +324,45 @@
       "type": "outcome",
       "narration": "Creative thinking! You move your weak fielder to first base (where fly balls are rare) and shift your first baseman out to left field. Your first baseman makes a decent left fielder -- he catches a fly ball in the third inning. But he's not used to the sun angle and the different reads in left field. A line drive hooks away from him and falls for a double. It's not an error, but a true left fielder would have read it better and made the catch. Runner on second, nobody out.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.3 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.3
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
         "result": "good",
         "headline": "Double Falls In. Shuffled Defense Not Ideal.",
         "explanation": "Moving a weak fielder to a 'hiding spot' like first base is a common strategy, but it creates a chain reaction. Now you have someone playing left field who doesn't normally play there. Outfield positions require specific skills: reading the ball off the bat, tracking fly balls, knowing the angles of the wall. A first baseman playing left field is better than a weak fielder, but he's not as good as a true outfielder. The better solution: bring in the defensive specialist from the bench who PLAYS outfield. He knows the position, the reads, and the angles. Don't shuffle players into unfamiliar positions when you have a specialist available.",
-        "keyTerms": ["position familiarity"],
+        "keyTerms": [
+          "position familiarity"
+        ],
         "whatToRemember": "Shuffling players to unfamiliar positions is risky. If you have a defensive specialist on the bench who plays the position, use them. Players perform best at their natural position.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.25, "y": 0.3 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.25,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 500
             }

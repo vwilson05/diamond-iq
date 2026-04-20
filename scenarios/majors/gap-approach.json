@@ -1,27 +1,59 @@
 {
   "id": "majors-gap-approach",
   "title": "Gap Approach: Situational Hitting",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "offense",
-  "tags": ["hitting", "situational", "gap-hitting", "opposite-field", "run-scoring"],
+  "tags": [
+    "hitting",
+    "situational",
+    "gap-hitting",
+    "opposite-field",
+    "run-scoring"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 3, "away": 4 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the sixth, your team trails by one. Runner on second, one out. You're at the plate -- one of the better hitters in the lineup, batting .350. A single to the outfield probably scores the tying run. The pitcher has been throwing mostly fastballs on the outer half today. You're in a 1-0 count -- a hitter's count. How do you approach this at-bat?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -51,40 +83,81 @@
       "type": "outcome",
       "narration": "The pitcher throws another fastball on the outer half -- right into your plan. You stay patient, let the ball travel deep into the zone, extend your hands, and drive it to the opposite field gap! The ball shoots past the diving outfielder and rolls to the wall! Your runner on second was already reading the ball off the bat -- he rounds third and scores EASILY! You pull into second with a stand-up double! TIE GAME! The opposing coach can't believe it -- you went with the pitch perfectly and turned their game plan against them!",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.2 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.2
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (2nd)"
+          }
         ]
       },
       "outcome": {
         "result": "great",
         "headline": "RBI Double! Opposite Field Gap!",
         "explanation": "This is elite situational hitting. Here's why going opposite field was the perfect approach: 1) The pitcher was pitching you AWAY, so the ball was already on the outer half. Going with it is easier than fighting it. 2) The opposite field gap is often the biggest gap on the field because outfielders tend to shade toward the pull side. 3) Letting the ball travel deeper into the zone gives you a better look at the pitch, leading to harder, more consistent contact. 4) A runner on second scores on almost any ball hit to the outfield gap. You didn't need a home run -- you needed a gap hit, and you got it by matching your approach to the situation.",
-        "keyTerms": ["opposite field approach", "going with the pitch", "situational hitting"],
+        "keyTerms": [
+          "opposite field approach",
+          "going with the pitch",
+          "situational hitting"
+        ],
         "whatToRemember": "When the pitcher is living on the outer half, go WITH the pitch to the opposite field. Let the ball travel deep, extend your hands, and drive it. Don't fight the pitch -- use it.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.75, "y": 0.2 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.75,
+                "y": 0.2
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
@@ -98,10 +171,22 @@
       "type": "outcome",
       "narration": "You sit dead-red looking to pull. The pitcher throws a fastball on the outer half -- his bread and butter. You try to pull it, but because the pitch is away, you have to commit early and roll your hands over. The result? A weak grounder to the shortstop. The shortstop fields it and looks the runner back to second, then throws to first for the out. Two outs, runner still on second. You tried to pull an outside pitch and produced the weakest possible contact.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still at 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (still at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -114,22 +199,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -142,40 +245,79 @@
       "type": "outcome",
       "narration": "You go up looking to hit the ball hard up the middle -- a solid, no-frills approach. The fastball comes in on the outer half and you put a good swing on it. Line drive back through the box! The pitcher ducks, the ball skips through the middle into center field! The runner on second rounds third and scores! TIE GAME! A hard single up the middle gets the job done!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.3 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.3
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (1st)"
+          }
         ]
       },
       "outcome": {
         "result": "good",
         "headline": "RBI Single! Hard Line Drive Up the Middle!",
         "explanation": "The 'hit it hard up the middle' approach is never wrong -- it's the safest, most consistent approach a hitter can have. You made hard contact, scored the run, and got on base. Great result. The only reason it's not a perfect approach here is that the pitcher was pitching you AWAY. Going with the outside pitch to the opposite field would have produced a double to the gap instead of a single up the middle. But in situational hitting, a hit is a hit. The runner scored, which is all that matters. 'Hit it hard somewhere' is always a good plan.",
-        "keyTerms": ["up-the-middle approach"],
+        "keyTerms": [
+          "up-the-middle approach"
+        ],
         "whatToRemember": "Hitting the ball hard up the middle is always a solid approach. But when you can read the pitcher's pattern (outer half all day), adjusting to go the other way can produce even better results.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.3 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
@@ -189,10 +331,22 @@
       "type": "outcome",
       "narration": "You square around to bunt. The pitcher sees it and throws a high fastball -- tough to bunt. You get it down, but it rolls too hard toward the third baseman. He charges, fields it, and checks the runner at third -- the runner holds. Throw to first, you're out. Runner on third, two outs. You moved the runner up, but you gave away an out from your .350 hitter. Now you need someone ELSE to get the hit.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -205,22 +359,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.7 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.7
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.7 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }

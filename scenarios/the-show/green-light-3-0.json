@@ -1,27 +1,58 @@
 {
   "id": "the-show-green-light-3-0",
   "title": "Green Light 3-0: Swing or Take?",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 3,
   "role": "offense",
-  "tags": ["hitting", "3-0-count", "discipline", "analytics", "game-situation"],
+  "tags": [
+    "hitting",
+    "3-0-count",
+    "discipline",
+    "analytics",
+    "game-situation"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 3, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 3,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 5th, you're down 3-2 with a runner on second and one out. The count is 3-0. The pitcher has been wild all game -- 5 walks through 4 innings. Your coach has given you the green light, meaning you CAN swing if you get your pitch. The analytics say 3-0 fastballs are the most hittable pitch in baseball -- hitters slug .730 on 3-0 fastballs in the zone. But a walk puts runners on first and second with one out, and the pitcher is clearly struggling. Do you swing or take?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +77,22 @@
       "type": "decision",
       "narration": "The pitcher delivers -- it's a fastball, 89 mph, belt-high on the outer half. It's in the zone but not in your power zone. It's hittable but not ideal. You were looking for something more middle or in. Do you pull the trigger or hold up?",
       "field": {
-        "ballPosition": { "x": 0.52, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.52,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -69,10 +112,22 @@
       "type": "decision",
       "narration": "You take the 3-0 pitch. The pitcher delivers -- fastball RIGHT down the middle, 88 mph, belt-high. The pitch you dream about. Strike one, 3-1. You watched the most hittable pitch of your at-bat go by. Now the pitcher has some confidence back -- he threw a strike. The next pitch is a changeup on the outside corner. 3-2. Full count. What's your approach now?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -92,10 +147,23 @@
       "type": "decision",
       "narration": "You're looking for ONE pitch: fastball middle-in. The pitcher delivers -- it's a fastball, middle-in, 88 mph, exactly where you were looking! This is the pitch! You swing with full confidence because you were looking for exactly this pitch in exactly this location. You drive it hard into the gap in right-center!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.35 },
-        "highlight": ["RF", "CF"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF",
+          "CF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.4, "y": 0.55 }, "label": "Runner (rounding 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.4,
+              "y": 0.55
+            },
+            "label": "Runner (rounding 3rd)"
+          }
         ]
       },
       "choices": [
@@ -110,10 +178,23 @@
       "type": "outcome",
       "narration": "You swing at the 3-0 fastball on the outer half. You make contact but you're a little out in front and roll over it -- ground ball to the shortstop! He throws to first for the out. Runner advances to third. Two outs. You swung at a pitch that was in the zone but not in your POWER zone. The 3-0 green light isn't about swinging at every strike -- it's about swinging at YOUR pitch. A belt-high fastball on the outer half is hittable, but it's not the pitch you crush.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -129,10 +210,23 @@
       "type": "outcome",
       "narration": "You hold up -- 3-1. Smart! That pitch was in the zone but on the outer half, not in your power zone. Now at 3-1, the pitcher is still in trouble. He throws another fastball, this time middle-in -- YOUR pitch. You unload and drive it into the right-center gap! RBI double! The runner from second scores easily! Tie game, 3-3! By holding on the 3-0 pitch that wasn't in your zone, you got a BETTER pitch on 3-1 that you could really drive. Patience plus selectivity equals damage.",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.3 },
-        "highlight": ["RF", "CF"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF",
+          "CF"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "Runner SCORES!" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "Runner SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -141,9 +235,18 @@
         "explanation": "This is advanced hitting IQ. You had the green light on 3-0 but recognized the pitch wasn't in your power zone. Instead of swinging at a hittable-but-not-ideal pitch, you took the strike to get to 3-1 -- still a hitter's count where the pitcher MUST throw a strike. And on 3-1, you got the pitch you wanted and crushed it. The data supports this approach: while 3-0 fastballs in the zone are slugged at .730, the difference between a ball in your power zone versus the outer edge is enormous. Power-zone 3-0 swings produce slugging percentages above .900. Outer-half 3-0 swings produce slugging around .550. Being selective on 3-0 doesn't mean you don't swing -- it means you swing at the RIGHT pitch.",
         "whatToRemember": "Even with the green light on 3-0, be ultra-selective. A 3-1 count is still a massive advantage. Wait for a pitch in your power zone rather than swinging at anything the pitcher throws in the strike zone.",
         "keyTerms": [
-          { "term": "Green Light", "definition": "Permission from the coach to swing on a 3-0 count, which traditionally is an automatic take. The green light is earned -- only hitters with good discipline and the ability to identify their pitch get it." },
-          { "term": "Power Zone", "definition": "The specific area of the strike zone where an individual hitter does the most damage. Usually middle-in, belt-high for most hitters. Knowing your power zone is essential for 3-0 decisions." },
-          { "term": "Hitter's Count", "definition": "A count where the pitcher must throw a strike to avoid falling further behind (3-0, 3-1, 2-0). Hitters perform dramatically better in these counts because they can sit on one pitch type." }
+          {
+            "term": "Green Light",
+            "definition": "Permission from the coach to swing on a 3-0 count, which traditionally is an automatic take. The green light is earned -- only hitters with good discipline and the ability to identify their pitch get it."
+          },
+          {
+            "term": "Power Zone",
+            "definition": "The specific area of the strike zone where an individual hitter does the most damage. Usually middle-in, belt-high for most hitters. Knowing your power zone is essential for 3-0 decisions."
+          },
+          {
+            "term": "Hitter's Count",
+            "definition": "A count where the pitcher must throw a strike to avoid falling further behind (3-0, 3-1, 2-0). Hitters perform dramatically better in these counts because they can sit on one pitch type."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -153,10 +256,23 @@
       "type": "outcome",
       "narration": "Full count. You expand your zone to protect the plate. The pitcher throws a slider that starts in the zone and breaks down and away. You swing -- barely catch it with the end of the bat. Weak ground ball to second, easy out. Runner stays at second, two outs. You chased a pitcher's pitch because you felt like you HAD to swing at anything close on a full count. But that slider was never going to be a strike -- it broke out of the zone. If you'd held your discipline, it would have been ball four.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -172,11 +288,30 @@
       "type": "outcome",
       "narration": "Full count. You stay disciplined. The pitcher throws a fastball on the outside corner -- the umpire calls it... BALL FOUR! Walk! You trot to first base. Runners on first and second, one out. The pitcher slams his glove -- he's unraveling. The next hitter drives a double to the gap and both runners score! You tied the game by taking your walk, and the rally continued because you got on base. The walk isn't glamorous, but it extended the inning and set up the big hit.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -192,10 +327,23 @@
       "type": "outcome",
       "narration": "The ball splits the gap in right-center! Your runner from second scores standing up -- tie game! You cruise into second with an RBI double! The dugout erupts! You knew EXACTLY what pitch you were looking for and EXACTLY where you wanted it. When it arrived, there was zero hesitation -- pure confidence, pure conviction, maximum bat speed. That's the power of the ultra-selective green light: you eliminate all doubt and swing with 100% commitment because the pitch matches your predetermined plan perfectly.",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.3 },
-        "highlight": ["RF", "CF"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF",
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -204,9 +352,18 @@
         "explanation": "The ultra-selective approach on 3-0 is the highest-IQ version of the green light. Here's why it works: 1) You decided BEFORE the pitch exactly what you were looking for (fastball middle-in). 2) This eliminated the 'should I swing?' decision, which takes precious milliseconds away from your reaction time. 3) When the pitch matched your predetermined plan, you swung with maximum commitment and bat speed. 4) The pitcher was almost guaranteed to throw a fastball in the zone on 3-0, so your targeted zone was the most likely pitch to arrive. Research shows that hitters who have a pre-determined plan on 3-0 produce higher exit velocities and better launch angles than hitters who react in real-time. Knowing what you want BEFORE the pitch is the ultimate competitive edge.",
         "whatToRemember": "The best 3-0 approach is: pick ONE pitch in ONE zone before the pitch is thrown. If it arrives, swing with full conviction. If it doesn't, take the strike -- you're still ahead. Pre-determination eliminates hesitation.",
         "keyTerms": [
-          { "term": "Pre-Determined Approach", "definition": "Deciding what pitch and location you will swing at BEFORE the pitch is delivered. Eliminates in-flight decision-making and allows maximum commitment to the swing." },
-          { "term": "Conviction Swing", "definition": "A swing where the hitter has zero doubt, producing maximum bat speed and optimal contact. Only possible when the hitter has decided in advance that THIS is the pitch to attack." },
-          { "term": "Pitch Recognition Advantage", "definition": "On 3-0, the hitter knows a fastball is coming 80%+ of the time. This foreknowledge, combined with zone selection, creates the most advantageous pitch-recognition scenario in baseball." }
+          {
+            "term": "Pre-Determined Approach",
+            "definition": "Deciding what pitch and location you will swing at BEFORE the pitch is delivered. Eliminates in-flight decision-making and allows maximum commitment to the swing."
+          },
+          {
+            "term": "Conviction Swing",
+            "definition": "A swing where the hitter has zero doubt, producing maximum bat speed and optimal contact. Only possible when the hitter has decided in advance that THIS is the pitch to attack."
+          },
+          {
+            "term": "Pitch Recognition Advantage",
+            "definition": "On 3-0, the hitter knows a fastball is coming 80%+ of the time. This foreknowledge, combined with zone selection, creates the most advantageous pitch-recognition scenario in baseball."
+          }
         ],
         "iqPoints": 10,
         "next": "end"

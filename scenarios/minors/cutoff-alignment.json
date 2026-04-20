@@ -1,27 +1,66 @@
 {
   "id": "minors-cutoff-alignment",
   "title": "Line Up the Cutoff!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "defense",
-  "tags": ["cutoff", "alignment", "shortstop", "positioning", "relay", "outfield-gap"],
+  "tags": [
+    "cutoff",
+    "alignment",
+    "shortstop",
+    "positioning",
+    "relay",
+    "outfield-gap"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 2, "away": 1 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on second, one out, and your team leads by a run. You're the shortstop. The batter swings and drives a ball into the right-center field gap! It's rolling toward the wall! The runner on second is rounding third and heading home. Your center fielder is chasing the ball down. You need to be the cutoff man -- but where exactly do you line up?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.1 },
-        "highlight": ["SS", "Home", "3B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.1
+        },
+        "highlight": [
+          "SS",
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (rounding 3rd)" },
-          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (rounding 1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.35,
+              "y": 0.65
+            },
+            "label": "Runner (rounding 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.65
+            },
+            "label": "Batter (rounding 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +85,30 @@
       "type": "outcome",
       "narration": "You sprint into the outfield grass and get on a perfect line between the center fielder and home plate. You raise both arms high and yell 'HERE! HERE!' The outfielder fires the ball right to you on a line. You catch it, spin, and rifle it home. The catcher catches it and blocks the plate -- SAFE! The runner barely beats the throw, but you gave your team the best possible chance because the relay was on a perfect line!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -58,9 +116,18 @@
         "headline": "Perfect Cutoff Alignment!",
         "explanation": "Even though the runner scored, you executed the relay perfectly. The key is ALIGNMENT: you draw an imaginary straight line from the outfielder to the target base (home plate in this case) and you stand right on that line. Why? Because a straight throw travels the shortest distance. If you're off to one side, the ball has to travel a longer, angled path, wasting precious time. You also raised your arms -- outfielders are looking at the ball, not scanning the infield. Your arms and voice are their target.",
         "keyTerms": [
-          { "term": "Cutoff alignment", "definition": "Standing on a direct line between the outfielder and the target base so the relay throw travels the shortest possible path." },
-          { "term": "Relay throw", "definition": "A two-part throw where an infielder catches the outfielder's throw and quickly throws it to a base. Two short throws are faster and more accurate than one long throw." },
-          { "term": "Target arms", "definition": "Raising both arms high so the outfielder can see where to throw, even from far away." }
+          {
+            "term": "Cutoff alignment",
+            "definition": "Standing on a direct line between the outfielder and the target base so the relay throw travels the shortest possible path."
+          },
+          {
+            "term": "Relay throw",
+            "definition": "A two-part throw where an infielder catches the outfielder's throw and quickly throws it to a base. Two short throws are faster and more accurate than one long throw."
+          },
+          {
+            "term": "Target arms",
+            "definition": "Raising both arms high so the outfielder can see where to throw, even from far away."
+          }
         ],
         "whatToRemember": "Always line up between the outfielder and the base where the play is. Raise your arms, yell loud, and give the outfielder a clear target. Straight lines beat angles every time.",
         "iqPoints": 10,
@@ -68,22 +135,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.52, "y": 0.32 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.32
+              },
               "entity": "fielder",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.1 },
-              "to": { "x": 0.52, "y": 0.32 },
+              "from": {
+                "x": 0.55,
+                "y": 0.1
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.32
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "throw",
-              "from": { "x": 0.52, "y": 0.32 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.52,
+                "y": 0.32
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -96,11 +181,30 @@
       "type": "outcome",
       "narration": "You line up between the outfielder and third base. The outfielder throws it to you, and you relay it to third -- but the runner already scored! The batter holds at second. You made a relay, but it was aimed at the wrong base. The play was at home, not third.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -113,22 +217,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.1 },
-              "to": { "x": 0.42, "y": 0.38 },
+              "from": {
+                "x": 0.55,
+                "y": 0.1
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.38
+              },
               "entity": "ball",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.42, "y": 0.38 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.42,
+                "y": 0.38
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 900,
               "parallel": true
@@ -142,11 +264,28 @@
       "type": "outcome",
       "narration": "You stay near your normal shortstop spot on the infield dirt. The outfielder picks up the ball at the wall and looks up -- you're way too far away and off to the side! They try to throw all the way home, but the ball bounces four times and rolls to the backstop. The runner scores easily, and the batter ends up at third. Two-run disaster!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.95 },
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.95
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (at 3rd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (at 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -159,15 +298,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.1 },
-              "to": { "x": 0.55, "y": 0.95 },
+              "from": {
+                "x": 0.55,
+                "y": 0.1
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.95
+              },
               "entity": "ball",
               "duration": 1500
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true

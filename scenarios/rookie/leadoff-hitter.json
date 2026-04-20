@@ -1,24 +1,46 @@
 {
   "id": "rookie-leadoff-hitter",
   "title": "Leading Off the Inning!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 2,
   "role": "offense",
-  "tags": ["leadoff", "plate-discipline", "getting-on-base", "batting-order", "strategy"],
+  "tags": [
+    "leadoff",
+    "plate-discipline",
+    "getting-on-base",
+    "batting-order",
+    "strategy"
+  ],
   "setup": {
     "inning": 1,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 0, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Top of the first inning, nobody on, nobody out. You're the leadoff hitter -- the first batter of the game! The opposing pitcher is warming up and looks nervous. They've been bouncing pitches in warm-ups. Your coach says, 'Be patient up there. Make the pitcher throw strikes.' You step into the batter's box. What's your approach?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "choices": [
@@ -43,10 +65,22 @@
       "type": "outcome",
       "narration": "You step in and take the first pitch -- it bounces in the dirt. Ball one! The second pitch is way high. Ball two! The pitcher is getting nervous. They throw the next one right down the middle because they HAVE to throw a strike. You're ready for it and drive it into right field for a clean single! You're on first base and the top of your lineup is coming up. Great at-bat!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.35 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.35
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (on 1st!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (on 1st!)"
+          }
         ]
       },
       "outcome": {
@@ -55,31 +89,58 @@
         "explanation": "As the leadoff hitter, your NUMBER ONE job is to get on base. It doesn't matter how -- a hit, a walk, getting hit by a pitch. You just need to reach base so your teammates can drive you in. Being patient is the best approach because: (1) you see what pitches the pitcher throws, which helps your whole team learn their stuff, (2) you make the pitcher throw more pitches which tires them out, and (3) a nervous pitcher who's falling behind in the count HAS to throw a strike eventually, giving you a better pitch to hit. You took two balls, got ahead in the count, and crushed the pitcher's best strike!",
         "whatToRemember": "The leadoff hitter's job is to get on base. Be patient, make the pitcher throw strikes, and wait for YOUR pitch. A walk is just as good as a hit!",
         "keyTerms": [
-          { "term": "Leadoff Hitter", "definition": "The first batter in the lineup. Their main job is to get on base so the rest of the lineup can drive them in to score. Speed and patience are the most important traits." },
-          { "term": "Working the Count", "definition": "Being patient and making the pitcher throw a lot of pitches. This helps you get a better pitch to hit AND tires the pitcher out for the rest of the game." },
-          { "term": "Getting Ahead in the Count", "definition": "When there are more balls than strikes (like 2-0 or 3-1), the batter is 'ahead.' This means the pitcher HAS to throw something closer to the strike zone, giving the batter a better pitch to hit." }
+          {
+            "term": "Leadoff Hitter",
+            "definition": "The first batter in the lineup. Their main job is to get on base so the rest of the lineup can drive them in to score. Speed and patience are the most important traits."
+          },
+          {
+            "term": "Working the Count",
+            "definition": "Being patient and making the pitcher throw a lot of pitches. This helps you get a better pitch to hit AND tires the pitcher out for the rest of the game."
+          },
+          {
+            "term": "Getting Ahead in the Count",
+            "definition": "When there are more balls than strikes (like 2-0 or 3-1), the batter is 'ahead.' This means the pitcher HAS to throw something closer to the strike zone, giving the batter a better pitch to hit."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.7, "y": 0.35 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 700,
               "parallel": true
@@ -93,8 +154,13 @@
       "type": "outcome",
       "narration": "The pitcher's first pitch is a fastball and you swing at it. You hit it, but it's a weak ground ball to the shortstop. Easy out. One out, nobody on. Your at-bat lasted ONE pitch. The pitcher smiles -- they love quick outs because it saves their energy. Your teammates in the dugout didn't even have time to study the pitcher's stuff.",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.52 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.52
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": []
       },
       "outcome": {
@@ -107,8 +173,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -121,8 +193,13 @@
       "type": "outcome",
       "narration": "You swing at the first pitch -- it bounces in the dirt and you miss. Strike one. You swing at the second pitch -- it's way over your head and you miss. Strike two. You swing at the third pitch -- it's in the other batter's box! You swing and miss. Strike three! Three pitches, three swings, zero contact, and you struck out in about 15 seconds. The pitcher didn't even have to throw a strike! Your coach sighs from the dugout.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -135,8 +212,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }

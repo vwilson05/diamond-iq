@@ -1,26 +1,55 @@
 {
   "id": "tball-drop-the-bat",
   "title": "Drop That Bat!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "offense",
-  "tags": ["batting", "running", "safety", "basics"],
+  "tags": [
+    "batting",
+    "running",
+    "safety",
+    "basics"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 1, "away": 3 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "WHACK! You hit the ball hard and it rolls into the outfield! Great hit! But wait -- you're still holding the bat in your hands! The ball is out there and you need to run. What do you do with the bat?",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.35 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.35
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.85 }, "label": "You!" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You!"
+          }
         ]
       },
       "choices": [
@@ -45,10 +74,22 @@
       "type": "outcome",
       "narration": "You let the bat drop gently to the ground near home plate and ZOOM -- you take off running to first base! Nobody trips on the bat, nobody gets hurt, and you're running fast with your arms free! You make it to first base easily. SAFE! Your coach gives you a big high five!",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.35 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.35
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +97,18 @@
         "headline": "Safe! Smart Bat Drop!",
         "explanation": "After you hit the ball, you need to drop the bat before you run. But drop it GENTLY -- don't throw it! Throwing the bat is dangerous because it could hit someone. Dropping it near home plate keeps everyone safe. Plus, running without a bat in your hands is way faster! Your arms can pump and help you run. You can't run fast while carrying a big bat!",
         "keyTerms": [
-          { "term": "Drop the Bat", "definition": "After you hit the ball, let the bat fall gently to the ground near home plate before you run." },
-          { "term": "Home Plate", "definition": "The white rubber shape where you stand to bat. Drop your bat near here!" },
-          { "term": "Hustle", "definition": "Running as fast as you can! Drop the bat and hustle to first base!" }
+          {
+            "term": "Drop the Bat",
+            "definition": "After you hit the ball, let the bat fall gently to the ground near home plate before you run."
+          },
+          {
+            "term": "Home Plate",
+            "definition": "The white rubber shape where you stand to bat. Drop your bat near here!"
+          },
+          {
+            "term": "Hustle",
+            "definition": "Running as fast as you can! Drop the bat and hustle to first base!"
+          }
         ],
         "whatToRemember": "After you hit the ball, drop the bat GENTLY near home plate and run! Don't throw it and don't carry it with you.",
         "iqPoints": 10,
@@ -66,15 +116,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.35 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000
             }
@@ -87,10 +149,22 @@
       "type": "outcome",
       "narration": "You throw the bat behind you and it goes flying! WATCH OUT! It almost hits the next batter who's waiting in line! The umpire blows the whistle and says, 'No throwing bats! That's dangerous!' Your coach comes over and reminds you to drop the bat gently. Throwing bats can really hurt someone!",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.35 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.35
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "You" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.8
+            },
+            "label": "You"
+          }
         ]
       },
       "outcome": {
@@ -98,8 +172,14 @@
         "headline": "Whoa! Don't Throw the Bat!",
         "explanation": "NEVER throw the bat! A flying bat can hit another player, a coach, or even someone watching the game. Bats are heavy and hard, and getting hit by one really hurts! Some leagues will even call you out if you throw the bat. Just let it drop gently to the ground near your feet. It only takes a split second, and it keeps everyone safe. Safety always comes first!",
         "keyTerms": [
-          { "term": "Safety First", "definition": "The most important rule in baseball! We never want anyone to get hurt." },
-          { "term": "On-Deck", "definition": "The next batter waiting for their turn. They stand near home plate, so a thrown bat could hit them!" }
+          {
+            "term": "Safety First",
+            "definition": "The most important rule in baseball! We never want anyone to get hurt."
+          },
+          {
+            "term": "On-Deck",
+            "definition": "The next batter waiting for their turn. They stand near home plate, so a thrown bat could hit them!"
+          }
         ],
         "whatToRemember": "NEVER throw the bat! Just open your hands and let it drop gently to the ground. Safety first!",
         "iqPoints": 1,
@@ -107,8 +187,14 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.35 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -121,10 +207,22 @@
       "type": "outcome",
       "narration": "You take off running to first base with the bat still in your hand! You're running but the bat is heavy and it's slowing you down. Your arms can't pump because you're gripping the bat. You make it to first base, but barely! Your coach says, 'Drop the bat next time -- you'll run way faster!'",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.5 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.5
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (safe... barely)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (safe... barely)"
+          }
         ]
       },
       "outcome": {
@@ -132,8 +230,14 @@
         "headline": "Safe! But Drop the Bat Next Time!",
         "explanation": "You made it to first base, but running with a bat is hard! The bat is heavy and it makes you slower. When you run, you need your arms to pump back and forth -- that helps you go fast. You can't pump your arms when you're holding a bat. Plus, when you get to first base, you don't need the bat anymore! Drop it at home plate so you can run free and fast.",
         "keyTerms": [
-          { "term": "Arm Pump", "definition": "Swinging your arms back and forth while you run. This helps you go faster!" },
-          { "term": "First Base", "definition": "The first base you run to after hitting. You don't need the bat there -- just your feet!" }
+          {
+            "term": "Arm Pump",
+            "definition": "Swinging your arms back and forth while you run. This helps you go faster!"
+          },
+          {
+            "term": "First Base",
+            "definition": "The first base you run to after hitting. You don't need the bat there -- just your feet!"
+          }
         ],
         "whatToRemember": "Drop the bat before you run! You'll be faster without it, and your arms can help you run!",
         "iqPoints": 4,
@@ -141,8 +245,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1400
             }

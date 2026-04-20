@@ -1,26 +1,57 @@
 {
   "id": "rookie-delayed-steal",
   "title": "The Delayed Steal!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["delayed-steal", "reading-catcher", "baserunning-instincts", "opportunistic", "third-base"],
+  "tags": [
+    "delayed-steal",
+    "reading-catcher",
+    "baserunning-instincts",
+    "opportunistic",
+    "third-base"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Tied game, you're on second base with one out. The pitcher throws the pitch and the batter doesn't swing -- it's a called strike. You notice something: the catcher catches the ball, stands up lazily, and tosses the ball back to the pitcher with a soft, looping throw. The catcher isn't paying attention to you at all! Nobody is covering third base. This has happened the last two pitches too. Do you try a delayed steal?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "3B", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (on 2nd)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +76,22 @@
       "type": "outcome",
       "narration": "The pitcher delivers the next pitch. The batter takes it. The catcher catches it, stands up lazily, and starts lobbing it back to the pitcher. The moment the ball leaves the catcher's hand, you EXPLODE toward third! The catcher's throw is already going to the pitcher -- the wrong direction! The pitcher catches it, spins around, and sees you sprinting. By the time they throw to third, you're sliding in safely! STOLEN BASE! You're on third with one out in a tied game!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (SAFE at 3rd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (SAFE at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,39 +100,72 @@
         "explanation": "A delayed steal is one of the smartest plays in baseball. Instead of stealing when the pitcher throws (a regular steal), you wait until the catcher throws the ball BACK to the pitcher. Here's why it works: (1) The catcher isn't expecting it -- they've already relaxed after the pitch. (2) The ball is going the wrong way -- toward the pitcher, not toward third base. (3) Nobody is covering third because the defense isn't expecting a steal. The key is READING the catcher. You noticed they were lazy and inattentive for two straight pitches. That's the opportunity! Smart runners watch for these little details.",
         "whatToRemember": "Watch the catcher! If they're lazy throwing back to the pitcher and nobody covers third, a delayed steal can get you an easy base. Be observant and be ready!",
         "keyTerms": [
-          { "term": "Delayed Steal", "definition": "Stealing a base by waiting until the catcher throws the ball back to the pitcher, instead of going when the pitcher throws home. It works because the defense isn't expecting it!" },
-          { "term": "Reading the Defense", "definition": "Watching the other team for clues about when they're not paying attention. Smart runners are always looking for lazy throws, uncovered bases, and moments when the defense relaxes." },
-          { "term": "Heads-Up Play", "definition": "A smart, alert play that comes from paying attention to what's happening on the field. The best baseball players are always watching and thinking, even when the play isn't about them." }
+          {
+            "term": "Delayed Steal",
+            "definition": "Stealing a base by waiting until the catcher throws the ball back to the pitcher, instead of going when the pitcher throws home. It works because the defense isn't expecting it!"
+          },
+          {
+            "term": "Reading the Defense",
+            "definition": "Watching the other team for clues about when they're not paying attention. Smart runners are always looking for lazy throws, uncovered bases, and moments when the defense relaxes."
+          },
+          {
+            "term": "Heads-Up Play",
+            "definition": "A smart, alert play that comes from paying attention to what's happening on the field. The best baseball players are always watching and thinking, even when the play isn't about them."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.62
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.32, "y": 0.58 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.32,
+                "y": 0.58
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "slide",
-              "from": { "x": 0.32, "y": 0.58 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.32,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 300
             }
@@ -102,10 +178,22 @@
       "type": "outcome",
       "narration": "You stay on second base. The catcher keeps lazily throwing the ball back to the pitcher, nobody covers third, and the opportunity passes. The next batter flies out, and you're still on second with two outs. You needed a hit to score, and the next batter grounds out. Inning over. You were sitting on a free base and didn't take it.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (still on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (still on 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -118,8 +206,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.62
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -132,8 +226,13 @@
       "type": "outcome",
       "narration": "On the next pitch, you take off running as the pitcher delivers. But the catcher was READY this time -- they saw you moving and fired a strong throw to third base. The third baseman was covering the bag! You slide, but the tag beats you by a step. OUT! The catcher was alert to the regular steal. If you had waited for the DELAYED steal -- going when the catcher threw the ball back to the pitcher -- they wouldn't have been ready at all.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -146,23 +245,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.33, "y": 0.58 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.33,
+                "y": 0.58
+              },
               "entity": "runner1",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.33, "y": 0.58 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.33,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 300
             }

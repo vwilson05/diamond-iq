@@ -1,27 +1,65 @@
 {
   "id": "rookie-infield-fly",
   "title": "Infield Fly Rule!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "defense",
-  "tags": ["infield-fly", "pop-up", "runners-on-base", "umpire-call", "force-out"],
+  "tags": [
+    "infield-fly",
+    "pop-up",
+    "runners-on-base",
+    "umpire-call",
+    "force-out"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": true, "second": true, "third": false }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "There are runners on first and second with one out. The batter swings and pops the ball HIGH into the air, right above the pitcher's mound. It's an easy catch for the infielders. The umpire immediately points up and yells 'INFIELD FLY -- BATTER IS OUT!' You're the shortstop, standing under the ball. Should you catch it or let it drop?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.55 },
-        "highlight": ["SS", "2B", "Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.55
+        },
+        "highlight": [
+          "SS",
+          "2B",
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "R1 (1st)" },
-          { "id": "runner2", "position": { "x": 0.5, "y": 0.45 }, "label": "R2 (2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.65,
+              "y": 0.58
+            },
+            "label": "R1 (1st)"
+          },
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "R2 (2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +84,30 @@
       "type": "outcome",
       "narration": "You squeeze the pop-up for an easy catch. That's two outs! The runners stayed on their bases because they knew the infield fly rule was called. Clean, simple, no confusion. Your coach nods approvingly -- you kept things under control.",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.52 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.52
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "R1 (1st)" },
-          { "id": "runner2", "position": { "x": 0.5, "y": 0.45 }, "label": "R2 (2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.65,
+              "y": 0.58
+            },
+            "label": "R1 (1st)"
+          },
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "R2 (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -59,17 +116,32 @@
         "explanation": "When the umpire calls 'Infield Fly,' the batter is automatically out whether you catch the ball or not. That's the whole point of the rule -- it protects the runners from being tricked! Without this rule, an infielder could drop the ball on purpose, then pick it up and get easy force outs at second and third because the runners had to stay close to their bases. By catching the ball, you made the out cleanly and avoided any confusion. The runners stayed safe on their bases, but you got your out without any risk.",
         "whatToRemember": "On an infield fly, just catch the ball! The batter is already out. Keep it simple and avoid confusion.",
         "keyTerms": [
-          { "term": "Infield Fly Rule", "definition": "A rule that protects runners. When there are runners on first and second (or bases loaded) with less than 2 outs, and the batter pops up to the infield, the batter is automatically OUT -- even if the fielder drops it!" },
-          { "term": "Force Out", "definition": "When a runner HAS to advance because another runner is coming behind them. The fielder just touches the base with the ball to get the out." },
-          { "term": "Pop Fly", "definition": "A ball hit high into the air that stays in the infield area. It's usually an easy catch for an infielder." }
+          {
+            "term": "Infield Fly Rule",
+            "definition": "A rule that protects runners. When there are runners on first and second (or bases loaded) with less than 2 outs, and the batter pops up to the infield, the batter is automatically OUT -- even if the fielder drops it!"
+          },
+          {
+            "term": "Force Out",
+            "definition": "When a runner HAS to advance because another runner is coming behind them. The fielder just touches the base with the ball to get the out."
+          },
+          {
+            "term": "Pop Fly",
+            "definition": "A ball hit high into the air that stays in the infield area. It's usually an easy catch for an infielder."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.55 },
-              "to": { "x": 0.4, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -82,11 +154,30 @@
       "type": "outcome",
       "narration": "You step aside and let the ball drop. It bounces on the infield dirt. The batter is already out because of the infield fly rule, so no double play is possible -- the force outs at second and third are removed! The runners wisely stayed on their bases. You pick up the ball, but there's nobody to throw out. You got one out (the batter), but you made things more complicated than they needed to be.",
       "field": {
-        "ballPosition": { "x": 0.45, "y": 0.55 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.45,
+          "y": 0.55
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "R1 (1st)" },
-          { "id": "runner2", "position": { "x": 0.5, "y": 0.45 }, "label": "R2 (2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.65,
+              "y": 0.58
+            },
+            "label": "R1 (1st)"
+          },
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "R2 (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -99,8 +190,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.55 },
-              "to": { "x": 0.45, "y": 0.57 },
+              "from": {
+                "x": 0.5,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.57
+              },
               "entity": "ball",
               "duration": 300
             }
@@ -113,11 +210,28 @@
       "type": "outcome",
       "narration": "You let the ball drop and scramble to pick it up, looking to tag runners. But the runners aren't going anywhere -- they're standing safely on their bases! The batter is already out from the infield fly call. The ball bounces awkwardly off the dirt and rolls away from you. The runner on second sees the ball get away and dashes to third! By the time you chase it down, she's safe at third. Now there's a runner on third who can score easily. Your coach calls timeout to explain what happened.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.58 },
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.58
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.65, "y": 0.58 }, "label": "R1 (1st)" },
-          { "id": "runner2", "position": { "x": 0.3, "y": 0.6 }, "label": "R2 (now 3rd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.65,
+              "y": 0.58
+            },
+            "label": "R1 (1st)"
+          },
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "R2 (now 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -130,15 +244,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.55 },
-              "to": { "x": 0.42, "y": 0.57 },
+              "from": {
+                "x": 0.5,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.57
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2",
               "duration": 800
             }

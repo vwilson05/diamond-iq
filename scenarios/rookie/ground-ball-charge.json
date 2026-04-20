@@ -1,26 +1,56 @@
 {
   "id": "rookie-ground-ball-charge",
   "title": "Charge the Slow Roller!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "defense",
-  "tags": ["ground-ball", "charging", "third-base", "bare-hand", "throwing"],
+  "tags": [
+    "ground-ball",
+    "charging",
+    "third-base",
+    "bare-hand",
+    "throwing"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "top",
     "outs": 2,
-    "score": { "home": 5, "away": 4 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 5,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Two outs in the top of the sixth, your team is winning by one. The batter hits a slow, dribbling ground ball toward third base. It's barely rolling! You're the third baseman. The ball is about 20 feet in front of you and losing speed fast. The batter is sprinting down the line to first base. Do you charge in or wait for the ball to come to you?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.62 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.56, "y": 0.8 }, "label": "Batter (running!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.56,
+              "y": 0.8
+            },
+            "label": "Batter (running!)"
+          }
         ]
       },
       "choices": [
@@ -45,8 +75,13 @@
       "type": "outcome",
       "narration": "You sprint toward the ball aggressively! You scoop it with your bare hand on the run, plant your right foot, and fire a strong throw across the diamond to first base. The first baseman stretches and catches it -- the batter is out by half a step! THIRD OUT! Inning over! Your team keeps the lead! That play took guts and quick feet!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -55,31 +90,58 @@
         "explanation": "On a slow roller, every tenth of a second counts. By charging the ball aggressively, you cut down the distance between you and the ball AND between you and first base. This gave you more time to make the throw. You also bare-handed it -- on slow rollers, sometimes using your bare hand is faster than trying to field it with your glove because you don't have to transfer the ball from glove to hand. The key is to field the ball out in front of your body and keep your momentum going toward first base so you can throw on the run.",
         "whatToRemember": "On slow rollers, CHARGE the ball! Every step closer saves time. Bare-hand it if you need to, and throw on the run. Speed beats technique on these plays.",
         "keyTerms": [
-          { "term": "Slow Roller", "definition": "A weakly hit ground ball that barely rolls along the ground. These are some of the trickiest plays in baseball because the fielder has to rush in to get the ball before the batter reaches first." },
-          { "term": "Bare-Hand Play", "definition": "Picking up the ball with your throwing hand instead of your glove. This saves the time of transferring the ball from glove to hand. Used on slow rollers and bunts." },
-          { "term": "Charging", "definition": "Running aggressively toward a slowly hit ball instead of waiting for it to come to you. Charging saves precious time on bang-bang plays." }
+          {
+            "term": "Slow Roller",
+            "definition": "A weakly hit ground ball that barely rolls along the ground. These are some of the trickiest plays in baseball because the fielder has to rush in to get the ball before the batter reaches first."
+          },
+          {
+            "term": "Bare-Hand Play",
+            "definition": "Picking up the ball with your throwing hand instead of your glove. This saves the time of transferring the ball from glove to hand. Used on slow rollers and bunts."
+          },
+          {
+            "term": "Charging",
+            "definition": "Running aggressively toward a slowly hit ball instead of waiting for it to come to you. Charging saves precious time on bang-bang plays."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.55 },
-              "to": { "x": 0.35, "y": 0.62 },
+              "from": {
+                "x": 0.3,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.62
+              },
               "entity": "fielder",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.62 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.56, "y": 0.8 },
-              "to": { "x": 0.68, "y": 0.62 },
+              "from": {
+                "x": 0.56,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.68,
+                "y": 0.62
+              },
               "entity": "batter",
               "duration": 800,
               "parallel": true
@@ -93,10 +155,22 @@
       "type": "outcome",
       "narration": "You wait back at your normal third base position for the ball to roll to you. The ball is rolling so slowly it practically stops! By the time you finally walk up and pick it up, the batter has already crossed first base. You throw it over there anyway, but it's way too late. SAFE! The batter is on first, the inning continues, and your coach is shaking their head. You gave the batter way too much time.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (SAFE!)"
+          }
         ]
       },
       "outcome": {
@@ -109,8 +183,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.56, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.56,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 900
             }
@@ -123,10 +203,22 @@
       "type": "outcome",
       "narration": "You jog in at half speed, carefully pick up the ball, plant your feet, and make a nice throw to first base. But because you jogged instead of sprinting, the batter just barely beats the throw. SAFE! Your throw was accurate, but the extra half second you took jogging instead of charging was the difference. The umpire even says 'that was close!' That hurts.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (SAFE by a step)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (SAFE by a step)"
+          }
         ]
       },
       "outcome": {
@@ -139,22 +231,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.55 },
-              "to": { "x": 0.35, "y": 0.6 },
+              "from": {
+                "x": 0.3,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.6
+              },
               "entity": "fielder",
               "duration": 600
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.6 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.56, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.56,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true

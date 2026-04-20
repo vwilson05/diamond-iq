@@ -1,26 +1,55 @@
 {
   "id": "tball-dont-fight-for-ball",
   "title": "Who Gets the Ball?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "defense",
-  "tags": ["communication", "teamwork", "positioning", "basics"],
+  "tags": [
+    "communication",
+    "teamwork",
+    "positioning",
+    "basics"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "CRACK! The batter hits a ground ball right between you and your teammate! You're playing shortstop and your teammate is playing third base. The ball is rolling right in the middle, and you BOTH start running toward it at the same time. You're about to crash into each other! What do you do?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.55 },
-        "highlight": ["SS", "3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.55
+        },
+        "highlight": [
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.8
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -45,8 +74,14 @@
       "type": "outcome",
       "narration": "You're a little closer so you yell 'I GOT IT!' really loud. Your teammate hears you and backs off to cover second base instead. You scoop up the ball, throw to first -- OUT! No crashing, no confusion. Your coach says, 'Awesome communication! That's what teammates do!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["SS", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "SS",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -54,9 +89,18 @@
         "headline": "Great Call! Teamwork!",
         "explanation": "When a ball is hit between two players, somebody needs to call it! If you're closer to the ball, yell 'I GOT IT!' nice and loud so your teammate knows to back off. If THEY'RE closer, let THEM call it and you back off. This way, one person gets the ball and nobody crashes into each other. Crashing into a teammate can hurt, and it usually means the ball gets away too!",
         "keyTerms": [
-          { "term": "Calling the Ball", "definition": "Yelling 'I got it!' to let your teammate know you're going to get the ball." },
-          { "term": "Communication", "definition": "Talking to your teammates during the game. It keeps everyone safe and helps make plays!" },
-          { "term": "Backing Off", "definition": "When your teammate calls the ball, you stop and let them have it. Then you go cover a base instead!" }
+          {
+            "term": "Calling the Ball",
+            "definition": "Yelling 'I got it!' to let your teammate know you're going to get the ball."
+          },
+          {
+            "term": "Communication",
+            "definition": "Talking to your teammates during the game. It keeps everyone safe and helps make plays!"
+          },
+          {
+            "term": "Backing Off",
+            "definition": "When your teammate calls the ball, you stop and let them have it. Then you go cover a base instead!"
+          }
         ],
         "whatToRemember": "When the ball is between two players, one of you needs to call it! Yell 'I GOT IT!' if you're closer, or back off if your teammate calls it.",
         "iqPoints": 10,
@@ -64,22 +108,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.35, "y": 0.55 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.55
+              },
               "entity": "fielder",
               "duration": 400
             },
             {
               "type": "catch",
-              "from": { "x": 0.35, "y": 0.55 },
-              "to": { "x": 0.37, "y": 0.53 },
+              "from": {
+                "x": 0.35,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.37,
+                "y": 0.53
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.37, "y": 0.53 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.37,
+                "y": 0.53
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -92,10 +154,20 @@
       "type": "outcome",
       "narration": "You and your teammate both race to the ball at full speed -- CRASH! You bump into each other and both fall down! The ball rolls right past both of you into the outfield. The batter runs to first, then second base while you and your teammate are getting back up. Ouch! Are you both okay?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.3 },
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.3
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -103,8 +175,14 @@
         "headline": "Crash! Nobody Gets the Ball!",
         "explanation": "When two players run at the same ball without talking to each other, they can crash! This is called a 'collision' and it can really hurt. Plus, the ball gets away and the runners keep going. This is why calling the ball is SO important. One simple yell of 'I GOT IT!' would have prevented the crash AND gotten the out. Always talk to your teammates!",
         "keyTerms": [
-          { "term": "Collision", "definition": "When two players crash into each other. This hurts and means nobody gets the ball!" },
-          { "term": "Call the Ball", "definition": "Yelling 'I got it!' so your teammate knows to get out of the way. This prevents crashes!" }
+          {
+            "term": "Collision",
+            "definition": "When two players crash into each other. This hurts and means nobody gets the ball!"
+          },
+          {
+            "term": "Call the Ball",
+            "definition": "Yelling 'I got it!' so your teammate knows to get out of the way. This prevents crashes!"
+          }
         ],
         "whatToRemember": "Never race your teammate to the ball! Someone needs to call it so you don't crash into each other.",
         "iqPoints": 1,
@@ -112,23 +190,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.35, "y": 0.55 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.55
+              },
               "entity": "fielder",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.55 },
-              "to": { "x": 0.35, "y": 0.55 },
+              "from": {
+                "x": 0.3,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.55
+              },
               "entity": "fielder2",
               "duration": 500,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.55 },
-              "to": { "x": 0.3, "y": 0.3 },
+              "from": {
+                "x": 0.35,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 800
             }
@@ -141,10 +237,20 @@
       "type": "outcome",
       "narration": "You stop running and wait for your teammate... but they stopped too! You both just stand there looking at each other while the ball rolls between you. Finally your teammate runs over and grabs it, but the batter is already safe at first. At least nobody got hurt, but the ball sat there too long!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.55 },
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.55
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (safe)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (safe)"
+          }
         ]
       },
       "outcome": {
@@ -152,8 +258,14 @@
         "headline": "Ball Sits There! Runner is Safe!",
         "explanation": "It's good that you didn't want to crash into your teammate -- safety matters! But instead of just stopping, you should have CALLED the ball. If you had yelled 'I GOT IT!' your teammate would have known to back off, and you could have gotten the ball right away. Or if your teammate called it, YOU could have backed off. Somebody needs to take charge!",
         "keyTerms": [
-          { "term": "Take Charge", "definition": "Being the one to make a decision and call the ball. Don't wait -- be brave!" },
-          { "term": "Hesitation", "definition": "When you stop and can't decide what to do. In baseball, hesitating lets the runner get ahead!" }
+          {
+            "term": "Take Charge",
+            "definition": "Being the one to make a decision and call the ball. Don't wait -- be brave!"
+          },
+          {
+            "term": "Hesitation",
+            "definition": "When you stop and can't decide what to do. In baseball, hesitating lets the runner get ahead!"
+          }
         ],
         "whatToRemember": "Don't just stop and wait -- somebody needs to CALL the ball! Be brave and yell 'I GOT IT!' if you can reach it.",
         "iqPoints": 4,
@@ -161,8 +273,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1200
             }

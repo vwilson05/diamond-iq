@@ -1,28 +1,70 @@
 {
   "id": "minors-cutoff-relay",
   "title": "Be the Cutoff Man!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 2,
   "role": "defense",
-  "tags": ["cutoff", "relay", "shortstop", "outfield", "positioning", "communication"],
+  "tags": [
+    "cutoff",
+    "relay",
+    "shortstop",
+    "outfield",
+    "positioning",
+    "communication"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 1 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 1
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "Runner on first, one out, and your team is up by a run. You're the shortstop. The batter swings and RIPS a line drive into the right-center field gap! The ball is rolling to the wall! The outfielders are chasing it, and the runner on first is flying around second base headed for third!",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.12 },
-        "highlight": ["SS", "CF", "RF"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.12
+        },
+        "highlight": [
+          "SS",
+          "CF",
+          "RF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.45, "y": 0.48 }, "label": "Runner (rounding 2nd)" },
-          { "id": "batter", "position": { "x": 0.65, "y": 0.62 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.45,
+              "y": 0.48
+            },
+            "label": "Runner (rounding 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.62
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "next": "decision-1",
@@ -32,11 +74,32 @@
       "type": "decision",
       "narration": "The ball is in the gap and the outfielder is picking it up near the wall. You're the shortstop -- you need to be the cutoff man! But where do you go?",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.1 },
-        "highlight": ["SS", "3B", "Home"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.1
+        },
+        "highlight": [
+          "SS",
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.4, "y": 0.52 }, "label": "Runner" },
-          { "id": "batter", "position": { "x": 0.6, "y": 0.55 }, "label": "Batter" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.4,
+              "y": 0.52
+            },
+            "label": "Runner"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.6,
+              "y": 0.55
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -61,11 +124,31 @@
       "type": "outcome",
       "narration": "You sprint into the outfield grass, lining yourself up perfectly between the right fielder and third base. You raise both arms high and yell 'HIT ME! HIT ME!' so the outfielder knows where to throw. The right fielder scoops the ball and fires it to you on a line -- you catch it on the run! Now you've got a decision to make...",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.35 },
-        "highlight": ["3B", "Home"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.35
+        },
+        "highlight": [
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.35, "y": 0.55 }, "label": "Runner (heading to 3rd)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.35,
+              "y": 0.55
+            },
+            "label": "Runner (heading to 3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.48
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -78,22 +161,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.55, "y": 0.35 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.35
+              },
               "entity": "fielder",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.1 },
-              "to": { "x": 0.55, "y": 0.35 },
+              "from": {
+                "x": 0.6,
+                "y": 0.1
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "catch",
-              "from": { "x": 0.55, "y": 0.35 },
-              "to": { "x": 0.55, "y": 0.35 },
+              "from": {
+                "x": 0.55,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 200
             }
@@ -106,11 +207,28 @@
       "type": "outcome",
       "narration": "You stay at your normal shortstop spot. The right fielder picks up the ball at the wall and looks up, but you're way too far from them! Their throw from deep right-center has to go ALL the way to the infield without any help. The ball bounces three times, hops past you, and rolls toward the dugout. The lead runner scores and the batter ends up at third!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.55 },
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.55
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -123,15 +241,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.1 },
-              "to": { "x": 0.45, "y": 0.55 },
+              "from": {
+                "x": 0.6,
+                "y": 0.1
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 1200
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 1500,
               "parallel": true
@@ -145,11 +275,28 @@
       "type": "outcome",
       "narration": "You run all the way out to the outfield to help get the ball -- but your outfielders already have it covered! Now nobody is in the infield to receive the relay throw. The right fielder picks up the ball, turns to throw, and there's nobody to throw to! The runner scores easily and the batter jogs into third. Your coach is waving their arms -- wrong play!",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.15 },
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.15
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -162,15 +309,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.6, "y": 0.18 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.18
+              },
               "entity": "fielder",
               "duration": 1000
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 1500,
               "parallel": true
@@ -184,11 +343,31 @@
       "type": "decision",
       "narration": "You've caught the relay throw! You spin toward the infield. The lead runner is rounding third and heading home. The batter has reached second. Your third baseman is yelling 'HOME! HOME!' but your catcher is setting up at the plate. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.35 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.35
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.35, "y": 0.65 }, "label": "Runner (heading home)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.35,
+              "y": 0.65
+            },
+            "label": "Runner (heading home)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.48
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "choices": [
@@ -213,10 +392,22 @@
       "type": "outcome",
       "narration": "You plant your back foot and fire a strike to home plate! The catcher catches it, blocks the plate, and applies the tag. The runner slides... THE UMPIRE RINGS THEM UP! OUT AT HOME! What a relay! The crowd goes crazy! Your team kept the lead because of that incredible cutoff play!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.48
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -229,30 +420,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.35 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.55,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.48, "y": 0.83 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.83
+              },
               "entity": "runner1",
               "duration": 800,
               "parallel": true
             },
             {
               "type": "slide",
-              "from": { "x": 0.48, "y": 0.83 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.48,
+                "y": 0.83
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 300
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -265,11 +480,30 @@
       "type": "outcome",
       "narration": "You throw to third base to try to catch the batter going for a triple... but the run scores! The lead runner crosses home plate. The batter is safe at third anyway because your third baseman wasn't on the bag yet. Run scores, batter at third.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.3, "y": 0.6 }, "label": "Batter (3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Batter (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -282,15 +516,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.35 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 700,
               "parallel": true
@@ -304,11 +550,28 @@
       "type": "outcome",
       "narration": "You hold the ball and look around. The lead runner scores easily. The batter stays at second base. You kept the ball safe -- no errors -- but the run scored and the game is now tied.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.35 },
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.35
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.48 }, "label": "Batter (2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.48
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -321,8 +584,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 1000
             }

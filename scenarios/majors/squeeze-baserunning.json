@@ -1,27 +1,59 @@
 {
   "id": "majors-squeeze-baserunning",
   "title": "The Squeeze Play: Breaking From Third",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["squeeze", "bunt", "baserunning", "timing", "scoring-play"],
+  "tags": [
+    "squeeze",
+    "bunt",
+    "baserunning",
+    "timing",
+    "scoring-play"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": false, "third": true },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": true
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on third, one out, trailing by one in the final inning. You're the runner on third base. Your coach gives the sign to the batter: SQUEEZE PLAY. The batter will bunt the ball, and your job is to sprint for home plate the moment the pitcher begins his delivery. This is a SUICIDE SQUEEZE -- once you break, there's no going back. You MUST score, and the batter MUST get the bunt down. When exactly do you break for home?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +78,23 @@
       "type": "decision",
       "narration": "You break perfectly -- the pitcher commits to home, and you take off! The batter squares and bunts the ball! But the bunt is a little firm -- it rolls about 20 feet toward the first baseman instead of dying in front of the plate. The first baseman is charging in. You're sprinting full speed toward home. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.75 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.75
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.4, "y": 0.72 }, "label": "You (heading home)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.4,
+              "y": 0.72
+            },
+            "label": "You (heading home)"
+          }
         ]
       },
       "choices": [
@@ -74,30 +119,51 @@
       "type": "outcome",
       "narration": "You never hesitate. Full sprint, head down, charging home! The first baseman fields the bunt, wheels, and throws home. The throw arrives just as you do -- it's going to be CLOSE! You slide headfirst and reach for the plate. The catcher catches the ball and swipes down with the tag -- but your hand touches the plate FIRST! SAFE! TIE GAME! The squeeze play worked! You scored from third on a bunt because you broke at the right time and never slowed down!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "SAFE! Squeeze Play Scores the Tying Run!",
         "explanation": "The suicide squeeze is one of baseball's most exciting plays, and the runner's job is simple: BREAK on the pitcher's commitment and NEVER STOP. Here's why it works: 1) You break before the pitch arrives, giving you a 60+ foot head start. 2) The batter only needs to get the bunt on the ground -- ANY bunt scores the run if the runner breaks properly. 3) The defense has to field the bunt, set their feet, and throw accurately to the plate -- three actions that take time. 4) By the time the ball is fielded, you're most of the way home. The key is commitment. Once you break on a suicide squeeze, there is NO going back. The word 'suicide' is in the name for a reason -- if the batter misses the bunt, you're dead. But if the bunt is down, you score almost every time.",
-        "keyTerms": ["suicide squeeze", "commitment point", "break timing"],
+        "keyTerms": [
+          "suicide squeeze",
+          "commitment point",
+          "break timing"
+        ],
         "whatToRemember": "On the suicide squeeze, break when the pitcher commits to home plate. Then sprint full speed and NEVER stop. Once you go, you're committed. The batter's job is the bunt. Your job is the sprint.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.72 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.6,
+                "y": 0.75
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -110,23 +176,38 @@
       "type": "outcome",
       "narration": "Heads-up play! Instead of sliding straight into the catcher, you hook-slide to the BACK corner of the plate -- the side away from where the throw is coming. The first baseman's throw arrives at the front of the plate, but you're sliding behind the catcher! The catcher catches the ball and reaches behind him to tag you -- but you've already touched the back edge of the plate! SAFE! Your slide made it impossible for the catcher to tag you before you scored!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "SAFE! Hook Slide Evades the Tag!",
         "explanation": "The hook slide to the back of the plate is an advanced baserunning technique that can be the difference between safe and out on a close play. Here's the geometry: the catcher sets up in front of the plate, facing the throw. If you slide straight in, you slide right into his tag. But if you hook to the BACK of the plate, the catcher has to catch the ball AND then reach behind him to apply the tag. That extra reach costs him time. Home plate is 17 inches wide -- that's a lot of surface area to touch. You don't have to slide to the MIDDLE of the plate. Touch ANY part of it. The back corner is the farthest point from where the catcher is set up, making it the hardest spot for him to tag.",
-        "keyTerms": ["hook slide", "plate coverage", "evasive sliding"],
+        "keyTerms": [
+          "hook slide",
+          "plate coverage",
+          "evasive sliding"
+        ],
         "whatToRemember": "On close plays at home, use a hook slide to the BACK of the plate -- away from the catcher and the throw. Home plate is wide; touch any corner. The hook slide makes the tag harder.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.72 },
-              "to": { "x": 0.48, "y": 0.87 },
+              "from": {
+                "x": 0.4,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.87
+              },
               "entity": "you",
               "duration": 500
             }
@@ -139,8 +220,13 @@
       "type": "outcome",
       "narration": "You try to stop and go back to third! But you've already taken 15 hard steps toward home -- your momentum is carrying you forward and you can't stop. You stumble, reverse direction, and the first baseman calmly throws to the third baseman. You're caught in no-man's-land, hung up between home and third. After a short rundown, they tag you out. The squeeze play failed because you didn't commit. If you had kept running, you would have been safe.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -153,15 +239,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.72 },
-              "to": { "x": 0.42, "y": 0.68 },
+              "from": {
+                "x": 0.4,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.42,
+                "y": 0.68
+              },
               "entity": "you",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.75 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.75
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -174,30 +272,50 @@
       "type": "outcome",
       "narration": "You break as soon as the pitcher starts his windup -- way too early! The pitcher sees you running and simply steps off the rubber. He doesn't throw the pitch. You're hung out to dry, sprinting toward home with the pitcher holding the ball. He throws to the third baseman and you're caught in a rundown. Tagged out. The squeeze play died before it even started because the pitcher saw you break early.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "bad",
         "headline": "OUT! Pitcher Saw You Break Early!",
         "explanation": "Breaking too early tips off the defense. The pitcher can step off the rubber at any point during his windup -- but once his front foot commits forward toward home plate, he MUST deliver the pitch (or it's a balk). That commitment point is your trigger. If you go before the pitcher commits, he can simply step off, hold the ball, and throw you out. If you go AFTER he commits, he HAS to deliver the pitch and the batter can bunt it. The timing is everything: too early and the pitcher steps off; too late and you don't have enough time to score. Wait for the commitment point -- when the pitcher's front leg drives toward home.",
-        "keyTerms": ["commitment point", "balk rule"],
+        "keyTerms": [
+          "commitment point",
+          "balk rule"
+        ],
         "whatToRemember": "On the squeeze, break when the pitcher's front leg commits toward home plate -- not during the windup. Before that point, the pitcher can step off and throw you out. After that point, he MUST deliver.",
         "iqPoints": 1,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.4, "y": 0.72 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.72
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -210,8 +328,13 @@
       "type": "outcome",
       "narration": "You wait to see the bunt go down before you break. The batter bunts it perfectly -- right in front of the plate. But by the time you SEE the bunt, take your first step, and start sprinting, you've lost three full steps. The pitcher charges in, picks up the bunt, and throws home. You're out by five feet. The bunt was perfect, but your delay killed the play. On a suicide squeeze, you can't wait to see the bunt -- you have to TRUST the batter and go.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -224,15 +347,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.45, "y": 0.8 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.8
+              },
               "entity": "you",
               "duration": 700
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.45, "y": 0.8 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.8
+              },
               "entity": "fielder",
               "duration": 300
             }

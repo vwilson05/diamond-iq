@@ -1,26 +1,56 @@
 {
   "id": "rookie-overrun-second",
   "title": "You Slid Past the Base!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["sliding", "overrunning", "base-awareness", "tagging", "second-base"],
+  "tags": [
+    "sliding",
+    "overrunning",
+    "base-awareness",
+    "tagging",
+    "second-base"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 1, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You just crushed a ball into the gap in left-center field! You're sprinting around first base and heading to second for a double! You slide into second base, but your momentum carries you! You slid a few feet PAST the base and you're lying in the dirt behind second base. Your hand isn't touching the bag! The center fielder is picking up the ball. The shortstop is right next to you at second base. What do you do RIGHT NOW?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.25 },
-        "highlight": ["2B", "SS"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.25
+        },
+        "highlight": [
+          "2B",
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.48, "y": 0.42 }, "label": "You (past the bag!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.48,
+              "y": 0.42
+            },
+            "label": "You (past the bag!)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +75,22 @@
       "type": "outcome",
       "narration": "You instantly realize you're off the bag and LUNGE back toward second base! Your hand slaps the base just as the shortstop reaches down to tag you. SAFE! The umpire saw it clearly -- your hand was on the bag when the tag arrived. Your heart is pounding, but you're safe with a double! That was close! You almost got tagged out on a play where you should have been safe easily.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.3 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.3
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (SAFE at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,24 +99,45 @@
         "explanation": "Great awareness! When you slide past a base, you are NOT safe until you're touching the bag. Unlike first base, where you can overrun the bag safely, every other base requires you to STAY on the bag. If a fielder tags you while you're not touching the base, you're out! The moment you felt yourself sliding past, you reached back immediately. That quick reaction saved you. In the future, try to 'hook slide' -- curling your body so your foot catches the corner of the base. This prevents you from sliding past it.",
         "whatToRemember": "If you slide past a base, reach back and touch it IMMEDIATELY! You're not safe until you're touching the bag. Only first base can be overrun safely.",
         "keyTerms": [
-          { "term": "Oversliding", "definition": "When your slide carries you past the base and you're no longer touching it. This is dangerous because the defense can tag you out while you're off the bag!" },
-          { "term": "Hook Slide", "definition": "A sliding technique where you curl your body to the side and hook the base with your foot or hand. This prevents you from sliding past the base." },
-          { "term": "Overrunning First Base", "definition": "First base is the ONLY base you can run past safely without being tagged out (as long as you turn right toward foul territory). At every other base, you must stay on the bag!" }
+          {
+            "term": "Oversliding",
+            "definition": "When your slide carries you past the base and you're no longer touching it. This is dangerous because the defense can tag you out while you're off the bag!"
+          },
+          {
+            "term": "Hook Slide",
+            "definition": "A sliding technique where you curl your body to the side and hook the base with your foot or hand. This prevents you from sliding past the base."
+          },
+          {
+            "term": "Overrunning First Base",
+            "definition": "First base is the ONLY base you can run past safely without being tagged out (as long as you turn right toward foul territory). At every other base, you must stay on the bag!"
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "slide",
-              "from": { "x": 0.48, "y": 0.42 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.48,
+                "y": 0.42
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "tag",
-              "from": { "x": 0.45, "y": 0.47 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.45,
+                "y": 0.47
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -87,8 +150,13 @@
       "type": "outcome",
       "narration": "You slowly stand up, brush the dirt off your pants, and start walking back toward second base. The shortstop sees their chance -- the center fielder throws the ball in and the shortstop catches it. They reach over and tag you while you're still a step away from the base. OUT! The umpire says you were not on the base when the tag was applied. Your nice double just turned into an embarrassing out because you weren't paying attention!",
       "field": {
-        "ballPosition": { "x": 0.47, "y": 0.44 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.47,
+          "y": 0.44
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -101,22 +169,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.48, "y": 0.42 },
-              "to": { "x": 0.47, "y": 0.43 },
+              "from": {
+                "x": 0.48,
+                "y": 0.42
+              },
+              "to": {
+                "x": 0.47,
+                "y": 0.43
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.25 },
-              "to": { "x": 0.47, "y": 0.44 },
+              "from": {
+                "x": 0.35,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.47,
+                "y": 0.44
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.47, "y": 0.44 },
-              "to": { "x": 0.47, "y": 0.43 },
+              "from": {
+                "x": 0.47,
+                "y": 0.44
+              },
+              "to": {
+                "x": 0.47,
+                "y": 0.43
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -129,8 +215,13 @@
       "type": "outcome",
       "narration": "You lay in the dirt behind second base, thinking you're safe because you slid into the base. But your body is three feet past the bag! The center fielder throws the ball to the shortstop, who walks over and tags you while you're lying there. OUT! You look up at the umpire, confused. 'You weren't on the base,' the ump explains. Your double just became an out because you didn't realize you had to STAY on the base.",
       "field": {
-        "ballPosition": { "x": 0.48, "y": 0.42 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.48,
+          "y": 0.42
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -143,15 +234,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.25 },
-              "to": { "x": 0.48, "y": 0.42 },
+              "from": {
+                "x": 0.35,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.42
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.48, "y": 0.42 },
-              "to": { "x": 0.48, "y": 0.42 },
+              "from": {
+                "x": 0.48,
+                "y": 0.42
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.42
+              },
               "entity": "fielder",
               "duration": 300
             }

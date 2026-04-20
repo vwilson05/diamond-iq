@@ -1,25 +1,52 @@
 {
   "id": "majors-shift-positioning",
   "title": "The Defensive Shift: Reading the Hitter",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "defense",
-  "tags": ["shift", "positioning", "infield", "scouting", "strategy"],
+  "tags": [
+    "shift",
+    "positioning",
+    "infield",
+    "scouting",
+    "strategy"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the coach, and the opposing team's cleanup hitter is stepping up. This kid is a dead pull hitter -- a big, strong left-handed batter who crushes everything to the right side. In his first at-bat, he pulled a double down the right-field line. In his second, he yanked a hard grounder through the normal second base hole. Nobody's on base, nobody out, and you're up by one run. Before the pitch, you have a chance to adjust your infield positioning. How do you set up your defense?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "3B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "2B",
+          "3B",
+          "1B"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +71,14 @@
       "type": "decision",
       "narration": "You put the shift on. The shortstop moves to the right side of the bag, the second baseman shades into shallow right field, and the third baseman moves to the normal shortstop position. The left side of the infield is basically empty. The batter looks around, sees the shift, and steps into the box. He swings hard and pulls a sharp grounder toward the right side -- exactly where he's been hitting all day. The shifted shortstop is RIGHT THERE. He fields it cleanly. But now the batter is fuming. Next at-bat, he comes up again. Same shift?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "2B"
+        ],
         "runners": []
       },
       "choices": [
@@ -70,30 +103,51 @@
       "type": "outcome",
       "narration": "You keep the shift on. The batter steps in, determined to pull one through. He gets a fastball and YANKS it to the right side -- AGAIN! But the shifted shortstop is camped right there. Easy grounder, routine throw to first, and the big hitter is retired AGAIN. He slams his helmet. The shift completely neutralized his power. Two at-bats, two easy outs, when he normally would have had two hits.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "Shift Shuts Him Down Again! Easy Out!",
         "explanation": "Pull hitters, especially at the youth level, rarely adjust their approach mid-game. Pulling the ball is a deeply ingrained habit -- it takes weeks of practice to learn to hit the other way, not one at-bat of frustration. By keeping the shift on, you played the percentages: this hitter pulls the ball 80%+ of the time, so you put your fielders where the ball goes 80% of the time. That's not guessing -- that's scouting and strategy. In the big leagues, teams use spray charts to shift. At the youth level, you can do the same thing just by watching where the hitter hit the ball in previous at-bats.",
-        "keyTerms": ["defensive shift", "spray chart", "pull percentage"],
+        "keyTerms": [
+          "defensive shift",
+          "spray chart",
+          "pull percentage"
+        ],
         "whatToRemember": "Pull hitters rarely adjust mid-game. Once you see the pattern, shift accordingly and trust the data. Put your fielders where the ball goes, not where tradition says they should stand.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.62, "y": 0.5 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.62,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.62, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.62,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -106,30 +160,49 @@
       "type": "outcome",
       "narration": "You shade back toward normal with a slight pull-side lean. Smart compromise. The batter still pulls the ball, but it's a hard grounder right up the middle. Your second baseman, who's still cheating a step toward the pull side, dives and barely snags it. He flips to first from his knees -- OUT! Close call though. If you'd kept the full shift, that ball would have been an easy play instead of a highlight-reel effort.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "good",
         "headline": "Diving Play! Would Have Been Routine With Full Shift.",
         "explanation": "You hedged your bet, and it worked out -- barely. The slight shade toward the pull side gave you just enough to make the play, but it required a diving stop instead of a routine grounder. The full shift would have had the fielder standing right where the ball was hit. When a hitter has shown the same tendency multiple times, commit to the shift. Half-measures create difficult plays out of what should be easy ones. The only time to adjust the shift is if the hitter has shown the ability to hit the other way -- and this hitter hasn't shown that at all.",
-        "keyTerms": ["commit to the shift"],
+        "keyTerms": [
+          "commit to the shift"
+        ],
         "whatToRemember": "Don't half-shift. Either commit to the full shift based on the hitter's tendencies, or play straight up. A half-shift creates tough plays out of what should be routine.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.58, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.58, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.58,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -142,10 +215,22 @@
       "type": "outcome",
       "narration": "You go back to normal positioning. The batter steps in and -- surprise -- he pulls it again. Hard grounder through the normal second base hole, right where it went in his first at-bat. Single to right field. Your second baseman was three steps away from where the ball went through. If you'd kept the shift on, that's a routine out. Instead, the leadoff man is on first.",
       "field": {
-        "ballPosition": { "x": 0.72, "y": 0.4 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.72,
+          "y": 0.4
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -158,8 +243,14 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.65, "y": 0.48 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.48
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -172,10 +263,22 @@
       "type": "outcome",
       "narration": "You keep everyone in normal positions. The batter does exactly what he's done all game -- pulls a hard grounder through the right side of the infield. It splits the gap between the first baseman and second baseman for a clean single. If you'd shifted the infield, your shortstop or second baseman would have been standing right where that ball went through. The hitter showed you his pattern three times and you didn't adjust.",
       "field": {
-        "ballPosition": { "x": 0.72, "y": 0.4 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.72,
+          "y": 0.4
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -188,8 +291,14 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.65, "y": 0.48 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.48
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -202,10 +311,22 @@
       "type": "outcome",
       "narration": "You play everyone deep in normal alignment. The batter pulls a hard grounder -- your second baseman fields it cleanly at deep depth, but now the throw to first is LONG. He fires it over and the first baseman has to jump to catch it. The batter is safe by half a step! Playing deep gave you more range but cost you time on the throw. And the ball went to the pull side anyway -- a shift would have put someone right there at normal depth for an easy play.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (safe at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -218,15 +339,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.6, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }

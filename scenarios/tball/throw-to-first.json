@@ -1,26 +1,56 @@
 {
   "id": "tball-throw-to-first",
   "title": "Throw It to First!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "defense",
-  "tags": ["shortstop", "ground-ball", "throwing", "force-out", "basics"],
+  "tags": [
+    "shortstop",
+    "ground-ball",
+    "throwing",
+    "force-out",
+    "basics"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 1, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're playing shortstop -- that's the spot between second base and third base. CRACK! The batter hits a grounder right at you and you scoop it up! Nice grab! The batter is running hard toward first base. You've got the ball in your glove -- where do you throw it?",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.55 },
-        "highlight": ["SS", "1B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.55
+        },
+        "highlight": [
+          "SS",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.8
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -45,8 +75,13 @@
       "type": "outcome",
       "narration": "You plant your feet and fire the ball to first base -- WHAP! Your teammate catches it right on the bag. The batter is still three steps away. OUT! What a throw! Your coach is clapping and your teammates are pumped!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -54,9 +89,18 @@
         "headline": "Out at First! Great Throw!",
         "explanation": "When you field a ground ball at shortstop, the fastest way to get the batter out is to throw the ball to first base. The batter HAS to run to first -- they have no choice. So if your teammate at first base catches the ball and steps on the bag before the batter gets there, it's a force out! Throwing the ball is way faster than running it over yourself.",
         "keyTerms": [
-          { "term": "Shortstop", "definition": "The fielder who stands between second base and third base. They get a lot of ground balls!" },
-          { "term": "Force Out", "definition": "When a runner HAS to go to the next base, you can get them out by touching that base with the ball before they arrive." },
-          { "term": "Ground Ball", "definition": "A ball that bounces or rolls on the ground after the batter hits it." }
+          {
+            "term": "Shortstop",
+            "definition": "The fielder who stands between second base and third base. They get a lot of ground balls!"
+          },
+          {
+            "term": "Force Out",
+            "definition": "When a runner HAS to go to the next base, you can get them out by touching that base with the ball before they arrive."
+          },
+          {
+            "term": "Ground Ball",
+            "definition": "A ball that bounces or rolls on the ground after the batter hits it."
+          }
         ],
         "whatToRemember": "When you field a ground ball, throw it to first base! The ball gets there way faster than your legs can carry it.",
         "iqPoints": 10,
@@ -64,22 +108,40 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.4, "y": 0.55 },
-              "to": { "x": 0.4, "y": 0.5 },
+              "from": {
+                "x": 0.4,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.65, "y": 0.68 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.68
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true
@@ -93,10 +155,22 @@
       "type": "outcome",
       "narration": "You start running toward first base with the ball... but first base is really far away from shortstop! You're running as fast as you can, but the batter is running too. It's a close race and the batter JUST beats you there. Safe! That was the hard way to do it.",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.65 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.65
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (safe)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (safe)"
+          }
         ]
       },
       "outcome": {
@@ -104,8 +178,14 @@
         "headline": "Runner Beats You There!",
         "explanation": "You had a good idea -- get the ball to first base! But carrying it yourself from shortstop is a really long run. The ball can fly through the air much faster than you can run. That's why we throw it! A good throw from shortstop to first base takes less than a second. Running it over takes a lot longer. Always throw when you're far from first base.",
         "keyTerms": [
-          { "term": "Throwing", "definition": "Sending the ball through the air to a teammate. It's way faster than running with the ball!" },
-          { "term": "Hustle", "definition": "Running as fast as you can. Great effort, but sometimes a throw is smarter!" }
+          {
+            "term": "Throwing",
+            "definition": "Sending the ball through the air to a teammate. It's way faster than running with the ball!"
+          },
+          {
+            "term": "Hustle",
+            "definition": "Running as fast as you can. Great effort, but sometimes a throw is smarter!"
+          }
         ],
         "whatToRemember": "The ball flies faster than you can run! When you're far from first base, throw the ball -- don't carry it.",
         "iqPoints": 4,
@@ -113,15 +193,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.65, "y": 0.65 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.65
+              },
               "entity": "fielder",
               "duration": 1200
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true
@@ -135,10 +227,22 @@
       "type": "outcome",
       "narration": "You spin around and throw the ball to third base... but nobody is running there! The batter is running to FIRST base, not third! Your third baseman catches the ball and looks confused. Meanwhile, the batter is safe at first. Oops!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (safe)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (safe)"
+          }
         ]
       },
       "outcome": {
@@ -146,8 +250,14 @@
         "headline": "Wrong Base! Runner is Safe!",
         "explanation": "After a batter hits the ball, they always run to first base first. That means you need to throw the ball to first base to get them out! Throwing to third base doesn't help because nobody is running there. Always think about WHERE the runner is going, then throw the ball THERE.",
         "keyTerms": [
-          { "term": "First Base", "definition": "The first base every batter runs to after hitting the ball. It's on the right side of the diamond." },
-          { "term": "Base Path", "definition": "The line a runner follows from one base to the next. Batters always start by running to first!" }
+          {
+            "term": "First Base",
+            "definition": "The first base every batter runs to after hitting the ball. It's on the right side of the diamond."
+          },
+          {
+            "term": "Base Path",
+            "definition": "The line a runner follows from one base to the next. Batters always start by running to first!"
+          }
         ],
         "whatToRemember": "After a hit with no runners on base, always throw to first! That's where the batter is headed.",
         "iqPoints": 1,
@@ -155,15 +265,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.8 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true

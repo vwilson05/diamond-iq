@@ -1,26 +1,56 @@
 {
   "id": "tball-safe-at-second",
   "title": "Go to Second Base!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["baserunning", "extra-base", "coaching", "basics"],
+  "tags": [
+    "baserunning",
+    "extra-base",
+    "coaching",
+    "basics"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 4 },
-    "runners": { "first": true, "second": false, "third": false }
+    "score": {
+      "home": 2,
+      "away": 4
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're standing on first base when your teammate steps up to bat. CRACK! They hit the ball way out to the outfield -- it's rolling past the outfielders! Your coach at third base is windmilling their arm in a big circle and yelling 'GO! GO! GO!' What do you do?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.2 },
-        "highlight": ["1B", "2B", "3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.2
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (on 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (on 1st)"
+          }
         ]
       },
       "choices": [
@@ -45,11 +75,30 @@
       "type": "outcome",
       "narration": "You take off running the second the ball is hit! You touch second base and your coach is STILL windmilling -- 'KEEP GOING!' You round second and run to third base! SAFE! You're on third base now and the next hit could bring you HOME to score! Your coach high-fives you and says, 'Way to listen and hustle!'",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.25 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.25
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (safe at 3rd!)" },
-          { "id": "teammate", "position": { "x": 0.7, "y": 0.6 }, "label": "Teammate (at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (safe at 3rd!)"
+          },
+          {
+            "id": "teammate",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Teammate (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -57,9 +106,18 @@
         "headline": "Safe at Third! Great Hustle!",
         "explanation": "When your coach windmills their arm and yells 'GO!' that means you have plenty of time to run! The ball is far away and the fielders are still chasing it. This is your chance to take EXTRA bases. The more bases you take, the closer you are to scoring a run! Always watch your base coach -- they'll tell you when to go and when to stop. When they say go, RUN!",
         "keyTerms": [
-          { "term": "Windmill", "definition": "When the coach swings their arm in a big circle. It means KEEP RUNNING to the next base!" },
-          { "term": "Extra Bases", "definition": "Running past the base you have to go to. If you can go to third instead of just second, that's an extra base!" },
-          { "term": "Scoring Position", "definition": "Being on second or third base. From here, you can score on the next hit!" }
+          {
+            "term": "Windmill",
+            "definition": "When the coach swings their arm in a big circle. It means KEEP RUNNING to the next base!"
+          },
+          {
+            "term": "Extra Bases",
+            "definition": "Running past the base you have to go to. If you can go to third instead of just second, that's an extra base!"
+          },
+          {
+            "term": "Scoring Position",
+            "definition": "Being on second or third base. From here, you can score on the next hit!"
+          }
         ],
         "whatToRemember": "When your coach windmills and yells GO, take off running! They can see the ball and they know you have time!",
         "iqPoints": 10,
@@ -67,15 +125,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 700
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 700
             }
@@ -88,10 +158,22 @@
       "type": "outcome",
       "narration": "You stay right on first base even though your coach is yelling GO. The ball is rolling around in the outfield and you could have easily made it to second, maybe even third! Your coach looks a little frustrated and says, 'When I say GO, it's safe to run! Trust me! We missed a chance to get closer to scoring.'",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.25 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.25
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (still on 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (still on 1st)"
+          }
         ]
       },
       "outcome": {
@@ -99,8 +181,14 @@
         "headline": "Missed Your Chance! Coach Said GO!",
         "explanation": "It's great that you feel safe on first base, but your coach was telling you it was safe to run MORE! The ball was way out in the outfield and nobody was close to throwing it. You could have been on third base -- just one base away from scoring! Listening to your coach works BOTH ways: when they say STOP, you stop. When they say GO, you GO! Trust them -- they're helping you!",
         "keyTerms": [
-          { "term": "Trust Your Coach", "definition": "Your coach can see the whole field. When they tell you to go or stop, they know what's best!" },
-          { "term": "Missed Opportunity", "definition": "When you could have done something great but didn't. Next time, listen to the coach and GO!" }
+          {
+            "term": "Trust Your Coach",
+            "definition": "Your coach can see the whole field. When they tell you to go or stop, they know what's best!"
+          },
+          {
+            "term": "Missed Opportunity",
+            "definition": "When you could have done something great but didn't. Next time, listen to the coach and GO!"
+          }
         ],
         "whatToRemember": "Listen to your coach BOTH ways! When they say STOP, stop. When they say GO, run! Trust them!",
         "iqPoints": 4,
@@ -114,8 +202,13 @@
       "type": "outcome",
       "narration": "You turn around and start running BACK toward home plate to give your teammate a high five for their great hit! But wait -- you can't run backwards on the bases! Your coach is yelling 'NO! GO TO SECOND!' The fielders pick up the ball and throw it to second base. When you finally turn around and try to run there, it's too late. OUT!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -123,8 +216,14 @@
         "headline": "Out! Wrong Direction!",
         "explanation": "You can't run backwards on the bases! Once you're on first base, the only direction you should go is FORWARD -- toward second base. If you go back toward home plate, you're abandoning your base and you can be called out. Save the high fives for AFTER the play is over. Right now, your job is to run FORWARD to the next base when the ball is hit. Celebrate later!",
         "keyTerms": [
-          { "term": "Forward on the Bases", "definition": "Always run in order: first to second to third to home. Never go backwards!" },
-          { "term": "Abandoning the Base", "definition": "Leaving your base and going the wrong way. This can get you called out!" }
+          {
+            "term": "Forward on the Bases",
+            "definition": "Always run in order: first to second to third to home. Never go backwards!"
+          },
+          {
+            "term": "Abandoning the Base",
+            "definition": "Leaving your base and going the wrong way. This can get you called out!"
+          }
         ],
         "whatToRemember": "Always run FORWARD on the bases! Save the celebrations for after the play. When the ball is hit, go to the NEXT base!",
         "iqPoints": 1,
@@ -132,15 +231,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.6, "y": 0.75 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.75
+              },
               "entity": "you",
               "duration": 600
             },
             {
               "type": "throw",
-              "from": { "x": 0.3, "y": 0.2 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.3,
+                "y": 0.2
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 800,
               "parallel": true

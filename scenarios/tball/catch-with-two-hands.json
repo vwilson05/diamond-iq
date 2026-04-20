@@ -1,26 +1,54 @@
 {
   "id": "tball-catch-with-two-hands",
   "title": "Two Hands Are Better!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "defense",
-  "tags": ["catching", "pop-fly", "fundamentals", "basics"],
+  "tags": [
+    "catching",
+    "pop-fly",
+    "fundamentals",
+    "basics"
+  ],
   "setup": {
     "inning": 1,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 0, "away": 0 },
-    "runners": { "first": true, "second": false, "third": false }
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're playing in the infield and POP -- the batter hits a high fly ball right to you! The ball is going up, up, up into the sky and now it's coming back down. You put your glove up to catch it. How do you catch it?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.4 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.4
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "choices": [
@@ -45,10 +73,22 @@
       "type": "outcome",
       "narration": "You get under the ball, put your glove up above your head, and PLOP -- the ball lands right in the pocket! You clap your other hand over the glove and squeeze tight. The ball isn't going ANYWHERE! OUT! Your teammates cheer and your coach says, 'Two hands! That's the way to do it!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +96,18 @@
         "headline": "Caught It! Two-Hand Squeeze!",
         "explanation": "Using two hands to catch is the BEST way! Here's why: when the ball lands in your glove, it can bounce right back out if you only use one hand. But when you clap your throwing hand over the top, you trap the ball inside like a sandwich. SQUISH! No way it's popping out. Plus, when the ball is already in your throwing hand, you're ready to throw it right away. Two hands = safer catch AND faster throw!",
         "keyTerms": [
-          { "term": "Two-Hand Catch", "definition": "Catching the ball in your glove and then squeezing your other hand on top to keep it from popping out." },
-          { "term": "Pop Fly", "definition": "A ball hit high up in the air. If you catch it before it hits the ground, the batter is out!" },
-          { "term": "Pocket", "definition": "The middle part of your glove where the ball is supposed to land. It's like a little nest for the ball!" }
+          {
+            "term": "Two-Hand Catch",
+            "definition": "Catching the ball in your glove and then squeezing your other hand on top to keep it from popping out."
+          },
+          {
+            "term": "Pop Fly",
+            "definition": "A ball hit high up in the air. If you catch it before it hits the ground, the batter is out!"
+          },
+          {
+            "term": "Pocket",
+            "definition": "The middle part of your glove where the ball is supposed to land. It's like a little nest for the ball!"
+          }
         ],
         "whatToRemember": "Always catch with two hands! Glove up, ball in, other hand on top. Squeeze it like a sandwich!",
         "iqPoints": 10,
@@ -66,15 +115,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.4 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.4 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.4
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -87,10 +148,22 @@
       "type": "outcome",
       "narration": "You reach up with just your glove hand and the ball drops in... but it bounces around in your glove! You juggle it once, twice -- and then squeeze your glove shut just in time. You caught it! OUT! But wow, that was close. Your coach says, 'Nice catch, but use two hands next time so it doesn't bounce around!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner"
+          }
         ]
       },
       "outcome": {
@@ -98,8 +171,14 @@
         "headline": "Caught It! But Almost Dropped It!",
         "explanation": "You got the out, and that's great! But catching with one hand is risky. The ball can bounce around inside your glove and pop out. If you had used your other hand to cover the top of the glove, the ball would have been trapped right away. No bouncing, no juggling, no drama! One-hand catches look cool in the movies, but two hands is safer and smarter.",
         "keyTerms": [
-          { "term": "Juggling", "definition": "When you almost drop the ball and it bounces around in your glove. Not fun!" },
-          { "term": "Secure the Ball", "definition": "Making sure the ball is safely in your glove and can't pop out." }
+          {
+            "term": "Juggling",
+            "definition": "When you almost drop the ball and it bounces around in your glove. Not fun!"
+          },
+          {
+            "term": "Secure the Ball",
+            "definition": "Making sure the ball is safely in your glove and can't pop out."
+          }
         ],
         "whatToRemember": "One hand might work sometimes, but two hands makes sure the ball stays in your glove every time!",
         "iqPoints": 4,
@@ -107,15 +186,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.4 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.4 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.4
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -128,11 +219,28 @@
       "type": "outcome",
       "narration": "You hold your glove down by your belly like a basket and the ball comes flying down... BONK! It hits the edge of your glove and rolls away on the ground! The runner on first takes off for second base. You chase the ball, but everybody is safe.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.5 },
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.5
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (at 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -140,8 +248,14 @@
         "headline": "Dropped It! Ball Gets Away!",
         "explanation": "Catching a fly ball down by your belly is really hard! The ball is falling fast from way up high, and if it hits the edge of your glove, it bounces away. Instead, you should put your glove UP -- above your head or in front of your face -- with the pocket facing the sky. This gives the ball a nice soft place to land. And don't forget to clap your other hand on top!",
         "keyTerms": [
-          { "term": "Basket Catch", "definition": "Trying to catch the ball down low by your belly. This is really hard and the ball can easily bounce out!" },
-          { "term": "Glove Up", "definition": "Holding your glove above your head with the pocket open to the sky. This is the best way to catch a fly ball!" }
+          {
+            "term": "Basket Catch",
+            "definition": "Trying to catch the ball down low by your belly. This is really hard and the ball can easily bounce out!"
+          },
+          {
+            "term": "Glove Up",
+            "definition": "Holding your glove above your head with the pocket open to the sky. This is the best way to catch a fly ball!"
+          }
         ],
         "whatToRemember": "Put your glove UP for fly balls, not down! Glove above your head, pocket open to the sky, and use two hands!",
         "iqPoints": 1,
@@ -149,15 +263,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.4 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.4 },
-              "to": { "x": 0.55, "y": 0.5 },
+              "from": {
+                "x": 0.5,
+                "y": 0.4
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 400
             }

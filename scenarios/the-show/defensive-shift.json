@@ -1,27 +1,62 @@
 {
   "id": "the-show-defensive-shift",
   "title": "The Defensive Shift: Positioning Chess",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "defense",
-  "tags": ["defensive-shift", "positioning", "analytics", "lefty-hitter", "strategy", "advanced-defense"],
+  "tags": [
+    "defensive-shift",
+    "positioning",
+    "analytics",
+    "lefty-hitter",
+    "strategy",
+    "advanced-defense"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 2, "away": 1 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "You're the defensive coordinator calling the shots from the dugout. Top of the fourth, you're up by one with a runner on first and nobody out. Stepping into the box is their cleanup hitter -- a left-handed power bat who pulls EVERYTHING. Your scouting report says 78% of his batted balls go to the right side of the field. He's hit two ground balls to the right side already today. Your pitcher is going to throw him fastballs on the outer half. Time to set your defense.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +66,25 @@
       "type": "decision",
       "narration": "With a dead-pull lefty hitter at the plate, you need to decide your defensive alignment. Your infielders are looking to the dugout for direction. The data is clear: this guy hits it to the right side nearly 4 out of 5 times. But there's a runner on first -- that complicates things. What's your call?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -59,10 +109,24 @@
       "type": "transition",
       "narration": "You put on the full shift! Your shortstop jogs over to the RIGHT side of second base. You now have three infielders between first and second base -- the first baseman near the line, the second baseman in the normal shortstop area, and the shortstop in the normal second baseman area. The third baseman slides over to where the shortstop usually plays. The left side of the infield is COMPLETELY open. Your pitcher delivers a fastball on the outer half... the hitter swings!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "decision-full-shift-result",
@@ -72,10 +136,22 @@
       "type": "decision",
       "narration": "The hitter swings and pulls a HARD ground ball toward the right side -- exactly where you predicted! The ball is rocketing between what would normally be the first and second baseman gap. But because of the shift, your second baseman (playing in the shortstop hole) is RIGHT THERE! He fields it cleanly! Now -- the runner from first was going on contact. What's the play?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.52 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.52
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.58, "y": 0.50 }, "label": "Runner (running)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.58,
+              "y": 0.5
+            },
+            "label": "Runner (running)"
+          }
         ]
       },
       "choices": [
@@ -95,8 +171,14 @@
       "type": "outcome",
       "narration": "Your second baseman fires to the shortstop, who is covering second -- FORCE OUT on the runner! The shortstop pivots and throws to first -- DOUBLE PLAY! The shift turned what would have been a single into a rally-killing 4-6-3 double play! Two outs just like that! Your pitcher fist-pumps off the mound. The data told you where the ball was going, you positioned your fielders accordingly, and they made the play. That's analytics meeting execution!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -109,37 +191,67 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.6, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.55, "y": 0.48 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.48
+              },
               "entity": "runner1st",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -152,10 +264,23 @@
       "type": "outcome",
       "narration": "Your second baseman fields the grounder cleanly and throws to first for the out! One down. The runner from first advances to second safely. That's fine -- you got the out, and the shift turned a potential hit into a routine groundout. But you left a double play on the table! Your shortstop was right there at second base, ready for the flip. You could have turned two and basically ended the inning.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -168,30 +293,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.6, "y": 0.52 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -204,10 +353,25 @@
       "type": "transition",
       "narration": "Smart compromise! You shade everyone a few steps toward the pull side. The shortstop moves from his normal position to almost directly behind second base. The second baseman moves a couple steps toward first. The third baseman shades toward the shortstop hole. You've got better coverage on the right side without abandoning the left entirely. The pitcher delivers... the hitter swings and pulls a ground ball to the right side!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "decision-partial-result",
@@ -217,10 +381,22 @@
       "type": "decision",
       "narration": "The ground ball is hit sharply to the right side! Your second baseman, who shaded a few steps that direction, dives and snags it! Great play! But the dive took him to the ground -- he can't turn a double play from there. He pops up on one knee. What's the play?",
       "field": {
-        "ballPosition": { "x": 0.62, "y": 0.55 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.62,
+          "y": 0.55
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (running)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "Runner (running)"
+          }
         ]
       },
       "choices": [
@@ -240,10 +416,22 @@
       "type": "outcome",
       "narration": "Your second baseman fires from his knee to first -- OUT! Great throw! The runner from first advances to second. One out, runner on second. The partial shift did its job -- that ground ball would have been through the infield for a hit if your fielders were in standard position. Your shade to the right side got your second baseman just close enough to make the diving play. Not as dominant as a full shift double play, but solid defense!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -256,30 +444,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.62, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.62,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.62, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.62,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -292,10 +504,22 @@
       "type": "outcome",
       "narration": "Your second baseman flips from his knees to the shortstop covering second -- FORCE OUT! The lead runner is retired! The shortstop can't complete the double play because the throw from the knees was a little low and he had to scoop it. One out, batter safe at first. You stopped the lead runner from getting into scoring position, which is the smart play with nobody out.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -308,30 +532,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.62, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.62,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.55, "y": 0.48 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.48
+              },
               "entity": "runner1st",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.62, "y": 0.55 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.62,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 350
             }
@@ -344,10 +592,25 @@
       "type": "transition",
       "narration": "You keep the standard alignment. Everybody stays put -- shortstop in the hole, second baseman in his normal spot, third baseman on the line. The pitcher delivers a fastball on the outer half... and the hitter does what he ALWAYS does -- he pulls it! Hard ground ball to the right side!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "SS", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "SS",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "outcome-no-shift-result",
@@ -357,11 +620,30 @@
       "type": "outcome",
       "narration": "The ground ball sizzles through the gap between first and second base! Your second baseman, playing in his standard position, dives but the ball is two steps to his right -- he can't reach it! The ball rolls into right field for a clean single! The runner from first races to third base on the hit! Now you've got runners on first and third with nobody out! That ground ball was hit to EXACTLY the spot where a shift would have had a fielder standing. You had the data, you had the scouting report, and you ignored it.",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -374,37 +656,67 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.65, "y": 0.5 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 350
             },
             {
               "type": "run",
-              "from": { "x": 0.65, "y": 0.5 },
-              "to": { "x": 0.75, "y": 0.35 },
+              "from": {
+                "x": 0.65,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.75,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1st",
               "duration": 1200,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1000,
               "parallel": true

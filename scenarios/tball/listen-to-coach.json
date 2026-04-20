@@ -1,26 +1,55 @@
 {
   "id": "tball-listen-to-coach",
   "title": "Listen to Your Coach!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["coaching", "baserunning", "listening", "basics"],
+  "tags": [
+    "coaching",
+    "baserunning",
+    "listening",
+    "basics"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're running from first base to second base after your teammate hit the ball. You're running SO fast and it feels AMAZING! You round second base and want to keep going to third! But your coach at third base is holding up both hands and yelling 'STOP! STAY AT SECOND!' The fielder is about to throw the ball back in. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.6, "y": 0.3 },
-        "highlight": ["2B", "3B"],
+        "ballPosition": {
+          "x": 0.6,
+          "y": 0.3
+        },
+        "highlight": [
+          "2B",
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (at 2nd)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +74,22 @@
       "type": "outcome",
       "narration": "You put on the brakes and stop right at second base! You touch the bag and stay there. The outfielder throws the ball in and it gets to third base a second later. If you had kept running, you would have been OUT! Your coach gives you a huge thumbs up and says, 'Great listening! That's smart baserunning!'",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (safe at 2nd!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (safe at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +97,18 @@
         "headline": "Safe at Second! Smart Stop!",
         "explanation": "Your base coaches can see things you can't see! When you're running, you're looking ahead -- but the coach can see where the ball is and where the fielders are throwing. When the coach yells 'STOP!' it means the ball is coming and you won't make it to the next base safely. ALWAYS listen to your base coaches! They're there to help you and keep you from getting out.",
         "keyTerms": [
-          { "term": "Base Coach", "definition": "The grown-up who stands near first base or third base and tells you when to run, stop, or slide." },
-          { "term": "Hold Up", "definition": "When the coach puts their hands up and yells stop. It means stay where you are!" },
-          { "term": "Smart Baserunning", "definition": "Listening to your coaches and not taking risks that could get you out. Be smart, not just fast!" }
+          {
+            "term": "Base Coach",
+            "definition": "The grown-up who stands near first base or third base and tells you when to run, stop, or slide."
+          },
+          {
+            "term": "Hold Up",
+            "definition": "When the coach puts their hands up and yells stop. It means stay where you are!"
+          },
+          {
+            "term": "Smart Baserunning",
+            "definition": "Listening to your coaches and not taking risks that could get you out. Be smart, not just fast!"
+          }
         ],
         "whatToRemember": "Always listen to your base coaches! When they say STOP, stop! They can see things you can't see while you're running.",
         "iqPoints": 10,
@@ -66,15 +116,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.3 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 700
             }
@@ -87,8 +149,13 @@
       "type": "outcome",
       "narration": "You ignore the coach and keep running toward third! But the outfielder already threw the ball, and the third baseman catches it. They tag you as you slide in -- OUT! Your coach was right -- the ball beat you there. Your coach jogs over and says, 'I had you stopped for a reason, buddy. Trust me next time!'",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -96,8 +163,14 @@
         "headline": "Out at Third! Should Have Listened!",
         "explanation": "Your coach yelled stop because they could see the outfielder was about to throw the ball. The coach knows if you can make it or not -- they've been watching baseball for a long time! When you ignore the coach and keep running, you can get thrown out. Being fast is great, but being SMART is even better. Trust your coach -- they're on YOUR team and they want you to be safe!",
         "keyTerms": [
-          { "term": "Thrown Out", "definition": "When the ball gets to the base before you do and you're tagged. The coach tried to prevent this!" },
-          { "term": "Trust Your Coach", "definition": "Your coach can see the whole field and knows if it's safe to run. Listen to them!" }
+          {
+            "term": "Thrown Out",
+            "definition": "When the ball gets to the base before you do and you're tagged. The coach tried to prevent this!"
+          },
+          {
+            "term": "Trust Your Coach",
+            "definition": "Your coach can see the whole field and knows if it's safe to run. Listen to them!"
+          }
         ],
         "whatToRemember": "When the coach says STOP, STOP! They can see things you can't and they're trying to keep you safe on base.",
         "iqPoints": 1,
@@ -105,23 +178,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.35, "y": 0.58 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.58
+              },
               "entity": "you",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.6, "y": 0.3 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.35, "y": 0.58 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -134,10 +225,22 @@
       "type": "outcome",
       "narration": "You slow down but you're stuck between second and third base! You don't know if you should go forward or go back. The fielder throws the ball in and you scramble back to second base JUST in time -- SAFE! But that was way too close. Your coach says, 'When I say stop, commit and stop right away! Don't get stuck in the middle!'",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.55 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.55
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (barely safe)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (barely safe)"
+          }
         ]
       },
       "outcome": {
@@ -145,8 +248,14 @@
         "headline": "Close Call! Don't Get Stuck in Between!",
         "explanation": "Getting stuck between two bases is really dangerous! When you're in between bases, you're NOT safe -- anyone can tag you out. When the coach says stop, you need to stop RIGHT AWAY and get back to the base. Don't slow down and think about it -- just react! The faster you listen, the safer you'll be. Being stuck in the middle is called being 'hung up' and it usually means you're out.",
         "keyTerms": [
-          { "term": "Hung Up", "definition": "When you're stuck between two bases and don't know which way to go. This is a bad spot to be in!" },
-          { "term": "Commit", "definition": "Making a quick decision and going for it. Either go or stop -- don't be in between!" }
+          {
+            "term": "Hung Up",
+            "definition": "When you're stuck between two bases and don't know which way to go. This is a bad spot to be in!"
+          },
+          {
+            "term": "Commit",
+            "definition": "Making a quick decision and going for it. Either go or stop -- don't be in between!"
+          }
         ],
         "whatToRemember": "When the coach says stop, stop RIGHT AWAY! Don't hesitate or get stuck between bases.",
         "iqPoints": 4,
@@ -154,15 +263,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.43, "y": 0.5 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.43,
+                "y": 0.5
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.43, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.43,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 600
             }

@@ -1,27 +1,59 @@
 {
   "id": "the-show-pitch-sequence-lefty",
   "title": "Sequencing a Power Lefty: 4-Pitch Chess",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "defense",
-  "tags": ["pitch-sequence", "lefty-hitter", "pitch-calling", "strategy", "catcher-game-calling"],
+  "tags": [
+    "pitch-sequence",
+    "lefty-hitter",
+    "pitch-calling",
+    "strategy",
+    "catcher-game-calling"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 1, "away": 0 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the catcher, calling pitches for your right-handed pitcher. The hitter stepping in is a left-handed power bat who crushes fastballs -- he's hitting .380 against fastballs this season but only .190 against off-speed. He pulls everything hard and can turn on anything inside. Your pitcher has four pitches: a 93 mph fastball, a changeup, a curveball, and a cutter. You need to design a 4-pitch sequence to get this guy out or at least keep the ball in the park. What's your first pitch?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +78,23 @@
       "type": "decision",
       "narration": "Fastball up and away, 93 mph. The hitter takes it -- ball one, just missed outside. He didn't swing, which tells you he's disciplined and waiting for his pitch. Now you're behind 1-0. What's your second pitch?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -74,10 +119,23 @@
       "type": "decision",
       "narration": "Changeup first pitch -- 83 mph with good fade. The hitter was clearly timing fastball and swung way out in front! Strike one! His body language tells the whole story -- he expected heat and got fooled. Now he's behind 0-1 and has to recalibrate. What's pitch number two?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -102,10 +160,23 @@
       "type": "decision",
       "narration": "Cutter first pitch, 88 mph with late break inside. The lefty hitter swings -- he thought it was a fastball and started his swing, but the cutter ran in on his hands! He makes contact but the ball dribbles foul past first base. Strike one! He's shaking his hands -- the cutter jammed him. Now he knows you're willing to come inside. What's pitch two?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -130,10 +201,23 @@
       "type": "decision",
       "narration": "Fastball up, 93 mph! The hitter's eyes go wide -- he was recalibrating for off-speed and the heater blew right past him! He swings late and fouls it straight back. Strike two! Now he's behind 0-2 and he's seen two completely different speeds. His timing is wrecked. He doesn't know what's coming. You need one more pitch to put him away. What's the finishing pitch?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -158,10 +242,23 @@
       "type": "decision",
       "narration": "Changeup away -- beautiful! The hitter reaches out for it awkwardly and fouls it off to the left side. Strike two! He's now seen the cutter inside and the changeup away. He's 0-2 and doesn't know which side of the plate to protect. What do you throw to put him away?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -181,8 +278,13 @@
       "type": "outcome",
       "narration": "Fastball in the zone -- 93 mph, middle-middle. This is EXACTLY what the lefty power hitter was waiting for. He unloads on it and drives a ball deep to right-center! The outfielder drifts back... back... it's GONE! Two-run homer! You just served the one pitch this hitter destroys. He's hitting .380 against fastballs and you threw him two in a row, including one over the plate. The scouting report told you everything you needed to know, and you ignored it.",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.15 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.15
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -198,8 +300,15 @@
       "type": "outcome",
       "narration": "Changeup low, 83 mph. The hitter's eyes lit up at the first-pitch fastball velocity and his brain is timed to 93. The changeup comes out of the pitcher's hand looking EXACTLY like a fastball -- same arm speed, same release point. But it arrives 10 mph slower. The hitter commits his swing way too early and rolls over the top of it -- weak grounder to second! The second baseman flips to the shortstop for the force, relay to first -- DOUBLE PLAY! Inning over! The speed change after the fastball completely destroyed his timing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "SS", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "SS",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -208,9 +317,18 @@
         "explanation": "This is pitch sequencing at its finest. The first-pitch fastball at 93 mph calibrated the hitter's internal clock to fast. When the changeup arrived at 83 mph with the same arm speed and release point, his brain couldn't adjust in time. The 10 mph differential is devastating because: 1) The hitter's swing starts approximately 150-175 milliseconds before contact. 2) At 93 mph, the ball reaches the plate in about 400 milliseconds. At 83 mph, it takes about 450 milliseconds. 3) That 50-millisecond difference means the hitter's bat is WAY out in front of the ball, producing weak contact or a miss. You used the fastball as a setup pitch and the changeup as the weapon -- even though the fastball was a ball. Its job wasn't to get a strike. Its job was to set the speed in the hitter's brain.",
         "whatToRemember": "The fastball doesn't always have to be the weapon -- sometimes it's the setup. Showing 93 mph calibrates the hitter's timing, making the 83 mph changeup devastatingly effective. Sequence for speed differential.",
         "keyTerms": [
-          { "term": "Speed Differential", "definition": "The velocity gap between two consecutive pitches. A 10+ mph gap between a fastball and changeup is the most effective timing disruptor in pitch sequencing." },
-          { "term": "Setup Pitch", "definition": "A pitch thrown not to get a strike, but to establish a speed or location in the hitter's mind that makes the next pitch more effective." },
-          { "term": "Timing Calibration", "definition": "The hitter's brain automatically adjusts to the speed of pitches it sees. Pitchers exploit this by showing one speed and then changing it, forcing the hitter to swing early or late." }
+          {
+            "term": "Speed Differential",
+            "definition": "The velocity gap between two consecutive pitches. A 10+ mph gap between a fastball and changeup is the most effective timing disruptor in pitch sequencing."
+          },
+          {
+            "term": "Setup Pitch",
+            "definition": "A pitch thrown not to get a strike, but to establish a speed or location in the hitter's mind that makes the next pitch more effective."
+          },
+          {
+            "term": "Timing Calibration",
+            "definition": "The hitter's brain automatically adjusts to the speed of pitches it sees. Pitchers exploit this by showing one speed and then changing it, forcing the hitter to swing early or late."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -220,10 +338,23 @@
       "type": "outcome",
       "narration": "Curveball, 76 mph -- huge speed change from the 93 mph fastball. The hitter is way out in front and tries to hold up, but the umpire rings him up -- strike one! Good, you got the strike and the eye-level change. The curveball's vertical break went from the hitter's eye level down to his knees, which made him freeze. You're now 1-1, but the hitter has seen two very different pitches. He's adjusting. A solid second pitch, though the changeup might have been even better here because it's harder to identify out of the hand.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -239,10 +370,23 @@
       "type": "outcome",
       "narration": "Another changeup! The hitter was expecting the speed adjustment -- probably a fastball -- and he gets another off-speed pitch. He's frozen and takes it for a called strike on the outside corner! 0-2! Doubling up on the changeup worked because the hitter expected you to change speeds after the first one. But now you've thrown two off-speed pitches in a row -- the hitter will likely sit off-speed for pitch three. You'll need to go fastball or cutter to exploit that adjustment.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -258,10 +402,23 @@
       "type": "outcome",
       "narration": "Cutter in on the hands -- 88 mph. The hitter was recalibrating for off-speed and the cutter runs in faster than expected. He fists it foul down the first-base line. 0-2! Good pitch -- you showed speed change AND location change in two pitches. The hitter has now seen 83 mph away and 88 mph in. He has no idea what's coming next, and he's in a 0-2 hole. Solid sequence to get ahead.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -277,10 +434,23 @@
       "type": "outcome",
       "narration": "Changeup in the dirt -- 83 mph, fading down and away! The hitter just saw 93 mph fastball and his body is geared for speed. The changeup comes out looking like a fastball but dies before it reaches the plate. He swings HARD and whiffs over the top of it! STRIKE THREE SWINGING! The sequence was perfect: changeup to set the timing, fastball to reset it, then changeup again to destroy it. Three different looks in three pitches. The hitter walks back to the dugout shaking his head -- he had no chance.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -289,10 +459,22 @@
         "explanation": "This is the gold standard of pitch sequencing: slow-fast-slow. The first changeup calibrated the hitter's timing to 83 mph. The fastball at 93 mph forced him to speed up his internal clock. Then the third-pitch changeup came in looking like another fastball but arrived at 83 mph -- and his recalibrated-fast timing was completely wrong. He swung 50 milliseconds too early. The reason this sequence is so effective: each pitch resets the hitter's timing in the opposite direction. He's always adjusting to the LAST pitch he saw, which means he's always wrong for the NEXT one. This is called 'tunneling with speed' -- the pitches look the same out of the hand but arrive at different times.",
         "whatToRemember": "Slow-fast-slow is an elite three-pitch sequence. Each pitch forces the hitter to recalibrate in the opposite direction. By the third pitch, his timing is completely corrupted and he can't catch up or hold back.",
         "keyTerms": [
-          { "term": "Pitch Sequencing", "definition": "The strategic ordering of pitch types, speeds, and locations across an at-bat to keep the hitter off-balance. Elite sequencing forces the hitter to constantly recalibrate." },
-          { "term": "Speed Ladder", "definition": "A sequence that moves the hitter's timing up or down through multiple speed changes: slow to fast, fast to slow, or cycling through three speeds." },
-          { "term": "Pitching Backwards", "definition": "Starting with off-speed pitches when the hitter expects a fastball, then using the fastball as the surprise pitch. Flips the traditional sequence where fastball comes first." },
-          { "term": "Tunneling", "definition": "Making two different pitches look identical out of the pitcher's hand until the ball reaches a decision point where the hitter must commit. Same release, same arm speed, different outcome." }
+          {
+            "term": "Pitch Sequencing",
+            "definition": "The strategic ordering of pitch types, speeds, and locations across an at-bat to keep the hitter off-balance. Elite sequencing forces the hitter to constantly recalibrate."
+          },
+          {
+            "term": "Speed Ladder",
+            "definition": "A sequence that moves the hitter's timing up or down through multiple speed changes: slow to fast, fast to slow, or cycling through three speeds."
+          },
+          {
+            "term": "Pitching Backwards",
+            "definition": "Starting with off-speed pitches when the hitter expects a fastball, then using the fastball as the surprise pitch. Flips the traditional sequence where fastball comes first."
+          },
+          {
+            "term": "Tunneling",
+            "definition": "Making two different pitches look identical out of the pitcher's hand until the ball reaches a decision point where the hitter must commit. Same release, same arm speed, different outcome."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -302,10 +484,23 @@
       "type": "outcome",
       "narration": "Curveball, 75 mph -- massive drop! The hitter freezes completely. He started to swing but held up. The ump checks -- he didn't go! Ball, 1-2. Close call. The curveball was a good idea in theory -- third speed in three pitches -- but the 18 mph gap from the fastball was SO big that the hitter had time to recognize the spin and hold up. The changeup in the dirt would have been harder to lay off because it looks like a fastball longer.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -321,10 +516,23 @@
       "type": "outcome",
       "narration": "Another fastball, 93 mph up and in. The hitter fouls it off. Still 0-2. You threw two fastballs in a row after showing the changeup, and the hitter was able to time the second one well enough to foul it off. He's now seen the fastball twice and adjusted to the speed. The at-bat continues and he ends up working a full count. You had a chance to put him away with the off-speed on 0-2 but chose the pitch he hits best, and now the count is extended.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -340,11 +548,30 @@
       "type": "outcome",
       "narration": "Same cutter, same spot inside. But this time the hitter is ready for it. He saw the first cutter jam him and adjusted his bat angle. He fights it off and lines it to right field for a single. Runner moves to second. The hitter made the adjustment because you showed him the same pitch in the same location twice. He knew it was coming. After a cutter inside on pitch one, he was sitting on inside -- and you gave him exactly what he was looking for.",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -360,10 +587,22 @@
       "type": "outcome",
       "narration": "Fastball on the outside corner -- 93 mph. The hitter was cheating inside after the cutter jammed him, and the fastball paints the outside corner! He reaches for it and hits a weak fly ball to left field -- caught! Two outs. Good sequence: the cutter inside set up the fastball away. By changing location after the first pitch, you forced the hitter to cover the entire plate instead of just one side. Not the strikeout you wanted, but you got the out.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.35 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -379,10 +618,23 @@
       "type": "outcome",
       "narration": "Cutter up and in -- 88 mph, running hard toward his hands! The hitter was leaning away to cover the outside part of the plate after the changeup away. The cutter catches the inside corner and he can't get the bat head out in time! STRIKE THREE CALLED! He's rung up looking! Your catcher's sequence was masterful: inside-outside-inside, with a speed change mixed in. Three pitches, three different looks, and the hitter never had a chance to get comfortable.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -391,9 +643,18 @@
         "explanation": "This three-pitch sequence attacked both dimensions of the hitter's timing: speed and location. Cutter in (88 mph) set his eyes inside. Changeup away (83 mph) moved his eyes outside AND slowed his clock. Cutter in (88 mph) went back inside at a speed between the other two. The hitter was leaning away to cover the outside pitch and couldn't react to the cutter coming back inside. This is called 'moving the hitter's eye' -- each pitch forces him to adjust his visual focus to a different part of the plate, and by the third pitch, he can't process the information fast enough. The speed change from 88 to 83 to 88 added another layer of disruption. Elite sequencing.",
         "whatToRemember": "Elite pitch sequencing moves the hitter's eyes across the plate while also changing speeds. Inside-outside-inside with speed variation is extremely difficult to adjust to because the hitter must recalibrate both location and timing every pitch.",
         "keyTerms": [
-          { "term": "Moving the Hitter's Eye", "definition": "Sequencing pitches to different locations (in/out, up/down) so the hitter must shift his visual focus each pitch. Reduces his ability to commit to a zone." },
-          { "term": "Cutter", "definition": "A pitch thrown with fastball arm speed that breaks laterally 2-4 inches toward the pitcher's glove side. Devastates hitters who commit to a fastball because it jams them inside." },
-          { "term": "Two-Dimensional Sequencing", "definition": "Changing both speed and location simultaneously across pitches. Forces the hitter to solve two problems at once, dramatically reducing his chance of solid contact." }
+          {
+            "term": "Moving the Hitter's Eye",
+            "definition": "Sequencing pitches to different locations (in/out, up/down) so the hitter must shift his visual focus each pitch. Reduces his ability to commit to a zone."
+          },
+          {
+            "term": "Cutter",
+            "definition": "A pitch thrown with fastball arm speed that breaks laterally 2-4 inches toward the pitcher's glove side. Devastates hitters who commit to a fastball because it jams them inside."
+          },
+          {
+            "term": "Two-Dimensional Sequencing",
+            "definition": "Changing both speed and location simultaneously across pitches. Forces the hitter to solve two problems at once, dramatically reducing his chance of solid contact."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -403,10 +664,23 @@
       "type": "outcome",
       "narration": "Curveball in the dirt -- the hitter swings over it! Strike three! Great pitch selection -- you showed three different speeds (88, 83, 75) and three different locations. The hitter chased the curve out of the zone. Solid strikeout, though the cutter back inside might have been even more effective because it attacks his weakness against inside pitches. Either way, the three-speed sequence was well designed.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {

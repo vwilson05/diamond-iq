@@ -1,27 +1,60 @@
 {
   "id": "rookie-stealing-second",
   "title": "Stealing Second Base!",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "rookie",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["stealing", "base-running", "pitcher", "lead-off", "timing"],
+  "tags": [
+    "stealing",
+    "base-running",
+    "pitcher",
+    "lead-off",
+    "timing"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "You're the runner on first base in a tie game! Your coach flashes you the steal sign -- two tugs on their ear. That means GO on the next pitch! The pitcher is in the stretch position, looking over at you. You take your lead off first base -- three big steps. Your heart is racing. The pitcher checks you once... twice...",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You (leading off)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.66,
+              "y": 0.58
+            },
+            "label": "You (leading off)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +64,24 @@
       "type": "decision",
       "narration": "The pitcher is in the stretch, watching you. You've got the steal sign. When do you go?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B", "Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.66,
+              "y": 0.58
+            },
+            "label": "You"
+          }
         ]
       },
       "choices": [
@@ -65,10 +112,22 @@
       "type": "outcome",
       "narration": "You're locked in on the pitcher's front leg. They lift it and you see it start moving toward home plate -- GO! You explode off the base! Your legs are pumping, arms swinging. The catcher receives the pitch, pops up, and fires to second base, but you're already there! You slide in headfirst -- SAFE! You stole second base! Now you're in scoring position!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (SAFE at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -77,40 +136,76 @@
         "explanation": "The secret to stealing a base is your JUMP -- and the jump depends on reading the pitcher. When a pitcher is in the stretch position, their front leg tells you everything. If their leg moves toward home plate, they're delivering the pitch and you GO. If their leg moves toward first base, they're throwing over to pick you off and you dive BACK. By watching that front leg, you got the earliest possible jump, which gave you a head start on the catcher's throw. That's the difference between safe and out!",
         "whatToRemember": "Watch the pitcher's front leg! Toward home = GO! Toward your base = GET BACK! A good jump starts with reading the pitcher.",
         "keyTerms": [
-          { "term": "Steal", "definition": "Running to the next base while the pitcher is throwing the ball to home plate. It's risky because the catcher can throw you out, but it moves you closer to scoring!" },
-          { "term": "Leadoff", "definition": "The few steps a runner takes away from their base toward the next one BEFORE the pitch. A bigger lead gives you a head start, but go too far and the pitcher might pick you off!" },
-          { "term": "The Stretch", "definition": "A shorter pitching position the pitcher uses when runners are on base. Instead of a full windup, they stand sideways so they can keep an eye on the runner and throw to the base quickly." },
-          { "term": "Jump", "definition": "How quickly you take off running when you steal. A 'good jump' means you read the pitcher perfectly and exploded toward the next base at just the right moment." }
+          {
+            "term": "Steal",
+            "definition": "Running to the next base while the pitcher is throwing the ball to home plate. It's risky because the catcher can throw you out, but it moves you closer to scoring!"
+          },
+          {
+            "term": "Leadoff",
+            "definition": "The few steps a runner takes away from their base toward the next one BEFORE the pitch. A bigger lead gives you a head start, but go too far and the pitcher might pick you off!"
+          },
+          {
+            "term": "The Stretch",
+            "definition": "A shorter pitching position the pitcher uses when runners are on base. Instead of a full windup, they stand sideways so they can keep an eye on the runner and throw to the base quickly."
+          },
+          {
+            "term": "Jump",
+            "definition": "How quickly you take off running when you steal. A 'good jump' means you read the pitcher perfectly and exploded toward the next base at just the right moment."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.66, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.66,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 1000,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.47 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.47
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "slide",
-              "from": { "x": 0.5, "y": 0.48 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 300
             }
@@ -123,7 +218,10 @@
       "type": "outcome",
       "narration": "You take off running before the pitcher even moves! The pitcher sees you going and throws to first base instead of home plate. You're caught in no-man's land -- stuck between first and second! The first baseman throws to the shortstop, and you're tagged out in a rundown. That's a wasted out!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.52 },
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.52
+        },
         "highlight": [],
         "runners": []
       },
@@ -137,29 +235,53 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.66, "y": 0.58 },
-              "to": { "x": 0.58, "y": 0.52 },
+              "from": {
+                "x": 0.66,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.52
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.55, "y": 0.52 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "tag",
-              "from": { "x": 0.55, "y": 0.52 },
-              "to": { "x": 0.58, "y": 0.52 },
+              "from": {
+                "x": 0.55,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.52
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -172,8 +294,13 @@
       "type": "outcome",
       "narration": "You wait until you hear the ball smack the catcher's mitt... then you take off! But the catcher already has the ball and pops up quickly. They fire a laser to second base. You slide, but the tag is there. OUT! You're called out by half a step. So close!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -186,30 +313,54 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.66, "y": 0.58 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.66,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "runner1",
               "duration": 1200
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -222,10 +373,22 @@
       "type": "outcome",
       "narration": "You stay on first base and don't go. The pitch comes in for a strike. Your coach looks over at you, confused. They gave you the steal sign, but you didn't run. Your coach calls timeout and jogs over. 'Hey, I gave you the sign. If you're not sure, ask me -- but when the sign is on, we need you to go. I believe in you!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.66, "y": 0.58 }, "label": "You (1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.66,
+              "y": 0.58
+            },
+            "label": "You (1st)"
+          }
         ]
       },
       "outcome": {
@@ -238,8 +401,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             }

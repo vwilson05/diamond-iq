@@ -1,27 +1,65 @@
 {
   "id": "minors-infield-communication",
   "title": "Check the Runner!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "defense",
-  "tags": ["communication", "third-base", "ground-ball", "decision-making", "runner-awareness"],
+  "tags": [
+    "communication",
+    "third-base",
+    "ground-ball",
+    "decision-making",
+    "runner-awareness"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 5, "away": 4 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 5,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on second, nobody out, your team leads by one. You're the third baseman. The batter hits a sharp ground ball right to you. You field it cleanly. The runner on second had a big secondary lead and is about 15 feet off the bag -- but are they going to third or retreating to second? The batter is running to first. You have the ball in your glove. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B", "1B", "2B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.42, "y": 0.48 }, "label": "Runner (off 2nd)" },
-          { "id": "batter", "position": { "x": 0.58, "y": 0.78 }, "label": "Batter (running)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.42,
+              "y": 0.48
+            },
+            "label": "Runner (off 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.58,
+              "y": 0.78
+            },
+            "label": "Batter (running)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +84,22 @@
       "type": "outcome",
       "narration": "You glance at the runner -- they flinch and stop, realizing you've got your eye on them. They scramble back to second base. Now you fire to first -- OUT! The batter is retired, the runner stays at second, and you've got one out. Your shortstop taps their glove: 'Great awareness!' That quick look kept the runner honest AND you still got the out at first.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (back at 2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (back at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -57,9 +107,18 @@
         "headline": "Heads-Up Play! Runner Frozen, Out at First!",
         "explanation": "This is situational defense at its best. The quick look at the runner only takes a split second, but it accomplishes two things: 1) It freezes the runner, preventing them from advancing to third. 2) It lets you know if the runner is trying to advance (in which case you might tag them or throw to third). After the look, you still had plenty of time to throw to first for the out. Remember: a ground ball to the third baseman with a runner on second is a THINKING play. The extra half-second for a look doesn't cost you the out at first.",
         "keyTerms": [
-          { "term": "Check the runner", "definition": "A quick glance at a baserunner before making a throw to freeze them and prevent them from advancing." },
-          { "term": "Freezing a runner", "definition": "Using eye contact or a fake throw to make a runner stop and go back to their base instead of advancing." },
-          { "term": "Situational awareness", "definition": "Knowing where all the runners are and what they might do BEFORE the ball is hit, so you can react quickly." }
+          {
+            "term": "Check the runner",
+            "definition": "A quick glance at a baserunner before making a throw to freeze them and prevent them from advancing."
+          },
+          {
+            "term": "Freezing a runner",
+            "definition": "Using eye contact or a fake throw to make a runner stop and go back to their base instead of advancing."
+          },
+          {
+            "term": "Situational awareness",
+            "definition": "Knowing where all the runners are and what they might do BEFORE the ball is hit, so you can react quickly."
+          }
         ],
         "whatToRemember": "With a runner on second and a grounder to third, always take a quick look at the runner before throwing to first. That half-second look freezes them and keeps them from advancing for free.",
         "iqPoints": 10,
@@ -67,15 +126,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.48 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.42,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner2nd",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -88,10 +159,22 @@
       "type": "outcome",
       "narration": "You throw to first right away and get the batter out. Good throw, easy out. But while you were throwing, the runner on second saw you weren't looking and took off for third! They slide in safely. Now the tying run is on third with one out. You got the out, but you gave up a free base.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd now)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd now)"
+          }
         ]
       },
       "outcome": {
@@ -104,15 +187,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.48 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.42,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true
@@ -126,11 +221,28 @@
       "type": "outcome",
       "narration": "You throw to second base trying to get the runner who was off the bag. But the runner saw the ball hit to you and was already diving back! They're safe at second. And now the batter is safe at first too because nobody covered that throw! Runners on first and second, nobody out. You got NO outs on a routine ground ball!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (safe at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -143,23 +255,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.48 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.42,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner2nd",
               "duration": 400,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.58,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 800,
               "parallel": true

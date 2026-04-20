@@ -1,25 +1,52 @@
 {
   "id": "the-show-opposite-field-approach",
   "title": "Beat the Shift: Opposite Field or Power Through?",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "offense",
-  "tags": ["hitting", "defensive-shift", "opposite-field", "batted-ball-direction", "approach"],
+  "tags": [
+    "hitting",
+    "defensive-shift",
+    "opposite-field",
+    "batted-ball-direction",
+    "approach"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 0, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 3rd, scoreless game. You're a left-handed pull hitter with power, and the defense has shifted on you -- three infielders are on the right side of second base, and the left side is WIDE open. The third baseman has moved to the shortstop position, leaving nobody between third base and the shortstop area. You've seen this shift all season and you're 2-for-15 against it. You need to decide your approach at the plate. Do you try to go opposite field into the open left side, try to hit over or through the shift, or adjust with a bunt?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B", "SS", "2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B",
+          "SS",
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +71,13 @@
       "type": "decision",
       "narration": "You decide to go opposite field. The pitcher throws a fastball on the outer half -- perfect for an opposite-field approach. You stay back, let the ball travel deep, and push it to the left side. But here's the thing: going opposite field against your natural swing path requires you to change your timing and mechanics. You make contact, but it's not your hardest swing. The ball is a ground ball toward the shortstop area. Nobody is there! It rolls into left field for a single! But your exit velocity was only 78 mph -- not your best contact. Still, a hit is a hit. With two more at-bats today against the shift, what's your approach going forward?",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "choices": [
@@ -65,8 +97,13 @@
       "type": "decision",
       "narration": "You commit to your natural pull swing. The pitcher throws a sinker on the inner half -- your favorite pitch to pull. You unload on it with full power. The ball is HAMMERED... right at the second baseman who's playing in the normal shortstop position! He catches the line drive! Out! With the shift on, there were THREE fielders in the area where you hit the ball. Your hardest contact went straight into the teeth of the defense. Next at-bat, same shift is on. What do you do now?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.52 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.52
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "choices": [
@@ -86,8 +123,13 @@
       "type": "decision",
       "narration": "You push a bunt down the third-base line. With nobody within 40 feet of the ball, it's an easy base hit! You trot to first. The defense is annoyed -- the shift gave you a free base. But here's the question: you're a power hitter batting .260 with 15 home runs. You just bunted for a single. Is that a win for you, or did the shift succeed in turning a power hitter into a bunter? The next time up, the shift is still on. What's your approach?",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.72 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.72
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "choices": [
@@ -107,8 +149,13 @@
       "type": "outcome",
       "narration": "You go opposite field again. Another ground ball to the left side -- another single! You're now 2-for-2 against the shift with two opposite-field singles. But your exit velocity on both hits was under 80 mph. You've turned yourself from a .260 hitter with power into a .300 hitter with no power. The shift WANTED you to do this -- they traded your home runs for weak singles. Over the course of a season, a singles hitter with 78 mph exit velocity produces less total value than a power hitter who occasionally gets shifted out.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -124,8 +171,13 @@
       "type": "outcome",
       "narration": "Brilliant thinking. You showed you can go opposite field, and the defense noticed. Next at-bat, the third baseman moves back toward his normal position to guard against the bunt and opposite-field approach. The shift is weaker now -- only a partial shift instead of a full overload. You step in and pull a fastball into the right-field gap for a double! The defense couldn't shift fully because they respected your opposite-field ability, and the weakened shift left the pull side more open. By showing BOTH abilities, you forced the defense into a no-win position.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.3 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -134,9 +186,18 @@
         "explanation": "This is the game-theory optimal approach to the defensive shift. By going opposite field ONCE, you proved you could do it. The defense had to respect that ability, which forced them to weaken the shift. A weaker shift means more room on the pull side, which is where your power lives. The opposite-field single was a INVESTMENT -- it cost you some power in the short term but earned you a weaker shift in the long term. This is Nash Equilibrium in action: the defense can't fully shift because you've shown the opposite-field threat, and you can't fully commit to opposite field because the pull side is where you do the most damage. Both sides adjust, and the equilibrium benefits the hitter who has both tools.",
         "whatToRemember": "The best anti-shift strategy is showing multiple approaches. Go opposite field occasionally to force the defense out of the full shift, then use your natural pull swing against the weakened alignment. Versatility defeats the shift.",
         "keyTerms": [
-          { "term": "Nash Equilibrium", "definition": "A game theory concept where neither side can improve their outcome by changing strategy alone. In the shift battle, the hitter shows both pull and opposite-field ability, forcing the defense into a compromise alignment." },
-          { "term": "Spray Chart", "definition": "A diagram showing where a hitter's batted balls land on the field. Hitters with diverse spray charts are harder to shift against because the defense can't predict which side the ball will go." },
-          { "term": "Shift Leverage", "definition": "Using the threat of opposite-field hitting to force the defense to weaken or abandon the shift, opening up the pull side where the hitter does the most damage." }
+          {
+            "term": "Nash Equilibrium",
+            "definition": "A game theory concept where neither side can improve their outcome by changing strategy alone. In the shift battle, the hitter shows both pull and opposite-field ability, forcing the defense into a compromise alignment."
+          },
+          {
+            "term": "Spray Chart",
+            "definition": "A diagram showing where a hitter's batted balls land on the field. Hitters with diverse spray charts are harder to shift against because the defense can't predict which side the ball will go."
+          },
+          {
+            "term": "Shift Leverage",
+            "definition": "Using the threat of opposite-field hitting to force the defense to weaken or abandon the shift, opening up the pull side where the hitter does the most damage."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -146,8 +207,14 @@
       "type": "outcome",
       "narration": "You pull again -- this time it's a hard ground ball. But the shortstop, who's playing in the second baseman's normal position, snags it and throws to first. Out! You're now 0-for-2 with two hard-hit balls directly into the shift. Your exit velocities are elite -- 105 mph and 98 mph -- but the shift is turning your best contact into outs. The shift doesn't care how hard you hit it. It cares WHERE you hit it. And you're hitting it right where they have three fielders standing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -163,8 +230,13 @@
       "type": "outcome",
       "narration": "Smart adjustment! You try to get under the ball and lift it over the shifted infielders. The pitcher delivers a sinker -- you adjust your swing to get lift. The ball launches into the air toward right field... it's deep! The right fielder drifts back... and catches it at the warning track! Fly out. Close to a homer, but not quite. The idea was right -- the shift can't stop elevated balls -- but this pitcher throws sinkers that are hard to lift. Elevation against sinkerballers requires perfect timing.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.25 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.25
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -180,8 +252,13 @@
       "type": "outcome",
       "narration": "You bunt again -- another easy single! But you've now bunted twice in a game as a power hitter. The defense is thrilled. They turned your power potential into two bunts singles. Over the course of a season, a power hitter who bunts for singles produces LESS offensive value than one who drives the ball for extra bases, even accounting for the shift. You're batting 1.000 today, but your slugging percentage is .250 -- the same as a weak singles hitter. The shift wants to turn power hitters into bunters. You're playing their game.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.72 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.72
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -197,8 +274,13 @@
       "type": "outcome",
       "narration": "Perfect strategy! After the bunt single, the defense adjusts: the third baseman stays closer to the line to guard against another bunt, and the shortstop moves back toward his normal position. The shift is much weaker now. You step in and pull a fastball through the right side -- it splits the gap between the first baseman and the now-repositioned second baseman! Double into the right-field corner! The bunt single FORCED the defense to weaken the shift, and your pull power exploited the adjustment. Two at-bats, two hits -- one bunt single and one pull double. Combined slugging: .750. That's how you beat the shift.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.3 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -207,9 +289,18 @@
         "explanation": "This is the complete anti-shift toolkit deployed in sequence. Step 1: Show the bunt or opposite-field ability to prove you can beat the shift that direction. Step 2: The defense adjusts by weakening the shift (bringing fielders back to the left side). Step 3: Pull the ball against the now-weaker shift, where your power lives. The bunt single was an investment with a return: it cost you one at-bat of power but earned a weaker shift for future at-bats. The pull double against the weakened shift was the payoff. This is why the shift battle is ultimately about versatility. The hitter who can demonstrate multiple approaches forces the defense into a compromise alignment that doesn't fully suppress any one approach.",
         "whatToRemember": "Beat the shift in two steps: first, show you can go the other way (bunt or opposite-field hit). Then, when the defense adjusts, attack with your power to the pull side. The bunt is the setup; the pull hit is the knockout punch.",
         "keyTerms": [
-          { "term": "Two-Step Shift Strategy", "definition": "First demonstrate opposite-field ability to force the defense to weaken the shift, then exploit the weakened shift with pull-side power. The first hit is the investment; the second is the return." },
-          { "term": "Exit Velocity", "definition": "How hard the ball comes off the bat, measured in mph. Pull-side contact typically produces higher exit velocity than opposite-field contact because the hitter uses full rotational power." },
-          { "term": "Batted Ball Direction", "definition": "Whether a hit ball goes to the pull side, center, or opposite field. Hitters who can control direction force the defense into impossible positioning decisions." }
+          {
+            "term": "Two-Step Shift Strategy",
+            "definition": "First demonstrate opposite-field ability to force the defense to weaken the shift, then exploit the weakened shift with pull-side power. The first hit is the investment; the second is the return."
+          },
+          {
+            "term": "Exit Velocity",
+            "definition": "How hard the ball comes off the bat, measured in mph. Pull-side contact typically produces higher exit velocity than opposite-field contact because the hitter uses full rotational power."
+          },
+          {
+            "term": "Batted Ball Direction",
+            "definition": "Whether a hit ball goes to the pull side, center, or opposite field. Hitters who can control direction force the defense into impossible positioning decisions."
+          }
         ],
         "iqPoints": 10,
         "next": "end"

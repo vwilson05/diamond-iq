@@ -1,26 +1,54 @@
 {
   "id": "tball-stay-on-base",
   "title": "Stay on the Base!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "offense",
-  "tags": ["baserunning", "patience", "awareness", "basics"],
+  "tags": [
+    "baserunning",
+    "patience",
+    "awareness",
+    "basics"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 3 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You just got a hit and made it to first base -- awesome! SAFE! But now the other team has the ball and they're throwing it around to each other. The ball goes from the shortstop to the second baseman to the pitcher. Nobody has hit the ball again yet. Do you keep running?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +73,22 @@
       "type": "outcome",
       "narration": "You stay right on first base with your foot on the bag. Smart! The other team throws the ball around but they can't get you out because you're safe on the base. Then the next batter comes up and CRACK -- they hit the ball! NOW you take off running to second base! Your coach says, 'Perfect! You waited for the right time!'",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.4 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.4
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (heading to 2nd!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (heading to 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +96,18 @@
         "headline": "Smart Baserunning! Waited for the Hit!",
         "explanation": "When you're standing on a base, you're SAFE -- nobody can get you out as long as you're touching the bag! The other team can throw the ball around all they want, but they can't tag you out if your foot is on the base. You should wait there until the next batter hits the ball. THAT'S when you run to the next base. Be patient and wait for your chance!",
         "keyTerms": [
-          { "term": "Safe on Base", "definition": "When you're touching a base, you can't be tagged out. The base protects you!" },
-          { "term": "The Bag", "definition": "Another word for a base. Keep your foot on the bag to stay safe!" },
-          { "term": "Patient", "definition": "Waiting for the right moment. Good baserunners wait for the ball to be hit before they run!" }
+          {
+            "term": "Safe on Base",
+            "definition": "When you're touching a base, you can't be tagged out. The base protects you!"
+          },
+          {
+            "term": "The Bag",
+            "definition": "Another word for a base. Keep your foot on the bag to stay safe!"
+          },
+          {
+            "term": "Patient",
+            "definition": "Waiting for the right moment. Good baserunners wait for the ball to be hit before they run!"
+          }
         ],
         "whatToRemember": "Stay on the base until the next batter hits the ball! The base keeps you safe -- don't leave it too early.",
         "iqPoints": 10,
@@ -66,15 +115,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.4, "y": 0.4 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 700
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 900
             }
@@ -87,8 +148,13 @@
       "type": "outcome",
       "narration": "You take off running toward second base... but the shortstop has the ball! They see you running and toss it to the second baseman, who's standing right on the base. They tag you before you get there. OUT! Your coach says, 'Wait for the next hit before you run! You were safe on first!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -96,8 +162,14 @@
         "headline": "Tagged Out! Should Have Stayed!",
         "explanation": "In T-Ball, you should wait on your base until the next batter hits the ball. When you run between bases without a hit, the other team can easily throw the ball to the base you're running to and tag you out. You were SAFE on first base! Nobody could get you out there. But as soon as you left the base without a good reason, you were in danger. Wait for the hit!",
         "keyTerms": [
-          { "term": "Tagged Out", "definition": "When a fielder touches you with the ball while you're NOT on a base. You're out!" },
-          { "term": "Between Bases", "definition": "The area between two bases where you're NOT safe. If someone tags you here, you're out!" }
+          {
+            "term": "Tagged Out",
+            "definition": "When a fielder touches you with the ball while you're NOT on a base. You're out!"
+          },
+          {
+            "term": "Between Bases",
+            "definition": "The area between two bases where you're NOT safe. If someone tags you here, you're out!"
+          }
         ],
         "whatToRemember": "Don't run to the next base until the batter hits the ball! You're safe on the base -- don't give that up!",
         "iqPoints": 1,
@@ -105,22 +177,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.55, "y": 0.48 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.48
+              },
               "entity": "you",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.4,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.55, "y": 0.48 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.48
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -133,10 +223,22 @@
       "type": "outcome",
       "narration": "You step a few feet off the base... the second baseman sees you and runs toward you with the ball! You scramble back to first base just in time -- SAFE! That was scary! Your coach says, 'Be careful! Stay on the base so they can't catch you off guard.'",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.55 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.55
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (back on 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (back on 1st)"
+          }
         ]
       },
       "outcome": {
@@ -144,8 +246,14 @@
         "headline": "Close Call! Almost Caught Off Base!",
         "explanation": "Stepping off the base can be risky! In some leagues, when you step off the base, the other team can try to tag you out. You made it back just in time, but that was a close one! In T-Ball, the safest thing to do is keep your foot on the base until the next batter hits the ball. There will be plenty of time to run when the ball is hit.",
         "keyTerms": [
-          { "term": "Lead Off", "definition": "Stepping off the base before the ball is hit. In T-Ball, this is usually not allowed or not a good idea!" },
-          { "term": "Scramble Back", "definition": "Running back to the base you came from to avoid being tagged out. Whew!" }
+          {
+            "term": "Lead Off",
+            "definition": "Stepping off the base before the ball is hit. In T-Ball, this is usually not allowed or not a good idea!"
+          },
+          {
+            "term": "Scramble Back",
+            "definition": "Running back to the base you came from to avoid being tagged out. Whew!"
+          }
         ],
         "whatToRemember": "Keep your foot on the base! Don't step off until the ball is hit. The base keeps you safe!",
         "iqPoints": 4,
@@ -153,15 +261,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.65, "y": 0.55 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.55
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.65, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.65,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 500
             }

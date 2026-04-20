@@ -1,28 +1,70 @@
 {
   "id": "minors-two-out-rally",
   "title": "Two-Out Rally!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "offense",
-  "tags": ["two-outs", "rally", "clutch", "approach", "contact", "runners-in-scoring-position"],
+  "tags": [
+    "two-outs",
+    "rally",
+    "clutch",
+    "approach",
+    "contact",
+    "runners-in-scoring-position"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 2,
-    "score": { "home": 3, "away": 5 },
-    "runners": { "first": false, "second": true, "third": true },
-    "count": { "balls": 1, "strikes": 1 }
+    "score": {
+      "home": 3,
+      "away": 5
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": true
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 1
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Last inning, your team is down by two. Runners on second AND third with two outs. The count is 1-1. Your teammates in the dugout are cheering like crazy. This is it -- you're the tying run at the plate. Two runs score on a hit. The pitcher looks nervous. What's your approach for this huge at-bat?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "2B", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "2B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -47,12 +89,38 @@
       "type": "outcome",
       "narration": "You choke up an inch on the bat and shorten your swing. Focus. See the ball, hit the ball. The pitcher throws a fastball on the inner half -- you turn on it with a quick, compact swing. LINE DRIVE over the shortstop's head into left field! The runner from third scores! The runner from second is rounding third... scores too! GAME TIED! You're standing on first base pumping your fist. The dugout erupts!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.35 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.35
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st!)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED!)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st!)"
+          }
         ]
       },
       "outcome": {
@@ -60,9 +128,18 @@
         "headline": "Two-Out Hit! Game Tied!",
         "explanation": "In a two-out, runners-in-scoring-position situation, your NUMBER ONE goal is to put the ball in play. A hit scores the runs. A walk is fine but doesn't score anyone. A strikeout ends the game. By shortening your swing and focusing on contact, you maximized your chance of hitting the ball hard somewhere. Choking up gives you more bat control and makes it harder to miss. You don't need a home run -- a simple line drive single ties the game. The best clutch hitters in history are known for making CONTACT with two outs, not for trying to be heroes.",
         "keyTerms": [
-          { "term": "Choking up", "definition": "Moving your hands up an inch or two on the bat handle. This gives you more bat control and makes it easier to make contact, especially with two strikes." },
-          { "term": "Two-out hit", "definition": "A hit with two outs that drives in runs. These are some of the most valuable hits in baseball because the inning was about to end." },
-          { "term": "RISP (Runners in Scoring Position)", "definition": "When runners are on second and/or third base, they're in 'scoring position' because they can score on a single." }
+          {
+            "term": "Choking up",
+            "definition": "Moving your hands up an inch or two on the bat handle. This gives you more bat control and makes it easier to make contact, especially with two strikes."
+          },
+          {
+            "term": "Two-out hit",
+            "definition": "A hit with two outs that drives in runs. These are some of the most valuable hits in baseball because the inning was about to end."
+          },
+          {
+            "term": "RISP (Runners in Scoring Position)",
+            "definition": "When runners are on second and/or third base, they're in 'scoring position' because they can score on a single."
+          }
         ],
         "whatToRemember": "With two outs and runners in scoring position, shorten your swing and focus on hard contact. A single ties the game. You don't need to be a hero -- just put the ball in play!",
         "iqPoints": 10,
@@ -70,23 +147,41 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.3, "y": 0.35 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.35
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner3rd",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner2nd",
               "duration": 1000
             }
@@ -99,11 +194,28 @@
       "type": "outcome",
       "narration": "You take a monster swing. The pitcher throws a changeup and you're WAY out in front -- STRIKE TWO! Now you're down 1-2. The pitcher smells blood and throws a curveball on the corner. You swing big again and... miss. STRIKE THREE. Game over. Your team loses 5-3. The two runners who were in scoring position never got to score. The dugout goes quiet.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (stranded)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stranded)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (stranded)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stranded)"
+          }
         ]
       },
       "outcome": {
@@ -116,8 +228,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -130,11 +248,28 @@
       "type": "outcome",
       "narration": "You decide to be ultra-patient. The pitcher throws a fastball on the corner -- you take it. Strike two. Now you're in a 1-2 hole and the pitcher has all the power. They throw a curveball that barely catches the zone -- strike three, called. You never swung the bat. Game over. You were so focused on walking that you forgot to compete.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (stranded)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stranded)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (stranded)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stranded)"
+          }
         ]
       },
       "outcome": {
@@ -147,8 +282,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 500
             }

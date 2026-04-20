@@ -16,8 +16,45 @@ const BRAIN_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org
 const TARGET_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`;
 const TROPHY_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 21h8M12 17v4M6 3h12v4a6 6 0 01-12 0V3zM6 5H3v2a3 3 0 003 3M18 5h3v2a3 3 0 01-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
+// ---- Impact & Token Multiplier ----
+/**
+ * Calculate impact multiplier (1x-5x) from scenario setup.
+ * Late innings, close scores, runners in scoring position, and 2 outs = higher impact.
+ */
+function calcImpact(setup) {
+  if (!setup) return 1;
+  let impact = 1;
+
+  // Late innings matter more (7th+ = +1, 9th = +2)
+  const inning = setup.inning || 1;
+  if (inning >= 9) impact += 2;
+  else if (inning >= 7) impact += 1;
+
+  // Close game = more pressure (within 2 runs = +1)
+  const scoreDiff = Math.abs((setup.score?.home || 0) - (setup.score?.away || 0));
+  if (scoreDiff <= 1) impact += 1;
+  else if (scoreDiff <= 2) impact += 0.5;
+
+  // Runners in scoring position = +1
+  if (setup.runners?.second || setup.runners?.third) impact += 1;
+
+  // 2 outs = more pressure
+  if (setup.outs === 2) impact += 0.5;
+
+  return Math.min(Math.round(impact), 5);
+}
+
+function getMultiplierLabel(multiplier) {
+  if (multiplier >= 5) return 'Game-Changing Moment';
+  if (multiplier >= 4) return 'Clutch Time';
+  if (multiplier >= 3) return 'Big Decision';
+  if (multiplier >= 2) return 'Key Play';
+  return '';
+}
+
 // ---- State ----
 const game = new GameState();
+let sessionTokens = 0; // separate token count from IQ
 const playerAuth = new PlayerAuth();
 let fieldCanvas = null;
 let scoreboard = null;
@@ -324,6 +361,19 @@ function renderDecision(node, nodeId) {
   const sitBar = createSituationBar(setup);
   panel.appendChild(sitBar);
 
+  // Impact multiplier banner
+  const scenario = game.state.currentScenario;
+  const multiplier = scenario.impact || calcImpact(setup);
+  if (multiplier >= 2) {
+    const banner = document.createElement('div');
+    banner.className = 'impact-banner';
+    banner.innerHTML = `
+      <span class="impact-label">${getMultiplierLabel(multiplier)}</span>
+      <span class="impact-multiplier">${multiplier}x Token Multiplier</span>
+    `;
+    panel.appendChild(banner);
+  }
+
   // Narration
   const narDiv = document.createElement('div');
   narDiv.className = 'narration-text';
@@ -398,6 +448,16 @@ function renderOutcome(node, nodeId) {
     </div>
   ` : '';
 
+  // Calculate tokens earned with impact multiplier
+  const scenarioMultiplier = game.state.currentScenario.impact || calcImpact(game.state.currentScenario.setup);
+  const baseTokens = outcome.iqPoints || 0;
+  const tokensEarned = baseTokens * scenarioMultiplier;
+  sessionTokens += tokensEarned;
+
+  const tokenHtml = scenarioMultiplier > 1
+    ? `<div class="outcome-tokens"><span class="token-coin">${TOKEN_COIN_SVG}</span> +${tokensEarned} tokens <span class="token-multiplier-tag">${scenarioMultiplier}x multiplier</span></div>`
+    : `<div class="outcome-tokens"><span class="token-coin">${TOKEN_COIN_SVG}</span> +${tokensEarned} tokens</div>`;
+
   outcomeDiv.innerHTML = `
     <div class="outcome-headline ${outcome.result}">${outcome.headline}</div>
     <div class="outcome-explanation">${outcome.explanation}</div>
@@ -407,6 +467,7 @@ function renderOutcome(node, nodeId) {
       <div class="outcome-remember-text">${outcome.whatToRemember}</div>
     </div>
     <div class="outcome-iq">+${outcome.iqPoints} IQ Points</div>
+    ${tokenHtml}
   `;
 
   // Record outcome (include category + whatToRemember for review breakdown)
@@ -428,8 +489,8 @@ function renderOutcome(node, nodeId) {
   void iqEl.offsetWidth; // force reflow to restart animation
   iqEl.classList.add('iq-bump');
 
-  // Update token display
-  updateTokenDisplay(game.state.totalIQ);
+  // Update token display (tokens are separate from IQ now)
+  updateTokenDisplay(sessionTokens);
 
   // Save result to server if we have a session
   if (currentSessionId) {
@@ -583,10 +644,9 @@ function showReview() {
       `).join('')}
     </div>` : '';
 
-  // --- Tokens earned this round ---
-  const roundIQ = outcomesWithCat.reduce((sum, h) => sum + (h.outcome.iqPoints || 0), 0);
+  // --- Tokens earned this round (with multipliers) ---
   const tokensHtml = `<div class="review-tokens">
-    <span class="review-tokens-earned"><span class="token-coin">${TOKEN_COIN_SVG}</span> +${roundIQ} tokens earned this round</span>
+    <span class="review-tokens-earned"><span class="token-coin">${TOKEN_COIN_SVG}</span> +${sessionTokens} tokens earned this round</span>
   </div>`;
 
   container.innerHTML = `
@@ -665,7 +725,7 @@ function showReview() {
     const savedSport = localStorage.getItem('diamond_iq_sport');
     const savedTeam = localStorage.getItem('diamond_iq_team');
 
-    game.reset();
+    game.reset(); sessionTokens = 0;
 
     if (savedSport) game.selectSport(savedSport);
     if (savedTeam) {
@@ -761,7 +821,7 @@ function updatePlayerHeader() {
       <span class="token-display" style="font-size:0.8rem;margin-left:0.2rem;"><span class="token-coin">${TOKEN_COIN_SVG}</span>${player.cumulative_iq || 0}</span>`;
     btn.addEventListener('click', () => {
       playerAuth.logout();
-      game.reset();
+      game.reset(); sessionTokens = 0;
       showScreen('auth');
       bootAuth();
     });
@@ -790,7 +850,7 @@ document.getElementById('menu-end').addEventListener('click', () => {
   if (game.getHistory().length > 0) {
     showReview();
   } else {
-    game.reset();
+    game.reset(); sessionTokens = 0;
     showScreen('sportSelect');
   }
 });
@@ -859,7 +919,7 @@ function showPlayerProfile(player) {
           <span class="profile-mastery-pct">${pct}%</span>
         </div>
         <div class="profile-mastery-bar-track"><div class="profile-mastery-bar-fill" style="width:${pct}%;background:${barColor(pct)}"></div></div>
-        <div class="profile-mastery-stats">${total} scenarios — Great: ${c.great || 0} | Good: ${c.good || 0} | Okay: ${c.okay || 0} | Needs Work: ${c.bad || 0}</div>
+        <div class="profile-mastery-stats">${total} scenarios — Great: ${c.great || 0} | Good: ${c.good || 0} | Okay: ${c.okay || 0} | Opportunity: ${c.bad || 0}</div>
       </div>`;
     }).join('')}</div>`;
   }
@@ -931,7 +991,7 @@ function showPlayerProfile(player) {
     const savedSport = localStorage.getItem('diamond_iq_sport');
     const savedTeam = localStorage.getItem('diamond_iq_team');
     const savedTier = localStorage.getItem('diamond_iq_tier');
-    game.reset();
+    game.reset(); sessionTokens = 0;
     if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
       const tier = TIERS.find(t => t.id === savedTier);
@@ -976,7 +1036,7 @@ function showPlayerProfile(player) {
     `;
 
     container.querySelector('.profile-guest-cta-btn')?.addEventListener('click', () => {
-      game.reset();
+      game.reset(); sessionTokens = 0;
       showScreen('auth');
       bootAuth();
     });

@@ -1,27 +1,62 @@
 {
   "id": "tball-get-in-front",
   "title": "Get In Front of the Ball!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 3,
   "role": "defense",
-  "tags": ["fielding", "ground-ball", "body-position", "basics"],
+  "tags": [
+    "fielding",
+    "ground-ball",
+    "body-position",
+    "basics"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 1, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're playing third base and SMACK -- the batter hits a bouncy ground ball! It's bouncing toward you, hop hop hop across the dirt. There's a runner on second base who will try to score if the ball gets past you! How do you stop the ball?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner on 2nd" },
-          { "id": "batter", "position": { "x": 0.55, "y": 0.8 }, "label": "Batter" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner on 2nd"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.55,
+              "y": 0.8
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -46,10 +81,23 @@
       "type": "outcome",
       "narration": "You shuffle your feet and get your whole body RIGHT in front of the ball. You bend your knees, put your glove on the ground, and the ball hops right into it! SCOOP! Even if it had taken a weird bounce, your body was there to block it. You fire it to first base -- OUT! The runner stays at second. Your coach says, 'That's how you field a grounder! Body in front!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stays at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stays at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -57,9 +105,18 @@
         "headline": "Clean Scoop! Body in Front!",
         "explanation": "Getting your body in front of the ball is the NUMBER ONE rule for fielding ground balls! Why? Because if the ball takes a funny bounce and misses your glove, your body is right there to block it. Think of yourself like a wall -- the ball can't get past you! Bend your knees, get low, put your glove down, and let the ball come to you. Your body is like a backup plan for your glove.",
         "keyTerms": [
-          { "term": "Fielding Position", "definition": "Knees bent, glove on the ground, body in front of the ball. This is how you get ready to scoop up a grounder!" },
-          { "term": "Funky Hop", "definition": "When the ball bounces in a weird direction you didn't expect. That's why your body needs to be in front!" },
-          { "term": "Scoop", "definition": "Picking up the ball cleanly off the ground with your glove. Like using a shovel!" }
+          {
+            "term": "Fielding Position",
+            "definition": "Knees bent, glove on the ground, body in front of the ball. This is how you get ready to scoop up a grounder!"
+          },
+          {
+            "term": "Funky Hop",
+            "definition": "When the ball bounces in a weird direction you didn't expect. That's why your body needs to be in front!"
+          },
+          {
+            "term": "Scoop",
+            "definition": "Picking up the ball cleanly off the ground with your glove. Like using a shovel!"
+          }
         ],
         "whatToRemember": "Always get your body in front of ground balls! Bend low, glove on the ground, and let the ball come to you.",
         "iqPoints": 10,
@@ -67,22 +124,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.55 },
-              "to": { "x": 0.33, "y": 0.58 },
+              "from": {
+                "x": 0.3,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.33,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 400
             },
             {
               "type": "catch",
-              "from": { "x": 0.35, "y": 0.6 },
-              "to": { "x": 0.33, "y": 0.58 },
+              "from": {
+                "x": 0.35,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.33,
+                "y": 0.58
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.33, "y": 0.58 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.33,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -95,10 +170,22 @@
       "type": "outcome",
       "narration": "You reach your glove out to the side and stab at the ball... and you get it! The ball sticks in the edge of your glove. But it almost snuck past you! You were lucky that time. You throw to first and the batter is out, but your coach says, 'Next time get your body in front -- that was risky!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stays at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stays at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -106,8 +193,14 @@
         "headline": "Got It! But That Was Risky!",
         "explanation": "Reaching to the side can work sometimes, but it's risky. If the ball bounces even a little bit differently, it gets past your glove and you have nothing behind it to stop it. When you get your whole body in front of the ball, even if you miss it with your glove, your chest, your legs, or your belly can block it. Your body is like a big wall behind your glove!",
         "keyTerms": [
-          { "term": "Backhand", "definition": "Reaching across your body to the glove side to catch a ball. It works sometimes, but getting in front is safer!" },
-          { "term": "Body Block", "definition": "Using your body as a backup behind your glove. If the ball misses your glove, your body stops it!" }
+          {
+            "term": "Backhand",
+            "definition": "Reaching across your body to the glove side to catch a ball. It works sometimes, but getting in front is safer!"
+          },
+          {
+            "term": "Body Block",
+            "definition": "Using your body as a backup behind your glove. If the ball misses your glove, your body stops it!"
+          }
         ],
         "whatToRemember": "Don't just reach -- move your feet and get your whole body in front of the ball! It's the safest way to field.",
         "iqPoints": 4,
@@ -115,15 +208,27 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.35, "y": 0.6 },
-              "to": { "x": 0.32, "y": 0.55 },
+              "from": {
+                "x": 0.35,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.32,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.32, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.32,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -136,11 +241,28 @@
       "type": "outcome",
       "narration": "You turn sideways and try to block it with your leg, but the ball bounces right between your feet and rolls into the outfield! The runner on second takes off and scores! The batter makes it to second base. Your coach jogs over and says, 'Hey, use your glove and get in front of it! You can do it!'",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.3 },
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.3
+        },
         "highlight": [],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (scored!)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (scored!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -148,8 +270,14 @@
         "headline": "Ball Gets Through! Runner Scores!",
         "explanation": "Trying to block the ball with your leg doesn't work well because your legs have a big gap between them and the ball can sneak right through! Plus, even if you do block it with your leg, you still have to pick it up off the ground. That wastes time! Instead, face the ball, get your glove on the ground, and use your body as a big wall. Your glove is made for catching -- use it!",
         "keyTerms": [
-          { "term": "Error", "definition": "When a fielder makes a mistake and the ball gets past them. It happens to everyone, but we want to stop as many balls as we can!" },
-          { "term": "Get Low", "definition": "Bending your knees so your glove can reach the ground. Ground balls are on the ground, so you need to get down there too!" }
+          {
+            "term": "Error",
+            "definition": "When a fielder makes a mistake and the ball gets past them. It happens to everyone, but we want to stop as many balls as we can!"
+          },
+          {
+            "term": "Get Low",
+            "definition": "Bending your knees so your glove can reach the ground. Ground balls are on the ground, so you need to get down there too!"
+          }
         ],
         "whatToRemember": "Face the ball, bend your knees, and get your glove on the ground. Your body should be a wall behind your glove!",
         "iqPoints": 1,
@@ -157,15 +285,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.6 },
-              "to": { "x": 0.3, "y": 0.3 },
+              "from": {
+                "x": 0.35,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 1200,
               "parallel": true

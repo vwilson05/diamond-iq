@@ -644,7 +644,7 @@ body {
 .outcome-headline.great { color: var(--great); text-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
 .outcome-headline.good { color: var(--good); text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
 .outcome-headline.okay { color: var(--okay); text-shadow: 0 0 20px rgba(234, 179, 8, 0.3); }
-.outcome-headline.bad { color: var(--bad); text-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
+.outcome-headline.bad { color: var(--okay); text-shadow: 0 0 20px rgba(234, 179, 8, 0.3); }
 
 .outcome-explanation {
   font-size: 0.95rem;
@@ -940,7 +940,7 @@ body {
 .review-item.great { border-left-color: var(--great); }
 .review-item.good { border-left-color: var(--good); }
 .review-item.okay { border-left-color: var(--okay); }
-.review-item.bad { border-left-color: var(--bad); }
+.review-item.bad { border-left-color: var(--okay); }
 
 .review-item-situation {
   font-size: 0.8rem;
@@ -1970,6 +1970,70 @@ body {
   .profile-awards {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ---- IMPACT MULTIPLIER BANNER ---- */
+.impact-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.15) 0%, rgba(234, 179, 8, 0.1) 100%);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  animation: impact-pulse 2s ease-in-out infinite;
+}
+
+@keyframes impact-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 166, 35, 0.1); }
+  50% { box-shadow: 0 0 16px rgba(245, 166, 35, 0.25); }
+}
+
+.impact-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.impact-multiplier {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #f5a623;
+  background: rgba(245, 166, 35, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ---- OUTCOME TOKENS ---- */
+.outcome-tokens {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.1);
+  color: #f5a623;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.outcome-tokens .token-coin {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.token-multiplier-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(245, 166, 35, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.3rem;
 }
 
 /* ---- UTILITY ---- */

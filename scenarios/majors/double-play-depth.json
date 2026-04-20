@@ -1,27 +1,62 @@
 {
   "id": "majors-double-play-depth",
   "title": "Double Play Depth: Position and Execute",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "defense",
-  "tags": ["double-play", "positioning", "infield", "ground-ball", "game-awareness"],
+  "tags": [
+    "double-play",
+    "positioning",
+    "infield",
+    "ground-ball",
+    "game-awareness"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 5, "away": 3 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 5,
+      "away": 3
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "Runner on first, nobody out, and your team leads by two. You're playing second base. Before the pitch, your coach yells 'Double play depth!' Time to think about where to stand and how to set up for the twin killing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "SS", "1B", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "SS",
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "decision-1",
@@ -31,10 +66,23 @@
       "type": "decision",
       "narration": "Your coach says 'double play depth!' How do you position yourself as the second baseman?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "SS"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -59,11 +107,32 @@
       "type": "transition",
       "narration": "You move in two steps and shade a step toward second base. Perfect double play depth! The pitcher delivers and the batter smacks a sharp grounder to your LEFT -- toward the hole between you and first base. You dive and snag it! But you're on the ground now. What's the play?",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.55 },
-        "highlight": ["2B", "SS", "1B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.55
+        },
+        "highlight": [
+          "2B",
+          "SS",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "Runner (heading to 2nd)" },
-          { "id": "batter", "position": { "x": 0.57, "y": 0.78 }, "label": "Batter" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "Runner (heading to 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.57,
+              "y": 0.78
+            },
+            "label": "Batter"
+          }
         ]
       },
       "next": "decision-2",
@@ -73,11 +142,31 @@
       "type": "decision",
       "narration": "You've got the ball after a diving stop! You're on the ground at second base. The shortstop is covering the bag at second. The runner from first is coming hard. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.5 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.5
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.55, "y": 0.5 }, "label": "Runner" },
-          { "id": "batter", "position": { "x": 0.6, "y": 0.75 }, "label": "Batter" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.55,
+              "y": 0.5
+            },
+            "label": "Runner"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.6,
+              "y": 0.75
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -102,11 +191,31 @@
       "type": "decision",
       "narration": "Nice flip! The shortstop catches it right at the bag -- FORCE OUT at second! One out! The shortstop now has the ball and needs to complete the double play. The batter is about two-thirds of the way to first. The runner from first is sliding in hard at the shortstop's legs. How does the shortstop handle the relay?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.47 }, "label": "Runner (sliding)" },
-          { "id": "batter", "position": { "x": 0.62, "y": 0.7 }, "label": "Batter" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.47
+            },
+            "label": "Runner (sliding)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.62,
+              "y": 0.7
+            },
+            "label": "Batter"
+          }
         ]
       },
       "choices": [
@@ -131,8 +240,13 @@
       "type": "outcome",
       "narration": "The shortstop leaps over the sliding runner like a ballet dancer, plants their back foot, and fires a bullet to first. The first baseman stretches -- GOT IT! DOUBLE PLAY! The infield erupts! 4-6-3 on the scorecard! From zero outs to two outs on one pitch. That's elite defense!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -145,29 +259,53 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.42 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.42
+              },
               "entity": "fielder",
               "duration": 200
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.42 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.42
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.62, "y": 0.7 },
-              "to": { "x": 0.67, "y": 0.63 },
+              "from": {
+                "x": 0.62,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.67,
+                "y": 0.63
+              },
               "entity": "batter",
               "duration": 700,
               "parallel": true
@@ -181,10 +319,22 @@
       "type": "outcome",
       "narration": "The shortstop catches the feed, touches second for the force, and slings a sidearm throw to first without jumping. The throw tails a bit but the first baseman scoops it on one hop. The umpire looks... SAFE! The batter beat the throw by half a step! You got one out, but the double play didn't turn.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (safe at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -197,22 +347,40 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.62, "y": 0.7 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.62,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 800,
               "parallel": true
@@ -226,10 +394,22 @@
       "type": "outcome",
       "narration": "The shortstop catches the flip, touches second, and holds the ball as the runner slides in. One out, but the batter reaches first. Runner on first with one out instead of nobody on with two outs. The safe play -- but you left an out on the table.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -242,15 +422,27 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.62, "y": 0.7 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.62,
+                "y": 0.7
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 900
             }
@@ -263,10 +455,22 @@
       "type": "outcome",
       "narration": "You stay at your normal depth. The batter smacks a grounder toward you -- you field it, but now you're too far from second base! You have to make a long throw to the shortstop covering second. The throw is a little wide and the shortstop has to stretch for it. They get the force at second, but the batter beats the relay to first. Only one out.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (safe at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -279,29 +483,53 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.58, "y": 0.48 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.48
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.58, "y": 0.48 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.58,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.57, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.57,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 1100,
               "parallel": true
@@ -315,10 +543,22 @@
       "type": "outcome",
       "narration": "You move BACK, playing deep. The batter chops a grounder right at you -- easy fielding. But you're so far from second base that by the time the ball gets to the shortstop, the runner from first is already there. No force at second! The shortstop has to tag the runner, who slides in safely. You throw to first and get the batter, but the runner is on second with one out. No double play possible from that deep.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -331,30 +571,54 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.62, "y": 0.42 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.62,
+                "y": 0.42
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.62, "y": 0.42 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.62,
+                "y": 0.42
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -367,11 +631,30 @@
       "type": "outcome",
       "narration": "You scramble toward second base trying to touch it yourself, but the runner from first gets there before you do! No force out. You hold the ball and the runner is safe at second. The batter reaches first. Nobody is out and now you've got runners on first and second. Yikes!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.48 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.48
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -384,23 +667,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "fielder",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.57, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.57,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 900,
               "parallel": true
@@ -414,10 +715,22 @@
       "type": "outcome",
       "narration": "You throw to first from the ground and get the batter! Nice arm! But the runner from first is now standing safely on second base. One out, runner in scoring position. You got an out, but you chose the LESS important one.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (safe at 2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (safe at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -430,15 +743,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true

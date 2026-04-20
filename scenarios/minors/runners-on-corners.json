@@ -1,28 +1,70 @@
 {
   "id": "minors-runners-on-corners",
   "title": "Runners on the Corners!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "defense",
-  "tags": ["runners-on-corners", "pitcher", "catcher", "strategy", "preventing-runs"],
+  "tags": [
+    "runners-on-corners",
+    "pitcher",
+    "catcher",
+    "strategy",
+    "preventing-runs"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": true, "second": false, "third": true },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": true
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "transition",
       "narration": "Tricky situation here! Runners on first AND third with one out. Your team is up by a run. You're the pitcher. The runner on third is taking a big lead, eyeing home plate. The runner on first looks antsy too -- they might try to steal second. The batter digs in. This is a chess match and you're in the middle of it!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "1B", "3B", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "1B",
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.28, "y": 0.58 }, "label": "Runner (3rd)" },
-          { "id": "runner1st", "position": { "x": 0.66, "y": 0.58 }, "label": "Runner (1st)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.28,
+              "y": 0.58
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.66,
+              "y": 0.58
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "next": "decision-1",
@@ -32,11 +74,33 @@
       "type": "decision",
       "narration": "The batter tops a grounder right back to you on the mound. You field it cleanly. The runner on third is frozen halfway down the line, watching you. The runner on first is halfway to second. Where do you go with the ball?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home", "2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home",
+          "2B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.35, "y": 0.62 }, "label": "Runner (between 3rd & Home)" },
-          { "id": "runner1st", "position": { "x": 0.58, "y": 0.52 }, "label": "Runner (between 1st & 2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.35,
+              "y": 0.62
+            },
+            "label": "Runner (between 3rd & Home)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.58,
+              "y": 0.52
+            },
+            "label": "Runner (between 1st & 2nd)"
+          }
         ]
       },
       "choices": [
@@ -61,11 +125,30 @@
       "type": "outcome",
       "narration": "Smart play! You look right at the runner on third -- they freeze and scramble back to third base. Now you turn and fire to first -- OUT! The batter is retired. Two outs now! The runner on third is still stuck there. You kept the run from scoring AND got an out. That's called 'managing the situation!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (back to 3rd)" },
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (back to 3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -78,29 +161,53 @@
           "steps": [
             {
               "type": "catch",
-              "from": { "x": 0.48, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.62 },
+              "from": {
+                "x": 0.48,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.62
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.62 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner3rd",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.58,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 600,
               "parallel": true
@@ -114,12 +221,38 @@
       "type": "outcome",
       "narration": "You throw home immediately. The catcher catches it, but the runner on third wasn't even going! They were bluffing! Now the catcher has the ball at home, the batter is safe at first, and the runner from first moved to second. You didn't get any outs, and the bases are loaded!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.9 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -132,23 +265,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.9 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.9
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.58,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 800,
               "parallel": true
@@ -162,11 +313,31 @@
       "type": "outcome",
       "narration": "You throw to second base to get the runner from first. But the MOMENT you turned away from the runner on third, they broke for home! Your second baseman catches the throw and gets the out, but the runner from third slides in and scores! The game is tied. You got an out, but you gave up the tying run!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["Home", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "Home",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -179,15 +350,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.35,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner3rd",
               "duration": 800,
               "parallel": true
@@ -201,11 +384,31 @@
       "type": "decision",
       "narration": "Nice work -- two outs now, runners on second and third. The next pitch is delivered and -- the runner on first (now at second) takes off trying to steal third! Your catcher pops up with the ball. But wait... the runner on third is edging down the line too. What should the catcher do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.9 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.28, "y": 0.62 }, "label": "Runner (3rd, edging home)" },
-          { "id": "runner2nd", "position": { "x": 0.42, "y": 0.48 }, "label": "Runner (stealing 3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.28,
+              "y": 0.62
+            },
+            "label": "Runner (3rd, edging home)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.42,
+              "y": 0.48
+            },
+            "label": "Runner (stealing 3rd)"
+          }
         ]
       },
       "choices": [
@@ -230,11 +433,30 @@
       "type": "outcome",
       "narration": "Your catcher holds the ball and doesn't throw. Smart! The runner on third was creeping toward home, HOPING the catcher would throw to third so they could score. The runner steals third safely, but you now have runners on second and third with two outs. The game is still yours to win because the run DIDN'T score.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.9 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.9
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          }
         ]
       },
       "outcome": {
@@ -247,8 +469,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.48 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.42,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 800
             }
@@ -261,10 +489,23 @@
       "type": "outcome",
       "narration": "The catcher fires to third! But the runner on third was waiting for exactly that -- the MOMENT the catcher released the ball, the runner on third broke for home! The third baseman catches the throw and tags the stealing runner -- out! But the runner from third crosses the plate! Wait... did the tag happen before the run scored? The umpires get together... the run COUNTS! The runner scored before the tag was applied at third. Game tied!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["Home", "3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "Home",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORED)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORED)"
+          }
         ]
       },
       "outcome": {
@@ -277,23 +518,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.28, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.28,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner3rd",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.35, "y": 0.58 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -306,11 +565,30 @@
       "type": "outcome",
       "narration": "Your catcher fakes the throw to third -- pumps their arm but holds the ball! The runner on third takes two steps toward home, thinking the ball was thrown. The catcher sees them off the bag and fires to third! The third baseman applies the tag -- but the runner dives back safely. Close! But the run didn't score, and you kept control.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (safe at 3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (safe at 3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -323,29 +601,53 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 200
             },
             {
               "type": "run",
-              "from": { "x": 0.28, "y": 0.62 },
-              "to": { "x": 0.35, "y": 0.68 },
+              "from": {
+                "x": 0.28,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.68
+              },
               "entity": "runner3rd",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.35, "y": 0.68 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.68
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner3rd",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.48 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.42,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2nd",
               "duration": 800,
               "parallel": true

@@ -1,28 +1,68 @@
 {
   "id": "majors-double-steal",
   "title": "The Double Steal: Runners in Motion",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "majors",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["double-steal", "baserunning", "first-and-third", "timing", "aggressive-play"],
+  "tags": [
+    "double-steal",
+    "baserunning",
+    "first-and-third",
+    "timing",
+    "aggressive-play"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": true, "second": false, "third": true },
-    "count": { "balls": 1, "strikes": 1 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": true
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 1
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runners on first and third, one out, trailing by one. You're the runner on third base, and your teammate is on first. Your coach calls the double steal. The plan: the runner on first breaks for second on the pitch, and you -- the runner on third -- read the catcher's throw. If the catcher throws to second, you break for home. If the catcher holds the ball, the runner on first gets a free stolen base. This play puts all the pressure on the catcher. When do you break for home?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "3B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -52,40 +92,74 @@
       "type": "outcome",
       "narration": "The pitch comes in and the runner on first takes off for second. The catcher catches the ball, pops up, and starts his throw to second -- and THAT'S when you break! The moment his arm starts forward, you sprint for home! The catcher is already committed to the throw to second. He can't pull it back. The ball goes to the shortstop at second, but by the time anyone realizes you're running, it's too late. The shortstop catches the ball and looks home -- you're already sliding! SAFE! TIE GAME! The double steal works perfectly!",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
         "result": "great",
         "headline": "SAFE at Home! Double Steal Executed!",
         "explanation": "The timing on the double steal is everything. Breaking the MOMENT the catcher starts his throwing motion to second is the perfect trigger. Here's why: 1) Once the catcher commits to the throw, he can't stop. His momentum is going toward second base, the opposite direction of where you're going. 2) By the time the ball reaches second, you're already two-thirds of the way home. 3) The fielder at second has to catch the ball, redirect, and throw home -- that's three actions versus your one (sprinting). 4) Even if the return throw is perfect, you have a huge head start. The key is reading the catcher's ARM, not his body. When the arm starts forward, you go. Not before. Not after. ON the arm action.",
-        "keyTerms": ["double steal", "catcher's arm trigger", "commit timing"],
+        "keyTerms": [
+          "double steal",
+          "catcher's arm trigger",
+          "commit timing"
+        ],
         "whatToRemember": "On the double steal from third, break when you see the catcher's arm start forward toward second. That's your trigger -- he's committed and can't pull it back. Not before, not after. ON the arm action.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 800,
               "parallel": true
@@ -99,10 +173,22 @@
       "type": "outcome",
       "narration": "You break for home at the same time the runner on first breaks for second -- both on the pitch. But the catcher sees you coming immediately! He catches the pitch and doesn't even bother throwing to second. He steps forward and tags you sliding in. OUT! You ran straight into a tag. The catcher never had to choose between throwing to second or tagging you -- you came to HIM. The runner on first has to go back. Worst possible outcome.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (back to 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (back to 1st)"
+          }
         ]
       },
       "outcome": {
@@ -115,15 +201,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 700
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "fielder",
               "duration": 200
             }
@@ -136,10 +234,22 @@
       "type": "outcome",
       "narration": "You wait to see the ball reach second base. The catcher throws to second -- the shortstop catches it and tags the runner from first. OUT at second! Now the shortstop looks at you. You haven't broken yet. He holds the ball. You can't go now -- the element of surprise is gone. Two outs, you're still on third, and the runner from first is out. You waited too long and the double steal failed completely.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (still 3rd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (still 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -152,15 +262,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.52, "y": 0.47 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.47
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -173,33 +295,66 @@
       "type": "outcome",
       "narration": "You take two hard steps toward home, selling the bluff. The catcher sees you and hesitates -- should he throw to second or deal with you? He decides to throw to third base to try to catch you off the bag! But you were bluffing and retreat safely to third. The runner on first, seeing the throw go to third instead of second, stays at first. Nobody advanced, but nobody got thrown out either. The bluff created indecision but didn't produce a result.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (safe at 3rd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (still 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (safe at 3rd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (still 1st)"
+          }
         ]
       },
       "outcome": {
         "result": "good",
         "headline": "Bluff Worked, But No One Advanced.",
         "explanation": "The bluff is a variant of the double steal, but it's less effective than the real thing. The bluff creates indecision for the catcher, which is good, but it doesn't produce a tangible result -- nobody advances, nobody scores. In contrast, the real double steal either scores a run (if the catcher throws to second) or gets a free stolen base (if the catcher holds). The bluff trades potential gain for safety. Sometimes it's the right play -- if you're protecting a lead and can't risk getting thrown out. But trailing by one with one out? You need to create runs, and the bluff doesn't do that. Commit to the double steal and go for the run.",
-        "keyTerms": ["bluff play"],
+        "keyTerms": [
+          "bluff play"
+        ],
         "whatToRemember": "Bluffs create indecision but don't advance runners. When you need a run, commit to the real double steal. The bluff is safer but doesn't produce the result you need in a must-score situation.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.38, "y": 0.68 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.68
+              },
               "entity": "you",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.38, "y": 0.68 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.38,
+                "y": 0.68
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 300
             }

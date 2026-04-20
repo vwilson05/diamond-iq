@@ -1,27 +1,59 @@
 {
   "id": "the-show-delayed-steal-timing",
   "title": "The Delayed Steal: Patience and Timing",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "offense",
-  "tags": ["delayed-steal", "baserunning", "timing", "catcher-habits", "strategy"],
+  "tags": [
+    "delayed-steal",
+    "baserunning",
+    "timing",
+    "catcher-habits",
+    "strategy"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on first base in a tie game. You've been watching the catcher for three innings and you've noticed something: after receiving the pitch, he's lazy with his return throw to the pitcher. He catches the ball, pauses, and lob-throws it back casually -- sometimes even looking toward the dugout before throwing back. The pitcher isn't much better: he catches the return throw, turns his back to the infield, and walks back to the rubber. For about 2-3 seconds, NOBODY is paying attention to the bases. You have good -- not great -- speed. A traditional steal might get you thrown out. But the delayed steal exploits the dead time after the pitch, not during it. When exactly do you break?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "C"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "You (1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (1st)"
+          }
         ]
       },
       "choices": [
@@ -51,10 +83,23 @@
       "type": "decision",
       "narration": "You take your normal lead and the pitch is delivered. The catcher catches it -- strike, 1-1. He pauses... looks toward the dugout... and starts his lazy lob-throw back to the pitcher. The instant the ball leaves his hand and is floating in the air toward the mound, you BREAK for second! The ball is between them -- the catcher doesn't have it, the pitcher doesn't have it yet. By the time the pitcher catches the return throw and realizes you're running, you've already taken 4-5 steps! The pitcher wheels toward second. Does he throw?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.65 },
-        "highlight": ["P", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.65
+        },
+        "highlight": [
+          "P",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.6, "y": 0.52 }, "label": "You (running!)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "You (running!)"
+          }
         ]
       },
       "choices": [
@@ -74,8 +119,13 @@
       "type": "outcome",
       "narration": "You break the moment the catcher catches the pitch. But the catcher still has the ball! He sees you going out of the corner of his eye and fires to second. Even though he was lazy on return throws, a stolen base attempt triggers his instincts -- he knows how to throw to second. His throw beats you and you're tagged out! The delayed steal only works when the ball is in NO ONE's hands. Breaking when the catcher has the ball isn't a delayed steal -- it's a bad regular steal.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -91,10 +141,22 @@
       "type": "outcome",
       "narration": "The pitcher catches the lob-back, sees you sprinting, and panics. He rushes an off-balance throw to second that sails high over the shortstop's head and into center field! You pop up from your slide at second and sprint to third! Standing up at third with one out in a tie game! The delayed steal created chaos -- the pitcher wasn't prepared for the throw and his panic led to an error. That's TWO bases gained from one play, all because you exploited the dead zone in the catcher-pitcher exchange.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd!)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -103,9 +165,18 @@
         "explanation": "This is the delayed steal's bonus effect: even when the defense reacts, the surprise element causes errors. The pitcher was not mentally prepared to receive a return throw and immediately make a competitive throw to second base. His arm wasn't warm for a snap throw, his feet weren't set, and his brain was processing 'routine return throw' not 'stolen base attempt.' The rushed, off-balance throw is a common result because the delayed steal attacks the defense during their most relaxed moment. This is why the delayed steal has a higher success rate than traditional steals despite the runner having less speed: it exploits AWARENESS, not raw athleticism. The defense's lack of attention is the stolen base, not your legs.",
         "whatToRemember": "The delayed steal attacks defensive awareness, not footspeed. By breaking during the dead zone between catcher and pitcher, you create surprise that leads to hesitation, bad throws, and errors. You don't need elite speed -- you need elite timing.",
         "keyTerms": [
-          { "term": "Delayed Steal", "definition": "A baserunning play where the runner breaks for the next base AFTER the pitch is received, during the dead time when the catcher returns the ball to the pitcher. Exploits defensive inattention rather than speed." },
-          { "term": "Dead Zone", "definition": "The 1-3 second window after a pitch where the ball is in transit between catcher and pitcher and neither player is in a position to make a competitive throw to a base." },
-          { "term": "Surprise Factor", "definition": "The competitive advantage gained by attacking when the defense is mentally relaxed. The delayed steal succeeds because the defense isn't expecting a baserunning play between pitches." }
+          {
+            "term": "Delayed Steal",
+            "definition": "A baserunning play where the runner breaks for the next base AFTER the pitch is received, during the dead time when the catcher returns the ball to the pitcher. Exploits defensive inattention rather than speed."
+          },
+          {
+            "term": "Dead Zone",
+            "definition": "The 1-3 second window after a pitch where the ball is in transit between catcher and pitcher and neither player is in a position to make a competitive throw to a base."
+          },
+          {
+            "term": "Surprise Factor",
+            "definition": "The competitive advantage gained by attacking when the defense is mentally relaxed. The delayed steal succeeds because the defense isn't expecting a baserunning play between pitches."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -115,10 +186,22 @@
       "type": "outcome",
       "narration": "The pitcher catches the return throw, sees you running, and hesitates. His brain stalls: throw to second? Throw to the shortstop? Who's covering? By the time he decides to throw, you're already sliding into second base -- SAFE! The middle infielders weren't expecting a steal attempt between pitches and were slow getting to the bag. The delayed steal worked perfectly: you exploited the window when no one was paying attention, and the defense's confusion gave you the extra time you needed. Runner on second, one out, tie game.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE at 2nd!)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (SAFE at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -127,9 +210,18 @@
         "explanation": "The delayed steal succeeded for three reasons: 1) Timing -- you broke when the ball was in the air between catcher and pitcher, creating a dead zone where no one could throw. 2) Surprise -- the defense was in 'between pitches' mode, not 'defend the steal' mode. The middle infielders weren't near the bag. 3) Observation -- you spent three innings studying the catcher's lazy habits, identifying the exact window to exploit. The delayed steal is the thinking player's weapon. You don't need 90th-percentile speed. You need observation skills (watching the catcher's habits), timing (breaking at exactly the right moment), and baseball IQ (knowing when the game situation calls for the play).",
         "whatToRemember": "The delayed steal rewards observation and timing over raw speed. Study the catcher's return-throw habits for multiple innings before attempting it. Break when the ball leaves the catcher's hand, not before.",
         "keyTerms": [
-          { "term": "Catcher Habits", "definition": "Patterns in how a catcher receives and returns the ball to the pitcher. Lazy return throws, looking away, and slow transitions create exploitable windows for delayed steals." },
-          { "term": "Between-Pitch Defense", "definition": "The defensive posture between pitches when players relax, middle infielders drift from their positions, and the battery's attention drops. The delayed steal attacks this exact moment." },
-          { "term": "Observation Period", "definition": "The time spent studying the catcher and pitcher's habits before attempting a delayed steal. Elite baserunners spend 2-3 innings cataloging return-throw timing before making their move." }
+          {
+            "term": "Catcher Habits",
+            "definition": "Patterns in how a catcher receives and returns the ball to the pitcher. Lazy return throws, looking away, and slow transitions create exploitable windows for delayed steals."
+          },
+          {
+            "term": "Between-Pitch Defense",
+            "definition": "The defensive posture between pitches when players relax, middle infielders drift from their positions, and the battery's attention drops. The delayed steal attacks this exact moment."
+          },
+          {
+            "term": "Observation Period",
+            "definition": "The time spent studying the catcher and pitcher's habits before attempting a delayed steal. Elite baserunners spend 2-3 innings cataloging return-throw timing before making their move."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -139,10 +231,22 @@
       "type": "outcome",
       "narration": "You break when the pitcher catches the return throw and turns his back. He has the ball but isn't looking at you. You take off! But the catcher sees you going from behind the plate and yells 'RUNNER!' The pitcher wheels -- he has the ball and he's in a decent position because he's on the rubber. He throws to second and the shortstop gets there in time. You slide... SAFE by half a step! Close call. The timing worked, but it was tighter than necessary because the pitcher had the ball and could throw at any moment. Breaking during the catcher's throw would have given you more safety margin.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "You (SAFE, barely)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (SAFE, barely)"
+          }
         ]
       },
       "outcome": {
@@ -158,8 +262,13 @@
       "type": "outcome",
       "narration": "You try a traditional steal -- breaking on the pitcher's first move to the plate. The pitcher has a quick delivery and the catcher pops up and fires a strong throw to second. You're out by three feet. You have good speed, not great speed, and this catcher has a strong arm. The traditional steal failed because your speed isn't elite enough to beat the pitcher-catcher battery in a head-to-head footrace. But the DELAYED steal would have worked because it doesn't compete against the catcher's arm -- it exploits his laziness between pitches. You chose the wrong tool for the job.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {

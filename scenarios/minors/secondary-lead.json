@@ -1,27 +1,60 @@
 {
   "id": "minors-secondary-lead",
   "title": "Secondary Lead!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["secondary-lead", "baserunning", "first-base", "timing", "aggressiveness"],
+  "tags": [
+    "secondary-lead",
+    "baserunning",
+    "first-base",
+    "timing",
+    "aggressiveness"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the runner on first base, one out, tied game. The pitcher comes set and delivers the pitch to home plate. The batter doesn't swing. As the pitcher is delivering the ball, you should be taking a secondary lead -- extra steps toward second base while the pitch is in the air. How do you take your secondary lead?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["1B", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.68, "y": 0.58 }, "label": "You (on 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "You (on 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +79,22 @@
       "type": "outcome",
       "narration": "As the pitcher delivers, you take two quick shuffle steps toward second -- left foot, right foot, left foot -- staying on the balls of your feet and keeping your weight balanced. The pitch goes to the catcher and you stop, balanced and ready. You're now 10 feet closer to second base than before. If the ball is hit, you have a head start! If the catcher throws, you can get back. Then -- the batter hits a grounder to the right side. Because of your secondary lead, you easily make it to second base! Your extra steps gave you the head start!",
       "field": {
-        "ballPosition": { "x": 0.62, "y": 0.52 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.62,
+          "y": 0.52
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (safe at 2nd!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (safe at 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,9 +102,18 @@
         "headline": "Great Secondary Lead! Extra Base Gained!",
         "explanation": "The secondary lead is one of the most important baserunning skills. Here's the technique: as the pitcher releases the ball toward home plate (NOT before), take 2-3 quick shuffle steps toward second base. Key points: 1) SHUFFLE, don't cross your feet. Shuffling keeps you balanced so you can go back if needed. 2) Stay on the balls of your feet, not your heels. 3) Time it with the pitch -- start moving as the ball leaves the pitcher's hand. 4) If the ball isn't hit, get back to first. Those extra 8-10 feet of lead make a HUGE difference on hit-and-runs, stolen bases, and getting to the next base on ground balls.",
         "keyTerms": [
-          { "term": "Secondary lead", "definition": "Extra steps a baserunner takes toward the next base while the pitch is being delivered. It's taken AFTER the pitcher releases the ball, not before." },
-          { "term": "Shuffle steps", "definition": "Quick lateral steps without crossing your feet. This keeps you balanced and ready to move in either direction." },
-          { "term": "Reading the ball", "definition": "Watching the pitch to see if the batter hits it, the catcher catches it, or it gets past the catcher. Your reaction depends on what happens." }
+          {
+            "term": "Secondary lead",
+            "definition": "Extra steps a baserunner takes toward the next base while the pitch is being delivered. It's taken AFTER the pitcher releases the ball, not before."
+          },
+          {
+            "term": "Shuffle steps",
+            "definition": "Quick lateral steps without crossing your feet. This keeps you balanced and ready to move in either direction."
+          },
+          {
+            "term": "Reading the ball",
+            "definition": "Watching the pitch to see if the batter hits it, the catcher catches it, or it gets past the catcher. Your reaction depends on what happens."
+          }
         ],
         "whatToRemember": "Take 2-3 shuffle steps toward second as the pitch is delivered. Stay balanced on the balls of your feet. This head start gets you to the next base faster on any batted ball.",
         "iqPoints": 10,
@@ -67,15 +121,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.62, "y": 0.55 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.62,
+                "y": 0.55
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.62, "y": 0.55 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.62,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 600
             }
@@ -88,11 +154,30 @@
       "type": "outcome",
       "narration": "You stay planted on first base. The batter hits a ground ball through the right side -- base hit! But because you didn't take a secondary lead, you're starting from a standstill right next to first base. You run hard but can only make it to second. If you'd had a secondary lead, you might have made it to third on that hit! The extra base could matter later.",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.3 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.3
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (at 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -105,8 +190,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 900
             }
@@ -119,10 +210,22 @@
       "type": "outcome",
       "narration": "You take off sprinting toward second the moment the pitcher releases. The catcher sees you going and thinks you're stealing -- they fire the ball to second base! But you weren't actually stealing, you just took too aggressive of a secondary lead. You're caught in no-man's land! You scramble back to first but the shortstop almost tags you. Safe, but BARELY. Your coach holds up both hands: 'Secondary lead, not a steal! Stay balanced!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.7, "y": 0.6 }, "label": "You (back at 1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (back at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -135,22 +238,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.58, "y": 0.52 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.52
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.58,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 600
             }

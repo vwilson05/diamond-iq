@@ -1,25 +1,49 @@
 {
   "id": "the-show-managing-pitch-count",
   "title": "Managing Pitch Count: Efficiency Under Fatigue",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 2,
   "role": "defense",
-  "tags": ["pitching", "pitch-count", "efficiency", "fatigue", "game-management"],
+  "tags": [
+    "pitching",
+    "pitch-count",
+    "efficiency",
+    "fatigue",
+    "game-management"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 3, "away": 1 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on the mound, up 3-1 through 5 innings. But you're already at 85 pitches. Your team's pitch limit is 105 pitches. That gives you 20 pitches for the next two innings if you want to finish the game. Through five innings, you averaged 17 pitches per inning -- too many. The issue: you've been falling behind in counts and fighting through long at-bats. To get through innings 6 and 7 on only 20 pitches, you need to average 10 pitches per inning. How do you become more efficient without losing effectiveness?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +68,13 @@
       "type": "decision",
       "narration": "You attack the zone on the first pitch to the leadoff hitter -- fastball, outer half, strike one! The hitter is now behind 0-1. Analytics show that after an 0-1 count, the average at-bat length drops from 4.2 pitches to 3.6 pitches. That's 0.6 fewer pitches per batter. Over three batters, that's nearly 2 pitches saved. Now at 0-1, how do you approach pitch two to maintain efficiency?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "choices": [
@@ -65,8 +94,13 @@
       "type": "decision",
       "narration": "You pitch to contact -- sinker down in the zone, looking for a ground ball. The hitter swings at the first pitch and hits a grounder to short. Easy throw to first -- out! ONE pitch for ONE out. That's the definition of efficiency. Two more outs and you've used maybe 5-6 pitches for a clean inning. The next hitter steps in. Do you continue the pitch-to-contact approach?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "choices": [
@@ -86,8 +120,13 @@
       "type": "outcome",
       "narration": "You attack again with a curveball for called strike two. 0-2 in TWO pitches! The hitter is in survival mode. You throw a changeup in the dirt -- he chases and misses! THREE-PITCH STRIKEOUT! That's the ultimate efficiency play: 3 pitches, 1 out. At this rate, you could pitch two more innings on only 18 pitches. The key: first-pitch strikes put the hitter behind, second-pitch strikes put him in desperation, and the third pitch exploits that desperation with a chase pitch out of the zone.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -96,9 +135,18 @@
         "explanation": "The three-pitch strikeout is the gold standard of pitching efficiency. Here's the anatomy: Pitch 1 -- Strike in the zone. Gets ahead 0-1. Pitch 2 -- Strike on the edge. Gets to 0-2. Pitch 3 -- Chase pitch OUT of the zone. The hitter swings because he's protective with two strikes. Total: 3 pitches, 1 out, 0 balls. The analytics on first-pitch strikes are overwhelming: pitchers who throw first-pitch strikes 65%+ of the time average 3.5 pitches per at-bat. Pitchers below 55% average 4.3 pitches per at-bat. Over a 6-inning outing facing 24 batters, that's 24 pitches saved -- more than a full inning of work. First-pitch strikes are the single most important factor in pitch-count management.",
         "whatToRemember": "First-pitch strikes are the foundation of pitch efficiency. Getting ahead 0-1 reduces at-bat length by 0.6 pitches on average. Two quick strikes create the 3-pitch strikeout opportunity -- the ultimate efficiency play.",
         "keyTerms": [
-          { "term": "First-Pitch Strike Rate", "definition": "The percentage of at-bats where the pitcher throws strike one on the first pitch. Elite starters exceed 65%. Directly correlates to pitch count efficiency and innings durability." },
-          { "term": "Pitch Efficiency", "definition": "The ratio of pitches thrown to outs recorded. Elite efficiency is under 13 pitches per inning. The three-pitch strikeout (3 pitches, 1 out) is maximum efficiency." },
-          { "term": "Chase Rate", "definition": "The percentage of pitches outside the zone that hitters swing at. With 0-2 counts, chase rates exceed 35%, making expansion pitches highly effective." }
+          {
+            "term": "First-Pitch Strike Rate",
+            "definition": "The percentage of at-bats where the pitcher throws strike one on the first pitch. Elite starters exceed 65%. Directly correlates to pitch count efficiency and innings durability."
+          },
+          {
+            "term": "Pitch Efficiency",
+            "definition": "The ratio of pitches thrown to outs recorded. Elite efficiency is under 13 pitches per inning. The three-pitch strikeout (3 pitches, 1 out) is maximum efficiency."
+          },
+          {
+            "term": "Chase Rate",
+            "definition": "The percentage of pitches outside the zone that hitters swing at. With 0-2 counts, chase rates exceed 35%, making expansion pitches highly effective."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -108,8 +156,13 @@
       "type": "outcome",
       "narration": "You throw a waste pitch off the plate at 0-1. Ball -- 1-1 count now. You used a pitch without gaining a strike. The at-bat is now even at 1-1, and you've thrown 2 pitches with only 1 strike. The waste pitch philosophy works in some situations, but when you're managing a limited pitch count, every pitch needs to either record a strike or get an out. A waste pitch at 0-1 gives the hitter back the count advantage you earned with the first-pitch strike. You still get the batter out, but it takes 5 pitches instead of 3. Over a full inning, those extra pitches add up fast.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -125,8 +178,13 @@
       "type": "outcome",
       "narration": "You continue pitching to contact. Sinker down, first pitch -- ground ball to second! Out! Sinker down again -- fly ball to right, caught! Three-up, three-down on 5 pitches! That's the most efficient inning possible. You entered the inning at 85 pitches and you're now at 90 with a clean frame. That leaves you 15 pitches for the 7th inning -- more than enough. Pitching to contact with a 2-run lead is the perfect strategy: you trust your defense, conserve energy, and don't need strikeouts when you're ahead.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -135,9 +193,18 @@
         "explanation": "A 5-pitch inning is the gold standard of efficiency. You threw strikes that the hitters put in play, and your defense converted them to outs. The math: at 5 pitches per inning, you could theoretically pitch 21 innings on 105 pitches. Obviously that's unrealistic, but the principle is sound -- ground balls and fly balls on early counts are the most efficient outs available. Strikeouts take 3-6 pitches each. Ground-ball outs take 1-2 pitches each. When you're protecting a lead and managing a pitch count, ground-ball outs are THREE TIMES more efficient than strikeouts. The key: throw hittable strikes that generate weak contact. Sinkers down, cutters in, changeups that induce rollers. Let the hitters get themselves out on your terms.",
         "whatToRemember": "Pitching to contact is the most efficient way to record outs. Ground-ball outs take 1-2 pitches vs. 3-6 for strikeouts. When protecting a lead with a limited pitch count, contact pitching is the optimal strategy.",
         "keyTerms": [
-          { "term": "Pitching to Contact", "definition": "A deliberate strategy of throwing strikes that induce weak contact (ground balls, pop flies) rather than trying to miss bats. Prioritizes efficiency over dominance." },
-          { "term": "Pitch Count Management", "definition": "Strategic awareness of remaining pitches and adjusting approach accordingly. At high pitch counts, efficiency (fewer pitches per out) becomes more important than strikeouts." },
-          { "term": "Ground Ball Rate", "definition": "The percentage of batted balls that are hit on the ground. Sinkerball pitchers with high ground ball rates (50%+) are the most efficient because ground balls lead to quick outs." }
+          {
+            "term": "Pitching to Contact",
+            "definition": "A deliberate strategy of throwing strikes that induce weak contact (ground balls, pop flies) rather than trying to miss bats. Prioritizes efficiency over dominance."
+          },
+          {
+            "term": "Pitch Count Management",
+            "definition": "Strategic awareness of remaining pitches and adjusting approach accordingly. At high pitch counts, efficiency (fewer pitches per out) becomes more important than strikeouts."
+          },
+          {
+            "term": "Ground Ball Rate",
+            "definition": "The percentage of batted balls that are hit on the ground. Sinkerball pitchers with high ground ball rates (50%+) are the most efficient because ground balls lead to quick outs."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -147,8 +214,13 @@
       "type": "outcome",
       "narration": "You mix in a strikeout pitch -- slider to the second hitter. He fouls it off... then fouls off two more. The at-bat stretches to 7 pitches before he finally strikes out. 7 pitches for one out versus 1 pitch for the previous out. The strikeout was dominant but costly. You've now used 8 pitches for 2 outs instead of 2 pitches for 2 outs if you'd kept pitching to contact. The third hitter grounds out on 2 pitches. The inning is over at 10 pitches -- reasonable, but you could have been even more efficient without the strikeout detour.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -164,8 +236,13 @@
       "type": "outcome",
       "narration": "You pitch your normal game -- working counts, mixing pitches, going for strikeouts. The 6th inning takes 19 pitches. You're now at 104 -- one pitch from your limit. Your coach pulls you before the 7th even starts. You could have gone two more innings but your approach burned through the pitch count. The bullpen has to cover the last inning, which puts more pressure on your relievers and reduces your team's pitching depth. Your stuff was still good, but your efficiency cost you an inning of work.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {

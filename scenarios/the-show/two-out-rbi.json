@@ -1,28 +1,66 @@
 {
   "id": "the-show-two-out-rbi",
   "title": "Two-Out RBI: Approach Against a Tough Pitcher",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 5,
   "role": "offense",
-  "tags": ["two-out-hitting", "RISP", "plate-approach", "clutch-hitting", "strategy"],
+  "tags": [
+    "two-out-hitting",
+    "RISP",
+    "plate-approach",
+    "clutch-hitting",
+    "strategy"
+  ],
   "setup": {
     "inning": 7,
     "topBottom": "bottom",
     "outs": 2,
-    "score": { "home": 3, "away": 4 },
-    "runners": { "first": false, "second": true, "third": true },
-    "count": { "balls": 1, "strikes": 1 }
+    "score": {
+      "home": 3,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": true
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 1
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 7th, two outs, runners on second and third, down 4-3. The pitcher on the mound is their ace -- he's got a 95 mph fastball, a devastating slider, and a changeup that falls off the table. The count is 1-1 after you took a fastball for a ball and fouled off a slider. You need at least one run to tie. A base hit scores two and gives you the lead. What's your approach for the rest of this at-bat?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -47,11 +85,30 @@
       "type": "decision",
       "narration": "You're geared for the fastball. The pitcher delivers -- it's a changeup! 84 mph, looks like a fastball out of the hand but arrives late. You started your swing early because you were timed for 95. You're way out in front. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -76,11 +133,30 @@
       "type": "decision",
       "narration": "You're looking off-speed. The pitcher delivers -- it's a 95 mph fastball on the inner half! You weren't timed for it. It arrives faster than expected. You have a split second to decide -- do you try to react and swing, or take it?",
       "field": {
-        "ballPosition": { "x": 0.48, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.48,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -100,11 +176,30 @@
       "type": "outcome",
       "narration": "You recognize the changeup mid-swing and make the elite adjustment: you slow your hands, let the ball travel deeper, and push it to the opposite field! The ball floats over the second baseman's head and drops into right field for a single! The runner from third scores easily -- TIE GAME! The runner from second rounds third and slides home -- SAFE! Two-run single! You're up 5-4! The at-bat adjustment -- recognizing off-speed and going the other way -- turned a swing-and-miss into a clutch two-run hit.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.35 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -113,9 +208,18 @@
         "explanation": "This is the highest-level hitting skill: mid-swing adjustment. When you're sitting fastball and you get off-speed, the elite move is to let the ball travel deeper into the zone and push it to the opposite field. Here's the biomechanics: your hands started early because you were timed for 95 mph. By slowing your hands and keeping the bat head behind the ball longer, you matched the changeup timing and directed it the other way. This is called 'staying inside the ball' -- keeping your hands close to your body so the bat head doesn't fly open early. It's the hardest adjustment in hitting because it requires recognizing the pitch AND changing your swing plan in approximately 100 milliseconds.",
         "whatToRemember": "When sitting fastball and you get off-speed, go opposite field. Slow your hands, let the ball travel deeper, and push it the other way. This turns a bad swing into a productive at-bat.",
         "keyTerms": [
-          { "term": "Staying Inside the Ball", "definition": "Keeping your hands close to your body during the swing so the bat head stays behind the ball longer. Allows you to adjust to off-speed pitches by directing them to the opposite field." },
-          { "term": "Mid-Swing Adjustment", "definition": "Changing your swing mechanics after recognizing a different pitch type than expected. Requires slowing hands for off-speed or quickening them for fastballs." },
-          { "term": "Opposite-Field Approach", "definition": "Intentionally directing the ball to the 'wrong' field (right field for a right-handed hitter). Most effective against off-speed pitches because it naturally accounts for being early on the swing." }
+          {
+            "term": "Staying Inside the Ball",
+            "definition": "Keeping your hands close to your body during the swing so the bat head stays behind the ball longer. Allows you to adjust to off-speed pitches by directing them to the opposite field."
+          },
+          {
+            "term": "Mid-Swing Adjustment",
+            "definition": "Changing your swing mechanics after recognizing a different pitch type than expected. Requires slowing hands for off-speed or quickening them for fastballs."
+          },
+          {
+            "term": "Opposite-Field Approach",
+            "definition": "Intentionally directing the ball to the 'wrong' field (right field for a right-handed hitter). Most effective against off-speed pitches because it naturally accounts for being early on the swing."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -125,11 +229,30 @@
       "type": "outcome",
       "narration": "You check your swing -- the umpire says you held up! Ball two, 2-1 count. You're still ahead. Now you know the pitcher is willing to throw off-speed in this count. On the next pitch, he comes with the fastball you were waiting for -- 95 mph, middle of the plate. You're ready this time. You drive it up the middle for a single! Both runners score! 5-4, you take the lead! The check swing kept you alive in the at-bat, and the next pitch was the one you crushed.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -145,8 +268,14 @@
       "type": "outcome",
       "narration": "You commit to the swing on the changeup -- your bat is way out in front. You roll over the top of it and hit a weak dribbler to the third baseman. He fields it and throws to first -- OUT! Inning over. Both runners are stranded. You were timed for 95 mph and got 84 mph with no adjustment. The changeup ate you alive because you committed to a fastball swing with no plan B.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -162,11 +291,30 @@
       "type": "outcome",
       "narration": "You react up to the fastball! You shorten your swing, get the bat head out, and make contact. It's not your best swing -- but you square it up enough to line it into center field! The runner from third scores -- TIE GAME! The runner from second is racing around third... SAFE AT HOME! Two-run single! 5-4! Your ability to time off-speed and react up to the fastball gave you coverage of both pitches. The shortened swing produced a hard line drive instead of a home run swing, but the line drive was all you needed.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.88 }, "label": "SCORES!" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "SCORES!"
+          }
         ]
       },
       "outcome": {
@@ -175,9 +323,18 @@
         "explanation": "This is the optimal two-strike/clutch approach: time off-speed, react up to fastball. Here's why it works: it's EASIER for a hitter to speed up his swing than to slow it down. When you're timed for 83-84 mph off-speed pitches, a 95 mph fastball requires you to shorten and quicken your swing -- which is biomechanically easier than trying to extend and slow your swing for off-speed when you're timed for fastball. The trade-off: your fastball contact won't be as powerful because you're shortening your swing. But in a two-out, RISP situation, you don't need a home run. You need the ball to find the outfield grass. A shortened swing that produces a line-drive single is worth more than a full swing that produces a fly-out or strikeout.",
         "whatToRemember": "In clutch situations, time off-speed and react up to the fastball. It's easier to speed up than slow down. You sacrifice some power but gain pitch coverage, which is more valuable with runners in scoring position.",
         "keyTerms": [
-          { "term": "React Up", "definition": "Adjusting your swing timing from off-speed to fastball by shortening your swing and quickening your hands. Biomechanically easier than adjusting from fast to slow." },
-          { "term": "Two-Strike Approach", "definition": "Adjusting your plate plan with two strikes to prioritize contact over power. Shortening the swing, widening the zone slightly, and accepting singles instead of hunting home runs." },
-          { "term": "RISP Approach", "definition": "With runners in scoring position, the priority shifts from power to contact. A ground ball through the infield or a line drive to the outfield scores the same runs as a home run -- with much higher probability." }
+          {
+            "term": "React Up",
+            "definition": "Adjusting your swing timing from off-speed to fastball by shortening your swing and quickening your hands. Biomechanically easier than adjusting from fast to slow."
+          },
+          {
+            "term": "Two-Strike Approach",
+            "definition": "Adjusting your plate plan with two strikes to prioritize contact over power. Shortening the swing, widening the zone slightly, and accepting singles instead of hunting home runs."
+          },
+          {
+            "term": "RISP Approach",
+            "definition": "With runners in scoring position, the priority shifts from power to contact. A ground ball through the infield or a line drive to the outfield scores the same runs as a home run -- with much higher probability."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -187,8 +344,13 @@
       "type": "outcome",
       "narration": "You take the fastball. Strike two -- 1-2. You were looking off-speed and the pitcher threw his best fastball for a strike. Now you're behind in the count. On the next pitch, the pitcher throws the slider -- the pitch you were waiting for! But with two strikes, you can't be as aggressive. You foul it off. Then another slider -- this time it dips just below the zone. You swing... and miss. Strike three. Runners stranded. By committing so hard to off-speed, you gave away a fastball strike that you could have handled with a shortened swing.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": []
       },
       "outcome": {
@@ -204,8 +366,14 @@
       "type": "outcome",
       "narration": "No specific plan -- just see ball, hit ball. The pitcher throws a slider that starts over the plate and breaks down and away. Without a plan, your swing decision is made in real-time. You reach for it and hit a weak grounder to the second baseman. Easy throw to first -- OUT. Inning over, runners stranded. Without a predetermined plan, your brain had to process pitch type, location, and swing decision all in 400 milliseconds. Against an elite pitcher with 95 mph heat and sharp breaking stuff, 'see ball hit ball' isn't enough. You need a plan.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {

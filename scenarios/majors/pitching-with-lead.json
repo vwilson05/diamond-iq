@@ -1,25 +1,51 @@
 {
   "id": "majors-pitching-with-lead",
   "title": "Pitching With a Lead: Attack or Nibble?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 1,
   "role": "pitching",
-  "tags": ["pitching", "lead-protection", "zone-attack", "efficiency", "game-management"],
+  "tags": [
+    "pitching",
+    "lead-protection",
+    "zone-attack",
+    "efficiency",
+    "game-management"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 6, "away": 3 },
-    "runners": { "first": false, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 6,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on the mound with a comfortable 6-3 lead in the fifth inning. Nobody on base, nobody out. You've been cruising all game -- 60 pitches through four innings, throwing strikes and letting your defense work. Your coach told you before the inning: 'Keep attacking. Don't change what got us here.' But there's a voice in your head saying 'protect the lead.' The leadoff hitter steps in. How do you approach this at-bat?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": []
       },
       "choices": [
@@ -44,8 +70,14 @@
       "type": "decision",
       "narration": "You throw a first-pitch fastball for a strike. Then a changeup that the batter grounds to short -- easy out. Seven pitches through the first hitter. Then the second batter: first-pitch curveball for a called strike, then a fastball that he pops up to second base. Five pitches. You're cruising. Now the third hitter of the inning steps in. You're at 72 pitches for the game. Your pitch count limit is 85. You've got room. How do you handle this hitter?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher",
+          "Home"
+        ],
         "runners": []
       },
       "choices": [
@@ -70,30 +102,51 @@
       "type": "outcome",
       "narration": "First-pitch fastball, called strike. Changeup, the batter pops it up to the third baseman. Inning over! Three up, three down on just 14 pitches! You come off the mound at 74 total pitches through five innings. Your coach is beaming -- you could easily pitch the sixth inning with room to spare. By attacking the zone and trusting your defense, you stayed efficient and gave your team the best chance to win.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "Three Up, Three Down! 14-Pitch Inning!",
         "explanation": "THIS is how you pitch with a lead. Here's the formula: 1) Throw first-pitch strikes. When you get ahead 0-1, the at-bat is in YOUR favor and usually ends faster. 2) Pitch to contact. You don't need strikeouts -- you have a defense behind you. Let them hit ground balls and fly balls into your fielders' gloves. 3) Stay efficient. A 14-pitch inning means you can pitch deeper into the game. A 30-pitch inning means you're coming out early. 4) A three-run lead is a CUSHION, not a prison. You can give up a hit, even a run, and still be winning comfortably. Attacking the zone with a lead is LESS risky than nibbling, because nibbling leads to walks, which lead to rallies.",
-        "keyTerms": ["pitch efficiency", "pitching to contact", "first-pitch strikes"],
+        "keyTerms": [
+          "pitch efficiency",
+          "pitching to contact",
+          "first-pitch strikes"
+        ],
         "whatToRemember": "Pitch with a lead the same way you pitched to GET the lead: attack the zone, throw strikes, and trust your defense. Efficiency keeps you in the game longer. More strikes = fewer pitches = more innings.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -106,10 +159,22 @@
       "type": "outcome",
       "narration": "You start being 'careful' -- throwing borderline pitches instead of attacking the zone. Ball one, outside. Ball two, low. Now you're behind 2-0 and FORCED to throw a strike. You groove a fastball and the hitter lines it for a single. Not a huge deal with the lead, but that 'careful' approach just put a baserunner on and ran your pitch count up. Five pitches on one hitter instead of two.",
       "field": {
-        "ballPosition": { "x": 0.65, "y": 0.4 },
-        "highlight": ["RF"],
+        "ballPosition": {
+          "x": 0.65,
+          "y": 0.4
+        },
+        "highlight": [
+          "RF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -122,15 +187,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "hit",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.65, "y": 0.4 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -143,23 +220,37 @@
       "type": "outcome",
       "narration": "You go for the strikeout. Curveball, changeup, fastball up -- a big three-pitch sequence. The batter swings through the fastball! STRIKE THREE! But that was a seven-pitch at-bat. You're now at 79 pitches -- only six from your limit. You might not be able to finish the next inning. The strikeout looked great, but it cost you in pitch count. If you'd gotten a two-pitch groundout instead, you'd have plenty of gas left.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "good",
         "headline": "Strikeout! But Pitch Count Is Rising.",
         "explanation": "Strikeouts are exciting, but they're the LEAST efficient way to get outs. A strikeout takes a minimum of three pitches, usually more (with foul balls). A groundout or flyout can happen on one pitch. When you have a comfortable lead and a pitch count to manage, outs-on-contact are more valuable than strikeouts. Think about it: 14 pitches for three contact outs versus 21 pitches for three strikeouts. Those seven extra pitches could be the difference between pitching the sixth inning and not. With a big lead, pitch for CONTACT. Save the punchout sequences for tight games where every at-bat is critical.",
-        "keyTerms": ["pitch efficiency", "contact outs"],
+        "keyTerms": [
+          "pitch efficiency",
+          "contact outs"
+        ],
         "whatToRemember": "With a lead, pitch for contact outs, not strikeouts. Strikeouts are expensive in pitch count. Ground balls and fly balls on one or two pitches keep you in the game longer.",
         "iqPoints": 7,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -172,10 +263,22 @@
       "type": "outcome",
       "narration": "You start nibbling the corners. Ball one, outside. Ball two, just missed. Ball three, low. Ball four -- walk! Leadoff walk on four pitches. That's the WORST outcome. Now there's a runner on first, nobody out, and your pitch count went up by four without recording an out. The next batter sees you're not throwing strikes and takes a patient approach too. Ball one, ball two... before you know it, you've walked two batters and the bases are loaded. Your three-run lead is shrinking fast. Your coach is heading to the mound.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Pitcher"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Pitcher"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Walk (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Walk (1st)"
+          }
         ]
       },
       "outcome": {
@@ -188,8 +291,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.58, "y": 0.9 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.9
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -202,32 +311,58 @@
       "type": "outcome",
       "narration": "You start the at-bat with a curveball instead of your usual first-pitch fastball. The hitter wasn't expecting it and takes it for a called strike! Good start. But now the hitter knows you're mixing it up. He adjusts, sits on the off-speed, and drives your next curveball for a double into the gap. You changed what was working, and the hitter exploited the change. Your fastball-first approach was working all game -- switching it up gave the hitter a new look that actually helped HIM.",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.2 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.2
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
         "result": "okay",
         "headline": "Double! Changed What Was Working.",
         "explanation": "There's an old coaching saying: 'Dance with the one who brought you.' It means: if something is working, KEEP DOING IT. Your fastball-first approach was dominating all game. Hitters were expecting the fastball early and you were ahead in counts. By switching to off-speed first, you gave hitters a different look -- and it actually made them more comfortable because they weren't calibrated for the fastball speed. Sometimes the best adjustment is NO adjustment. If you're dealing, keep dealing the same way. The time to change your approach is when it STOPS working, not when it's firing on all cylinders.",
-        "keyTerms": ["dance with the one who brought you"],
+        "keyTerms": [
+          "dance with the one who brought you"
+        ],
         "whatToRemember": "If your approach is working, don't change it just because you have a lead. Keep throwing what got you the lead. Only adjust when your current approach stops being effective.",
         "iqPoints": 4,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.48, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "hit",
-              "from": { "x": 0.48, "y": 0.88 },
-              "to": { "x": 0.35, "y": 0.2 },
+              "from": {
+                "x": 0.48,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.2
+              },
               "entity": "ball",
               "duration": 500
             }

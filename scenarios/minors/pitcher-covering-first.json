@@ -1,26 +1,57 @@
 {
   "id": "minors-pitcher-covering-first",
   "title": "Pitcher, Cover First!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 3,
   "role": "pitching",
-  "tags": ["pitcher", "covering-first", "ground-ball", "hustle", "teamwork", "first-base"],
+  "tags": [
+    "pitcher",
+    "covering-first",
+    "ground-ball",
+    "hustle",
+    "teamwork",
+    "first-base"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 2,
-    "score": { "home": 1, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Two outs, nobody on. You're the pitcher. You deliver a pitch and the batter hits a ground ball to the right side. Your first baseman ranges far to their right to field it -- they're now 15 feet away from first base! They pick up the ball and look at you. There's nobody at first base to take the throw. The batter is sprinting down the line. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.72, "y": 0.55 },
-        "highlight": ["Pitcher", "1B"],
+        "ballPosition": {
+          "x": 0.72,
+          "y": 0.55
+        },
+        "highlight": [
+          "Pitcher",
+          "1B"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.6, "y": 0.78 }, "label": "Batter (running)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.6,
+              "y": 0.78
+            },
+            "label": "Batter (running)"
+          }
         ]
       },
       "choices": [
@@ -45,8 +76,13 @@
       "type": "outcome",
       "narration": "The moment the ball was hit to the right side, you break off the mound and sprint toward first base! You run along the inside of the baseline, arrive at the bag just in time, and touch the base with your foot while catching the first baseman's toss. OUT! Inning over! Your first baseman gives you a fist bump -- great teamwork!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -54,9 +90,18 @@
         "headline": "Pitcher Covers First! Inning Over!",
         "explanation": "This is one of the most important defensive plays a pitcher can make, and one of the most forgotten. Anytime the first baseman fields a ball far from the bag, the PITCHER must sprint over and cover first base. Here's the proper technique: run toward the foul line first, then turn and run along the baseline toward first base. This way you arrive at the bag running in the same direction as the throw, making it easy to catch. Touch the inside edge of the base with your foot as you catch the ball.",
         "keyTerms": [
-          { "term": "Pitcher covering first", "definition": "When the first baseman fields a ball away from the bag, the pitcher sprints to first base to take the throw and record the out." },
-          { "term": "Banana route", "definition": "The curved path a pitcher takes to first base -- run toward the foul line first, then turn and run along the baseline. This lets you arrive moving in the right direction." },
-          { "term": "Inside edge", "definition": "Touch the inside (home plate side) edge of first base with your foot. This keeps you out of the runner's path and avoids collisions." }
+          {
+            "term": "Pitcher covering first",
+            "definition": "When the first baseman fields a ball away from the bag, the pitcher sprints to first base to take the throw and record the out."
+          },
+          {
+            "term": "Banana route",
+            "definition": "The curved path a pitcher takes to first base -- run toward the foul line first, then turn and run along the baseline. This lets you arrive moving in the right direction."
+          },
+          {
+            "term": "Inside edge",
+            "definition": "Touch the inside (home plate side) edge of first base with your foot. This keeps you out of the runner's path and avoids collisions."
+          }
         ],
         "whatToRemember": "On any ground ball to the right side, the pitcher MUST break toward first base immediately. Take the banana route -- curve toward the line, then run along the baseline. Touch the inside edge of the bag.",
         "iqPoints": 10,
@@ -64,22 +109,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.68, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.68,
+                "y": 0.62
+              },
               "entity": "pitcher",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.72, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.72,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "catch",
-              "from": { "x": 0.7, "y": 0.6 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.7,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 200
             }
@@ -92,10 +155,20 @@
       "type": "outcome",
       "narration": "You stay on the mound and yell for the first baseman to get back to the bag. But they're 15 feet away and the batter is running full speed! The first baseman tries to race back, but the batter beats them to the bag. SAFE! The inning continues. Your coach calls time: 'Pitcher, that's YOUR job! You have to cover first!'",
       "field": {
-        "ballPosition": { "x": 0.72, "y": 0.55 },
+        "ballPosition": {
+          "x": 0.72,
+          "y": 0.55
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (safe at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (safe at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -108,15 +181,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.72, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.58 },
+              "from": {
+                "x": 0.72,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.6,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 700,
               "parallel": true
@@ -130,8 +215,13 @@
       "type": "outcome",
       "narration": "You run toward the first baseman to take the ball from their hand. The hand-off works, but now YOU have the ball and you're 10 feet away from first base! You have to run to the bag yourself. The batter is flying down the line -- you BARELY beat them to the bag. Safe... no, OUT! The umpire rings the batter up! Way too close though.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -144,15 +234,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.7, "y": 0.57 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.57
+              },
               "entity": "pitcher",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.57 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.7,
+                "y": 0.57
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "pitcher",
               "duration": 400
             }

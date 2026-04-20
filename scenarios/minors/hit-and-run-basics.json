@@ -1,27 +1,62 @@
 {
   "id": "minors-hit-and-run-basics",
   "title": "Hit and Run!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 2,
   "role": "offense",
-  "tags": ["hit-and-run", "sign", "contact", "strategy", "baserunning", "team-play"],
+  "tags": [
+    "hit-and-run",
+    "sign",
+    "contact",
+    "strategy",
+    "baserunning",
+    "team-play"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 1, "away": 1 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 1, "strikes": 0 }
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 1,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Tie game, runner on first, nobody out. The count is 1-0. Your third base coach touches their nose, taps their belt, and wipes their arm across their chest -- that's the hit-and-run sign! The runner on first knows to take off running with the pitch. The pitcher is getting set. As the batter, what do you HAVE to do on a hit-and-run play?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["Home", "1B", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "Home",
+          "1B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.68, "y": 0.58 }, "label": "Runner (on 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.68,
+              "y": 0.58
+            },
+            "label": "Runner (on 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +81,31 @@
       "type": "outcome",
       "narration": "You know the deal -- on a hit-and-run, you SWING. The runner takes off with the pitch. The shortstop breaks to cover second base (because they think it's a steal). The pitcher throws a fastball on the outer half -- not your favorite pitch, but you reach out and slap it right through the hole where the shortstop was standing! Base hit to left! The runner, already sprinting, rounds second and makes it to third! First and third, nobody out!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.3 },
-        "highlight": ["1B", "3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.3
+        },
+        "highlight": [
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "You (at 1st)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "You (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -58,9 +113,18 @@
         "headline": "Hit and Run Executed! Runners on the Corners!",
         "explanation": "The hit-and-run is one of the smartest plays in baseball, and YOU did your job perfectly. Here's why it works: 1) The runner takes off, which forces the shortstop or second baseman to run to second base to cover the 'steal.' 2) That creates a HOLE in the infield. 3) The batter swings at whatever pitch is thrown (even if it's not perfect) and tries to hit the ball on the ground through that hole. The KEY rule: you MUST swing. If you don't swing, the catcher has a clear throw to second and the runner is probably out stealing. Your swing protects the runner.",
         "keyTerms": [
-          { "term": "Hit and run", "definition": "A play where the runner takes off with the pitch and the batter MUST swing, trying to hit the ball through the hole created by the infielder covering second base." },
-          { "term": "Protecting the runner", "definition": "By swinging the bat, the batter blocks the catcher's view and throwing lane, giving the runner a better chance even if the batter misses." },
-          { "term": "Hole in the infield", "definition": "When an infielder leaves their position to cover a base, it creates a gap (hole) that a smart hitter can aim for." }
+          {
+            "term": "Hit and run",
+            "definition": "A play where the runner takes off with the pitch and the batter MUST swing, trying to hit the ball through the hole created by the infielder covering second base."
+          },
+          {
+            "term": "Protecting the runner",
+            "definition": "By swinging the bat, the batter blocks the catcher's view and throwing lane, giving the runner a better chance even if the batter misses."
+          },
+          {
+            "term": "Hole in the infield",
+            "definition": "When an infielder leaves their position to cover a base, it creates a gap (hole) that a smart hitter can aim for."
+          }
         ],
         "whatToRemember": "On a hit-and-run, you MUST swing no matter what. Your swing protects the runner. Try to hit the ball on the ground through the hole the infielder left when they went to cover second base.",
         "iqPoints": 10,
@@ -68,23 +132,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 600
             },
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.3 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.3
+              },
               "entity": "ball",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1st",
               "duration": 700
             }
@@ -97,8 +179,13 @@
       "type": "outcome",
       "narration": "You decide to take the pitch because it's a little outside. But the runner is SPRINTING to second base! The catcher catches the pitch cleanly, pops up, and fires a bullet to second. The runner is out by five feet! Caught stealing. Your coach claps their hands: 'You had the hit-and-run! You've GOT to swing!' The runner did their job -- you didn't do yours.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.45 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.45
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -111,22 +198,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "fielder",
               "duration": 200
             }
@@ -139,10 +244,22 @@
       "type": "outcome",
       "narration": "You square to bunt as the runner takes off. You lay down a decent bunt toward the pitcher. The pitcher fields it and throws to first -- you're out. The runner advances to second safely. It works out okay, but it wasn't the play that was called. Your coach says 'Nice effort, but hit-and-run means SWING, not bunt. We could have had a bigger play.'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1st", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (at 2nd)" }
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -155,22 +272,40 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.48, "y": 0.68 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.48,
+                "y": 0.68
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.48, "y": 0.68 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.48,
+                "y": 0.68
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.68, "y": 0.58 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.68,
+                "y": 0.58
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1st",
               "duration": 700,
               "parallel": true

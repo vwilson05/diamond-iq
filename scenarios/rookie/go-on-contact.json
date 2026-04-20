@@ -1,26 +1,57 @@
 {
   "id": "rookie-go-on-contact",
   "title": "Go on Contact!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "baserunning",
-  "tags": ["contact-play", "runner-on-third", "ground-ball", "scoring", "baserunning-reads"],
+  "tags": [
+    "contact-play",
+    "runner-on-third",
+    "ground-ball",
+    "scoring",
+    "baserunning-reads"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 2, "away": 3 },
-    "runners": { "first": false, "second": false, "third": true }
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": true
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the fifth, your team is down by one. You're the runner on third base with one out. Your coach tells you: 'Go on contact -- if the ball is hit on the GROUND, you run home!' The batter swings and hits a ground ball to the shortstop. It's a routine grounder. The shortstop fields it cleanly. Do you go?",
       "field": {
-        "ballPosition": { "x": 0.4, "y": 0.52 },
-        "highlight": ["3B", "Home", "SS"],
+        "ballPosition": {
+          "x": 0.4,
+          "y": 0.52
+        },
+        "highlight": [
+          "3B",
+          "Home",
+          "SS"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (on 3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (on 3rd)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +76,23 @@
       "type": "outcome",
       "narration": "The moment the ball hits the ground, you EXPLODE toward home plate! The shortstop fields the ball and looks home, but you already have a huge head start. They can't throw to two places at once -- they have to throw to first to get the batter out. You cross home plate easily! TIE GAME! The shortstop gets the out at first, but the run scores because you went on contact!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "You (SCORES!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You (SCORES!)"
+          }
         ]
       },
       "outcome": {
@@ -57,24 +101,45 @@
         "explanation": "This is the 'contact play' and it works because of math. The shortstop has ONE ball and TWO things to do: throw you out at home OR throw the batter out at first. They can't do both! With less than two outs, the shortstop will almost always throw to first to get the guaranteed out on the batter, which means you score. The KEY is going the instant the ball hits the ground. If you hesitate, the shortstop might have time to throw home AND still get the batter. Your head start is everything.",
         "whatToRemember": "With less than 2 outs and a runner on third, go on contact (ground balls)! The defense usually has to throw to first for the out, which lets you score.",
         "keyTerms": [
-          { "term": "Contact Play", "definition": "When the coach tells a runner on third to sprint home the moment the ball is hit on the ground. The runner goes right away, no hesitation, because the defense usually throws to first instead of home." },
-          { "term": "Go on Contact", "definition": "Running as soon as the batter makes contact with the ball and it goes on the ground. You don't wait to see what happens -- you just GO." },
-          { "term": "Ground Ball Scores a Run", "definition": "When a runner is on third with less than 2 outs, even a routine ground ball can score the run. The defense has to make a choice: get the out at first or try to get the runner at home." }
+          {
+            "term": "Contact Play",
+            "definition": "When the coach tells a runner on third to sprint home the moment the ball is hit on the ground. The runner goes right away, no hesitation, because the defense usually throws to first instead of home."
+          },
+          {
+            "term": "Go on Contact",
+            "definition": "Running as soon as the batter makes contact with the ball and it goes on the ground. You don't wait to see what happens -- you just GO."
+          },
+          {
+            "term": "Ground Ball Scores a Run",
+            "definition": "When a runner is on third with less than 2 outs, even a routine ground ball can score the run. The defense has to make a choice: get the out at first or try to get the runner at home."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 700
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500,
               "parallel": true
@@ -88,10 +153,22 @@
       "type": "outcome",
       "narration": "You freeze on third base. The shortstop throws to first for the easy out. That's two outs now. You're still on third, but now there are TWO outs instead of one. The next batter needs to get a hit to bring you home. You had a chance to score on that ground ball, but you hesitated. Your coach looks over and reminds you: 'I said go on contact! Trust the play!'",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (still on 3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (still on 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -104,8 +181,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -118,8 +201,14 @@
       "type": "outcome",
       "narration": "You run halfway between third and home, then stop to look. BIG mistake! The shortstop sees you in no-man's land and fires the ball home instead of to first! The catcher catches it and you're stuck. You try to scramble back to third, but the catcher throws to the third baseman and you're TAGGED OUT! You're caught in a rundown and that's TWO outs. The batter is safe at first, but you're out and the run didn't score.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B", "Home"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
@@ -132,29 +221,53 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.4, "y": 0.72 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.72
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.4, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.38, "y": 0.68 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.68
+              },
               "entity": "fielder",
               "duration": 300
             }

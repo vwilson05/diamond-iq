@@ -1,27 +1,60 @@
 {
   "id": "majors-reading-outfielder",
   "title": "Reading the Outfielder: First to Third",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["baserunning", "outfielder-reads", "first-to-third", "aggressive-running", "awareness"],
+  "tags": [
+    "baserunning",
+    "outfielder-reads",
+    "first-to-third",
+    "aggressive-running",
+    "awareness"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": true, "second": false, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're on first base with one out in a tie game. The batter lines a clean single into right field -- the ball is on the ground and heading toward the right fielder. You're rounding second base and your third-base coach is windmilling his arm: GO! But you need to make your OWN read too. You glance at the right fielder. He's charging in, but the ball took a funny hop and scooted past his glove hand -- he's bobbling it! His throwing arm is average. How do you read this situation?",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["RF", "3B"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "RF",
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.48 }, "label": "You (rounding 2nd)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.48
+            },
+            "label": "You (rounding 2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,33 +79,68 @@
       "type": "outcome",
       "narration": "You put your head down and sprint for third! The right fielder finally corrals the ball, sets his feet, and throws -- but the bobble cost him two seconds. The throw goes to the cutoff man, who doesn't even bother to relay because you're already sliding into third! SAFE! You went first to third on a single to right field! Now you're 90 feet from home with one out in a tie game. A sac fly, a wild pitch, a passed ball -- so many ways to score!",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
         "result": "great",
         "headline": "First to Third! Aggressive Baserunning!",
         "explanation": "Going first to third on a single is one of the most valuable plays in baseball, and you had three green lights: 1) The right fielder BOBBLED the ball -- any misplay gives you extra time. 2) The right fielder has an AVERAGE arm -- not a cannon that can throw you out from deep right. 3) Your third-base coach was sending you -- he could see the play developing. The key to reading outfielders is watching their FEET and their HANDS. If the outfielder fields the ball cleanly and is already in throwing position, hold at second. If they bobble, stumble, or have to reach across their body to throw, that's your green light. Going first to third turns a single into a scoring opportunity. That's the difference between a good runner and a great one.",
-        "keyTerms": ["first-to-third", "reading the outfielder", "outfielder bobble"],
+        "keyTerms": [
+          "first-to-third",
+          "reading the outfielder",
+          "outfielder bobble"
+        ],
         "whatToRemember": "Read the outfielder's feet and hands. Bobbles, stumbles, and awkward fielding positions are green lights to take the extra base. Going first to third on singles is one of the most impactful baserunning plays.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.48 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "you",
               "duration": 800
             },
             {
               "type": "throw",
-              "from": { "x": 0.75, "y": 0.35 },
-              "to": { "x": 0.6, "y": 0.52 },
+              "from": {
+                "x": 0.75,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.52
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -85,26 +153,54 @@
       "type": "outcome",
       "narration": "You hold at second base. Safe play. The right fielder eventually gets the ball in, and nobody is going anywhere. You're on second with one out, batter on first. But your coach gives you a look -- the right fielder BOBBLED the ball. You had plenty of time to make it to third. The difference between second and third is enormous: from third, you can score on a sac fly, a wild pitch, a passed ball, or a grounder to the right side. From second, you need a HIT to score. You left a huge opportunity on the table.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.45 }, "label": "You (2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
         "result": "okay",
         "headline": "Safe at Second. Left a Base on the Table.",
         "explanation": "Holding at second isn't a disaster, but it's a missed opportunity. The old saying 'don't make the first out at third base' has some truth, but it's often overused to justify timid baserunning. Here's the math: from second base with one out, you score about 40% of the time. From THIRD base with one out, you score about 65% of the time. That's a massive difference, and it means taking calculated risks to get to third is worth it. When the outfielder bobbles the ball and has an average arm, the risk of being thrown out is LOW and the reward of reaching third is HIGH. Be aggressive when the odds favor you.",
-        "keyTerms": ["scoring percentage", "risk-reward baserunning"],
+        "keyTerms": [
+          "scoring percentage",
+          "risk-reward baserunning"
+        ],
         "whatToRemember": "The difference between second and third base is huge for scoring probability. When the outfielder bobbles or has a weak arm, take the extra base. Aggressive baserunning wins games.",
         "iqPoints": 4,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.48 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.5,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "you",
               "duration": 400
             }
@@ -117,10 +213,22 @@
       "type": "outcome",
       "narration": "You stop between second and third, hesitating. The right fielder picks up the ball and sees you stuck in no-man's-land. He fires to the third baseman, who has the ball waiting. You're caught! You try to retreat to second, but the third baseman throws to the shortstop covering second. You're in a rundown! After three throws, they tag you out. A runner who was safely on second is now OUT because he stopped and hesitated between bases.",
       "field": {
-        "ballPosition": { "x": 0.42, "y": 0.52 },
-        "highlight": ["SS"],
+        "ballPosition": {
+          "x": 0.42,
+          "y": 0.52
+        },
+        "highlight": [
+          "SS"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (1st)"
+          }
         ]
       },
       "outcome": {
@@ -133,22 +241,40 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.48 },
-              "to": { "x": 0.4, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.48
+              },
+              "to": {
+                "x": 0.4,
+                "y": 0.55
+              },
               "entity": "you",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.75, "y": 0.35 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.75,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "throw",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "ball",
               "duration": 400
             }

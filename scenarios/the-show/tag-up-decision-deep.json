@@ -1,27 +1,59 @@
 {
   "id": "the-show-tag-up-decision-deep",
   "title": "Tag Up: Reading Depth and Timing the Break",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 4,
   "role": "offense",
-  "tags": ["tagging-up", "baserunning", "fly-ball-depth", "scoring", "outfield-arm"],
+  "tags": [
+    "tagging-up",
+    "baserunning",
+    "fly-ball-depth",
+    "scoring",
+    "outfield-arm"
+  ],
   "setup": {
     "inning": 7,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 3, "away": 4 },
-    "runners": { "first": false, "second": false, "third": true },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 4
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": true
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the 7th, you're on third base with one out, down 4-3. The batter lofts a fly ball to medium-depth right field. It's not deep -- the right fielder is camped under it about 280 feet from home plate. A truly deep fly ball (320+ feet) is an easy tag. A shallow fly ball (250 feet or less) is a clear hold. This one is in the gray zone. The right fielder has the strongest arm on their team. You need to decide: is it deep enough to tag up and score? You have about 3 seconds while the ball is in the air to make this decision.",
       "field": {
-        "ballPosition": { "x": 0.68, "y": 0.32 },
-        "highlight": ["RF", "Home"],
+        "ballPosition": {
+          "x": 0.68,
+          "y": 0.32
+        },
+        "highlight": [
+          "RF",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +78,24 @@
       "type": "decision",
       "narration": "You decide to tag up! You put your foot on the bag and watch the right fielder settle under the fly ball. Everything depends on your TIMING now. Do you push off the bag the instant the ball hits the glove, or do you leave a split second early -- technically illegal but hard to catch -- to get a bigger head start?",
       "field": {
-        "ballPosition": { "x": 0.68, "y": 0.30 },
-        "highlight": ["RF", "3B", "Home"],
+        "ballPosition": {
+          "x": 0.68,
+          "y": 0.3
+        },
+        "highlight": [
+          "RF",
+          "3B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (tagging)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (tagging)"
+          }
         ]
       },
       "choices": [
@@ -69,10 +115,23 @@
       "type": "decision",
       "narration": "You leave the instant the ball hits the glove -- perfect timing! You explode down the line toward home. The right fielder catches the ball and fires a throw home. It's going to be close. You're sprinting at full speed and the ball is in the air on a line toward home plate. You're 30 feet from home when the ball is 40 feet from the catcher. It's going to be a BANG-BANG play. How do you slide?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.7 },
-        "highlight": ["Home", "C"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.7
+        },
+        "highlight": [
+          "Home",
+          "C"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.45, "y": 0.78 }, "label": "You (sliding!)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.45,
+              "y": 0.78
+            },
+            "label": "You (sliding!)"
+          }
         ]
       },
       "choices": [
@@ -92,8 +151,13 @@
       "type": "outcome",
       "narration": "You hold at third. The right fielder catches the ball and throws it back to the infield. No play at the plate. Two outs, runner on third. The next batter strikes out -- inning over. You're still trailing 4-3. The right fielder's arm was strong, but his throw went to the cutoff man, not home. If you had tagged up, the throw wouldn't have been directly to the plate. There's no way to know for sure if you would have been safe, but the opportunity to tie the game is gone. Sometimes the conservative play costs you the run you needed.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -109,11 +173,31 @@
       "type": "outcome",
       "narration": "You tag and take two aggressive steps toward home -- then stop! The right fielder sees you going and panics. He catches the ball and throws directly home instead of hitting the cutoff man. The throw sails to the catcher -- nobody is there to score. But the batter, who reached first on the putout, sees the throw going home and takes off for second base! He makes it to second on the unnecessary throw home. Now you're at third and the batter is at second with two outs. The bluff created an extra base for the offense even though you didn't score.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["3B", "2B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "3B",
+          "2B"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "You (3rd)" },
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (3rd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -129,8 +213,13 @@
       "type": "outcome",
       "narration": "You leave a hair early -- just before the catch. You sprint home and slide in ahead of the throw! The catcher tries to tag you but you're already touching the plate! SAFE! Wait -- the right fielder's team is appealing! They throw the ball to third base and the umpire signals... you left EARLY! You're OUT on the appeal! The run doesn't count! You would have been safe on the play, but leaving early turned a tying run into an appeal out. The third out of the inning. Game over.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -146,10 +235,22 @@
       "type": "outcome",
       "narration": "You hook-slide to the back of the plate, away from the catcher! The throw arrives at the same time you do -- BANG-BANG! The catcher catches the ball and swipes his glove toward you... but you're on the BACK SIDE of the plate! His tag sweeps through empty air where a straight slider would have been! Your hand reaches out and touches the back corner of the plate. SAFE! TIE GAME! The hook slide added 6 inches of distance to your slide, but it moved the TAG point 18 inches farther from the catcher. The net result: the catcher had to reach across his body to make the tag, and he couldn't get there in time.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.5, "y": 0.88 }, "label": "You SCORE!" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.5,
+              "y": 0.88
+            },
+            "label": "You SCORE!"
+          }
         ]
       },
       "outcome": {
@@ -158,9 +259,18 @@
         "explanation": "The hook slide is the highest-IQ slide on a close play at the plate. Here's why: a straight slide brings you directly to the catcher, who is set up on the front side of the plate. The tag is easy because you're sliding into his glove. A hook slide takes you AROUND the catcher to the back of the plate. Now the catcher has to catch the ball AND reach across his body to apply the tag. This forces him to do two things simultaneously instead of one: receive the throw AND redirect the tag. On a bang-bang play, the extra 0.2 seconds the catcher needs to redirect his tag is often the difference between safe and out. The hook slide sacrifices some speed (slightly longer path) for a massive tag-avoidance advantage.",
         "whatToRemember": "On close plays at the plate, the hook slide beats the straight slide. It moves the tag point away from the catcher, forcing him to reach across his body. The tag-avoidance advantage outweighs the slightly longer sliding path.",
         "keyTerms": [
-          { "term": "Hook Slide", "definition": "A slide where the runner curves away from the fielder to reach the back or side of the base, making the tag harder to apply. Sacrifices a fraction of speed for significant tag avoidance." },
-          { "term": "Tag Point", "definition": "The location where the fielder must apply the tag on the runner. Hook slides move this point away from the fielder's natural position, requiring extra reach and time." },
-          { "term": "Bang-Bang Play", "definition": "A play where the runner and the throw arrive at nearly the same time. On these plays, the slide type and tag application become the deciding factors, not speed or arm strength." }
+          {
+            "term": "Hook Slide",
+            "definition": "A slide where the runner curves away from the fielder to reach the back or side of the base, making the tag harder to apply. Sacrifices a fraction of speed for significant tag avoidance."
+          },
+          {
+            "term": "Tag Point",
+            "definition": "The location where the fielder must apply the tag on the runner. Hook slides move this point away from the fielder's natural position, requiring extra reach and time."
+          },
+          {
+            "term": "Bang-Bang Play",
+            "definition": "A play where the runner and the throw arrive at nearly the same time. On these plays, the slide type and tag application become the deciding factors, not speed or arm strength."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -170,8 +280,14 @@
       "type": "outcome",
       "narration": "You slide straight in! The throw arrives and the catcher catches it right in front of the plate. His glove comes down and meets you on the front edge of the plate. The tag and your slide hit the plate at the exact same time. The umpire pauses... OUT! The catcher got the tag down a fraction of a second before your hand touched the plate. It was the closest play of the game. A hook slide to the back of the plate would have moved the tag point 18 inches away from the catcher and given you the margin you needed. The straight slide was the fastest route but the easiest to tag.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home",
+          "C"
+        ],
         "runners": []
       },
       "outcome": {

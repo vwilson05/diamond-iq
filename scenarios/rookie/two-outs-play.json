@@ -1,28 +1,73 @@
 {
   "id": "rookie-two-outs-play",
   "title": "Two Outs — Get the Easy One!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 4,
   "role": "defense",
-  "tags": ["two-outs", "ground-ball", "force-out", "decision-making", "first-base"],
+  "tags": [
+    "two-outs",
+    "ground-ball",
+    "force-out",
+    "decision-making",
+    "first-base"
+  ],
   "setup": {
     "inning": 3,
     "topBottom": "bottom",
     "outs": 2,
-    "score": { "home": 1, "away": 2 },
-    "runners": { "first": true, "second": true, "third": false }
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "runners": {
+      "first": true,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Two outs, runners on first and second. The batter hits a ground ball right at you -- you're the second baseman. You field it cleanly on one hop. The runner from second is heading to third, the runner from first is heading to second, and the batter is sprinting to first. You have the ball. Three runners are moving. With two outs, where do you throw to get out of the inning?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.5 },
-        "highlight": ["2B", "1B", "3B"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.5
+        },
+        "highlight": [
+          "2B",
+          "1B",
+          "3B"
+        ],
         "runners": [
-          { "id": "runner2", "position": { "x": 0.42, "y": 0.5 }, "label": "R2 (to 3rd)" },
-          { "id": "runner1", "position": { "x": 0.58, "y": 0.55 }, "label": "R1 (to 2nd)" },
-          { "id": "batter", "position": { "x": 0.58, "y": 0.78 }, "label": "Batter (to 1st)" }
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.42,
+              "y": 0.5
+            },
+            "label": "R2 (to 3rd)"
+          },
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.58,
+              "y": 0.55
+            },
+            "label": "R1 (to 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.58,
+              "y": 0.78
+            },
+            "label": "Batter (to 1st)"
+          }
         ]
       },
       "choices": [
@@ -47,8 +92,13 @@
       "type": "outcome",
       "narration": "You turn and fire to first base. The first baseman stretches and catches it -- the batter is OUT! THIRD OUT! Inning over! It doesn't matter that the other runners reached their bases because three outs ends the inning. No runs score! You picked the easiest, shortest throw and ended the inning. Smart play!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -57,24 +107,45 @@
         "explanation": "With two outs, you only need ONE more out to end the inning. It doesn't matter which runner you get -- ANY out will do. So always go for the EASIEST one! First base was the best choice because: (1) it's a force out, so the first baseman just has to catch the ball while touching the bag, (2) the throw is short from your second base position, and (3) the batter is the slowest to reach their base since they just started running. Getting fancy with a longer throw to third risks an error that could let runs score. With two outs, take the sure thing!",
         "whatToRemember": "With two outs, get the EASIEST out -- usually at first base. You only need one more out to end the inning. Don't try to be a hero with a tough throw!",
         "keyTerms": [
-          { "term": "Force Out", "definition": "When a runner must advance to the next base because the batter is running behind them. The fielder just has to touch the base while holding the ball -- no tag needed!" },
-          { "term": "Sure Out", "definition": "The easiest, most reliable out you can get on a play. Smart players go for the sure out instead of trying for a harder, riskier play." },
-          { "term": "Third Out", "definition": "The third out of an inning ends the inning immediately. Any runners who haven't crossed home plate yet do NOT score, even if they're almost there!" }
+          {
+            "term": "Force Out",
+            "definition": "When a runner must advance to the next base because the batter is running behind them. The fielder just has to touch the base while holding the ball -- no tag needed!"
+          },
+          {
+            "term": "Sure Out",
+            "definition": "The easiest, most reliable out you can get on a play. Smart players go for the sure out instead of trying for a harder, riskier play."
+          },
+          {
+            "term": "Third Out",
+            "definition": "The third out of an inning ends the inning immediately. Any runners who haven't crossed home plate yet do NOT score, even if they're almost there!"
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.78 },
-              "to": { "x": 0.66, "y": 0.65 },
+              "from": {
+                "x": 0.58,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.66,
+                "y": 0.65
+              },
               "entity": "batter",
               "duration": 600,
               "parallel": true
@@ -88,8 +159,13 @@
       "type": "outcome",
       "narration": "You throw to third base to get the lead runner. The third baseman catches it and slaps the tag on the sliding runner -- OUT! Inning over! But that was a risky throw. The runner at third is fast, and your throw had to travel farther across the diamond. If the throw was off or the runner beat the tag, they'd be safe at third and the inning would still be going. It worked this time, but first base was the safer play.",
       "field": {
-        "ballPosition": { "x": 0.3, "y": 0.6 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.3,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -102,23 +178,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.5 },
-              "to": { "x": 0.3, "y": 0.58 },
+              "from": {
+                "x": 0.42,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.58
+              },
               "entity": "runner2",
               "duration": 500,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.3, "y": 0.6 },
-              "to": { "x": 0.3, "y": 0.58 },
+              "from": {
+                "x": 0.3,
+                "y": 0.6
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.58
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -131,11 +225,28 @@
       "type": "outcome",
       "narration": "You start running after the runner heading to second base! But runners are FAST and you're not going to catch them in a foot race. The runner sees you coming and either slides into second or stops and makes you chase them. Meanwhile, the batter reaches first, the other runner reaches third, and you're stuck in a rundown. By the time you finally tag the runner, the lead runner has scored! The run counts because it crossed the plate before the tag was made.",
       "field": {
-        "ballPosition": { "x": 0.52, "y": 0.48 },
+        "ballPosition": {
+          "x": 0.52,
+          "y": 0.48
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" },
-          { "id": "runner2", "position": { "x": 0.3, "y": 0.6 }, "label": "R2 (scored!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          },
+          {
+            "id": "runner2",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "R2 (scored!)"
+          }
         ]
       },
       "outcome": {
@@ -148,23 +259,41 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.5 },
-              "to": { "x": 0.52, "y": 0.48 },
+              "from": {
+                "x": 0.55,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.48
+              },
               "entity": "fielder",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.42, "y": 0.5 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.42,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner2",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.78 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.58,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "batter",
               "duration": 800,
               "parallel": true

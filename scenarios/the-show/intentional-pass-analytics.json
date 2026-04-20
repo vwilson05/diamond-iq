@@ -1,27 +1,59 @@
 {
   "id": "the-show-intentional-pass-analytics",
   "title": "The Intentional Walk: Analytics vs. Instinct",
-  "sport": ["baseball"],
+  "sport": [
+    "baseball"
+  ],
   "tier": "the-show",
+  "impact": 4,
   "role": "defense",
-  "tags": ["intentional-walk", "analytics", "game-management", "run-expectancy", "strategy"],
+  "tags": [
+    "intentional-walk",
+    "analytics",
+    "game-management",
+    "run-expectancy",
+    "strategy"
+  ],
   "setup": {
     "inning": 7,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 3, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 0, "strikes": 0 }
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 0,
+      "strikes": 0
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Top of the 7th, you're up 3-2 with a runner on second and one out. First base is open. The hitter at the plate is their best -- a .320 hitter who crushes your pitcher's fastball. The on-deck hitter is batting .240 with less power and is 0-for-3 today. The analytics say the current hitter has a .410 wOBA against right-handed pitching while the on-deck guy is at .290. First base is open. Your pitching coach looks at you. Do you walk the dangerous hitter intentionally, pitch to him carefully, or compete and attack?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,11 +78,31 @@
       "type": "decision",
       "narration": "You signal for the intentional walk. Four wide ones put the dangerous hitter on first. Now you've got runners on first and second, one out, and the .240 hitter stepping in. Your pitcher has double play depth set up in the infield. But here's the wrinkle -- you've put the go-ahead run on base. If this next hitter gets a hit, you could be down two. How do you pitch to this weaker hitter with runners on first and second?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P", "C"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P",
+          "C"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "IBB Runner (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "IBB Runner (1st)"
+          }
         ]
       },
       "choices": [
@@ -75,8 +127,15 @@
       "type": "outcome",
       "narration": "Sinker down, sinker down -- the hitter can't lay off. He hits a grounder right at the shortstop! The shortstop fields it, flips to second for the force, and the relay goes to first! DOUBLE PLAY! Inning over! Your strategy worked perfectly: you walked the dangerous hitter, set up double play depth, attacked the weaker hitter with ground-ball pitches, and turned two. The analytics told you the first hitter was 41% more productive than the second, and the second hitter did exactly what .240 hitters do -- put a routine ball in play. The math worked.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["SS", "2B", "1B"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "SS",
+          "2B",
+          "1B"
+        ],
         "runners": []
       },
       "outcome": {
@@ -85,10 +144,22 @@
         "explanation": "This is the complete analytics-informed defensive sequence: 1) Identify the matchup disadvantage (your pitcher vs. their best hitter). 2) Avoid the bad matchup by issuing the intentional walk. 3) Create the advantageous matchup (your pitcher vs. their weaker hitter). 4) Set up the game state to maximize your defense's leverage (double play depth with a force at every base). 5) Execute the plan (ground-ball pitches to induce the double play). The wOBA gap between the two hitters (.410 vs .290) told you that the first hitter was 41% more productive per plate appearance. By walking him, you accepted a base runner (low cost) to face a hitter who is far less dangerous (high benefit). The double play turned the entire play into a zero-cost decision -- no runs, two outs, inning over.",
         "whatToRemember": "The intentional walk is most powerful when first base is open, a force/double play can be created, and the on-deck hitter is significantly weaker. Use wOBA gaps of 100+ points as a trigger to seriously consider the walk.",
         "keyTerms": [
-          { "term": "wOBA (Weighted On-Base Average)", "definition": "A stat that measures a hitter's total offensive contribution per plate appearance. Unlike batting average, it weights doubles, triples, and homers higher than singles. League average is around .310." },
-          { "term": "Intentional Walk Strategy", "definition": "Deliberately walking a dangerous hitter to face a weaker one, ideally creating a force play or double play opportunity. Most effective when the wOBA gap between hitters exceeds .100." },
-          { "term": "Double Play Depth", "definition": "An infield alignment where the middle infielders cheat toward second base to optimize the 6-4-3 or 4-6-3 double play pivot. Sacrifices range for turn-two speed." },
-          { "term": "Matchup Advantage", "definition": "Choosing which hitter your pitcher faces based on platoon splits, historical performance, and pitch-type weakness. The intentional walk is the tool that lets you choose your opponent." }
+          {
+            "term": "wOBA (Weighted On-Base Average)",
+            "definition": "A stat that measures a hitter's total offensive contribution per plate appearance. Unlike batting average, it weights doubles, triples, and homers higher than singles. League average is around .310."
+          },
+          {
+            "term": "Intentional Walk Strategy",
+            "definition": "Deliberately walking a dangerous hitter to face a weaker one, ideally creating a force play or double play opportunity. Most effective when the wOBA gap between hitters exceeds .100."
+          },
+          {
+            "term": "Double Play Depth",
+            "definition": "An infield alignment where the middle infielders cheat toward second base to optimize the 6-4-3 or 4-6-3 double play pivot. Sacrifices range for turn-two speed."
+          },
+          {
+            "term": "Matchup Advantage",
+            "definition": "Choosing which hitter your pitcher faces based on platoon splits, historical performance, and pitch-type weakness. The intentional walk is the tool that lets you choose your opponent."
+          }
         ],
         "iqPoints": 10,
         "next": "end"
@@ -98,11 +169,30 @@
       "type": "outcome",
       "narration": "Your pitcher goes after the weak hitter aggressively -- fastball up, curveball down, fastball up again. The hitter fouls off the last one. On the fourth pitch, a slider away, the hitter waves and misses. STRIKE THREE! Two outs, runners still on first and second. The next batter pops out to end the inning. The intentional walk worked -- you avoided the dangerous hitter and struck out the weaker one. The only thing better would have been a ground-ball double play to end the inning in one play instead of two pitches.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["P"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "P"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" },
-          { "id": "runner1st", "position": { "x": 0.7, "y": 0.6 }, "label": "Runner (1st)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          },
+          {
+            "id": "runner1st",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Runner (1st)"
+          }
         ]
       },
       "outcome": {
@@ -118,11 +208,30 @@
       "type": "outcome",
       "narration": "You pitch carefully to the weaker hitter -- ball one, ball two, ball three. Now it's 3-0 and you've basically walked him too. Ball four loads the bases. You intentionally walked one hitter, then unintentionally walked the next one. The bases are loaded with one out and their 6-hitter is up -- a guy you definitely didn't want to face with the bases juiced. He lines a single to center and TWO runs score. You're down 4-3. The intentional walk was right, but walking the next hitter negated the entire strategy.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.35 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.35
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "runner3rd", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (3rd)" },
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner3rd",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (3rd)"
+          },
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -138,10 +247,22 @@
       "type": "outcome",
       "narration": "You pitch carefully to the dangerous hitter -- nibbling corners, throwing breaking balls off the plate. The count goes to 3-1. Now you're in a hitter's count. You throw a cutter trying to paint the corner and it catches too much plate -- the hitter drives a double down the line! The runner from second scores! Tie game, 3-3. By pitching around him without walking him intentionally, you got the worst of both worlds: you didn't get him out, AND you threw him a pitch he could drive because the count forced you to come to the zone.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.35 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.35
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -157,8 +278,13 @@
       "type": "outcome",
       "narration": "You go right at their best hitter -- fastball, strike zone, first pitch. He was ready. He unloads on it and drives a two-run homer to left! Just like that, it's 4-3 and you're losing. The .320 hitter with a .410 wOBA did exactly what .410 wOBA hitters do against pitches in the zone: he destroyed it. The on-deck hitter -- the .240 guy who's 0-for-3 today -- never got to hit. You chose to face the lion instead of the lamb, and the lion ate you alive.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.15 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.15
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "outcome": {

@@ -1,27 +1,59 @@
 {
   "id": "majors-pitch-framing",
   "title": "Pitch Framing: The Art of Receiving",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "majors",
+  "impact": 4,
   "role": "defense",
-  "tags": ["catching", "pitch-framing", "receiving", "umpire", "catcher-skills"],
+  "tags": [
+    "catching",
+    "pitch-framing",
+    "receiving",
+    "umpire",
+    "catcher-skills"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 2,
-    "score": { "home": 2, "away": 2 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 2, "strikes": 2 }
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 2,
+      "strikes": 2
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You're the catcher in a tie game. Two outs, runner on second, full count 2-2. Your pitcher delivers a fastball that catches the outside edge of the plate -- it's RIGHT on the black, maybe just barely off. This could go either way. The pitch is heading into your mitt. How you receive this pitch could be the difference between a called strike three and ball three. How do you frame it?",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "choices": [
@@ -51,23 +83,38 @@
       "type": "outcome",
       "narration": "You receive the ball with soft hands, absorbing it gently into your mitt right on the outside corner. Your glove doesn't move an inch after the catch. You hold it there for a beat. The umpire sees the ball sitting perfectly on the edge of the plate and pumps his fist -- STRIKE THREE CALLED! Inning over! Your quiet, confident receive told the umpire 'that's a strike' without saying a word. The batter walks away shaking his head.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "Strike Three Called! Perfect Framing!",
         "explanation": "The 'stick and hold' is the gold standard of pitch framing. Here's why it works: umpires make their call based on where the ball ARRIVES in the mitt. When you catch the ball softly and hold it perfectly still, the umpire gets a clean, clear look at the ball's location. No extra movement to distract the eye, no yanking that screams 'it was outside.' The key is soft hands -- you want to ABSORB the ball, not stab at it. Think of catching an egg: gentle, quiet, controlled. A great receiver makes borderline pitches look like they're right down the middle just by being STILL.",
-        "keyTerms": ["pitch framing", "stick and hold", "soft hands"],
+        "keyTerms": [
+          "pitch framing",
+          "stick and hold",
+          "soft hands"
+        ],
         "whatToRemember": "Frame pitches by catching softly and holding still. Don't move the glove after the catch. Quiet, confident receiving tells the umpire it's a strike. The less your glove moves, the more strikes you'll get.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -80,10 +127,22 @@
       "type": "outcome",
       "narration": "You catch the ball and immediately yank your glove toward the center of the plate. The umpire sees the obvious pull and shakes his head -- BALL THREE! Full count now. The umpire knows you were trying to trick him, and now he might be less likely to give you borderline calls for the rest of the game. Your pulling motion actually HURT your chances because it told the umpire the pitch was outside.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
@@ -96,15 +155,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.88 },
-              "to": { "x": 0.5, "y": 0.88 },
+              "from": {
+                "x": 0.55,
+                "y": 0.88
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 200
             }
@@ -117,25 +188,45 @@
       "type": "outcome",
       "narration": "You stab at the ball quickly, snapping your mitt shut. The catch looks aggressive -- your glove jumps forward to meet the ball instead of letting it come to you. The umpire pauses, then calls it a ball. The stabbing motion made the pitch look like it was further outside than it actually was. Your aggressive catch worked against you -- it drew attention to the catch instead of the location.",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner2nd", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (2nd)" }
+          {
+            "id": "runner2nd",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (2nd)"
+          }
         ]
       },
       "outcome": {
         "result": "okay",
         "headline": "Ball! Stabbing Motion Hurt the Frame.",
         "explanation": "Stabbing at the ball is better than pulling, but it still creates unnecessary movement. When you lunge your glove forward to catch the ball, the umpire's eye is drawn to the motion of the glove instead of the location of the pitch. Good framing is about being INVISIBLE -- you want the umpire to focus on where the ball crossed the plate, not on what your glove is doing. The best catchers have quiet feet, quiet bodies, and quiet hands. They receive the ball like it's expected, routine, and exactly where they wanted it. The less dramatic the catch, the more strikes you get.",
-        "keyTerms": ["quiet receiving"],
+        "keyTerms": [
+          "quiet receiving"
+        ],
         "whatToRemember": "Don't stab at pitches. Let the ball travel to your mitt. Quiet, relaxed receiving draws less attention and gets more borderline calls. Be invisible behind the plate.",
         "iqPoints": 4,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -148,23 +239,38 @@
       "type": "outcome",
       "narration": "Great thinking! Before the pitch, you set up your target on the outside corner -- shifting your body slightly and presenting your mitt right on the edge. When the pitch arrives exactly where you set up, you catch it softly and hold. The umpire sees: target on the corner, pitch arrives at the target, glove doesn't move. It's a perfect picture. STRIKE THREE CALLED! The pre-pitch setup made the borderline pitch look like it hit the bullseye!",
       "field": {
-        "ballPosition": { "x": 0.55, "y": 0.88 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.55,
+          "y": 0.88
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": []
       },
       "outcome": {
         "result": "great",
         "headline": "Strike Three! Pre-Pitch Setup Sealed It!",
         "explanation": "Elite framing starts BEFORE the pitch is thrown. When you set up your target on the outside corner, you're telling the umpire 'this is where I expect the ball.' When the pitch arrives exactly there and you catch it cleanly, the umpire's brain registers: 'The catcher asked for it there, the pitcher hit the target, the catch was clean -- that's a strike.' It's called pre-pitch framing or 'receiving with intent.' You're creating a narrative for the umpire before the ball even leaves the pitcher's hand. The setup, the target, the receive -- it's all one connected sequence that says 'strike' without words.",
-        "keyTerms": ["pre-pitch framing", "receiving with intent", "target presentation"],
+        "keyTerms": [
+          "pre-pitch framing",
+          "receiving with intent",
+          "target presentation"
+        ],
         "whatToRemember": "Framing starts before the pitch. Set your target where you want the pitch, catch it softly when it arrives, and hold it still. The pre-pitch setup primes the umpire to call a strike.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.55, "y": 0.88 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.55,
+                "y": 0.88
+              },
               "entity": "ball",
               "duration": 400
             }

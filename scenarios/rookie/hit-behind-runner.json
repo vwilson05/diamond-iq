@@ -1,26 +1,57 @@
 {
   "id": "rookie-hit-behind-runner",
   "title": "Hit Behind the Runner!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "offense",
-  "tags": ["hitting", "situational", "right-side", "advancing-runners", "strategy"],
+  "tags": [
+    "hitting",
+    "situational",
+    "right-side",
+    "advancing-runners",
+    "strategy"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "bottom",
     "outs": 0,
-    "score": { "home": 2, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on second base, nobody out, and your team is down by one run. You're the batter. Your coach pulls you aside before you step in and says, 'Try to hit the ball to the RIGHT side of the field. That moves our runner to third!' The pitcher is ready. You step into the box. What's your plan at the plate?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.62 },
-        "highlight": ["2B", "1B", "Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.62
+        },
+        "highlight": [
+          "2B",
+          "1B",
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (on 2nd)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +76,23 @@
       "type": "outcome",
       "narration": "You focus on hitting the ball to the right side. The pitch comes in and you wait on it, then drive it on the ground between the first baseman and second baseman! The first baseman fields it and throws to first for the out, but while the play was happening on the RIGHT side of the field, the runner from second easily advanced to third! Now there's a runner on third with one out -- a single, a fly ball, even a wild pitch can score the tying run!",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd!)"
+          }
         ]
       },
       "outcome": {
@@ -57,32 +101,59 @@
         "explanation": "This is called 'hitting behind the runner' and it's one of the smartest things a batter can do. Here's why it works: when you hit the ball to the RIGHT side (between first and second base), the first baseman and second baseman have to field it over THERE. Meanwhile, the runner on second is going to THIRD, which is on the LEFT side. The defenders are busy on the opposite side of the field from where the runner is going! Even though you made an out, you moved the runner to third where they can score much more easily. That's called a 'productive out.'",
         "whatToRemember": "With a runner on second and no outs, try to hit to the right side. This moves the runner to third because the defense is busy on the opposite side of the field.",
         "keyTerms": [
-          { "term": "Hit Behind the Runner", "definition": "Hitting the ball to the right side of the field on purpose to help a runner on second advance to third. The defense has to make the play on the right side while the runner goes left to third." },
-          { "term": "Productive Out", "definition": "An out that still helps your team, like moving a runner to the next base. Not every out is equal -- some outs advance runners and some don't!" },
-          { "term": "Situational Hitting", "definition": "Changing your approach at the plate based on the game situation. Instead of always trying to hit it hard, smart hitters think about what the team needs." }
+          {
+            "term": "Hit Behind the Runner",
+            "definition": "Hitting the ball to the right side of the field on purpose to help a runner on second advance to third. The defense has to make the play on the right side while the runner goes left to third."
+          },
+          {
+            "term": "Productive Out",
+            "definition": "An out that still helps your team, like moving a runner to the next base. Not every out is equal -- some outs advance runners and some don't!"
+          },
+          {
+            "term": "Situational Hitting",
+            "definition": "Changing your approach at the plate based on the game situation. Instead of always trying to hit it hard, smart hitters think about what the team needs."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.65, "y": 0.55 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.65,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.65, "y": 0.55 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.65,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 300
             }
@@ -95,10 +166,22 @@
       "type": "outcome",
       "narration": "You ignore your coach's advice and swing for the fences. The pitcher throws a fastball and you take a massive hack at it. You pop it straight up in the air behind home plate. The catcher grabs it easily. One out, and the runner is STILL on second base. They couldn't advance because it was a pop-up. You had a chance to move the runner to third but instead the situation is exactly the same, just with one more out.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.82 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.82
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (still on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (still on 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -111,15 +194,27 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.5, "y": 0.8 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.8
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "catch",
-              "from": { "x": 0.5, "y": 0.8 },
-              "to": { "x": 0.5, "y": 0.82 },
+              "from": {
+                "x": 0.5,
+                "y": 0.8
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.82
+              },
               "entity": "ball",
               "duration": 400
             }
@@ -132,10 +227,23 @@
       "type": "outcome",
       "narration": "You square around and lay down a bunt toward third base. The third baseman charges in, fields it, and throws to first. You're out, but the runner moves from second to third! The runner advanced, which is good. But you used up one of your three outs to do it, and a bunt is very risky because if the defense is ready, they might throw out the RUNNER instead of you.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.6 },
-        "highlight": ["3B", "1B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.6
+        },
+        "highlight": [
+          "3B",
+          "1B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "Runner (at 3rd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "Runner (at 3rd)"
+          }
         ]
       },
       "outcome": {
@@ -148,23 +256,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.82 },
-              "to": { "x": 0.35, "y": 0.62 },
+              "from": {
+                "x": 0.5,
+                "y": 0.82
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.62
+              },
               "entity": "ball",
               "duration": 300
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "throw",
-              "from": { "x": 0.35, "y": 0.62 },
-              "to": { "x": 0.7, "y": 0.6 },
+              "from": {
+                "x": 0.35,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.7,
+                "y": 0.6
+              },
               "entity": "ball",
               "duration": 500
             }

@@ -1,24 +1,47 @@
 {
   "id": "minors-pop-fly-sun",
   "title": "Pop Fly in the Sun!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "minors",
+  "impact": 2,
   "role": "defense",
-  "tags": ["pop-fly", "sun", "communication", "outfield", "technique", "sunglasses"],
+  "tags": [
+    "pop-fly",
+    "sun",
+    "communication",
+    "outfield",
+    "technique",
+    "sunglasses"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "top",
     "outs": 0,
-    "score": { "home": 0, "away": 0 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Nobody on, nobody out, early in the game. You're playing left field. The batter hits a towering pop fly headed right toward you. You start drifting under it, but as you look up -- the sun is RIGHT THERE, blinding you! You can barely see the ball against the bright sky. The ball is coming down fast. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.25 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.25
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "choices": [
@@ -43,8 +66,13 @@
       "type": "outcome",
       "narration": "Smart! You hold your glove up above your eyes, using it like a visor to block the sun. You can see the edge of the ball just above your glove as it falls. You keep tracking it, shift slightly to your left, and -- SQUEEZE! The ball lands right in your glove! One out! Your teammates clap and your coach gives you a thumbs up. That's how you handle the sun!",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.3 },
-        "highlight": ["LF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.3
+        },
+        "highlight": [
+          "LF"
+        ],
         "runners": []
       },
       "outcome": {
@@ -52,8 +80,14 @@
         "headline": "Caught It! Sun Ball Handled!",
         "explanation": "Using your glove to shade the sun is the go-to technique for any fly ball that takes you into the sun. Here's the trick: hold your glove up just below the sun so it blocks the bright light, but you can still see the ball right above or beside your glove. As the ball drops, you're already in position to catch it. This is why coaches tell outfielders to always wear sunglasses or a hat with a brim -- but your glove always works as a backup sun shield.",
         "keyTerms": [
-          { "term": "Sun ball", "definition": "A fly ball hit in the direction of the sun, making it hard for fielders to track. Players use their glove, sunglasses, or hat brim to shade their eyes." },
-          { "term": "Glove shade technique", "definition": "Holding your glove above your eyes to block the sun while still tracking the ball, then adjusting your glove to make the catch as the ball drops." }
+          {
+            "term": "Sun ball",
+            "definition": "A fly ball hit in the direction of the sun, making it hard for fielders to track. Players use their glove, sunglasses, or hat brim to shade their eyes."
+          },
+          {
+            "term": "Glove shade technique",
+            "definition": "Holding your glove above your eyes to block the sun while still tracking the ball, then adjusting your glove to make the catch as the ball drops."
+          }
         ],
         "whatToRemember": "When the sun is in your eyes, use your glove as a sun shield. Hold it up to block the sun and track the ball just above or beside the glove. Never give up on a fly ball because of the sun.",
         "iqPoints": 10,
@@ -61,15 +95,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.25, "y": 0.3 },
-              "to": { "x": 0.25, "y": 0.28 },
+              "from": {
+                "x": 0.25,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.25,
+                "y": 0.28
+              },
               "entity": "fielder",
               "duration": 400
             },
             {
               "type": "catch",
-              "from": { "x": 0.25, "y": 0.25 },
-              "to": { "x": 0.25, "y": 0.28 },
+              "from": {
+                "x": 0.25,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.25,
+                "y": 0.28
+              },
               "entity": "ball",
               "duration": 600
             }
@@ -82,10 +128,20 @@
       "type": "outcome",
       "narration": "You turn your head away from the sun completely. Big mistake -- now you've totally lost the ball! You spin around trying to find it again, but it's too late. The ball drops right behind you and bounces to the wall. The batter ends up on second base with a double. Your coach jogs out: 'Never take your eyes completely off the ball!'",
       "field": {
-        "ballPosition": { "x": 0.2, "y": 0.15 },
+        "ballPosition": {
+          "x": 0.2,
+          "y": 0.15
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (at 2nd)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (at 2nd)"
+          }
         ]
       },
       "outcome": {
@@ -98,15 +154,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.25, "y": 0.3 },
-              "to": { "x": 0.28, "y": 0.32 },
+              "from": {
+                "x": 0.25,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.28,
+                "y": 0.32
+              },
               "entity": "fielder",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.55, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.55,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "batter",
               "duration": 1200,
               "parallel": true
@@ -120,10 +188,22 @@
       "type": "outcome",
       "narration": "You wave your arms and yell 'Help! Help!' The center fielder sprints over and tries to get under the ball, but they had to cover a LOT of ground and the ball drops just in front of them for a single. Not the worst result -- at least you communicated -- but if you'd used the glove-shade technique, you could have caught it yourself.",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.3 },
-        "highlight": ["CF"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.3
+        },
+        "highlight": [
+          "CF"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -136,8 +216,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.25 },
-              "to": { "x": 0.28, "y": 0.28 },
+              "from": {
+                "x": 0.4,
+                "y": 0.25
+              },
+              "to": {
+                "x": 0.28,
+                "y": 0.28
+              },
               "entity": "fielder",
               "duration": 800
             }

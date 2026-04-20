@@ -1,26 +1,54 @@
 {
   "id": "tball-foul-ball-return",
   "title": "Foul Ball! What Now?",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "tball",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["foul-ball", "rules", "batting", "basics"],
+  "tags": [
+    "foul-ball",
+    "rules",
+    "batting",
+    "basics"
+  ],
   "setup": {
     "inning": 2,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 1, "away": 2 },
-    "runners": { "first": false, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "runners": {
+      "first": false,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "You swing the bat at the ball on the tee and TICK -- you hit it, but it goes backward behind you! It rolls behind home plate toward the fence. The coach says 'Foul ball!' You've never heard that before. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.92 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.85 }, "label": "You (at bat)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You (at bat)"
+          }
         ]
       },
       "choices": [
@@ -45,10 +73,23 @@
       "type": "outcome",
       "narration": "You step back up to the tee, put the ball back on top, and get ready to swing again. This time -- CRACK! You hit it right between the shortstop and the third baseman into the outfield! FAIR BALL! Now you run to first base! Your coach says, 'Great job! You knew a foul ball means try again!'",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.4 },
-        "highlight": ["Home", "1B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.4
+        },
+        "highlight": [
+          "Home",
+          "1B"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.6, "y": 0.75 }, "label": "You (running!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.6,
+              "y": 0.75
+            },
+            "label": "You (running!)"
+          }
         ]
       },
       "outcome": {
@@ -56,9 +97,18 @@
         "headline": "Fair Ball! Great Second Swing!",
         "explanation": "A foul ball is when you hit the ball and it goes OUTSIDE the white lines -- like behind you, or way off to the left or right side. When you hit a foul ball, it doesn't count! You just put the ball back on the tee and try again. You keep hitting until you hit a FAIR ball -- that means the ball goes between the two white lines into the field. Foul balls are just practice swings that don't count!",
         "keyTerms": [
-          { "term": "Foul Ball", "definition": "When you hit the ball but it goes outside the white lines -- behind you or way off to the side. It doesn't count, try again!" },
-          { "term": "Fair Ball", "definition": "When you hit the ball and it lands between the two white foul lines. This one counts -- RUN!" },
-          { "term": "Foul Lines", "definition": "The two white chalk lines that go from home plate to the outfield. The ball needs to go between them!" }
+          {
+            "term": "Foul Ball",
+            "definition": "When you hit the ball but it goes outside the white lines -- behind you or way off to the side. It doesn't count, try again!"
+          },
+          {
+            "term": "Fair Ball",
+            "definition": "When you hit the ball and it lands between the two white foul lines. This one counts -- RUN!"
+          },
+          {
+            "term": "Foul Lines",
+            "definition": "The two white chalk lines that go from home plate to the outfield. The ball needs to go between them!"
+          }
         ],
         "whatToRemember": "A foul ball doesn't count! Just go back to the tee and hit again. Keep swinging until you hit a fair ball!",
         "iqPoints": 10,
@@ -66,15 +116,27 @@
           "steps": [
             {
               "type": "hit",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.35, "y": 0.4 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 600
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.6, "y": 0.75 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.6,
+                "y": 0.75
+              },
               "entity": "you",
               "duration": 500
             }
@@ -87,10 +149,22 @@
       "type": "outcome",
       "narration": "You drop the bat and start running to first base! But everyone is yelling 'FOUL BALL! Come back!' The ball went behind you -- that's foul territory! It doesn't count as a hit. You jog back to home plate feeling silly. Your coach says, 'It's okay! Now you know -- foul balls don't count. You get to hit again!'",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.92 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.58, "y": 0.78 }, "label": "You (come back!)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.58,
+              "y": 0.78
+            },
+            "label": "You (come back!)"
+          }
         ]
       },
       "outcome": {
@@ -98,8 +172,14 @@
         "headline": "Come Back! That Was Foul!",
         "explanation": "When the ball goes behind home plate or outside the white foul lines, it's a FOUL BALL. That means it doesn't count! You don't need to run because the play is dead. A foul ball is like a do-over -- you go back to home plate and hit again. Only run to first base when you hit a FAIR ball -- that's one that goes forward, between the two white lines, into the field where the fielders are.",
         "keyTerms": [
-          { "term": "Foul Territory", "definition": "The area outside the white foul lines. If the ball goes here, it's a foul ball and doesn't count!" },
-          { "term": "Dead Ball", "definition": "When the play stops. A foul ball is a dead ball -- nothing happens until the next swing." }
+          {
+            "term": "Foul Territory",
+            "definition": "The area outside the white foul lines. If the ball goes here, it's a foul ball and doesn't count!"
+          },
+          {
+            "term": "Dead Ball",
+            "definition": "When the play stops. A foul ball is a dead ball -- nothing happens until the next swing."
+          }
         ],
         "whatToRemember": "Don't run on a foul ball! If the ball goes behind you or outside the white lines, go back and hit again.",
         "iqPoints": 1,
@@ -107,15 +187,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.58, "y": 0.78 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.58,
+                "y": 0.78
+              },
               "entity": "you",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.58, "y": 0.78 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.58,
+                "y": 0.78
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 600
             }
@@ -128,10 +220,22 @@
       "type": "outcome",
       "narration": "You run behind home plate to get the ball. Your coach says, 'Thanks for helping, but let the other team get that! You need to stay at home plate and get ready to hit again. A foul ball means you get another swing!' You jog back and get ready for your next try.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.92 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "you", "position": { "x": 0.5, "y": 0.85 }, "label": "You (back at plate)" }
+          {
+            "id": "you",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "You (back at plate)"
+          }
         ]
       },
       "outcome": {
@@ -139,8 +243,14 @@
         "headline": "Nice Try! But Stay at the Plate!",
         "explanation": "It's really nice that you wanted to help get the ball, but that's the other team's job! When you hit a foul ball, the fielders or the coach will get it. YOUR job is to stay at home plate and get ready for your next swing. You get to keep hitting until you hit a fair ball, so just focus on your next swing. Stay at the plate, put a new ball on the tee, and try again!",
         "keyTerms": [
-          { "term": "Another Swing", "definition": "After a foul ball, you get to try again! Stay at the plate and get ready." },
-          { "term": "Fair Ball", "definition": "A ball that goes forward, between the two white lines, into the field. That's the one you run on!" }
+          {
+            "term": "Another Swing",
+            "definition": "After a foul ball, you get to try again! Stay at the plate and get ready."
+          },
+          {
+            "term": "Fair Ball",
+            "definition": "A ball that goes forward, between the two white lines, into the field. That's the one you run on!"
+          }
         ],
         "whatToRemember": "After a foul ball, stay at home plate! Let someone else get the ball and get ready for your next swing.",
         "iqPoints": 4,
@@ -148,15 +258,27 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.9 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.9
+              },
               "entity": "you",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.9 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.9
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "you",
               "duration": 400
             }

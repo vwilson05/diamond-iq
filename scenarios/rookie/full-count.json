@@ -1,27 +1,59 @@
 {
   "id": "rookie-full-count",
   "title": "Full Count, Two Outs!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 4,
   "role": "offense",
-  "tags": ["full-count", "two-outs", "pitch-selection", "pressure", "plate-discipline"],
+  "tags": [
+    "full-count",
+    "two-outs",
+    "pitch-selection",
+    "pressure",
+    "plate-discipline"
+  ],
   "setup": {
     "inning": 6,
     "topBottom": "bottom",
     "outs": 2,
-    "score": { "home": 4, "away": 5 },
-    "runners": { "first": false, "second": true, "third": false },
-    "count": { "balls": 3, "strikes": 2 }
+    "score": {
+      "home": 4,
+      "away": 5
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    },
+    "count": {
+      "balls": 3,
+      "strikes": 2
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Bottom of the sixth, your team is down by one run with a runner on second and two outs. The count is 3 balls and 2 strikes -- a FULL COUNT. The next pitch decides everything. The pitcher delivers and the ball is heading toward the low outside corner. It looks close but it might be just below the knees. What do you do?",
       "field": {
-        "ballPosition": { "x": 0.52, "y": 0.84 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.52,
+          "y": 0.84
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (on 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (on 2nd)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +78,22 @@
       "type": "outcome",
       "narration": "You shorten up your swing and poke at the low pitch. You make contact! The ball shoots through the gap between shortstop and third base into left field! BASE HIT! The runner on second takes off and rounds third -- the left fielder picks it up but the runner slides home safely! TIE GAME! By protecting the plate with two strikes, you put the ball in play and kept the rally alive!",
       "field": {
-        "ballPosition": { "x": 0.25, "y": 0.4 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.25,
+          "y": 0.4
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SCORES!)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SCORES!)"
+          }
         ]
       },
       "outcome": {
@@ -58,31 +102,58 @@
         "explanation": "With two strikes, your approach should change. Instead of taking big swings, you 'protect the plate' by swinging at anything close to the strike zone. Why? Because if the pitch is close and you don't swing, the umpire might call it a strike and you're out. But if you put the bat on the ball -- even with a shorter, defensive swing -- good things can happen! You don't need a perfect swing with two strikes. Just make contact and put the ball in play. A lot of great things happen when the ball is in play: errors, bad hops, seeing-eye singles. Don't go down looking!",
         "whatToRemember": "With two strikes, protect the plate! Swing at anything close. A short, compact swing that makes contact is better than watching a close pitch get called strike three.",
         "keyTerms": [
-          { "term": "Full Count", "definition": "When the count is 3 balls and 2 strikes. The next pitch will either be ball four (walk), strike three (strikeout), or the batter puts it in play. It's the most intense count in baseball!" },
-          { "term": "Protect the Plate", "definition": "Swinging at any pitch that's close to the strike zone when you have two strikes. You can't afford to let a borderline pitch go by because the umpire might ring you up." },
-          { "term": "Shorten Up", "definition": "Making your swing shorter and more compact with two strikes. Instead of a big powerful swing, you focus on making contact. Less power, but more control." }
+          {
+            "term": "Full Count",
+            "definition": "When the count is 3 balls and 2 strikes. The next pitch will either be ball four (walk), strike three (strikeout), or the batter puts it in play. It's the most intense count in baseball!"
+          },
+          {
+            "term": "Protect the Plate",
+            "definition": "Swinging at any pitch that's close to the strike zone when you have two strikes. You can't afford to let a borderline pitch go by because the umpire might ring you up."
+          },
+          {
+            "term": "Shorten Up",
+            "definition": "Making your swing shorter and more compact with two strikes. Instead of a big powerful swing, you focus on making contact. Less power, but more control."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.52, "y": 0.84 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.84
+              },
               "entity": "ball",
               "duration": 400
             },
             {
               "type": "throw",
-              "from": { "x": 0.52, "y": 0.84 },
-              "to": { "x": 0.25, "y": 0.4 },
+              "from": {
+                "x": 0.52,
+                "y": 0.84
+              },
+              "to": {
+                "x": 0.25,
+                "y": 0.4
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 900,
               "parallel": true
@@ -96,10 +167,22 @@
       "type": "outcome",
       "narration": "You hold your bat on your shoulder and watch the pitch go by. The umpire pauses, then punches his fist -- 'STRIKE THREE!' You're out! You thought it was low, but the umpire called it a strike. Inning over. Your team loses by one run. You'll never know if you would have gotten a hit, but you know you didn't give yourself a chance by not swinging.",
       "field": {
-        "ballPosition": { "x": 0.52, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.52,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stranded)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stranded)"
+          }
         ]
       },
       "outcome": {
@@ -112,8 +195,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.52, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -126,10 +215,22 @@
       "type": "outcome",
       "narration": "You try to bunt with two strikes! You square around and the pitch comes in low. You reach for it and miss -- the ball rolls past your bat and into the catcher's glove. STRIKE THREE! But wait, it gets worse: with two strikes, if you bunt the ball foul, it's an automatic strikeout! And you couldn't even reach this one. Your at-bat is over and so is the game. Bunting with two strikes is one of the biggest gambles in baseball.",
       "field": {
-        "ballPosition": { "x": 0.52, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.52,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "Runner (stranded)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Runner (stranded)"
+          }
         ]
       },
       "outcome": {
@@ -142,8 +243,14 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.5, "y": 0.62 },
-              "to": { "x": 0.52, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.62
+              },
+              "to": {
+                "x": 0.52,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 500
             }

@@ -1,26 +1,58 @@
 {
   "id": "rookie-first-to-third",
   "title": "First to Third on a Single!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 2,
   "role": "baserunning",
-  "tags": ["first-to-third", "extra-base", "outfield-single", "aggressive-baserunning", "reading-outfielder"],
+  "tags": [
+    "first-to-third",
+    "extra-base",
+    "outfield-single",
+    "aggressive-baserunning",
+    "reading-outfielder"
+  ],
   "setup": {
     "inning": 4,
     "topBottom": "bottom",
     "outs": 1,
-    "score": { "home": 1, "away": 1 },
-    "runners": { "first": true, "second": false, "third": false }
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "runners": {
+      "first": true,
+      "second": false,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Tied game, you're on first base with one out. The batter hits a clean single into right field! The ball gets past the infielders and is rolling toward the right fielder. Your third base coach is waving their arm in circles and yelling 'GO! GO! GO!' The right fielder is still running toward the ball. Do you stop at second or try for third?",
       "field": {
-        "ballPosition": { "x": 0.75, "y": 0.35 },
-        "highlight": ["1B", "2B", "3B", "RF"],
+        "ballPosition": {
+          "x": 0.75,
+          "y": 0.35
+        },
+        "highlight": [
+          "1B",
+          "2B",
+          "3B",
+          "RF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.6, "y": 0.52 }, "label": "You (rounding 2nd)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.6,
+              "y": 0.52
+            },
+            "label": "You (rounding 2nd)"
+          }
         ]
       },
       "choices": [
@@ -45,11 +77,30 @@
       "type": "outcome",
       "narration": "You hit second base hard with your inside foot and keep running! The right fielder finally picks up the ball and throws, but you're already sliding into third! SAFE! You went first to third on a single! Now you're 90 feet from home with one out. A fly ball, a wild pitch, a ground ball -- so many ways to score! Your coach gives you a fist bump. That aggressive baserunning just changed the game!",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.55 },
-        "highlight": ["3B"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.55
+        },
+        "highlight": [
+          "3B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.3, "y": 0.6 }, "label": "You (at 3rd!)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.3,
+              "y": 0.6
+            },
+            "label": "You (at 3rd!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -58,31 +109,58 @@
         "explanation": "Going first to third on a single is one of the most impactful plays in baseball. It changes EVERYTHING. At second base, you need a hit to score. At third base, you can score on a fly ball, a wild pitch, a passed ball, a ground ball, a balk -- there are so many more ways to score! The keys to first-to-third are: (1) read the ball off the bat -- you knew it was a single to right field, (2) watch your third base coach -- they can see the outfielder and the throw, (3) hit the inside of second base with your foot so you make a tight turn. Trust your coach's waves!",
         "whatToRemember": "On singles to right field, always look to go first to third! Watch your third base coach and hit the inside of second base for a tight turn. Third base is SO much better than second!",
         "keyTerms": [
-          { "term": "First to Third", "definition": "Going from first base all the way to third base on a single hit to the outfield. It's an aggressive play that puts you in scoring position with a short distance to home." },
-          { "term": "Third Base Coach", "definition": "The coach standing near third base who tells you to stop, keep going, or slide. ALWAYS look at your coach when rounding second base!" },
-          { "term": "Scoring Position", "definition": "When a runner is on second or third base. From scoring position, a single hit will usually score the runner. Third base is the BEST scoring position because you can score on so many plays." }
+          {
+            "term": "First to Third",
+            "definition": "Going from first base all the way to third base on a single hit to the outfield. It's an aggressive play that puts you in scoring position with a short distance to home."
+          },
+          {
+            "term": "Third Base Coach",
+            "definition": "The coach standing near third base who tells you to stop, keep going, or slide. ALWAYS look at your coach when rounding second base!"
+          },
+          {
+            "term": "Scoring Position",
+            "definition": "When a runner is on second or third base. From scoring position, a single hit will usually score the runner. Third base is the BEST scoring position because you can score on so many plays."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.3, "y": 0.6 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.3,
+                "y": 0.6
+              },
               "entity": "runner1",
               "duration": 600
             },
             {
               "type": "throw",
-              "from": { "x": 0.75, "y": 0.35 },
-              "to": { "x": 0.35, "y": 0.55 },
+              "from": {
+                "x": 0.75,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.35,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 700,
               "parallel": true
@@ -96,11 +174,30 @@
       "type": "outcome",
       "narration": "You round second base and stop. You're safe at second, which is fine. But your third base coach was waving you around -- the right fielder bobbled the ball and a throw to third would have been late. You had a clear path to third but didn't take it. You're in scoring position, but at second base you need a clean hit to score. At third, you could have scored on a ground ball or a fly ball.",
       "field": {
-        "ballPosition": { "x": 0.7, "y": 0.4 },
-        "highlight": ["2B"],
+        "ballPosition": {
+          "x": 0.7,
+          "y": 0.4
+        },
+        "highlight": [
+          "2B"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.45 }, "label": "You (at 2nd)" },
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "You (at 2nd)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -113,8 +210,14 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 500
             }
@@ -127,10 +230,20 @@
       "type": "outcome",
       "narration": "You're running hard but you never look at your third base coach. You round second base and glance out at the right fielder -- they already have the ball! You panic and try to go back to second, but you're past the bag. Now you're stuck between second and third! The right fielder throws to the shortstop and you're tagged out in a rundown. If you had looked at your coach, they would have told you to STOP at second. Instead, you got tagged out because you made the decision alone.",
       "field": {
-        "ballPosition": { "x": 0.45, "y": 0.5 },
+        "ballPosition": {
+          "x": 0.45,
+          "y": 0.5
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.7,
+              "y": 0.6
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -143,29 +256,53 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.6, "y": 0.52 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.6,
+                "y": 0.52
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "runner1",
               "duration": 400
             },
             {
               "type": "run",
-              "from": { "x": 0.5, "y": 0.45 },
-              "to": { "x": 0.45, "y": 0.5 },
+              "from": {
+                "x": 0.5,
+                "y": 0.45
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.5
+              },
               "entity": "runner1",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.75, "y": 0.35 },
-              "to": { "x": 0.45, "y": 0.5 },
+              "from": {
+                "x": 0.75,
+                "y": 0.35
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.5
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "tag",
-              "from": { "x": 0.45, "y": 0.5 },
-              "to": { "x": 0.45, "y": 0.5 },
+              "from": {
+                "x": 0.45,
+                "y": 0.5
+              },
+              "to": {
+                "x": 0.45,
+                "y": 0.5
+              },
               "entity": "fielder",
               "duration": 300
             }

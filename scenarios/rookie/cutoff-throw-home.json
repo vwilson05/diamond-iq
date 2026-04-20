@@ -1,27 +1,65 @@
 {
   "id": "rookie-cutoff-throw-home",
   "title": "Cut Off the Throw!",
-  "sport": ["baseball", "softball"],
+  "sport": [
+    "baseball",
+    "softball"
+  ],
   "tier": "rookie",
+  "impact": 3,
   "role": "defense",
-  "tags": ["cutoff", "outfield-throw", "home-plate", "decision-making", "baserunning"],
+  "tags": [
+    "cutoff",
+    "outfield-throw",
+    "home-plate",
+    "decision-making",
+    "baserunning"
+  ],
   "setup": {
     "inning": 5,
     "topBottom": "top",
     "outs": 1,
-    "score": { "home": 4, "away": 3 },
-    "runners": { "first": false, "second": true, "third": false }
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "runners": {
+      "first": false,
+      "second": true,
+      "third": false
+    }
   },
   "nodes": {
     "root": {
       "type": "decision",
       "narration": "Runner on second base, one out, and your team is winning by one run. The batter singles to left field! The runner on second is rounding third and sprinting home. You're the third baseman, standing in the cutoff position between the left fielder and home plate. The left fielder throws the ball and it's heading right at you on one hop. The runner is about 30 feet from home. Do you cut off the throw or let it go through to the catcher?",
       "field": {
-        "ballPosition": { "x": 0.35, "y": 0.5 },
-        "highlight": ["3B", "Home", "LF"],
+        "ballPosition": {
+          "x": 0.35,
+          "y": 0.5
+        },
+        "highlight": [
+          "3B",
+          "Home",
+          "LF"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.4, "y": 0.72 }, "label": "Runner (heading home)" },
-          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.4,
+              "y": 0.72
+            },
+            "label": "Runner (heading home)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.65
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "choices": [
@@ -46,10 +84,22 @@
       "type": "outcome",
       "narration": "You read the throw perfectly -- it's on a line, strong, and heading right toward the catcher's glove. You duck and let it go through! The catcher catches it on one hop and slaps the tag on the sliding runner -- OUT! The run doesn't score! Your team still leads! The key was reading the throw and knowing you didn't need to touch it.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.65
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -58,32 +108,59 @@
         "explanation": "As the cutoff man, your job is to make a DECISION. If the throw from the outfield is strong and accurate, let it go through to the catcher! Cutting a good throw only slows it down. You have to quickly judge: Is the throw on line? Is it strong enough to reach the catcher? Will it beat the runner? In this case, the answer was yes to all three, so letting it through was the right call. The catcher did their job and tagged the runner out. Knowing WHEN to cut and when to let it go is what separates smart defenders.",
         "whatToRemember": "As cutoff man, let strong, accurate throws go through to the catcher. Only cut it if the throw is off-line, weak, or too late to get the runner.",
         "keyTerms": [
-          { "term": "Cutoff Man", "definition": "An infielder who stands between the outfielder and the base to decide whether to catch the throw and redirect it, or let it go through to the base." },
-          { "term": "On a Line", "definition": "When a throw goes straight from the thrower to the target without curving to the side. A throw 'on a line' is accurate and doesn't need to be cut off." },
-          { "term": "Tag Play", "definition": "When a runner is NOT forced to advance, the fielder must TAG them with the ball to get them out. This is different from a force out where they just touch the base." }
+          {
+            "term": "Cutoff Man",
+            "definition": "An infielder who stands between the outfielder and the base to decide whether to catch the throw and redirect it, or let it go through to the base."
+          },
+          {
+            "term": "On a Line",
+            "definition": "When a throw goes straight from the thrower to the target without curving to the side. A throw 'on a line' is accurate and doesn't need to be cut off."
+          },
+          {
+            "term": "Tag Play",
+            "definition": "When a runner is NOT forced to advance, the fielder must TAG them with the ball to get them out. This is different from a force out where they just touch the base."
+          }
         ],
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.25, "y": 0.3 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.25,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 800
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.72 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 700,
               "parallel": true
             },
             {
               "type": "tag",
-              "from": { "x": 0.5, "y": 0.85 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.5,
+                "y": 0.85
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "fielder",
               "duration": 300
             }
@@ -96,11 +173,30 @@
       "type": "outcome",
       "narration": "You reach up and grab the throw! It was bouncing pretty high, so cutting it might have been smart. You spin and fire it home, but the extra time it took for you to catch, turn, and throw was just enough. The runner slides in -- SAFE! Run scores, game is tied. Your throw was good, but the runner beat you by a half step. Sometimes cutting it works, sometimes it doesn't.",
       "field": {
-        "ballPosition": { "x": 0.5, "y": 0.85 },
-        "highlight": ["Home"],
+        "ballPosition": {
+          "x": 0.5,
+          "y": 0.85
+        },
+        "highlight": [
+          "Home"
+        ],
         "runners": [
-          { "id": "runner1", "position": { "x": 0.5, "y": 0.85 }, "label": "Runner (SAFE!)" },
-          { "id": "batter", "position": { "x": 0.65, "y": 0.65 }, "label": "Batter (at 1st)" }
+          {
+            "id": "runner1",
+            "position": {
+              "x": 0.5,
+              "y": 0.85
+            },
+            "label": "Runner (SAFE!)"
+          },
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.65,
+              "y": 0.65
+            },
+            "label": "Batter (at 1st)"
+          }
         ]
       },
       "outcome": {
@@ -113,22 +209,40 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.25, "y": 0.3 },
-              "to": { "x": 0.38, "y": 0.55 },
+              "from": {
+                "x": 0.25,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "catch",
-              "from": { "x": 0.38, "y": 0.55 },
-              "to": { "x": 0.38, "y": 0.55 },
+              "from": {
+                "x": 0.38,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.55
+              },
               "entity": "fielder",
               "duration": 300
             },
             {
               "type": "throw",
-              "from": { "x": 0.38, "y": 0.55 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.38,
+                "y": 0.55
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "ball",
               "duration": 500
             }
@@ -141,10 +255,20 @@
       "type": "outcome",
       "narration": "You cut the throw and just hold the ball. The runner crosses home plate easily and scores the tying run! You had a chance to throw him out, but instead you watched him score. Meanwhile, the batter sees you standing there with the ball and takes off for second base! Now the game is tied AND there's a runner in scoring position. Your coach calls out: 'If you cut it, throw it! Don't hold it!'",
       "field": {
-        "ballPosition": { "x": 0.38, "y": 0.55 },
+        "ballPosition": {
+          "x": 0.38,
+          "y": 0.55
+        },
         "highlight": [],
         "runners": [
-          { "id": "batter", "position": { "x": 0.5, "y": 0.45 }, "label": "Batter (took 2nd!)" }
+          {
+            "id": "batter",
+            "position": {
+              "x": 0.5,
+              "y": 0.45
+            },
+            "label": "Batter (took 2nd!)"
+          }
         ]
       },
       "outcome": {
@@ -157,23 +281,41 @@
           "steps": [
             {
               "type": "throw",
-              "from": { "x": 0.25, "y": 0.3 },
-              "to": { "x": 0.38, "y": 0.55 },
+              "from": {
+                "x": 0.25,
+                "y": 0.3
+              },
+              "to": {
+                "x": 0.38,
+                "y": 0.55
+              },
               "entity": "ball",
               "duration": 500
             },
             {
               "type": "run",
-              "from": { "x": 0.4, "y": 0.72 },
-              "to": { "x": 0.5, "y": 0.85 },
+              "from": {
+                "x": 0.4,
+                "y": 0.72
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.85
+              },
               "entity": "runner1",
               "duration": 600,
               "parallel": true
             },
             {
               "type": "run",
-              "from": { "x": 0.65, "y": 0.65 },
-              "to": { "x": 0.5, "y": 0.45 },
+              "from": {
+                "x": 0.65,
+                "y": 0.65
+              },
+              "to": {
+                "x": 0.5,
+                "y": 0.45
+              },
               "entity": "batter",
               "duration": 800
             }
