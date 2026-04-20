@@ -238,14 +238,17 @@ async function startGame(tier) {
   const canvas = document.getElementById('field-canvas');
   const sbContainer = document.getElementById('scoreboard-container');
 
+  const gameBody = document.querySelector('.game-body');
   if (game.state.sport === 'chess') {
     // Chess mode — use chess board, hide scoreboard
+    gameBody.classList.add('chess-mode');
     chessBoard = new ChessBoard(canvas);
     chessBoard.setPosition('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
     fieldCanvas = null;
     sbContainer.style.display = 'none';
   } else {
     // Baseball/softball mode
+    gameBody.classList.remove('chess-mode');
     chessBoard = null;
     sbContainer.style.display = '';
     fieldCanvas = new FieldCanvas(canvas);
