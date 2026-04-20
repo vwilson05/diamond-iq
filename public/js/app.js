@@ -16,8 +16,10 @@ const playerAuth = new PlayerAuth();
 let fieldCanvas = null;
 let scoreboard = null;
 let playedScenarioIds = [];
+let sessionPlayedIds = [];   // Persists across "Keep Going" rounds — no repeats in full session
 let scenarioList = [];
 let currentSessionId = null;  // Server session ID for saving results
+const SCENARIOS_PER_ROUND = 5;
 
 // ---- DOM Refs ----
 const screens = {
@@ -114,6 +116,7 @@ function renderDifficultyCards() {
 async function startGame(tier) {
   showScreen('game');
   playedScenarioIds = [];
+  sessionPlayedIds = [];
   currentSessionId = null;
 
   // Start a server session if player is logged in
@@ -180,9 +183,15 @@ async function loadNextScenario() {
     return;
   }
 
-  const pick = getRandomScenario(scenarioList, playedScenarioIds);
+  // Check if we've hit the per-round limit
+  if (playedScenarioIds.length >= SCENARIOS_PER_ROUND) {
+    showReview();
+    return;
+  }
+
+  const pick = getRandomScenario(scenarioList, sessionPlayedIds);
   if (!pick) {
-    // All scenarios played — go to review
+    // All scenarios in the tier exhausted — go to review
     showReview();
     return;
   }
@@ -195,7 +204,8 @@ async function loadNextScenario() {
     return;
   }
 
-  playedScenarioIds.push(pick.id);  // Use filename-based id to match the list
+  playedScenarioIds.push(pick.id);
+  sessionPlayedIds.push(pick.id);  // Track across rounds so "Keep Going" never repeats
   game.loadScenario(scenario);
 
   // Update scoreboard with setup
@@ -318,9 +328,16 @@ function renderDecision(node, nodeId) {
   panel.appendChild(choicesDiv);
 
   typewriter(narDiv, node.narration, () => {
+    // Shuffle choices so correct answer isn't always A (Fisher-Yates)
+    const shuffled = [...node.choices];
+    for (let si = shuffled.length - 1; si > 0; si--) {
+      const sj = Math.floor(Math.random() * (si + 1));
+      [shuffled[si], shuffled[sj]] = [shuffled[sj], shuffled[si]];
+    }
+
     // Render choices
     const letters = ['A', 'B', 'C', 'D', 'E'];
-    node.choices.forEach((choice, i) => {
+    shuffled.forEach((choice, i) => {
       // Check sport-specific filtering
       if (choice.onlyIn && choice.onlyIn !== sport) return;
 
@@ -434,9 +451,10 @@ function renderOutcome(node, nodeId) {
     nextBtn.addEventListener('click', () => processNode(outcome.next));
   } else {
     // Scenario complete (scenariosCompleted already incremented by recordOutcome)
-    nextBtn.textContent = playedScenarioIds.length >= scenarioList.length ? 'See Results' : 'Next Scenario';
+    const roundDone = playedScenarioIds.length >= SCENARIOS_PER_ROUND || sessionPlayedIds.length >= scenarioList.length;
+    nextBtn.textContent = roundDone ? 'See Results' : 'Next Scenario';
     nextBtn.addEventListener('click', () => {
-      if (playedScenarioIds.length >= scenarioList.length) {
+      if (roundDone) {
         showReview();
       } else {
         loadNextScenario();
@@ -527,31 +545,57 @@ function showReview() {
         </div>
       `).join('')}
     </div>
-    <button class="btn-play-again">PLAY AGAIN</button>
+    <div class="review-buttons">
+      <button class="btn-play-again btn-keep-going">KEEP GOING</button>
+      <button class="btn-play-again btn-change-level">CHANGE LEVEL</button>
+    </div>
   `;
 
-  container.querySelector('.btn-play-again').addEventListener('click', () => {
-    // Restart with saved preferences — don't make them re-pick
+  // "Keep Going" — play 5 more at the same level (no scenario repeats within session)
+  container.querySelector('.btn-keep-going').addEventListener('click', () => {
     const savedTeam = localStorage.getItem('diamond_iq_team');
     const savedTier = localStorage.getItem('diamond_iq_tier');
     const savedSport = localStorage.getItem('diamond_iq_sport');
-
-    game.reset();
 
     if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
       const tier = TIERS.find(t => t.id === savedTier);
       if (team && tier) {
+        // Reset per-round counter but keep sessionPlayedIds to avoid repeats
+        playedScenarioIds = [];
         game.selectSport(savedSport);
         game.selectTeam(team);
         setTeamColors(team);
         game.selectTier(savedTier);
-        if (playerAuth.getPlayer()) updatePlayerHeader();
-        startGame(tier);
+
+        showScreen('game');
+
+        // Set up header
+        document.getElementById('game-tier-badge').textContent = tier.name;
+        document.getElementById('game-scenario-count').textContent = '';
+
+        loadNextScenario();
         return;
       }
     }
     showScreen('sportSelect');
+  });
+
+  // "Change Level" — go to difficulty select with saved sport/team
+  container.querySelector('.btn-change-level').addEventListener('click', () => {
+    const savedSport = localStorage.getItem('diamond_iq_sport');
+    const savedTeam = localStorage.getItem('diamond_iq_team');
+
+    game.reset();
+
+    if (savedSport) game.selectSport(savedSport);
+    if (savedTeam) {
+      const team = JSON.parse(savedTeam);
+      game.selectTeam(team);
+      setTeamColors(team);
+    }
+    showScreen('difficultySelect');
+    renderDifficultyCards();
   });
 }
 
