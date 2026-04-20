@@ -2025,6 +2025,12 @@ body {
 .outcome-tokens .token-coin {
   width: 1.2rem;
   height: 1.2rem;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.outcome-tokens .token-coin svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .token-multiplier-tag {
@@ -2034,6 +2040,19 @@ body {
   padding: 0.1rem 0.4rem;
   border-radius: 3px;
   margin-left: 0.3rem;
+}
+
+/* ---- GLOBAL TOKEN COIN SIZE ---- */
+.token-coin {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.token-coin svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  max-width: 1.2rem;
+  max-height: 1.2rem;
 }
 
 /* ---- UTILITY ---- */
