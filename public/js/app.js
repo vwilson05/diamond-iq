@@ -776,6 +776,19 @@ function bootAuth() {
   });
 }
 
+// ---- Back Buttons ----
+document.getElementById('back-to-sport').addEventListener('click', () => {
+  showScreen('sportSelect');
+});
+
+document.getElementById('back-to-team').addEventListener('click', () => {
+  const savedSport = localStorage.getItem('diamond_iq_sport');
+  if (savedSport) {
+    renderTeamGrid(savedSport);
+  }
+  showScreen('teamSelect');
+});
+
 async function boot() {
   initSportPicker();
 
