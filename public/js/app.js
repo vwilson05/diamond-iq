@@ -3,7 +3,16 @@
  * Wires together: game state, field renderer, scoreboard, scenario panel, UI screens
  */
 
-import { TEAMS, SOFTBALL_TEAMS, CHESS_TEAMS } from './renderer/teams.js';
+import { TEAMS, SOFTBALL_TEAMS } from './renderer/teams.js';
+
+const CHESS_TEAMS = [
+  { id: 201, name: 'Knights', city: 'White', primary: '#F0D9B5', secondary: '#B58863', abbr: 'WHT' },
+  { id: 202, name: 'Bishops', city: 'Black', primary: '#B58863', secondary: '#F0D9B5', abbr: 'BLK' },
+  { id: 203, name: 'Rooks', city: 'Classic', primary: '#4A90D9', secondary: '#1a1a2e', abbr: 'CLS' },
+  { id: 204, name: 'Pawns', city: 'Scholars', primary: '#7B2D8E', secondary: '#F0C808', abbr: 'SCH' },
+  { id: 205, name: 'Queens', city: 'Champions', primary: '#C41E3A', secondary: '#FFD700', abbr: 'CHP' },
+  { id: 206, name: 'Kings', city: 'Masters', primary: '#2A9D8F', secondary: '#264653', abbr: 'MST' },
+];
 import { FieldCanvas } from './renderer/field-canvas.js';
 import { Scoreboard } from './renderer/scoreboard.js';
 import { GameState } from './engine/game-state.js';
