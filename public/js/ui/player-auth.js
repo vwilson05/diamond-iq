@@ -112,6 +112,7 @@ export class PlayerAuth {
       </div>
 
       <button class="auth-guest-btn" id="auth-guest-btn">Play as Guest</button>
+      <a href="https://playiqapp.com" class="auth-home-link">Back to PlayIQ Home</a>
     `;
 
     container.appendChild(inner);

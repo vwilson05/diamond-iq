@@ -87,7 +87,7 @@ function showLogin() {
       </div>
 
       <button class="coach-btn coach-demo-btn" id="coach-demo-btn">View Demo Dashboard</button>
-      <a href="/" class="coach-back-link">Back to PlayIQ</a>
+      <a href="https://playiqapp.com" class="coach-back-link">Back to PlayIQ Home</a>
     </div>
   `;
 
