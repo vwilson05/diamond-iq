@@ -505,6 +505,16 @@ app.get("/coach", async (c) => {
   return c.html(html);
 });
 
+// --- No-cache for JS/CSS so deploys take effect immediately ---
+app.use("/js/*", async (c, next) => {
+  await next();
+  c.header("Cache-Control", "no-cache, no-store, must-revalidate");
+});
+app.use("/css/*", async (c, next) => {
+  await next();
+  c.header("Cache-Control", "no-cache, no-store, must-revalidate");
+});
+
 // --- Static files (AFTER API routes so /api/* matches first) ---
 app.use("/*", serveStatic({ root: "./public" }));
 
