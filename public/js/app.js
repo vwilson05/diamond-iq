@@ -3,7 +3,7 @@
  * Wires together: game state, field renderer, scoreboard, scenario panel, UI screens
  */
 
-import { TEAMS } from './renderer/teams.js';
+import { TEAMS, SOFTBALL_TEAMS } from './renderer/teams.js';
 import { FieldCanvas } from './renderer/field-canvas.js';
 import { Scoreboard } from './renderer/scoreboard.js';
 import { GameState } from './engine/game-state.js';
@@ -41,10 +41,11 @@ function setTeamColors(team) {
 }
 
 // ---- Team Picker ----
-function renderTeamGrid() {
+function renderTeamGrid(sport) {
   const grid = document.getElementById('team-grid');
   grid.innerHTML = '';
-  TEAMS.forEach(team => {
+  const teamList = sport === 'softball' ? SOFTBALL_TEAMS : TEAMS;
+  teamList.forEach(team => {
     const card = document.createElement('button');
     card.className = 'team-card';
     card.style.background = team.primary;
@@ -69,9 +70,11 @@ function renderTeamGrid() {
 function initSportPicker() {
   document.querySelectorAll('.sport-card').forEach(card => {
     card.addEventListener('click', () => {
-      game.selectSport(card.dataset.sport);
-      localStorage.setItem('diamond_iq_sport', card.dataset.sport);
-      startGame(TIERS.find(t => t.id === game.state.tier));
+      const sport = card.dataset.sport;
+      game.selectSport(sport);
+      localStorage.setItem('diamond_iq_sport', sport);
+      renderTeamGrid(sport);
+      showScreen('teamSelect');
     });
   });
 }
@@ -101,7 +104,7 @@ function renderDifficultyCards() {
     card.addEventListener('click', () => {
       game.selectTier(tier.id);
       localStorage.setItem('diamond_iq_tier', tier.id);
-      showScreen('sportSelect');
+      startGame(tier);
     });
     container.appendChild(card);
   });
@@ -535,20 +538,20 @@ function showReview() {
 
     game.reset();
 
-    if (savedTeam && savedTier && savedSport) {
+    if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
       const tier = TIERS.find(t => t.id === savedTier);
       if (team && tier) {
+        game.selectSport(savedSport);
         game.selectTeam(team);
         setTeamColors(team);
         game.selectTier(savedTier);
-        game.selectSport(savedSport);
         if (playerAuth.getPlayer()) updatePlayerHeader();
         startGame(tier);
         return;
       }
     }
-    showScreen('teamSelect');
+    showScreen('sportSelect');
   });
 }
 
@@ -657,24 +660,28 @@ document.getElementById('menu-end').addEventListener('click', () => {
     showReview();
   } else {
     game.reset();
-    showScreen('teamSelect');
+    showScreen('sportSelect');
   }
 });
 
 document.getElementById('menu-change-team').addEventListener('click', () => {
   gameMenu.classList.add('hidden');
   localStorage.removeItem('diamond_iq_team');
+  localStorage.removeItem('diamond_iq_sport');
   game.reset();
-  showScreen('teamSelect');
+  showScreen('sportSelect');
 });
 
 document.getElementById('menu-change-level').addEventListener('click', () => {
   gameMenu.classList.add('hidden');
   localStorage.removeItem('diamond_iq_tier');
-  localStorage.removeItem('diamond_iq_sport');
   game.reset();
-  // Keep team
+  // Keep sport and team
+  const savedSport = localStorage.getItem('diamond_iq_sport');
   const savedTeam = localStorage.getItem('diamond_iq_team');
+  if (savedSport) {
+    game.selectSport(savedSport);
+  }
   if (savedTeam) {
     const team = JSON.parse(savedTeam);
     game.selectTeam(team);
@@ -732,24 +739,24 @@ function showPlayerProfile(player) {
       `;
 
       container.querySelector('.btn-play-again').addEventListener('click', () => {
+        const savedSport = localStorage.getItem('diamond_iq_sport');
         const savedTeam = localStorage.getItem('diamond_iq_team');
         const savedTier = localStorage.getItem('diamond_iq_tier');
-        const savedSport = localStorage.getItem('diamond_iq_sport');
         game.reset();
-        if (savedTeam && savedTier && savedSport) {
+        if (savedSport && savedTeam && savedTier) {
           const team = JSON.parse(savedTeam);
           const tier = TIERS.find(t => t.id === savedTier);
           if (team && tier) {
+            game.selectSport(savedSport);
             game.selectTeam(team);
             setTeamColors(team);
             game.selectTier(savedTier);
-            game.selectSport(savedSport);
             updatePlayerHeader();
             startGame(tier);
             return;
           }
         }
-        showScreen('teamSelect');
+        showScreen('sportSelect');
       });
     })
     .catch(() => {
@@ -762,7 +769,7 @@ function bootAuth() {
   const authContainer = document.getElementById('auth-container');
   playerAuth.render(authContainer, (player) => {
     // player is null for guest mode
-    showScreen('teamSelect');
+    showScreen('sportSelect');
     if (player) {
       updatePlayerHeader();
     }
@@ -770,7 +777,6 @@ function bootAuth() {
 }
 
 async function boot() {
-  renderTeamGrid();
   initSportPicker();
 
   // Try auto-login
@@ -779,25 +785,25 @@ async function boot() {
     updatePlayerHeader();
 
     // Check for saved preferences — skip straight to game if we have them
+    const savedSport = localStorage.getItem('diamond_iq_sport');
     const savedTeam = localStorage.getItem('diamond_iq_team');
     const savedTier = localStorage.getItem('diamond_iq_tier');
-    const savedSport = localStorage.getItem('diamond_iq_sport');
 
-    if (savedTeam && savedTier && savedSport) {
+    if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
       const tier = TIERS.find(t => t.id === savedTier);
       if (team && tier) {
+        game.selectSport(savedSport);
         game.selectTeam(team);
         setTeamColors(team);
         game.selectTier(savedTier);
-        game.selectSport(savedSport);
         startGame(tier);
         return;
       }
     }
 
-    // No saved prefs — go to team select
-    showScreen('teamSelect');
+    // No saved prefs — go to sport select
+    showScreen('sportSelect');
   } else {
     showScreen('auth');
     bootAuth();

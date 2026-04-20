@@ -1,3 +1,14 @@
+export const SOFTBALL_TEAMS = [
+  { id: 101, name: "Softball",      city: "Athletes Unlimited", primary: "#E63946", secondary: "#1D3557", abbr: "AUX" },
+  { id: 102, name: "Spark",         city: "Oklahoma City",      primary: "#FF6B35", secondary: "#1B1B3A", abbr: "OKC" },
+  { id: 103, name: "Flame",         city: "Cleveland",          primary: "#D62828", secondary: "#F4A261", abbr: "CLE" },
+  { id: 104, name: "Smoke",         city: "Texas",              primary: "#2B2D42", secondary: "#EF233C", abbr: "TEX" },
+  { id: 105, name: "Vibe",          city: "Florida",            primary: "#00B4D8", secondary: "#0077B6", abbr: "FLA" },
+  { id: 106, name: "Breeze",        city: "California",         primary: "#2A9D8F", secondary: "#264653", abbr: "CAL" },
+  { id: 107, name: "Storm",         city: "Arizona",            primary: "#7B2D8E", secondary: "#F0C808", abbr: "ARI" },
+  { id: 108, name: "Thunder",       city: "Georgia",            primary: "#023047", secondary: "#FFB703", abbr: "GA"  },
+];
+
 export const TEAMS = [
   // AL East
   { id: 1,  name: "Orioles",    city: "Baltimore",    primary: "#DF4601", secondary: "#000000", abbr: "BAL" },
