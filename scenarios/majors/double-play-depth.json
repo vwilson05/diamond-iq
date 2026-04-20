@@ -129,7 +129,7 @@
     },
     "outcome-dp-great": {
       "type": "outcome",
-      "narration": "The shortstop leaps over the sliding runner like a ballet dancer, plants their back foot, and fires a bullet to first. The first baseman stretches -- GOT IT! DOUBLE PLAY! The infield erupts! 6-4-3 on the scorecard! From zero outs to two outs on one pitch. That's elite defense!",
+      "narration": "The shortstop leaps over the sliding runner like a ballet dancer, plants their back foot, and fires a bullet to first. The first baseman stretches -- GOT IT! DOUBLE PLAY! The infield erupts! 4-6-3 on the scorecard! From zero outs to two outs on one pitch. That's elite defense!",
       "field": {
         "ballPosition": { "x": 0.7, "y": 0.6 },
         "highlight": ["1B"],
@@ -137,8 +137,8 @@
       },
       "outcome": {
         "result": "great",
-        "headline": "6-4-3 Double Play! Beautiful Turn!",
-        "explanation": "The 6-4-3 (shortstop to second baseman to first baseman... wait, this was 4-6-3: second baseman to shortstop to first baseman!) is one of baseball's most beautiful plays. Here's what made it work: 1) You positioned at double play depth so you could reach the ball AND be close to second base. 2) You flipped to the shortstop quickly with a soft underhand toss (hard throws from close range are harder to handle). 3) The shortstop jumped to avoid the slide AND to get a clear throwing lane to first. 4) The throw beat the runner. Every step in the chain has to work perfectly. That's teamwork!",
+        "headline": "4-6-3 Double Play! Beautiful Turn!",
+        "explanation": "The 4-6-3 (second baseman to shortstop to first baseman) is one of baseball's most beautiful plays. Here's what made it work: 1) You positioned at double play depth so you could reach the ball AND be close to second base. 2) You flipped to the shortstop quickly with a soft underhand toss (hard throws from close range are harder to handle). 3) The shortstop jumped to avoid the slide AND to get a clear throwing lane to first. 4) The throw beat the runner. Every step in the chain has to work perfectly. That's teamwork!",
         "whatToRemember": "The double play is a CHAIN: field cleanly, feed the pivot man softly, the pivot man avoids the runner and makes a strong throw. Every link matters. Position yourself to make the chain as short as possible.",
         "iqPoints": 10,
         "animation": {
