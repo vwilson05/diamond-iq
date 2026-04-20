@@ -123,24 +123,27 @@ function renderTeamGrid(sport) {
 function initSportPicker() {
   document.querySelectorAll('.sport-card').forEach(card => {
     card.addEventListener('click', () => {
-      const sport = card.dataset.sport;
-      game.selectSport(sport);
-      localStorage.setItem('diamond_iq_sport', sport);
-
-      if (sport === 'chess') {
-        // Skip team select — set default chess team and go to tiers
-        const defaultChessTeam = CHESS_TEAMS[0];
-        game.selectTeam(defaultChessTeam);
-        setTeamColors(defaultChessTeam);
-        localStorage.setItem('diamond_iq_team', JSON.stringify(defaultChessTeam));
-        showScreen('difficultySelect');
-        renderDifficultyCards();
-      } else {
-        renderTeamGrid(sport);
-        showScreen('teamSelect');
-      }
+      selectSport(card.dataset.sport);
     });
   });
+}
+
+function selectSport(sport) {
+  game.selectSport(sport);
+  localStorage.setItem('diamond_iq_sport', sport);
+
+  if (sport === 'chess') {
+    // Skip team select — set default chess team and go to tiers
+    const defaultChessTeam = { id: 201, name: 'Knights', city: 'White', primary: '#F0D9B5', secondary: '#B58863', abbr: 'WHT' };
+    game.selectTeam(defaultChessTeam);
+    setTeamColors(defaultChessTeam);
+    localStorage.setItem('diamond_iq_team', JSON.stringify(defaultChessTeam));
+    showScreen('difficultySelect');
+    renderDifficultyCards();
+  } else {
+    renderTeamGrid(sport);
+    showScreen('teamSelect');
+  }
 }
 
 // ---- Difficulty Picker ----
@@ -252,11 +255,13 @@ async function startGame(tier) {
     });
   }
 
-  // Load scenarios for this tier
+  // Load scenarios for this tier, filtered by sport
   const allScenarios = await loadScenarioList(tier.id);
-  // Filter scenarios by current sport
-  const currentSport = game.state.sport;
-  scenarioList = allScenarios.filter(s => !s.sport || s.sport.includes(currentSport));
+  const currentSport = game.state.sport || 'baseball';
+  scenarioList = allScenarios.filter(s => {
+    if (!s.sport || s.sport.length === 0) return currentSport !== 'chess'; // no sport tag = baseball/softball
+    return s.sport.includes(currentSport);
+  });
 
   // Load first scenario
   await loadNextScenario();
