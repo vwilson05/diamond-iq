@@ -1,0 +1,88 @@
+{
+  "id": "tball-chess-what-is-check",
+  "title": "Your King Is in Danger!",
+  "sport": ["chess"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "tactics",
+  "tags": ["check", "king-safety", "basics", "beginner"],
+  "setup": {
+    "move": 10,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "losing",
+    "position": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR",
+    "lastMove": "d8h4"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent just moved their queen and said 'Check!' That means their queen is attacking your king right now. In chess, when your king is in check, you MUST deal with it. You cannot ignore it. What do you do?",
+      "choices": [
+        {
+          "id": "block-check",
+          "text": "Block the check! Move a piece between the attacking queen and your king to shield him.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "move-king",
+          "text": "Move the king to a safe square where the queen cannot reach him.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-check",
+          "text": "Ignore the check and make a different move. You have a cool attack planned!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You move a piece to block the check, putting it right between the queen and your king like a bodyguard! Your king is safe now and your blocking piece is also helping control the board. Smart move!",
+      "outcome": {
+        "result": "great",
+        "headline": "Check Blocked! King Is Safe!",
+        "explanation": "When you are in check, you have three options: move the king, block the check, or capture the piece giving check. Blocking is often the best choice because your king stays where it is and your blocking piece joins the action. Think of it like putting a shield between your king and the danger!",
+        "whatToRemember": "When in check, you have 3 options: move the king, block the check, or capture the attacker. Blocking is often best!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Check", "definition": "When your king is being attacked by an enemy piece. You MUST do something about it right away!" },
+          { "term": "Block", "definition": "Moving a piece between the attacker and your king to stop the check. Like putting up a shield!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move your king to a safe square. The check is over and your king is no longer in danger. However, your king had to leave its cozy spot, and now it might be less safe in the long run. But hey, you got out of check!",
+      "outcome": {
+        "result": "okay",
+        "headline": "King Escaped! But He Had to Move!",
+        "explanation": "Moving the king out of check works, but it is not always the best option. When the king moves, it might end up on a worse square or lose the ability to castle later. If you can block the check or capture the attacker instead, that is usually better because your king gets to stay safe where it is.",
+        "whatToRemember": "Moving the king works but try blocking or capturing first! Keep your king tucked away safely.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "King Safety", "definition": "Keeping your king protected. A safe king is a happy king!" },
+          { "term": "Castling", "definition": "A special move that tucks your king behind pawns for safety. If your king moves first, you lose this option!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You try to make a different move, but the referee stops you. 'You cannot do that! Your king is in check -- you MUST deal with the check first!' In chess, you are never allowed to ignore check. You have to fix it before doing anything else.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Illegal Move! You Cannot Ignore Check!",
+        "explanation": "This is one of the most important rules in chess: when your king is in check, you MUST deal with it on your very next move. You cannot ignore it. You cannot make a different move. You have exactly three options: move the king to a safe square, block the check with another piece, or capture the piece that is giving check. Nothing else is allowed!",
+        "whatToRemember": "You can NEVER ignore check! You must move the king, block the check, or capture the attacker. No other moves are allowed!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Check", "definition": "When a piece is attacking the king. You must stop it immediately!" },
+          { "term": "Illegal Move", "definition": "A move that breaks the rules. Ignoring check is always illegal!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

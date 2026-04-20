@@ -1,0 +1,86 @@
+{
+  "id": "minors-chess-discovered-attack",
+  "title": "The Hidden Attack! Move One, Attack With Another!",
+  "sport": ["chess"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "tactics",
+  "tags": ["discovered-attack", "tactics", "bishop", "winning-material"],
+  "setup": {
+    "move": 20,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r2qkb1r/ppp2ppp/2n5/3pp3/3Pn1b1/2N1BN2/PPP1BPPP/R2Q1RK1",
+    "lastMove": "e5e4"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your knight on f3 is sitting right in front of your queen on d1. If you move the knight out of the way, your queen will be revealed, attacking down the d-file! This is called a discovered attack. But where should your knight go to cause the most damage?",
+      "choices": [
+        {
+          "id": "knight-g5-discovered",
+          "text": "Jump the knight to g5, threatening the f7 pawn! When the knight moves, your queen is revealed attacking the d5 pawn. TWO threats at once!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "knight-d2-safe",
+          "text": "Move the knight to d2. It gets out of the way and the queen is revealed.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "push-pawn",
+          "text": "Push a pawn. You do not want to move the knight right now.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight leaps to g5, threatening the weak f7 pawn near the enemy king! At the same time, moving the knight REVEALED your queen, which now attacks the d5 pawn. Your opponent cannot deal with both threats at once! They save f7 but lose the d5 pawn, or they save d5 but you crash through on f7. Brilliant!",
+      "outcome": {
+        "result": "great",
+        "headline": "DISCOVERED ATTACK! Two Threats at Once!",
+        "explanation": "A discovered attack is one of the most powerful tactics in chess. You move one piece, and that reveals an attack by a DIFFERENT piece behind it. The key is to make the piece you move ALSO create a threat. That gives your opponent TWO problems to deal with at once! It is like a double attack, but even sneakier because the second attack was hidden. The piece you move should threaten something valuable too.",
+        "whatToRemember": "When you can uncover an attack, make sure the piece you move ALSO creates a threat. Two threats are better than one!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Discovered Attack", "definition": "Moving one piece out of the way to reveal an attack by a piece behind it. Like opening a curtain to show a surprise!" },
+          { "term": "Discovered Check", "definition": "A special discovered attack where the revealed piece gives check to the king. Extra powerful because the king MUST move!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move the knight to d2, uncovering your queen. The queen now attacks d5, which is good. But the knight on d2 is not threatening anything special. You only created one threat instead of two. Your opponent can deal with one threat easily.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Discovered Attack, But Only Half Power!",
+        "explanation": "You got the discovery part right -- moving the knight revealed the queen. But the knight went to a quiet square that does not threaten anything. In a discovered attack, the piece you move should ALSO create a threat. If you jump the knight to g5 instead, it threatens f7 AND the queen threatens d5. Two threats at once is much harder to defend than one!",
+        "whatToRemember": "In a discovered attack, make the moving piece also threaten something. Create two problems, not just one!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Double Threat", "definition": "Attacking two things at once. The more threats you create in one move, the harder it is for your opponent!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You push a pawn instead of using the discovered attack. Nothing exciting happens. Your queen stays blocked behind the knight and you miss a chance to create two threats at once. Your opponent gets time to improve their position.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Discovery Missed! Keep Your Eyes Open!",
+        "explanation": "When one of your pieces is blocking another, think about what happens if you move it out of the way. That is a discovered attack waiting to happen! Your knight was blocking your queen. By moving the knight to a threatening square, you would have unleashed the queen AND created a knight threat. Two attacks for the price of one move! Always check for discovered attacks -- they are sneaky and powerful.",
+        "whatToRemember": "If one of your pieces is in front of another, think about discovered attacks! Move the front piece to create TWO threats!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Battery", "definition": "Two pieces lined up on the same line, like a queen behind a bishop or a rook behind a queen. They work together!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

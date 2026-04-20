@@ -3,11 +3,12 @@
  * Wires together: game state, field renderer, scoreboard, scenario panel, UI screens
  */
 
-import { TEAMS, SOFTBALL_TEAMS } from './renderer/teams.js';
+import { TEAMS, SOFTBALL_TEAMS, CHESS_TEAMS } from './renderer/teams.js';
 import { FieldCanvas } from './renderer/field-canvas.js';
 import { Scoreboard } from './renderer/scoreboard.js';
 import { GameState } from './engine/game-state.js';
 import { loadScenarioList, loadScenario, getRandomScenario } from './engine/scenario-loader.js';
+import { ChessBoard } from './renderer/chess-board.js';
 import { PlayerAuth, AVATAR_SVGS } from './ui/player-auth.js';
 
 // ---- SVG Icons ----
@@ -23,22 +24,28 @@ const TROPHY_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.or
  */
 function calcImpact(setup) {
   if (!setup) return 1;
-  let impact = 1;
 
-  // Late innings matter more (7th+ = +1, 9th = +2)
+  // Chess impact — use phase and advantage
+  if (setup.phase) {
+    let impact = 1;
+    if (setup.phase === 'endgame') impact += 2;
+    else if (setup.phase === 'middlegame') impact += 1;
+    if (setup.advantage === 'losing') impact += 1;
+    if (setup.advantage === 'equal') impact += 0.5;
+    return Math.min(Math.round(impact), 5);
+  }
+
+  // Baseball/softball impact
+  let impact = 1;
   const inning = setup.inning || 1;
   if (inning >= 9) impact += 2;
   else if (inning >= 7) impact += 1;
 
-  // Close game = more pressure (within 2 runs = +1)
   const scoreDiff = Math.abs((setup.score?.home || 0) - (setup.score?.away || 0));
   if (scoreDiff <= 1) impact += 1;
   else if (scoreDiff <= 2) impact += 0.5;
 
-  // Runners in scoring position = +1
   if (setup.runners?.second || setup.runners?.third) impact += 1;
-
-  // 2 outs = more pressure
   if (setup.outs === 2) impact += 0.5;
 
   return Math.min(Math.round(impact), 5);
@@ -57,6 +64,7 @@ const game = new GameState();
 let sessionTokens = 0; // separate token count from IQ
 const playerAuth = new PlayerAuth();
 let fieldCanvas = null;
+let chessBoard = null;
 let scoreboard = null;
 let playedScenarioIds = [];
 let sessionPlayedIds = [];   // Persists across "Keep Going" rounds — no repeats in full session
@@ -89,7 +97,7 @@ function setTeamColors(team) {
 function renderTeamGrid(sport) {
   const grid = document.getElementById('team-grid');
   grid.innerHTML = '';
-  const teamList = sport === 'softball' ? SOFTBALL_TEAMS : TEAMS;
+  const teamList = sport === 'chess' ? CHESS_TEAMS : sport === 'softball' ? SOFTBALL_TEAMS : TEAMS;
   teamList.forEach(team => {
     const card = document.createElement('button');
     card.className = 'team-card';
@@ -125,7 +133,7 @@ function initSportPicker() {
 }
 
 // ---- Difficulty Picker ----
-const TIERS = [
+const BASEBALL_TIERS = [
   { id: 'tball', name: 'T-Ball', num: '1', desc: 'Learn the basics — where to throw, where to run, how to catch' },
   { id: 'rookie', name: 'Rookie', num: '2', desc: 'Fundamentals — force outs, tagging up, base running decisions' },
   { id: 'minors', name: 'Minors', num: '3', desc: 'Game IQ — cutoffs, relays, situational hitting, defensive positioning' },
@@ -133,9 +141,22 @@ const TIERS = [
   { id: 'the-show', name: 'The Show', num: '5', desc: 'Elite — squeeze plays, shifts, pitcher/batter chess, full-game strategy' },
 ];
 
+const CHESS_TIERS = [
+  { id: 'tball', name: 'Pawn', num: '1', desc: 'Learn the basics — piece values, how pieces move, simple captures' },
+  { id: 'rookie', name: 'Knight', num: '2', desc: 'Fundamentals — check, checkmate, protecting pieces, trading up' },
+  { id: 'minors', name: 'Bishop', num: '3', desc: 'Tactics — forks, pins, skewers, discovered attacks' },
+  { id: 'majors', name: 'Rook', num: '4', desc: 'Strategy — openings, pawn structure, when to trade, king safety' },
+  { id: 'the-show', name: 'Queen', num: '5', desc: 'Master — sacrifices, combinations, endgame technique, full plans' },
+];
+
+function getTiers() {
+  return game.state.sport === 'chess' ? CHESS_TIERS : BASEBALL_TIERS;
+}
+
 function renderDifficultyCards() {
   const container = document.getElementById('difficulty-cards');
   container.innerHTML = '';
+  const TIERS = getTiers();
   TIERS.forEach(tier => {
     const card = document.createElement('button');
     card.className = 'difficulty-card';
@@ -190,29 +211,41 @@ async function startGame(tier) {
   document.getElementById('game-scenario-count').textContent = '';
   updateTokenDisplay(0);
 
-  // Initialize field canvas
+  // Initialize field/board based on sport
   const canvas = document.getElementById('field-canvas');
-  fieldCanvas = new FieldCanvas(canvas);
-  fieldCanvas.drawField({
-    primary: game.state.team.primary,
-    secondary: game.state.team.secondary,
-  });
-
-  // Initialize scoreboard
   const sbContainer = document.getElementById('scoreboard-container');
-  scoreboard = new Scoreboard(sbContainer);
 
-  // Handle resize
-  window.addEventListener('resize', () => {
-    if (!fieldCanvas) return;
+  if (game.state.sport === 'chess') {
+    // Chess mode — use chess board, hide scoreboard
+    chessBoard = new ChessBoard(canvas);
+    chessBoard.setPosition('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
+    fieldCanvas = null;
+    sbContainer.style.display = 'none';
+  } else {
+    // Baseball/softball mode
+    chessBoard = null;
+    sbContainer.style.display = '';
+    fieldCanvas = new FieldCanvas(canvas);
     fieldCanvas.drawField({
       primary: game.state.team.primary,
       secondary: game.state.team.secondary,
     });
-  });
+    scoreboard = new Scoreboard(sbContainer);
+
+    window.addEventListener('resize', () => {
+      if (!fieldCanvas) return;
+      fieldCanvas.drawField({
+        primary: game.state.team.primary,
+        secondary: game.state.team.secondary,
+      });
+    });
+  }
 
   // Load scenarios for this tier
-  scenarioList = await loadScenarioList(tier.id);
+  const allScenarios = await loadScenarioList(tier.id);
+  // Filter scenarios by current sport
+  const currentSport = game.state.sport;
+  scenarioList = allScenarios.filter(s => !s.sport || s.sport.includes(currentSport));
 
   // Load first scenario
   await loadNextScenario();
@@ -252,57 +285,65 @@ async function loadNextScenario() {
   sessionPlayedIds.push(pick.id);  // Track across rounds so "Keep Going" never repeats
   game.loadScenario(scenario);
 
-  // Update scoreboard with setup
+  // Update board/field with setup
   const setup = scenario.setup;
-  const awayInnings = new Array(setup.inning).fill(0);
-  const homeInnings = new Array(setup.inning).fill(0);
-  // Distribute runs across innings roughly
-  if (setup.score.away > 0) awayInnings[Math.max(0, setup.inning - 2)] = setup.score.away;
-  if (setup.score.home > 0) homeInnings[Math.max(0, setup.inning - 3)] = setup.score.home;
 
-  scoreboard.update({
-    away: {
-      abbr: 'AWAY',
-      color: '#888888',
-      innings: awayInnings,
-      runs: setup.score.away,
-      hits: setup.score.away + Math.floor(Math.random() * 3),
-      errors: 0,
-    },
-    home: {
-      abbr: game.state.team.abbr,
-      color: game.state.team.primary,
-      innings: homeInnings,
-      runs: setup.score.home,
-      hits: setup.score.home + Math.floor(Math.random() * 3),
-      errors: 0,
-    },
-    currentInning: setup.inning,
-    isTop: setup.topBottom === 'top',
-    outs: setup.outs,
-    balls: setup.count?.balls || 0,
-    strikes: setup.count?.strikes || 0,
-  });
+  if (game.state.sport === 'chess') {
+    // Chess — update board position
+    if (chessBoard && setup.position) {
+      chessBoard.setPosition(setup.position);
+      if (setup.lastMove) {
+        chessBoard.setHighlights([setup.lastMove.slice(0, 2), setup.lastMove.slice(2, 4)]);
+      }
+    }
+  } else {
+    // Baseball/softball — update scoreboard and field
+    const awayInnings = new Array(setup.inning).fill(0);
+    const homeInnings = new Array(setup.inning).fill(0);
+    if (setup.score.away > 0) awayInnings[Math.max(0, setup.inning - 2)] = setup.score.away;
+    if (setup.score.home > 0) homeInnings[Math.max(0, setup.inning - 3)] = setup.score.home;
 
-  // Set defensive positions on field
-  fieldCanvas.drawField({
-    primary: game.state.team.primary,
-    secondary: game.state.team.secondary,
-  });
-  // Set default defensive positions (using position keys that match POSITIONS in field-canvas)
-  const defPositions = ['P', 'C', '1B', '2B', 'SS', '3B', 'LF', 'CF', 'RF'];
-  fieldCanvas.setPositions(defPositions.map(pos => ({
-    position: pos,
-    label: pos,
-    color: game.state.team.secondary,
-  })));
+    scoreboard.update({
+      away: {
+        abbr: 'AWAY',
+        color: '#888888',
+        innings: awayInnings,
+        runs: setup.score.away,
+        hits: setup.score.away + Math.floor(Math.random() * 3),
+        errors: 0,
+      },
+      home: {
+        abbr: game.state.team.abbr,
+        color: game.state.team.primary,
+        innings: homeInnings,
+        runs: setup.score.home,
+        hits: setup.score.home + Math.floor(Math.random() * 3),
+        errors: 0,
+      },
+      currentInning: setup.inning,
+      isTop: setup.topBottom === 'top',
+      outs: setup.outs,
+      balls: setup.count?.balls || 0,
+      strikes: setup.count?.strikes || 0,
+    });
 
-  // Convert runners object {first: bool, second: bool, third: bool} to array format
-  const runnerArr = [];
-  if (setup.runners.first) runnerArr.push({ base: 'FIRST' });
-  if (setup.runners.second) runnerArr.push({ base: 'SECOND' });
-  if (setup.runners.third) runnerArr.push({ base: 'THIRD' });
-  fieldCanvas.setRunners(runnerArr);
+    fieldCanvas.drawField({
+      primary: game.state.team.primary,
+      secondary: game.state.team.secondary,
+    });
+    const defPositions = ['P', 'C', '1B', '2B', 'SS', '3B', 'LF', 'CF', 'RF'];
+    fieldCanvas.setPositions(defPositions.map(pos => ({
+      position: pos,
+      label: pos,
+      color: game.state.team.secondary,
+    })));
+
+    const runnerArr = [];
+    if (setup.runners.first) runnerArr.push({ base: 'FIRST' });
+    if (setup.runners.second) runnerArr.push({ base: 'SECOND' });
+    if (setup.runners.third) runnerArr.push({ base: 'THIRD' });
+    fieldCanvas.setRunners(runnerArr);
+  }
 
   // Update scenario count
   const count = game.state.scenariosCompleted + 1;
@@ -432,9 +473,12 @@ function renderOutcome(node, nodeId) {
 
   panel.innerHTML = '';
 
-  // Animate the play on the field
-  if (outcome.animation && outcome.animation.steps) {
+  // Animate the play on the field/board
+  if (outcome.animation && outcome.animation.steps && fieldCanvas) {
     fieldCanvas.animate(outcome.animation.steps);
+  }
+  if (outcome.animation && outcome.animation.move && chessBoard) {
+    chessBoard.animateMove(outcome.animation.move.slice(0, 2), outcome.animation.move.slice(2, 4));
   }
 
   // Outcome display
@@ -698,7 +742,7 @@ function showReview() {
 
     if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
-      const tier = TIERS.find(t => t.id === savedTier);
+      const tier = getTiers().find(t => t.id === savedTier);
       if (team && tier) {
         // Reset per-round counter but keep sessionPlayedIds to avoid repeats
         playedScenarioIds = [];
@@ -747,26 +791,52 @@ function updateTokenDisplay(total) {
 }
 
 function createSituationBar(setup) {
-  const runners = [];
-  if (setup.runners.first) runners.push('1st');
-  if (setup.runners.second) runners.push('2nd');
-  if (setup.runners.third) runners.push('3rd');
-  const runnerText = runners.length > 0 ? runners.join(', ') : 'Empty';
-
-  // Small SVG icons for situation bar
-  const inningSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>`;
-  const outsSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="5" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="11" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
-  const scoreSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="1"/></svg></span>`;
-  const runnerSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><path d="M8 2L14 8L8 14L2 8Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
-
   const sitBar = document.createElement('div');
   sitBar.className = 'situation-bar';
-  sitBar.innerHTML = `
-    <div class="sit-item">${inningSvg}<span class="sit-label">Inn</span> ${setup.topBottom === 'top' ? 'Top' : 'Bot'} ${setup.inning}</div>
-    <div class="sit-item">${outsSvg}<span class="sit-label">Outs</span> ${setup.outs}</div>
-    <div class="sit-item">${scoreSvg}<span class="sit-label">Score</span> ${setup.score.away}-${setup.score.home}</div>
-    <div class="sit-item">${runnerSvg}<span class="sit-label">Runners</span> ${runnerText}</div>
-  `;
+
+  if (game.state.sport === 'chess') {
+    // Chess situation bar
+    const chessSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" fill="currentColor" opacity="0.3"/><rect x="9" y="2" width="5" height="5" fill="currentColor" opacity="0.6"/><rect x="2" y="9" width="5" height="5" fill="currentColor" opacity="0.6"/><rect x="9" y="9" width="5" height="5" fill="currentColor" opacity="0.3"/></svg></span>`;
+    const colorSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="${setup.playerColor === 'white' ? '#fff' : '#333'}"/></svg></span>`;
+    const phaseSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>`;
+
+    sitBar.innerHTML = `
+      <div class="sit-item">${chessSvg}<span class="sit-label">Move</span> ${setup.move || '?'}</div>
+      <div class="sit-item">${colorSvg}<span class="sit-label">Playing</span> ${(setup.playerColor || 'white').charAt(0).toUpperCase() + (setup.playerColor || 'white').slice(1)}</div>
+      <div class="sit-item">${phaseSvg}<span class="sit-label">Phase</span> ${(setup.phase || 'middlegame').charAt(0).toUpperCase() + (setup.phase || 'middlegame').slice(1)}</div>
+      <div class="sit-item"><span class="sit-label">Position</span> ${setup.advantage || 'Equal'}</div>
+    `;
+
+    // Update chess board with position
+    if (chessBoard && setup.position) {
+      chessBoard.setPosition(setup.position);
+      if (setup.lastMove) {
+        const from = setup.lastMove.slice(0, 2);
+        const to = setup.lastMove.slice(2, 4);
+        chessBoard.setHighlights([from, to]);
+      }
+    }
+  } else {
+    // Baseball/softball situation bar
+    const runners = [];
+    if (setup.runners.first) runners.push('1st');
+    if (setup.runners.second) runners.push('2nd');
+    if (setup.runners.third) runners.push('3rd');
+    const runnerText = runners.length > 0 ? runners.join(', ') : 'Empty';
+
+    const inningSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>`;
+    const outsSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="5" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="11" cy="8" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
+    const scoreSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="1"/></svg></span>`;
+    const runnerSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><path d="M8 2L14 8L8 14L2 8Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>`;
+
+    sitBar.innerHTML = `
+      <div class="sit-item">${inningSvg}<span class="sit-label">Inn</span> ${setup.topBottom === 'top' ? 'Top' : 'Bot'} ${setup.inning}</div>
+      <div class="sit-item">${outsSvg}<span class="sit-label">Outs</span> ${setup.outs}</div>
+      <div class="sit-item">${scoreSvg}<span class="sit-label">Score</span> ${setup.score.away}-${setup.score.home}</div>
+      <div class="sit-item">${runnerSvg}<span class="sit-label">Runners</span> ${runnerText}</div>
+    `;
+  }
+
   return sitBar;
 }
 
@@ -994,7 +1064,7 @@ function showPlayerProfile(player) {
     game.reset(); sessionTokens = 0;
     if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
-      const tier = TIERS.find(t => t.id === savedTier);
+      const tier = getTiers().find(t => t.id === savedTier);
       if (team && tier) {
         game.selectSport(savedSport);
         game.selectTeam(team);
@@ -1098,7 +1168,7 @@ async function boot() {
 
     if (savedSport && savedTeam && savedTier) {
       const team = JSON.parse(savedTeam);
-      const tier = TIERS.find(t => t.id === savedTier);
+      const tier = getTiers().find(t => t.id === savedTier);
       if (team && tier) {
         game.selectSport(savedSport);
         game.selectTeam(team);

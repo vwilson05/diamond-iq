@@ -1,0 +1,86 @@
+{
+  "id": "minors-chess-skewer",
+  "title": "The Skewer -- Attack Through a Piece!",
+  "sport": ["chess"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "tactics",
+  "tags": ["skewer", "rook", "tactics", "winning-material"],
+  "setup": {
+    "move": 30,
+    "phase": "endgame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "6k1/5ppp/8/8/8/8/r4PPP/R5K1",
+    "lastMove": "a8a2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent's king is on g8 and their rook is on a2. They are on the same rank (not quite, but imagine they were lined up). You have your rook on a1. You notice you can check the king with your rook, and after the king moves, your rook can capture the enemy rook behind it. This tactic is called a SKEWER! What do you do?",
+      "choices": [
+        {
+          "id": "rook-a8-skewer",
+          "text": "Move your rook to a8 with CHECK! After the king moves out of check, your rook captures the enemy rook on the way back!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "rook-a2-trade",
+          "text": "Move your rook to a2 and just trade rooks.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "push-pawn",
+          "text": "Push a pawn forward. Your rook is fine where it is.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your rook zooms to a8 -- CHECK! The king MUST move out of the way. It scoots to h7 or f8. Now your rook swings back and captures the rook on a2 for free! You started with a rook each, and now you have a rook and your opponent has nothing. That is a winning advantage!",
+      "outcome": {
+        "result": "great",
+        "headline": "SKEWER! Free Rook!",
+        "explanation": "A skewer is like a reverse pin. You attack a valuable piece (the king), and when it moves out of the way, you capture a piece behind it (the rook). Skewers work best with rooks, bishops, and queens because they attack in long lines. The key is that the front piece (the king) is MORE valuable, so it MUST move, leaving the back piece (the rook) unprotected!",
+        "whatToRemember": "A skewer attacks a valuable piece, forcing it to move, and then captures the piece behind it. Look for pieces lined up!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Skewer", "definition": "Attacking a valuable piece that has to move, then capturing the less valuable piece behind it. Like a shish kebab!" },
+          { "term": "X-Ray Attack", "definition": "Another name for a skewer. Your piece attacks through one piece to threaten another behind it." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You trade rooks by capturing on a2. The opponent's king recaptures. Now neither side has a rook and the game is probably a draw. You missed a chance to win a free rook with the skewer on a8!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Even Trade, But the Skewer Was Better!",
+        "explanation": "Trading rooks leads to an equal endgame. But checking on a8 first would have let you win the enemy rook for free! Always look for checks before making trades. A check forces the opponent to deal with it, and sometimes after the check, you can pick up extra material. The skewer on a8 was worth a whole rook more than the simple trade.",
+        "whatToRemember": "Before trading pieces, check if you can use a check or skewer to win material instead!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Checks Before Trades", "definition": "Always consider giving check first. A check might lead to a tactic that wins more material than a simple trade!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You push a pawn. Your opponent's rook stays on a2, eating your pawns. You had a free rook waiting to be captured with the skewer tactic, but you missed it completely. Now your opponent is winning because their rook is active and gobbling up your pawns.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Rook Tactic Missed! Pawns Falling!",
+        "explanation": "When your opponent has an active rook attacking your pawns, you need to fight back with your own rook, not push pawns. The skewer on a8 (check!) would have won the enemy rook and given you a huge advantage. Always look for tactics involving checks -- they are the most powerful moves because your opponent MUST respond to them.",
+        "whatToRemember": "Checks are powerful because your opponent must respond! Always look for checks that win material through skewers and forks.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Active Rook", "definition": "A rook that is attacking pawns and controlling the board. An active rook is much stronger than a passive one!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

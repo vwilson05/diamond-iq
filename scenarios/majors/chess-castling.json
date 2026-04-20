@@ -1,0 +1,87 @@
+{
+  "id": "majors-chess-castling",
+  "title": "Castle Your King to Safety!",
+  "sport": ["chess"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "strategy",
+  "tags": ["castling", "king-safety", "opening", "strategy"],
+  "setup": {
+    "move": 6,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R",
+    "lastMove": "f8c5"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have developed your knight to f3 and your bishop to c4. The path between your king and the rook on h1 is now clear! You have the chance to castle kingside. But the center is full of tension and your opponent's pieces are getting active. Should you castle now?",
+      "choices": [
+        {
+          "id": "castle-now",
+          "text": "Castle kingside (O-O)! Tuck the king behind the pawns and bring the rook toward the center!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "push-d4",
+          "text": "Push d4 to attack the center first. Castling can wait.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "move-king-to-f1",
+          "text": "Move the king to f1 manually. That is almost like castling!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You castle! Your king slides to g1, safe behind the wall of pawns on f2, g2, and h2. Your rook moves to f1, now aiming at the f-file and ready to join the battle. Your king is safe and your rook is active. Two goals accomplished in ONE move! That is the magic of castling!",
+      "outcome": {
+        "result": "great",
+        "headline": "Safely Castled! King Tucked Away!",
+        "explanation": "Castling is one of the most important moves in chess. It does TWO things at once: it moves your king to a safe spot behind pawns, AND it moves your rook toward the center where it can be useful. You should try to castle in the first 10 moves of every game. The three golden rules of castling: (1) Castle early before your opponent can attack your king, (2) Do not push the pawns in front of your castled king unless you have to, (3) Clear the knight and bishop out of the way so you CAN castle.",
+        "whatToRemember": "Castle early! It protects your king and activates your rook in one move. Try to castle within the first 10 moves!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Castling", "definition": "A special move where the king slides two squares toward a rook, and the rook hops over the king. It is the only move where two pieces move at once!" },
+          { "term": "Kingside Castling", "definition": "Castling with the rook on h1 (short castling). The king goes to g1 and the rook to f1." },
+          { "term": "Queenside Castling", "definition": "Castling with the rook on a1 (long castling). The king goes to c1 and the rook to d1." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push d4, opening the center. That is an aggressive move! But now the center is open and your king is still stuck on e1. Your opponent could start attacking your king before you get a chance to castle. Sometimes the center opens up fast and an uncastled king gets caught in a crossfire!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Center Opens Up, But Your King Is Exposed!",
+        "explanation": "Pushing d4 is a fine move, but doing it BEFORE castling is risky. When the center opens up with pawns trading, the files become highways for rooks and queens to attack. If your king is still on e1 when this happens, it is in danger. The safe order is: develop, castle, THEN open the center. Think of it like putting on armor before running into battle!",
+        "whatToRemember": "Castle before opening the center! If the center opens and your king has not castled, it could be in big trouble.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Open Center", "definition": "When the center pawns get traded and the files are open. This is dangerous for an uncastled king!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move the king to f1 manually. But this is NOT castling! You just wasted a move moving the king one square, and your rook is still stuck in the corner. With real castling, the king goes to g1 AND the rook goes to f1 all in one move. You used one move to do half the work!",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Castling! Use the Special Move!",
+        "explanation": "Castling is a special move that lets the king AND rook move at the same time. Moving the king manually to f1 wastes a whole turn and the rook stays trapped on h1. With castling, the king goes to g1 (two squares) and the rook hops to f1 -- all in ONE move. That is twice as efficient! Castling is only legal if: the king has not moved yet, the rook has not moved yet, there are no pieces between them, and the king is not in check.",
+        "whatToRemember": "Castle -- do not move the king manually! Castling moves BOTH the king and the rook in one turn. Double efficiency!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Castling Rules", "definition": "You can castle if: the king and rook have not moved, no pieces are between them, and the king is not in check or passing through check." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

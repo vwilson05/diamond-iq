@@ -1,0 +1,86 @@
+{
+  "id": "minors-chess-knight-fork",
+  "title": "The Deadly Knight Fork!",
+  "sport": ["chess"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "tactics",
+  "tags": ["fork", "knight", "tactics", "winning-material"],
+  "setup": {
+    "move": 16,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1b1k2r/ppppqppp/2n2n2/4p3/2B1P1b1/2N2N2/PPPP1PPP/R1BQ1RK1",
+    "lastMove": "e8e7"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The opponent's king is on e8 and their queen is on e7. You notice your knight on f3 could jump to d5, attacking BOTH the queen and threatening checkmate ideas. A knight attacking two big pieces at once is called a FORK! What do you play?",
+      "choices": [
+        {
+          "id": "knight-d5-fork",
+          "text": "Jump the knight to d5! It attacks the queen on e7 and controls key squares. The opponent cannot save everything!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "capture-pawn",
+          "text": "Capture the e5 pawn. Free material is good!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "move-bishop",
+          "text": "Reposition your bishop. You want better piece placement.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight leaps to d5 -- FORK! The knight attacks the queen on e7 and also the pawn on c7. The queen has to move, and when it does, you capture on c7 with check, forking the king and rook! Knights are amazing at forks because they attack in eight different directions!",
+      "outcome": {
+        "result": "great",
+        "headline": "KNIGHT FORK! Double Attack!",
+        "explanation": "The knight fork is one of the most powerful tactics in chess. Because the knight moves in an L-shape, it can attack pieces that are not on the same row, column, or diagonal. This means the pieces being forked cannot protect each other! The queen and king cannot guard each other from a knight. To spot knight forks, look for two enemy pieces that are a knight's jump apart, then find the square where your knight attacks both.",
+        "whatToRemember": "Knights are the best forking pieces! Look for two valuable enemy pieces and check if your knight can attack both at once.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Fork", "definition": "When one piece attacks two or more enemy pieces at the same time. The opponent can only save one, so you win the other!" },
+          { "term": "Knight Fork", "definition": "A fork by a knight. Extra dangerous because the L-shaped move means the forked pieces usually cannot defend each other!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You capture the e5 pawn. That wins a point, but the opponent simply recaptures. You missed the devastating knight fork on d5 that would have won the queen or a rook! A fork would have gained way more material than one pawn.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pawn Won, But a Fork Was Available!",
+        "explanation": "Winning a pawn is worth 1 point. A knight fork on d5 would have won a queen (9 points) or rook (5 points). Always look for forks before settling for small gains. Ask yourself before every move: can my knight jump to a square that attacks two things? The knight fork is one of the most common ways to win big material in chess.",
+        "whatToRemember": "Always check for forks before capturing pawns. A fork can win you much more material!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Tactical Priority", "definition": "Checking for big tactics (forks, pins, checkmate) before making small captures." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move your bishop to a new square. Nothing special happens. Your opponent plays a developing move and the chance for the devastating knight fork is gone. You missed winning a queen!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Fork Missed! The Queen Got Away!",
+        "explanation": "Repositioning a piece that is already developed is a slow move. Meanwhile, a knight fork on d5 was sitting right there, ready to win the queen or a rook. Before making calm moves, always scan for tactics: forks, pins, and double attacks. Tactical opportunities do not wait around -- if you do not grab them now, they disappear!",
+        "whatToRemember": "Tactics first! Always scan for forks, pins, and double attacks before making quiet moves. Opportunities vanish fast!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Tempo", "definition": "A turn in chess. Wasting a tempo on a slow move when a tactic is available can cost you the game!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

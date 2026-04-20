@@ -1,0 +1,86 @@
+{
+  "id": "tball-chess-simple-capture",
+  "title": "Free Piece! Grab It!",
+  "sport": ["chess"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "tactics",
+  "tags": ["capture", "hanging-piece", "basics", "beginner"],
+  "setup": {
+    "move": 8,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqkb1r/pppppppp/5n2/8/2B1n3/5N2/PPPPPPPP/RNBQK2R",
+    "lastMove": "f6e4"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent moved their knight to a square right in front of your pieces. You look carefully and realize nothing is protecting that knight! It is just sitting there for free. What do you do?",
+      "choices": [
+        {
+          "id": "capture-knight",
+          "text": "Capture the free knight! If nothing is guarding it, take it!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "move-pawn",
+          "text": "Push a pawn forward instead. You want to control the center.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "move-away",
+          "text": "Move your own knight away to a different square.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You capture the free knight! Your opponent made a mistake by leaving it unprotected, and you grabbed it. That is 3 extra points of material for you! Your opponent looks surprised. Nice eyes!",
+      "outcome": {
+        "result": "great",
+        "headline": "Free Piece! Great Capture!",
+        "explanation": "When a piece is not protected by any other piece, we call it a 'hanging piece.' It is like finding money on the ground -- pick it up! Before every move, scan the board and ask yourself: did my opponent leave anything unprotected? Capturing free pieces is one of the easiest ways to get ahead in chess.",
+        "whatToRemember": "Always look for hanging pieces! If your opponent leaves a piece unprotected, capture it!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Hanging Piece", "definition": "A piece that is not protected by anything. If you attack it, your opponent cannot take back!" },
+          { "term": "Capture", "definition": "Taking your opponent's piece off the board by moving your piece to that square." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push a pawn forward. That is not a bad move, but you missed a free knight! Your opponent notices their knight was hanging and quickly moves it to safety. You missed your chance to win a free piece worth 3 points.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Missed the Free Piece!",
+        "explanation": "Controlling the center with pawns is a good idea, but capturing a free piece is even better! A knight is worth 3 points, and it was just sitting there for free. Always scan the board before you decide your move. Ask yourself: is anything hanging? Can I capture something for free? Then make your best move.",
+        "whatToRemember": "Before every move, scan the board: is any of my opponent's pieces unprotected? Free captures come first!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Scan the Board", "definition": "Looking at all the pieces carefully before you make your move. Good chess players always scan first!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move your knight away to a random square. Not only did you miss capturing the free knight, but now your opponent moves their knight to safety. You gave away a free 3-point capture for nothing!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed Opportunity! Always Look for Free Pieces!",
+        "explanation": "Moving your knight to a random square does not help you when there is a free piece to capture! In chess, grabbing free material is one of the most important things you can do. Before every single move, look at all your opponent's pieces and ask: is any of them unprotected? If yes, can I capture it safely? That should always be the first thing you check.",
+        "whatToRemember": "Check for free captures before every move! A hanging piece is like free candy -- take it!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Free Material", "definition": "Pieces you can capture without losing anything in return. Always grab free material!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

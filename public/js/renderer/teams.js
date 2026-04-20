@@ -47,3 +47,12 @@ export const TEAMS = [
   { id: 29, name: "Padres",     city: "San Diego",    primary: "#2F241D", secondary: "#FFC425", abbr: "SDP" },
   { id: 30, name: "Giants",     city: "San Francisco", primary: "#FD5A1E", secondary: "#27251F", abbr: "SFG" },
 ];
+
+export const CHESS_TEAMS = [
+  { id: 201, name: "Knights",     city: "White",     primary: "#F0D9B5", secondary: "#B58863", abbr: "WHT" },
+  { id: 202, name: "Bishops",     city: "Black",     primary: "#B58863", secondary: "#F0D9B5", abbr: "BLK" },
+  { id: 203, name: "Rooks",       city: "Classic",   primary: "#4A90D9", secondary: "#1a1a2e", abbr: "CLS" },
+  { id: 204, name: "Pawns",       city: "Scholars",  primary: "#7B2D8E", secondary: "#F0C808", abbr: "SCH" },
+  { id: 205, name: "Queens",      city: "Champions", primary: "#C41E3A", secondary: "#FFD700", abbr: "CHP" },
+  { id: 206, name: "Kings",       city: "Masters",   primary: "#2A9D8F", secondary: "#264653", abbr: "MST" },
+];

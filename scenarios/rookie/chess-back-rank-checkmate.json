@@ -1,0 +1,86 @@
+{
+  "id": "rookie-chess-back-rank-checkmate",
+  "title": "Back Rank Sneak Attack!",
+  "sport": ["chess"],
+  "tier": "rookie",
+  "impact": 4,
+  "role": "tactics",
+  "tags": ["back-rank", "checkmate", "rook", "tactics"],
+  "setup": {
+    "move": 28,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "winning",
+    "position": "3r2k1/5ppp/8/8/8/8/5PPP/R3R1K1",
+    "lastMove": "d8d8"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have two rooks and your opponent's king is stuck on the back rank behind its own pawns. Those pawns are blocking the king from moving forward! Your opponent only has one rook defending. You see a chance to deliver checkmate. What do you do?",
+      "choices": [
+        {
+          "id": "rook-e8-mate",
+          "text": "Move your rook to e8! It will give check on the back rank, and the king cannot escape past its own pawns!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "rook-a8",
+          "text": "Move your rook to a8 to attack from the other side.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "push-pawn",
+          "text": "Push one of your pawns forward to make it stronger.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your rook zooms to e8 -- CHECK! The enemy king is stuck on g8 with pawns on f7, g7, and h7 blocking all the escape squares. The king cannot move forward because its own pawns are in the way! The opponent's rook on d8 cannot block or capture. CHECKMATE! The back rank strikes again!",
+      "outcome": {
+        "result": "great",
+        "headline": "BACK RANK CHECKMATE! Brilliant!",
+        "explanation": "The back rank checkmate is one of the most common checkmate patterns in chess! It happens when a king is trapped on the back row (rank 1 or rank 8) by its own pawns. The king cannot escape forward because the pawns block it. A rook or queen can then slide along the back rank and deliver checkmate. To prevent this from happening to YOU, make a luft -- push one pawn forward to give your king an escape square!",
+        "whatToRemember": "Watch for back rank checkmate when the enemy king is boxed in by its own pawns! And give YOUR king a luft so it does not happen to you!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Back Rank Checkmate", "definition": "Checkmate on the first or eighth row. The king is trapped by its own pawns and a rook or queen delivers the final blow!" },
+          { "term": "Luft", "definition": "A German word meaning 'air.' In chess it means pushing a pawn to give your king an escape square so you do not get back rank mated!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move your rook to a8, but the opponent's rook on d8 blocks the back rank. You attack the rook, but the opponent can just move it and defend. You missed the direct checkmate on e8! The game continues.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But Not Checkmate!",
+        "explanation": "You had the right idea of using the back rank, but you chose the wrong rook and the wrong square. The rook on e1 going to e8 would have been checkmate because the opponent's rook on d8 cannot help. Always look for the move that gives check AND leaves no escape. Check from e8 was unstoppable!",
+        "whatToRemember": "When you see a back rank opportunity, find the square where your rook gives check and the opponent cannot block or escape!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Unstoppable Threat", "definition": "An attack that your opponent cannot defend against no matter what they do." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You push a pawn forward. That does nothing special. Meanwhile, your opponent moves their rook to safety and defends the back rank. You had checkmate in ONE move but missed it! Now the game is much harder to win.",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Missed Checkmate in One!",
+        "explanation": "When you have a chance for checkmate, take it! Pushing a pawn does not help when you can end the game right now. Always scan for checkmate possibilities before making quiet moves. Ask yourself: can I give check? If yes, does the king have any escape? If no escape -- that is checkmate! Game over!",
+        "whatToRemember": "Always look for checkmate before making any other move! If you can end the game, do it!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Checkmate in One", "definition": "When you can win the game with just one move. Never miss it!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "majors-chess-center-control",
+  "title": "Control the Center of the Board!",
+  "sport": ["chess"],
+  "tier": "majors",
+  "impact": 2,
+  "role": "opening",
+  "tags": ["center", "pawns", "opening-principles", "strategy"],
+  "setup": {
+    "move": 1,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
+    "lastMove": "none"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the very first move of the game! The board is wide open with endless possibilities. Grandmasters throughout history agree on one thing: the CENTER of the board (the squares d4, d5, e4, e5) is the most important area. Controlling the center gives your pieces more room and power. What do you play?",
+      "choices": [
+        {
+          "id": "e4-center",
+          "text": "Push the king's pawn to e4! Claim the center and open lines for your bishop and queen!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "a4-edge",
+          "text": "Push the a-pawn to a4. Control the edge of the board!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "nf3-develop",
+          "text": "Develop the knight to f3. Knights before pawns!",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You push e4! Your pawn now controls the d5 and f5 squares in the center. The diagonal is open for your bishop on f1 to come out, and your queen can access the board too. You are fighting for the center right away! Bobby Fischer called 1.e4 'best by test.'",
+      "outcome": {
+        "result": "great",
+        "headline": "e4! Claiming the Center!",
+        "explanation": "Pushing a center pawn (e4 or d4) on move one is the best way to start a chess game. Here is why the center matters: pieces in the center can go in more directions. A knight on e4 controls 8 squares. A knight on a1 controls only 2! Pawns in the center also block your opponent from using those squares. Plus, moving e4 opens the path for your bishop and queen to come out. The center is like the high ground in a battle -- whoever controls it has the advantage.",
+        "whatToRemember": "Start the game by putting pawns in the center (e4 or d4). The center controls the whole board!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Center Squares", "definition": "The four squares in the middle of the board: d4, d5, e4, e5. Controlling these gives you the best positions!" },
+          { "term": "Open Lines", "definition": "When pawns move forward, they open paths for your bishops, rooks, and queen to enter the game." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You develop the knight to f3. This is not a bad move at all! Nf3 controls the center and develops a piece. But it does not open lines for your bishop or queen yet. Most grandmasters prefer e4 or d4 first to grab center space, then develop knights.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Move, But Grab the Center First!",
+        "explanation": "Developing a knight on move one is fine, but pushing e4 or d4 is usually better because it does TWO things: it grabs center space AND opens lines for your other pieces. After e4, you can THEN play Nf3 on the next move, and now you have a pawn in the center AND a developed knight. It is all about doing the most with each move. Pawns first, then pieces!",
+        "whatToRemember": "Center pawns first (e4 or d4), then develop knights (Nf3, Nc3). Grab space before developing!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Development", "definition": "Getting your pieces off their starting squares to active positions. Develop pieces toward the center!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You push the a-pawn to a4. This does not control any center squares at all! It only controls the b5 square on the edge. Your opponent plays e5, grabbing the center, and now their pieces have way more room than yours. The edge is not where the action is!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Edge Pawn? The Center Is Where the Battle Is!",
+        "explanation": "Pushing a side pawn on move one gives up the fight for the center. The center squares (d4, d5, e4, e5) are the most important real estate on the board. Pieces in the center control more squares and can reach any part of the board quickly. A pawn on a4 controls almost nothing useful. Imagine a soccer game where you stand in the corner instead of the middle of the field -- you cannot get to the action!",
+        "whatToRemember": "Never waste your first move on a side pawn! Push e4 or d4 to fight for the center from the very start!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Center Control", "definition": "Having your pawns and pieces controlling the four center squares. This is the foundation of good chess!" },
+          { "term": "Flank Pawn", "definition": "A pawn on the a, b, g, or h file. These are on the edge and do not control the center." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

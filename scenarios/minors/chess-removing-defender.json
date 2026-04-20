@@ -1,0 +1,86 @@
+{
+  "id": "minors-chess-removing-defender",
+  "title": "Remove the Guard!",
+  "sport": ["chess"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "tactics",
+  "tags": ["removing-defender", "tactics", "combination", "winning-material"],
+  "setup": {
+    "move": 22,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r4rk1/ppp1qppp/2nb4/3Np3/8/1B6/PPP2PPP/R2Q1RK1",
+    "lastMove": "c6d6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You see that your knight on d5 is attacking the queen on e7. But the queen is protected by the bishop on d6. If you could get rid of that bishop, the queen would be undefended! You notice your bishop on b3 could capture the bishop on d6. What is your plan?",
+      "choices": [
+        {
+          "id": "remove-defender",
+          "text": "Capture the bishop on d6! It is the only piece defending the queen. Once the defender is gone, the queen is lost!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "retreat-knight",
+          "text": "Move the knight to a safe square. The queen is defended so you cannot win it.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "attack-elsewhere",
+          "text": "Look for a different attack somewhere else on the board.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You capture the bishop on d6 with your bishop! Now the queen on e7 has lost its only defender. Your knight on d5 is still attacking it, and the queen has nowhere safe to go without losing material. You win the queen! Removing the defender worked perfectly!",
+      "outcome": {
+        "result": "great",
+        "headline": "Defender Removed! Queen Is Falling!",
+        "explanation": "Removing the defender is a brilliant tactic. Here is how it works: you see a piece you want to capture, but it is defended. Instead of giving up, you ask: WHAT is defending it? Then you capture or chase away that defender. Once the defender is gone, the original target is unprotected and you grab it! It is like pulling the chair out from under someone.",
+        "whatToRemember": "When a piece is defended, ask: what is defending it? Can I capture, chase away, or distract the defender? Remove the guard!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Removing the Defender", "definition": "Capturing or chasing away the piece that is guarding an enemy piece. Once the guard is gone, the target falls!" },
+          { "term": "Overloaded Piece", "definition": "A piece that is trying to do two jobs at once. If it is defending one piece and also guarding something else, it might not be able to do both!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You look for attacks elsewhere. You find a small threat but nothing decisive. Meanwhile, your opponent moves the queen to safety and consolidates. The chance to remove the defender and win the queen is gone. You had a winning tactic but looked past it!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Instinct, Wrong Target!",
+        "explanation": "Looking for attacks is great, but the biggest opportunity was right in front of you! The bishop on d6 was the only defender of the queen. By capturing that bishop, the queen would have been lost. Before looking for complicated plans, check if you can simply remove a defender to win something big. The best move is often simpler than you think.",
+        "whatToRemember": "Before looking far away, check what is right in front of you. Can you remove a defender to win material? Start simple!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Calculation", "definition": "Thinking ahead move by move. Capture the defender, then what happens? The target is undefended!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You retreat the knight to safety. But the knight was already attacking the queen! The queen was only surviving because the bishop defended it. If you had removed the bishop, the queen would be yours. By retreating, you gave up your attacking position for nothing.",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Gave Up the Attack!",
+        "explanation": "Retreating when you have an attack is almost always wrong. Your knight was putting pressure on the queen. The key question was: what is defending the queen? The answer: the bishop on d6. Capture that bishop and the queen is toast. Never retreat from an attack without first asking: can I remove the defender? If the answer is yes, go for it!",
+        "whatToRemember": "Do not retreat when you are attacking! First ask: what is defending my target? Can I capture or remove the defender?",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Attacking Pressure", "definition": "When your pieces are threatening the opponent. Keep up the pressure -- do not let them off the hook!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

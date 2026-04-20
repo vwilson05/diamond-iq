@@ -1,0 +1,86 @@
+{
+  "id": "minors-chess-pin",
+  "title": "Pinned! That Piece Cannot Move!",
+  "sport": ["chess"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "tactics",
+  "tags": ["pin", "bishop", "tactics", "winning-material"],
+  "setup": {
+    "move": 12,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1",
+    "lastMove": "c8e6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You notice that the opponent's knight on f6 is standing right between your bishop on b3 and the opponent's queen behind it. If the knight moves, your bishop could capture the queen! This means the knight is PINNED -- it cannot move without losing the queen. How do you use this pin?",
+      "choices": [
+        {
+          "id": "attack-pinned-piece",
+          "text": "Push your pawn to e5, attacking the pinned knight! Since the knight cannot move (the queen is behind it), you win the knight for free!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "trade-bishop",
+          "text": "Capture the knight with your bishop right away.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-pin",
+          "text": "Castle and improve your king safety. The pin is not going anywhere.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You push e5, attacking the pinned knight! The knight on f6 CANNOT move because your bishop on b3 would capture the queen behind it. The knight is stuck and lost! Your opponent has to give up the knight or lose the queen. You win a free piece!",
+      "outcome": {
+        "result": "great",
+        "headline": "Pin Exploited! Free Knight!",
+        "explanation": "A pin is when a piece cannot move (or should not move) because a more valuable piece is behind it. In this case, the knight is 'pinned' to the queen by your bishop. If the knight moves, the bishop takes the queen (9 points lost!). By attacking the pinned knight with your pawn, you put your opponent in a terrible spot: lose the knight (3 points) or lose the queen (9 points). Attacking pinned pieces is one of the best tactics in chess!",
+        "whatToRemember": "When you have a pin, pile up on the pinned piece! Attack it with pawns or other pieces -- it cannot run away!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Pin", "definition": "When a piece cannot move because a more valuable piece is directly behind it. The pinned piece is stuck!" },
+          { "term": "Absolute Pin", "definition": "When a piece is pinned to the king. It literally cannot move because that would put the king in check, which is illegal!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You capture the knight on f6 with your bishop. The opponent recaptures with their queen. You traded a bishop for a knight, which is about equal (both worth 3 points). You did not lose anything, but you did not gain anything either. The pin could have won you a free piece!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Even Trade, But You Could Have Won More!",
+        "explanation": "Trading your bishop for the knight is an even trade (3 for 3), but you had a much better option! By pushing e5 to attack the pinned knight, you would have won the knight for free because it could not move. When you have a pin, do not rush to trade -- instead, attack the pinned piece with a pawn or another piece. Let the pin do the work for you!",
+        "whatToRemember": "Do not trade into a pin -- exploit it! Attack the pinned piece with pawns to win it for free instead of trading evenly.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Exploiting a Pin", "definition": "Instead of just trading the pinned piece, pile up attacks on it so you win it without giving up anything!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You castle. Meanwhile, your opponent breaks the pin by moving the queen to a safe square, and then the knight is free to move again. The pin is gone! You had a chance to win a free piece but waited too long.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Pin Wasted! The Opponent Escaped!",
+        "explanation": "Pins do not last forever! Your opponent can break a pin by moving the piece behind the pinned piece to safety. You had one chance to attack the pinned knight with e5, but you played a slow move instead. When you have a pin, act on it quickly! Push a pawn or bring another piece to attack the pinned piece before your opponent has time to escape.",
+        "whatToRemember": "Act on pins quickly! If you wait, your opponent will break the pin and escape. Attack the pinned piece NOW!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Breaking a Pin", "definition": "When the piece behind the pinned piece moves away, the pin is broken and the pinned piece is free to move again." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

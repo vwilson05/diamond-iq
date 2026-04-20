@@ -1,0 +1,86 @@
+{
+  "id": "rookie-chess-trading-up",
+  "title": "Trade Your Knight for Their Rook!",
+  "sport": ["chess"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "tactics",
+  "tags": ["trading", "material", "exchange", "piece-value"],
+  "setup": {
+    "move": 18,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r3kb1r/ppp1pppp/5n2/3p4/3P4/2N1BN2/PPP2PPP/R4RK1",
+    "lastMove": "d7d5"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your knight on c3 can capture the pawn on d5. If it does, the opponent's knight on f6 can take back. But wait -- you also notice that your knight on c3 can jump to b5, and from there it attacks the rook on a8. The rook is worth 5 points and your knight is only worth 3. Should you go after the rook?",
+      "choices": [
+        {
+          "id": "trade-for-rook",
+          "text": "Jump the knight to attack the rook! Trading a 3-point knight for a 5-point rook is a great deal!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "capture-pawn",
+          "text": "Capture the pawn on d5 with the knight. A free pawn is good!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "do-nothing",
+          "text": "Keep the knight where it is. You do not want to trade pieces.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight jumps toward the rook. Even if your opponent captures the knight, you capture the rook! You trade a piece worth 3 points for a piece worth 5 points. That is a gain of 2 points of material! Your opponent is now down the exchange and you have the advantage.",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Trade! You Won the Exchange!",
+        "explanation": "Trading a less valuable piece for a more valuable one is called 'trading up' or 'winning the exchange.' Your knight is worth 3 points and the rook is worth 5, so you gained 2 extra points of material. That is like trading three dollars for five dollars -- you always take that deal! In chess, look for chances to trade your bishops or knights (3 points) for the opponent's rooks (5 points).",
+        "whatToRemember": "Trading a knight or bishop (3 points) for a rook (5 points) is always a good deal! That is called winning the exchange.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "The Exchange", "definition": "Trading a knight or bishop (worth 3) for a rook (worth 5). Winning the exchange means you got the better deal!" },
+          { "term": "Trading Up", "definition": "Giving up a less valuable piece to capture a more valuable one. Always trade up when you can!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You capture the pawn on d5. That is worth 1 point. Not bad, but the opponent takes back with their knight and now the position is equal again. You missed a chance to win a 5-point rook by trading your 3-point knight!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pawn Captured, But You Missed a Bigger Prize!",
+        "explanation": "Winning a pawn (1 point) is fine, but winning the exchange (2 points net) is way better! When you see a chance to trade a knight or bishop for a rook, that is almost always the right move. A rook is worth 5 points -- that is much more valuable than a 1-point pawn. Always scan for the biggest material gain possible.",
+        "whatToRemember": "Look for the biggest win, not just any win! Trading a knight for a rook beats capturing a pawn every time.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Biggest Gain", "definition": "When you have multiple captures available, look for the one that wins you the most material." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You keep the knight where it is. Nothing happens. Your opponent moves their rook to safety and the chance to win the exchange is gone forever. You left 2 points of free material on the table!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed Opportunity! The Rook Got Away!",
+        "explanation": "Being afraid to trade pieces is a common mistake for beginners. Trading is not bad -- trading UP is actually great! When you can give up a 3-point piece to capture a 5-point piece, take that deal every single time. You end up with more material, which means more power. Do not be afraid to trade when the math is in your favor!",
+        "whatToRemember": "Do not be afraid to trade pieces when you get more value! Knight (3) for Rook (5) = you gain 2 points. Take the deal!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Material Count", "definition": "Adding up the point values of all your pieces. More material usually means a better position!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

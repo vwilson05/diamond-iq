@@ -1,0 +1,87 @@
+{
+  "id": "tball-chess-stalemate-vs-checkmate",
+  "title": "Win the Game or Tie? Know the Difference!",
+  "sport": ["chess"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "endgame",
+  "tags": ["stalemate", "checkmate", "endgame", "basics"],
+  "setup": {
+    "move": 45,
+    "phase": "endgame",
+    "playerColor": "white",
+    "advantage": "winning",
+    "position": "8/8/8/8/8/1k6/8/KQ6",
+    "lastMove": "b4b3"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are winning big! You have your queen and king against just the opponent's king. You are about to finish the game. But be careful -- if you trap the enemy king so it cannot move but it is NOT in check, that is a stalemate and the game is a TIE! Where should you move your queen?",
+      "choices": [
+        {
+          "id": "queen-b2-checkmate",
+          "text": "Move your queen to b2. That puts the enemy king in check and it has no escape! Checkmate!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "queen-b2-stalemate",
+          "text": "Move your queen right next to the enemy king on a3. That takes away all its squares!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "queen-random",
+          "text": "Move the queen far away to see what happens.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your queen slides to b2 -- CHECK! The enemy king looks around... it cannot move to a4 because your queen covers that. It cannot move to c4, c3, or c2 either. There is nowhere to go and the king is in check. CHECKMATE! You win the game!",
+      "outcome": {
+        "result": "great",
+        "headline": "CHECKMATE! You Win!",
+        "explanation": "Checkmate means the king is in check AND has no way to escape. The king cannot move to a safe square, nothing can block the check, and nothing can capture the attacker. That is how you win a chess game! The key is making sure the king is IN CHECK when it has no moves. If the king has no moves but is NOT in check, that is stalemate -- a tie!",
+        "whatToRemember": "Checkmate = king in check with no escape. That is how you WIN! Make sure the king is in CHECK, not just stuck!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Checkmate", "definition": "The king is in check and cannot escape. The game is over and you WIN!" },
+          { "term": "Stalemate", "definition": "The king is NOT in check but has no legal moves. The game is a TIE -- nobody wins!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move the queen far away. The enemy king wiggles to a new square. You are still winning because you have a queen, but you did not finish the game when you could have. The game goes on longer.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Missed Your Chance to End It!",
+        "explanation": "When you have a queen against a lonely king, you should try to finish the game with checkmate. Moving the queen far away lets the enemy king keep running around. To deliver checkmate, use your queen and king together to push the enemy king to the edge of the board, then give checkmate!",
+        "whatToRemember": "When you are winning big, look for checkmate! Use your queen and king together to trap the enemy king on the edge.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Mating Pattern", "definition": "A setup of pieces that delivers checkmate. Learning these patterns helps you finish games!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move your queen right next to the enemy king on a3. The enemy king looks around... it cannot move anywhere! But wait -- the king is NOT in check! Since it has no legal moves and is not in check, the referee declares STALEMATE. The game is a tie! You were winning but accidentally drew the game!",
+      "outcome": {
+        "result": "bad",
+        "headline": "STALEMATE! The Game Is a Tie!",
+        "explanation": "Stalemate is the sneakiest rule in chess. If it is your opponent's turn and they have NO legal moves but their king is NOT in check, the game is a tie. You were winning by a ton but ended up with nothing! To avoid stalemate, always make sure your opponent has at least one legal move, OR make sure the king IS in check when you trap it. Check + no escape = checkmate (you win). No check + no moves = stalemate (tie).",
+        "whatToRemember": "Before trapping the king, make sure it IS in check! No check + no moves = stalemate = tie. That is a heartbreaker!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Stalemate", "definition": "When a player has no legal moves and is NOT in check. The game ends in a tie even if one side has way more pieces!" },
+          { "term": "Legal Move", "definition": "A move that follows all the rules. If a player has zero legal moves and is not in check, it is stalemate." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

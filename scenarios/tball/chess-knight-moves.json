@@ -1,0 +1,87 @@
+{
+  "id": "tball-chess-knight-moves",
+  "title": "The Tricky Knight Jump!",
+  "sport": ["chess"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "tactics",
+  "tags": ["knight", "movement", "basics", "beginner"],
+  "setup": {
+    "move": 5,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+    "lastMove": "b8a6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your knight is on g1 and you want to bring it into the game. The knight moves in an L-shape -- two squares in one direction, then one square to the side. Where should your knight jump to?",
+      "choices": [
+        {
+          "id": "knight-f3",
+          "text": "Jump the knight to f3! That is two squares up and one square to the left -- a perfect L-shape!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "knight-e2",
+          "text": "Slide the knight one square forward to e2.",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "knight-h3",
+          "text": "Jump the knight to h3! That is two squares up and one square to the right.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight leaps to f3! That is a perfect L-shape move -- two squares up and one to the left. From f3, your knight controls the center of the board and is ready to help attack. Your coach nods and says, 'Great development!'",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Knight Jump!",
+        "explanation": "The knight moves in an L-shape: two squares in one direction, then one square sideways. From g1, the knight can jump to f3 or h3. Jumping to f3 is better because it aims at the center of the board, which is where the action is! The knight is the only piece that can jump over other pieces, which makes it extra special.",
+        "whatToRemember": "The knight moves in an L-shape: two squares one way, then one square sideways. Aim your knight toward the center!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "L-Shape", "definition": "How the knight moves: two squares in one direction and one square to the side. It looks like the letter L!" },
+          { "term": "Development", "definition": "Moving your pieces from their starting squares to better squares where they can help. Get your knights and bishops out early!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Your knight jumps to h3. That is a legal L-shape move, but the knight is stuck on the edge of the board. It does not control many squares from here. Your coach says, 'That is a real knight move, but try to aim for the center next time!'",
+      "outcome": {
+        "result": "okay",
+        "headline": "Legal Move, But the Edge Is Not the Best!",
+        "explanation": "The knight CAN jump to h3 because that is a proper L-shape. But a knight on the edge of the board only controls a few squares. A knight in the center can control up to 8 squares! There is an old chess saying: 'A knight on the rim is dim.' Try to put your knight in the center where it has the most power.",
+        "whatToRemember": "Knights are stronger in the center of the board. A knight on the edge controls fewer squares!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "The Rim", "definition": "The edge of the chessboard (the a-file, h-file, 1st rank, or 8th rank). Knights are weaker on the rim!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Wait -- you tried to slide the knight one square forward, but that is not how knights move! Knights do not slide like other pieces. They JUMP in an L-shape. The referee says, 'Illegal move! Knights must move in an L-shape.'",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not How Knights Move!",
+        "explanation": "Knights do NOT slide forward, backward, or sideways like other pieces. Knights jump in an L-shape: two squares in one direction, then one square to the side. And here is the coolest part -- knights can JUMP over other pieces! No other piece can do that. Practice the L-shape: count two squares one way, then one square sideways.",
+        "whatToRemember": "Knights jump in an L-shape! Two squares one direction, one square sideways. They can even jump over other pieces!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Illegal Move", "definition": "A move that breaks the rules of chess. You have to take it back and make a different move!" },
+          { "term": "Jump", "definition": "Knights are the only piece that can hop over other pieces to get where they are going!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

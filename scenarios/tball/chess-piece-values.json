@@ -1,0 +1,86 @@
+{
+  "id": "tball-chess-piece-values",
+  "title": "Which Piece Should You Save?",
+  "sport": ["chess"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "tactics",
+  "tags": ["piece-values", "basics", "material", "beginner"],
+  "setup": {
+    "move": 12,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqkbnr/pppppppp/8/4n3/3QP3/8/PPP2PPP/RNB1KBNR",
+    "lastMove": "e5"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Oh no! Your opponent's knight just jumped to a square where it can capture your queen OR your pawn next turn. You can only save one piece. Which piece do you move to safety?",
+      "choices": [
+        {
+          "id": "save-queen",
+          "text": "Move the queen to safety! The queen is the most powerful piece on the board!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "save-pawn",
+          "text": "Move the pawn to safety! Every piece matters!",
+          "nextNode": "outcome-bad"
+        },
+        {
+          "id": "ignore-threat",
+          "text": "Ignore the threat and move a different piece somewhere else.",
+          "nextNode": "outcome-okay"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Great choice! You move your queen to a safe square. Your opponent's knight captures your pawn, but that's okay. A pawn is only worth 1 point, but your queen is worth 9 points! You saved the most valuable piece on the board!",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Save! You Protected Your Queen!",
+        "explanation": "In chess, every piece has a point value. The queen is worth 9 points -- she is the most powerful piece! A rook is worth 5, a bishop or knight is worth 3, and a pawn is only worth 1. When you have to choose which piece to save, always save the one worth more points. Losing a pawn is no big deal compared to losing your queen!",
+        "whatToRemember": "Queen = 9, Rook = 5, Bishop = 3, Knight = 3, Pawn = 1. Always save the more valuable piece!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Piece Value", "definition": "How many points each chess piece is worth. The queen is worth the most (9 points) and the pawn is worth the least (1 point)." },
+          { "term": "Material", "definition": "The total value of all your pieces. Having more material usually means you are winning!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move a different piece and ignore the threat. Your opponent's knight captures your queen! That is a huge loss. Your queen was worth 9 points and now she is gone.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Oops! You Lost Your Queen!",
+        "explanation": "When a piece is being attacked, you need to pay attention! The queen is the most powerful piece on the board, worth 9 points. Always check if your important pieces are safe before making a move somewhere else. Look at what your opponent can do next turn!",
+        "whatToRemember": "Before you move, always check: are any of my pieces in danger? Save the valuable ones first!",
+        "iqPoints": 2,
+        "keyTerms": [
+          { "term": "Threat", "definition": "When your opponent can capture one of your pieces on their next turn. Always look for threats!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You move the pawn to safety, but your opponent's knight captures your queen! A pawn is only worth 1 point but your queen was worth 9 points. That was a bad trade!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Oh No! You Saved the Wrong Piece!",
+        "explanation": "Saving a pawn instead of your queen is like choosing to save a penny instead of a ten dollar bill! The queen is worth 9 points and the pawn is only worth 1 point. When two pieces are in danger and you can only save one, always save the one that is worth more. Remember the point values: Queen = 9, Rook = 5, Bishop = 3, Knight = 3, Pawn = 1.",
+        "whatToRemember": "Always save the more valuable piece! Queen is worth 9, Pawn is worth 1. Save the queen!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Material Advantage", "definition": "When you have more total piece value than your opponent. Losing your queen gives your opponent a big advantage!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

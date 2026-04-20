@@ -1,0 +1,88 @@
+{
+  "id": "majors-chess-development",
+  "title": "Get Your Pieces Into the Game!",
+  "sport": ["chess"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "opening",
+  "tags": ["development", "opening-principles", "strategy", "tempo"],
+  "setup": {
+    "move": 4,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R",
+    "lastMove": "b8c6"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have played e4 and Nf3, developing your knight and controlling the center. Your opponent has played e5 and Nc6. You still have a bishop, another knight, and all your other pieces sitting on their starting squares. What is your next move?",
+      "choices": [
+        {
+          "id": "develop-bishop",
+          "text": "Develop the bishop to c4 or b5! Bring another piece into the game aiming at the center.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "move-knight-again",
+          "text": "Move the knight on f3 to g5 to attack f7. Chase the weakness!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "bring-queen-out",
+          "text": "Bring the queen out to h5. The queen is the strongest piece!",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You develop the bishop to a great square! Now you have TWO pieces developed (knight and bishop), both aiming at the center and at the enemy king's side. You are building an army that works together! Next you will castle and bring your rooks into the game.",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Development! Your Army Is Mobilizing!",
+        "explanation": "In the opening, the golden rule is: develop a NEW piece on every move! Do not move the same piece twice when you have pieces still sitting on their starting squares. Think of it like a basketball game -- you want all five players on the court, not just one player running around. Knights and bishops should come out first (they are the minor pieces), then castle to protect your king, then connect your rooks. A well-developed army is a powerful army!",
+        "whatToRemember": "Develop a new piece every move in the opening! Knights and bishops first, then castle, then rooks. Get everyone into the game!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Development", "definition": "Moving pieces from their starting squares to active squares where they control the board." },
+          { "term": "Minor Pieces", "definition": "Knights and bishops. They should be the first pieces you develop in the opening." },
+          { "term": "Tempo", "definition": "A unit of time in chess (one move). Wasting tempos by moving the same piece twice in the opening falls behind!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You move the knight to g5, aiming at f7. That looks scary, but your opponent simply plays d5, counterattacking in the center! You have now moved your knight TWICE while your opponent is developing new pieces. You are falling behind in development.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Knight Moved Twice! Falling Behind!",
+        "explanation": "Moving the same piece twice in the opening is usually a mistake because you fall behind in development. While you moved your knight twice, your opponent got to develop TWO different pieces. The knight on g5 looks aggressive but can be chased away easily with pawns. A better plan was to develop a brand new piece like the bishop. Each move in the opening should bring a new soldier to the battlefield!",
+        "whatToRemember": "Do not move the same piece twice in the opening! Develop a new piece each turn to build a strong army.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Moving the Same Piece Twice", "definition": "A common opening mistake. While you move one piece around, your opponent brings out new pieces and gets ahead." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You bring the queen to h5 on move three. Your opponent plays Nf6, attacking the queen with tempo! Now you have to move the queen AGAIN. While you are running your queen around, your opponent develops more pieces. After a few moves, your queen has made three moves but you still have pieces on the back rank!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Queen Out Too Early! She Is Getting Chased!",
+        "explanation": "Bringing the queen out early is one of the biggest opening mistakes. The queen is easy to attack because she is so valuable -- you cannot afford to let her be captured. Every time your opponent attacks the queen with a minor piece or pawn, you have to waste a move running away. Meanwhile, your opponent develops new pieces with every attack. The queen should come out AFTER your knights, bishops, and castling are done.",
+        "whatToRemember": "Do NOT bring the queen out early! She will get chased around while your opponent develops for free. Develop minor pieces first!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Queen Out Too Early", "definition": "A common beginner mistake. The queen gets attacked by less valuable pieces and has to keep running, wasting moves." },
+          { "term": "Developing with Tempo", "definition": "Developing a piece while also attacking the opponent's piece. The opponent has to deal with the attack, giving you free development!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

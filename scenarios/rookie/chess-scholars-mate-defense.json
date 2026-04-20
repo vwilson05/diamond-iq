@@ -1,0 +1,86 @@
+{
+  "id": "rookie-chess-scholars-mate-defense",
+  "title": "Stop the Four-Move Checkmate!",
+  "sport": ["chess"],
+  "tier": "rookie",
+  "impact": 4,
+  "role": "opening",
+  "tags": ["scholars-mate", "defense", "opening", "queen"],
+  "setup": {
+    "move": 4,
+    "phase": "opening",
+    "playerColor": "black",
+    "advantage": "equal",
+    "position": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR",
+    "lastMove": "d1f3"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent brought their queen out early to f3 and their bishop is on c4. They are both aiming at the f7 pawn right next to your king! This is called Scholar's Mate and if you do not stop it, they will play Qxf7 checkmate next turn! What do you do?",
+      "choices": [
+        {
+          "id": "play-nf6",
+          "text": "Move your knight to f6! It blocks the queen's attack on f7 and develops a piece at the same time!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "play-g6",
+          "text": "Push the pawn to g6 to block the queen's diagonal.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-threat",
+          "text": "Develop your bishop. The queen is far away, it probably is not dangerous.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight hops to f6, defending the f7 pawn! Now if the queen tries to capture on f7, your knight will take the queen. Your opponent wasted time bringing the queen out early, and your knight is on a great square. You are already doing better!",
+      "outcome": {
+        "result": "great",
+        "headline": "Scholar's Mate Blocked! Nice Defense!",
+        "explanation": "The knight on f6 is the perfect defense against Scholar's Mate. It protects f7, it develops a piece to a great square, and it punishes your opponent for bringing the queen out too early. Now your opponent has to move the queen again, wasting time. Remember: the f7 pawn (or f2 for white) is the weakest pawn at the start because only the king protects it. Always keep an eye on it!",
+        "whatToRemember": "Knight to f6 stops Scholar's Mate and develops a piece. Watch out for attacks on f7 -- it is the weakest pawn in the opening!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Scholar's Mate", "definition": "A four-move checkmate that targets the f7 pawn with the queen and bishop. Easy to stop if you know it is coming!" },
+          { "term": "The f7 Weakness", "definition": "At the start of the game, the f7 pawn (for black) or f2 pawn (for white) is only protected by the king. Watch out for attacks there!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push the pawn to g6, which does stop the queen from reaching f7 along the diagonal. But now you have weakened the squares around your king and your knight is still at home. It works, but it is not the best defense.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Threat Stopped, But You Weakened Your King!",
+        "explanation": "Pushing g6 does block the queen, but it creates holes around your king that could be attacked later. The knight to f6 is a better defense because it blocks the threat AND develops a piece without weakening your king position. When you can defend with a developing move, that is almost always the best choice.",
+        "whatToRemember": "Try to defend threats by developing pieces instead of pushing pawns. Nf6 defends f7 and develops at the same time!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Weakened King", "definition": "When you move pawns away from your king, it creates holes that your opponent can attack later." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You develop your bishop and ignore the threat. Your opponent plays Qxf7 -- CHECKMATE! The queen captures the f7 pawn with the bishop supporting it, and your king has no escape. The game is over in just four moves!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Scholar's Mate! Game Over in Four Moves!",
+        "explanation": "Never ignore threats to f7! That pawn is only guarded by the king at the start of the game, so it is the weakest spot. When you see the opponent's queen and bishop both pointing at f7, alarm bells should go off. Always stop the threat first! The best defense is Nf6, which blocks the attack and develops a piece at the same time.",
+        "whatToRemember": "Always check if f7 is being attacked! Queen + Bishop aimed at f7 = danger! Defend with Nf6!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Checkmate Pattern", "definition": "A setup of pieces that traps the king. Scholar's Mate is one of the first patterns every player should learn." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

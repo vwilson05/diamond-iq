@@ -1,0 +1,86 @@
+{
+  "id": "rookie-chess-double-attack",
+  "title": "Attack Two Things at Once!",
+  "sport": ["chess"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "tactics",
+  "tags": ["double-attack", "queen", "tactics", "winning-material"],
+  "setup": {
+    "move": 15,
+    "phase": "middlegame",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1b1kb1r/pppp1ppp/5n2/8/3qP3/2N5/PPP2PPP/R1BQKB1R",
+    "lastMove": "d8d4"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent's queen is sitting on d4 and their rook on a8 is unprotected. You see a chance to attack two of your opponent's pieces at the same time! Your knight on c3 can jump to a square that attacks both the queen and the rook. What do you do?",
+      "choices": [
+        {
+          "id": "knight-b5",
+          "text": "Jump the knight to b5! It attacks the queen on d4 AND threatens to land on c7 next, forking the king and rook!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "attack-queen-only",
+          "text": "Move a pawn to attack just the queen. Chase it away!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "random-move",
+          "text": "Develop your bishop. You want to get your pieces out.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your knight leaps to b5, attacking the queen AND threatening Nc7+ which would fork the king and rook! Your opponent has to save the queen, but then your knight lands on c7, attacking the king and the rook. The king moves and you capture the free rook! You win a whole rook!",
+      "outcome": {
+        "result": "great",
+        "headline": "Double Attack! You Win a Rook!",
+        "explanation": "A double attack is when one piece attacks two enemy pieces at the same time. Your opponent can only save one of them, so you get to capture the other one! The queen, knight, and bishop are all great at double attacks because they can attack in multiple directions. When you see two unprotected or poorly defended enemy pieces, look for a way to attack them both at once!",
+        "whatToRemember": "Look for double attacks! If you can attack two things at once, your opponent can only save one. You win the other!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Double Attack", "definition": "One piece attacking two enemy pieces at the same time. Your opponent can only save one!" },
+          { "term": "Fork", "definition": "A type of double attack, especially when a knight attacks two pieces at the same time. Knights are the fork kings!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push a pawn to attack the queen. The queen simply moves to a safe square. You chased the queen away, but you did not win any material. The rook on a8 is still safe. You missed the double attack!",
+      "outcome": {
+        "result": "okay",
+        "headline": "Queen Chased, But You Missed a Bigger Chance!",
+        "explanation": "Chasing the queen with a pawn is okay, but you missed a much bigger opportunity. The knight jump to b5 attacked the queen AND threatened a devastating fork on c7. When you see an undefended piece, do not just chase one thing -- look for a way to attack TWO things at once. Double attacks are one of the best ways to win material!",
+        "whatToRemember": "Before making simple attacks, check: can I attack TWO pieces at once? Double attacks win games!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Winning Material", "definition": "Capturing your opponent's pieces without losing yours. Double attacks are a great way to win material!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You develop your bishop. That is a normal move, but the opponent's queen on d4 is now causing trouble, attacking your e4 pawn and other squares. You missed a huge chance to win material with a double attack! Your opponent keeps their queen and rook and you gain nothing.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed the Double Attack!",
+        "explanation": "Developing pieces is usually good, but not when there is a much better move available! When your opponent has unprotected pieces, that is the time to attack. The knight on c3 could have jumped to b5 and attacked two things at once. In chess, always look for tactics before making quiet developing moves. A double attack could win you a free rook!",
+        "whatToRemember": "Tactics first, development second! Always check for forks and double attacks before making calm moves.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Tactics", "definition": "Clever short-term moves that win material or deliver checkmate. Forks, pins, and double attacks are all tactics!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

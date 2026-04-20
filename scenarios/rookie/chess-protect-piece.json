@@ -1,0 +1,86 @@
+{
+  "id": "rookie-chess-protect-piece",
+  "title": "Your Bishop Is Under Attack!",
+  "sport": ["chess"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "tactics",
+  "tags": ["defense", "protection", "bishop", "fundamentals"],
+  "setup": {
+    "move": 10,
+    "phase": "opening",
+    "playerColor": "white",
+    "advantage": "equal",
+    "position": "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P1B1/5N2/PPPP1PPP/RNBQK2R",
+    "lastMove": "f6h5"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent's knight just moved to h5, attacking your bishop on g4. If you do not do something, the knight will capture your bishop next turn! How do you save your bishop?",
+      "choices": [
+        {
+          "id": "retreat-bishop",
+          "text": "Move the bishop back to a safe square like e2 or h3 where it is no longer attacked.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "defend-bishop",
+          "text": "Move a pawn to h3 to protect the bishop. Now if the knight takes, the pawn takes back!",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-attack",
+          "text": "Ignore the attack and make a different move. Hopefully your opponent will forget about it.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You move your bishop to a safe square! Now the knight on h5 is attacking nothing and looks silly sitting on the edge of the board. Your bishop is safe AND your opponent wasted a move chasing it. Nice!",
+      "outcome": {
+        "result": "great",
+        "headline": "Bishop Saved! Smart Retreat!",
+        "explanation": "When one of your pieces is attacked, you have several options: move it away, protect it with another piece, or capture the attacker. Moving the bishop to safety is the cleanest option here because it does not weaken your pawn structure and your bishop finds a nice new home. Moving away from danger is not cowardly -- it is smart chess!",
+        "whatToRemember": "When a piece is attacked, think: should I move it, protect it, or capture the attacker? Pick the option that keeps your position strong!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Retreat", "definition": "Moving a piece back to a safer square when it is under attack. A good retreat is a smart move, not a weak one!" },
+          { "term": "Wasted Move", "definition": "When your opponent spends a turn but does not improve their position. Making them chase pieces can waste their time!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push the pawn to h3 to guard your bishop. Now if the knight takes the bishop, your pawn takes back. But h3 weakens the squares around your king a little bit. It works, but it is not perfect.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Bishop Protected, But Your King Is a Bit Weaker!",
+        "explanation": "Defending with h3 does protect the bishop, but it also moves a pawn away from your king, creating small weaknesses. Sometimes defending with a pawn is great, but here simply moving the bishop was cleaner. Before you defend with a pawn, ask yourself: will this pawn move weaken my king? If yes, consider a different defense.",
+        "whatToRemember": "Think about king safety before pushing pawns near your king to defend pieces. Moving the piece might be cleaner!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Pawn Weakness", "definition": "When you push pawns forward, the squares they used to protect become weaker. Be careful near your king!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You ignore the attack and play something else. Your opponent happily captures your bishop with the knight! You just lost 3 points of material for free. Your opponent did not forget -- they were counting on you ignoring it!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Bishop Captured! Never Ignore Attacks!",
+        "explanation": "Hoping your opponent forgets about an attack almost never works! Good chess players always follow through on their threats. When you see one of your pieces being attacked, deal with it right away. Move the piece, protect it, or capture the attacker. Ignoring threats is how you lose pieces for free.",
+        "whatToRemember": "Never ignore an attack on your pieces! Always deal with threats before making other plans.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Threat", "definition": "An attack that will happen on the next move if you do not stop it. Always deal with threats!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}
