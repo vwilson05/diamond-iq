@@ -4,7 +4,7 @@
   "sport": ["baseball", "softball"],
   "tier": "minors",
   "role": "defense",
-  "tags": ["backup", "outfield", "right-field", "hustle", "preventing-extra-bases", "positioning"],
+  "tags": ["backup", "outfield", "left-field", "hustle", "preventing-extra-bases", "positioning"],
   "setup": {
     "inning": 5,
     "topBottom": "top",
@@ -15,10 +15,10 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Runner on first, one out. You're the right fielder. The batter hits a clean single to center field. The runner on first is aggressive and is trying to go all the way to third! Your center fielder scoops the ball and throws to third base. The throw is on line but might get past the third baseman. Where should you be right now?",
+      "narration": "Runner on first, one out. You're the left fielder. The batter hits a clean single to center field. The runner on first is aggressive and is trying to go all the way to third! Your center fielder scoops the ball and throws to third base. The throw is on line but might get past the third baseman. Where should you be right now?",
       "field": {
         "ballPosition": { "x": 0.45, "y": 0.2 },
-        "highlight": ["RF", "3B", "CF"],
+        "highlight": ["LF", "3B", "CF"],
         "runners": [
           { "id": "runner1st", "position": { "x": 0.38, "y": 0.52 }, "label": "Runner (heading to 3rd)" },
           { "id": "batter", "position": { "x": 0.7, "y": 0.6 }, "label": "Batter (at 1st)" }
@@ -32,7 +32,7 @@
         },
         {
           "id": "stay-right",
-          "text": "Stay in right field -- that's my position and I need to be ready for the next play.",
+          "text": "Stay in left field -- that's my position and I need to be ready for the next play.",
           "nextNode": "outcome-stay-bad"
         },
         {
@@ -56,19 +56,19 @@
       "outcome": {
         "result": "great",
         "headline": "Incredible Hustle! Backup Saves a Run!",
-        "explanation": "This is one of the most under-appreciated plays in baseball. Most people don't see the right fielder sprinting behind third base because all eyes are on the throw. But that backup is CRITICAL. If that ball gets past the third baseman with nobody backing up, it rolls to the dugout and the runner scores easily. By being 15-20 feet behind the base in a direct line with the throw, you're the safety net. Great outfielders are ALWAYS moving to back up throws, even when the ball isn't near them.",
+        "explanation": "This is one of the most under-appreciated plays in baseball. Most people don't see the left fielder sprinting behind third base because all eyes are on the throw. But that backup is CRITICAL. If that ball gets past the third baseman with nobody backing up, it rolls to the dugout and the runner scores easily. By being 15-20 feet behind the base in a direct line with the throw, you're the safety net. Great outfielders are ALWAYS moving to back up throws, even when the ball isn't near them.",
         "keyTerms": [
           { "term": "Backing up", "definition": "Moving to a position behind a base or fielder in case a throw gets past them. The backup fielder prevents extra bases on overthrows." },
           { "term": "Backup angle", "definition": "Position yourself in a straight line behind the base, in line with where the throw is coming FROM. This way the ball comes right to you if it gets through." },
           { "term": "Outfield hustle", "definition": "Even when the ball isn't hit to you, outfielders should always be moving to back up a base or another fielder. Never stand and watch." }
         ],
-        "whatToRemember": "When a throw is going to a base, SOMEONE needs to be behind it. Right fielders back up first base and can help at third. Always be moving, even when the play isn't near you.",
+        "whatToRemember": "When a throw is going to a base, SOMEONE needs to be behind it. Left fielders back up third base. Right fielders back up first and second. Always be moving, even when the play isn't near you.",
         "iqPoints": 10,
         "animation": {
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.2 },
+              "from": { "x": 0.25, "y": 0.25 },
               "to": { "x": 0.22, "y": 0.65 },
               "entity": "fielder",
               "duration": 1200
@@ -106,7 +106,7 @@
       "outcome": {
         "result": "bad",
         "headline": "No Backup! Run Scores on Overthrow!",
-        "explanation": "Standing in right field watching the play is the worst thing an outfielder can do. Even though the ball wasn't hit to you, you still had a JOB on this play -- backing up third base. At any level of baseball, throws get past fielders. That's just part of the game. The defense's job is to make sure ONE overthrow doesn't turn into a disaster. If you're backing up the throw, that overthrow only costs about 5 feet instead of letting the runner score. Outfielders should NEVER be standing still when the ball is in play.",
+        "explanation": "Standing in left field watching the play is the worst thing an outfielder can do. Even though the ball wasn't hit to you, you still had a JOB on this play -- backing up third base. At any level of baseball, throws get past fielders. That's just part of the game. The defense's job is to make sure ONE overthrow doesn't turn into a disaster. If you're backing up the throw, that overthrow only costs about 5 feet instead of letting the runner score. Outfielders should NEVER be standing still when the ball is in play.",
         "whatToRemember": "Outfielders are NEVER spectators. On every single play, you should be moving to back up a throw or a base. Never stand and watch.",
         "iqPoints": 1,
         "animation": {
@@ -152,7 +152,7 @@
           "steps": [
             {
               "type": "run",
-              "from": { "x": 0.7, "y": 0.2 },
+              "from": { "x": 0.25, "y": 0.25 },
               "to": { "x": 0.55, "y": 0.42 },
               "entity": "fielder",
               "duration": 800
