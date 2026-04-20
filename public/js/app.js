@@ -126,8 +126,19 @@ function initSportPicker() {
       const sport = card.dataset.sport;
       game.selectSport(sport);
       localStorage.setItem('diamond_iq_sport', sport);
-      renderTeamGrid(sport);
-      showScreen('teamSelect');
+
+      if (sport === 'chess') {
+        // Skip team select — set default chess team and go to tiers
+        const defaultChessTeam = CHESS_TEAMS[0];
+        game.selectTeam(defaultChessTeam);
+        setTeamColors(defaultChessTeam);
+        localStorage.setItem('diamond_iq_team', JSON.stringify(defaultChessTeam));
+        showScreen('difficultySelect');
+        renderDifficultyCards();
+      } else {
+        renderTeamGrid(sport);
+        showScreen('teamSelect');
+      }
     });
   });
 }
