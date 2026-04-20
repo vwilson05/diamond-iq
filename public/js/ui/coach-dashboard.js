@@ -86,6 +86,7 @@ function showLogin() {
         <div class="coach-error" id="coach-reg-error"></div>
       </div>
 
+      <button class="coach-btn coach-demo-btn" id="coach-demo-btn">View Demo Dashboard</button>
       <a href="/" class="coach-back-link">Back to PlayIQ</a>
     </div>
   `;
@@ -127,6 +128,9 @@ function showLogin() {
       err.textContent = 'Connection error';
     }
   });
+
+  // Demo
+  app.querySelector('#coach-demo-btn').addEventListener('click', () => showDemo());
 
   // Register
   app.querySelector('#coach-reg-btn').addEventListener('click', async () => {
@@ -338,6 +342,205 @@ function renderTeamSummary(summary, playerCount) {
           `;
         }).join('')}
       </div>
+    </div>
+  `;
+}
+
+// ---- DEMO MODE ----
+function showDemo() {
+  coach = { display_name: 'Coach Martinez', id: 'demo' };
+
+  const demoTeam = { name: 'Eastside Wildcats', join_code: 'WILD23', roster: Array(8) };
+
+  const demoProgress = {
+    team_summary: {
+      categories: {
+        defense: { total: 64, great: 28, good: 18, okay: 12, bad: 6 },
+        offense: { total: 48, great: 14, good: 16, okay: 10, bad: 8 },
+        baserunning: { total: 40, great: 18, good: 12, okay: 6, bad: 4 },
+        pitching: { total: 24, great: 6, good: 8, okay: 6, bad: 4 },
+      },
+      strengths: ['defense', 'baserunning'],
+      needs_work: ['pitching', 'offense'],
+    },
+    players: [
+      {
+        display_name: 'Marcus J.', avatar: 'slugger', total_iq: 340, sessions_played: 12,
+        categories: {
+          defense: { total: 10, great: 5, good: 3, okay: 1, bad: 1 },
+          offense: { total: 8, great: 4, good: 2, okay: 1, bad: 1 },
+          baserunning: { total: 6, great: 3, good: 2, okay: 1, bad: 0 },
+          pitching: { total: 4, great: 2, good: 1, okay: 1, bad: 0 },
+        },
+        strengths: ['defense', 'offense'], needs_work: [],
+        awards: [{ award_name: 'All-Star' }, { award_name: 'Perfect Score' }],
+      },
+      {
+        display_name: 'Sofia R.', avatar: 'glove', total_iq: 290, sessions_played: 10,
+        categories: {
+          defense: { total: 9, great: 5, good: 3, okay: 1, bad: 0 },
+          offense: { total: 6, great: 2, good: 2, okay: 1, bad: 1 },
+          baserunning: { total: 5, great: 3, good: 1, okay: 1, bad: 0 },
+          pitching: { total: 3, great: 1, good: 1, okay: 1, bad: 0 },
+        },
+        strengths: ['defense', 'baserunning'], needs_work: ['offense'],
+        awards: [{ award_name: 'Gold Glove' }],
+      },
+      {
+        display_name: 'Jayden T.', avatar: 'cap', total_iq: 220, sessions_played: 8,
+        categories: {
+          defense: { total: 7, great: 2, good: 3, okay: 1, bad: 1 },
+          offense: { total: 6, great: 1, good: 2, okay: 2, bad: 1 },
+          baserunning: { total: 5, great: 2, good: 2, okay: 1, bad: 0 },
+          pitching: { total: 3, great: 0, good: 1, okay: 1, bad: 1 },
+        },
+        strengths: ['baserunning'], needs_work: ['pitching', 'offense'],
+        awards: [{ award_name: 'Speed Demon' }],
+      },
+      {
+        display_name: 'Emma L.', avatar: 'star', total_iq: 180, sessions_played: 7,
+        categories: {
+          defense: { total: 6, great: 2, good: 2, okay: 1, bad: 1 },
+          offense: { total: 5, great: 1, good: 1, okay: 2, bad: 1 },
+          baserunning: { total: 4, great: 2, good: 1, okay: 0, bad: 1 },
+          pitching: { total: 3, great: 1, good: 1, okay: 0, bad: 1 },
+        },
+        strengths: ['baserunning'], needs_work: ['offense'],
+        awards: [],
+      },
+      {
+        display_name: 'Liam K.', avatar: 'trophy', total_iq: 260, sessions_played: 9,
+        categories: {
+          defense: { total: 8, great: 3, good: 2, okay: 2, bad: 1 },
+          offense: { total: 7, great: 3, good: 2, okay: 1, bad: 1 },
+          baserunning: { total: 5, great: 2, good: 2, okay: 1, bad: 0 },
+          pitching: { total: 4, great: 1, good: 2, okay: 1, bad: 0 },
+        },
+        strengths: ['defense', 'offense'], needs_work: ['pitching'],
+        awards: [{ award_name: 'First Game' }, { award_name: 'IQ 100' }],
+      },
+      {
+        display_name: 'Ava M.', avatar: 'ball', total_iq: 150, sessions_played: 6,
+        categories: {
+          defense: { total: 6, great: 2, good: 1, okay: 2, bad: 1 },
+          offense: { total: 4, great: 1, good: 1, okay: 1, bad: 1 },
+          baserunning: { total: 4, great: 2, good: 1, okay: 1, bad: 0 },
+          pitching: { total: 2, great: 0, good: 1, okay: 0, bad: 1 },
+        },
+        strengths: ['baserunning'], needs_work: ['pitching', 'offense'],
+        awards: [],
+      },
+      {
+        display_name: 'Noah D.', avatar: 'diamond', total_iq: 310, sessions_played: 11,
+        categories: {
+          defense: { total: 9, great: 4, good: 3, okay: 1, bad: 1 },
+          offense: { total: 7, great: 2, good: 3, okay: 1, bad: 1 },
+          baserunning: { total: 6, great: 3, good: 2, okay: 1, bad: 0 },
+          pitching: { total: 3, great: 1, good: 1, okay: 1, bad: 0 },
+        },
+        strengths: ['defense', 'baserunning'], needs_work: [],
+        awards: [{ award_name: 'IQ 300' }, { award_name: 'Streak 3' }],
+      },
+      {
+        display_name: 'Mia C.', avatar: 'homeplate', total_iq: 130, sessions_played: 5,
+        categories: {
+          defense: { total: 5, great: 1, good: 2, okay: 1, bad: 1 },
+          offense: { total: 4, great: 1, good: 1, okay: 1, bad: 1 },
+          baserunning: { total: 3, great: 1, good: 1, okay: 0, bad: 1 },
+          pitching: { total: 2, great: 0, good: 0, okay: 1, bad: 1 },
+        },
+        strengths: [], needs_work: ['pitching', 'offense', 'defense'],
+        awards: [{ award_name: 'First Game' }],
+      },
+    ],
+  };
+
+  // Render the demo dashboard
+  app.innerHTML = `
+    <div class="coach-header">
+      <div class="coach-header-left">
+        <button class="coach-back-btn" id="coach-back-demo">&larr; Exit Demo</button>
+        <div class="logo-sm">PLAY<span class="logo-accent">IQ</span></div>
+      </div>
+      <div class="coach-header-right">
+        <span class="coach-name">Coach Martinez</span>
+        <span class="coach-demo-badge">DEMO</span>
+      </div>
+    </div>
+    <div class="coach-content" id="coach-progress-content"></div>
+  `;
+
+  app.querySelector('#coach-back-demo').addEventListener('click', () => {
+    coach = null;
+    showLogin();
+  });
+
+  renderProgress(demoTeam, demoProgress);
+
+  // Add practice plan after progress
+  const content = document.getElementById('coach-progress-content');
+  content.insertAdjacentHTML('beforeend', renderPracticePlan(demoProgress));
+}
+
+// ---- PRACTICE PLAN ----
+function renderPracticePlan(progress) {
+  const summary = progress.team_summary;
+  const cats = summary.categories;
+
+  // Rank categories by weakness (lowest great+good percentage)
+  const ranked = Object.entries(cats)
+    .map(([cat, d]) => ({ cat, pct: d.total > 0 ? ((d.great + d.good) / d.total) * 100 : 0, ...d }))
+    .sort((a, b) => a.pct - b.pct);
+
+  const drills = {
+    pitching: [
+      { name: 'First Pitch Strike Challenge', desc: 'Each pitcher throws 10 first pitches. Goal: 7+ strikes. Track percentage over the week.' },
+      { name: 'Stretch vs Windup Reps', desc: 'Alternate 5 pitches from the windup and 5 from the stretch. Focus on consistent arm slot.' },
+      { name: 'Fielding the Position', desc: 'Hit comebackers to pitchers. Practice covering first base on grounders to the right side.' },
+    ],
+    offense: [
+      { name: 'Situational At-Bats', desc: 'Set up game scenarios (runner on 3rd, 1 out). Hitter must execute: fly ball, ground ball right side, etc.' },
+      { name: 'Two-Strike Drill', desc: 'Start every at-bat with an 0-2 count. Practice shortening the swing and protecting the plate.' },
+      { name: 'Opposite Field Tee Work', desc: 'Place tee on outside corner. 10 swings going opposite field. Focus on letting the ball travel deep.' },
+    ],
+    defense: [
+      { name: 'Cutoff & Relay Circuit', desc: 'Hit to each gap. Outfielders throw to the relay man, relay to the correct base. Rotate positions.' },
+      { name: 'Bunt Defense Walkthrough', desc: 'Walk through bunt coverage at half-speed. Practice corner charges, who covers which base.' },
+      { name: 'Communication Drill', desc: 'Pop flies between positions. Players must call the ball. No catch counts unless someone calls it.' },
+    ],
+    baserunning: [
+      { name: 'Tag-Up Reads', desc: 'Coach hits fly balls to various depths. Runners on 3rd read whether to tag. Vary ball depth to train the read.' },
+      { name: 'Secondary Lead Drill', desc: 'Runners on first practice their secondary shuffle as the pitch is delivered. Time from lead to second on steals.' },
+      { name: 'First-to-Third Reads', desc: 'Singles to right field. Runners on first read the outfielder and decide: hold at 2nd or take 3rd? Coach the read.' },
+    ],
+  };
+
+  const top3 = ranked.slice(0, 3);
+
+  return `
+    <h3 class="coach-section-heading">Practice Plan</h3>
+    <div class="coach-summary-card">
+      <h3 class="coach-summary-title">Top 3 Opportunities This Week</h3>
+      <div class="coach-summary-text" style="margin-bottom:1.5rem;">
+        Based on your team's results, here's what to focus on at practice:
+      </div>
+      ${top3.map((area, i) => `
+        <div class="coach-practice-area">
+          <div class="coach-practice-area-header">
+            <span class="coach-practice-rank">${i + 1}</span>
+            <span class="coach-practice-cat">${area.cat.charAt(0).toUpperCase() + area.cat.slice(1)}</span>
+            <span class="coach-practice-pct" style="color:${area.pct >= 60 ? 'var(--great)' : area.pct >= 40 ? 'var(--okay)' : 'var(--bad)'}">${Math.round(area.pct)}% proficiency</span>
+          </div>
+          <div class="coach-practice-drills">
+            ${(drills[area.cat] || []).map(d => `
+              <div class="coach-drill">
+                <div class="coach-drill-name">${d.name}</div>
+                <div class="coach-drill-desc">${d.desc}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
     </div>
   `;
 }

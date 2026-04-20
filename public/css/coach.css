@@ -2,6 +2,10 @@
    PLAYIQ — Coach Dashboard Styles
    ============================================ */
 
+html, body {
+  overflow: auto !important;
+}
+
 #coach-app {
   min-height: 100vh;
   overflow-y: auto;
@@ -545,4 +549,101 @@
   .coach-team-card {
     padding: 1rem;
   }
+}
+
+/* ---- Demo Badge ---- */
+.coach-demo-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--accent, #f5a623);
+  color: #0d0d0f;
+}
+
+.coach-demo-btn {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  color: var(--text-secondary, #8b92a5) !important;
+  margin-top: 0.5rem;
+}
+
+.coach-demo-btn:hover {
+  border-color: var(--accent, #f5a623) !important;
+  color: var(--accent, #f5a623) !important;
+}
+
+/* ---- Practice Plan ---- */
+.coach-practice-area {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.coach-practice-area:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.coach-practice-area-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.coach-practice-rank {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent, #f5a623);
+  color: #0d0d0f;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.coach-practice-cat {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  flex: 1;
+}
+
+.coach-practice-pct {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.coach-practice-drills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 2.5rem;
+}
+
+.coach-drill {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+.coach-drill-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--text, #e8e8ec);
+}
+
+.coach-drill-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted, #8a8a9a);
 }
