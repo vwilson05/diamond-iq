@@ -526,7 +526,7 @@ async function startGame(tier) {
     fieldCanvas = null;
     sbContainer.style.display = 'none';
   } else if (!isBaseball) {
-    // Non-field sports (basketball, football, soccer, money, coding) — hide field and scoreboard
+    // Non-field sports — hide field and scoreboard
     gameBody.classList.add('chess-mode'); // reuse layout (no field panel)
     fieldCanvas = null;
     chessBoard = null;
@@ -1115,7 +1115,7 @@ function createSituationBar(setup) {
   const sport = game.state.sport;
 
   // Generic situation bar for non-field sports
-  if (['basketball', 'football', 'soccer', 'money', 'coding'].includes(sport)) {
+  if (!['baseball', 'softball', 'chess'].includes(sport)) {
     const items = [];
     if (setup.quarter) items.push(`Q${setup.quarter}`);
     if (setup.half) items.push(`Half ${setup.half}`);
