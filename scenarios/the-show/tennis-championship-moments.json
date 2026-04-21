@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Championship match, final set. You are up 6-5 and serving at 40-30. The crowd is going wild. Your opponent has saved three match points already and the pressure is enormous. You are in a rally and see a short ball. This could be the last shot of the match. What do you do?",
+      "narration": "Championship match, final set. You are up 6-5 and serving. After multiple deuces, you finally have advantage again. The crowd is going wild. Your opponent has saved three match points already and the pressure is enormous. You are in a rally and see a short ball. This could be the last shot of the match. What do you do?",
       "choices": [
         { "id": "best", "text": "Stay composed, move forward to the short ball, and hit a confident approach shot to the open court -- play the shot, not the moment", "nextNode": "outcome-great" },
         { "id": "okay", "text": "Slam the ball as hard as you possibly can from wherever you are standing, hoping sheer power ends it", "nextNode": "outcome-okay" },

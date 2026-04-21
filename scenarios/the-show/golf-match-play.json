@@ -33,7 +33,7 @@
         "iqPoints": 10,
         "keyTerms": [
           { "term": "Match Play", "definition": "A format where you compete hole by hole against one opponent. Each hole is worth one point. The player who wins the most holes wins the match." },
-          { "term": "Dormie", "definition": "When you are ahead by the same number of holes remaining. For example, 2 UP with 2 to play. You cannot lose -- only halve or win." },
+          { "term": "Dormie", "definition": "When you are ahead by the same number of holes remaining. For example, 2 UP with 2 to play. You cannot lose in regulation -- your opponent must win every remaining hole just to tie and force extra holes." },
           { "term": "Playing the Match", "definition": "Adjusting your strategy based on what your opponent does, rather than just playing the course. When ahead, play safe. When behind, take chances." }
         ],
         "next": "end"

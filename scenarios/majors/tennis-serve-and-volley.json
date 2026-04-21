@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "You are serving at 30-15. Your opponent has been struggling to return serves to your backhand side. You want to try a serve-and-volley play. How do you execute it?",
+      "narration": "You are serving at 30-15. Your opponent has been struggling to return serves aimed at their backhand side. You want to try a serve-and-volley play. How do you execute it?",
       "choices": [
         { "id": "best", "text": "Hit a strong serve out wide, take three quick steps toward the net, split step as your opponent hits, then volley to the open court", "nextNode": "outcome-great" },
         { "id": "okay", "text": "Hit a hard serve down the middle and sprint all the way to the net without pausing", "nextNode": "outcome-okay" },

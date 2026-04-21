@@ -44,7 +44,7 @@
     },
     "outcome-great": {
       "type": "outcome",
-      "narration": "You turn to your 26-year-old computer expert, Jack Garman, and ask, 'What is a 1202?' He checks his handwritten list of alarm codes and says, 'It means the computer has too many tasks, but it is handling it by dropping the less important ones. The guidance system is still working. We are GO.' You radio Armstrong: 'We got you, we are GO on that alarm.' Armstrong keeps descending. Minutes later, he sees the planned landing site is full of boulders! He takes manual control and flies the Lunar Module to a safe spot. With just 25 seconds of fuel left, he lands. 'Houston, Tranquility Base here. The Eagle has landed.' Mission Control erupts in cheers.",
+      "narration": "You turn to your 24-year-old computer expert, Jack Garman, and ask, 'What is a 1202?' He checks his handwritten list of alarm codes and says, 'It means the computer has too many tasks, but it is handling it by dropping the less important ones. The guidance system is still working. We are GO.' You radio Armstrong: 'We got you, we are GO on that alarm.' Armstrong keeps descending. Minutes later, he sees the planned landing site is full of boulders! He takes manual control and flies the Lunar Module to a safe spot. With just 25 seconds of fuel left, he lands. 'Houston, Tranquility Base here. The Eagle has landed.' Mission Control erupts in cheers.",
       "outcome": {
         "result": "great",
         "headline": "One Small Step! You Helped Land on the Moon!",

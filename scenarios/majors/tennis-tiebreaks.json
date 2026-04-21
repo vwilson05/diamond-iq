@@ -30,7 +30,7 @@
         "explanation": "By being aggressive on your serve and smart on the return points, you won 7-4. You did not give away free points but you also did not let your opponent off the hook.",
         "whatToRemember": "In tiebreaks, be aggressive on your serve points but disciplined on return points. Every point matters more than in a regular game, so pick your spots wisely.",
         "iqPoints": 10,
-        "keyTerms": [{ "term": "Tiebreak", "definition": "A special game played when the set reaches 6-6. Players alternate serves every two points and the first to reach 7 points with a 2-point lead wins the set" }],
+        "keyTerms": [{ "term": "Tiebreak", "definition": "A special game played when the set reaches 6-6. The first player serves one point, then players alternate serving every two points. The first to reach 7 points with a 2-point lead wins the set" }],
         "next": "end"
       }
     },
