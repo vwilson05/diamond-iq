@@ -11,22 +11,22 @@
     "phase": "middlegame",
     "playerColor": "white",
     "advantage": "equal",
-    "position": "r2qkb1r/ppp2ppp/2n5/3p4/6b1/5N2/PPP2PPP/R1BQ1RK1",
-    "lastMove": "e5e4"
+    "position": "r1bqkb1r/ppp2ppp/2n5/3pN3/2B5/8/PPPP1PPP/RNBQ1RK1",
+    "lastMove": "d6d5"
   },
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Your knight on f3 is sitting right in front of your queen on d1. If you move the knight out of the way, your queen will be revealed, attacking the bishop on g4 along the diagonal! This is called a discovered attack. But where should your knight go to cause the most damage?",
+      "narration": "Your knight on e5 is sitting right in front of your bishop on c4. The bishop is aiming at f7 -- the weak pawn next to the enemy king! If you move the knight out of the way, your bishop will attack f7. This is called a discovered attack. But where should your knight jump to cause the most damage?",
       "choices": [
         {
-          "id": "knight-g5-discovered",
-          "text": "Jump the knight to g5, threatening the f7 pawn! When the knight moves, your queen is revealed attacking the d5 pawn. TWO threats at once!",
+          "id": "knight-d7-discovered",
+          "text": "Jump the knight to d7, forking the queen on d8 and the bishop on f8! When the knight moves, your bishop is revealed attacking f7. TWO threats at once!",
           "nextNode": "outcome-great"
         },
         {
-          "id": "knight-d2-safe",
-          "text": "Move the knight to d2. It gets out of the way and the queen is revealed.",
+          "id": "knight-d3-safe",
+          "text": "Move the knight back to d3. It gets out of the way and the bishop is revealed.",
           "nextNode": "outcome-okay"
         },
         {
@@ -38,7 +38,7 @@
     },
     "outcome-great": {
       "type": "outcome",
-      "narration": "Your knight leaps to g5, threatening the weak f7 pawn near the enemy king! At the same time, moving the knight REVEALED your queen, which now attacks the bishop on g4 along the diagonal. Your opponent cannot deal with both threats at once! They save f7 but lose the bishop on g4, or they save the bishop but you crash through on f7. Brilliant!",
+      "narration": "Your knight leaps to d7, forking the queen and bishop! At the same time, moving the knight REVEALED your bishop on c4, which now attacks the weak f7 pawn. Your opponent cannot deal with all these threats at once! They save the queen but lose the bishop on f8, and your bishop threatens f7. Brilliant!",
       "outcome": {
         "result": "great",
         "headline": "DISCOVERED ATTACK! Two Threats at Once!",
@@ -54,11 +54,11 @@
     },
     "outcome-okay": {
       "type": "outcome",
-      "narration": "You move the knight to d2, uncovering your queen. The queen now attacks the bishop on g4 along the diagonal, which is good. But the knight on d2 is not threatening anything special. You only created one threat instead of two. Your opponent can deal with one threat easily.",
+      "narration": "You move the knight back to d3, uncovering your bishop. The bishop on c4 now attacks f7, which is good. But the knight on d3 is not threatening anything special. You only created one threat instead of two. Your opponent can just defend f7 and everything is fine for them.",
       "outcome": {
         "result": "okay",
         "headline": "Discovered Attack, But Only Half Power!",
-        "explanation": "You got the discovery part right -- moving the knight revealed the queen. But the knight went to a quiet square that does not threaten anything. In a discovered attack, the piece you move should ALSO create a threat. If you jump the knight to g5 instead, it threatens f7 AND the queen threatens d5. Two threats at once is much harder to defend than one!",
+        "explanation": "You got the discovery part right -- moving the knight revealed the bishop attacking f7. But the knight went to a quiet square that does not threaten anything. In a discovered attack, the piece you move should ALSO create a threat. If you jump the knight to d7 instead, it forks the queen and bishop AND the bishop threatens f7. Multiple threats at once is much harder to defend!",
         "whatToRemember": "In a discovered attack, make the moving piece also threaten something. Create two problems, not just one!",
         "iqPoints": 4,
         "keyTerms": [
@@ -73,7 +73,7 @@
       "outcome": {
         "result": "bad",
         "headline": "Discovery Missed! Keep Your Eyes Open!",
-        "explanation": "When one of your pieces is blocking another, think about what happens if you move it out of the way. That is a discovered attack waiting to happen! Your knight was blocking your queen. By moving the knight to a threatening square, you would have unleashed the queen AND created a knight threat. Two attacks for the price of one move! Always check for discovered attacks -- they are sneaky and powerful.",
+        "explanation": "When one of your pieces is blocking another, think about what happens if you move it out of the way. That is a discovered attack waiting to happen! Your knight was blocking your bishop from attacking f7. By moving the knight to d7 (forking queen and bishop), you would have unleashed the bishop AND created a knight fork. Multiple attacks for the price of one move! Always check for discovered attacks -- they are sneaky and powerful.",
         "whatToRemember": "If one of your pieces is in front of another, think about discovered attacks! Move the front piece to create TWO threats!",
         "iqPoints": 1,
         "keyTerms": [
