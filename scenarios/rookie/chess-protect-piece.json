@@ -11,13 +11,13 @@
     "phase": "opening",
     "playerColor": "white",
     "advantage": "equal",
-    "position": "r1bqkb1r/pppp1ppp/2n5/4p2n/4P1B1/5N2/PPPP1PPP/RNBQK2R",
+    "position": "r1bqkb1r/pppp1ppp/2n5/4p2n/4P3/5NB1/PPPP1PPP/RN1QK2R",
     "lastMove": "f6h5"
   },
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Your opponent's knight just moved to h5, attacking your bishop on g4. If you do not do something, the knight will capture your bishop next turn! How do you save your bishop?",
+      "narration": "Your opponent's knight just moved to h5, attacking your bishop on g3. If you do not do something, the knight will capture your bishop next turn! How do you save your bishop?",
       "choices": [
         {
           "id": "retreat-bishop",

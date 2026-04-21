@@ -11,7 +11,7 @@
     "phase": "middlegame",
     "playerColor": "white",
     "advantage": "equal",
-    "position": "r1bq1rk1/pppn1ppp/2n1p3/2b1p3/2B1P3/2NP1N2/PPP1QPPP/R1B2RK1",
+    "position": "r1bq1rk1/pppn1ppp/2n5/2b1p3/2B1P3/2NP1N2/PPP1QPPP/R1B2RK1",
     "lastMove": "d7d6"
   },
   "nodes": {

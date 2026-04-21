@@ -17,7 +17,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "You notice that the opponent's knight on f6 is standing right between your bishop on b3 and the opponent's queen behind it. If the knight moves, your bishop could capture the queen! This means the knight is PINNED -- it cannot move without losing the queen. How do you use this pin?",
+      "narration": "You notice that the opponent's knight on f6 is standing right between your bishop on g5 and the opponent's queen on d8 behind it. If the knight moves, your bishop could capture the queen! This means the knight is PINNED -- it cannot move without losing the queen. How do you use this pin?",
       "choices": [
         {
           "id": "attack-pinned-piece",
@@ -38,7 +38,7 @@
     },
     "outcome-great": {
       "type": "outcome",
-      "narration": "You push e5, attacking the pinned knight! The knight on f6 CANNOT move because your bishop on b3 would capture the queen behind it. The knight is stuck and lost! Your opponent has to give up the knight or lose the queen. You win a free piece!",
+      "narration": "You push e5, attacking the pinned knight! The knight on f6 CANNOT move because your bishop on g5 would capture the queen on d8 behind it. The knight is stuck and lost! Your opponent has to give up the knight or lose the queen. You win a free piece!",
       "outcome": {
         "result": "great",
         "headline": "Pin Exploited! Free Knight!",

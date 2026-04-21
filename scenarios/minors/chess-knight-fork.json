@@ -17,7 +17,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "The opponent's king is on e8 and their queen is on e7. You notice your knight on f3 could jump to d5, attacking BOTH the queen and threatening checkmate ideas. A knight attacking two big pieces at once is called a FORK! What do you play?",
+      "narration": "The opponent's king is on e8 and their queen is on e7. You notice your knight on c3 could jump to d5, attacking BOTH the queen and threatening checkmate ideas. A knight attacking two big pieces at once is called a FORK! What do you play?",
       "choices": [
         {
           "id": "knight-d5-fork",

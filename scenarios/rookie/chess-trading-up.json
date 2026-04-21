@@ -17,7 +17,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Your knight on c3 can capture the pawn on d5. If it does, the opponent's knight on f6 can take back. But wait -- you also notice that your knight on c3 can jump to b5, and from there it attacks the rook on a8. The rook is worth 5 points and your knight is only worth 3. Should you go after the rook?",
+      "narration": "Your knight on c3 can capture the pawn on d5. If it does, the opponent's knight on f6 can take back. But wait -- you also notice that your knight on c3 can jump to b5, and from there it threatens Nc7, forking the king on e8 and the rook on a8! The rook is worth 5 points and your knight is only worth 3. Should you go after the rook?",
       "choices": [
         {
           "id": "trade-for-rook",

@@ -17,7 +17,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Your knight on f3 is sitting right in front of your queen on d1. If you move the knight out of the way, your queen will be revealed, attacking down the d-file! This is called a discovered attack. But where should your knight go to cause the most damage?",
+      "narration": "Your knight on f3 is sitting right in front of your queen on d1. If you move the knight out of the way, your queen will be revealed, attacking the bishop on g4 along the diagonal! This is called a discovered attack. But where should your knight go to cause the most damage?",
       "choices": [
         {
           "id": "knight-g5-discovered",
@@ -38,7 +38,7 @@
     },
     "outcome-great": {
       "type": "outcome",
-      "narration": "Your knight leaps to g5, threatening the weak f7 pawn near the enemy king! At the same time, moving the knight REVEALED your queen, which now attacks the d5 pawn. Your opponent cannot deal with both threats at once! They save f7 but lose the d5 pawn, or they save d5 but you crash through on f7. Brilliant!",
+      "narration": "Your knight leaps to g5, threatening the weak f7 pawn near the enemy king! At the same time, moving the knight REVEALED your queen, which now attacks the bishop on g4 along the diagonal. Your opponent cannot deal with both threats at once! They save f7 but lose the bishop on g4, or they save the bishop but you crash through on f7. Brilliant!",
       "outcome": {
         "result": "great",
         "headline": "DISCOVERED ATTACK! Two Threats at Once!",
@@ -54,7 +54,7 @@
     },
     "outcome-okay": {
       "type": "outcome",
-      "narration": "You move the knight to d2, uncovering your queen. The queen now attacks d5, which is good. But the knight on d2 is not threatening anything special. You only created one threat instead of two. Your opponent can deal with one threat easily.",
+      "narration": "You move the knight to d2, uncovering your queen. The queen now attacks the bishop on g4 along the diagonal, which is good. But the knight on d2 is not threatening anything special. You only created one threat instead of two. Your opponent can deal with one threat easily.",
       "outcome": {
         "result": "okay",
         "headline": "Discovered Attack, But Only Half Power!",

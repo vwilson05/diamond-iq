@@ -17,7 +17,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "You see that your knight on d5 is attacking the queen on e7. But the queen is protected by the bishop on d6. If you could get rid of that bishop, the queen would be undefended! You notice your bishop on b3 could capture the bishop on d6. What is your plan?",
+      "narration": "You see that your knight on f5 is attacking the queen on e7. But the queen is protected by the bishop on d6. If you could get rid of that bishop, the queen would be undefended! You notice your bishop on b4 could capture the bishop on d6. What is your plan?",
       "choices": [
         {
           "id": "remove-defender",
@@ -38,7 +38,7 @@
     },
     "outcome-great": {
       "type": "outcome",
-      "narration": "You capture the bishop on d6 with your bishop! Now the queen on e7 has lost its only defender. Your knight on d5 is still attacking it, and the queen has nowhere safe to go without losing material. You win the queen! Removing the defender worked perfectly!",
+      "narration": "You capture the bishop on d6 with your bishop! Now the queen on e7 has lost its only defender. Your knight on f5 is still attacking it, and the queen has nowhere safe to go without losing material. You win the queen! Removing the defender worked perfectly!",
       "outcome": {
         "result": "great",
         "headline": "Defender Removed! Queen Is Falling!",
