@@ -1,0 +1,66 @@
+{
+  "id": "minors-detective-evidence-vs-opinion",
+  "title": "Facts or Feelings? The Missing Art Supplies",
+  "sport": ["detective"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "evidence",
+  "tags": ["evidence-vs-opinion", "investigator", "critical-thinking", "facts"],
+  "setup": {
+    "case": "The Missing Paint Set",
+    "setting": "art classroom",
+    "suspects": 3,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The new paint set disappeared from the art supply closet. You interview three classmates. Aisha says: 'I saw Jordan go into the supply closet at 2 PM.' That is a FACT -- she saw it happen. Marcus says: 'Jordan is always taking stuff that is not his.' That is an OPINION -- it is what Marcus thinks, not something he saw. Riley says: 'The closet door was open when I walked by at 2:15 and I saw blue paint drops on the floor leading to Jordan's desk.' That is EVIDENCE. Which information should you use to investigate?",
+      "choices": [
+        { "id": "facts-and-evidence", "text": "Use Aisha's fact (Jordan was in the closet at 2 PM) and Riley's evidence (blue paint drops leading to Jordan's desk). These are things people actually saw.", "nextNode": "outcome-great" },
+        { "id": "all-three", "text": "Use all three statements equally, including Marcus's opinion.", "nextNode": "outcome-okay" },
+        { "id": "opinion-only", "text": "Focus on Marcus's statement because he seems to know Jordan best.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Facts and Evidence Win! Opinion Stays Out!",
+        "explanation": "You correctly separated facts from opinions! Aisha's statement is a fact because she SAW Jordan enter the closet. Riley's paint drops are physical evidence that creates a trail. Together, they build a strong case. Marcus's opinion that Jordan 'always takes stuff' is not based on what he saw today -- it is just his feeling. When you talked to Jordan with the real evidence, he admitted he took the paint set to finish a project and planned to return it.",
+        "whatToRemember": "Evidence is something you can see, touch, or measure. Opinions are what someone thinks or feels. Detectives build cases on evidence, not opinions.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Evidence", "definition": "Something you can see, touch, or prove -- like paint drops on the floor or a witness who saw something happen." },
+          { "term": "Opinion", "definition": "What someone thinks or believes, but cannot prove. Opinions are not reliable clues." },
+          { "term": "Fact", "definition": "Something that actually happened and can be confirmed, like 'I saw Jordan enter the closet at 2 PM.'" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Be Careful Mixing Facts with Opinions!",
+        "explanation": "Using all three sounds fair, but Marcus's statement is an opinion, not a fact. Saying Jordan 'always takes stuff' is what Marcus believes, and it could be wrong or unfair. Mixing opinions with facts can cloud your investigation. It is better to focus only on what people actually SAW and the physical evidence you can examine.",
+        "whatToRemember": "Sort your information into facts, evidence, and opinions. Only use facts and evidence to make your case. Set opinions aside.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Opinions Are Not Evidence!",
+        "explanation": "Marcus's statement is just his opinion about Jordan. He did not see anything today! 'He always takes stuff' is not a fact you can prove. Meanwhile, Aisha SAW Jordan enter the closet, and Riley found actual paint drops. Those are real evidence. Building a case on opinions instead of evidence is unfair and unreliable.",
+        "whatToRemember": "Never investigate based on what people THINK about someone. Use what people SAW and the physical evidence you find.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

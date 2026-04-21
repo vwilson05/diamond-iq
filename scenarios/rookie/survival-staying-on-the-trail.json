@@ -1,0 +1,65 @@
+{
+  "id": "rookie-survival-staying-on-the-trail",
+  "title": "Stay on the Trail!",
+  "sport": ["survival"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "navigation",
+  "tags": ["trail safety", "navigation", "staying found", "awareness"],
+  "setup": {
+    "situation": "tempted to leave the marked trail",
+    "environment": "forest hiking trail",
+    "resources": "trail markers visible",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are hiking with your family on a trail through the woods. You spot a really cool-looking creek through the trees, off to the side of the trail. There is no path leading to it. Your little brother says, 'Let's go check it out!' The trail continues ahead with colored markers on the trees. What do you do?",
+      "choices": [
+        { "id": "stay-on-trail", "text": "Tell your brother to stay on the trail and point out the colored markers that show the way.", "nextNode": "outcome-great" },
+        { "id": "quick-look", "text": "Walk just a little bit off the trail to peek at the creek, but keep the trail in sight.", "nextNode": "outcome-okay" },
+        { "id": "go-explore", "text": "Run through the trees to the creek -- it looks awesome and you can find your way back.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Trail Master!",
+        "explanation": "Staying on the marked trail is the number one rule of hiking safely. Trail markers -- also called blazes -- are painted on trees or rocks to show you the right path. When you leave the trail, it is very easy to get turned around in the woods because trees can look the same in every direction. Many people who get lost in the wilderness left the trail to explore 'just for a minute.'",
+        "whatToRemember": "ALWAYS stay on the marked trail. Trail blazes (colored marks on trees) show you the safe path. If you want to explore something off-trail, ask an adult to go with you.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Trail Blaze", "definition": "A colored mark painted on a tree or rock that shows you which way the trail goes. Follow the blazes to stay on the path." },
+          { "term": "Off-Trail", "definition": "Any area that is not on the marked path. Going off-trail is the most common way hikers get lost." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Risky Peek!",
+        "explanation": "Keeping the trail in sight is smart thinking, but even a few steps off the trail can be risky. The ground might be slippery, there could be poison ivy, or you might step in a hole hidden by leaves. Also, 'just a little bit' off the trail often turns into 'just a little bit more.' The safest plan is to stay right on the trail.",
+        "whatToRemember": "Even stepping a little off-trail can be risky. Slippery ground, hidden holes, and poisonous plants can be just a few steps away. Stay on the path.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost in the Woods!",
+        "explanation": "Running off the trail into the trees is how people get lost. The forest looks different from every angle, and once you cannot see the trail, it is very hard to find it again. The creek might also have slippery rocks and deep spots that are dangerous. Even grown-ups with lots of hiking experience can get lost off-trail. Always stay on the marked path.",
+        "whatToRemember": "NEVER run off the trail. The woods look the same in every direction and you can get lost in minutes. If you cannot see the trail, STOP and call for help.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

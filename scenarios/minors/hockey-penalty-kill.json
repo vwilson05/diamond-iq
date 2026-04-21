@@ -1,0 +1,63 @@
+{
+  "id": "minors-hockey-penalty-kill",
+  "title": "Stay in the Box",
+  "sport": ["hockey"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "special-teams",
+  "tags": ["penalty kill", "defensive shape", "game iq"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "6:00",
+    "score": { "home": 2, "away": 1 },
+    "situation": "penalty-kill",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team has a penalty, so you are killing a penalty with only four skaters against five. The other team is passing the puck around the outside of your zone. You are one of the four penalty killers. You see the puck go to a player on the far side. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Stay in your position in the box formation and shift over with your teammates as a group", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Chase the puck carrier on the far side by yourself", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand still in the middle and watch the puck go back and forth", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Penalty killed!",
+        "explanation": "By sliding together as a group, your four players kept the box tight and took away passing lanes to the middle. The other team ran out of time on their power play without getting a good chance.",
+        "whatToRemember": "On the penalty kill, the four players form a box shape and slide together as the puck moves. The key is staying compact and taking away the middle of the ice. Do not chase, just shift.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Penalty Kill Box", "definition": "A formation where four players make a box shape in front of their goal and slide together as a unit to block passing lanes and shots" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Gap in the formation",
+        "explanation": "When you chased to the far side, you left a hole in the box. Your teammates shifted to cover, but a seam opened up for a second. Luckily the other team did not find it, but it was close.",
+        "whatToRemember": "Do not chase the puck by yourself on the penalty kill. If you leave the box, you open up space for the other team to exploit. Trust the system and slide as a unit.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Power play goal!",
+        "explanation": "Standing still while the puck moved meant you were not covering your zone. The other team passed it into the open area you were supposed to be protecting, and they scored.",
+        "whatToRemember": "On the penalty kill, you must move with the puck. The box has to shift left and right together. Standing still leaves giant holes the other team will find.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

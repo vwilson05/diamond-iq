@@ -1,0 +1,83 @@
+{
+  "id": "rookie-science-weather",
+  "title": "Weather Watcher",
+  "sport": ["science"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "observe",
+  "tags": ["weather", "observation", "patterns", "data-collection"],
+  "setup": {
+    "topic": "weather watching",
+    "setting": "classroom window and outdoor thermometer",
+    "materials": "weather chart, thermometer, pencil, cloud chart",
+    "question": "What is the weather like today and how does it compare to yesterday?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Every morning your class records the weather. Today the sky is gray with puffy dark clouds, and the air feels cool and damp. Yesterday was sunny and warm. Your teacher asks you to fill in today's weather chart. What do you record?",
+      "choices": [
+        {
+          "id": "full-record",
+          "text": "Check the thermometer for the temperature, look at the cloud chart to identify the cloud type, note that it is cloudy with no rain yet, and compare to yesterday's data.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "basic-record",
+          "text": "Write 'cloudy' on the chart and sit down.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "skip-it",
+          "text": "Say 'It looks like it might rain' and don't fill in the chart.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Complete Weather Report! Like a Real Meteorologist!",
+        "explanation": "You recorded the temperature (58 degrees), the cloud type (cumulonimbus -- rain clouds), the conditions (cloudy, no rain), and compared it to yesterday (72 degrees and sunny). Now your class can see a pattern: the temperature dropped 14 degrees and clouds moved in. That data helps you predict it might rain soon! Weather scientists do this exact same thing every day.",
+        "whatToRemember": "Record multiple weather details: temperature, clouds, wind, and conditions. Compare today to yesterday to spot patterns.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Temperature",
+            "definition": "How hot or cold the air is, measured with a thermometer in degrees."
+          },
+          {
+            "term": "Weather Pattern",
+            "definition": "When weather changes follow a trend you can notice, like temperature dropping before rain."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "That Is a Start, But Add More Details!",
+        "explanation": "Writing 'cloudy' is correct, but a good weather report has more detail. What is the temperature? What kind of clouds are they? Is it windy? When you only write one word, you cannot compare it to other days very well. Next time, try to record at least the temperature, the cloud type, and whether there is wind.",
+        "whatToRemember": "One word is not enough for a weather report. Record temperature, clouds, and wind to get the full picture.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Skipped the Data! No Record for Today!",
+        "explanation": "Saying 'it might rain' is a prediction, but you did not record any actual data! Now there is a blank spot on the weather chart. When your class looks back at the whole month, today will be missing. Scientists record data every single time, even when it seems boring. That is how you find patterns over time.",
+        "whatToRemember": "Always record your data, even when it seems obvious. Missing data means missing patterns!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

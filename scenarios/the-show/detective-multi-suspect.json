@@ -1,0 +1,65 @@
+{
+  "id": "the-show-detective-multi-suspect",
+  "title": "The Championship Banner Heist",
+  "sport": ["detective"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "investigation",
+  "tags": ["multi-suspect", "master-detective", "complex-case", "elimination"],
+  "setup": {
+    "case": "The Missing Championship Banner",
+    "setting": "school gymnasium and surrounding areas",
+    "suspects": 5,
+    "cluesFound": 7
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The school basketball championship banner vanished from the gym overnight! Five people had keys to the gym: Coach Rivera, custodian Mr. Park, student council president Layla, team captain Marcus, and assistant coach Ms. Chen. Clues: (1) The alarm log shows the gym was opened at 9:47 PM and closed at 10:12 PM. (2) Coach Rivera was at a conference in another city -- hotel records confirm it. (3) Mr. Park's key log shows he returned his keys at 5 PM and did not check them out again. (4) Ms. Chen posted on social media from a restaurant at 10:01 PM with a time-stamped photo. (5) Layla was grounded and her parents confirm she was home all night. (6) Marcus told friends he was 'going to grab something from the gym' that evening. (7) A ladder was found under where the banner hung. How do you solve this complex multi-suspect case?",
+      "choices": [
+        { "id": "systematic-elimination", "text": "Eliminate systematically: Coach Rivera was out of town (confirmed). Mr. Park returned his keys. Ms. Chen was at a restaurant at the time. Layla was grounded at home. That leaves Marcus, who told friends he was going to the gym AND had a key. The ladder confirms someone climbed up to get the banner.", "nextNode": "outcome-great" },
+        { "id": "focus-two", "text": "Focus on Marcus and Layla since they are students and most likely to take a school banner.", "nextNode": "outcome-okay" },
+        { "id": "blame-custodian", "text": "Blame Mr. Park because he has keys and knows the building best.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Master Detective! Systematic Elimination Wins!",
+        "explanation": "With five suspects, you needed to be systematic. You verified each alibi: Coach Rivera had hotel records, Mr. Park's key log cleared him, Ms. Chen had a time-stamped photo, and Layla's parents confirmed she was home. That left Marcus as the only person without a verified alibi -- AND he told friends he was going to the gym. When confronted with the evidence, Marcus admitted he took the banner to get it professionally cleaned as a surprise for the team's celebration. No harm done, but the case was solved through methodical elimination of every suspect!",
+        "whatToRemember": "In complex cases with many suspects, verify each alibi one by one. Cross off everyone with a confirmed alibi. The suspect without one deserves the most attention.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Systematic Elimination", "definition": "Going through each suspect one by one, checking their alibi, and crossing off anyone who could not have done it." },
+          { "term": "Verified Alibi", "definition": "An alibi that is confirmed by independent evidence like records, photos, or reliable witnesses -- not just someone's word." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got Lucky, But Your Method Was Flawed!",
+        "explanation": "You happened to include Marcus in your focus, and he was the right answer. But you also suspected Layla, whose parents confirmed she was home all night. And you skipped checking the adults, who also had keys. In a real case, you might have focused on the wrong two people entirely. A master detective checks EVERY suspect's alibi systematically, not just the ones who seem most likely based on assumptions.",
+        "whatToRemember": "Do not assume who is likely based on age or role. Check every suspect's alibi methodically. Anyone with access is a suspect until eliminated.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Key Log Clears Mr. Park!",
+        "explanation": "Mr. Park returned his keys at 5 PM and the gym was accessed at 9:47 PM. His key log proves he did not have the keys when the gym was opened. You jumped to a conclusion based on his job (custodian) instead of checking the evidence. Meanwhile, Marcus had a key, told friends he was going to the gym, and had no alibi for that time. Assumptions based on someone's role are not evidence.",
+        "whatToRemember": "Never suspect someone based on their job or role alone. Check the actual evidence -- key logs, alibis, and witness statements -- for every suspect equally.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

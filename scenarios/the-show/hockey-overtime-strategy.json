@@ -1,0 +1,63 @@
+{
+  "id": "the-show-hockey-overtime-strategy",
+  "title": "Sudden Death Decisions",
+  "sport": ["hockey"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["overtime", "three-on-three", "strategy", "elite"],
+  "setup": {
+    "period": 4,
+    "timeLeft": "3:00",
+    "score": { "home": 3, "away": 3 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The game is tied and you are in overtime. It is three-on-three, so there is a lot of open ice. You have the puck at center ice with two teammates and three opponents. In overtime, the next goal wins. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Use the extra space to attack with speed, drive wide and look for a two-on-one with a teammate before the defense can recover", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hold the puck at center ice and wait for the perfect play to develop", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Dump the puck in and chase it into the corner like a regular game", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Overtime winner!",
+        "explanation": "Three-on-three overtime is all about speed and odd-man rushes. By attacking with speed, you caught the defense flat-footed and created a two-on-one. A quick pass and your teammate buried the winner.",
+        "whatToRemember": "In three-on-three overtime, there is tons of open ice. Attack with speed and create odd-man rushes. Possession and puck control matter more than ever because one mistake ends the game.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Three-on-Three Overtime", "definition": "A five-minute overtime period played with only three skaters per side plus goalies, creating lots of open ice and fast-paced action. The first team to score wins." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Still tied, but safe so far",
+        "explanation": "Holding the puck keeps it away from the other team, but in overtime you need to create chances. Waiting too long lets the defense set up and takes away the open ice advantage.",
+        "whatToRemember": "Possession is important in overtime, but you also need to attack. The key is controlled aggression: keep the puck, but look for chances to strike when the defense is out of position.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover and a rush the other way!",
+        "explanation": "Dumping the puck in during three-on-three overtime gives it away. With so few players on the ice, the other team picked it up and attacked three-on-two the other way. Your goalie barely saved it.",
+        "whatToRemember": "Never dump and chase in three-on-three overtime. With only three skaters, you cannot afford to give up the puck. Maintain possession and attack with control.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

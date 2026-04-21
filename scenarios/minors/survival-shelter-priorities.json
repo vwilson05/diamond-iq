@@ -1,0 +1,65 @@
+{
+  "id": "minors-survival-shelter-priorities",
+  "title": "Shelter Comes First",
+  "sport": ["survival"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "shelter",
+  "tags": ["shelter", "priorities", "wilderness", "hypothermia"],
+  "setup": {
+    "situation": "group is lost on a trail as evening approaches",
+    "environment": "mountain forest with dropping temperatures",
+    "resources": "backpack with rain jacket and snacks",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your scout troop took a wrong turn on a trail hike and now nobody knows exactly where you are. The sun is going down and the air is getting cold. Your leader says you need to stop and make a plan for the night. The temperature is dropping fast. You have rain jackets, a few snacks, and water. What should the group focus on FIRST?",
+      "choices": [
+        { "id": "build-shelter", "text": "Find a sheltered spot out of the wind and build a simple shelter using branches and leaves to stay warm and dry.", "nextNode": "outcome-great" },
+        { "id": "find-water", "text": "Look for a stream or water source so you have enough to drink tonight.", "nextNode": "outcome-okay" },
+        { "id": "keep-walking", "text": "Keep walking to try to find the trail before it gets completely dark.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Survival Priority Number One!",
+        "explanation": "Shelter is the most important survival priority. In cold or wet conditions, your body loses heat fast, and hypothermia (when your body gets too cold) can become dangerous in just a few hours. A simple shelter made from branches leaned against a fallen log, covered with leaves and pine needles, can block the wind and trap your body heat. The survival priority order is: SHELTER first, then WATER, then FIRE, then FOOD.",
+        "whatToRemember": "In a survival situation, build SHELTER first. The priority order is: Shelter, Water, Fire, Food. You can survive weeks without food but only hours in extreme cold without shelter.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Hypothermia", "definition": "When your body temperature drops too low. It makes you confused, tired, and shivery. Shelter and dry clothes help prevent it." },
+          { "term": "Lean-to Shelter", "definition": "A simple shelter made by leaning branches against a log or rock, then covering them with leaves. It blocks wind and traps warmth." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Water Matters, But Not First!",
+        "explanation": "Water is important -- it is the second survival priority. But right now the biggest danger is the cold. You already have some water in your bottles, and you can survive a night without finding more. You cannot survive a cold night without shelter. In survival situations, always think about what will affect you SOONEST. Cold and wind are the most immediate threats.",
+        "whatToRemember": "Water is priority number two, but SHELTER comes first. Ask yourself: what is the most immediate danger? In cold weather, that is always exposure to the elements.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stop! Do Not Walk in the Dark!",
+        "explanation": "Walking in the dark in unfamiliar woods is dangerous. You cannot see holes, cliffs, or roots that could trip you. You could also get even more lost. When you realize you are lost, the best thing to do is STOP. This stands for: Sit down, Think, Observe your surroundings, and Plan. Use the remaining daylight to build shelter, not to wander further into the unknown.",
+        "whatToRemember": "When you are lost, STOP: Sit down, Think, Observe, Plan. Never keep walking in the dark. Use remaining daylight to build shelter and stay put.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

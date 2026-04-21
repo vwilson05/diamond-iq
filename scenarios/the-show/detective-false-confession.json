@@ -1,0 +1,65 @@
+{
+  "id": "the-show-detective-false-confession",
+  "title": "The Confession That Did Not Fit",
+  "sport": ["detective"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "interrogation",
+  "tags": ["false-confession", "master-detective", "verification", "truth"],
+  "setup": {
+    "case": "The Graffiti on the Playground Wall",
+    "setting": "school playground",
+    "suspects": 3,
+    "cluesFound": 5
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone drew a large picture on the playground wall with chalk. When the teacher asks who did it, Tommy immediately says 'I did it!' But something does not add up. The drawing is high up on the wall -- about 5 feet off the ground. Tommy is one of the shortest kids in class. The drawing used purple and green chalk, but you find only yellow chalk in Tommy's desk. Also, Tommy was in the nurse's office during afternoon recess when the drawing appeared. His best friend Alex, who is tall and had purple and green chalk, looks nervous. Should you accept Tommy's confession?",
+      "choices": [
+        { "id": "verify-confession", "text": "Do not accept the confession yet. The evidence does not match Tommy: he is too short, had the wrong chalk colors, and was in the nurse's office. Ask why he is confessing when the evidence points away from him.", "nextNode": "outcome-great" },
+        { "id": "accept-confession", "text": "Accept Tommy's confession since he admitted it. Case closed.", "nextNode": "outcome-okay" },
+        { "id": "punish-both", "text": "Punish both Tommy and Alex since something is clearly going on with both of them.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "False Confession Detected! Evidence Wins!",
+        "explanation": "Tommy was covering for his friend Alex! When you pointed out that Tommy was too short to reach the drawing, had the wrong chalk colors, and was in the nurse's office, Tommy admitted he was trying to protect Alex from getting in trouble. Alex then confessed that HE drew the picture. He is tall enough, had the right chalk, and was on the playground at the right time. A master detective always verifies confessions against the physical evidence, even when someone says 'I did it.'",
+        "whatToRemember": "Always verify a confession against the evidence. If the confession does not match the physical facts, it might be false. Ask WHY someone would confess to something they did not do.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "False Confession", "definition": "When someone says they did something that they actually did not do, sometimes to protect someone else or because they feel pressured." },
+          { "term": "Verify", "definition": "To check if something is true by comparing it to other evidence and facts." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Accepted a False Confession!",
+        "explanation": "Tommy said he did it, but NONE of the evidence matches him! He is too short, had yellow chalk (not purple and green), and was in the nurse's office. A confession is not automatically true. People sometimes confess to protect a friend, to get attention, or because they feel pressured. A master detective always checks the confession against the evidence before accepting it.",
+        "whatToRemember": "A confession is just a statement -- it needs to match the evidence. If the facts do not support the confession, dig deeper.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Unfair! Tommy Did Nothing Wrong!",
+        "explanation": "Punishing Tommy is completely unfair. The evidence clearly shows he could not have done it -- wrong height, wrong chalk, wrong location. He was trying to be a loyal friend by covering for Alex, which is misguided but not the same as drawing on the wall. A master detective follows the evidence to find the truth, not shortcuts that punish innocent people. Only Alex should face consequences for the drawing.",
+        "whatToRemember": "Never take shortcuts that punish innocent people. Follow the evidence to identify the right person, even when the situation seems confusing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

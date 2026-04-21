@@ -1,0 +1,63 @@
+{
+  "id": "majors-hockey-dump-and-chase",
+  "title": "Dump It In or Carry It?",
+  "sport": ["hockey"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["dump and chase", "zone entry", "advanced"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "10:00",
+    "score": { "home": 1, "away": 1 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are skating up the ice with the puck and approaching the other team's blue line. Two defenders are standing right at the line, blocking your path with no gaps between them. Your wingers are on either side of you but also covered. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Dump the puck into the corner past the defenders and have your wingers race in to retrieve it", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to dangle through both defenders at the blue line", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stop at the blue line and hold the puck, waiting for something to open up", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart dump-in!",
+        "explanation": "Dumping the puck in forced the defenders to turn around and chase it. Your fast wingers got there first and your team set up in the offensive zone. When the defense is blocking the line, a dump and chase is the smart play.",
+        "whatToRemember": "When the defense is lined up at the blue line with no gaps, dump the puck deep and chase it. If you have speed, you can beat the defenders to the puck. Carry it in when there IS a gap.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Dump and Chase", "definition": "An offensive strategy where you shoot the puck deep into the other team's zone and then race in to retrieve it, used when the defenders are clogging the blue line" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Stripped at the line!",
+        "explanation": "With two defenders right there, trying to deke through both was nearly impossible. They knocked the puck off your stick, but luckily your teammate picked up the loose puck before the other team could clear.",
+        "whatToRemember": "Read the defense before choosing your entry. Carrying the puck in works when there is space, but when the defense is stacked at the line, dumping it in is the smarter choice.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover at the blue line!",
+        "explanation": "Stopping with the puck let the defenders close in while their forwards backtracked to help. You were surrounded and lost the puck. Now the other team is heading the other way.",
+        "whatToRemember": "Never stop with the puck at the blue line. You either carry it in if there is space or dump it in and chase. Standing still is the worst option because the defense collapses on you.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

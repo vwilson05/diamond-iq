@@ -1,0 +1,65 @@
+{
+  "id": "rookie-detective-elimination",
+  "title": "Who Drew on the Whiteboard?",
+  "sport": ["detective"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "deduction",
+  "tags": ["elimination", "junior-detective", "logic", "process"],
+  "setup": {
+    "case": "The Whiteboard Doodle",
+    "setting": "classroom",
+    "suspects": 4,
+    "cluesFound": 3
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone drew a funny picture of a cat on the whiteboard during free time! The teacher wants to know who the artist is. Four kids had free time: Ella, Marcus, Jada, and Tyler. Clue 1: The drawing is in GREEN marker. Clue 2: Ella and Tyler were at the reading corner the whole time (the teacher saw them). Clue 3: Marcus was using the BLUE marker for his worksheet. How do you figure out who drew the cat?",
+      "choices": [
+        { "id": "eliminate", "text": "Ella and Tyler were at the reading corner, so cross them off. Marcus had the blue marker, not green. That leaves Jada!", "nextNode": "outcome-great" },
+        { "id": "ask-marker", "text": "Ask who had the green marker.", "nextNode": "outcome-okay" },
+        { "id": "guess-marcus", "text": "Guess Marcus because he was using a marker.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Process of Elimination Wins!",
+        "explanation": "You used process of elimination perfectly! Ella and Tyler could not have done it because they were in the reading corner. Marcus was using a blue marker, not green. That leaves only Jada. When you asked her, she smiled and admitted she drew the cat! You did not need to guess -- you just eliminated everyone who could NOT have done it until only one person was left.",
+        "whatToRemember": "Process of elimination means crossing off everyone who could NOT have done it. Whoever is left must be the answer!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Process of Elimination", "definition": "Removing people or answers that definitely do not fit, until you find the one that does." },
+          { "term": "Rule Out", "definition": "To cross someone off your list because the clues prove they did not do it." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "That Works, But You Already Had Enough Clues!",
+        "explanation": "Asking who had the green marker would eventually get you the answer, but you already had enough clues to figure it out without asking! Two kids were at the reading corner (not them), and Marcus had the blue marker (not him). That leaves only Jada. Using the clues you already have is faster than asking more questions.",
+        "whatToRemember": "Before asking more questions, see if the clues you already have can solve the mystery through elimination.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong! Marcus Had the Blue Marker!",
+        "explanation": "Marcus was using a marker, but it was BLUE, not green. The drawing was done in GREEN. Just because Marcus had a marker does not mean he drew on the whiteboard. You had all the clues to eliminate Marcus, Ella, and Tyler. The only person left was Jada. Do not jump to conclusions -- use the clues to eliminate who it could NOT be.",
+        "whatToRemember": "Do not guess based on one fact. Use ALL the clues to eliminate suspects one by one.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "tball-science-senses",
+  "title": "Using Your Five Senses",
+  "sport": ["science"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "observe",
+  "tags": ["observation", "senses", "beginner"],
+  "setup": {
+    "topic": "five senses",
+    "setting": "outdoor nature walk",
+    "materials": "notebook, pencil, magnifying glass",
+    "question": "How can we use our senses to learn about the world around us?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your class is on a nature walk in the park! Your teacher says, 'I want you to observe this tree. Tell me everything you notice about it.' How do you observe the tree?",
+      "choices": [
+        {
+          "id": "use-all-senses",
+          "text": "Look at the bark, feel the texture, listen for birds in the branches, and smell the leaves.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-look",
+          "text": "Look at the tree and say it is big and green.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "guess-without-looking",
+          "text": "Say 'It's just a tree' without really looking at it.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Amazing Observer! You Used Multiple Senses!",
+        "explanation": "Scientists use as many senses as they can when they observe something. By looking, touching, listening, and smelling, you noticed way more about the tree than someone who only used their eyes. You found rough bark, tiny bugs, chirping birds, and a fresh leafy smell. The more senses you use, the more you discover!",
+        "whatToRemember": "Good scientists use more than just their eyes. Try using your ears, nose, and hands too when you observe something.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Observe",
+            "definition": "To carefully notice things using your senses -- seeing, hearing, touching, smelling, and tasting."
+          },
+          {
+            "term": "Senses",
+            "definition": "The five ways your body collects information: sight, hearing, touch, smell, and taste."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Start, But You Can Do More!",
+        "explanation": "You used your eyes, and that is a great start! But scientists try to use more than one sense when they observe. What does the bark feel like? Do you hear anything in the branches? Next time, try touching, listening, and smelling too. You will discover a lot more details.",
+        "whatToRemember": "Looking is great, but try adding other senses like touch and hearing to discover more.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Oops! You Missed a Chance to Discover!",
+        "explanation": "When you skip observing, you miss out on all the cool things around you. Scientists never say 'it's just a tree' because every tree is full of interesting details. The bark might have patterns, insects might be crawling on it, and the leaves might have a special shape. Slow down, look closely, and use your senses!",
+        "whatToRemember": "Never skip observing! Every single thing in nature has interesting details if you look closely.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

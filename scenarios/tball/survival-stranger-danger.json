@@ -1,0 +1,65 @@
+{
+  "id": "tball-survival-stranger-danger",
+  "title": "Someone You Don't Know",
+  "sport": ["survival"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["stranger danger", "safety", "trusted adults", "awareness"],
+  "setup": {
+    "situation": "stranger approaches at a park",
+    "environment": "playground",
+    "resources": "nearby adults",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are playing at the park after school. A grown-up you have never seen before walks up to you and says, 'Hey, your mom asked me to pick you up. Come with me to my car.' You look around and see other kids playing and a parent sitting on a bench nearby. What do you do?",
+      "choices": [
+        { "id": "find-trusted-adult", "text": "Say 'No thank you' loudly and run to the parent on the bench right away.", "nextNode": "outcome-great" },
+        { "id": "ask-questions", "text": "Ask the stranger what your mom's name is to see if they really know her.", "nextNode": "outcome-okay" },
+        { "id": "go-with-them", "text": "Go with the stranger because they said your mom sent them.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart and Safe!",
+        "explanation": "You did exactly the right thing. A safe grown-up who your parents sent would already know a secret code word your family picked together. You never have to go with someone you don't know. Running to a trusted adult nearby is always the safest move.",
+        "whatToRemember": "If a stranger says your parent sent them, say NO and go find a trusted adult right away. Your parents will never send someone you don't know without telling you first.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Trusted Adult", "definition": "A grown-up you know well and feel safe with, like a parent, teacher, or family friend your parents introduced you to." },
+          { "term": "Code Word", "definition": "A secret word your family picks together. If someone says your parents sent them, they should know the code word." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Thinking, But Get Away Faster!",
+        "explanation": "Asking questions shows you were being careful, and that is smart. But talking to a stranger gives them more time to try to trick you. The safest thing is to get away quickly and find a trusted adult. You don't need to be polite to someone who makes you feel uncomfortable.",
+        "whatToRemember": "You don't have to answer a stranger's questions or be polite. Just say NO and move to a safe adult as fast as you can.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Go With a Stranger!",
+        "explanation": "Even if someone says your parent sent them, you should never go with a person you don't know. A real helper sent by your parents would know your family's code word and would be fine with you checking with another adult first. Always find a trusted grown-up before going anywhere with someone new.",
+        "whatToRemember": "NEVER go with a stranger, even if they say your parents sent them. Find a trusted adult and check first. It is always okay to say no to a grown-up you don't know.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

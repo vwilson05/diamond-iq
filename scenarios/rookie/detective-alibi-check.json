@@ -1,0 +1,65 @@
+{
+  "id": "rookie-detective-alibi-check",
+  "title": "The Missing Homework Alibi",
+  "sport": ["detective"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "interrogation",
+  "tags": ["alibi", "junior-detective", "questioning", "timeline"],
+  "setup": {
+    "case": "The Missing Homework Stack",
+    "setting": "classroom",
+    "suspects": 3,
+    "cluesFound": 2
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A stack of homework papers disappeared from the teacher's desk during lunch. Three students came back to the classroom during lunch: Maya says she was getting her jacket, Devon says he was grabbing his water bottle, and Noah says he was looking for his pencil. You notice the homework was on the LEFT side of the desk, and only Maya's jacket hook is on the LEFT side of the room near the desk. Devon and Noah would have gone to the RIGHT side. What do you do?",
+      "choices": [
+        { "id": "check-alibis", "text": "Ask Maya more questions since she was the only one near the left side of the desk where the homework was.", "nextNode": "outcome-great" },
+        { "id": "ask-all-equally", "text": "Ask all three kids the same questions without focusing on anyone.", "nextNode": "outcome-okay" },
+        { "id": "blame-noah", "text": "Blame Noah because he lost his pencil, so maybe he is careless with other things too.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Questioning! Alibi Does Not Add Up!",
+        "explanation": "You asked Maya more about her trip to get her jacket. She said she went straight to her hook and left, but her hook is RIGHT NEXT to the teacher's desk. When you asked if she noticed the homework stack, she got nervous and admitted she accidentally knocked the papers into the recycling bin while grabbing her jacket! The homework was not stolen -- it was an accident. Her alibi put her at the scene of the mystery.",
+        "whatToRemember": "An alibi is a person's story about where they were. Check if their alibi puts them near where the mystery happened.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Alibi", "definition": "A story someone tells about where they were when something happened." },
+          { "term": "Scene", "definition": "The place where the mystery happened. Detectives always check who was near the scene." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fair, But You Missed a Shortcut!",
+        "explanation": "Asking everyone the same questions is fair, but you already had a clue! The homework was on the LEFT side, and only Maya was on that side of the room. Devon and Noah had no reason to go near the desk. By focusing your questions on the person closest to the scene, you can solve mysteries faster.",
+        "whatToRemember": "Use what you already know to decide who to question more. Focus on the person whose alibi puts them closest to the scene.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Fair or Logical!",
+        "explanation": "Blaming Noah because he lost his pencil has nothing to do with the missing homework! Losing a pencil does not make someone a homework thief. Noah was on the RIGHT side of the room, far from the desk. Meanwhile, Maya was right next to the homework and you never even questioned her. Always follow the evidence, not your feelings about someone.",
+        "whatToRemember": "Do not blame people based on unrelated things. Stick to the facts: who was near the scene when it happened?",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

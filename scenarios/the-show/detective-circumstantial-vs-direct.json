@@ -1,0 +1,65 @@
+{
+  "id": "the-show-detective-circumstantial-vs-direct",
+  "title": "Seen vs. Suggested: Two Kinds of Evidence",
+  "sport": ["detective"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "evidence",
+  "tags": ["circumstantial", "direct-evidence", "master-detective", "evidence-types"],
+  "setup": {
+    "case": "The Missing Science Project",
+    "setting": "school science fair",
+    "suspects": 2,
+    "cluesFound": 6
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A science fair volcano project disappeared from the display table. You have two types of evidence. DIRECT evidence: The security camera shows a student picking up the volcano at 3:42 PM, but the video is blurry and you cannot see the face clearly -- only that they wore a striped shirt. CIRCUMSTANTIAL evidence: Jordan was seen near the table at 3:40 PM (but many kids walked by). Jordan owns a striped shirt (but so do other kids). Jordan's project was next to the volcano and he seemed jealous of it (but jealousy is not proof). Kai was also near the table and also owns a striped shirt. How do you weigh this evidence?",
+      "choices": [
+        { "id": "distinguish-evidence", "text": "The camera footage is the strongest evidence because it directly shows someone taking the volcano. But it is not enough alone since the face is blurry. The circumstantial evidence about Jordan SUGGESTS he could be the person, but it does not PROVE it. You need more direct evidence, like finding the volcano or getting a clearer ID.", "nextNode": "outcome-great" },
+        { "id": "convict-jordan", "text": "Jordan was nearby, owns a striped shirt, and was jealous. That is enough evidence to say he did it.", "nextNode": "outcome-okay" },
+        { "id": "dismiss-all", "text": "The camera is blurry and everything else is just circumstantial, so there is no way to solve this case.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Evidence Expert! You Know the Difference!",
+        "explanation": "You correctly identified that the camera footage is DIRECT evidence (it shows the act happening) but incomplete (blurry face). The facts about Jordan are CIRCUMSTANTIAL -- they suggest he COULD be involved but do not prove it. Kai also fits the same circumstantial profile! You wisely decided to look for more direct evidence. When the teacher checked the lost and found, the volcano was there -- a student had moved it thinking it was left behind. Neither Jordan nor Kai took it! The circumstantial evidence would have led to a wrong conclusion.",
+        "whatToRemember": "Direct evidence SHOWS what happened. Circumstantial evidence SUGGESTS what might have happened. You need strong direct evidence to solve a case, not just a pile of suggestions.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Direct Evidence", "definition": "Evidence that directly shows what happened, like a video of someone doing it or an eyewitness who saw the act." },
+          { "term": "Circumstantial Evidence", "definition": "Evidence that suggests something might be true but does not directly prove it, like being nearby or owning a similar item." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Circumstantial Evidence Is Not Proof!",
+        "explanation": "Everything you listed about Jordan is circumstantial: being nearby, owning a striped shirt, and being jealous. None of it DIRECTLY shows Jordan taking the volcano. Kai was also nearby and owns a striped shirt! It turns out neither of them took it -- a helpful student moved it to lost and found. Circumstantial evidence can point you in a direction, but you should never declare someone guilty based only on suggestions and possibilities.",
+        "whatToRemember": "Circumstantial evidence can guide your investigation, but you need direct evidence to actually solve a case. Being near a scene is not the same as being caught in the act.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Do Not Give Up -- Combine the Evidence!",
+        "explanation": "The blurry camera and circumstantial evidence each have weaknesses alone, but a master detective does not give up. You can use circumstantial evidence to guide your search for more direct evidence. For example, you could check if either suspect's striped shirt matches the one in the video, or look for where the volcano ended up. Cases are solved by combining different types of evidence, not by giving up when no single piece is perfect.",
+        "whatToRemember": "No single piece of evidence is usually enough alone. A master detective combines circumstantial and direct evidence together to build the full picture.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

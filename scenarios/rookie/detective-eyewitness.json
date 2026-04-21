@@ -1,0 +1,65 @@
+{
+  "id": "rookie-detective-eyewitness",
+  "title": "The Playground Puddle Splash",
+  "sport": ["detective"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "interrogation",
+  "tags": ["eyewitness", "junior-detective", "details", "testimony"],
+  "setup": {
+    "case": "The Puddle Splash Incident",
+    "setting": "playground",
+    "suspects": 2,
+    "cluesFound": 2
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone stomped in a puddle and splashed water all over Milo's backpack! Milo was not looking when it happened. Two witnesses saw something: Grace says she saw a kid in a RED jacket stomp the puddle. Hector says he saw a kid in a BLUE jacket run away from the puddle. Their stories do not match! How do you figure out what really happened?",
+      "choices": [
+        { "id": "ask-details", "text": "Ask each witness more questions: Where were they standing? What direction were they looking? Could the jacket have looked different from different angles?", "nextNode": "outcome-great" },
+        { "id": "believe-first", "text": "Believe Grace because she spoke up first.", "nextNode": "outcome-okay" },
+        { "id": "ignore-both", "text": "Ignore both witnesses since their stories do not match.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Detective Work! Details Matter!",
+        "explanation": "You asked follow-up questions and discovered something important! Grace was standing close and saw the kid stomp the puddle from the front -- the jacket was red. Hector was far away and saw the kid running AWAY, and the jacket had a blue stripe on the back. It was the same kid! The jacket was red in front with a blue stripe on the back. Both witnesses were right, they just saw different sides. Asking for details cleared it all up!",
+        "whatToRemember": "When witnesses disagree, ask for more details. They might both be telling the truth but saw different things from different angles.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Eyewitness", "definition": "A person who saw something happen with their own eyes." },
+          { "term": "Perspective", "definition": "What someone sees depends on where they are standing. Two people can see the same thing differently." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Speaking First Does Not Mean Being Right!",
+        "explanation": "Grace might be correct, but speaking first does not make someone more trustworthy. Hector could be just as right! It turned out both were correct -- the jacket was red in front and had a blue stripe on the back. If you had asked more questions, you would have figured that out. Never trust one witness over another just because they spoke first.",
+        "whatToRemember": "The first person to talk is not automatically right. Ask both witnesses for more details before deciding.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Do Not Throw Away Clues!",
+        "explanation": "Just because two witnesses disagree does not mean they are both wrong! They might have seen different parts of the same event. Grace saw the front of the jacket (red) and Hector saw the back (blue stripe). Both witnesses had useful information. A detective never ignores witnesses -- they ask more questions to understand why the stories are different.",
+        "whatToRemember": "When stories do not match, do not ignore them. Dig deeper! The difference in stories might actually be a clue.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

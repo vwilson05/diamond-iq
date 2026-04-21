@@ -1,0 +1,87 @@
+{
+  "id": "majors-science-correlation-causation",
+  "title": "Does One Cause the Other?",
+  "sport": ["science"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "analyze",
+  "tags": ["correlation", "causation", "critical-thinking", "logic"],
+  "setup": {
+    "topic": "correlation vs causation",
+    "setting": "classroom discussion",
+    "materials": "two graphs showing ice cream sales and swimming pool visits both rising in summer",
+    "question": "Does eating ice cream make people go swimming?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher shows two graphs. One shows that ice cream sales go up in June, July, and August. The other shows that swimming pool visits also go up in those same months. A classmate says, 'Eating ice cream must make people want to go swimming!' What do you think?",
+      "choices": [
+        {
+          "id": "third-factor",
+          "text": "That is not right. Both things go up in summer because of hot weather, not because one causes the other. Hot weather makes people buy ice cream AND go swimming. They happen at the same time but one does not cause the other.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "maybe-connected",
+          "text": "They seem connected, but I am not sure if one causes the other.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "agree-causation",
+          "text": "Yeah, that makes sense! Ice cream makes you hot so you want to swim.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Brilliant! You Found the Hidden Cause!",
+        "explanation": "You nailed one of the most important ideas in science: correlation does not equal causation. Just because two things happen at the same time does not mean one caused the other. In this case, a THIRD factor -- hot weather -- is causing BOTH ice cream sales and pool visits to rise. This is called a confounding variable. Scientists are very careful about this. Before saying A causes B, they must rule out other explanations.",
+        "whatToRemember": "Just because two things happen together does not mean one causes the other. Always look for a hidden third factor that might be the real cause.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Correlation",
+            "definition": "When two things happen at the same time or follow the same pattern. They are connected but one may not cause the other."
+          },
+          {
+            "term": "Causation",
+            "definition": "When one thing directly MAKES another thing happen. A causes B."
+          },
+          {
+            "term": "Confounding Variable",
+            "definition": "A hidden factor that affects both things you are studying, making it look like they cause each other."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Instinct! Trust That Doubt!",
+        "explanation": "Your gut feeling was right -- you sensed something was off. The two things are connected (they both rise in summer), but one does not cause the other. The real cause is hot weather, which makes people both buy ice cream AND go swimming. In science, when two things seem connected, always ask: 'Is there something else causing both of these?' That healthy skepticism is what separates good scientists from everyone else.",
+        "whatToRemember": "When two things seem connected, be skeptical. Ask 'Is there a third factor causing both?' before assuming one causes the other.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Careful! That Is a Logic Trap!",
+        "explanation": "This is one of the most common mistakes in science. Two things rising at the same time does NOT prove one causes the other. Think about it: if nobody bought ice cream all summer, would people stop going to the pool? Of course not! They would still swim because it is hot outside. The hot weather is what really drives both. Scientists call this the correlation-causation trap, and even grown-ups fall for it all the time.",
+        "whatToRemember": "Correlation does not equal causation! Two things happening together does not mean one causes the other. Look for hidden causes.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

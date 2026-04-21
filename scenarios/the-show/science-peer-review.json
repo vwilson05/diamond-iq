@@ -1,0 +1,87 @@
+{
+  "id": "the-show-science-peer-review",
+  "title": "Check Each Other's Work",
+  "sport": ["science"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "analyze",
+  "tags": ["peer-review", "feedback", "scientific-community", "critical-thinking"],
+  "setup": {
+    "topic": "peer review",
+    "setting": "classroom science fair prep",
+    "materials": "classmate's experiment report, feedback form, pencil",
+    "question": "How do scientists make sure their work is accurate and trustworthy?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your classmate Alex asks you to review his science fair experiment before the fair. He tested whether music helps plants grow. He played music for one plant and kept one plant in silence for two weeks. The music plant grew 2 cm taller. Alex's conclusion says, 'Music makes plants grow faster. All farmers should play music for their crops.' How do you give feedback?",
+      "choices": [
+        {
+          "id": "constructive-specific",
+          "text": "Tell Alex his idea is interesting, but point out specific issues: he only tested one plant per group (small sample size), and his conclusion goes too far because he cannot tell all farmers what to do from one small experiment. Suggest he use five plants per group next time.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "only-positive",
+          "text": "Tell Alex his project looks great and do not mention any problems because you do not want to hurt his feelings.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "harsh-criticism",
+          "text": "Tell Alex his experiment is bad and he should start over with a completely different topic.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Peer Review! Helpful and Specific!",
+        "explanation": "You gave feedback like a real scientist! You pointed out the small sample size (one plant is not enough to draw big conclusions) and the overgeneralization (one experiment cannot tell all farmers what to do). You also gave a specific suggestion for improvement. This is exactly how peer review works in real science: other scientists read your work, find weaknesses, and suggest improvements. It makes everyone's work better!",
+        "whatToRemember": "Good peer review is specific, points out real problems, suggests improvements, and is respectful. It makes science stronger by catching mistakes before they spread.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Peer Review",
+            "definition": "When other scientists read and evaluate your work to find errors and suggest improvements before it is published."
+          },
+          {
+            "term": "Constructive Feedback",
+            "definition": "Helpful criticism that identifies specific problems and suggests ways to fix them."
+          },
+          {
+            "term": "Overgeneralization",
+            "definition": "Drawing a conclusion that is too broad for the evidence. One experiment cannot prove something for the whole world."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Being Nice Is Not the Same as Being Helpful!",
+        "explanation": "It is great to be kind, but peer review exists to find problems BEFORE the science fair judges do. If you do not tell Alex about the small sample size, the judges will -- and it will be too late to fix it. Real scientists want honest feedback because it makes their work better. You can be both kind AND honest by saying something like, 'Great idea! One thing that would make it stronger is using more plants.'",
+        "whatToRemember": "Honest feedback helps more than empty praise. You can be kind and helpful at the same time by pointing out issues AND suggesting solutions.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Peer Review -- That Is Just Mean!",
+        "explanation": "Telling someone to give up is never helpful. Real peer review identifies SPECIFIC problems and suggests SPECIFIC fixes. Alex's topic is fine -- the issue is his method (sample size) and his conclusion (too broad). Good feedback would help him fix those problems, not abandon his whole project. Scientists build each other up by making each other's work stronger, not by tearing it down.",
+        "whatToRemember": "Peer review is about making work BETTER, not making people feel bad. Be specific about problems and always suggest a fix.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

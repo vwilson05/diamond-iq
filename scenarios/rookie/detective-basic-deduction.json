@@ -1,0 +1,65 @@
+{
+  "id": "rookie-detective-basic-deduction",
+  "title": "The Missing Snack Bag",
+  "sport": ["detective"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "deduction",
+  "tags": ["deduction", "junior-detective", "logic", "reasoning"],
+  "setup": {
+    "case": "The Vanishing Trail Mix",
+    "setting": "after-school program",
+    "suspects": 3,
+    "cluesFound": 3
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your bag of trail mix disappeared from your cubby during after-school care! You know three things: 1) The trail mix had peanuts in it. 2) Carlos is allergic to peanuts and always stays away from them. 3) Sophie has chocolate on her fingers, but your trail mix did not have chocolate. 4) Emma has crumbs on her shirt that look like crushed pretzels and raisins -- the same things in your trail mix! Who took your snack?",
+      "choices": [
+        { "id": "deduce-emma", "text": "Emma! She has pretzel and raisin crumbs, which match what is in your trail mix. The other two do not fit.", "nextNode": "outcome-great" },
+        { "id": "blame-sophie", "text": "Sophie, because she has food on her fingers so she must have been eating something!", "nextNode": "outcome-okay" },
+        { "id": "blame-carlos", "text": "Carlos, because his cubby is closest to yours.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Logical Deduction! Case Closed!",
+        "explanation": "You used deduction perfectly! Carlos would never touch peanuts because of his allergy -- ruled out. Sophie has chocolate on her fingers, but your trail mix had no chocolate, so her mess came from something else -- ruled out. Emma has crumbs that match your trail mix ingredients exactly. When you asked Emma, she said she thought the bag was free for anyone. Mystery solved with logic!",
+        "whatToRemember": "Deduction means using facts to rule out wrong answers and find the right one. Match the clues to the evidence on each suspect.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Deduction", "definition": "Using facts and clues to figure out the answer step by step, without guessing." },
+          { "term": "Rule Out", "definition": "Deciding someone could not have done it because the clues do not match them." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But the Evidence Does Not Match!",
+        "explanation": "Sophie does have food on her fingers, but it is chocolate, and your trail mix did not have any chocolate! Sophie was eating her own chocolate bar. Meanwhile, Emma's crumbs match your trail mix exactly -- pretzels and raisins. When evidence does not match, you need to keep looking at other suspects.",
+        "whatToRemember": "Just because someone has food on them does not mean it is YOUR food. Check if the evidence actually matches what is missing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Carlos Has a Peanut Allergy!",
+        "explanation": "Carlos would never eat your trail mix because it has peanuts, and he is allergic to them! Being close to your cubby does not mean he took your snack. Meanwhile, Emma is sitting right there with pretzel and raisin crumbs that match your trail mix. Always look at the evidence, not just who was nearby.",
+        "whatToRemember": "Being nearby is not evidence. Look at WHO could have done it and WHO has evidence that matches the missing item.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

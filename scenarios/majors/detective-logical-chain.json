@@ -1,0 +1,65 @@
+{
+  "id": "majors-detective-logical-chain",
+  "title": "The Science Lab Leak: Following the Logic",
+  "sport": ["detective"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "deduction",
+  "tags": ["logical-chain", "case-solver", "reasoning", "step-by-step"],
+  "setup": {
+    "case": "The Science Lab Water Leak",
+    "setting": "school science lab",
+    "suspects": 4,
+    "cluesFound": 5
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Water is pooling on the science lab floor and nobody knows where it came from. You build a logical chain: (1) The water is near Station 3. (2) Station 3's faucet is dripping. (3) The faucet handle is turned slightly to the left. (4) Only Group B used Station 3 today, and they left at 11 AM. (5) The janitor checked all faucets at 10 AM and they were all off. So the faucet was turned on between 10 AM and 11 AM by someone in Group B. Group B has four students: Nia, Cole, Sam, and Priya. Nia and Cole were doing the experiment at Station 3. Sam was at Station 1. Priya was recording data at the teacher's desk. How do you narrow it down?",
+      "choices": [
+        { "id": "follow-chain", "text": "Follow the logic chain: The faucet at Station 3 was turned on between 10-11 AM. Only Nia and Cole were at Station 3. Sam and Priya were elsewhere. So it must be Nia or Cole -- ask them what happened.", "nextNode": "outcome-great" },
+        { "id": "blame-group", "text": "Blame all of Group B equally since they were all in the lab.", "nextNode": "outcome-okay" },
+        { "id": "check-other-stations", "text": "Check all the other stations too since the water could have come from anywhere.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Logical Chain Complete! Case Narrowed Down!",
+        "explanation": "Your logical chain went step by step: water at Station 3, faucet turned on between 10-11 AM, only Nia and Cole at Station 3. When you asked them, Cole said he turned the faucet on to rinse a beaker and thought he turned it all the way off, but it was still dripping. Each step in your chain led logically to the next, narrowing four suspects down to two, then to one. That is a logical reasoning chain!",
+        "whatToRemember": "Build a logical chain: start with what you know for sure, then use each fact to narrow down the possibilities step by step until you reach the answer.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Logical Chain", "definition": "A series of facts connected in order, where each fact leads to the next conclusion, like links in a chain." },
+          { "term": "Narrowing Down", "definition": "Using logic to reduce a big group of possibilities to a smaller and smaller group until you find the answer." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Broad! Use Logic to Narrow Down!",
+        "explanation": "All four students were in the lab, but not all of them were at Station 3. Sam was at Station 1 and Priya was at the teacher's desk. They had no reason to touch Station 3's faucet. Blaming the whole group is not logical when the evidence clearly points to Station 3. Use the clues to narrow your suspect list step by step.",
+        "whatToRemember": "Do not blame a whole group when the evidence points to a specific location. Use logic to narrow down who was actually at the scene.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Evidence Already Points to Station 3!",
+        "explanation": "The water is pooling at Station 3 and that faucet is dripping. Checking other stations wastes time when the evidence clearly shows where the problem is. The janitor confirmed all faucets were off at 10 AM, so something changed at Station 3 between 10 and 11 AM. A case solver follows the evidence, not random checks. Trust your logical chain!",
+        "whatToRemember": "When the evidence clearly points somewhere, follow it. Do not second-guess a strong logical chain by checking things that have no connection.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

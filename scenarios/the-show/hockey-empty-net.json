@@ -1,0 +1,63 @@
+{
+  "id": "the-show-hockey-empty-net",
+  "title": "Empty Net, Full Pressure",
+  "sport": ["hockey"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "defense",
+  "tags": ["empty net", "goalie pull", "awareness", "elite"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "0:45",
+    "score": { "home": 3, "away": 2 },
+    "situation": "empty-net",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team has pulled their goalie and now has six skaters attacking against your five. Their net is empty. You are a defenseman and you just won a puck battle in your own zone. You have the puck with 45 seconds left. Six opponents are swarming. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Look up ice at the empty net and fire the puck down the ice toward it for an empty-net goal", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Chip the puck off the boards and out of your zone to kill a few seconds", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to stickhandle through all six attackers to get out of the zone", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Empty net goal! Game over!",
+        "explanation": "With the other team's goalie on the bench, their net was wide open. You spotted it and fired the puck down the entire length of the ice and into the empty net. That makes it a two-goal lead and seals the win.",
+        "whatToRemember": "When the other team pulls their goalie, always be aware of the empty net. If you get the puck, look up ice first. A shot on the empty net can end the game. You do not need to be accurate from that far, just get it on target.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Empty Net Goal", "definition": "A goal scored when the other team has pulled their goalie, leaving the net unguarded. These goals are often scored from far away down the ice." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Cleared, but they are coming right back",
+        "explanation": "Chipping the puck out killed a few seconds, which is good. But you missed a chance to shoot at the empty net and put the game away. Now the other team has retrieved the puck and is attacking again.",
+        "whatToRemember": "Clearing the zone is fine, but always look for the empty net first. Scoring an empty-net goal ends the game, while clearing the puck just delays the next attack.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover! Tie game!",
+        "explanation": "Trying to dangle through six attackers in your own zone is a terrible idea. They swarmed you, knocked the puck loose, and jammed it into the net past your goalie. The game is tied with 30 seconds left.",
+        "whatToRemember": "When facing a six-on-five with the other team's net empty, get rid of the puck immediately. Either shoot it at the empty net or clear it out. Never try to be fancy in your own zone against extra attackers.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

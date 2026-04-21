@@ -1,0 +1,87 @@
+{
+  "id": "majors-science-chemical-physical",
+  "title": "Changed Forever or Just for Now?",
+  "sport": ["science"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "analyze",
+  "tags": ["chemical-change", "physical-change", "matter", "reactions"],
+  "setup": {
+    "topic": "chemical vs physical changes",
+    "setting": "science lab stations",
+    "materials": "ice cube, piece of paper, match (teacher use), baking soda, vinegar, scissors",
+    "question": "Which changes can be reversed and which cannot?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher shows three demonstrations: melting an ice cube, burning a piece of paper, and mixing baking soda with vinegar (it fizzes and bubbles). She asks, 'Which of these changes can be undone, and which cannot? What is the difference?' What do you answer?",
+      "choices": [
+        {
+          "id": "correct-classification",
+          "text": "Melting ice is a physical change -- you can freeze the water back into ice. Burning paper and mixing baking soda with vinegar are chemical changes -- new substances were created and you cannot get the original materials back.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "partial-understanding",
+          "text": "You can un-melt ice by freezing it. You cannot un-burn paper. I am not sure about the baking soda.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "all-the-same",
+          "text": "They are all the same kind of change because the materials all looked different afterward.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Know the Difference! Excellent Analysis!",
+        "explanation": "Physical changes alter the form or appearance of a substance but do not create anything new. Ice becomes water, but it is still H2O -- freeze it and you get ice again. Chemical changes create entirely new substances with different properties. Burning paper produces ash, carbon dioxide gas, and water vapor -- you can never turn those back into paper. The fizzing of baking soda and vinegar created carbon dioxide gas and a salt called sodium acetate -- completely new substances!",
+        "whatToRemember": "Physical changes can be reversed (melting, freezing, cutting). Chemical changes create new substances and usually cannot be reversed (burning, rusting, cooking).",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Physical Change",
+            "definition": "A change in form or appearance that does not create a new substance. It can usually be reversed."
+          },
+          {
+            "term": "Chemical Change",
+            "definition": "A change that creates one or more new substances with different properties. Signs include gas bubbles, color change, heat, or light."
+          },
+          {
+            "term": "Reversible",
+            "definition": "A change that can be undone to get back the original material, like melting and refreezing ice."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Start! Let Us Figure Out the Baking Soda!",
+        "explanation": "You correctly identified ice melting as reversible and burning as not reversible. For the baking soda and vinegar, look at the clues: it fizzed and made bubbles. Those bubbles are carbon dioxide gas -- a completely new substance that was not there before! Whenever you see bubbling, a color change, heat being released, or a new smell, those are signs of a chemical change. The baking soda and vinegar are gone, replaced by new chemicals.",
+        "whatToRemember": "Signs of a chemical change: gas bubbles, color change, heat or light produced, or a new smell. These clues mean new substances were created.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "They Look Different, But They Are NOT the Same Kind of Change!",
+        "explanation": "All three changes made things look different, but there is a huge difference. Melted ice is still water -- just in liquid form. You can freeze it back. But burned paper is ash and gas -- totally new substances. You can never un-burn it. The key question is: was a new substance created? If yes, it is a chemical change. If no, it is a physical change. Scientists use this question to classify changes in matter.",
+        "whatToRemember": "Ask yourself: 'Was a new substance created?' If yes, it is a chemical change. If no, it is a physical change.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

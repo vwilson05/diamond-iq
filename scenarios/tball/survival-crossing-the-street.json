@@ -1,0 +1,65 @@
+{
+  "id": "tball-survival-crossing-the-street",
+  "title": "Crossing the Street Safely",
+  "sport": ["survival"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["street safety", "pedestrian", "awareness", "traffic"],
+  "setup": {
+    "situation": "need to cross a busy street",
+    "environment": "neighborhood sidewalk",
+    "resources": "crosswalk and traffic light nearby",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are walking home from your friend's house and you need to cross the street. There are cars driving by and you can see a crosswalk with a traffic light about half a block away. Your house is right across the street from where you are standing now. What do you do?",
+      "choices": [
+        { "id": "use-crosswalk", "text": "Walk to the crosswalk, wait for the walk signal, look left-right-left, then cross.", "nextNode": "outcome-great" },
+        { "id": "wait-for-gap", "text": "Wait right here until there are no cars, then run across quickly.", "nextNode": "outcome-okay" },
+        { "id": "just-cross", "text": "Just walk across now -- your house is right there and you can see the cars.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfectly Safe Crossing!",
+        "explanation": "Walking to the crosswalk and using the traffic light is always the safest way to cross. Drivers expect people to cross at crosswalks, so they are watching for you there. Looking left, then right, then left again makes sure you see cars coming from both directions before you step into the street.",
+        "whatToRemember": "Always use a crosswalk when one is nearby. Wait for the walk signal, then look LEFT, RIGHT, LEFT before stepping into the street.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Crosswalk", "definition": "The marked area on a street where people are supposed to walk across. Drivers are supposed to stop for you here." },
+          { "term": "Left-Right-Left", "definition": "The way to check for cars before crossing: look left first, then right, then left again to double-check." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Waited, But There Is a Safer Way!",
+        "explanation": "Waiting for no cars is better than just running across, but crossing in the middle of the street is still risky. Drivers might not see you because they are not expecting a person to cross there. Running can also cause you to trip. The crosswalk is always the safest choice, even if it takes a little longer.",
+        "whatToRemember": "Even if you wait for a gap in traffic, crossing outside a crosswalk is risky. Take the extra few steps to use the crosswalk every time.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Dangerous!",
+        "explanation": "Walking into the street without stopping to check is very dangerous. Cars move much faster than they look, and a driver might not see you stepping out. Even if your house is close, it only takes a second for a car to reach you. Always stop, use a crosswalk, and look both ways before crossing.",
+        "whatToRemember": "NEVER walk into the street without stopping and looking. Use the crosswalk and wait for the signal. A few extra seconds can keep you safe.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

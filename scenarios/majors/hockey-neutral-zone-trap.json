@@ -1,0 +1,63 @@
+{
+  "id": "majors-hockey-neutral-zone-trap",
+  "title": "Clog the Middle",
+  "sport": ["hockey"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["neutral zone trap", "defensive system", "advanced"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "8:00",
+    "score": { "home": 2, "away": 1 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning by one goal in the third period. The coach wants you to play a neutral zone trap to slow the other team down. You are a forward and the other team is about to carry the puck through the neutral zone. How do you set up?",
+      "choices": [
+        { "id": "best", "text": "Position yourself in the middle of the ice between the blue lines, taking away the center lane and forcing the puck carrier wide", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Skate hard at the puck carrier and try to hit them before they cross center ice", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Skate all the way back into your own zone and wait for the other team to come to you", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Trapped!",
+        "explanation": "By clogging the neutral zone, you forced the puck carrier to the outside where your defenseman was waiting. They poked the puck away and your team got it back. The trap worked perfectly.",
+        "whatToRemember": "The neutral zone trap works by taking away the middle of the ice. When forwards clog the center lanes, the puck carrier is forced wide where the defense can close in. It is about patience and positioning, not chasing.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Neutral Zone Trap", "definition": "A defensive strategy where players position themselves in the neutral zone to take away passing lanes through the middle and force the puck carrier to the outside" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "They got around you",
+        "explanation": "Charging at the puck carrier is aggressive, but they saw you coming and made a quick pass around you. Now there is a gap in your team's formation in the neutral zone.",
+        "whatToRemember": "The trap is about positioning, not aggression. Stay in your lane and take away the passing options. If you charge and miss, you leave a hole in the system.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Free entry into your zone!",
+        "explanation": "By retreating all the way back, you gave the other team the entire neutral zone to build speed and organize their attack. They entered your zone at full speed with passing options everywhere.",
+        "whatToRemember": "The neutral zone trap only works if you play it IN the neutral zone. Retreating too far gives the other team time and space to set up whatever play they want.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

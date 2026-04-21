@@ -1,0 +1,65 @@
+{
+  "id": "tball-survival-calling-911",
+  "title": "When to Call 911",
+  "sport": ["survival"],
+  "tier": "tball",
+  "impact": 4,
+  "role": "safety",
+  "tags": ["911", "emergency", "phone skills", "first responders"],
+  "setup": {
+    "situation": "grandparent falls and cannot get up",
+    "environment": "home",
+    "resources": "phone available",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are at home with your grandma. She was walking to the kitchen and tripped over a rug. She fell down and is holding her leg, saying it really hurts and she cannot stand up. She asks you to help. You see a phone on the table. What do you do?",
+      "choices": [
+        { "id": "call-911", "text": "Pick up the phone, dial 911, tell them your grandma fell and is hurt, and stay on the line.", "nextNode": "outcome-great" },
+        { "id": "try-to-help-up", "text": "Try to help your grandma stand up by pulling on her arm.", "nextNode": "outcome-okay" },
+        { "id": "wait-for-parent", "text": "Wait for your mom or dad to come home and help.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Called for Help Like a Pro!",
+        "explanation": "Calling 911 was exactly the right thing to do. When you call 911, a trained helper answers the phone and sends the right kind of help -- like an ambulance. When you call, tell them: what happened, where you are (your address), and stay on the phone so they can help you until the ambulance arrives. You do not need to be scared of calling 911 -- that is exactly what it is for.",
+        "whatToRemember": "Call 911 when someone is hurt badly or in danger. Tell them WHAT happened, WHERE you are (your address), and STAY on the phone. Practice knowing your home address!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "911", "definition": "The phone number you call in an emergency. Trained helpers answer and send police, firefighters, or an ambulance to help you." },
+          { "term": "Emergency", "definition": "A serious situation where someone is hurt, in danger, or needs help right away." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Heart, But Be Careful!",
+        "explanation": "It is kind that you wanted to help your grandma, but pulling on someone who is hurt can make their injury worse. If her leg is broken, moving it could cause more pain. You are also not strong enough to safely lift a grown-up. The best way to help is to call 911 so trained helpers with the right equipment can come.",
+        "whatToRemember": "Do not try to move someone who is hurt -- you might make the injury worse. Call 911 and let trained helpers come with the right equipment.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Don't Wait -- Get Help Now!",
+        "explanation": "Waiting could mean your grandma is in pain for a long time, and some injuries need fast help. Your parents might not be home for hours. In an emergency, calling 911 is the fastest way to get help. Even kids can call 911 -- you do not need permission. The helpers on the phone will walk you through exactly what to do.",
+        "whatToRemember": "In an emergency, do NOT wait for someone else to show up. Call 911 right away. Kids are allowed to call 911 and the helpers will guide you through what to do.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "majors-science-sample-size",
+  "title": "Is One Enough?",
+  "sport": ["science"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "analyze",
+  "tags": ["sample-size", "reliability", "trials", "statistics"],
+  "setup": {
+    "topic": "sample size and reliability",
+    "setting": "gym class",
+    "materials": "stopwatch, running track, clipboard, pencil",
+    "question": "Is one test enough to know who is the fastest runner?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your friend Marcus beat your friend Ava in a race by 0.3 seconds. Marcus says, 'I am officially faster than Ava!' Ava says that is not fair because she tripped a little at the start. Your teacher asks, 'Is one race enough to decide who is faster?' What do you think?",
+      "choices": [
+        {
+          "id": "more-trials-needed",
+          "text": "One race is not enough. They should race at least 5 times and compare their average times. One race could be affected by a trip, a slow start, or even the wind.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "two-races",
+          "text": "Run one more race. If Marcus wins again, he is faster.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "one-is-enough",
+          "text": "Marcus won fair and square. One race is all you need.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Thinking! More Data Means Better Answers!",
+        "explanation": "In science, one trial is almost never enough. Random things can happen -- a trip, a gust of wind, a slow reaction at the start. These are called random errors. By running five or more races and averaging the times, those random events get balanced out. If Marcus's average time is still faster after five races, THEN you have strong evidence he is faster. Scientists call this having a large enough sample size.",
+        "whatToRemember": "One trial can be misleading. Use multiple trials and compare averages to get reliable results. The more trials, the more trustworthy your data.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Sample Size",
+            "definition": "The number of trials or measurements you collect. Bigger sample sizes give more reliable results."
+          },
+          {
+            "term": "Random Error",
+            "definition": "Unpredictable things that can affect a single trial, like tripping or a gust of wind."
+          },
+          {
+            "term": "Reliable",
+            "definition": "Results that you get again and again when you repeat the experiment. More trials make results more reliable."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Better, But Two Is Still Not Great!",
+        "explanation": "Two races is better than one, but it is still a small sample size. What if Ava trips again in the second race? Or what if Marcus gets a perfect start both times by luck? With only two races, weird things can still have a big effect on the result. Scientists usually want at least three to five trials, and more is even better. The bigger your sample size, the more you can trust the average.",
+        "whatToRemember": "Two trials is better than one, but aim for at least five. Small sample sizes can still be misleading.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "One Race Proves Nothing!",
+        "explanation": "Ava tripped! That one event changed the whole result. If a scientist tested a medicine on just ONE person and it worked, would you say the medicine works for everyone? Of course not! You need to test it on many people. The same is true here -- one race with a trip is not good evidence. Scientists never draw big conclusions from a single trial because too many random things can happen.",
+        "whatToRemember": "Never draw a big conclusion from just one trial. Random events can change the result. You need multiple trials to be sure.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

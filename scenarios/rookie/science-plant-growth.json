@@ -1,0 +1,83 @@
+{
+  "id": "rookie-science-plant-growth",
+  "title": "What Do Plants Need?",
+  "sport": ["science"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "experiment",
+  "tags": ["plants", "growth", "needs", "sunlight", "water"],
+  "setup": {
+    "topic": "plant growth",
+    "setting": "classroom windowsill",
+    "materials": "two identical bean plants, water, sunny window, dark closet",
+    "question": "Do plants need sunlight to grow?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your class wants to find out if plants need sunlight to grow. You have two bean plants that look exactly the same size. Your teacher asks, 'How should we set up this experiment?' What do you suggest?",
+      "choices": [
+        {
+          "id": "fair-test",
+          "text": "Put one plant in the sunny window and one in the dark closet. Give them both the same amount of water every day. Check them in one week.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "change-too-much",
+          "text": "Put one plant in the sun with lots of water and one in the closet with no water.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "one-plant-only",
+          "text": "Just put one plant in the window and see what happens.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Experiment Setup!",
+        "explanation": "You only changed ONE thing -- the sunlight. Everything else stayed the same: same water, same soil, same kind of plant. After one week, the sunny plant grew tall and green, and the closet plant was pale and droopy. Since sunlight was the only difference, you KNOW sunlight caused the change. This is called a fair test!",
+        "whatToRemember": "In a good experiment, change only ONE thing and keep everything else the same. That way you know what caused the result.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Fair Test",
+            "definition": "An experiment where you only change one thing so you can tell what caused the result."
+          },
+          {
+            "term": "Sunlight",
+            "definition": "Light from the sun that plants need to make their food through a process called photosynthesis."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Changed Too Many Things!",
+        "explanation": "You changed the light AND the water at the same time. After a week, the closet plant died -- but was it because of no light or no water? You cannot tell! When you change two things at once, you do not know which one caused the result. Next time, change only the light and keep the water the same.",
+        "whatToRemember": "Only change ONE thing at a time in an experiment. If you change two things, you will not know which one mattered.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "One Plant Is Not Enough!",
+        "explanation": "If you only have one plant in the window and it grows, how do you know the sunlight helped? Maybe it would have grown the same amount in the dark! You need TWO plants -- one in the sun and one without sun -- so you can compare them. The second plant is called a control. It shows you what happens without the thing you are testing.",
+        "whatToRemember": "You need something to compare to! Use two groups -- one with the thing you are testing and one without.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

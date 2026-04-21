@@ -1,0 +1,65 @@
+{
+  "id": "the-show-survival-rationing-supplies",
+  "title": "Making Supplies Last",
+  "sport": ["survival"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "safety",
+  "tags": ["rationing", "planning", "resource management", "discipline"],
+  "setup": {
+    "situation": "limited supplies need to last unknown number of days",
+    "environment": "established camp in forest, waiting for rescue",
+    "resources": "2 water bottles, 3 granola bars, 1 bag trail mix, fire-starting supplies",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group of four has been lost for one day. You have set up camp by a stream and are waiting for rescue, but you do not know when help will arrive. Taking stock of supplies, you have: two full water bottles, three granola bars, one bag of trail mix, and waterproof matches. The stream is nearby but you need to boil water before drinking it. Some group members say they are really hungry and want to eat now. What is your plan for the supplies?",
+      "choices": [
+        { "id": "ration-carefully", "text": "Split one granola bar among the group now for energy. Save the rest in strict rations -- one small portion per person per day. Prioritize boiling stream water so the bottles become backup, not the main supply.", "nextNode": "outcome-great" },
+        { "id": "eat-half-now", "text": "Eat half the food now since everyone is hungry and needs energy. Save the other half for tomorrow.", "nextNode": "outcome-okay" },
+        { "id": "eat-everything", "text": "Eat all the food now while you have it. You will figure out food later and the stream gives you unlimited water.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Resource Manager!",
+        "explanation": "Strict rationing is the key to surviving an unknown wait for rescue. Splitting one bar now gives everyone a small energy boost to stay positive and functional. Saving the rest means you have food for days, not hours. Making boiled stream water your main supply and keeping bottled water as emergency backup is brilliant planning -- it protects against a day when you cannot build a fire. Small amounts of food spread over several days keeps your body functioning much better than one big meal followed by nothing.",
+        "whatToRemember": "When you do not know how long supplies need to last, ration strictly: small portions spread over many days. Make renewable resources (boiled stream water) your main supply and keep packaged supplies as backup.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Rationing", "definition": "Dividing your supplies into small, planned portions so they last as long as possible. Discipline with supplies can mean the difference between comfort and crisis." },
+          { "term": "Renewable Resource", "definition": "A supply that replenishes itself, like stream water. Use renewable resources first and save non-renewable supplies (packaged food) as backup." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Fast!",
+        "explanation": "Eating half the food on day one means you only have half left for day two, three, four, and beyond. You do not know when rescue will come -- it could be tomorrow or it could be several days. If rescue takes four days, your group will spend the last two days with zero food, which saps energy and morale right when you need them most. Spreading rations evenly over as many days as possible is always smarter.",
+        "whatToRemember": "Plan for the WORST case, not the best. If you think rescue might take two days, ration for four. Small amounts of food each day keep energy steady and spirits up better than feast-then-famine.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "No Reserves Is No Safety Net!",
+        "explanation": "Eating everything on day one leaves your group with zero food for an unknown number of days. While you can survive weeks without food, having NOTHING makes people tired, grumpy, and unable to think clearly. It destroys group morale when people realize there is nothing left. Also, relying only on the stream for water is risky -- what if it rains hard and the water becomes muddy, or you cannot build a fire one day? Always keep reserves. Hope for the best, plan for the worst.",
+        "whatToRemember": "NEVER consume all supplies at once. Keep reserves for emergencies. Running out of everything crushes group morale and leaves no safety net. Ration strictly and plan for the worst-case timeline.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

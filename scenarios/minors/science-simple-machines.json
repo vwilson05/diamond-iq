@@ -1,0 +1,87 @@
+{
+  "id": "minors-science-simple-machines",
+  "title": "The Power of Simple Machines",
+  "sport": ["science"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "experiment",
+  "tags": ["simple-machines", "lever", "force", "physics"],
+  "setup": {
+    "topic": "simple machines",
+    "setting": "playground and classroom",
+    "materials": "ruler, pencil (fulcrum), heavy textbook, small weights",
+    "question": "How does a lever make it easier to lift heavy things?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher puts a heavy textbook on one end of a ruler that is balanced on a pencil (like a seesaw). She asks, 'How can you lift this heavy book using just a small push?' You need to figure out where to push on the ruler. What do you try?",
+      "choices": [
+        {
+          "id": "push-far-end",
+          "text": "Push down on the end of the ruler that is farthest from the book. The longer the distance from the pencil to where you push, the easier it should be to lift the book.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "push-middle",
+          "text": "Push down right next to the pencil in the middle.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "lift-directly",
+          "text": "Forget the ruler and just pick up the book with your hands.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Used the Lever Perfectly!",
+        "explanation": "A lever is a simple machine that helps you lift heavy things with less effort. The pencil in the middle is called the fulcrum. When you push down far from the fulcrum, you get more leverage -- that means your small push gets multiplied into a bigger force on the other side. The farther you are from the fulcrum, the easier it is to lift the heavy end. Seesaws, wheelbarrows, and even your arm work the same way!",
+        "whatToRemember": "A lever multiplies your force. Push farther from the fulcrum to lift heavier things with less effort.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Lever",
+            "definition": "A simple machine made of a bar that rotates on a fixed point to lift or move things."
+          },
+          {
+            "term": "Fulcrum",
+            "definition": "The fixed point that a lever rotates around. On a seesaw, it is the middle part."
+          },
+          {
+            "term": "Simple Machine",
+            "definition": "A basic tool that makes work easier by changing the direction or amount of force needed."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "That Is Really Hard! You Need More Leverage!",
+        "explanation": "Pushing right next to the fulcrum barely lifts the book at all. You had to push really hard! That is because you did not give yourself enough leverage. The magic of a lever is that the farther your push is from the fulcrum, the more your force gets multiplied. Move your hand to the very end of the ruler and try again -- you will be amazed how much easier it is!",
+        "whatToRemember": "Push far from the fulcrum for more leverage. Pushing close to the fulcrum gives you almost no help.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Missed the Point of the Experiment!",
+        "explanation": "Sure, you can pick up a textbook -- but what if it weighed 100 pounds? You could not lift that with just your hands! That is why simple machines like levers exist. They let you move heavy things that you could not move alone. The ruler and pencil together form a lever that multiplies your force. Scientists and engineers use simple machines to solve problems that muscles alone cannot.",
+        "whatToRemember": "Simple machines exist to help us do things we cannot do with just our bodies. A lever lets you lift things heavier than you could normally move.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

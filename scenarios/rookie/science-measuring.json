@@ -1,0 +1,83 @@
+{
+  "id": "rookie-science-measuring",
+  "title": "Measure It Right!",
+  "sport": ["science"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "experiment",
+  "tags": ["measurement", "ruler", "accuracy", "data"],
+  "setup": {
+    "topic": "simple measurements",
+    "setting": "classroom",
+    "materials": "ruler, three different bean plants in cups, pencil, data sheet",
+    "question": "How tall is each bean plant?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your class planted bean seeds two weeks ago. Now the three plants have grown to different heights, and your teacher says, 'Measure how tall each plant is and write it down.' You have a ruler and a data sheet. How do you measure?",
+      "choices": [
+        {
+          "id": "careful-measure",
+          "text": "Put the ruler straight up next to each plant with the zero at the soil. Read the number where the top of the plant reaches. Write it down.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "eyeball-it",
+          "text": "Hold the ruler near the plants and guess that they are about 3, 5, and 4 inches tall.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "compare-only",
+          "text": "Skip the ruler and just write 'small, medium, and big.'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Precise Measurements! Great Technique!",
+        "explanation": "You measured perfectly! Starting at zero, holding the ruler straight, and reading the exact number gives you accurate data. Your measurements were 2 inches, 5 inches, and 4 inches. Now you can compare the plants with real numbers and track how much they grow each week. That is how scientists collect data!",
+        "whatToRemember": "Always start measuring from zero, hold the ruler straight, and read the number carefully. Write down the exact measurement.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Measure",
+            "definition": "To find the exact size, length, or amount of something using a tool like a ruler."
+          },
+          {
+            "term": "Data",
+            "definition": "Information you collect during an experiment, like measurements and observations."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But Not Exact Enough!",
+        "explanation": "Guessing gets you in the right ballpark, but scientists need exact measurements. If you guess 3 inches but the plant is really 2 inches, that is a big difference! Next week when you measure again, you would not know how much the plant really grew. Put the ruler right next to the plant and read the number carefully.",
+        "whatToRemember": "Do not guess measurements. Put the ruler right next to the object and read the exact number. Accuracy matters!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Words Are Not Enough! Use Numbers!",
+        "explanation": "Saying 'small, medium, and big' does not tell you very much. How small is small? Next week, if a plant grows from 'small' to 'medium,' how much did it actually grow? You cannot tell! Numbers let you track exactly how much things change. That is why scientists always measure with tools and record numbers.",
+        "whatToRemember": "Use numbers, not just words, to describe things in science. Numbers let you see exactly how much something has changed.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

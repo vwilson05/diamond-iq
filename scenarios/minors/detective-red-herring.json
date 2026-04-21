@@ -1,0 +1,65 @@
+{
+  "id": "minors-detective-red-herring",
+  "title": "The Broken Trophy and the Red Herring",
+  "sport": ["detective"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "deduction",
+  "tags": ["red-herring", "investigator", "distraction", "critical-thinking"],
+  "setup": {
+    "case": "The Broken Trophy",
+    "setting": "school trophy case hallway",
+    "suspects": 3,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The school soccer trophy fell off its shelf and cracked! You are investigating. Clue 1: There is a soccer ball on the floor near the case. Clue 2: The glass door of the case was already unlocked. Clue 3: There are scuff marks on the wall ABOVE the trophy case, like someone climbed up. Clue 4: A janitor says he saw a student bouncing a ball in the hallway earlier. The soccer ball near the case seems like an obvious clue, but the scuff marks on the wall tell a different story. What do you focus on?",
+      "choices": [
+        { "id": "scuff-marks", "text": "Focus on the scuff marks above the case. Someone climbed up there, and that is probably what knocked the trophy down. The soccer ball might be unrelated.", "nextNode": "outcome-great" },
+        { "id": "soccer-ball", "text": "Focus on the soccer ball. Someone must have kicked it and hit the trophy case.", "nextNode": "outcome-okay" },
+        { "id": "blame-ball-kid", "text": "Find the kid who was bouncing a ball and blame them immediately.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Spotted the Red Herring!",
+        "explanation": "The soccer ball was a red herring -- a clue that LOOKS important but actually leads you in the wrong direction! The ball was left there by a different student and had nothing to do with the trophy. The real clue was the scuff marks. A student had climbed on the case to reach something on the high shelf and accidentally knocked the trophy over. Great job not getting distracted by the obvious clue!",
+        "whatToRemember": "A red herring is a clue that looks important but actually leads you the wrong way. Always consider whether a clue is really connected to the mystery.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Red Herring", "definition": "A clue or detail that seems important but actually has nothing to do with the mystery. It distracts you from the real answer." },
+          { "term": "Misleading", "definition": "Something that points you in the wrong direction, even though it seems like it should help." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got Tricked by the Red Herring!",
+        "explanation": "The soccer ball seemed like the obvious answer, but it was actually a red herring! The ball was left there by someone else and had nothing to do with the broken trophy. The scuff marks on the wall were the real clue -- someone climbed up and knocked the trophy over. In detective work, the most obvious clue is not always the right one.",
+        "whatToRemember": "Be careful with obvious clues. Ask yourself: is this clue really connected to the mystery, or could it be there for a totally different reason?",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Jumping to Conclusions! No Evidence!",
+        "explanation": "The kid bouncing a ball might have had nothing to do with it! You followed the most obvious trail without checking all the clues. The soccer ball was a red herring, and the scuff marks on the wall told the true story. A good investigator checks ALL the evidence before pointing fingers.",
+        "whatToRemember": "Never rush to blame someone based on the first clue you see. Look at ALL the evidence and watch out for red herrings.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

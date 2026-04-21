@@ -1,0 +1,65 @@
+{
+  "id": "minors-detective-connecting-clues",
+  "title": "The Library Book That Traveled",
+  "sport": ["detective"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "investigation",
+  "tags": ["connecting-clues", "investigator", "pattern", "logic"],
+  "setup": {
+    "case": "The Wandering Library Book",
+    "setting": "school library and hallways",
+    "suspects": 2,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A rare dinosaur book disappeared from the library display. You find four clues in different places: 1) A bookmark from the library on the stairs to the second floor. 2) A sticky note that says 'Dino page 42' in the science room. 3) A photocopy of a dinosaur page in the recycling bin near the copy machine. 4) The book itself, found back on the display but now with a crease on page 42. It seems like someone took the book, went upstairs, copied a page, and returned it. How do you connect these clues?",
+      "choices": [
+        { "id": "connect-all", "text": "The clues tell a story: someone took the book (bookmark fell on stairs), went to the science room (sticky note about page 42), used the copier (photocopy in recycling), and returned it (crease on page 42). Follow the path from library to copier.", "nextNode": "outcome-great" },
+        { "id": "focus-one", "text": "Focus on the photocopy in the recycling bin since it is the strongest single clue.", "nextNode": "outcome-okay" },
+        { "id": "ignore-trail", "text": "The book is back on the display, so no mystery to solve.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Connected All the Dots!",
+        "explanation": "Each clue by itself only told part of the story. But when you connected them in order -- bookmark on stairs, sticky note in science room, photocopy by the copier, crease on page 42 -- you mapped out exactly what happened! A student needed the dinosaur picture for a science project, took the book to copy page 42, and returned it. The science teacher confirmed a student turned in a project with a dinosaur photocopy. Case solved by connecting the clue trail!",
+        "whatToRemember": "One clue tells you a little. Multiple clues connected together tell the whole story. Always look for how clues link to each other.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Connecting Clues", "definition": "Linking different pieces of evidence together to build the full picture of what happened." },
+          { "term": "Clue Trail", "definition": "A series of clues left behind that show the path someone took or the steps they followed." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Clue, But You Missed the Big Picture!",
+        "explanation": "The photocopy is strong evidence, but by itself it only tells you someone copied a dinosaur page. It does not tell you WHERE they went, HOW they got the book, or WHY. The other three clues fill in those gaps. A single clue is like one puzzle piece -- you need all of them to see the full picture.",
+        "whatToRemember": "Do not stop at one strong clue. Look for other clues nearby and figure out how they all connect to tell the full story.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Mystery Is Not Over Just Because the Book Is Back!",
+        "explanation": "The book was returned, but it was damaged -- there is a crease on page 42 that was not there before. And someone took it without permission from a display case. Understanding what happened helps prevent it from happening again. A good investigator follows up even when things seem fine on the surface.",
+        "whatToRemember": "Just because something looks fixed does not mean there is no mystery. Investigate the clues to understand what happened and prevent it next time.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

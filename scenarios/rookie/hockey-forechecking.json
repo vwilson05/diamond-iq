@@ -1,0 +1,63 @@
+{
+  "id": "rookie-hockey-forechecking",
+  "title": "Pressure in Their Zone",
+  "sport": ["hockey"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["forechecking", "pressure", "fundamentals"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "9:00",
+    "score": { "home": 1, "away": 1 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team's defenseman just grabbed the puck behind their own net. You are the closest forward. Your teammates are skating in behind you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Skate hard at the defenseman to pressure them into a bad pass or a turnover", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Skate toward them slowly and wait to see what they do", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Turn around and skate back to your own zone", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Turnover! Great forecheck!",
+        "explanation": "By skating hard at the puck carrier, you forced them to rush a pass. The pass went right to your teammate, and now your team has the puck in their zone with a chance to score.",
+        "whatToRemember": "Forechecking means pressuring the other team when they have the puck in their own zone. Skating hard at the puck carrier forces mistakes and creates chances for your team.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Forecheck", "definition": "When your team pressures the other team in their own zone to try to steal the puck or force a turnover" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "They got out clean",
+        "explanation": "Skating in slowly gave the defenseman plenty of time to look up, find a teammate, and make a good pass out of the zone. No pressure means no mistakes.",
+        "whatToRemember": "A slow forecheck is almost the same as no forecheck. You need to skate hard to force the other team into making a quick decision.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Free breakout for the other team!",
+        "explanation": "By turning around and skating away, you gave the other team all the time in the world to pass the puck up the ice with no pressure. They skated right into your zone.",
+        "whatToRemember": "As a forward, it is your job to pressure the other team in their zone. Do not let them walk the puck out for free.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "majors-detective-physical-evidence",
+  "title": "The Paint Handprint on the Wall",
+  "sport": ["detective"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "evidence",
+  "tags": ["physical-evidence", "case-solver", "forensics", "analysis"],
+  "setup": {
+    "case": "The Hallway Handprint",
+    "setting": "school hallway near art room",
+    "suspects": 3,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "There is a bright orange handprint on the hallway wall outside the art room! The print is small, about the size of a second grader's hand. It is at about 3 feet high on the wall. The orange paint is still slightly wet, meaning it happened recently. Three students left art class in the last 10 minutes: Lucas (5th grader, tall, was using blue paint), Mei (2nd grader, short, was using orange paint), and Andre (4th grader, medium height, was using orange paint). How do you analyze the physical evidence?",
+      "choices": [
+        { "id": "analyze-all-evidence", "text": "Match all the physical evidence: The print is small (rules out Lucas and Andre), at 3 feet high (matches a shorter kid), and is orange paint (Mei was using orange). Mei is the most likely match.", "nextNode": "outcome-great" },
+        { "id": "paint-color-only", "text": "Focus only on the orange paint. Both Mei and Andre used orange, so it is one of them.", "nextNode": "outcome-okay" },
+        { "id": "tallest-reach", "text": "Lucas is the tallest, so he probably reached up and put his hand on the wall.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Physical Evidence Analysis: Perfect!",
+        "explanation": "You analyzed every piece of physical evidence! The handprint size was small (second grader), the height on the wall was 3 feet (a shorter student's natural arm height), and the paint color was orange. Lucas used blue paint -- eliminated. Andre used orange but is taller and has bigger hands -- the print does not match. Mei is a 2nd grader with small hands who used orange paint, and 3 feet is right where her hand would naturally touch the wall. Mei confirmed she accidentally touched the wall with a painty hand!",
+        "whatToRemember": "Analyze ALL the physical evidence together: size, height, color, timing. Each piece narrows down the possibilities, and together they point to one answer.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Physical Evidence", "definition": "Real, touchable clues left at the scene, like handprints, footprints, or marks." },
+          { "term": "Forensic Analysis", "definition": "Carefully studying physical evidence to figure out who left it and how, by examining size, shape, color, and location." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Narrowed It Down, But Missed Key Details!",
+        "explanation": "Focusing on paint color got you to two suspects, but the handprint SIZE and HEIGHT on the wall would have gotten you to one! Andre has bigger hands and is taller -- his natural hand placement would be higher than 3 feet. The small print at 3 feet matches Mei, a shorter 2nd grader. Physical evidence has multiple properties -- analyze them all.",
+        "whatToRemember": "Do not stop at one piece of physical evidence. Size, shape, height, and color all matter. Use every detail the evidence gives you.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Evidence Says the Opposite!",
+        "explanation": "Lucas is tall, but the handprint is at 3 feet -- that is LOW for a tall 5th grader. Also, Lucas was using BLUE paint, and the print is ORANGE! The physical evidence completely rules Lucas out. Never ignore what the evidence tells you. The size, height, and color all pointed away from Lucas and toward Mei.",
+        "whatToRemember": "Physical evidence does not lie. If the handprint is small, low, and orange, look for the suspect who is small, short, and was using orange paint.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

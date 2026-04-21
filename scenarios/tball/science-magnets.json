@@ -1,0 +1,83 @@
+{
+  "id": "tball-science-magnets",
+  "title": "The Magnet Test",
+  "sport": ["science"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "observe",
+  "tags": ["magnets", "magnetic", "materials", "testing"],
+  "setup": {
+    "topic": "magnets",
+    "setting": "classroom lab table",
+    "materials": "bar magnet, paper clips, pennies, wooden blocks, aluminum foil, iron nails",
+    "question": "Which materials are magnetic?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher gives you a magnet and a tray of objects: paper clips, pennies, wooden blocks, aluminum foil, and iron nails. She asks, 'Which ones will the magnet stick to?' How do you find out?",
+      "choices": [
+        {
+          "id": "test-each-one",
+          "text": "Hold the magnet near each object one at a time and see which ones stick.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "guess-shiny",
+          "text": "Guess that all the shiny metal ones will stick and skip testing.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "guess-all",
+          "text": "Say the magnet will stick to everything because magnets are really strong.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Testing! You Checked Every Object!",
+        "explanation": "By testing each object, you discovered something surprising. The paper clips and iron nails stuck to the magnet, but the penny and aluminum foil did NOT -- even though they are made of metal! Magnets only attract certain metals like iron, nickel, and cobalt. Not all metals are magnetic. Testing is always better than guessing!",
+        "whatToRemember": "Magnets only stick to certain metals like iron and nickel. Not all metals are magnetic! Always test instead of guess.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Magnetic",
+            "definition": "An object that is attracted to a magnet and sticks to it. Only certain metals like iron are magnetic."
+          },
+          {
+            "term": "Attract",
+            "definition": "To pull toward. A magnet attracts magnetic materials by pulling them closer."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But Your Guess Was Partly Wrong!",
+        "explanation": "You guessed that all shiny metals would stick, but pennies and aluminum foil are shiny metals that are NOT magnetic! Pennies are mostly made of zinc and copper, and aluminum is not magnetic either. If you had tested each one, you would have discovered this. In science, testing beats guessing every time.",
+        "whatToRemember": "Not all metals are magnetic. Shiny does not mean magnetic. Always test your ideas!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Nope! Magnets Do Not Stick to Everything!",
+        "explanation": "Magnets are strong, but they only stick to certain metals like iron, nickel, and cobalt. They do not stick to wood, plastic, paper, or even some metals like aluminum and copper. If you had tested the objects, you would have seen the magnet ignore the wooden block and the penny completely!",
+        "whatToRemember": "Magnets do NOT stick to everything. They only attract certain metals. Always test before you decide!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

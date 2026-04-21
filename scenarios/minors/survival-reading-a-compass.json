@@ -1,0 +1,65 @@
+{
+  "id": "minors-survival-reading-a-compass",
+  "title": "Which Way Is North?",
+  "sport": ["survival"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "navigation",
+  "tags": ["compass", "navigation", "map reading", "direction"],
+  "setup": {
+    "situation": "need to navigate back to camp using a compass",
+    "environment": "dense forest with no visible landmarks",
+    "resources": "compass and simple trail map",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are at a scout camp and your group is doing a navigation exercise. You have a compass and a simple map that shows your camp is to the SOUTH. You are standing in the forest and cannot see any landmarks -- just trees in every direction. You hold up the compass and the red needle is pointing to your left. What do you do?",
+      "choices": [
+        { "id": "use-compass-right", "text": "The red needle points NORTH, which is to my left. So SOUTH must be to my right. Walk to the right toward camp.", "nextNode": "outcome-great" },
+        { "id": "follow-needle", "text": "Walk in the direction the red needle is pointing since that is where the compass says to go.", "nextNode": "outcome-okay" },
+        { "id": "guess-direction", "text": "Put the compass away and walk straight ahead -- you have a feeling camp is this way.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Navigation Ace!",
+        "explanation": "You read the compass perfectly. The red needle ALWAYS points north. Once you know where north is, you can figure out every other direction: south is opposite north, east is to the right of north, and west is to the left of north. Since the map says camp is south and north is to your left, south is to your right. Pick a tree in that direction, walk to it, then pick another tree and keep going. This keeps you on a straight line.",
+        "whatToRemember": "The RED needle on a compass ALWAYS points NORTH. Once you know north, you know all directions. To walk in a straight line, pick a landmark ahead of you, walk to it, then pick the next one.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Compass Needle", "definition": "The red end of the compass needle always points toward magnetic north. This helps you figure out every other direction." },
+          { "term": "Cardinal Directions", "definition": "North, South, East, and West. North and South are opposites. East and West are opposites. On a compass, they are 90 degrees apart." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Way!",
+        "explanation": "The red needle points NORTH, but that does not mean you should walk that direction. The needle shows you where north is so you can figure out which way YOU need to go. Since camp is to the south, you need to go the OPPOSITE direction from where the needle points. Following the needle would take you north -- away from camp. The compass is a tool that shows direction, not a guide that says 'walk this way.'",
+        "whatToRemember": "The compass needle shows where NORTH is -- it does NOT tell you which way to walk. You need to figure out YOUR direction based on where north is. If you need to go south, walk OPPOSITE the red needle.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Guessing Gets You Lost!",
+        "explanation": "In a forest where everything looks the same, your sense of direction is usually wrong. Studies show that people walking without a compass or landmarks actually walk in circles without realizing it. Your brain thinks you are going straight, but you are not. That is exactly why a compass exists -- it always tells the truth about direction, even when your gut feeling does not. Always use your tools.",
+        "whatToRemember": "NEVER trust your gut feeling for direction in the woods. Without a compass, most people walk in circles. Use your compass -- it always points to true north.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

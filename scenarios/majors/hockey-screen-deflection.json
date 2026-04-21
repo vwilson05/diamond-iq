@@ -1,0 +1,63 @@
+{
+  "id": "majors-hockey-screen-deflection",
+  "title": "Get in the Goalie's Eyes",
+  "sport": ["hockey"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["screen", "deflection", "net front", "advanced"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "6:00",
+    "score": { "home": 0, "away": 1 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your defenseman has the puck at the point and is about to shoot. You are a forward near the front of the net. The goalie is looking right at your defenseman, ready for the shot. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Stand right in front of the goalie to block their view of the shot and put your stick on the ice for a deflection", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand off to the side of the net to be ready for a rebound", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Skate away from the net to give your defenseman a clear shooting lane", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Deflection goal!",
+        "explanation": "By screening the goalie, they could not see the shot coming. You got your stick on the puck and tipped it past the goalie into the net. Screens and deflections are how many goals are scored in hockey.",
+        "whatToRemember": "Standing in front of the goalie blocks their view. This is called a screen. If you also put your stick on the ice, you can deflect the shot and change its direction, making it almost impossible to save.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Screen", "definition": "When an offensive player stands in front of the goalie to block their view of an incoming shot, making it harder for the goalie to react" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Save, but you got the rebound",
+        "explanation": "The goalie saw the shot clearly and made the save, but standing nearby let you pounce on the rebound. You did not score, but you got another shot off. Being ready for rebounds is smart.",
+        "whatToRemember": "Rebound positioning is good, but screening the goalie is even better. First choice: block their view and try for a tip. Second choice: be ready for the rebound.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy save for the goalie",
+        "explanation": "By skating away from the net, you gave the goalie a perfect view of the shot. They tracked it the whole way and caught it in their glove. Your defenseman needed you in front.",
+        "whatToRemember": "Never clear out of the way when your teammate is shooting from the point. The goalie wants to see the puck. Your job is to make sure they cannot.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

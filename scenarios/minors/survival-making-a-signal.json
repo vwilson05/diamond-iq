@@ -1,0 +1,65 @@
+{
+  "id": "minors-survival-making-a-signal",
+  "title": "Signal for Rescue",
+  "sport": ["survival"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "rescue",
+  "tags": ["signaling", "rescue", "visibility", "communication"],
+  "setup": {
+    "situation": "lost and need to signal search party",
+    "environment": "open meadow near tree line",
+    "resources": "whistle, bright jacket, small mirror",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You and your group have been lost since yesterday and decided to stay put and wait for rescue. You are camped at the edge of a meadow near some trees. This morning you hear a helicopter in the distance -- it sounds like a search helicopter! You have a whistle, a bright orange rain jacket, and a small mirror in your pack. How do you signal for help?",
+      "choices": [
+        { "id": "multiple-signals", "text": "Run to the open meadow, lay the bright jacket flat on the ground, use the mirror to flash sunlight toward the helicopter, and blow three whistle blasts.", "nextNode": "outcome-great" },
+        { "id": "wave-and-yell", "text": "Stand in the meadow and wave your arms and yell as loud as you can.", "nextNode": "outcome-okay" },
+        { "id": "stay-in-trees", "text": "Stay near the trees and blow your whistle three times.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Rescue Signal Expert!",
+        "explanation": "You used every tool available and that is exactly right. Moving to the open meadow makes you visible from the air. A bright-colored jacket laid flat on the ground creates a large, visible marker. A mirror flash can be seen for miles by a helicopter -- angle it to reflect sunlight toward the aircraft. And three whistle blasts is the universal distress signal. Using multiple signals at once gives you the best chance of being spotted.",
+        "whatToRemember": "Use MULTIPLE signals at once: bright colors on the ground, mirror flashes, whistle blasts (three means HELP), and get to an OPEN area. More signals means a better chance of being found.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Signal Mirror", "definition": "A mirror used to reflect sunlight toward aircraft or rescuers. The flash can be seen from very far away." },
+          { "term": "Three of Anything", "definition": "The universal distress signal. Three whistle blasts, three fires, three rock piles -- three of anything means HELP." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Start, But Use Your Tools!",
+        "explanation": "Getting to the open meadow and waving is a good instinct. But from a helicopter high in the sky, a person waving looks very small and your voice cannot be heard over the engine noise. Your bright jacket, mirror, and whistle are much more effective. A mirror flash can be seen for miles. A bright jacket on the ground is easier to spot than a person's body. Always use every signal tool you have.",
+        "whatToRemember": "Your voice and arms are hard to see and hear from a helicopter. Use tools: mirror flashes travel miles, bright colors stand out from above, and whistles are louder than shouting.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "They Cannot See You!",
+        "explanation": "Staying under the trees makes it nearly impossible for a helicopter to see you. From the air, the forest canopy hides everything underneath. Even your whistle blasts will be drowned out by the helicopter engine noise. You need to get to the OPEN meadow where you can be seen. In a rescue situation, being visible is everything. Always move to open ground and use the brightest, most reflective signals you have.",
+        "whatToRemember": "Get to OPEN ground so you can be seen from the air. Trees hide you from helicopters and planes. Use bright colors, mirrors, and noise together for the best chance of rescue.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

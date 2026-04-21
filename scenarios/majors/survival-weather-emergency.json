@@ -1,0 +1,65 @@
+{
+  "id": "majors-survival-weather-emergency",
+  "title": "Thunder in the Mountains",
+  "sport": ["survival"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "safety",
+  "tags": ["lightning", "thunderstorm", "weather", "emergency response"],
+  "setup": {
+    "situation": "thunderstorm approaching while hiking on an exposed ridge",
+    "environment": "mountain ridge above tree line",
+    "resources": "daypack, rain jacket, no shelter nearby",
+    "urgency": "critical"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are hiking along a mountain ridge with your family. The ridge is above the tree line, so there are no tall trees around -- just rocks and low bushes. You notice dark clouds building fast and you hear distant thunder. Your parent says the storm is about 15 minutes away. You are at the highest point on the trail. Lightning strikes the tallest things around. What should you do?",
+      "choices": [
+        { "id": "get-low-fast", "text": "Get off the ridge FAST. Move downhill to lower ground and tree cover. If you cannot get to safety in time, crouch low on the balls of your feet with your head tucked, away from tall objects.", "nextNode": "outcome-great" },
+        { "id": "find-rock-shelter", "text": "Find a large boulder on the ridge and huddle against it for shelter from the rain.", "nextNode": "outcome-okay" },
+        { "id": "keep-hiking", "text": "Keep hiking along the ridge to get to the end of the trail faster. You can probably beat the storm.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Lightning Safety Expert!",
+        "explanation": "Getting off the ridge and to lower ground is exactly right. Lightning strikes the tallest objects, and on an exposed ridge, that could be YOU. Moving below the tree line and into the forest gives you much better protection. If you absolutely cannot get to low ground in time, the lightning crouch (balls of your feet, head tucked, hands over ears) makes you a smaller target and reduces ground current through your body. Never lie flat on the ground during lightning.",
+        "whatToRemember": "In a thunderstorm: get to LOW ground, away from ridges, isolated trees, and water. If caught in the open, crouch on the balls of your feet with head down. NEVER lie flat. Never shelter under a lone tall tree.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Lightning Crouch", "definition": "A safety position: crouch on the balls of your feet with your head tucked down and hands over your ears. This makes you a small target and reduces ground current." },
+          { "term": "Ground Current", "definition": "When lightning hits the ground, electricity spreads outward. Lying flat exposes more of your body to this current. Crouching on your feet minimizes contact." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Bad Shelter Choice!",
+        "explanation": "A large boulder on a ridge is one of the worst places to be during lightning. Tall, isolated objects attract lightning, and if the boulder gets struck, the electrical current flows over and through it. Sitting against it puts you right in the path of that current. Boulders also do not protect you from the most dangerous part of a storm -- the lightning. You need to get LOW and away from tall objects, not huddle against one.",
+        "whatToRemember": "Never shelter against large rocks, lone trees, or tall objects during lightning. They ATTRACT lightning strikes. Get to low ground and stay away from anything tall and isolated.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Extremely Dangerous!",
+        "explanation": "Staying on the ridge during a thunderstorm is one of the most dangerous things you can do outdoors. You are at the highest point with nothing taller around -- making you the prime target for a lightning strike. Lightning kills more hikers than almost any other weather event. Thunder means lightning is already close enough to be a threat. The rule is: 'When thunder roars, go indoors' -- or at minimum, get to low ground immediately. Never try to outrun a storm on a ridge.",
+        "whatToRemember": "When thunder roars, go indoors -- or get to LOW ground immediately. NEVER stay on a ridge or high point during a thunderstorm. Lightning moves faster than you can run. Act as soon as you hear thunder.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

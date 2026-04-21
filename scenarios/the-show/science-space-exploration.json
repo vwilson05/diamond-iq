@@ -1,0 +1,87 @@
+{
+  "id": "the-show-science-space-exploration",
+  "title": "Mission to Mars!",
+  "sport": ["science"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "design",
+  "tags": ["space", "engineering", "problem-solving", "mars", "design-thinking"],
+  "setup": {
+    "topic": "space exploration design challenge",
+    "setting": "STEM classroom mission control simulation",
+    "materials": "mission briefing packet, design notebook, materials list, budget sheet",
+    "question": "How would you design a greenhouse that can grow food on Mars?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is designing a greenhouse for a Mars colony. Mars has almost no atmosphere, temperatures around negative 60 degrees Celsius, very weak sunlight, and no liquid water on the surface. Astronauts need to grow their own food because it takes 9 months to send supplies from Earth. How does your team approach this design challenge?",
+      "choices": [
+        {
+          "id": "analyze-constraints",
+          "text": "List every constraint: no air, extreme cold, weak sunlight, no water. Then design solutions for each one: pressurized dome for air, insulation and heaters for warmth, LED grow lights to supplement sunlight, and a water recycling system that captures moisture. Test the design in a simulation before building.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "earth-greenhouse",
+          "text": "Build a regular glass greenhouse like we have on Earth but put it on Mars.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "skip-growing",
+          "text": "Just bring canned food from Earth instead of trying to grow plants on Mars.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Mission Approved! Your Design Solves Every Challenge!",
+        "explanation": "You did what real NASA engineers do: you identified every constraint first, then designed a solution for each one. Your pressurized dome keeps air inside for the plants (and the astronauts). Insulation and heaters combat the extreme cold. LED lights give plants the exact wavelengths they need since Mars gets only 43% of Earth's sunlight. And your water recycler means you do not need new water deliveries. This systematic approach -- identify problems, then solve them one by one -- is how engineers tackle the most complex challenges in the world.",
+        "whatToRemember": "Great engineers start by listing every constraint and challenge. Then they design a solution for each one. Breaking a big problem into smaller pieces makes it solvable.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Constraint",
+            "definition": "A limitation or requirement that your design must work within, like temperature, budget, or available materials."
+          },
+          {
+            "term": "Prototype",
+            "definition": "A first version of a design that you test and improve before building the final version."
+          },
+          {
+            "term": "Closed System",
+            "definition": "A system that recycles everything it uses, like a Mars greenhouse that recycles water and air."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "That Would Not Survive on Mars!",
+        "explanation": "An Earth greenhouse relies on things Mars does not have: breathable air, temperatures above freezing, strong sunlight, and rain. A regular glass greenhouse on Mars would freeze solid, have no air pressure inside (the glass might even shatter from the pressure difference), and get too little sunlight. Engineers must consider the environment where their design will be used. What works on Earth will not automatically work on Mars -- you need to design for Mars's specific conditions.",
+        "whatToRemember": "A design must fit its environment. What works in one place may completely fail in another. Always study the conditions before designing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Sustainable for a Colony!",
+        "explanation": "It takes 9 months for a supply rocket to travel from Earth to Mars, and each kilogram of food costs thousands of dollars to launch. A colony of 50 people would need tons of food every year. Relying only on Earth deliveries is too slow, too expensive, and too risky -- what if a rocket fails? Growing food on Mars means the colony can feed itself even if a supply mission is delayed. This is why engineers solve hard problems instead of avoiding them.",
+        "whatToRemember": "Engineers solve problems instead of avoiding them. When a solution seems impossible, break it into smaller pieces and tackle each one.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "tball-detective-hidden-objects",
+  "title": "Where Did the Crayons Go?",
+  "sport": ["detective"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "investigation",
+  "tags": ["hidden-objects", "searching", "clue-finder", "observation"],
+  "setup": {
+    "case": "The Missing Crayon Box",
+    "setting": "art room",
+    "suspects": 2,
+    "cluesFound": 3
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The big box of crayons is missing from the art table! You need them for your drawing project. You notice a red crayon on the floor near the bookshelf, a blue smudge on the door handle, and a green mark on the chair by the window. These are clues! What should you do to find the crayon box?",
+      "choices": [
+        { "id": "follow-trail", "text": "Follow the trail of crayon marks -- they lead from the table to the bookshelf!", "nextNode": "outcome-great" },
+        { "id": "check-one-spot", "text": "Check under the art table since that is where they usually are.", "nextNode": "outcome-okay" },
+        { "id": "give-up", "text": "Tell the teacher you cannot find them and ask for markers instead.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Followed the Clue Trail!",
+        "explanation": "The crayon marks on the floor, door handle, and chair were like a trail of breadcrumbs! You followed them right to the bookshelf and found the crayon box tucked behind some books. Someone had been drawing there earlier and forgot to put them back. Great job following the clues from one spot to the next!",
+        "whatToRemember": "When things go missing, look for a trail of clues. Each clue can point you to the next one until you find what you are looking for.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Clue Trail", "definition": "A line of clues that lead from one place to another, like following footprints in the snow." },
+          { "term": "Hidden Object", "definition": "Something that is not easy to see because it is tucked away or covered up." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Try, But They Were Not There!",
+        "explanation": "Checking the usual spot is a fine first step, but the crayons were not under the table this time. You missed the clues! The red crayon on the floor and the marks were pointing you toward the bookshelf. Next time, look at the clues around the room before checking the usual spot.",
+        "whatToRemember": "If something is not in its usual place, look for clues around the room that might tell you where it went.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Do Not Give Up -- The Clues Are Right There!",
+        "explanation": "There were three clues right in front of you -- a crayon on the floor, a smudge on the door, and a mark on the chair! A detective never gives up when there are clues to follow. The crayon box was just behind the bookshelf. Next time, use the clues to keep searching!",
+        "whatToRemember": "Never give up when you can see clues. Each clue is a hint that can lead you to the answer.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

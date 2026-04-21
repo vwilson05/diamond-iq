@@ -1,0 +1,83 @@
+{
+  "id": "tball-science-sink-or-float",
+  "title": "Sink or Float?",
+  "sport": ["science"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "observe",
+  "tags": ["sink", "float", "density", "water", "testing"],
+  "setup": {
+    "topic": "sink or float",
+    "setting": "classroom with water tub",
+    "materials": "large tub of water, cork, marble, plastic spoon, metal key, apple",
+    "question": "Which objects sink and which ones float?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "There is a big tub of water on the table, and your teacher gives you five objects: a cork, a marble, a plastic spoon, a metal key, and an apple. She asks, 'Which ones will float and which will sink?' How do you find the answer?",
+      "choices": [
+        {
+          "id": "test-and-record",
+          "text": "Gently place each object in the water one at a time. Write down which ones float and which ones sink.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "guess-heavy-light",
+          "text": "Say that heavy things sink and light things float, without testing.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "dump-all-in",
+          "text": "Throw all five objects into the water at the same time to see what happens.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Excellent! You Tested and Recorded!",
+        "explanation": "By testing one at a time, you could clearly see what happened to each object. The cork, plastic spoon, and apple floated! The marble and metal key sank. You might be surprised the apple floated -- it is big but it has tiny air pockets inside that help it float. Writing down your results is what real scientists do!",
+        "whatToRemember": "Test objects one at a time and write down what happens. Size does not tell you if something floats -- it depends on the material.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Float",
+            "definition": "When an object stays on top of the water instead of falling to the bottom."
+          },
+          {
+            "term": "Sink",
+            "definition": "When an object falls to the bottom of the water because it is denser than the water."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Thinking, But Not Quite Right!",
+        "explanation": "Heavy things do often sink, but not always! A big apple is heavier than a tiny marble, but the apple floats and the marble sinks. It is not just about weight -- it is about what the object is made of. An apple has air inside it. A marble is solid glass. Testing would have shown you this surprise!",
+        "whatToRemember": "Whether something sinks or floats is not just about weight. The material matters too! Always test to find out.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Fast! You Could Not Tell What Happened!",
+        "explanation": "When you throw everything in at once, it is hard to see which object floated and which one sank. Objects bump into each other and make a big splash. Scientists test one thing at a time so they can see exactly what happens. Try again, but this time put in one object, watch it, then try the next one.",
+        "whatToRemember": "Test one object at a time so you can clearly see what happens to each one.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

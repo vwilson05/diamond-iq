@@ -1,0 +1,65 @@
+{
+  "id": "majors-survival-lost-in-woods",
+  "title": "Lost in the Woods",
+  "sport": ["survival"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "navigation",
+  "tags": ["lost", "decision making", "STOP method", "stay put"],
+  "setup": {
+    "situation": "separated from group on a backcountry hike",
+    "environment": "dense forest, late afternoon",
+    "resources": "daypack with water, snack, whistle, rain jacket",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You were hiking with your scout group when you fell behind to tie your shoe. When you looked up, nobody was in sight. You called out but got no answer. You are on a trail in dense forest and the sun is getting lower. You have about two hours of daylight left. Your daypack has water, a snack bar, a whistle, and a rain jacket. You can see the trail going forward and backward. What do you do?",
+      "choices": [
+        { "id": "stop-method", "text": "STOP: Sit down and stay calm. Think about when you last saw the group. Observe your surroundings. Plan -- blow three whistle blasts every few minutes and stay on the trail.", "nextNode": "outcome-great" },
+        { "id": "backtrack", "text": "Turn around and jog back the way you came to try to find where the group turned off.", "nextNode": "outcome-okay" },
+        { "id": "shortcut", "text": "Leave the trail and cut through the woods to try to get ahead of your group.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "The STOP Method Saves Lives!",
+        "explanation": "The STOP method is what survival experts teach: Sit down, Think, Observe, Plan. Panicking and running makes everything worse. By staying on the trail, you are in the easiest place for rescuers to find you. Your whistle signal (three blasts) tells anyone nearby that you need help. Your group will notice you are missing, retrace their steps, and search the trail first. Staying put is almost always the right choice when lost.",
+        "whatToRemember": "When lost, use STOP: Sit down, Think, Observe, Plan. Stay on the trail -- it is the first place rescuers will look. Blow three whistle blasts every few minutes. Do NOT panic and run.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "STOP Method", "definition": "Sit down, Think, Observe, Plan. The four steps to follow when you realize you are lost. It keeps you calm and in the best position to be found." },
+          { "term": "Stay Put", "definition": "Remaining in one location when lost. Moving around makes it harder for searchers to find you. The trail is always the best place to wait." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Risky Backtrack!",
+        "explanation": "Going back on the trail is not a terrible idea since you are staying on a known path. But jogging while stressed can cause you to miss the spot where your group turned and you could end up further from them. You are also using energy and daylight. In most lost-person scenarios, staying put leads to the fastest rescue because your group will retrace the route looking for you. Movement should be your last resort, not your first.",
+        "whatToRemember": "Staying put is usually better than backtracking. Your group will search for you by retracing the trail. If you move, you might pass each other. Only move if you are certain of your route.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Leave the Trail!",
+        "explanation": "Cutting through the woods off-trail is the most dangerous thing you can do when lost. You have no idea which direction your group went, and in dense forest you will quickly lose all sense of direction. Now instead of being lost ON a trail (where rescuers will search first), you are lost in the middle of the woods with no path. Search and rescue statistics show that people who leave the trail take much longer to find.",
+        "whatToRemember": "NEVER leave the trail when lost. The trail is your lifeline -- rescuers search trails first. Going off-trail turns a manageable situation into a serious emergency.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

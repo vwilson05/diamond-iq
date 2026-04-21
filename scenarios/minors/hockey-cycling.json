@@ -1,0 +1,63 @@
+{
+  "id": "minors-hockey-cycling",
+  "title": "Keep It Moving Down Low",
+  "sport": ["hockey"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["cycling", "puck possession", "offensive zone", "game iq"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "12:00",
+    "score": { "home": 0, "away": 1 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team has the puck deep in the other team's zone along the boards. A defender is right on you and the net is behind you. Two of your teammates are nearby. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Pass the puck behind you along the boards to your teammate who is skating into open space, keeping the cycle going", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to spin around the defender and carry the puck to the net yourself", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Fire the puck blindly toward the net from a bad angle along the boards", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great cycle! Goal!",
+        "explanation": "By passing along the boards, you kept the puck in the zone and your teammate picked it up with space. They moved it to another teammate who was open in front of the net for a tap-in goal. That is cycling at its best.",
+        "whatToRemember": "Cycling means passing the puck along the boards down low and taking turns carrying it. It wears out the defense and creates scoring chances. Pass, move, get open, repeat.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Cycling the Puck", "definition": "An offensive strategy where players pass the puck along the boards in the offensive zone and rotate positions, tiring out the defenders and creating scoring chances" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Nice try, but no room",
+        "explanation": "You managed to spin around the defender, but there was another player waiting. You got a weak shot off that the goalie easily saved. Your teammates were open if you had passed.",
+        "whatToRemember": "If a defender is right on you, trying to beat them one-on-one is risky. Look for the pass first to keep the cycle moving and tire out the defense.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy save, easy breakout",
+        "explanation": "Shooting from a sharp angle along the boards is almost impossible to score from. The goalie caught it easily and the other team quickly moved the puck up the ice the other way.",
+        "whatToRemember": "Shooting from a bad angle wastes a good offensive chance. If you do not have a scoring angle, keep passing to find a teammate who does.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -172,6 +172,7 @@ const SPORT_CATEGORIES = [
       { id: 'basketball', name: 'Basketball', desc: 'Fast breaks, pick and roll, defense', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M4 32h56M32 4v56" stroke="currentColor" stroke-width="2"/><path d="M12 8c8 8 12 16 12 24s-4 16-12 24" stroke="currentColor" stroke-width="2"/><path d="M52 8c-8 8-12 16-12 24s4 16 12 24" stroke="currentColor" stroke-width="2"/></svg>' },
       { id: 'football', name: 'Football', desc: 'Play calling, reads, strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="28" ry="18" stroke="currentColor" stroke-width="3" fill="none"/><path d="M18 32h28M32 18v28" stroke="currentColor" stroke-width="2"/></svg>' },
       { id: 'soccer', name: 'Soccer', desc: 'Through balls, formations, game sense', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 4l6 10h12l-4 12 8 10-10 4-6 10-6-10-10-4 8-10-4-12h12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>' },
+      { id: 'hockey', name: 'Hockey', desc: 'Power plays, breakaways, ice strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M16 48l16-32 16 32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="20" r="6" stroke="currentColor" stroke-width="3" fill="none"/><line x1="8" y1="52" x2="56" y2="52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
     ],
   },
   {
@@ -180,6 +181,7 @@ const SPORT_CATEGORIES = [
     icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 8l-4 8h-6l2 6-4 6h8v8h-6v4h20v-4h-6v-8h8l-4-6 2-6h-6l-4-8z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><rect x="16" y="44" width="32" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>',
     sports: [
       { id: 'chess', name: 'Chess', desc: 'Tactics, checkmate patterns, think ahead', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 8l-4 8h-6l2 6-4 6h8v8h-6v4h20v-4h-6v-8h8l-4-6 2-6h-6l-4-8z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><rect x="16" y="44" width="32" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/><rect x="12" y="50" width="40" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>' },
+      { id: 'detective', name: 'Detective', desc: 'Clues, deduction, solving mysteries', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="26" cy="26" r="16" stroke="currentColor" stroke-width="3" fill="none"/><line x1="38" y1="38" x2="54" y2="54" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>' },
     ],
   },
   {
@@ -189,6 +191,15 @@ const SPORT_CATEGORIES = [
     sports: [
       { id: 'money', name: 'Money Smarts', desc: 'Saving, spending, budgeting, investing', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 16v32M24 22c0-4 4-6 8-6s8 2 8 6-4 6-8 8-8 4-8 8 4 6 8 6 8-2 8-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
       { id: 'coding', name: 'Coding', desc: 'Logic, debugging, problem solving', icon: '<svg viewBox="0 0 64 64" fill="none"><rect x="8" y="12" width="48" height="36" rx="4" stroke="currentColor" stroke-width="3" fill="none"/><path d="M22 26l-8 6 8 6M42 26l8 6-8 6M36 22l-8 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+      { id: 'survival', name: 'Survival Skills', desc: 'Safety, outdoors, first aid, emergencies', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 4l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/><circle cx="32" cy="48" r="8" stroke="currentColor" stroke-width="3" fill="none"/></svg>' },
+    ],
+  },
+  {
+    id: 'science',
+    name: 'Science',
+    icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M24 8v20l-12 24h40L40 28V8" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="20" y1="8" x2="44" y2="8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="44" r="3" fill="currentColor"/><circle cx="38" cy="40" r="2" fill="currentColor"/></svg>',
+    sports: [
+      { id: 'science', name: 'Science Lab', desc: 'Experiments, observations, scientific method', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M24 8v20l-12 24h40L40 28V8" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="20" y1="8" x2="44" y2="8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
     ],
   },
 ];
@@ -258,6 +269,10 @@ const DEFAULT_TEAMS = {
   soccer: { id: 501, name: 'United', city: 'FC', primary: '#1D3557', secondary: '#E63946', abbr: 'FCU' },
   money: { id: 601, name: 'Savers', city: 'Smart', primary: '#2A9D8F', secondary: '#E9C46A', abbr: 'SMT' },
   coding: { id: 701, name: 'Devs', city: 'Code', primary: '#7209B7', secondary: '#4CC9F0', abbr: 'DEV' },
+  hockey: { id: 801, name: 'Blades', city: 'Ice', primary: '#1B4965', secondary: '#CAE9FF', abbr: 'ICE' },
+  science: { id: 901, name: 'Labs', city: 'Discovery', primary: '#06D6A0', secondary: '#1B1B3A', abbr: 'LAB' },
+  detective: { id: 1001, name: 'Sleuths', city: 'Mystery', primary: '#6D4C41', secondary: '#FFD54F', abbr: 'DET' },
+  survival: { id: 1101, name: 'Rangers', city: 'Wild', primary: '#4A7C59', secondary: '#F4A460', abbr: 'WLD' },
 };
 
 function selectSport(sport) {
@@ -335,6 +350,38 @@ const CODING_TIERS = [
   { id: 'the-show', name: 'Dev', num: '5', desc: 'Real code — reading Python, APIs, data structures, building apps' },
 ];
 
+const HOCKEY_TIERS = [
+  { id: 'tball', name: 'Learn to Skate', num: '1', desc: 'Basics — skating, passing, shooting, positions, icing' },
+  { id: 'rookie', name: 'Mite', num: '2', desc: 'Fundamentals — wrist shots, line changes, face-offs, forechecking' },
+  { id: 'minors', name: 'Bantam', num: '3', desc: 'Game IQ — power play, penalty kill, breakaways, cycling' },
+  { id: 'majors', name: 'Junior', num: '4', desc: 'Advanced — neutral zone trap, dump and chase, pulling goalie' },
+  { id: 'the-show', name: 'Pro', num: '5', desc: 'Elite — overtime, 2-on-1 rushes, delayed penalties, empty net' },
+];
+
+const SCIENCE_TIERS = [
+  { id: 'tball', name: 'Observer', num: '1', desc: 'Observe — senses, sorting, magnets, sink or float' },
+  { id: 'rookie', name: 'Questioner', num: '2', desc: 'Question — asking why, predictions, measurements, weather' },
+  { id: 'minors', name: 'Experimenter', num: '3', desc: 'Experiment — fair tests, recording data, states of matter' },
+  { id: 'majors', name: 'Analyst', num: '4', desc: 'Analyze — conclusions, sample size, ecosystems, reactions' },
+  { id: 'the-show', name: 'Scientist', num: '5', desc: 'Design — engineering, scientific method, real-world applications' },
+];
+
+const DETECTIVE_TIERS = [
+  { id: 'tball', name: 'Clue Finder', num: '1', desc: 'Basics — spotting differences, matching, following clues' },
+  { id: 'rookie', name: 'Junior Detective', num: '2', desc: 'Fundamentals — alibis, timelines, process of elimination' },
+  { id: 'minors', name: 'Investigator', num: '3', desc: 'Case work — motive, red herrings, connecting clues' },
+  { id: 'majors', name: 'Case Solver', num: '4', desc: 'Advanced — logic chains, contradictions, evidence analysis' },
+  { id: 'the-show', name: 'Master Detective', num: '5', desc: 'Elite — complex cases, building evidence, cracking cold cases' },
+];
+
+const SURVIVAL_TIERS = [
+  { id: 'tball', name: 'Safety Star', num: '1', desc: 'Safety first — stranger danger, 911, fire safety, getting help' },
+  { id: 'rookie', name: 'Trail Scout', num: '2', desc: 'Outdoor basics — packing, staying on trail, buddy system' },
+  { id: 'minors', name: 'Wilderness Guide', num: '3', desc: 'Smart skills — shelter, water, signals, compass, dangers' },
+  { id: 'majors', name: 'Ranger', num: '4', desc: 'Problem solver — lost in woods, first aid, weather, fire safety' },
+  { id: 'the-show', name: 'Survivor', num: '5', desc: 'Elite — multi-day scenarios, rationing, rescue, leadership' },
+];
+
 const SPORT_TIERS = {
   baseball: BASEBALL_TIERS,
   softball: BASEBALL_TIERS,
@@ -344,6 +391,10 @@ const SPORT_TIERS = {
   soccer: SOCCER_TIERS,
   money: MONEY_TIERS,
   coding: CODING_TIERS,
+  hockey: HOCKEY_TIERS,
+  science: SCIENCE_TIERS,
+  detective: DETECTIVE_TIERS,
+  survival: SURVIVAL_TIERS,
 };
 
 function getTiers() {

@@ -1,0 +1,65 @@
+{
+  "id": "rookie-survival-drinking-water",
+  "title": "Water Is Your Best Friend",
+  "sport": ["survival"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["hydration", "water safety", "health", "outdoor basics"],
+  "setup": {
+    "situation": "getting thirsty on a hot day hike",
+    "environment": "sunny trail with a stream nearby",
+    "resources": "half-full water bottle",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have been hiking for about an hour on a warm, sunny day. You feel thirsty and a little tired. You look at your water bottle and it is about half full. You can see a pretty stream flowing next to the trail with clear water running over rocks. Your family is going to be hiking for two more hours. What do you do?",
+      "choices": [
+        { "id": "sip-and-save", "text": "Take small sips from your water bottle regularly and save some for the rest of the hike. Do NOT drink from the stream.", "nextNode": "outcome-great" },
+        { "id": "drink-stream", "text": "Drink from the stream to save the water in your bottle for later -- the stream water looks clean.", "nextNode": "outcome-okay" },
+        { "id": "wait-till-thirstier", "text": "Stop drinking water to save it all for later when you might be really thirsty.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Hydration Hero!",
+        "explanation": "Taking small sips throughout the hike is exactly right. Your body works best when you drink a little bit of water often, rather than a lot at once. And even though the stream looks clean, natural water can have tiny germs called bacteria and parasites that can make you very sick. You cannot see them, but they are there. Only drink water that you brought from home or that has been filtered or purified.",
+        "whatToRemember": "Drink small sips of water OFTEN -- do not wait until you are super thirsty. NEVER drink from streams or lakes unless the water has been filtered or purified, even if it looks clean.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Hydration", "definition": "Keeping your body supplied with enough water. When you are hiking, your body loses water through sweat and breathing." },
+          { "term": "Water Purification", "definition": "Making water safe to drink by filtering out or killing tiny germs you cannot see. You need a special filter or purification tablets." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "That Stream Could Make You Sick!",
+        "explanation": "The stream water might look perfectly clean, but it can contain tiny organisms that make people very sick with stomach cramps, vomiting, and diarrhea. Animals use the same water upstream, and germs are too small to see. Even clear mountain streams can carry these germs. Always stick to water you brought from home unless you have a proper water filter.",
+        "whatToRemember": "NEVER drink water from a stream, lake, or puddle without filtering or purifying it first. Clear water can still have invisible germs that will make you sick.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Dehydration Danger!",
+        "explanation": "Waiting to drink when you are already thirsty is a mistake. By the time you feel very thirsty, your body is already running low on water. This is called dehydration, and it makes you dizzy, confused, and weak -- which is dangerous on a trail. Drink small amounts of water throughout the hike to keep your body working well. It is better to run out of water near the end than to be dehydrated the whole time.",
+        "whatToRemember": "Do NOT save all your water for later. Drink small sips throughout the hike. If you feel thirsty, you are ALREADY getting dehydrated. Sip often!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

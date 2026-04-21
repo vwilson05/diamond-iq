@@ -1,0 +1,65 @@
+{
+  "id": "tball-detective-spot-the-difference",
+  "title": "What Changed in the Classroom?",
+  "sport": ["detective"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "investigation",
+  "tags": ["observation", "spot-the-difference", "clue-finder", "visual"],
+  "setup": {
+    "case": "The Rearranged Classroom",
+    "setting": "elementary school classroom",
+    "suspects": 2,
+    "cluesFound": 1
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You come back from recess and something looks different in your classroom! The teacher's special plant has been moved from the window to the desk, and there is dirt on the floor. Your teacher asks, 'Can anyone figure out what happened?' You notice two things are different from before recess. What do you do first?",
+      "choices": [
+        { "id": "look-carefully", "text": "Look around carefully and point out everything that looks different from before.", "nextNode": "outcome-great" },
+        { "id": "ask-friends", "text": "Ask your friends if they saw anything.", "nextNode": "outcome-okay" },
+        { "id": "guess-randomly", "text": "Just guess that the wind blew the plant over.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Sharp Eyes! You Spotted the Clues!",
+        "explanation": "You looked around the whole room and noticed the plant was moved AND there was dirt on the floor near the desk. By spotting what changed, you helped your teacher figure out that someone bumped the plant while getting art supplies. Good detectives always look carefully at what is different from how things were before.",
+        "whatToRemember": "A good detective looks for what is DIFFERENT. Compare what you see now to what you remember from before.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Observation", "definition": "Looking very carefully at everything around you to notice details." },
+          { "term": "Clue", "definition": "Something that helps you figure out what happened, like dirt on the floor." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Asking Around Is Helpful, But Look First!",
+        "explanation": "Asking friends is a good idea, but first you should look around with your own eyes! Your friends might not remember everything. If you look carefully first, you can find clues that nobody else noticed. Then you can ask questions about what you found.",
+        "whatToRemember": "Always look for clues with your own eyes first, then ask questions about what you found.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Guessing Without Looking Is Not Detecting!",
+        "explanation": "Guessing without looking is not how detectives work! The wind did not blow the plant -- there was dirt on the floor that showed someone carried it. A detective never guesses without looking at the clues first. Next time, slow down and look around before you say what happened.",
+        "whatToRemember": "Never guess without looking first. Real detectives always check the clues before they decide what happened.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

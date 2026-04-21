@@ -1,0 +1,63 @@
+{
+  "id": "tball-hockey-positions",
+  "title": "Know Your Position",
+  "sport": ["hockey"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "defense",
+  "tags": ["positions", "teamwork", "basics"],
+  "setup": {
+    "period": 1,
+    "timeLeft": "8:00",
+    "score": { "home": 0, "away": 0 },
+    "situation": "even-strength",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are playing defense and the puck is in your zone. Your coach told you to stay near your own blue line and protect the front of the net. But you see the puck loose in the corner. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Stay in front of the net like your coach said and let the forward chase the puck in the corner", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Skate toward the corner but keep one eye on the front of the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Chase the puck into the corner and leave the front of the net wide open", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great positioning!",
+        "explanation": "By staying in front of the net, you blocked an opponent who was sneaking in for a pass. Your forward got the puck in the corner and passed it up the ice. Everyone did their job!",
+        "whatToRemember": "Each position has a job. Defensemen protect the front of the net and the blue line. Forwards do the chasing. When everyone plays their position, the team works like a machine.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Defensive Zone Coverage", "definition": "When each player guards their assigned area in front of their own goal so the other team cannot score easily" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Risky move, but it worked out",
+        "explanation": "You drifted out of position a little, but you kept watching the net. It worked this time, but an opponent almost snuck behind you for an easy goal.",
+        "whatToRemember": "If you leave your position, you create an opening for the other team. Try to trust your teammates to do their jobs.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Goal against!",
+        "explanation": "When you left the front of the net, an opponent skated right in and received a pass with nobody guarding them. Easy goal for the other team.",
+        "whatToRemember": "Never leave the front of the net unguarded when you are playing defense. That is the most dangerous spot on the ice for the other team to be.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

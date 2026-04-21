@@ -1,0 +1,65 @@
+{
+  "id": "majors-detective-contradictions",
+  "title": "The Story That Does Not Add Up",
+  "sport": ["detective"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "interrogation",
+  "tags": ["contradictions", "case-solver", "stories", "inconsistency"],
+  "setup": {
+    "case": "The Broken Window Mystery",
+    "setting": "school gym",
+    "suspects": 2,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A window in the gym storage room is broken from the inside. Jake says: 'I was in the gym shooting hoops the whole time. I heard a crash from the storage room around 3:15.' But then Jake also says: 'I left the gym at 3:00 to get water and came back at 3:20.' Wait -- he said he was in the gym the whole time, but also says he left at 3:00? And he heard the crash at 3:15 while he was supposedly getting water? His story has a contradiction. How do you handle this?",
+      "choices": [
+        { "id": "point-out-contradiction", "text": "Politely point out the contradiction: 'You said you were in the gym the whole time, but also that you left at 3:00. And you heard the crash at 3:15, but you said you were getting water then. Can you help me understand?'", "nextNode": "outcome-great" },
+        { "id": "ignore-contradiction", "text": "Ignore the contradiction and take Jake's story at face value.", "nextNode": "outcome-okay" },
+        { "id": "accuse-immediately", "text": "Accuse Jake of breaking the window since his story does not make sense.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Contradiction Found! The Truth Comes Out!",
+        "explanation": "When you calmly pointed out the contradiction, Jake got flustered and then told the real story. He WAS in the storage room at 3:15 looking for extra basketballs. He accidentally knocked a shelf into the window and it cracked. He panicked and made up the story about getting water. He was not trying to be bad -- he was just scared. By spotting the contradiction and asking about it politely, you got to the truth without accusing anyone unfairly.",
+        "whatToRemember": "When someone's story contradicts itself, calmly point out the parts that do not match and ask them to explain. Contradictions often lead to the truth.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Contradiction", "definition": "When two parts of someone's story cannot both be true at the same time, like being in two places at once." },
+          { "term": "Inconsistency", "definition": "When the details in a story do not match up or keep changing." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Missed a Big Red Flag!",
+        "explanation": "Jake said he was in the gym the whole time AND that he left at 3:00. Those two things cannot both be true! When a story contradicts itself, that is a signal that something is wrong. If you had asked about the contradiction, Jake would have told you what really happened. Always listen carefully for details that do not match.",
+        "whatToRemember": "Listen carefully to every detail in a person's story. If two parts cannot both be true, you have found a contradiction worth investigating.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Contradiction Is Not the Same as Guilt!",
+        "explanation": "Jake's story has a contradiction, which means he is not telling the full truth. But that does not automatically mean he broke the window on purpose! People sometimes lie because they are scared, not because they did something wrong. Jake accidentally knocked a shelf into the window. If you had asked politely instead of accusing him, he would have told you right away. Contradictions deserve questions, not accusations.",
+        "whatToRemember": "A contradiction in someone's story means they are not being fully honest, but it does not automatically mean they are guilty. Ask questions first, accuse later.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

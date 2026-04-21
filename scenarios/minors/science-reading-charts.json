@@ -1,0 +1,83 @@
+{
+  "id": "minors-science-reading-charts",
+  "title": "What Does the Chart Say?",
+  "sport": ["science"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "analyze",
+  "tags": ["charts", "graphs", "data-reading", "interpretation"],
+  "setup": {
+    "topic": "reading charts",
+    "setting": "classroom with projected bar graph",
+    "materials": "bar graph showing ice cream flavors chosen by 30 students",
+    "question": "What can we learn from reading a bar graph?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher shows a bar graph of the class's favorite ice cream flavors. Chocolate has a bar reaching 12, Vanilla reaches 8, Strawberry reaches 6, and Mint reaches 4. She asks, 'What does this graph tell us?' What do you say?",
+      "choices": [
+        {
+          "id": "read-details",
+          "text": "Chocolate is the most popular with 12 votes, Vanilla is second with 8, Strawberry has 6, and Mint has 4. Together that is 30 students. Chocolate got three times as many votes as Mint.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "read-basics",
+          "text": "Chocolate is the tallest bar so it is the favorite.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "opinion-only",
+          "text": "It tells us that chocolate is the best flavor.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Excellent Graph Reading! You Found the Details!",
+        "explanation": "You read the exact numbers from each bar, compared them to each other, and even added them up. That is high-level data reading! Scientists look at graphs the same way -- they read the values, compare categories, and look for relationships between the numbers. The more details you pull from a graph, the more you understand the data.",
+        "whatToRemember": "When reading a graph, find the exact values, compare them, and look for relationships. Do not just identify the biggest bar.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Bar Graph",
+            "definition": "A chart that uses bars of different heights to compare amounts or categories."
+          },
+          {
+            "term": "Axis",
+            "definition": "The lines along the bottom and side of a graph. One axis shows what is being compared, the other shows the amounts."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Right, But There Is More to See!",
+        "explanation": "You correctly identified the tallest bar, but a graph has a lot more to tell you. How many students picked chocolate? How many picked Mint? How much bigger is chocolate than strawberry? When you only look at which bar is tallest, you miss all the numbers and comparisons hidden in the graph.",
+        "whatToRemember": "Read the actual numbers on a graph, not just which bar is tallest. Compare the values to each other.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is an Opinion, Not Data!",
+        "explanation": "The graph shows that chocolate is the MOST POPULAR flavor in your class, but that does not mean it is the 'best.' Eight students chose vanilla, and they might disagree! A graph gives you facts and numbers, not opinions. Scientists are careful to describe what the data actually shows without adding their personal feelings.",
+        "whatToRemember": "Data tells you facts, not opinions. 'Most popular' is a fact from the graph. 'Best' is an opinion.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

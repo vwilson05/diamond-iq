@@ -1,0 +1,87 @@
+{
+  "id": "majors-science-ecosystems",
+  "title": "The Pond Food Web",
+  "sport": ["science"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "analyze",
+  "tags": ["ecosystems", "food-web", "energy", "ecology"],
+  "setup": {
+    "topic": "ecosystems and food webs",
+    "setting": "field trip to a pond",
+    "materials": "clipboard, pond food web diagram, magnifying glass",
+    "question": "What would happen to the pond ecosystem if all the frogs disappeared?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "On a field trip, your class studies a pond food web: algae are eaten by insects, insects are eaten by frogs, frogs are eaten by herons, and herons have no predators. Your teacher asks, 'If a disease killed all the frogs, what would happen to the rest of the pond?' What do you predict?",
+      "choices": [
+        {
+          "id": "trace-the-web",
+          "text": "Without frogs, the insect population would explode because nothing is eating them. And herons would have less food, so their numbers would drop. Removing one species affects the whole food web in both directions.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "only-herons",
+          "text": "The herons would have nothing to eat, so they would leave or die.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "nothing-happens",
+          "text": "Not much would change. The other animals would be fine without frogs.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Traced the Whole Food Web!",
+        "explanation": "You looked at the effects in BOTH directions -- up the food chain (herons lose food) and down the food chain (insects have no predator). This is called a trophic cascade. With too many insects, the algae could get eaten up, which would affect the oxygen in the water, which could affect the fish. Every species in an ecosystem is connected! Removing one piece creates a chain reaction.",
+        "whatToRemember": "Removing one species from a food web affects everything above AND below it. Ecosystems are interconnected -- every piece matters.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Food Web",
+            "definition": "A diagram showing how energy flows through an ecosystem as organisms eat each other."
+          },
+          {
+            "term": "Ecosystem",
+            "definition": "A community of living things and their environment, all interacting with each other."
+          },
+          {
+            "term": "Trophic Cascade",
+            "definition": "When a change at one level of a food web causes a chain reaction of changes at other levels."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Right About Herons, But What About Insects?",
+        "explanation": "You correctly identified that herons would suffer without frogs to eat. But you missed the other direction! Without frogs eating insects, the insect population would grow out of control. Those extra insects would eat more algae, which could change the whole pond. In a food web, changes ripple in EVERY direction, not just up.",
+        "whatToRemember": "Look both up AND down the food chain when predicting what happens. Removing a species affects its predators and its prey.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Every Species Matters!",
+        "explanation": "In an ecosystem, every species is connected to others through the food web. Frogs eat thousands of insects, and herons depend on frogs for food. Remove the frogs and you get too many insects and hungry herons. It is like removing a link from a chain -- the whole thing falls apart. Scientists have seen this happen in real ecosystems when a species disappears.",
+        "whatToRemember": "No species exists alone. Every organism is connected to others in the food web. Removing one affects them all.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "the-show-survival-extreme-weather",
+  "title": "Surviving Extreme Cold",
+  "sport": ["survival"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "shelter",
+  "tags": ["hypothermia", "cold weather", "extreme conditions", "body heat"],
+  "setup": {
+    "situation": "unexpected cold front drops temperatures dangerously low overnight",
+    "environment": "mountain forest, temperature dropping to near freezing",
+    "resources": "lean-to shelter, dying fire, rain jackets, dry leaves available",
+    "urgency": "critical"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has been surviving for three days and had a decent routine. But tonight the weather changed fast. A cold front moved in and the temperature is dropping toward freezing. Your fire is struggling in the wind and your lean-to shelter is not keeping the cold out. Some group members are starting to shiver and one person's fingers are numb. You have rain jackets, but they are thin. There are piles of dry leaves and pine needles around the camp. What do you do?",
+      "choices": [
+        { "id": "insulate-everything", "text": "Pack your shelter floor and walls with thick layers of dry leaves for insulation. Have everyone huddle close together to share body heat. Stuff dry leaves inside jackets for extra warmth. Shield the fire from wind with a rock or log wall.", "nextNode": "outcome-great" },
+        { "id": "bigger-fire", "text": "Focus all energy on building the fire as big as possible. A bigger fire means more heat for everyone.", "nextNode": "outcome-okay" },
+        { "id": "keep-moving", "text": "Have everyone exercise and move around to stay warm. Jumping jacks and running in place will keep body heat up.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Cold Weather Survivor!",
+        "explanation": "You attacked the cold from every angle. Dry leaves are nature's insulation -- a thick pile under you prevents heat loss to the cold ground (which steals more heat than cold air does). Stuffing dry leaves inside your jacket creates a layer of trapped air that works like a sleeping bag. Huddling together shares body heat between people. Shielding the fire from wind keeps it burning and directs heat toward your shelter. These combined strategies can keep you safe even in near-freezing temperatures.",
+        "whatToRemember": "Fight cold from every angle: INSULATE the shelter with leaves (especially the floor), HUDDLE together for shared body heat, STUFF dry leaves in clothing for warmth, and PROTECT your fire from wind. The ground steals more heat than cold air -- always insulate below you.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Ground Insulation", "definition": "A thick layer of dry material between you and the cold ground. The ground steals body heat through conduction. A pile of leaves 6 inches thick can be the difference between dangerous cold and survivable cold." },
+          { "term": "Shared Body Heat", "definition": "When people huddle close together, their combined body heat warms the air between them. In cold conditions, this can prevent hypothermia." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fire Alone Is Not Enough!",
+        "explanation": "A bigger fire does produce more heat, but in windy conditions it burns through fuel fast and the wind carries the heat away. You could use up all available firewood and still be cold. Fire is important, but INSULATION is what traps heat. A well-insulated shelter with a small fire is much warmer than an open camp with a huge fire. Also, gathering fuel in the dark cold is risky -- people can trip, get cut, or get separated from camp.",
+        "whatToRemember": "Fire is ONE part of staying warm, not the whole solution. Insulation TRAPS heat while fire CREATES it. You need both. A big fire in the wind wastes fuel. Focus on insulating your shelter AND maintaining a protected fire.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Exercise Backfires in the Cold!",
+        "explanation": "Exercise feels warm at first, but it is actually dangerous in a cold survival situation. When you exercise, you sweat. Wet skin and wet clothes lose heat MUCH faster than dry ones. Once you stop exercising (and you will -- you cannot do jumping jacks all night), your damp body will cool down rapidly and you could develop hypothermia faster than if you had stayed still. In cold conditions, conserve energy, stay dry, insulate, and huddle together.",
+        "whatToRemember": "Do NOT exercise to stay warm in a survival situation. Sweating makes you wet, and wet skin loses heat 25 times faster than dry skin. Conserve energy, stay DRY, insulate, and huddle for shared warmth.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

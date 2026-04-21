@@ -1,0 +1,63 @@
+{
+  "id": "tball-hockey-shooting",
+  "title": "Get It on Net",
+  "sport": ["hockey"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["shooting", "accuracy", "basics"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "10:00",
+    "score": { "home": 1, "away": 1 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are skating toward the goal with the puck. The goalie is in the net watching you. You are close enough to shoot! What do you do?",
+      "choices": [
+        { "id": "best", "text": "Aim for a corner of the net and shoot the puck along the ice", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Shoot as hard as you can right at the middle of the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Wind up for a huge shot and close your eyes when you swing", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Goal! Top corner!",
+        "explanation": "Aiming for the corners gives you the best chance to score because the goalie cannot cover every corner at once. A low, accurate shot is hard for any goalie to stop.",
+        "whatToRemember": "Aim for the corners of the net when you shoot. Accuracy is more important than power, especially when you are close to the goal.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Picking Corners", "definition": "Aiming your shot at the top or bottom corners of the goal where the goalie has the hardest time reaching" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Save! But a good try",
+        "explanation": "Shooting at the middle of the net makes it easy for the goalie to block it. You got the shot on net, which is good, but try to aim for the open spots next time.",
+        "whatToRemember": "Always try to shoot where the goalie is NOT standing. The corners and the spaces between the goalie's pads are the best targets.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You missed the net completely!",
+        "explanation": "Closing your eyes and swinging as hard as you can means you have no control. The puck sailed over the net and went around the boards, and now the other team has it.",
+        "whatToRemember": "Keep your eyes on the net when you shoot. A controlled shot that hits the net is always better than a wild shot that misses everything.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

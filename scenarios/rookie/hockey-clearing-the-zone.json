@@ -1,0 +1,63 @@
+{
+  "id": "rookie-hockey-clearing-the-zone",
+  "title": "Get It Out!",
+  "sport": ["hockey"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["clearing", "defensive zone", "fundamentals"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "4:00",
+    "score": { "home": 3, "away": 2 },
+    "situation": "even-strength",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team has been attacking your zone for a while and your team is tired. You are a defenseman and you just got the puck along the boards. Two opponents are skating at you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Chip the puck off the boards and out past the blue line to clear the zone", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to skate it out yourself through the middle of the ice", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Pass the puck across the front of your own net to your other defenseman", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Zone cleared!",
+        "explanation": "Using the boards to chip the puck out is the safest way to clear the zone when you are under pressure. Now your team can change lines and get fresh legs on the ice.",
+        "whatToRemember": "When you are under heavy pressure in your own zone, the safest play is to get the puck out. Use the boards to chip it past the blue line. Do not try to be fancy.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Clearing the Zone", "definition": "Getting the puck out of your defensive zone past the blue line so your team can regroup and change lines" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Tight squeeze",
+        "explanation": "You managed to skate through, but one of the opponents nearly knocked the puck off your stick. Carrying the puck out through traffic is risky when you are under pressure.",
+        "whatToRemember": "Skating the puck out can work if you have room, but when two players are coming at you, the simple play is to chip it out along the boards.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! Goal against!",
+        "explanation": "Passing across the front of your own net is one of the most dangerous plays in hockey. An opponent stepped into the passing lane, intercepted the puck, and scored easily.",
+        "whatToRemember": "Never pass the puck across the front of your own net. If the other team intercepts it, your goalie has no chance. Always go up the boards or behind the net.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

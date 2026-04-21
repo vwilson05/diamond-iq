@@ -1,0 +1,66 @@
+{
+  "id": "the-show-detective-building-a-case",
+  "title": "Building the Case: The Talent Show Sabotage",
+  "sport": ["detective"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "deduction",
+  "tags": ["building-a-case", "master-detective", "evidence-chain", "presentation"],
+  "setup": {
+    "case": "The Talent Show Sound System Sabotage",
+    "setting": "school auditorium",
+    "suspects": 3,
+    "cluesFound": 7
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "During the talent show, the sound system kept cutting out during Mia's singing performance. Someone unplugged a cable backstage. You have gathered evidence over two days: (1) The cable was unplugged, not broken -- someone did it on purpose. (2) Only three students were backstage: Remy, Suki, and Val. (3) Remy is Mia's biggest supporter and was running the lights. (4) Suki was performing next and told friends she was nervous about following Mia. (5) Val was the stage manager and had been arguing with the drama teacher. (6) A backstage camera shows someone near the sound board at 7:14 PM, wearing dark shoes. (7) Suki is the only one who wore dark shoes that night. You need to BUILD a complete case before presenting your findings. How do you organize your evidence?",
+      "choices": [
+        { "id": "build-complete-case", "text": "Build the case step by step: Motive -- Suki was nervous about following Mia and might have wanted to sabotage her. Means -- Suki was backstage with access to the cables. Opportunity -- the camera shows someone in dark shoes near the sound board, and Suki is the only one with dark shoes. Present all three together as a complete case.", "nextNode": "outcome-great" },
+        { "id": "present-one-clue", "text": "Show the camera footage of dark shoes and say Suki did it.", "nextNode": "outcome-okay" },
+        { "id": "accuse-without-case", "text": "Tell the teacher you think it was Suki without organizing any evidence.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Case Built! Evidence Organized Perfectly!",
+        "explanation": "You built a complete case with three pillars: MOTIVE (Suki was nervous about following Mia), MEANS (she was backstage near the cables), and OPPORTUNITY (camera shows dark shoes at the sound board, and only Suki had dark shoes). You also eliminated the other suspects -- Remy supported Mia (no motive) and Val was arguing with the teacher, not about the performances (different motive). When you presented the organized case, Suki admitted she panicked and unplugged the cable hoping to delay the show. A complete, organized case is much more convincing than random clues.",
+        "whatToRemember": "Build your case before presenting it. Organize evidence into categories: motive, means, opportunity. Eliminate other suspects. A well-built case tells a clear story that is hard to argue with.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Building a Case", "definition": "Organizing all your evidence into a clear, logical presentation that shows who did it, how, and why." },
+          { "term": "Three Pillars", "definition": "The three things a strong case needs: motive (why), means (how), and opportunity (when and where)." },
+          { "term": "Eliminating Suspects", "definition": "Showing why other suspects could NOT have done it, which strengthens the case against the real suspect." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One Clue Is Not a Full Case!",
+        "explanation": "The dark shoes on camera are strong evidence, but by themselves they only prove someone with dark shoes was near the sound board. Suki could say 'I was just walking by!' Without showing her motive (nervousness about following Mia) and eliminating the other suspects, your case has holes. A single piece of evidence, even a strong one, is not a complete case. You need to show the full picture.",
+        "whatToRemember": "One strong clue is not enough. Build a COMPLETE case by combining motive, means, and opportunity, and by ruling out other suspects.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "No Case, No Credibility!",
+        "explanation": "Walking up to the teacher and saying 'I think Suki did it' without organized evidence makes you look like you are guessing. The teacher will ask 'What proof do you have?' and you will not have a clear answer. You HAD all the evidence -- motive, camera footage, dark shoes, means and opportunity. But without organizing it into a case, it is just a pile of disconnected facts. A master detective always builds the case BEFORE presenting it.",
+        "whatToRemember": "Never accuse someone without an organized case. Gather your evidence, arrange it logically, and present it clearly. An unorganized accusation is not taken seriously.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

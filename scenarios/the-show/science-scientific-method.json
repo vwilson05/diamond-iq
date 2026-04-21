@@ -1,0 +1,87 @@
+{
+  "id": "the-show-science-scientific-method",
+  "title": "The Full Scientific Method",
+  "sport": ["science"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "experiment",
+  "tags": ["scientific-method", "full-cycle", "investigation", "research"],
+  "setup": {
+    "topic": "scientific method full cycle",
+    "setting": "science fair preparation",
+    "materials": "lab notebook, research materials, experiment supplies, poster board",
+    "question": "How do you design a complete scientific investigation from start to finish?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The science fair is in three weeks. You want to investigate whether the color of light affects how fast plants grow. You need to design a complete experiment from scratch. What is your plan?",
+      "choices": [
+        {
+          "id": "full-method",
+          "text": "Follow all the steps: research what is already known, form a hypothesis, design a controlled experiment with multiple trials, collect data in organized tables, analyze the results, draw a conclusion, and present your findings on a poster.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "skip-steps",
+          "text": "Just grow some plants under different colored lights and see what happens. Write about it on the poster at the end.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "report-only",
+          "text": "Read about plant growth online and write a report instead of doing an experiment.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "A Complete Scientific Investigation!",
+        "explanation": "You followed every step of the scientific method. Your research told you that plants use mostly red and blue light for photosynthesis. Your hypothesis was: 'Plants under red light will grow taller than plants under green light because plants absorb red light for photosynthesis.' You grew 5 plants under each color with the same water and soil, measured daily for two weeks, found that red-light plants grew 40% taller, and concluded that light color DOES affect growth. This is exactly how professional scientists work!",
+        "whatToRemember": "The scientific method is a cycle: question, research, hypothesis, experiment, data, analysis, conclusion. Each step builds on the one before it.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Scientific Method",
+            "definition": "The step-by-step process scientists use to investigate questions: observe, question, research, hypothesize, experiment, analyze, conclude."
+          },
+          {
+            "term": "Hypothesis",
+            "definition": "A testable prediction that explains WHY you expect a certain result. It can be supported or rejected by your experiment."
+          },
+          {
+            "term": "Controlled Experiment",
+            "definition": "An experiment where only one variable is changed while all others are kept the same."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Did an Experiment, But Skipped Important Steps!",
+        "explanation": "Growing plants under different lights is a good start, but without a hypothesis, you did not know what to look for. Without research, you did not know that plants reflect green light (which is why leaves look green). Without organized data, you cannot show exact differences. And without multiple trials, one weird result could throw everything off. The scientific method exists because each step makes the next one stronger.",
+        "whatToRemember": "Do not skip steps in the scientific method. Research helps you form a better hypothesis. A hypothesis guides your experiment. Organized data supports your conclusion.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Report Is Not a Science Fair Project!",
+        "explanation": "Reading about science is great for the research step, but a science fair project requires you to DO science, not just read about it. The whole point is to ask your own question, design your own experiment, collect your own data, and draw your own conclusions. That is how you learn to think like a scientist. Anyone can look up facts -- but designing and running your own experiment is a skill only practice can build.",
+        "whatToRemember": "Science is about doing, not just reading. The science fair requires original investigation: your question, your experiment, your data, your conclusions.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

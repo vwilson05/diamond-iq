@@ -1,0 +1,65 @@
+{
+  "id": "tball-survival-lost-in-store",
+  "title": "Lost in the Store",
+  "sport": ["survival"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "safety",
+  "tags": ["lost", "store safety", "trusted adults", "stay calm"],
+  "setup": {
+    "situation": "separated from parent in a store",
+    "environment": "large grocery store",
+    "resources": "store employees nearby",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are shopping with your dad at a big grocery store. You stopped to look at the cereal boxes and when you look up, your dad is gone! You can't see him anywhere. The store is big and crowded. You notice a store worker in a uniform stacking shelves nearby. What do you do?",
+      "choices": [
+        { "id": "find-employee", "text": "Stay where you are and ask the store worker in the uniform for help finding your dad.", "nextNode": "outcome-great" },
+        { "id": "walk-around", "text": "Walk up and down the aisles looking for your dad.", "nextNode": "outcome-okay" },
+        { "id": "leave-store", "text": "Go outside to the parking lot to see if your dad went to the car.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Move -- You Found Help!",
+        "explanation": "Staying where you are and asking a store worker is the best thing to do. Store workers wear uniforms or name tags so you can spot them easily. They can use the store speakers to call your dad or help you wait at the front of the store. Staying in one spot also makes it easier for your dad to find you, because he will come back to where he last saw you.",
+        "whatToRemember": "If you get separated from your parent in a store, STAY PUT and ask a store worker for help. They can call your parent over the speakers. Staying in one spot makes it easier to be found.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Stay Put", "definition": "Staying right where you are instead of wandering around. This makes it much easier for someone to find you." },
+          { "term": "Store Worker", "definition": "Someone who works at the store. They usually wear a uniform or name tag and can help you find your parent." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Keep Looking? Not the Best Plan!",
+        "explanation": "Walking around the store might seem like a good idea, but it actually makes things harder. While you are walking one way, your dad might be walking the other way looking for you. You could keep missing each other! It is much better to stay in one spot and ask a worker for help.",
+        "whatToRemember": "Don't wander around looking -- you and your parent might keep missing each other. Stay in one spot and get help from a worker.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Leave the Store Alone!",
+        "explanation": "Going outside by yourself is not safe. The parking lot has cars moving around, and your dad is probably still inside looking for you. Leaving the store makes it much harder for him to find you and puts you in a more dangerous place. Always stay inside the store and find a worker to help.",
+        "whatToRemember": "NEVER leave a store or building alone when you are separated from your parent. Stay inside, stay calm, and ask a worker for help.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

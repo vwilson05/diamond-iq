@@ -1,0 +1,63 @@
+{
+  "id": "rookie-hockey-line-changes",
+  "title": "Fresh Legs Win Games",
+  "sport": ["hockey"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["line change", "substitution", "fundamentals"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "11:00",
+    "score": { "home": 3, "away": 2 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have been on the ice for over a minute and your legs are getting tired. Your team just cleared the puck out of your zone and fresh teammates are on the bench ready to jump in. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Skate to the bench for a line change so fresh legs can take over", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stay on the ice but coast slowly to save energy", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stay on the ice and chase the puck even though your legs are dead", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart change!",
+        "explanation": "You got off the ice at the perfect time. Your fresh teammate jumped on with full energy and skated right into the play. Good teams make quick, smart line changes.",
+        "whatToRemember": "Hockey shifts should be about 45 seconds to a minute. When the puck is cleared and you are tired, get to the bench so a fresh teammate can take your spot.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Line Change", "definition": "When tired players skate to the bench and fresh players jump on to replace them, usually every 45 seconds to a minute" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Hanging on, but fading",
+        "explanation": "Coasting keeps you on the ice, but you are too tired to help much. You are taking up a spot that a fresh, faster teammate could be filling.",
+        "whatToRemember": "It is better to make a quick change than to stay on the ice at half speed. A tired player hurts the team more than an empty spot for two seconds.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too tired to keep up!",
+        "explanation": "Your dead legs could not keep up with the play. An opponent blew right past you because you were too slow, and they scored. If you had changed, a fresh teammate would have been there.",
+        "whatToRemember": "Never stay on too long when you are gassed. Tired legs lead to mistakes and getting beaten. Change when you can, not when it is too late.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

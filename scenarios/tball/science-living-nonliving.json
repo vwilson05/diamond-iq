@@ -1,0 +1,87 @@
+{
+  "id": "tball-science-living-nonliving",
+  "title": "Is It Alive?",
+  "sport": ["science"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "observe",
+  "tags": ["living", "nonliving", "classifying", "biology"],
+  "setup": {
+    "topic": "living vs nonliving",
+    "setting": "school garden",
+    "materials": "clipboard, pencil, garden with plants, rocks, insects, water fountain",
+    "question": "How can we tell if something is living or nonliving?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your class is in the school garden. Your teacher points to a flower, a rock, a ladybug, and a puddle of water. She asks, 'Which of these are living and which are nonliving? How can you tell?' What do you say?",
+      "choices": [
+        {
+          "id": "check-for-life-signs",
+          "text": "Living things grow, need food and water, and can make more of themselves. The flower and ladybug are living. The rock and puddle are nonliving.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "moving-means-alive",
+          "text": "Things that move are alive. The ladybug and the water are living because they both move.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "everything-outside-alive",
+          "text": "Everything in the garden is alive because it is part of nature.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Know the Signs of Life!",
+        "explanation": "You got it exactly right! Living things grow, need food and water, breathe, and can reproduce (make babies or seeds). The flower grows from a seed, needs water and sunlight, and makes new seeds. The ladybug eats, grows, breathes, and lays eggs. The rock and puddle do none of those things -- they are nonliving.",
+        "whatToRemember": "Living things grow, need food and water, breathe, and can reproduce. If it does not do those things, it is nonliving.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Living",
+            "definition": "Something that grows, needs food and water, breathes, and can make more of itself."
+          },
+          {
+            "term": "Nonliving",
+            "definition": "Something that does not grow, eat, breathe, or reproduce. Rocks and water are nonliving."
+          },
+          {
+            "term": "Reproduce",
+            "definition": "To make more of the same kind. Plants make seeds, animals have babies."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Movement Is Not Enough!",
+        "explanation": "Good try! The ladybug does move and it IS alive. But water moves too, and it is NOT alive. Water flows downhill, but it does not grow, eat, or have babies. And plants are alive even though they do not walk around! Movement is one clue, but the real signs of life are growing, needing food, breathing, and reproducing.",
+        "whatToRemember": "Moving does not always mean alive. Wind and water move but are not living. Look for growth, eating, and reproducing instead.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Not Everything in Nature Is Alive!",
+        "explanation": "Nature has both living and nonliving things. A rock is natural but it does not grow, eat, or breathe. A puddle is natural but it is not alive either. Scientists check for specific signs of life: Does it grow? Does it need food? Can it reproduce? Only things that do ALL of those things are living.",
+        "whatToRemember": "Being in nature does not make something alive. Check for the signs of life: growing, eating, breathing, and reproducing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

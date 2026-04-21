@@ -1,0 +1,65 @@
+{
+  "id": "minors-survival-dangerous-plants",
+  "title": "Leaves of Three, Let It Be",
+  "sport": ["survival"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["plants", "poison ivy", "identification", "wilderness hazards"],
+  "setup": {
+    "situation": "identifying dangerous plants on a trail",
+    "environment": "woodland trail with varied vegetation",
+    "resources": "observation skills",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are hiking through the woods and you need to go to the bathroom. You step just off the trail and notice the ground is covered with low green plants. Some of them have clusters of three shiny leaves each. You need to pick a spot to go, and you also realize you forgot to bring toilet paper. The three-leaved plants have big soft leaves. What do you do?",
+      "choices": [
+        { "id": "avoid-three-leaves", "text": "Stay far away from the three-leaved plants! Find a clear spot with no plants, and use a smooth, non-shiny leaf from a different plant or just drip-dry.", "nextNode": "outcome-great" },
+        { "id": "touch-carefully", "text": "Carefully step through the three-leaved plants but try not to touch them with your hands.", "nextNode": "outcome-okay" },
+        { "id": "use-leaves", "text": "Use the big three-leaved plants since they are soft and the right size.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Plant ID Pro!",
+        "explanation": "Those three shiny leaves are almost certainly poison ivy, and you were right to stay away. The saying 'Leaves of three, let it be' is the most important plant rule in the wilderness. Poison ivy, poison oak, and poison sumac all cause a painful, itchy rash that lasts for weeks. Every part of these plants is toxic -- leaves, stems, and roots. The oil that causes the rash can even stick to your clothes and shoes.",
+        "whatToRemember": "LEAVES OF THREE, LET IT BE. Poison ivy has three shiny leaves and grows as a ground cover or vine. Never touch, sit on, or use plants you cannot identify with certainty.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Poison Ivy", "definition": "A plant with three shiny leaves that causes a very itchy rash. It grows on the ground and as a vine on trees. The oil on it is called urushiol." },
+          { "term": "Leaves of Three", "definition": "The easy rule to remember: if a plant has three leaves grouped together, leave it alone. It could be poison ivy or poison oak." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Close for Comfort!",
+        "explanation": "Stepping through poison ivy, even carefully, is risky. The oil that causes the rash (called urushiol) can get on your shoes, pants, and socks. Later, when you touch those clothes, the oil transfers to your hands and anywhere else you touch. Even brushing against a leaf with your ankle can cause a rash. The safest approach is to give these plants plenty of space.",
+        "whatToRemember": "Poison ivy oil sticks to clothes and shoes. Even walking through it without touching it with your hands can spread the oil to your skin later. Give suspicious plants a WIDE berth.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Poison Ivy!",
+        "explanation": "Using poison ivy leaves would cause a severe, painful rash in a very sensitive area of your body. The rash would blister, itch intensely, and last for two to three weeks. In the wilderness, this kind of injury could make it very hard to walk or focus on survival tasks. The number one rule with plants you do not know: DO NOT TOUCH THEM. And definitely never use unknown plants on your skin.",
+        "whatToRemember": "NEVER use plants you cannot identify. If you are not 100 percent sure a plant is safe, do NOT touch it. Poison ivy rashes are painful and last weeks.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

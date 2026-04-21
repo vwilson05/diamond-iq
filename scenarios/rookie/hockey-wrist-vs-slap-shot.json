@@ -1,0 +1,63 @@
+{
+  "id": "rookie-hockey-wrist-vs-slap-shot",
+  "title": "Pick Your Shot",
+  "sport": ["hockey"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["wrist shot", "slap shot", "shooting", "fundamentals"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "7:00",
+    "score": { "home": 1, "away": 2 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You receive a pass near the goal and a defender is closing in fast. You only have a second to get a shot off. The goalie is standing tall but there is a gap between his pads. What kind of shot do you take?",
+      "choices": [
+        { "id": "best", "text": "Snap a quick wrist shot low through the gap between the goalie's pads", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Wind up for a big slap shot aimed at the top corner", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try a slap shot but rush it and barely lift the stick off the ice", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "What a snipe! Goal!",
+        "explanation": "A wrist shot is quicker to release than a slap shot. Because the defender was closing in fast, the quick wrist shot found the gap before the goalie could squeeze his pads together.",
+        "whatToRemember": "When you are close to the net and need a quick release, use a wrist shot. Save the big slap shot for when you have more time and space.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Wrist Shot", "definition": "A quick, accurate shot where you flick your wrists to push the puck off your stick blade. It is faster to release than a slap shot." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Blocked! But good power",
+        "explanation": "A slap shot is powerful, but the big windup took too long. The defender got their stick in the way and blocked your shot before it reached the net.",
+        "whatToRemember": "Slap shots need time and space. When a defender is right on top of you, a quick wrist shot is usually the smarter choice.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Whiff! The puck barely moved",
+        "explanation": "A rushed slap shot where you do not make clean contact just dribbles the puck forward. The defender easily picked it up and cleared the zone.",
+        "whatToRemember": "If you do not have time for a full windup, do not try a slap shot. A clean wrist shot is always better than a bad slap shot.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

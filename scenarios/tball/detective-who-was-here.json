@@ -1,0 +1,65 @@
+{
+  "id": "tball-detective-who-was-here",
+  "title": "Who Was in the Garden?",
+  "sport": ["detective"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "deduction",
+  "tags": ["who-was-here", "clue-finder", "deduction", "observation"],
+  "setup": {
+    "case": "The Garden Visitor",
+    "setting": "school garden",
+    "suspects": 3,
+    "cluesFound": 2
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone picked the biggest tomato from the school garden without asking! You find two clues: a yellow hair ribbon on the ground near the tomato plant, and small shoe prints in the dirt. Three kids were near the garden today: Lily (who wears a yellow ribbon), Ben (who wears a blue cap), and Rosa (who wears red shoes). Who do you think visited the garden?",
+      "choices": [
+        { "id": "match-clues", "text": "It was probably Lily because the yellow ribbon matches the one she always wears.", "nextNode": "outcome-great" },
+        { "id": "ask-everyone", "text": "Ask all three kids if they went into the garden.", "nextNode": "outcome-okay" },
+        { "id": "blame-ben", "text": "Blame Ben because he is always hungry.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "The Ribbon Was the Key Clue!",
+        "explanation": "You matched the yellow ribbon to Lily, and when you asked her, she said she did pick the tomato because it looked so ripe! She did not know she had to ask first. The ribbon she dropped was proof she was there. You used the clue to figure out who visited the garden without guessing!",
+        "whatToRemember": "When you find something left behind, think about who it belongs to. That tells you who was there!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Left Behind", "definition": "Something a person drops or forgets at a place, which shows they were there." },
+          { "term": "Who Was Here", "definition": "The detective question that asks which person visited a place, using clues they left behind." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Asking Works, But Clues Are Faster!",
+        "explanation": "You asked everyone, and Lily said she picked the tomato. That worked! But what if nobody admitted it? The yellow ribbon on the ground already told you Lily was there. Next time, try using the clues first -- they are faster and more reliable than asking.",
+        "whatToRemember": "Clues left behind can answer the question 'who was here?' even before you ask anyone.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Fair -- Use the Clues!",
+        "explanation": "Blaming Ben because he is hungry is not using evidence! There was nothing at the garden that pointed to Ben. The yellow ribbon belonged to Lily, not Ben. A good detective never blames someone just because of what they think about that person. Always use the clues!",
+        "whatToRemember": "Never blame someone without clues that point to them. Use the evidence you find, not just what you think about a person.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "majors-survival-first-aid-basics",
+  "title": "Trail First Aid",
+  "sport": ["survival"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["first aid", "cuts", "sprains", "wound care"],
+  "setup": {
+    "situation": "friend cuts their hand on a rock while hiking",
+    "environment": "rocky trail by a river",
+    "resources": "water bottle, clean bandana, first aid kit in pack",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your friend slipped on a wet rock by the river and cut their palm on a sharp edge. The cut is bleeding and about two inches long. Your friend is upset and holding their hand. You have a water bottle, a clean bandana, and a small first aid kit in your backpack with bandages and antiseptic wipes. Your group leader is about five minutes behind you on the trail. What do you do?",
+      "choices": [
+        { "id": "proper-first-aid", "text": "Have your friend press the clean bandana firmly on the cut to stop the bleeding. Rinse the wound with clean water, use an antiseptic wipe, then bandage it. Tell your leader when they catch up.", "nextNode": "outcome-great" },
+        { "id": "rinse-in-river", "text": "Tell your friend to rinse the cut in the river water to clean it, then wrap it with the bandana.", "nextNode": "outcome-okay" },
+        { "id": "ignore-it", "text": "Tell your friend it is just a small cut and they should keep hiking. It will stop bleeding on its own.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "First Aid Hero!",
+        "explanation": "You followed proper first aid steps perfectly. Step one is always STOP THE BLEEDING by applying firm pressure with a clean cloth. Step two is CLEAN THE WOUND with clean water to remove dirt and germs. Step three is PROTECT THE WOUND with antiseptic and a bandage to prevent infection. Telling your group leader is also important so they can decide if the cut needs more medical attention.",
+        "whatToRemember": "For cuts: 1) Apply PRESSURE with a clean cloth to stop bleeding. 2) CLEAN the wound with clean water. 3) Apply antiseptic and BANDAGE it. 4) Tell an adult. Always use clean water, not river water.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Direct Pressure", "definition": "Pressing firmly on a wound with a clean cloth to stop bleeding. Keep steady pressure for several minutes without peeking." },
+          { "term": "Antiseptic", "definition": "A substance that kills germs on a wound to prevent infection. Antiseptic wipes and ointments are found in most first aid kits." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Water Source!",
+        "explanation": "Rinsing the cut is a good idea, but river water is full of bacteria and could cause a serious infection. Streams and rivers have germs from animals, soil, and decomposing material. Always use clean water from your bottle to rinse a wound. Also, you should apply pressure FIRST to stop the bleeding before rinsing. The bandana wrap is helpful, but antiseptic from the first aid kit would help prevent infection too.",
+        "whatToRemember": "NEVER clean a wound with river or lake water -- it is full of bacteria. Use clean water from your bottle. Stop the bleeding FIRST with pressure, then clean, then bandage.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Every Cut Needs Care!",
+        "explanation": "Ignoring a bleeding cut on the trail is dangerous. A two-inch cut can lose a lot of blood and get dirt and germs in it, leading to a serious infection. In the wilderness, infections are especially dangerous because you are far from a hospital. Any wound that breaks the skin needs to be cleaned and bandaged. Always take injuries seriously in the backcountry -- small problems can become big problems fast when help is far away.",
+        "whatToRemember": "EVERY wound needs attention in the wilderness, no matter how small it seems. Clean it, bandage it, and tell an adult. Small untreated cuts can become serious infections when you are far from medical help.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

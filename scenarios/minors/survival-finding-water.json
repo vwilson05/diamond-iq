@@ -1,0 +1,65 @@
+{
+  "id": "minors-survival-finding-water",
+  "title": "Finding Safe Water",
+  "sport": ["survival"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "safety",
+  "tags": ["water", "purification", "dehydration", "wilderness"],
+  "setup": {
+    "situation": "running low on drinking water while lost",
+    "environment": "wooded valley with visible stream",
+    "resources": "empty water bottle, metal cup",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has been lost for most of the day and your water bottles are almost empty. You found a spot to camp for the night near a stream. The water in the stream is flowing and looks clear. You have an empty water bottle and a metal camping cup. Everyone is thirsty. How do you get safe drinking water?",
+      "choices": [
+        { "id": "boil-water", "text": "Collect stream water in the metal cup, build a small fire, and boil the water for at least one minute before drinking it.", "nextNode": "outcome-great" },
+        { "id": "drink-stream", "text": "Fill your bottles from the stream and drink it since it is flowing and clear.", "nextNode": "outcome-okay" },
+        { "id": "wait-for-rescue", "text": "Do not drink any water and wait for rescue -- you do not want to get sick.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Water Purification Expert!",
+        "explanation": "Boiling water is one of the most reliable ways to make it safe to drink. Heating water to a rolling boil for one minute kills bacteria, viruses, and parasites that could make you very sick. Using the metal cup over a small fire works perfectly. Let the water cool down before drinking. In a survival situation, water is your second priority after shelter -- you can only survive about three days without it.",
+        "whatToRemember": "Boil water for at least ONE MINUTE at a rolling boil to kill germs. In survival, water is priority number two (after shelter). You can survive about three days without water.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Rolling Boil", "definition": "When water is bubbling hard and fast, not just a few small bubbles. One minute at a rolling boil kills the germs that make you sick." },
+          { "term": "Water Purification", "definition": "Making water safe to drink by killing or removing harmful germs. Boiling, filtering, and purification tablets are the three main methods." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Risky Choice!",
+        "explanation": "Flowing, clear water looks safe but can still contain invisible germs like Giardia and E. coli that cause serious stomach sickness -- cramps, vomiting, and diarrhea. Getting sick from bad water in a survival situation makes everything worse because you lose water even faster. However, if you have NO way to purify water and are severely dehydrated, drinking untreated water may be necessary as a last resort. But always try to boil or purify first.",
+        "whatToRemember": "Clear-looking water can still have invisible germs. ALWAYS purify water if you can -- boiling is the easiest method. Only drink untreated water as a last resort if you are dangerously dehydrated.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Dehydration Is Dangerous!",
+        "explanation": "Going without water is more dangerous than you might think. After just one day without water, you become weak, confused, and dizzy. After three days, it becomes life-threatening. You have a metal cup and can build a fire to boil the stream water, which makes it safe to drink. In survival, you must solve problems with what you have. Not drinking when you have a way to purify water is a dangerous choice.",
+        "whatToRemember": "Dehydration can make you too weak and confused to help yourself. If you have a way to purify water (boiling, filter, tablets), USE IT. Going without water is more dangerous than you think.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

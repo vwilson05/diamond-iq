@@ -1,0 +1,87 @@
+{
+  "id": "majors-science-drawing-conclusions",
+  "title": "What Does the Evidence Say?",
+  "sport": ["science"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "analyze",
+  "tags": ["conclusions", "evidence", "reasoning", "analysis"],
+  "setup": {
+    "topic": "drawing conclusions from data",
+    "setting": "classroom after completing plant experiment",
+    "materials": "data table showing plant growth under three light conditions over 4 weeks",
+    "question": "Which light condition helped plants grow the tallest?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team grew plants under three conditions for four weeks: full sunlight, partial shade, and full darkness. Your data shows: full sun plants averaged 18 cm, partial shade averaged 11 cm, and darkness averaged 2 cm (and those plants were yellow and weak). Your teacher says, 'Write your conclusion.' What do you write?",
+      "choices": [
+        {
+          "id": "evidence-based-conclusion",
+          "text": "Our data shows that plants in full sunlight grew the tallest (18 cm), followed by partial shade (11 cm), and darkness (2 cm). This supports our hypothesis that plants need sunlight to grow well. The dark plants barely grew because they could not photosynthesize without light.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "vague-conclusion",
+          "text": "Plants like sunlight. The sun ones grew the most.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "overreach-conclusion",
+          "text": "This proves that all living things need sunlight to survive.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "A Strong, Evidence-Based Conclusion!",
+        "explanation": "Your conclusion did three important things. First, you stated the specific results with numbers from your data. Second, you connected the results back to your hypothesis. Third, you explained WHY the results make sense scientifically -- plants need light for photosynthesis. This is exactly how professional scientists write conclusions: claim, evidence, reasoning.",
+        "whatToRemember": "A good conclusion has three parts: state your results with data, connect to your hypothesis, and explain why the results make sense.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Conclusion",
+            "definition": "A statement about what your experiment results mean, supported by your data."
+          },
+          {
+            "term": "Evidence",
+            "definition": "The data and observations from your experiment that support your conclusion."
+          },
+          {
+            "term": "Photosynthesis",
+            "definition": "The process plants use to make food from sunlight, water, and carbon dioxide."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "True, But Where Is Your Evidence?",
+        "explanation": "Your conclusion is not wrong, but it is missing the most important part: the specific data! How much taller were the sun plants? What happened to the dark plants? Without numbers, your conclusion is just an opinion. Anyone could say 'plants like sunlight.' A scientist backs up their claim with the exact measurements from their experiment.",
+        "whatToRemember": "Always include specific numbers and data in your conclusion. 'The sun plants grew 18 cm' is much stronger than 'the sun plants grew the most.'",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Whoa! That Goes Way Too Far!",
+        "explanation": "You only tested plants, not ALL living things. Many animals live in dark caves or deep oceans where sunlight never reaches! Your experiment can only support conclusions about the specific thing you tested. Saying 'all living things need sunlight' is called overgeneralizing -- you are stretching your data to cover things you did not actually test. Stick to what your evidence actually shows.",
+        "whatToRemember": "Only draw conclusions about what you actually tested. Do not stretch your data to cover things you did not study. That is called overgeneralizing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

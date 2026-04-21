@@ -1,0 +1,63 @@
+{
+  "id": "the-show-hockey-protecting-lead",
+  "title": "Lock It Down",
+  "sport": ["hockey"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "defense",
+  "tags": ["protecting lead", "late game", "clock management", "elite"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "2:00",
+    "score": { "home": 3, "away": 2 },
+    "situation": "even-strength",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning by one goal with two minutes left. The other team is pressing hard and their coach is about to pull the goalie. You are a forward and your team just got the puck. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Chip the puck deep into their zone to kill time and force them to retrieve it before they can pull the goalie", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to score another goal by skating the puck into their zone", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Pass the puck back and forth in your own zone to try to keep possession", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clock is ticking! Smart play!",
+        "explanation": "Chipping the puck deep forced the other team to skate all the way back to get it. That ate up precious seconds and delayed their goalie pull. Every second that ticks off the clock is in your favor when you are ahead.",
+        "whatToRemember": "When protecting a lead late in the game, get the puck deep into the other team's zone. This wastes their time, delays the goalie pull, and forces them to start their attack from further away. Time is your friend.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Icing the Puck", "definition": "Shooting the puck from your side of center ice all the way past the other team's goal line. Normally this causes a stoppage, but it is allowed when your team is killing a penalty." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Turnover at the blue line!",
+        "explanation": "Trying to score is aggressive, but the other team was ready. They stole the puck at the blue line and now they are attacking with urgency. You could have killed time instead of giving them a chance.",
+        "whatToRemember": "When you are ahead late, you do not need to score again. Playing safe and burning clock is more important. A turnover at the wrong time can lead to the tying goal.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! Tie game!",
+        "explanation": "Passing the puck around in your own zone is extremely risky. The other team forechecked hard, intercepted a pass, and scored to tie the game with a minute left. You needed to get that puck out of your zone.",
+        "whatToRemember": "Never pass the puck around in your own zone when protecting a lead. One bad pass and the other team has a scoring chance right in front of your net. Get it deep and get it out.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

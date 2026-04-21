@@ -1,0 +1,87 @@
+{
+  "id": "minors-science-recording-data",
+  "title": "Keep Track of Your Data!",
+  "sport": ["science"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "experiment",
+  "tags": ["data", "recording", "tables", "accuracy"],
+  "setup": {
+    "topic": "recording data",
+    "setting": "classroom experiment station",
+    "materials": "bouncy ball, meter stick, data table, pencil",
+    "question": "How high does a ball bounce when dropped from different heights?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are testing how high a bouncy ball bounces when dropped from 50 cm, 100 cm, and 150 cm. You drop the ball three times from each height. Your teacher says, 'Record your data carefully!' How do you keep track of the results?",
+      "choices": [
+        {
+          "id": "organized-table",
+          "text": "Make a data table with columns for drop height, trial 1, trial 2, trial 3, and average. Record each bounce height right after you measure it.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "messy-notes",
+          "text": "Scribble numbers on a piece of paper as you go and try to remember which number goes with which drop.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "memory-only",
+          "text": "Don't write anything down and try to remember all nine bounces in your head.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfectly Organized Data!",
+        "explanation": "Your data table made it easy to see patterns. The ball bounced about 25 cm from 50 cm, about 52 cm from 100 cm, and about 78 cm from 150 cm. You can clearly see that higher drops make higher bounces! Running three trials and averaging them makes your results more reliable because one trial might have a weird bounce. Organized data is the key to finding real patterns.",
+        "whatToRemember": "Use a data table to stay organized. Run multiple trials and calculate the average for more reliable results.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Data Table",
+            "definition": "An organized chart where you record your measurements in rows and columns."
+          },
+          {
+            "term": "Trial",
+            "definition": "One run of an experiment. Scientists do multiple trials to make sure their results are consistent."
+          },
+          {
+            "term": "Average",
+            "definition": "Add up all your numbers and divide by how many there are. It gives you a typical value."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Wrote It Down, But It Is a Mess!",
+        "explanation": "You have numbers on your paper, but they are scattered everywhere. Which number was from the 100 cm drop? Was that 52 from trial 1 or trial 2? When your data is messy, it is really hard to find patterns or share your results with others. A simple table with labeled rows and columns would have made everything clear.",
+        "whatToRemember": "Messy notes lead to confusion. Set up a clean data table BEFORE you start experimenting so you know exactly where each number goes.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Forgot the Numbers! Data is Lost!",
+        "explanation": "Nine different measurements are way too many to keep in your head! By the time you finished the last drop, you forgot what happened on the first one. All that work is lost, and you cannot draw any conclusions. Scientists ALWAYS write down their data because human memory is not reliable enough for exact numbers.",
+        "whatToRemember": "Never rely on memory for data. Write down every measurement right away. If it is not written down, it did not happen!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

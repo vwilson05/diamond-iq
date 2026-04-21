@@ -1,0 +1,63 @@
+{
+  "id": "majors-hockey-pulling-goalie",
+  "title": "When to Pull the Goalie",
+  "sport": ["hockey"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["pulling goalie", "extra attacker", "late game", "advanced"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "1:30",
+    "score": { "home": 2, "away": 3 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is losing by one goal with a minute and a half left. Your coach is deciding whether to pull the goalie for an extra skater. Your team just won a face-off in the offensive zone. What should the coach do?",
+      "choices": [
+        { "id": "best", "text": "Pull the goalie now while your team has the puck in the offensive zone to create a six-on-five advantage", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Wait until there is only 30 seconds left to pull the goalie", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Keep the goalie in and hope to score five-on-five", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Extra attacker ties it up!",
+        "explanation": "Pulling the goalie gave your team a six-on-five advantage. The extra skater created confusion for the defense, and a quick pass to the open player at the back post tied the game with a minute left.",
+        "whatToRemember": "When you are losing late in the game, pulling the goalie gives you an extra attacker. The best time to pull is when your team has control of the puck in the offensive zone. Yes, your net is empty, but you need a goal more than you need a goalie.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Pulling the Goalie", "definition": "When a team removes their goalie from the ice and sends out an extra skater to create a one-player advantage, usually when losing late in the game" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Barely any time left",
+        "explanation": "Waiting until 30 seconds left gave your team very little time to use the extra attacker. You pulled the goalie, but only got one shot off before time ran out. More time with six skaters means more chances.",
+        "whatToRemember": "Do not wait too long to pull the goalie. The earlier you pull, the more time your six skaters have to create a goal. Most coaches pull with one to two minutes left.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Time runs out. You lose.",
+        "explanation": "Playing five-on-five when you are behind in the final minutes is not enough. The other team just played defense and ran out the clock. You needed that extra skater to create a scoring chance.",
+        "whatToRemember": "When you are losing late in the game, keeping the goalie in is too safe. You have to take risks to tie it up. An empty net goal against does not matter if you were already going to lose.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

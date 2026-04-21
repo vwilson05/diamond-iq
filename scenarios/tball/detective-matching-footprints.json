@@ -1,0 +1,65 @@
+{
+  "id": "tball-detective-matching-footprints",
+  "title": "Whose Footprints Are Those?",
+  "sport": ["detective"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "evidence",
+  "tags": ["matching", "footprints", "clue-finder", "patterns"],
+  "setup": {
+    "case": "The Muddy Footprints Mystery",
+    "setting": "school hallway",
+    "suspects": 3,
+    "cluesFound": 2
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone tracked muddy footprints all through the hallway! The janitor needs to know who did it so they can help clean up. You can see the footprints are small with a zigzag pattern on the bottom. Three kids were outside at recess: Sam has big rain boots, Mia has sneakers with zigzag bottoms, and Jack has sandals. How do you figure out who it was?",
+      "choices": [
+        { "id": "match-shoes", "text": "Look at the bottom of each kid's shoes and find the one that matches the zigzag footprint.", "nextNode": "outcome-great" },
+        { "id": "ask-who", "text": "Ask all three kids if they walked through the mud.", "nextNode": "outcome-okay" },
+        { "id": "blame-biggest", "text": "Blame Sam because he has the biggest boots.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Match! You Found the Right Shoes!",
+        "explanation": "You checked the bottom of everyone's shoes and found that Mia's sneakers have the same zigzag pattern as the footprints! The size was small too, which matched her shoes. By matching the pattern, you solved the mystery with real evidence. Mia didn't even realize she had tracked in mud!",
+        "whatToRemember": "Match the clue to the evidence. If you find a footprint, look for the shoe that matches its pattern and size.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Matching", "definition": "Finding two things that look the same, like a footprint and the shoe that made it." },
+          { "term": "Evidence", "definition": "Something real you can see or touch that proves what happened." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Asking Is Good, But Check the Shoes!",
+        "explanation": "You asked the kids, but all three said they did not walk through mud. Sometimes people forget or do not realize what they did! It is better to check the shoes yourself. The footprint pattern is a clue that does not lie -- it will match one pair of shoes perfectly.",
+        "whatToRemember": "People might not remember what they did. Physical clues like footprints are more reliable than asking.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Person! The Footprints Were Small!",
+        "explanation": "Sam has the biggest boots, but the footprints were small with a zigzag pattern. Sam's boots are big with a flat bottom -- they do not match at all! You blamed the wrong person without checking the evidence. A detective always matches the clue to the proof before deciding.",
+        "whatToRemember": "Never blame someone without matching the evidence. Big boots make big prints, not small zigzag ones!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

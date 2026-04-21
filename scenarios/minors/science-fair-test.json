@@ -1,0 +1,87 @@
+{
+  "id": "minors-science-fair-test",
+  "title": "The Fair Test Challenge",
+  "sport": ["science"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "experiment",
+  "tags": ["variables", "fair-test", "controlled-experiment", "scientific-method"],
+  "setup": {
+    "topic": "fair tests and variables",
+    "setting": "science classroom",
+    "materials": "three identical paper towel brands, cups of water, ruler, timer",
+    "question": "Which brand of paper towel absorbs the most water?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team wants to test which of three paper towel brands absorbs the most water. You have Brand A, Brand B, and Brand C. Your teacher says, 'Make sure it is a fair test!' How do you set it up?",
+      "choices": [
+        {
+          "id": "control-variables",
+          "text": "Use the same size piece of each brand, dip each one in the same amount of water for the same amount of time, then measure how much water is left in each cup.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "different-sizes",
+          "text": "Tear off whatever size piece you grab and dunk each one in water for as long as you want.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "test-one-brand",
+          "text": "Only test Brand A since it looks the thickest and is probably the best.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "A Perfectly Controlled Experiment!",
+        "explanation": "You changed only ONE variable -- the brand of paper towel. Everything else was kept the same: same size pieces, same amount of water, same dipping time. Those things you kept the same are called controlled variables. The one thing you changed (the brand) is the independent variable. The amount of water absorbed is the dependent variable -- it is what you measured. This is exactly how real scientists design experiments!",
+        "whatToRemember": "In a fair test, change only ONE thing (independent variable), keep everything else the same (controlled variables), and measure the result (dependent variable).",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Independent Variable",
+            "definition": "The ONE thing you change on purpose in an experiment."
+          },
+          {
+            "term": "Controlled Variable",
+            "definition": "Things you keep the same so the test is fair."
+          },
+          {
+            "term": "Dependent Variable",
+            "definition": "The thing you measure or observe to get your results."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not a Fair Test! Too Many Things Changed!",
+        "explanation": "If one piece is bigger, of course it absorbs more water -- but that does not mean it is the better brand! And if you dunk one piece longer, it has more time to soak up water. You changed the size, the time, AND the brand. With so many differences, you cannot tell which brand is actually better. A fair test changes only one thing at a time.",
+        "whatToRemember": "Keep everything the same except the ONE thing you are testing. Different sizes or different times make the test unfair.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Cannot Compare With Only One Brand!",
+        "explanation": "If you only test Brand A, how do you know if it is the best? Maybe Brand B absorbs twice as much water! Looking thicker does not always mean it works better. You need to test ALL three brands under the same conditions to compare them fairly. That is the whole point of an experiment -- to compare and find out what really works best.",
+        "whatToRemember": "An experiment needs something to compare to. Test all options under the same conditions to find the real winner.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

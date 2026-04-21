@@ -1,0 +1,66 @@
+{
+  "id": "minors-detective-motive-means-opportunity",
+  "title": "Who Let the Class Hamster Out?",
+  "sport": ["detective"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "investigation",
+  "tags": ["motive", "means", "opportunity", "investigator", "logic"],
+  "setup": {
+    "case": "The Escaped Hamster",
+    "setting": "classroom",
+    "suspects": 3,
+    "cluesFound": 4
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The class hamster, Biscuit, is out of her cage! The cage door is open and Biscuit is found hiding under the bookshelf. Three suspects had access during morning setup: Kayla wanted to hold Biscuit (MOTIVE) and knows how to open the cage (MEANS) and was in the room alone for 5 minutes (OPPORTUNITY). Diego also wanted to hold Biscuit (MOTIVE) but does not know how the cage latch works (no MEANS). Ava knows how the latch works (MEANS) but she is scared of hamsters and would never open the cage (no MOTIVE). Who most likely opened the cage?",
+      "choices": [
+        { "id": "all-three", "text": "Kayla is the most likely suspect because she had all three: motive (wanted to hold Biscuit), means (knows the latch), and opportunity (was alone in the room).", "nextNode": "outcome-great" },
+        { "id": "pick-diego", "text": "Diego, because he wanted to hold Biscuit the most.", "nextNode": "outcome-okay" },
+        { "id": "pick-ava", "text": "Ava, because she knows how the latch works.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "All Three Check Out! Motive, Means, and Opportunity!",
+        "explanation": "Kayla had all three things a detective looks for. MOTIVE: She wanted to hold the hamster. MEANS: She knew how to open the cage latch. OPPORTUNITY: She was alone in the room. Diego wanted to hold Biscuit but did not know how the latch works. Ava knew the latch but would never open it because she is scared of hamsters. Only Kayla had all three. She admitted she opened the cage to pet Biscuit and forgot to close it!",
+        "whatToRemember": "A strong suspect needs all three: MOTIVE (why they would do it), MEANS (how they could do it), and OPPORTUNITY (when they could do it).",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Motive", "definition": "The reason WHY someone would do something. What did they want?" },
+          { "term": "Means", "definition": "HOW someone could do it. Did they have the skill, tool, or ability?" },
+          { "term": "Opportunity", "definition": "WHEN someone could do it. Were they in the right place at the right time?" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Motive Is Not Enough!",
+        "explanation": "Diego wanted to hold Biscuit, so he had motive. But he does not know how the cage latch works! Without the means to open the cage, he could not have done it even if he wanted to. A suspect needs motive AND means AND opportunity. Kayla had all three.",
+        "whatToRemember": "Wanting to do something (motive) is not enough. The suspect also needs the ability (means) and the chance (opportunity).",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Means Without Motive Does Not Work!",
+        "explanation": "Ava knows how the latch works, so she has the means. But she is scared of hamsters and would NEVER open that cage! She has zero motive. Just because someone CAN do something does not mean they DID. You need to check for motive too. Kayla had the motive, the means, AND the opportunity.",
+        "whatToRemember": "Being able to do something (means) does not mean someone did it. Always check for motive -- did they have a reason?",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

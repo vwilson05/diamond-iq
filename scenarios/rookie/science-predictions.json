@@ -1,0 +1,83 @@
+{
+  "id": "rookie-science-predictions",
+  "title": "Make a Prediction!",
+  "sport": ["science"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "experiment",
+  "tags": ["predictions", "hypothesis", "testing", "ramps"],
+  "setup": {
+    "topic": "making predictions",
+    "setting": "classroom with ramp setup",
+    "materials": "wooden ramp, toy car, books to change ramp height",
+    "question": "Will a toy car go farther if the ramp is higher?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher sets up a ramp using a board and a stack of books. She rolls a toy car down the ramp and it goes about two feet across the floor. Now she asks, 'What do you think will happen if I add more books to make the ramp taller?' What do you do?",
+      "choices": [
+        {
+          "id": "predict-then-test",
+          "text": "Say 'I predict the car will go farther because a taller ramp means the car goes faster.' Then test it to check.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-guess",
+          "text": "Say 'I think it will go farther' but don't explain why.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "refuse-predict",
+          "text": "Say 'I can't predict anything until I see what happens.'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Prediction With a Reason!",
+        "explanation": "You made a prediction AND explained your thinking. That is called a hypothesis! When you tested it, the car did go farther with a taller ramp because gravity pulled it faster down the steeper slope. The best predictions include a reason -- 'I think THIS will happen BECAUSE of THAT.' Then you test to see if you were right!",
+        "whatToRemember": "A good prediction has two parts: what you think will happen AND why you think so. Then test it!",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Prediction",
+            "definition": "A guess about what will happen, based on what you already know."
+          },
+          {
+            "term": "Hypothesis",
+            "definition": "A prediction that includes a reason why. 'I think X will happen because Y.'"
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Guess, But Why?",
+        "explanation": "Your prediction was correct -- the car did go farther! But you did not explain why. Scientists always try to give a reason for their predictions. Next time, try adding 'because' to your answer. 'I think the car will go farther BECAUSE the ramp is steeper and the car will move faster.' That turns a guess into a real hypothesis!",
+        "whatToRemember": "Always add 'because' to your prediction. A prediction with a reason is much more powerful than a guess.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Predictions Are a Key Part of Science!",
+        "explanation": "Scientists make predictions all the time, even when they are not sure. A prediction is your best guess based on what you already know. You know that things roll faster on steep hills, right? That is enough to predict that a taller ramp will make the car go farther! It is totally okay if your prediction is wrong -- that is how you learn!",
+        "whatToRemember": "You do not need to be sure to make a prediction. Use what you already know to make your best guess, then test it.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

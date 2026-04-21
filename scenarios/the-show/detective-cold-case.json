@@ -1,0 +1,65 @@
+{
+  "id": "the-show-detective-cold-case",
+  "title": "The Cold Case of the Missing Time Capsule",
+  "sport": ["detective"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "investigation",
+  "tags": ["cold-case", "master-detective", "old-evidence", "re-investigation"],
+  "setup": {
+    "case": "The Missing Time Capsule",
+    "setting": "school grounds and archives",
+    "suspects": 3,
+    "cluesFound": 6
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Last year's 5th grade class buried a time capsule in the school garden, but when this year's class went to dig it up, it was GONE! This is a cold case -- it happened sometime in the past year and the trail is old. You have limited evidence: (1) Photos from the burial show the exact spot. (2) The garden was replanted in October and the landscaper did not report finding anything. (3) A 4th grader last year told a friend she 'knew where the treasure was buried.' (4) The garden shed log shows it was checked out three times over the summer by the summer camp program. (5) There is a filled-in hole about 4 feet from the original burial spot. (6) No one has a clear memory of exactly when it disappeared. How do you approach this cold case?",
+      "choices": [
+        { "id": "re-examine-evidence", "text": "Re-examine all old evidence with fresh eyes: The filled-in hole 4 feet away might mean someone dug it up and reburied it in the wrong spot, or the landscaper accidentally moved it in October. Check the landscaper's records and dig at the nearby hole before chasing suspects.", "nextNode": "outcome-great" },
+        { "id": "chase-suspect", "text": "Find the 4th grader who talked about knowing where the 'treasure' was and confront her.", "nextNode": "outcome-okay" },
+        { "id": "give-up", "text": "It has been too long and the evidence is too old. Declare the case unsolvable.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Cold Case Cracked! Fresh Eyes on Old Evidence!",
+        "explanation": "You re-examined the evidence and focused on the filled-in hole 4 feet away. When you checked the landscaper's October records, he noted 'moved a metal box that was in the way of new flower beds.' He reburied it nearby! The time capsule was right there, 4 feet from its original spot, perfectly safe. Nobody stole it. Cold cases are solved by re-examining old evidence without assumptions. The filled-in hole and the landscaper's visit in October were the key connections everyone missed.",
+        "whatToRemember": "Cold cases need fresh eyes. Re-examine all old evidence without assuming what happened. Sometimes the answer is simpler than a theft -- look for innocent explanations too.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Cold Case", "definition": "A case that happened a long time ago where the investigation stalled. Cold cases can be re-opened with fresh perspectives." },
+          { "term": "Re-Examination", "definition": "Looking at old evidence again with fresh eyes, often noticing things that were missed the first time." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Chasing Old Leads Without Context!",
+        "explanation": "The 4th grader who mentioned 'treasure' was just excited about the time capsule -- lots of kids knew about it. Confronting her a year later based on one comment is not strong detective work. Meanwhile, the filled-in hole and the landscaper's October visit were sitting right there as evidence. In cold cases, physical evidence ages better than memories and hearsay. Start with what you can verify -- the ground, the records, the logs.",
+        "whatToRemember": "In cold cases, focus on physical evidence and records first. Memories fade and old statements can be misleading without context.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Master Detectives Never Give Up on Cold Cases!",
+        "explanation": "The evidence may be old, but it is still there! The filled-in hole, the landscaper's records, the garden shed log -- these are all pieces that can be re-examined. Cold cases get solved all the time when someone looks at old evidence with fresh eyes. The time capsule was just 4 feet away, moved by the landscaper. Giving up means you will never know, and the answer might be right under your nose.",
+        "whatToRemember": "Never declare a case unsolvable. Cold cases need patience and a willingness to re-examine old evidence. The answer might be closer than you think.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

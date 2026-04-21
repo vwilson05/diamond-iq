@@ -1,0 +1,65 @@
+{
+  "id": "rookie-survival-dressing-for-weather",
+  "title": "Dress for the Weather",
+  "sport": ["survival"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "safety",
+  "tags": ["clothing", "weather", "layers", "preparation"],
+  "setup": {
+    "situation": "choosing what to wear for a cold morning hike",
+    "environment": "mountain trail in early spring",
+    "resources": "closet full of clothes",
+    "urgency": "low"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your family is going on a morning hike in the mountains. Right now it is chilly outside -- about 45 degrees. But your mom says it will warm up to 70 degrees by the afternoon. You need to pick what to wear. What do you choose?",
+      "choices": [
+        { "id": "layers", "text": "Wear a t-shirt, then a warm fleece over it, and bring a light jacket you can tie around your waist later.", "nextNode": "outcome-great" },
+        { "id": "warm-only", "text": "Wear a big heavy winter coat so you stay warm the whole time.", "nextNode": "outcome-okay" },
+        { "id": "light-clothes", "text": "Just wear shorts and a t-shirt since it will be warm later.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Layer Pro!",
+        "explanation": "Wearing layers is the smartest way to handle changing weather. In the cold morning, your fleece and jacket keep you warm. As the day heats up, you can take off your jacket and tie it around your waist. If it gets really warm, you can take off the fleece too. Layers let you adjust to whatever the weather does.",
+        "whatToRemember": "DRESS IN LAYERS for outdoor activities. Start with a light base layer, add a warm middle layer, and bring an outer layer. You can always take layers off, but you cannot put on what you did not bring.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Layering", "definition": "Wearing several thin layers of clothing instead of one thick layer. This lets you add or remove layers as the temperature changes." },
+          { "term": "Base Layer", "definition": "The thin layer of clothing closest to your skin. It should be comfortable and keep sweat away from your body." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Hot Later!",
+        "explanation": "A heavy winter coat will keep you warm in the morning, but by afternoon you will be way too hot. When you overheat while hiking, you sweat a lot and can get tired and dizzy. A big coat is also hard to carry once you take it off. Layers give you the same warmth in the morning but let you cool down easily as it warms up.",
+        "whatToRemember": "A heavy coat is hard to carry and makes you overheat when it warms up. Multiple lighter layers work better because you can adjust as the temperature changes.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way Too Cold!",
+        "explanation": "Shorts and a t-shirt might be fine at 70 degrees, but at the start of the hike it is only 45 degrees. That is cold enough to make you shiver, and shivering uses up your energy fast. When your body gets too cold, you cannot think clearly and your muscles stop working well. Always dress for the coldest temperature you will face, and bring layers you can remove.",
+        "whatToRemember": "Always dress for the COLDEST part of the day, not the warmest. You can take clothes off, but you cannot put on clothes you did not bring.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

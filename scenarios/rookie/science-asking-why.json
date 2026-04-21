@@ -1,0 +1,83 @@
+{
+  "id": "rookie-science-asking-why",
+  "title": "The Curious Scientist",
+  "sport": ["science"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "observe",
+  "tags": ["questions", "curiosity", "scientific-thinking"],
+  "setup": {
+    "topic": "asking why",
+    "setting": "playground after a rainstorm",
+    "materials": "notebook, pencil",
+    "question": "Why are there puddles in some spots but not others?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "After a big rainstorm, you notice puddles in some parts of the playground but not others. The blacktop has big puddles, the grassy hill has no puddles at all, and the sandbox is just damp. Your teacher asks, 'Why do you think the water collected in different ways?' What do you do?",
+      "choices": [
+        {
+          "id": "ask-and-think",
+          "text": "Ask questions like 'Does the ground soak up water in some places? Does water roll downhill?' Then look for clues.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "simple-answer",
+          "text": "Say 'It rained more on the blacktop' and leave it at that.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "no-interest",
+          "text": "Say 'I don't know' and go play on the swings.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Awesome Questions! You Think Like a Scientist!",
+        "explanation": "By asking 'why' and 'how' questions, you started figuring out the answer. Water cannot soak into hard blacktop, so it sits on top as puddles. Grass and soil absorb water like a sponge, so the hill has no puddles. Sand lets water drain straight through. Asking good questions is the first step of every scientific discovery!",
+        "whatToRemember": "Scientists always start by asking questions. 'Why does this happen?' and 'How does this work?' are the most powerful questions you can ask.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Absorb",
+            "definition": "To soak up a liquid. Soil and sand absorb water, but blacktop does not."
+          },
+          {
+            "term": "Scientific Question",
+            "definition": "A question that you can investigate and test to find the answer."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Nice Try, But Dig Deeper!",
+        "explanation": "It rained the same amount everywhere on the playground -- the rain did not pick favorites! The real reason is that different surfaces handle water differently. Blacktop is hard and water cannot soak in. Grass and dirt absorb water. If you had asked 'Why can't water soak into blacktop?' you would have been on the right track!",
+        "whatToRemember": "When your first answer seems too simple, ask another 'why' question. Keep digging until you find the real reason.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Missed a Great Mystery!",
+        "explanation": "Saying 'I don't know' is actually a great starting point -- but only if you follow it with 'Let me find out!' The puddle mystery had a cool answer: different materials soak up water differently. Scientists are curious people. They see something interesting and ask questions about it instead of walking away.",
+        "whatToRemember": "It is okay to not know the answer. But always try to ask a question and investigate instead of giving up!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "minors-detective-witness-interview",
+  "title": "The Cafeteria Spill Witness",
+  "sport": ["detective"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "interrogation",
+  "tags": ["interview", "witness", "investigator", "questioning"],
+  "setup": {
+    "case": "The Cafeteria Juice Spill",
+    "setting": "school cafeteria",
+    "suspects": 2,
+    "cluesFound": 3
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Someone spilled a huge cup of grape juice all over the science fair poster that your team worked on for weeks! Two kids were near the poster: Ryan and Tessa. You have one witness, Leo, who says he saw 'someone bump the table.' You need to interview Leo to get more useful information. How do you ask your questions?",
+      "choices": [
+        { "id": "open-questions", "text": "Ask open questions: 'What exactly did you see? Where were you standing? Which direction was the person facing? What happened right before the bump?'", "nextNode": "outcome-great" },
+        { "id": "leading-questions", "text": "Ask leading questions: 'Did you see Ryan bump the table? Ryan was standing right there, right?'", "nextNode": "outcome-okay" },
+        { "id": "skip-interview", "text": "Do not bother interviewing Leo since he already told you what he saw.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Expert Interview! You Got the Full Story!",
+        "explanation": "By asking open questions, Leo remembered more details. He was standing by the water fountain facing the poster table. He saw Tessa reach across the table for a napkin and her elbow bumped the cup. The juice spilled onto the poster. Leo did not mention this at first because he only said 'someone bumped the table.' Your open questions helped him remember the specific details without putting ideas in his head!",
+        "whatToRemember": "Ask OPEN questions that let witnesses tell their own story. Questions like 'What did you see?' get better answers than 'Did you see X do it?'",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Open Question", "definition": "A question that lets someone answer in their own words, like 'What did you see?' instead of 'Did you see the red car?'" },
+          { "term": "Leading Question", "definition": "A question that suggests the answer you want to hear, which can accidentally change what the witness remembers." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Leading Questions Can Trick Witnesses!",
+        "explanation": "When you asked 'Did you see Ryan bump the table?', Leo started to think maybe it WAS Ryan, even though he was not sure. Leading questions can change what a witness remembers! Leo actually saw Tessa bump the table, but your question about Ryan confused him. Always let witnesses tell their own story first.",
+        "whatToRemember": "Never put ideas in a witness's head with leading questions. Let them describe what they saw in their own words first.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Missed Key Details!",
+        "explanation": "Leo's first statement was vague -- 'someone bumped the table.' That is not enough to solve the mystery! If you had asked follow-up questions, Leo would have remembered it was Tessa reaching for a napkin. Witnesses often remember more when you ask them to think about specific details like where they were standing and what direction they were looking.",
+        "whatToRemember": "A witness's first answer is usually not their complete answer. Always ask follow-up questions to get more details.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

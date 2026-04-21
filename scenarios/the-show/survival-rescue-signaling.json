@@ -1,0 +1,65 @@
+{
+  "id": "the-show-survival-rescue-signaling",
+  "title": "Building a Rescue Signal",
+  "sport": ["survival"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "rescue",
+  "tags": ["rescue", "signaling", "fire signals", "ground markers"],
+  "setup": {
+    "situation": "need to create visible signals for aircraft search",
+    "environment": "forest camp near a large clearing",
+    "resources": "fire-building materials, bright clothing, rocks and branches",
+    "urgency": "critical"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is day three of being lost. You have a solid camp with shelter, fire, and water. Your group heard a search plane yesterday but it did not spot you because you were under the trees. You are near a large open clearing. You have fire-building supplies, two bright orange jackets, rocks, branches, and green leafy boughs. You need to create signals that a search plane flying high above can see. What do you build?",
+      "choices": [
+        { "id": "multiple-signals", "text": "In the clearing: build three signal fire pits in a triangle (add green boughs for smoke when a plane comes), lay out the bright jackets spread flat, and arrange rocks into a large X or SOS visible from above.", "nextNode": "outcome-great" },
+        { "id": "big-fire-only", "text": "Build one really big fire in the clearing and keep it burning all day so the smoke is always visible.", "nextNode": "outcome-okay" },
+        { "id": "wave-jackets", "text": "Wait in the clearing and wave the bright orange jackets when you hear a plane.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Rescue Signal Expert!",
+        "explanation": "You used every method available and that maximizes your chance of being found. Three fires in a triangle is the international distress signal. Adding green boughs (leafy branches) creates thick white smoke that is visible for miles against a dark forest background. Bright jackets spread flat create color contrast visible from the air. A large rock X or SOS (at least 10 feet tall letters) is visible to planes and stays in place even when you are not in the clearing. Multiple signal types means if one fails, the others still work.",
+        "whatToRemember": "Use MULTIPLE signal types: three fires in a triangle (international distress), green boughs for thick smoke, bright colors spread flat on the ground, and large ground-to-air markers (X or SOS) made from rocks or logs. Bigger is better -- make signals at least 10 feet across.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Three Fires in a Triangle", "definition": "The international distress signal. Three fires arranged in a triangle pattern tell aircraft that someone needs rescue." },
+          { "term": "Ground-to-Air Signal", "definition": "A large symbol made on the ground that can be seen by aircraft from above. X means 'need help' and SOS means 'save our souls' -- a universal call for rescue." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Start, But Not Enough!",
+        "explanation": "A signal fire is a great idea, but one fire by itself could be mistaken for a campfire and does not signal distress. THREE fires in a triangle is what tells searchers 'someone needs help.' Also, keeping a big fire burning all day uses a lot of fuel. A better strategy is to have fire pits READY to light quickly when you hear a plane, with green boughs piled nearby to throw on for instant smoke. You also missed using your other resources -- jackets and ground markers add backup signals.",
+        "whatToRemember": "One fire is a campfire. THREE fires in a triangle is a distress signal. Have signal fires READY to light quickly rather than burning fuel all day. Use multiple signal methods for redundancy.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Small to See!",
+        "explanation": "From a search plane hundreds or thousands of feet in the air, a person waving a jacket is incredibly tiny and easy to miss. Pilots are scanning huge areas and may only have seconds to spot you. You need signals that are LARGE, CONTRASTING, and PERSISTENT. Smoke columns, bright colors spread on the ground, and large rock patterns are visible from far away and stay in place. Waving is only useful if the plane is already flying very low directly over you.",
+        "whatToRemember": "From the air, you are a tiny dot. Signals must be LARGE (10+ feet), HIGH-CONTRAST (bright on dark or smoke against sky), and PERSISTENT (stay visible when you are not there). Do not rely on waving alone.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

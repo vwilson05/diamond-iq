@@ -1,0 +1,63 @@
+{
+  "id": "rookie-hockey-faceoffs",
+  "title": "Win the Draw",
+  "sport": ["hockey"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["faceoff", "puck possession", "fundamentals"],
+  "setup": {
+    "period": 1,
+    "timeLeft": "14:00",
+    "score": { "home": 0, "away": 0 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are taking a face-off in the other team's zone. The referee is about to drop the puck between you and the other center. Where do you try to send the puck?",
+      "choices": [
+        { "id": "best", "text": "Pull the puck back to your teammate on defense who is ready and waiting", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to push the puck forward past the other center toward the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Swing your stick as hard as you can without looking where the puck will go", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clean win!",
+        "explanation": "You pulled the puck back to your defenseman, and now your team has control. Winning a face-off means your team gets to start with the puck, which is a big advantage.",
+        "whatToRemember": "On face-offs, have a plan before the puck drops. Know where your teammates are and where you want to send the puck. Drawing it back to a teammate is usually the safest play.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Face-off", "definition": "How play starts or restarts in hockey. The referee drops the puck between two players who try to win it for their team." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Loose puck battle",
+        "explanation": "Pushing the puck forward is aggressive, but the other team's defense was waiting for it. Now both teams are fighting for the puck along the boards. It could go either way.",
+        "whatToRemember": "Pushing forward on a face-off can work, but it is risky. Drawing back to a teammate gives your team cleaner possession.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost the draw!",
+        "explanation": "Swinging wildly without a plan sent the puck right to the other team. They grabbed it and started skating toward your net. You gave away possession.",
+        "whatToRemember": "Never just swing at the puck on a face-off. Have a plan and know where your teammates are before the puck drops.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

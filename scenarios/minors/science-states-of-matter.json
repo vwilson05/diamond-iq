@@ -1,0 +1,87 @@
+{
+  "id": "minors-science-states-of-matter",
+  "title": "Solid, Liquid, or Gas?",
+  "sport": ["science"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "experiment",
+  "tags": ["states-of-matter", "solid", "liquid", "gas", "phase-change"],
+  "setup": {
+    "topic": "states of matter",
+    "setting": "classroom with hot plate and ice",
+    "materials": "ice cubes, glass beaker, hot plate, thermometer",
+    "question": "What happens to ice when it is heated?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher puts ice cubes in a glass beaker on a hot plate and slowly heats it. She asks you to watch carefully and describe what happens. The ice starts to change. What do you observe and how do you explain it?",
+      "choices": [
+        {
+          "id": "track-all-changes",
+          "text": "The ice is a solid. As it heats up, it melts into liquid water at 0 degrees Celsius. If we keep heating, the water will boil and turn into steam, which is a gas. Matter changes state when it gains or loses heat energy.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "partial-answer",
+          "text": "The ice melts into water because it gets hot.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "wrong-concept",
+          "text": "The ice disappears because the heat destroys it.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Tracked All Three States of Matter!",
+        "explanation": "You correctly identified all three states: solid ice, liquid water, and water vapor (gas). When you add heat energy, the tiny particles in the ice start moving faster. At 0 degrees Celsius, they move fast enough to slide past each other -- that is melting. At 100 degrees Celsius, they move so fast they fly apart into the air -- that is boiling. The water is not gone, it just changed form!",
+        "whatToRemember": "Matter exists as solid, liquid, or gas. Adding heat makes particles move faster and can change the state. The matter is not destroyed -- it just changes form.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "States of Matter",
+            "definition": "The three main forms matter can take: solid (holds its shape), liquid (takes the shape of its container), and gas (spreads out to fill any space)."
+          },
+          {
+            "term": "Melting",
+            "definition": "When a solid changes to a liquid by gaining heat energy. Ice melts at 0 degrees Celsius."
+          },
+          {
+            "term": "Boiling",
+            "definition": "When a liquid changes to a gas by gaining heat energy. Water boils at 100 degrees Celsius."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Correct Start, But Keep Going!",
+        "explanation": "You are right that ice melts into water when heated. But what happens if you keep heating the water? It starts to bubble and boil, turning into an invisible gas called water vapor. That is the third state of matter! Scientists always ask 'What happens next?' to discover the full picture. Solid to liquid to gas -- that is the complete journey.",
+        "whatToRemember": "There are THREE states of matter, not just two. Keep heating liquid water and it becomes a gas. Always look for what comes next.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Ice Did Not Disappear!",
+        "explanation": "This is a very important science rule: matter cannot be created or destroyed! The ice did not vanish -- it changed into liquid water, and then into water vapor (a gas you cannot see). If you collected all that water vapor and cooled it down, you would get the exact same amount of water back. It just changed form, like how a caterpillar changes into a butterfly -- same creature, different form.",
+        "whatToRemember": "Matter is never destroyed. It changes from one state to another. If something seems to disappear, it probably turned into a gas!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

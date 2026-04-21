@@ -1,0 +1,87 @@
+{
+  "id": "the-show-science-engineering-challenge",
+  "title": "Build a Bridge That Holds!",
+  "sport": ["science"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "design",
+  "tags": ["engineering", "design-process", "structures", "testing"],
+  "setup": {
+    "topic": "engineering design challenge",
+    "setting": "STEM lab",
+    "materials": "50 popsicle sticks, glue gun, two stacks of books (supports), weight set for testing",
+    "question": "Can you build a bridge out of popsicle sticks that holds at least 500 grams?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team has 50 popsicle sticks and a glue gun. You need to build a bridge between two stacks of books that can hold at least 500 grams without breaking. You have 30 minutes. How does your team approach this challenge?",
+      "choices": [
+        {
+          "id": "plan-then-build",
+          "text": "First, sketch three different bridge designs. Discuss which shapes are strongest (triangles). Pick the best design, build it, test it with weights, and if it fails, figure out the weak point and reinforce it.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-build",
+          "text": "Start gluing sticks together right away and hope it turns out strong enough.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "copy-someone",
+          "text": "Look at what another team is building and copy their design exactly.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Engineering Success! Your Bridge Held 800 Grams!",
+        "explanation": "You followed the engineering design process: identify the problem, brainstorm solutions, plan the best one, build it, test it, and improve it. By sketching first, you noticed that triangles are the strongest shape in engineering because they distribute force evenly and cannot collapse like rectangles can. When your first test showed a weak spot in the middle, you added cross-bracing and the bridge held 800 grams -- way above the goal!",
+        "whatToRemember": "Engineers plan before they build. Sketch designs, choose the strongest shapes (triangles), test your build, and improve the weak spots.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Engineering Design Process",
+            "definition": "A step-by-step method: identify the problem, brainstorm, plan, build, test, and improve."
+          },
+          {
+            "term": "Structural Strength",
+            "definition": "How much weight or force a structure can hold before it breaks. Triangles are the strongest shape."
+          },
+          {
+            "term": "Cross-Bracing",
+            "definition": "Adding diagonal supports to a structure to make it stronger and prevent it from collapsing."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Your Bridge Held 300 Grams -- Not Quite Enough!",
+        "explanation": "You built something, and it looked like a bridge, but without a plan you used a flat design with no triangles or bracing. It bent in the middle under 300 grams and snapped at 350. Engineers spend MORE time planning than building because fixing a bad design wastes time and materials. If you had sketched first, you would have noticed the flat design was weak before using all your sticks.",
+        "whatToRemember": "Planning saves time and materials. A few minutes of sketching can prevent a failed build. Design first, build second.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Copying Does Not Teach You Anything!",
+        "explanation": "Even if the other team's design works, you did not learn WHY it works. What if you need to build something different next time? Real engineers understand the principles behind their designs -- why triangles are strong, where forces concentrate, and how to reinforce weak points. The whole point of the challenge is to learn problem-solving skills. Copying skips the learning entirely.",
+        "whatToRemember": "The goal of engineering challenges is to learn problem-solving, not just to finish. Understanding WHY a design works is more valuable than the design itself.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

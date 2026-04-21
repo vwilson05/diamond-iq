@@ -1,0 +1,65 @@
+{
+  "id": "majors-survival-fire-starting-safety",
+  "title": "Building a Safe Campfire",
+  "sport": ["survival"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "shelter",
+  "tags": ["fire", "warmth", "safety", "campfire"],
+  "setup": {
+    "situation": "group needs fire for warmth after getting lost overnight",
+    "environment": "forest clearing near campsite",
+    "resources": "matches, dry leaves and sticks available",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has set up a basic shelter for the night after getting turned around on a trail. The temperature is dropping and everyone is cold. Your adult leader has waterproof matches and says your group can build a fire for warmth. You need to choose WHERE and HOW to build it. There are dry leaves everywhere on the ground, some rocks nearby, and the forest clearing has bare dirt in the center. What do you do?",
+      "choices": [
+        { "id": "safe-fire", "text": "Clear a circle of bare dirt away from trees and the shelter. Ring it with rocks. Start small with tiny dry twigs, then slowly add bigger sticks. Keep water nearby.", "nextNode": "outcome-great" },
+        { "id": "big-fire-fast", "text": "Pile up a big heap of dry leaves and sticks right next to the shelter so the heat keeps everyone warm, and light it.", "nextNode": "outcome-okay" },
+        { "id": "fire-under-tree", "text": "Build the fire under a big pine tree so the branches overhead block the wind and keep rain off the fire.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Fire Safety Master!",
+        "explanation": "You followed every fire safety rule. Clearing the area to bare dirt prevents the fire from spreading through dry leaves on the ground. The rock ring contains the fire. Starting small with twigs (called tinder and kindling) is how you build a fire that actually lights and stays lit -- a big pile of sticks will not catch easily. Building AWAY from your shelter and trees prevents them from catching fire. Keeping water nearby means you can put the fire out if it starts to spread.",
+        "whatToRemember": "Safe fire building: CLEAR the area to bare dirt, RING it with rocks, start SMALL (tinder then kindling then fuel), keep it AWAY from shelter and trees, and always have WATER nearby to put it out.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Tinder", "definition": "The smallest, driest material you start a fire with -- dry grass, tiny twigs, bark shavings. It catches fire easily from a match or spark." },
+          { "term": "Kindling", "definition": "Small sticks and twigs (pencil-sized) that you add after the tinder is burning. They build the fire up to handle bigger fuel." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Close and Too Fast!",
+        "explanation": "Building a fire right next to your shelter is dangerous because sparks and heat could set the shelter on fire. A big pile of leaves will also flare up in a sudden burst of flame that is hard to control. Dry leaves burn fast and hot, throwing sparks everywhere. The fire should be at least ten feet from your shelter. Start small and add fuel gradually so you can control the size of the fire at every step.",
+        "whatToRemember": "Keep your fire at least 10 feet from your shelter and anything that can burn. Start small and add fuel slowly -- a sudden big flame from a leaf pile is dangerous and uncontrollable.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Forest Fire Risk!",
+        "explanation": "Building a fire under a tree is extremely dangerous. Pine trees have resin in their needles and branches that is highly flammable. Heat and sparks rising from your fire can ignite the low-hanging branches, and within seconds the entire tree can be engulfed in flames. This can spread to nearby trees and start a forest fire. Always build fires in OPEN areas, away from overhanging branches. Fire safety in the wilderness is not just about keeping you warm -- it is about preventing disasters.",
+        "whatToRemember": "NEVER build a fire under a tree. Pine trees are especially flammable. Heat and sparks rise and can ignite branches overhead, starting a forest fire. Build fires in open clearings away from overhanging branches.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

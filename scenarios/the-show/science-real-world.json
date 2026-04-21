@@ -1,0 +1,87 @@
+{
+  "id": "the-show-science-real-world",
+  "title": "Science Solves Real Problems",
+  "sport": ["science"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "design",
+  "tags": ["real-world", "application", "water-quality", "problem-solving"],
+  "setup": {
+    "topic": "real-world science applications",
+    "setting": "community project meeting",
+    "materials": "water testing kit, pH strips, thermometer, dissolved oxygen test, data sheets",
+    "question": "The fish in the local creek are dying. How can science help figure out why?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "People in your town noticed that fish in Miller Creek are dying. The town council asks your science class to investigate. You have a water testing kit that can measure pH, temperature, and dissolved oxygen at different points along the creek. How does your class approach this real-world problem?",
+      "choices": [
+        {
+          "id": "systematic-investigation",
+          "text": "Test the water at five spots along the creek: upstream, near the factory, near the park, near the farm, and downstream. Measure pH, temperature, and dissolved oxygen at each spot. Compare the data to find where conditions change and what might be killing the fish.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "one-spot-test",
+          "text": "Test the water at one spot where you find a dead fish and report the results.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "blame-factory",
+          "text": "The factory is probably dumping chemicals. Tell the town council it is the factory's fault.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Thorough Investigation! You Found the Problem!",
+        "explanation": "By testing at multiple spots, your data told a clear story. Upstream the water was healthy: pH 7.0, cool temperature, high dissolved oxygen. Near the farm, the pH dropped to 5.5 (too acidic), the temperature rose, and dissolved oxygen was dangerously low. The data pointed to agricultural runoff carrying fertilizers into the creek, which caused algae to bloom, using up all the oxygen fish need to breathe. Your evidence-based report gave the town council the information they needed to take action!",
+        "whatToRemember": "Real-world science problems require systematic data collection at multiple points. Compare your data to find where and why conditions change. Let the evidence guide your conclusions.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Dissolved Oxygen",
+            "definition": "The amount of oxygen in water that fish and other aquatic animals need to breathe. Low levels can kill fish."
+          },
+          {
+            "term": "pH",
+            "definition": "A scale from 0 to 14 that measures how acidic or basic a substance is. Most fish need water near pH 7 (neutral)."
+          },
+          {
+            "term": "Runoff",
+            "definition": "Water that flows over the ground and picks up pollutants like fertilizers, carrying them into streams and rivers."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One Data Point Is Not Enough!",
+        "explanation": "Testing at one spot tells you the conditions at THAT spot, but not why the fish are dying or where the problem starts. Maybe the water is bad everywhere, or maybe it is only bad near one source of pollution. Without testing at multiple spots, you cannot compare upstream to downstream or find where conditions change. Real environmental scientists always collect data from many locations to map the problem.",
+        "whatToRemember": "One measurement gives you a snapshot. Multiple measurements across different locations give you the full picture. Compare data from different spots to find the source of the problem.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Blamed Without Evidence!",
+        "explanation": "Blaming the factory without data is not science -- it is a guess. What if the problem is actually coming from farm runoff, a broken sewer pipe, or natural causes? Scientists never make accusations without evidence because they could be wrong, and being wrong could hurt innocent people. The town council needs DATA, not guesses. Test the water, collect the evidence, and let the numbers tell the story.",
+        "whatToRemember": "Never blame without evidence. Collect data first, then let the evidence point to the cause. That is the difference between a guess and a scientific conclusion.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "rookie-survival-packing-for-a-hike",
+  "title": "Pack Your Bag for the Trail",
+  "sport": ["survival"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "safety",
+  "tags": ["hiking", "preparation", "essentials", "planning"],
+  "setup": {
+    "situation": "packing a daypack for a family hike",
+    "environment": "home before a hike",
+    "resources": "various items to choose from",
+    "urgency": "low"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your family is going on a three-hour hike in the mountains tomorrow. Your parent says you can pack your own small backpack. You have a water bottle, a granola bar, a rain jacket, sunscreen, a whistle, and your tablet. Your backpack can only fit five things. What do you pack?",
+      "choices": [
+        { "id": "smart-pack", "text": "Water bottle, granola bar, rain jacket, sunscreen, and whistle.", "nextNode": "outcome-great" },
+        { "id": "mostly-right", "text": "Water bottle, granola bar, rain jacket, tablet, and sunscreen.", "nextNode": "outcome-okay" },
+        { "id": "fun-pack", "text": "Tablet, granola bar, water bottle, and two extra snacks from the kitchen.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Trail-Ready Pack!",
+        "explanation": "You picked all the right things. Water keeps you from getting dehydrated. A snack gives you energy. The rain jacket protects you if the weather changes -- mountain weather can surprise you. Sunscreen protects your skin. And the whistle is a safety tool: if you ever get separated from your group, three short blasts on a whistle is the signal for HELP and carries much farther than your voice.",
+        "whatToRemember": "The five hiking essentials for kids: WATER, FOOD, RAIN LAYER, SUN PROTECTION, and a WHISTLE. A whistle is louder than yelling and can help rescuers find you.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Three Whistle Blasts", "definition": "The universal signal for help. If you are lost, blow your whistle three times, wait, and repeat." },
+          { "term": "Day Pack", "definition": "A small backpack with the supplies you need for a day hike. Always pack the essentials, even for short hikes." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Almost There!",
+        "explanation": "You got most of the essentials right -- water, food, rain jacket, and sunscreen are all great choices. But a tablet is not useful on a trail. It can break, get wet, and it does not help in an emergency. A whistle would have been a better pick because it can save your life if you get separated from your group.",
+        "whatToRemember": "Leave electronics at home on a hike. A whistle weighs almost nothing but could save your life. Always bring safety items before fun items.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missing Key Safety Gear!",
+        "explanation": "Extra snacks are nice, but you skipped a rain jacket, sunscreen, and a whistle. If it starts raining on the trail, you will get cold and wet with no way to stay dry. Without sunscreen, you could get a painful sunburn. And without a whistle, if you get separated you have no way to signal for help. A tablet will not help you on the trail and could break.",
+        "whatToRemember": "Pack SAFETY items first, then fun items if there is room. Water, food, rain layer, sun protection, and a whistle are more important than electronics or extra snacks.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

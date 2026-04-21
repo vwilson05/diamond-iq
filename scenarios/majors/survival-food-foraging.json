@@ -1,0 +1,65 @@
+{
+  "id": "majors-survival-food-foraging",
+  "title": "Can You Eat That?",
+  "sport": ["survival"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["foraging", "food safety", "plant identification", "nutrition"],
+  "setup": {
+    "situation": "group is hungry after being lost for a day",
+    "environment": "forest with berry bushes and mushrooms",
+    "resources": "no food remaining, water available",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has been lost for a full day and everyone is hungry. All the snacks are gone. As you walk, you spot some bright red berries on a bush, some mushrooms growing on a log, and a patch of dandelions in a sunny clearing. You know dandelions are common yard weeds, but you are not sure about the berries or mushrooms. Your stomach is growling. What do you do?",
+      "choices": [
+        { "id": "eat-known-only", "text": "Only eat the dandelions since you can positively identify them. Leave the berries and mushrooms completely alone -- they could be poisonous.", "nextNode": "outcome-great" },
+        { "id": "try-berries", "text": "Taste one of the red berries to see if it is sweet. If it tastes okay, eat more.", "nextNode": "outcome-okay" },
+        { "id": "eat-mushrooms", "text": "Eat the mushrooms since they are growing on a log and look like the kind from the grocery store.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Foraging Decision!",
+        "explanation": "Dandelions are one of the few wild plants that most people can identify with confidence, and every part of them is edible -- leaves, flowers, and roots. The most important rule of foraging is: NEVER eat anything you cannot identify with 100 percent certainty. Many poisonous berries look similar to safe ones, and mushroom identification requires expert-level knowledge. Remember, food is the LAST survival priority. You can survive weeks without food but only days without water and hours without shelter in bad conditions.",
+        "whatToRemember": "The foraging rule: NEVER eat anything you cannot identify with 100% certainty. Food is the LAST survival priority (after shelter, water, and fire). When in doubt, do NOT eat it. One wrong mushroom can be fatal.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Positive Identification", "definition": "Being 100 percent certain you know exactly what a plant is before eating it. If you have ANY doubt, do not eat it." },
+          { "term": "Survival Priorities", "definition": "The order of importance: Shelter first, Water second, Fire third, Food last. You can survive much longer without food than without the others." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Tasting Is Not Testing!",
+        "explanation": "Tasting unknown berries is dangerous. Some poisonous berries taste sweet or normal but can make you very sick hours later. There is no reliable taste test for wild plants. Some of the most toxic berries in North America look like safe ones and taste fine going down. In a survival situation, getting sick from poisonous berries causes vomiting and diarrhea, which dehydrates you fast and makes your situation much worse.",
+        "whatToRemember": "Tasting unknown berries is NOT a safe way to test them. Poisonous berries can taste sweet and normal. Getting sick from toxic plants causes dehydration, which is far more dangerous than hunger.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Mushrooms Can Be Deadly!",
+        "explanation": "Wild mushrooms are the single most dangerous thing to eat in the wilderness. Some of the most poisonous mushrooms in the world look nearly identical to safe grocery store varieties. The Death Cap mushroom, for example, looks like a normal white mushroom but can cause organ failure and death. Even experienced foragers with years of training make mistakes with mushrooms. Unless you are with a trained mycologist (mushroom expert), NEVER eat wild mushrooms.",
+        "whatToRemember": "NEVER eat wild mushrooms. Deadly poisonous mushrooms often look identical to safe ones. Even experts make mistakes. Mushroom poisoning can cause organ failure. This is the most important foraging rule.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

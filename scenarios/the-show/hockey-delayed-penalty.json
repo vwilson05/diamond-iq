@@ -1,0 +1,63 @@
+{
+  "id": "the-show-hockey-delayed-penalty",
+  "title": "Delayed Penalty Advantage",
+  "sport": ["hockey"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "special-teams",
+  "tags": ["delayed penalty", "extra attacker", "awareness", "elite"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "7:00",
+    "score": { "home": 1, "away": 2 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The referee's arm goes up signaling a penalty against the other team, but the whistle has not blown yet because your team has the puck. This is a delayed penalty. Play continues until the other team touches the puck or a goal is scored. Your goalie is skating to the bench. What should you do?",
+      "choices": [
+        { "id": "best", "text": "Attack aggressively with the extra skater since you cannot be scored on. Keep possession and look for the best shot possible.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pass the puck around carefully and wait for the penalty to actually start", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Shoot the puck right at the other team's players so the whistle blows and the penalty starts", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Goal on the delayed penalty!",
+        "explanation": "During a delayed penalty, the whistle blows as soon as the other team touches the puck, so your team cannot be scored on. With your goalie on the bench and an extra attacker, you had a six-on-five advantage. You used it perfectly and scored before the penalty even started.",
+        "whatToRemember": "On a delayed penalty, your team has a free extra attacker because the goalie can go to the bench with no risk. Attack hard because you literally cannot be scored on. If you score, the penalty is wiped out, but you got the goal.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Delayed Penalty", "definition": "When the referee signals a penalty but does not blow the whistle because the non-offending team has the puck. Play stops when the penalized team touches the puck or a goal is scored." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe, but you wasted the advantage",
+        "explanation": "Passing around without attacking kept the puck safe, but you missed a chance to score with the extra attacker. Eventually the other team touched the puck and the whistle blew. Now you have a regular power play instead of a free goal chance.",
+        "whatToRemember": "A delayed penalty is a golden opportunity. You have an extra attacker with zero risk. Do not waste it by just passing around. Attack and try to score before the whistle blows.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Whistle! Wasted opportunity!",
+        "explanation": "By shooting the puck at their players, you let them touch it and the whistle blew immediately. You gave up the six-on-five advantage for nothing. Now you just have a normal power play.",
+        "whatToRemember": "During a delayed penalty, you WANT to keep the puck. Do not shoot it at the other team or let them touch it. The longer you keep possession, the longer you have the extra attacker on the ice.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

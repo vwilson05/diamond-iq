@@ -1,0 +1,65 @@
+{
+  "id": "tball-survival-fire-safety",
+  "title": "Stop, Drop, and Roll!",
+  "sport": ["survival"],
+  "tier": "tball",
+  "impact": 4,
+  "role": "safety",
+  "tags": ["fire safety", "stop drop roll", "smoke", "escape plan"],
+  "setup": {
+    "situation": "smoke alarm goes off at home",
+    "environment": "home bedroom",
+    "resources": "family escape plan",
+    "urgency": "critical"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are in your bedroom playing when suddenly the smoke alarm starts beeping REALLY loud. You can smell smoke coming from somewhere in the house. The air near the ceiling looks hazy. You remember your family talked about what to do if this ever happened. What do you do?",
+      "choices": [
+        { "id": "get-low-get-out", "text": "Get down low to the floor, crawl to the door, feel if it is hot, and head to your family's meeting spot outside.", "nextNode": "outcome-great" },
+        { "id": "open-door-run", "text": "Open your bedroom door and run to the front door as fast as you can.", "nextNode": "outcome-okay" },
+        { "id": "hide-in-closet", "text": "Hide in your closet until someone comes to get you.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Textbook Fire Safety!",
+        "explanation": "You did everything right. Smoke rises, so the cleanest air is down near the floor -- that is why you crawl. Feeling the door with the back of your hand tells you if there is fire on the other side. If the door is hot, do NOT open it -- go to a window instead. Once you get outside, go to your family's meeting spot and STAY THERE. Never go back inside a burning building.",
+        "whatToRemember": "In a fire: GET LOW and crawl (clean air is near the floor), FEEL the door before opening it, GET OUT to your meeting spot, and STAY OUT. Never go back inside.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Stop Drop and Roll", "definition": "What to do if your clothes catch fire: STOP where you are, DROP to the ground, and ROLL back and forth to put out the flames." },
+          { "term": "Meeting Spot", "definition": "A place outside your home where your whole family agrees to meet after getting out of a fire, like a mailbox or a neighbor's tree." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got Out, But Slow Down!",
+        "explanation": "Getting out of the house is the right idea, but running upright through smoke is dangerous. Smoke fills the air from the ceiling down, so standing up means you are breathing the worst air. Also, opening a door without checking if it is hot could let fire rush in. Always get low, feel the door first, then move to your exit.",
+        "whatToRemember": "Do not run upright through smoke -- crawl low where the air is cleaner. Always feel a door with the back of your hand before opening it.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Hide During a Fire!",
+        "explanation": "Hiding in a closet is very dangerous during a fire. Firefighters might not find you in time, and smoke can fill a closet quickly. The most important thing in a fire is to GET OUT of the building. If you cannot get out through the door, go to a window and yell for help. Never hide -- always try to escape.",
+        "whatToRemember": "NEVER hide during a fire. Always try to get OUT of the building. If you cannot get through the door, go to a window and call for help.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

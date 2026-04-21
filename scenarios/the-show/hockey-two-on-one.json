@@ -1,0 +1,63 @@
+{
+  "id": "the-show-hockey-two-on-one",
+  "title": "Two on One Rush",
+  "sport": ["hockey"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["two-on-one", "odd-man rush", "decision making", "elite"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "1:00",
+    "score": { "home": 3, "away": 3 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You and a teammate are flying up the ice two-on-one against a single defender. The defender is in the middle, trying to take away the pass. The goalie is hugging your side of the net. You have the puck. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Look at your teammate to freeze the defender, then quickly shoot far side where the goalie left the net open", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pass the puck across to your teammate right away", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Skate straight at the defender and try to go through them", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Far side snipe! Goal!",
+        "explanation": "By looking at your teammate, you made the defender and goalie think you were passing. The defender slid toward your teammate, and the goalie cheated that way too. Then you shot far side into the open net. Reading the defender and goalie together is the key to two-on-ones.",
+        "whatToRemember": "On a two-on-one, read the defender first. If they take away the pass, shoot. If they take away the shot, pass. Use your eyes to fake the defender before making your real move.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Two-on-One", "definition": "An odd-man rush where two attackers face only one defender, creating a major scoring advantage if the puck carrier reads the situation correctly" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pass intercepted!",
+        "explanation": "Passing right away without reading the defender made it predictable. The defender was cheating toward the pass and got their stick on it. You had the shot if you had looked first.",
+        "whatToRemember": "Do not rush the pass on a two-on-one. Take a moment to look at the defender. If they are sliding toward your teammate, the shot is open. Make them commit before you decide.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stopped at the line!",
+        "explanation": "Skating straight at the only defender threw away the two-on-one advantage. They poked the puck away and your teammate was left standing there with nothing. You had a wide open player and wasted it.",
+        "whatToRemember": "On a two-on-one, NEVER skate right at the defender. The whole point is that you have an extra player. Use the space and make the defender choose who to cover.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

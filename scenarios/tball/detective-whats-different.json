@@ -1,0 +1,65 @@
+{
+  "id": "tball-detective-whats-different",
+  "title": "The Lunchbox Mix-Up",
+  "sport": ["detective"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "evidence",
+  "tags": ["whats-different", "matching", "clue-finder", "comparison"],
+  "setup": {
+    "case": "The Switched Lunchboxes",
+    "setting": "school cafeteria",
+    "suspects": 2,
+    "cluesFound": 2
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You open your lunchbox and something is wrong! You packed a peanut butter sandwich, but inside there is a turkey sandwich and an apple. Your lunchbox is blue with a star sticker. You see another kid at the next table looking confused at THEIR lunch too. Their lunchbox is also blue, but it does NOT have a star sticker. What happened?",
+      "choices": [
+        { "id": "compare-lunchboxes", "text": "Check the sticker! Your lunchbox has a star, and this one does not. You must have grabbed the wrong one!", "nextNode": "outcome-great" },
+        { "id": "eat-it-anyway", "text": "Just eat the turkey sandwich since it looks good.", "nextNode": "outcome-okay" },
+        { "id": "complain-loudly", "text": "Tell the teacher someone stole your lunch!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Found the Difference!",
+        "explanation": "Both lunchboxes were blue, but yours has a star sticker and this one does not! You spotted the small difference and realized the lunchboxes got switched. You walked over to the other kid, traded lunches, and everyone got their right food back. Finding the small difference solved the whole mystery!",
+        "whatToRemember": "When two things look almost the same, find the one small difference. That tiny detail can solve the whole mystery!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Spot the Difference", "definition": "Looking at two things that seem the same and finding what is NOT the same about them." },
+          { "term": "Detail", "definition": "A small thing you might not notice at first, like a sticker on a lunchbox." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Mystery Is Still Unsolved!",
+        "explanation": "Eating someone else's lunch does not solve the problem! The other kid still has YOUR lunch and is confused. If you had looked at the small difference -- the missing star sticker -- you would have known right away that you grabbed the wrong lunchbox. Always look for what is different before deciding!",
+        "whatToRemember": "Do not ignore the mystery! When something seems wrong, look for what is different to figure out what happened.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Nobody Stole Anything -- It Was a Mix-Up!",
+        "explanation": "Nobody stole your lunch! The two lunchboxes just looked very similar and got mixed up. If you had checked the star sticker, you would have seen this one is not yours. Jumping to blame someone without checking the clues causes problems. A detective checks the evidence first!",
+        "whatToRemember": "Before blaming anyone, check the details. A small difference can explain the whole situation without anyone being in trouble.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

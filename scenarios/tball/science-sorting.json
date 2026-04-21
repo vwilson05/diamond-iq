@@ -1,0 +1,83 @@
+{
+  "id": "tball-science-sorting",
+  "title": "Sort It Out!",
+  "sport": ["science"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "observe",
+  "tags": ["sorting", "classifying", "grouping", "beginner"],
+  "setup": {
+    "topic": "sorting and classifying",
+    "setting": "classroom table",
+    "materials": "buttons of different colors, sizes, and shapes",
+    "question": "How can we sort a collection of objects into groups?"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher dumps a big jar of buttons on the table. There are red ones, blue ones, big ones, small ones, round ones, and square ones. She says, 'Sort these buttons into groups.' How do you sort them?",
+      "choices": [
+        {
+          "id": "pick-a-rule",
+          "text": "Pick one thing to sort by, like color. Put all the red buttons together, all the blue ones together, and so on.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "random-piles",
+          "text": "Make a few piles and put buttons in whatever pile feels right.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "one-big-pile",
+          "text": "They are all buttons, so just put them back in one pile.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Sorting! You Found a Rule!",
+        "explanation": "You picked one property -- color -- and sorted every button by that same rule. That is exactly what scientists do! When you classify things, you pick one feature and group everything by it. You could also sort by size or shape. The important thing is that every button in a group shares the same feature.",
+        "whatToRemember": "To sort like a scientist, pick ONE feature (like color, size, or shape) and group everything by that same rule.",
+        "iqPoints": 10,
+        "keyTerms": [
+          {
+            "term": "Classify",
+            "definition": "To sort things into groups based on what they have in common."
+          },
+          {
+            "term": "Property",
+            "definition": "A feature of an object, like its color, size, shape, or texture."
+          }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Made Groups, But What Is the Rule?",
+        "explanation": "You started sorting, which is good! But without a clear rule, someone else might not understand your groups. Scientists always sort using a rule so that anyone can look at the groups and understand why each item belongs there. Try picking one feature like color or size next time.",
+        "whatToRemember": "Always sort by a clear rule so anyone can understand your groups.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "All Buttons Are Not the Same!",
+        "explanation": "Even though they are all buttons, they have differences! Some are big, some are small. Some are red, some are blue. Scientists look for differences and group things to understand them better. Sorting helps us see patterns we would miss if everything was in one big pile.",
+        "whatToRemember": "Look for differences, not just what is the same. Sorting helps us see patterns and learn more.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "tball-hockey-skating-basics",
+  "title": "Bend Your Knees",
+  "sport": ["hockey"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["skating", "balance", "basics"],
+  "setup": {
+    "period": 1,
+    "timeLeft": "15:00",
+    "score": { "home": 0, "away": 0 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The puck is dropped and the game is starting! You need to skate up the ice to join the play. How do you skate?",
+      "choices": [
+        { "id": "best", "text": "Bend your knees, lean forward a little, and push off to the side with each stride", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand up tall and take small steps forward", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Kick your feet straight back like you are running", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smooth skating!",
+        "explanation": "By bending your knees and pushing to the side, you glide fast and stay balanced. This is the proper skating stride that all hockey players use.",
+        "whatToRemember": "Always bend your knees when skating. Push your skates to the side, not straight back. A lower stance means more power and better balance.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Skating Stride", "definition": "The way hockey players push their skates out to the side and glide forward on the ice" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You made it, but slowly",
+        "explanation": "Standing tall makes it harder to balance and you cannot push off as hard. You got up the ice, but the other players beat you there.",
+        "whatToRemember": "Bend your knees more to go faster. The lower you get, the more power you have in each push.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wipeout!",
+        "explanation": "Kicking straight back does not work on ice like it does when running. Your skates slipped and you fell down. Hockey skating is different from running.",
+        "whatToRemember": "On ice, you push to the side, not straight back. Think of it like pushing a scooter, but with your feet going sideways.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "minors-hockey-breakaway",
+  "title": "Just You and the Goalie",
+  "sport": ["hockey"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["breakaway", "deking", "scoring", "game iq"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "3:00",
+    "score": { "home": 2, "away": 2 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You intercepted a bad pass and now you are all alone skating toward the goalie with nobody between you. This is a breakaway! The goalie is coming out to cut down your angle. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Skate in close, fake to one side, then pull the puck to the other side and shoot into the open net", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Shoot it as soon as you cross the blue line from far away", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Slow way down and wait to see what the goalie does first", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "What a deke! Goal!",
+        "explanation": "By skating in close and making a move, you forced the goalie to commit to one side. When you pulled the puck to the other side, the net was wide open. Breakaway goal!",
+        "whatToRemember": "On a breakaway, skate in close to the goalie before making your move. A fake to one side followed by a shot to the other is called a deke. The closer you get, the more the goalie has to react.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Deke", "definition": "A fake move where you pretend to go one direction with the puck and then quickly go the other way to trick the goalie or defender" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Save! The goalie was ready",
+        "explanation": "Shooting from far away gave the goalie a lot of time to see the shot and set up to make the save. You had time to skate in closer and make a move to beat the goalie.",
+        "whatToRemember": "On a breakaway, do not shoot from far away. Skate in close to reduce the goalie's reaction time. The closer you get, the more net you can see around the goalie.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Poke check! Goalie wins!",
+        "explanation": "By slowing way down, you gave the defenders time to catch up and you let the goalie come way out of the net. The goalie poke-checked the puck right off your stick.",
+        "whatToRemember": "Keep your speed on a breakaway. Slowing down helps the goalie and lets the defense catch you. Skate in with confidence and attack.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

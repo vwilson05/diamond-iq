@@ -1,0 +1,65 @@
+{
+  "id": "the-show-survival-multi-day-wilderness",
+  "title": "Day Two in the Wilderness",
+  "sport": ["survival"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "shelter",
+  "tags": ["multi-day", "priorities", "planning", "wilderness survival"],
+  "setup": {
+    "situation": "second day lost in backcountry with a small group",
+    "environment": "mountain forest, cool temperatures, stream nearby",
+    "resources": "basic shelter built, water source found, no fire yet, one granola bar left",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the morning of your second day lost in the backcountry with your scout group. Yesterday you built a basic lean-to shelter and found a stream. You have one granola bar left for five people. The shelter kept some wind out but everyone was cold overnight. You have matches, a metal cup, and the stream is 100 yards away. The sun is up and you have a full day ahead. Your group looks to you for a plan. What should the group focus on today?",
+      "choices": [
+        { "id": "improve-shelter-fire", "text": "Split the group into tasks: improve the shelter with more insulation, build a fire for warmth and to boil water, and set up a visible signal in the nearby clearing.", "nextNode": "outcome-great" },
+        { "id": "search-for-food", "text": "Send people to look for food since you are almost out. One granola bar will not last five people another day.", "nextNode": "outcome-okay" },
+        { "id": "hike-out", "text": "Pack up camp and try to hike out as a group. Staying in one place is not working and you need to find help.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Survival Leader!",
+        "explanation": "You followed the survival priority list perfectly. Your shelter needs improvement because everyone was cold -- adding more leaves, pine needles, and branches for insulation will make tonight warmer. Fire solves multiple problems: it provides warmth, lets you boil water to make it safe to drink, boosts morale, and the smoke is visible to search aircraft. A signal in the clearing helps rescuers spot you. Food is your lowest priority -- humans can survive weeks without it. Splitting tasks among the group is efficient leadership.",
+        "whatToRemember": "In multi-day survival: improve shelter insulation, establish fire for warmth and water purification, and maintain visible signals. Delegate tasks to keep the group productive and positive. Food is the LAST priority.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Insulation", "definition": "Material that traps air and keeps heat in. In a shelter, thick layers of leaves, pine needles, and grass insulate you from cold ground and air." },
+          { "term": "Task Delegation", "definition": "Giving different jobs to different people in your group so multiple survival tasks get done at the same time. Good leaders delegate." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Food Is the Lowest Priority!",
+        "explanation": "It is natural to feel hungry, but food is actually the LAST survival priority. A healthy person can survive three weeks or more without food. Meanwhile, your group was cold all night (shelter problem), you are drinking unpurified water (water problem), and you have no signal for rescuers. Those problems can affect you in HOURS, not weeks. Sending people to search for food also splits your group up, which is dangerous. Fix shelter and fire first.",
+        "whatToRemember": "Remember the Rule of Threes: 3 hours without shelter in harsh conditions, 3 days without water, 3 weeks without food. Fix the most urgent threat first. Food can wait.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stay Put for Rescue!",
+        "explanation": "Hiking out when you do not know where you are is risky. You could get more lost, use up energy you cannot replace, and move away from where search teams are looking. Your shelter and stream location are valuable -- leaving means starting over. Search and rescue teams use a grid pattern starting from your last known location. Every step away from that point makes you harder to find. The best survival strategy is almost always to stay, improve your camp, and signal for rescue.",
+        "whatToRemember": "In most survival situations, STAY PUT. Moving when lost usually makes things worse. Improve your camp, signal for rescuers, and conserve energy. Rescuers search outward from your last known location.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "majors-hockey-offensive-zone-draw",
+  "title": "Set Play off the Draw",
+  "sport": ["hockey"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["faceoff", "offensive zone", "set play", "advanced"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "2:00",
+    "score": { "home": 2, "away": 2 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is a tie game with two minutes left and there is a face-off in the other team's zone. Before the puck drops, you are a winger lining up on the circle. Your center is about to take the draw. What should your plan be?",
+      "choices": [
+        { "id": "best", "text": "Line up ready to receive the draw, with your stick on the ice aimed at the net so you can get a quick shot if the center wins it to you", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand back near the blue line and wait to see what happens after the face-off", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Do not think about it and just stand wherever you end up when the puck drops", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "One-timer off the draw! Goal!",
+        "explanation": "Your center won the face-off directly to your stick, and because you were already lined up and ready, you fired a one-timer past the goalie. Set plays off face-offs win games, especially late in close ones.",
+        "whatToRemember": "Before every face-off, have a plan. Know where you want the puck to go and be ready to shoot or pass immediately. A planned play off a won draw is one of the quickest ways to score.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "One-Timer", "definition": "A shot taken immediately off a pass without stopping the puck first. The shooter swings at the puck as it arrives, making it very hard for the goalie to react." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got the puck, but the chance passed",
+        "explanation": "Standing back at the blue line meant you were too far from the net to do anything dangerous. By the time you skated in, the defense was set up. You lost the quick-strike opportunity.",
+        "whatToRemember": "On offensive zone face-offs, position yourself where you can do damage right away. The best scoring chances come in the first few seconds after a won draw.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost the draw and the zone!",
+        "explanation": "Without a plan, nobody was in position when the puck dropped. The other team won the face-off cleanly and cleared the puck out of the zone. Two minutes left and you are chasing.",
+        "whatToRemember": "A face-off without a plan is a wasted face-off. Every player needs to know their job before the puck drops. Talk to your teammates and set up a play.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

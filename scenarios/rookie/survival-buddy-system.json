@@ -1,0 +1,65 @@
+{
+  "id": "rookie-survival-buddy-system",
+  "title": "Never Hike Alone",
+  "sport": ["survival"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "safety",
+  "tags": ["buddy system", "teamwork", "communication", "safety"],
+  "setup": {
+    "situation": "friend wants to split up on a trail",
+    "environment": "state park with forking trails",
+    "resources": "group of friends and a camp counselor",
+    "urgency": "medium"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on a nature hike at summer camp with your group and a counselor. The trail splits into two paths. Your friend Jake says, 'Let's take this trail by ourselves -- it looks way cooler! We can meet everyone at the end.' The counselor is at the front of the group and has not noticed the fork yet. What do you do?",
+      "choices": [
+        { "id": "stay-with-group", "text": "Tell Jake you should stay with the group and the counselor. The buddy system means staying together.", "nextNode": "outcome-great" },
+        { "id": "tell-counselor", "text": "Run up and ask the counselor if you and Jake can take the other trail and meet them at the end.", "nextNode": "outcome-okay" },
+        { "id": "go-with-jake", "text": "Go with Jake on the other trail. You have a buddy, so it should be fine.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Buddy System Champion!",
+        "explanation": "The buddy system means staying with your group and your leader, not just having one friend nearby. If you and Jake got hurt or lost on the other trail, nobody would know where you went or when to start looking for you. Staying with the group means there are more people to help if something goes wrong, and the counselor knows exactly where everyone is.",
+        "whatToRemember": "The buddy system means staying with your GROUP and your adult leader. Never split off from the group, even with a friend. Tell an adult before you go ANYWHERE different from the plan.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Buddy System", "definition": "A safety rule where you always stay with your group and an adult leader. If something goes wrong, people know where you are and can help." },
+          { "term": "Head Count", "definition": "When a leader counts everyone in the group to make sure nobody is missing. This only works if everyone stays together." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Idea to Ask, But Stay Together!",
+        "explanation": "Asking the counselor is much better than just leaving, and it shows good judgment. But the counselor will most likely say no, because splitting the group makes it harder to keep everyone safe. If you and Jake got hurt on the other trail, the counselor would not be there to help. It is always safest to keep the whole group together with the adult leader.",
+        "whatToRemember": "Always check with your adult leader before changing the plan. But in most cases, the safest choice is to keep the whole group together.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splitting Up is Dangerous!",
+        "explanation": "Even though Jake is with you, two kids alone on an unfamiliar trail is not safe. If one of you gets hurt, the other has to go find help alone, which means leaving an injured person by themselves AND a kid walking alone in the woods. The counselor would not know where you are or when to start searching. Many search-and-rescue situations start because someone left their group without telling anyone.",
+        "whatToRemember": "NEVER leave your group without telling the adult leader. Having one buddy is not enough -- you need your whole group and an adult. If something goes wrong, you need real help nearby.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

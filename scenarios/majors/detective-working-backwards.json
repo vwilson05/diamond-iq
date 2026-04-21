@@ -1,0 +1,65 @@
+{
+  "id": "majors-detective-working-backwards",
+  "title": "The Birthday Cake That Shrunk",
+  "sport": ["detective"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "deduction",
+  "tags": ["working-backwards", "case-solver", "reverse-engineering", "timeline"],
+  "setup": {
+    "case": "The Shrinking Birthday Cake",
+    "setting": "school kitchen and cafeteria",
+    "suspects": 4,
+    "cluesFound": 5
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The class birthday cake was a full sheet cake at 8 AM, but by the 2 PM party it is missing a big corner piece! Nobody admits to eating it. You decide to work BACKWARDS from the current state. The cake is in the cafeteria fridge now with a corner missing. At 1 PM the lunch staff saw it was still whole. At noon the teacher checked it and it was fine. At 11 AM a student helper moved it from the kitchen to the cafeteria fridge. So the cake was eaten between 1 PM and 2 PM. Who had access to the cafeteria fridge between 1 and 2 PM?",
+      "choices": [
+        { "id": "work-backwards", "text": "Work backwards: cake was whole at 1 PM, missing a piece at 2 PM. Find out who accessed the cafeteria fridge during that one-hour window. That is your suspect list.", "nextNode": "outcome-great" },
+        { "id": "check-morning", "text": "Investigate everyone who touched the cake in the morning since they knew where it was.", "nextNode": "outcome-okay" },
+        { "id": "ask-everyone", "text": "Ask every kid in the class if they ate cake.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Working Backwards Pinpoints the Window!",
+        "explanation": "By working backwards from the result (missing cake piece at 2 PM) through each checkpoint (whole at 1 PM, whole at noon, whole at 11 AM), you identified a one-hour window: 1 PM to 2 PM. Only two students had cafeteria passes during that time -- and one of them had frosting on their sleeve! Working backwards turned a wide-open mystery into a focused investigation with a tight time window and a short suspect list.",
+        "whatToRemember": "Working backwards means starting with what happened and tracing back through each step to find when and where things changed. It narrows your search to the exact window of time.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Working Backwards", "definition": "Starting with the result and tracing back step by step to figure out when and how it happened." },
+          { "term": "Time Window", "definition": "The specific period of time when something could have happened, based on when things were last checked." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Time Period! Work Backwards!",
+        "explanation": "Checking the morning makes sense since those people knew about the cake. But the cake was still whole at 1 PM! That means nobody touched it in the morning. You wasted time investigating a time period when nothing happened. If you had worked backwards from 2 PM, you would have immediately focused on the 1-2 PM window -- the only time the cake could have been eaten.",
+        "whatToRemember": "Do not investigate every time period equally. Work backwards from when the problem was discovered to find the narrow window when it actually happened.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Broad! Nobody Will Admit It!",
+        "explanation": "Asking every kid in class wastes time and probably will not work since the cake-eater is unlikely to confess. You have checkpoint evidence showing the cake was whole at 1 PM and missing a piece at 2 PM. Working backwards gives you a one-hour window and a very short suspect list. Use your evidence to narrow the search instead of asking 25 kids the same question.",
+        "whatToRemember": "When you have checkpoints (times when things were verified), use them! Work backwards to find the narrow window instead of casting a wide net.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

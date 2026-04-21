@@ -1,0 +1,65 @@
+{
+  "id": "rookie-detective-timeline",
+  "title": "When Did the Fish Tank Get Dirty?",
+  "sport": ["detective"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "deduction",
+  "tags": ["timeline", "junior-detective", "sequence", "logic"],
+  "setup": {
+    "case": "The Cloudy Fish Tank",
+    "setting": "science classroom",
+    "suspects": 3,
+    "cluesFound": 3
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The classroom fish tank is cloudy and the fish look unhappy! The teacher says it was clean at 9 AM. Three kids fed the fish today: Zoe at 9:30 AM, Aiden at 11 AM, and Priya at 1 PM. The tank started looking cloudy right after lunch at noon. Someone probably put in too much food. How do you figure out who overfed the fish?",
+      "choices": [
+        { "id": "use-timeline", "text": "The tank got cloudy at noon, which is right after Aiden fed the fish at 11 AM. He probably put in too much!", "nextNode": "outcome-great" },
+        { "id": "blame-last", "text": "Blame Priya because she was the last one to feed the fish.", "nextNode": "outcome-okay" },
+        { "id": "blame-first", "text": "Blame Zoe because she went first and might not know how much to use.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Timeline Detective! You Nailed the Timing!",
+        "explanation": "You figured out that the tank got cloudy at noon, and the last person to feed before noon was Aiden at 11 AM. If Zoe overfed at 9:30, the water would have been cloudy much earlier. And Priya fed at 1 PM, AFTER it was already cloudy. The timeline tells you Aiden's feeding at 11 AM caused the problem. Aiden admitted he accidentally dumped in a big scoop!",
+        "whatToRemember": "Build a timeline! Figure out WHEN something happened, then look at who did what right BEFORE that time.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Timeline", "definition": "A list of events in the order they happened, showing what time each thing occurred." },
+          { "term": "Cause and Effect", "definition": "When one thing (the cause) makes another thing happen (the effect). Too much food caused cloudy water." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Wrong Guess -- Check the Timeline!",
+        "explanation": "Priya fed the fish at 1 PM, but the tank was ALREADY cloudy at noon! That means Priya could not have caused it because the problem started before she even fed the fish. If you had built a timeline, you would have seen that Aiden fed the fish at 11 AM, right before the water got cloudy.",
+        "whatToRemember": "The last person is not always the one who caused the problem. Check the timeline to see what happened BEFORE the problem started.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Timing Does Not Match!",
+        "explanation": "Zoe fed the fish at 9:30 AM, but the water did not get cloudy until noon -- that is over two hours later! If Zoe overfed, the water would have gotten cloudy much sooner. The timeline shows the cloudy water happened right after Aiden fed the fish at 11 AM. Always check WHEN things happened before deciding who did it.",
+        "whatToRemember": "If there is a big gap between when someone acted and when the problem showed up, they probably did not cause it. Check the timing!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

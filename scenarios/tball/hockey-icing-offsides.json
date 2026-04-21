@@ -1,0 +1,63 @@
+{
+  "id": "tball-hockey-icing-offsides",
+  "title": "Do Not Cross That Line!",
+  "sport": ["hockey"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["icing", "offsides", "rules", "basics"],
+  "setup": {
+    "period": 2,
+    "timeLeft": "5:00",
+    "score": { "home": 2, "away": 2 },
+    "situation": "even-strength",
+    "zone": "neutral"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teammate has the puck and is skating through the middle of the ice. You are racing ahead toward the other team's zone. You are about to cross their blue line before the puck gets there. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Slow down and wait at the blue line until the puck crosses first, then skate in", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stop right on the blue line and yell for a pass", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Skate as fast as you can across the blue line before the puck gets there", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great awareness!",
+        "explanation": "You waited for the puck to cross the blue line first, then you skated in. This keeps the play onside and your team keeps the puck. Smart hockey!",
+        "whatToRemember": "The puck must cross the blue line before you do, or it is offsides. If you are faster than the puck, slow down and wait at the line.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Offsides", "definition": "A rule that says the puck must enter the other team's zone before any attacking player, or else play stops and there is a face-off" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good thinking, but risky",
+        "explanation": "Stopping at the blue line kept you onside, but standing still makes it easy for a defender to cover you. Next time, try to time your skating so you glide in right as the puck crosses.",
+        "whatToRemember": "Keep your feet moving and time your entry with the puck. Skating in with speed is better than standing still at the line.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Offsides! Whistle blows!",
+        "explanation": "You crossed the blue line before the puck, so the referee blew the whistle. Now there is a face-off and your team lost the attack.",
+        "whatToRemember": "Always watch the blue line and the puck. The puck goes in first, then you follow. Going in early is called offsides and it stops the play.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

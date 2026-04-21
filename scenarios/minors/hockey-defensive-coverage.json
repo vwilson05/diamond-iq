@@ -1,0 +1,63 @@
+{
+  "id": "minors-hockey-defensive-coverage",
+  "title": "Pick Up Your Player",
+  "sport": ["hockey"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["defensive zone", "man coverage", "game iq"],
+  "setup": {
+    "period": 3,
+    "timeLeft": "5:00",
+    "score": { "home": 3, "away": 2 },
+    "situation": "even-strength",
+    "zone": "defensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team is attacking your zone. You are a defenseman and the puck is on the other side of the ice. An opponent without the puck is sneaking toward the front of your net, trying to get open for a pass. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Stick close to that opponent, put your body between them and the net, and keep your stick in the passing lane", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand in front of the net but do not pay attention to where that opponent is going", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Leave your player and skate toward the puck carrier on the other side of the ice", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Locked down!",
+        "explanation": "By staying on your player and keeping your stick in the passing lane, the puck carrier had nowhere to pass. They were forced to take a bad shot from the outside that the goalie easily saved.",
+        "whatToRemember": "In your own zone, always know where your player is. Stay between them and the net, and keep your stick in the passing lane. Taking away passes is just as important as blocking shots.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Passing Lane", "definition": "The space between the puck carrier and a teammate they want to pass to. Defenders try to put their stick or body in this space to block passes." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close call",
+        "explanation": "You were in the right area, but the opponent slipped behind you toward the back post. The pass came, but luckily it was a little off target and your goalie snagged it.",
+        "whatToRemember": "Being in the right area is not enough. You need to track your specific player and stay with them. Always keep your head on a swivel so you know where they are.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wide open goal scored!",
+        "explanation": "When you left your player to chase the puck on the other side, the opponent skated right to the net completely uncovered. A simple pass and they had an easy tap-in goal.",
+        "whatToRemember": "Never leave your player to chase the puck unless you are the last one back. Your job is to cover your assignment. Let your teammates handle the puck carrier.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

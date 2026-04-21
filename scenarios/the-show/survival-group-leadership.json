@@ -1,0 +1,65 @@
+{
+  "id": "the-show-survival-group-leadership",
+  "title": "Leading Your Group",
+  "sport": ["survival"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "safety",
+  "tags": ["leadership", "morale", "teamwork", "decision making"],
+  "setup": {
+    "situation": "group members are arguing about what to do while lost",
+    "environment": "forest camp, second night",
+    "resources": "basic shelter, fire, water source",
+    "urgency": "high"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the second night at your group's survival camp. Everyone is tired and stressed. Two members of your group start arguing. Alex wants to hike out tomorrow morning and says staying is pointless. Sam wants to stay at camp and says leaving is dangerous. The argument is getting louder and other people are picking sides. The group is falling apart. As the person everyone has been looking to for decisions, what do you do?",
+      "choices": [
+        { "id": "calm-and-include", "text": "Ask everyone to sit down and take a breath. Let each person share their idea without interruption. Then talk through the pros and cons together as a group, and make a group decision based on the survival priorities you all know.", "nextNode": "outcome-great" },
+        { "id": "pick-a-side", "text": "Side with Sam and tell Alex the group is staying. Someone needs to make the call and end the argument.", "nextNode": "outcome-okay" },
+        { "id": "let-them-split", "text": "Tell Alex and anyone who agrees to hike out if they want, and the rest can stay. That way everyone gets what they want.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "True Leader!",
+        "explanation": "Great leadership in a crisis means keeping people calm and making everyone feel heard. When people feel listened to, they are much more likely to support the final decision -- even if it is not what they wanted. Talking through pros and cons together helps the group think logically instead of emotionally. Basing the decision on survival priorities (shelter, water, fire, food, signaling) grounds the discussion in facts, not feelings. A united group survives better than a divided one.",
+        "whatToRemember": "In a crisis: 1) Stay calm yourself first. 2) Let everyone speak. 3) Discuss pros and cons together. 4) Base decisions on survival priorities, not emotions. 5) A united group is a surviving group.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Group Morale", "definition": "The overall mood and confidence of the group. High morale means people work together, stay hopeful, and make better decisions. Low morale leads to arguments and giving up." },
+          { "term": "Consensus", "definition": "A decision that everyone in the group can support, even if it was not their first choice. Reached by discussing all options openly." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Decisive, But Not Inclusive!",
+        "explanation": "Making a quick decision does end the argument, and staying at camp is probably the right survival choice. But shutting Alex down without hearing the reasoning creates resentment. Alex might stop cooperating, refuse to help with camp tasks, or try to leave alone later. In survival, you NEED everyone working together. A leader who listens to all ideas and explains the reasoning gets better cooperation than one who just gives orders.",
+        "whatToRemember": "Making the right decision is important, but HOW you make it matters too. People cooperate better when they feel heard. Explain your reasoning so the whole group understands WHY.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Split the Group!",
+        "explanation": "Splitting the group is one of the most dangerous things you can do in a survival situation. A smaller group has fewer people to share tasks, keep watch, and help if someone gets hurt. The people hiking out might get more lost, and now search teams have to find TWO groups instead of one. In almost every survival scenario, staying together gives everyone the best chance. A leader's job is to keep the group unified, even when people disagree.",
+        "whatToRemember": "NEVER split the group. More people means more safety, more help, and easier rescue. A leader's most important job is keeping the group together and working as a team, even during disagreements.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "tball-hockey-passing",
+  "title": "Tape to Tape",
+  "sport": ["hockey"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["passing", "teamwork", "basics"],
+  "setup": {
+    "period": 1,
+    "timeLeft": "12:00",
+    "score": { "home": 1, "away": 0 },
+    "situation": "even-strength",
+    "zone": "offensive"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have the puck on your stick and a teammate is skating beside you with their stick on the ice, ready for a pass. A defender is coming right at you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Slide a flat pass along the ice right to your teammate's stick", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Flip the puck high in the air toward your teammate", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Ignore your teammate and try to skate around the defender by yourself", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect pass!",
+        "explanation": "A flat pass along the ice is the easiest kind of pass to receive. Your teammate caught it cleanly on their stick tape and now has a great chance to score.",
+        "whatToRemember": "Keep your passes flat on the ice and aim for your teammate's stick. This is called a tape-to-tape pass.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Tape to Tape", "definition": "A pass that goes right from the tape on your stick to the tape on your teammate's stick, staying flat on the ice" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Tricky to handle",
+        "explanation": "A puck flying through the air is much harder to catch on your stick. Your teammate had to stop and bat it down, giving the defense time to get back.",
+        "whatToRemember": "Keep passes on the ice whenever you can. A bouncing puck is hard for anyone to control.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover!",
+        "explanation": "The defender poke-checked the puck away from you. Your teammate was wide open and waving their stick, but you tried to do it all alone.",
+        "whatToRemember": "Hockey is a team game. When a teammate is open and calling for the puck, make the pass!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}
