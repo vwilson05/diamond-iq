@@ -1199,6 +1199,68 @@ body {
   .review-title {
     font-size: 2rem;
   }
+
+  /* Auth screen mobile compact */
+  .auth-screen .logo-header {
+    padding: 1rem 0 0.25rem;
+  }
+
+  .auth-screen .logo-header .logo {
+    font-size: 2rem;
+  }
+
+  .auth-screen .logo-header .tagline {
+    font-size: 0.75rem;
+  }
+
+  .auth-tabs {
+    margin: 0.75rem 0 1rem;
+  }
+
+  .auth-tab {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .auth-field {
+    margin-bottom: 0.5rem;
+  }
+
+  .auth-field label {
+    margin-bottom: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .auth-field input {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .auth-btn {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .auth-form-container {
+    margin-bottom: 0.75rem;
+  }
+
+  .avatar-grid {
+    gap: 0.4rem;
+  }
+
+  .avatar-btn {
+    padding: 0.4rem 0.2rem;
+  }
+
+  .avatar-label {
+    font-size: 0.55rem;
+  }
+
+  .auth-guest-btn {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* ---- LOADING / TRANSITION STATES ---- */
@@ -1232,14 +1294,15 @@ body {
     radial-gradient(ellipse at 50% 0%, rgba(245, 166, 35, 0.06) 0%, transparent 60%),
     radial-gradient(ellipse at 50% 100%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .auth-screen {
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 1.5rem 3rem;
+  padding: 0 1.5rem 2rem;
   width: 100%;
+  overflow-y: auto;
 }
 
 .auth-tabs {
@@ -1290,7 +1353,7 @@ body {
 }
 
 .auth-field {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .auth-field label {
