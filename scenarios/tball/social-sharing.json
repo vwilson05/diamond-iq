@@ -1,0 +1,95 @@
+{
+  "id": "tball-social-sharing",
+  "title": "Sharing the Swings",
+  "sport": [
+    "social"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "friendship",
+  "tags": [
+    "sharing",
+    "kindness",
+    "playground",
+    "basics"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 3,
+    "emotion": "excited",
+    "context": "recess at school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the swings at recess and having a great time! You look over and see your classmate Maya standing nearby, watching you swing. She looks like she really wants a turn, but all the swings are taken. You have been swinging for a while now. What do you do?",
+      "choices": [
+        {
+          "id": "offer-turn",
+          "text": "Jump off the swing and say, 'Hey Maya, want a turn? I've been on for a while!'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "keep-swinging",
+          "text": "Keep swinging but tell Maya she can have the next turn when you're done.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-her",
+          "text": "Keep swinging and pretend you didn't see her watching.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You hop off the swing and offer it to Maya. Her face lights up with a big smile! She says, 'Thanks! That's so nice of you!' While she swings, you two start talking and laughing together. A teacher nearby says, 'That was very kind of you to share!' Maya asks if you want to play together at the next recess too.",
+      "outcome": {
+        "result": "great",
+        "headline": "Awesome Sharing! You Made a Friend!",
+        "explanation": "When you share without being asked, it shows real kindness. Maya felt happy because you noticed she wanted a turn and offered before she even had to ask. Sharing like this is one of the best ways to make friends. It tells people that you care about how they feel, not just about what you want.",
+        "keyTerms": [
+          {
+            "term": "Sharing",
+            "definition": "Letting someone else use or enjoy something, like taking turns on the swings."
+          },
+          {
+            "term": "Kindness",
+            "definition": "Doing something nice for someone else, especially when you don't have to."
+          },
+          {
+            "term": "Noticing Others",
+            "definition": "Paying attention to how the people around you are feeling."
+          }
+        ],
+        "whatToRemember": "When you notice someone waiting, offering to share without being asked is one of the kindest things you can do.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Maya nods and waits nearby. After a few more minutes you hop off and let her have the swing. She says thanks, but recess is almost over and she only gets a couple of swings before the whistle blows. It worked out, but she didn't get much time.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Shared... Eventually!",
+        "explanation": "You did share, which is good! But Maya had to wait a long time and barely got to swing before recess ended. Next time, try offering sooner. The faster you share, the more fun everyone gets to have. It can be hard to give up something fun, but it feels really good when you do.",
+        "whatToRemember": "Sharing sooner means everyone gets more fun. Try to offer before someone has to wait too long.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You keep swinging and don't look at Maya. After a while, she walks away looking sad. Later, you hear her telling another friend, 'I waited and waited but nobody would share.' You feel a little bad inside. At the next recess, Maya plays on the other side of the playground away from you.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed a Chance to Be Kind",
+        "explanation": "Pretending not to see someone who is waiting doesn't feel good for anyone. Maya felt left out and sad, and you missed a chance to make a friend. When we ignore other people's feelings, they start to avoid us. Sharing might mean a little less swing time for you, but it means a lot more friendship for everyone.",
+        "whatToRemember": "Ignoring someone who wants a turn doesn't make the feeling go away. Sharing is how we show people we care.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

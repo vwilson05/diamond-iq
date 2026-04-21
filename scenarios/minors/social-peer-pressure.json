@@ -1,0 +1,95 @@
+{
+  "id": "minors-social-peer-pressure",
+  "title": "Everyone's Doing It",
+  "sport": [
+    "social"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "peer-pressure",
+    "standing-firm",
+    "values",
+    "social-iq"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 5,
+    "emotion": "uncomfortable",
+    "context": "friends pressuring you to break a rule"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "At recess, your group of friends wants to sneak over to the older kids' section of the playground, which is off-limits for your grade. Your friend Tyler says, 'Come on, everyone's going! Don't be a baby.' The other three kids are already heading that way. You know you'll get in trouble if a teacher sees you. What do you do?",
+      "choices": [
+        {
+          "id": "say-no-confidently",
+          "text": "Say, 'Nah, I'm good. I don't want to get in trouble. I'll be over here if you want to come back.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "go-along",
+          "text": "Go along with the group even though you feel weird about it.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "tattle",
+          "text": "Run to the teacher and tell on your friends before they even get there.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Tyler rolls his eyes, but two of the other kids stop and say, 'Actually, yeah, I don't want to get in trouble either.' They stay and play with you instead. Five minutes later, Tyler and the other kid get caught by a teacher and have to sit out the rest of recess. Tyler comes back and says, 'Okay, you were right.' Nobody calls you a baby -- they call you smart.",
+      "outcome": {
+        "result": "great",
+        "headline": "Standing Strong Under Pressure!",
+        "explanation": "Saying no to peer pressure takes real courage, especially when someone calls you a name for it. But notice what happened -- when you stood your ground calmly and confidently, other kids followed YOUR lead instead. You didn't lecture anyone or get upset. You just made your own choice and let others make theirs. That's real strength, and people respect it even when they don't admit it right away.",
+        "keyTerms": [
+          {
+            "term": "Peer Pressure",
+            "definition": "When friends or classmates try to get you to do something by making you feel like you have to go along."
+          },
+          {
+            "term": "Standing Your Ground",
+            "definition": "Making your own choice even when others want you to do something different."
+          },
+          {
+            "term": "Positive Influence",
+            "definition": "When your good choices inspire other people to make good choices too."
+          }
+        ],
+        "whatToRemember": "You can say no without being mean. A calm, confident 'no' is more powerful than going along to fit in.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You follow the group even though your stomach is doing flips. You get to the older kids' area and it's not even that fun. A teacher spots you and everyone has to write a note home to their parents. You feel terrible because you knew it was wrong the whole time but went along anyway.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Went Along and Paid the Price",
+        "explanation": "That uncomfortable feeling in your stomach was your instincts telling you this was a bad idea. When you ignore that feeling and go along with the group, you usually end up regretting it. Getting in trouble feels extra bad when you knew better the whole time. Trust your gut -- if something feels wrong, it probably is.",
+        "whatToRemember": "If your stomach says no but your feet follow the group, you'll wish you had listened to your stomach.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You run to the teacher before your friends even do anything. The teacher goes and warns them, but your friends saw you run to tell. Tyler says, 'You snitched on us? We weren't even there yet!' The whole group is angry with you. Nobody wants to play with you for the rest of the week. You meant well, but the way you handled it backfired.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Telling Too Soon Backfired",
+        "explanation": "Your instinct to avoid trouble was right, but running to tell on your friends before they actually did anything wasn't the best move. They hadn't broken any rules yet. A better approach would have been to try to talk them out of it yourself first, or just say no for yourself and let them make their own choice. Save telling an adult for when someone is about to get hurt or when something really serious is happening.",
+        "whatToRemember": "Try handling it yourself first. Say no for yourself and let others make their own choices. Tell an adult when safety is involved.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

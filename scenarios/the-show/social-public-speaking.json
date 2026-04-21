@@ -1,0 +1,95 @@
+{
+  "id": "the-show-social-public-speaking",
+  "title": "All Eyes on You",
+  "sport": [
+    "social"
+  ],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "communication",
+  "tags": [
+    "public-speaking",
+    "confidence",
+    "preparation",
+    "elite"
+  ],
+  "setup": {
+    "situation": "auditorium",
+    "people": 50,
+    "emotion": "terrified",
+    "context": "class presentation in front of the whole grade"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You've been chosen to give a five-minute presentation about your class's community service project in front of the entire fourth grade -- about fifty kids plus teachers. You're standing at the podium, your note cards in your shaking hands. You look out at the audience and your mind goes blank. You can't remember how your speech starts. Everyone is looking at you, waiting. What do you do?",
+      "choices": [
+        {
+          "id": "pause-and-reset",
+          "text": "Take a visible breath, smile at the audience, and say, 'Give me one second -- I want to get this right.' Then look at your note card, find your starting point, and begin.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "read-from-cards",
+          "text": "Put your head down and start reading directly from your note cards, word for word, as fast as you can.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "freeze-and-quit",
+          "text": "Say, 'I can't do this,' and walk off the stage back to your seat.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "The audience waits patiently -- a few kids even nod encouragingly. You find your opening line on the card, look back up, and start speaking. Your voice is a little shaky at first, but by the second sentence you're finding your rhythm. You make eye contact with a few friendly faces and it helps. By the end, you're speaking confidently and the audience claps loudly. Your teacher whispers, 'That pause at the beginning? That's what professionals do.' You feel a wave of pride wash over you.",
+      "outcome": {
+        "result": "great",
+        "headline": "Composure Under Pressure -- Like a Pro!",
+        "explanation": "Every great public speaker has had a moment where their mind went blank. What separates them from everyone else is how they handle it. By pausing, acknowledging the moment with humor, and then starting strong, you showed incredible composure. The audience didn't think less of you for the pause -- they respected you MORE because you handled the pressure with grace. Public speaking gets easier every time you do it, and you just proved to yourself that you can.",
+        "keyTerms": [
+          {
+            "term": "Composure",
+            "definition": "Staying calm and collected under pressure, even when things don't go as planned."
+          },
+          {
+            "term": "Recovery",
+            "definition": "Getting back on track after a stumble. In public speaking, a confident recovery is more impressive than a perfect start."
+          },
+          {
+            "term": "Stage Presence",
+            "definition": "The ability to command attention and connect with an audience, even when you're nervous."
+          }
+        ],
+        "whatToRemember": "Going blank is normal. Pause, breathe, find your place, and begin. The audience is rooting for you, not against you.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You get through the whole speech by reading from your cards, but you never look up. Your voice is quiet and flat. A few kids in the back start whispering to each other. When you finish, there's polite clapping. Your teacher says, 'Good information! Next time, try to look up more and connect with your audience.' You're relieved it's over, but you know it could have been better.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got Through It, But Didn't Connect",
+        "explanation": "Reading word for word from note cards means the information gets delivered, but the audience doesn't feel connected to you or your message. Public speaking is about communication, not just recitation. When you look at your audience, they feel included and engaged. Note cards should be a safety net, not a script. Even looking up between sentences makes a big difference.",
+        "whatToRemember": "Note cards are for glances, not staring. Look up, make eye contact, and talk TO your audience, not AT your cards.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You walk off the stage and sink into your seat. The auditorium is silent for an awkward moment before the teacher moves on. Some kids look sympathetic, others are whispering. You feel terrible -- not because you blanked, but because you gave up. Your teacher talks to you privately after and says, 'I wish you had tried. Everyone was rooting for you.' You realize walking away felt like the easy choice, but it actually felt worse.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Walking Away Felt Worse Than Trying",
+        "explanation": "The fear of failing in front of everyone felt overwhelming. But here's the truth: nobody would have judged you for a shaky start. They WOULD have cheered you for pushing through. By walking off stage, the only thing people remember is that you quit. The regret of not trying almost always hurts more than the embarrassment of trying imperfectly. You'll get another chance -- and next time, stay at that podium.",
+        "whatToRemember": "A shaky speech that you finish is always better than a perfect speech you never give. Stay at the podium.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

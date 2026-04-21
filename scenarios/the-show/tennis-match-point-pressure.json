@@ -1,0 +1,62 @@
+{
+  "id": "the-show-tennis-match-point-pressure",
+  "title": "Match Point -- Close It Out",
+  "sport": ["tennis"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "serve",
+  "tags": ["match point", "elite", "pressure", "mental"],
+  "setup": {
+    "set": 2,
+    "game": "5-4",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are serving for the match at 40-30 in the final set. One more point and you win the whole match. Your heart is pounding. Your opponent is dug in, ready to fight. How do you handle this serve?",
+      "choices": [
+        { "id": "best", "text": "Take a deep breath, bounce the ball a few times to calm down, trust your routine, and hit a confident serve to your best spot", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Just spin the serve in safely to make sure you do not double fault, even though it will be easy to return", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to hit the biggest serve of your life to end it right now, swinging way harder than normal", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Match won -- champion mentality!",
+        "explanation": "By sticking to your routine and trusting your normal serve, you placed it perfectly. Your opponent barely got a racket on it and you put the return away for the win. Champions rely on routine under pressure.",
+        "whatToRemember": "On big points, do not change what works. Trust your routine, your practice, and your best shots. Pressure is a privilege -- it means you earned the chance to close it out.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Routine", "definition": "The consistent set of actions you do before every serve or return -- bouncing the ball, taking a breath, visualizing the target. Routines keep you calm and focused on big points" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe serve, tough rally!",
+        "explanation": "Your cautious serve gave your opponent a clean look and they hit an aggressive return. You ended up in a long rally and eventually won the point, but it was way harder than it needed to be.",
+        "whatToRemember": "A safe serve under pressure is not the worst option, but it gives your opponent confidence. Try to hit your normal serve, not your weakest one.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Double fault on match point!",
+        "explanation": "Trying to hit way harder than normal threw off your timing. First serve went long, then nerves took over on the second serve and it went into the net. Now it is deuce and your opponent has all the momentum.",
+        "whatToRemember": "Never try to do something you have not practiced, especially on the biggest point. Swinging harder than normal leads to errors. Trust what you know.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

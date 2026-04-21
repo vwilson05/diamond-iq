@@ -1,0 +1,62 @@
+{
+  "id": "majors-tennis-constructing-points",
+  "title": "Build the Point Step by Step",
+  "sport": ["tennis"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["point construction", "advanced", "strategy"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are rallying from the baseline and your opponent is defending well. Every shot comes back. You need a plan to open up the court. What sequence of shots do you use?",
+      "choices": [
+        { "id": "best", "text": "Hit two deep crosscourt forehands to move your opponent wide, then when they hit a short ball, attack it down the line to the open court", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit every ball to the same spot and hope your opponent makes an error", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Go for a huge winner on the very first ball even though your opponent is in perfect position", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfectly constructed point!",
+        "explanation": "By going crosscourt twice, you moved your opponent further and further to one side. When they finally hit a short ball, the down-the-line winner was wide open. That is how you build a point.",
+        "whatToRemember": "Great tennis is like chess. Use crosscourt shots to move your opponent, then attack down the line when an opening appears. Patience plus a plan beats raw power.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Point Construction", "definition": "Building a point by using a planned sequence of shots to move your opponent around the court, creating an opening for a winner rather than going for one right away" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Predictable pattern!",
+        "explanation": "Hitting to the same spot over and over let your opponent camp there and hit comfortable returns. They eventually found an opening and moved you around instead.",
+        "whatToRemember": "Vary your shots to move your opponent. If every ball goes to the same place, your opponent knows exactly where to stand.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Unforced error!",
+        "explanation": "Going for a winner when your opponent is perfectly positioned and the ball is deep is a low-percentage play. Your shot clipped the net cord and dropped short on your side.",
+        "whatToRemember": "Do not force winners from bad positions. Build the point first and wait for the right ball to attack.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

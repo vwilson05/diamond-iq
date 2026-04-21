@@ -1,0 +1,62 @@
+{
+  "id": "rookie-tennis-volleys",
+  "title": "Quick Hands at the Net",
+  "sport": ["tennis"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["volley", "fundamentals", "net play"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You moved up to the net and your opponent hits the ball right at you before it bounces. You need to hit a volley. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Keep your racket out in front, use a short punch motion to block the ball, and angle it away from your opponent", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Take a big backswing and try to smash the ball as hard as you can", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Let the ball bounce first, then hit it like a regular shot", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clean volley winner!",
+        "explanation": "At the net, you do not need a big swing. A short punch with firm wrists directed the ball into the open court for a winner. Your opponent could not reach it.",
+        "whatToRemember": "Volleys are about placement, not power. Keep your swing short, your wrist firm, and aim for the open side of the court.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Volley", "definition": "A shot hit before the ball bounces, usually at the net. Volleys use a short punching motion instead of a full swing" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too much swing!",
+        "explanation": "Taking a big backswing at the net gives you no time to react. The ball came fast, and your big swing sent the ball flying way past the baseline.",
+        "whatToRemember": "At the net, keep your swing compact. There is not enough time for a full backswing. Think punch, not swing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You let the chance slip by!",
+        "explanation": "Waiting for the ball to bounce when you are at the net is a missed opportunity. The ball bounced and popped up, and by then your opponent was already in position to pass you.",
+        "whatToRemember": "When you are at the net, take the ball out of the air. That is the whole point of being up there -- to finish the point quickly.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

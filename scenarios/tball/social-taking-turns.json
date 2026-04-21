@@ -1,0 +1,95 @@
+{
+  "id": "tball-social-taking-turns",
+  "title": "Waiting Your Turn",
+  "sport": [
+    "social"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "communication",
+  "tags": [
+    "taking-turns",
+    "patience",
+    "fairness",
+    "basics"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 5,
+    "emotion": "impatient",
+    "context": "show and tell day"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's show and tell day in class! You brought your favorite toy dinosaur and you are SO excited to show everyone. Your teacher says, 'We'll go one at a time. Please raise your hand and wait to be called.' Two other kids go first and you are bouncing in your seat. You really want to go next! What do you do?",
+      "choices": [
+        {
+          "id": "raise-hand",
+          "text": "Raise your hand high and wait for the teacher to call on you.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "call-out",
+          "text": "Start waving your dinosaur and say, 'Me next! Me next! Look at mine!'",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "just-start",
+          "text": "Stand up and start talking about your dinosaur without waiting to be called.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You raise your hand and wait patiently. The teacher smiles and says, 'I love how patiently you are waiting! You're next!' When it's your turn, everyone is quiet and ready to listen. You tell them all about your T-Rex and the whole class thinks it's awesome. Your teacher gives you a sticker for great listening and waiting!",
+      "outcome": {
+        "result": "great",
+        "headline": "Patient and Polite! Great Job!",
+        "explanation": "Waiting your turn is hard when you are excited, but it shows respect for your classmates and your teacher. When you waited patiently, your teacher noticed and rewarded you. And because everyone was calm and listening, they all got to enjoy your show and tell. Taking turns means everyone gets a fair chance to share.",
+        "keyTerms": [
+          {
+            "term": "Taking Turns",
+            "definition": "Waiting for your chance instead of going ahead of other people."
+          },
+          {
+            "term": "Patience",
+            "definition": "Being able to wait calmly, even when you really want something right now."
+          },
+          {
+            "term": "Respect",
+            "definition": "Showing other people that their time and feelings matter just as much as yours."
+          }
+        ],
+        "whatToRemember": "Being patient and waiting your turn shows respect. People listen better when everyone takes turns.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You wave your dinosaur around and call out. The teacher gives you a look and says, 'Please raise your hand quietly.' You feel a little embarrassed but you raise your hand. You still get a turn, but the teacher calls on someone else first because they were waiting more patiently.",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Little Too Eager!",
+        "explanation": "Being excited is totally okay, but calling out can be distracting for everyone. The teacher had to stop and remind you of the rules, which slowed things down. You still got your turn, but someone who was waiting patiently got to go before you. Next time, channel that excitement into a really great presentation when it IS your turn.",
+        "whatToRemember": "It's great to be excited, but raising your hand quietly shows you can follow the rules even when it's hard.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You stand up and start talking, but the teacher stops you and says, 'Please sit down. It's not your turn yet.' The other kids look annoyed because you interrupted. You have to go back to your seat and wait even longer now. You feel embarrassed and the fun feeling is gone.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Oops! That Wasn't Your Turn!",
+        "explanation": "When you skip ahead without waiting, it's not fair to the other kids who were being patient. It also interrupts the person whose turn it actually was. The teacher had to stop everything to deal with the situation, and you ended up waiting even longer. Taking turns is one of the most important rules because it keeps things fair for everyone.",
+        "whatToRemember": "Skipping your turn isn't a shortcut -- it usually means you have to wait even longer. Fair is fair!",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

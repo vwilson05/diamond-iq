@@ -1,0 +1,96 @@
+{
+  "id": "minors-history-founding-a-colony",
+  "title": "Founding a Colony",
+  "sport": [
+    "history"
+  ],
+  "tier": "minors",
+  "impact": 3,
+  "role": "leadership",
+  "tags": [
+    "jamestown",
+    "colony",
+    "survival",
+    "planning",
+    "cooperation"
+  ],
+  "setup": {
+    "era": "1607",
+    "role": "colony planner",
+    "location": "Jamestown, Virginia",
+    "stakes": "colony survival"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are one of the leaders of a new English colony at Jamestown, Virginia. Your group of 104 settlers just arrived by ship. The land is swampy but near a river. Winter is coming in a few months, and your settlers need food, shelter, and clean water. Some settlers want to spend all their time searching for gold, since that is why many of them came. The nearby Powhatan people have been watching your arrival. What is your first priority?",
+      "choices": [
+        {
+          "id": "survival-first",
+          "text": "Focus on survival first -- build shelters, plant crops, dig a well for clean water, and try to trade peacefully with the Powhatan people for food and knowledge about the land.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "build-fort",
+          "text": "Build a strong fort with walls and focus on defense. You can figure out food later.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "search-gold",
+          "text": "Let the settlers search for gold as they want. If you find gold, you can buy everything you need.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You organize the settlers into teams: one group builds simple houses, another digs a well, and a third plants crops. You also send a small group to meet the Powhatan people with gifts. The Powhatan teach your settlers which local plants are safe to eat and how to grow corn in the Virginia soil. By the time winter arrives, your colony has shelters, stored food, and an important friendship with your neighbors. The colony survives its first winter with everyone working together.",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Planning Saved the Colony!",
+        "explanation": "In real history, Jamestown almost failed because the settlers did NOT do this at first. Many settlers searched for gold instead of growing food, and the colony nearly starved during the 'Starving Time' winter of 1609-1610. The colony only survived because of help from the Powhatan Confederacy, led by Chief Wahunsenacah (sometimes called Powhatan). The Powhatan people taught colonists to grow corn and shared food with them. A good leader thinks about what the group NEEDS (food, water, shelter) before what the group WANTS (gold).",
+        "keyTerms": [
+          {
+            "term": "Colony",
+            "definition": "A settlement of people who move to a new land but are still connected to their home country. Jamestown was England's first lasting colony in America."
+          },
+          {
+            "term": "Powhatan Confederacy",
+            "definition": "A group of about 30 Native American tribes in Virginia, led by Chief Wahunsenacah. They had lived on the land for thousands of years before the English arrived."
+          },
+          {
+            "term": "Prioritizing Needs",
+            "definition": "Putting the most important things (food, water, shelter) before less important things (gold, luxury). This is a key leadership skill."
+          }
+        ],
+        "whatToRemember": "A leader's first job is making sure everyone has what they need to survive. Wants can wait, but needs cannot.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You build a strong wooden fort with high walls. The settlers feel safe inside. But nobody planted crops or stored food. As winter approaches, the food from the ship runs out. The well is not finished, and people are drinking swampy water and getting sick. You have a great fort, but hungry, sick people inside it. You desperately send a group to ask the Powhatan people for help.",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Strong Fort, But Empty Stomachs!",
+        "explanation": "Defense is important, but you cannot eat walls. Jamestown's real settlers built a fort, but many got sick from bad water and starved because they did not grow enough food. A fort without food and clean water is just a building. Good leaders balance multiple needs at once -- shelter AND food AND water AND safety.",
+        "whatToRemember": "Defense is important, but it is only one piece of the puzzle. You need food, water, and shelter too. Good leaders plan for ALL the basics.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "The settlers spread out searching for gold. They dig holes everywhere but find nothing -- there is no gold in Jamestown! Meanwhile, nobody built shelters, nobody planted food, and nobody dug a well. When winter comes, the settlers are starving, freezing, and sick from drinking swamp water. The colony nearly collapses. It is a disaster that could have been avoided.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Gold Fever Nearly Destroyed the Colony!",
+        "explanation": "This is almost exactly what happened in real history. Many Jamestown settlers were gentlemen who came looking for gold and did not know how to farm or build. Captain John Smith eventually forced everyone to work by saying, 'He who does not work shall not eat.' The 'Starving Time' was one of the worst periods in colonial history, and it happened because leaders let people chase gold instead of focusing on survival.",
+        "whatToRemember": "Chasing get-rich-quick dreams while ignoring basic needs is a recipe for disaster. Take care of the essentials first.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

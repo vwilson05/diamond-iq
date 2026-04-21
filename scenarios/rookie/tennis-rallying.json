@@ -1,0 +1,62 @@
+{
+  "id": "rookie-tennis-rallying",
+  "title": "Keep the Ball in Play",
+  "sport": ["tennis"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["rallying", "fundamentals", "consistency"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are in the middle of a long rally. The ball keeps coming back and you are getting tired. Your opponent is waiting for you to make a mistake. What is your plan?",
+      "choices": [
+        { "id": "best", "text": "Hit the ball high over the net with good depth to the middle of the court and stay patient until you get a short ball", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to end the rally right now by hitting the ball as hard as you can to the corner", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit the ball softly and short so you can catch your breath", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart rally play!",
+        "explanation": "By hitting deep and being patient, you kept your opponent pinned behind the baseline. Eventually they hit a short ball and you were ready to attack it for a winner.",
+        "whatToRemember": "In a rally, consistency wins. Hit the ball with good height over the net and aim deep. Wait for a short ball before attacking.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Rally", "definition": "When both players keep hitting the ball back and forth over the net. Staying patient and consistent during rallies is one of the most important skills in tennis" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Risky shot missed!",
+        "explanation": "Going for a big corner shot without a setup is a gamble. This time the ball clipped the net and went out. You gave away a point you could have won by being patient.",
+        "whatToRemember": "Do not go for a winner from behind the baseline unless you have a short ball to attack. Build the point first.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You gave your opponent an easy ball!",
+        "explanation": "Hitting the ball short and soft is like giving your opponent a present. They stepped inside the baseline and hit an easy winner into the open court.",
+        "whatToRemember": "Never hit short on purpose during a rally. Even when tired, aim deep to keep your opponent back.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

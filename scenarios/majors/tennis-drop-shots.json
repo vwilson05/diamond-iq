@@ -1,0 +1,62 @@
+{
+  "id": "majors-tennis-drop-shots",
+  "title": "The Sneaky Drop Shot",
+  "sport": ["tennis"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["drop shot", "advanced", "touch"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent is standing way behind the baseline after a deep rally. You get a ball at the service line that you can do anything with. You want to try a drop shot. When and how should you hit it?",
+      "choices": [
+        { "id": "best", "text": "Disguise it by starting your swing like a normal groundstroke, then at the last moment open the racket face and gently tap the ball just over the net with backspin", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Obviously slow down your swing early so you can softly push the ball over the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try a drop shot from behind your own baseline even though your opponent is not far back", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Disguised drop shot winner!",
+        "explanation": "Your opponent thought you were hitting a normal shot and stayed back. The ball barely cleared the net and bounced twice before they could sprint forward. The backspin kept the ball low.",
+        "whatToRemember": "A great drop shot has two secrets: disguise and backspin. Make it look like a regular shot until the last moment, and use backspin so the ball dies after it bounces.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Drop Shot", "definition": "A soft, delicate shot with backspin that barely clears the net and bounces low, designed to catch an opponent off guard when they are far behind the baseline" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "They saw it coming!",
+        "explanation": "Because you slowed down your swing early, your opponent recognized the drop shot and started sprinting forward. They reached it and flicked a passing shot past you.",
+        "whatToRemember": "Disguise is everything on a drop shot. If your opponent can tell it is coming, they will run it down easily.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way too far back for that!",
+        "explanation": "A drop shot from behind the baseline has to travel too far. The ball bounced high and short, giving your opponent an easy ball to attack. Drop shots only work when you are inside the court.",
+        "whatToRemember": "Only hit drop shots when you are at or inside the service line. From the baseline, the ball travels too far and loses its effectiveness.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

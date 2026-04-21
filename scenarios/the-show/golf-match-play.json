@@ -1,0 +1,67 @@
+{
+  "id": "the-show-golf-match-play",
+  "title": "Match Play Tactics",
+  "sport": ["golf"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "tee-shot",
+  "tags": ["match play", "strategy", "head to head", "elite"],
+  "setup": {
+    "hole": 15,
+    "par": 4,
+    "distance": 350,
+    "lie": "tee box",
+    "score": "1 UP"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are 1 UP in a match play tournament with 4 holes to go. Your opponent just hit their tee shot in the fairway, about 260 yards out. The hole has a tight fairway with out-of-bounds left and trees right. You are the last to tee off. You only need to halve the remaining holes to win the match. What is your strategy?",
+      "choices": [
+        { "id": "best", "text": "Play your reliable shot to the fairway. You are ahead, so match your opponent's safe position. Make them come to you. There is no need to take risks when you are leading.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Ignore what your opponent did and try to bomb your driver past them to show dominance", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to cut the corner over the trees to get closer to the green and put pressure on your opponent", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Match Play! In the Fairway!",
+        "explanation": "Your ball lands safely in the fairway. Now your opponent has to make something happen while you can play safe, steady golf. In match play, when you are ahead, the strategy is to make your opponent take risks to catch up. By playing safe and matching their position, you force them to go for birdies while you can cruise with pars. The pressure shifts to them. This is called playing the match, not the course.",
+        "whatToRemember": "In match play, when you are ahead, play steady and make your opponent take risks. You do not need birdies -- they do. Force them to press by making safe, solid pars.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Match Play", "definition": "A format where you compete hole by hole against one opponent. Each hole is worth one point. The player who wins the most holes wins the match." },
+          { "term": "Dormie", "definition": "When you are ahead by the same number of holes remaining. For example, 2 UP with 2 to play. You cannot lose -- only halve or win." },
+          { "term": "Playing the Match", "definition": "Adjusting your strategy based on what your opponent does, rather than just playing the course. When ahead, play safe. When behind, take chances." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Big Drive, But Risky Move",
+        "explanation": "You hit a long drive that went past your opponent, but it drifted right and barely stayed out of the trees. You got lucky. In match play, there is no reason to out-drive your opponent when you are already ahead. Ego drives and hero shots are for when you are behind and need to make something happen, not when you are protecting a lead.",
+        "whatToRemember": "In match play, do not let ego drive your decisions. When you are ahead, the goal is to win the match, not win each hole. Playing safe and steady when leading is the smartest strategy.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Out of Bounds! Hole Lost! Now All Square!",
+        "explanation": "Cutting the corner was a huge unnecessary risk. The ball went out of bounds and you lost the hole, bringing the match to all square with 3 to go. You gave away your lead by taking a risk that was not needed. Your opponent was in the fairway -- all you had to do was match them. Now they have all the momentum. In match play, the player who is behind should take risks. The player who is ahead should play safe.",
+        "whatToRemember": "Never take unnecessary risks when you are ahead in match play. An out-of-bounds or lost ball gives the hole to your opponent. Protect your lead by playing the percentages.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

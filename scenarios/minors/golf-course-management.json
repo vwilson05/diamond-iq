@@ -1,0 +1,67 @@
+{
+  "id": "minors-golf-course-management",
+  "title": "Play It Smart, Not Hard",
+  "sport": ["golf"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "tee-shot",
+  "tags": ["course management", "strategy", "game iq"],
+  "setup": {
+    "hole": 14,
+    "par": 4,
+    "distance": 320,
+    "lie": "tee box",
+    "score": "+2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the tee of a tricky par 4. The fairway is narrow with water down the left side and trees on the right. Your driver could reach the water if you pull it left. Your 5-iron would land safely in the middle of the fairway but leave you a longer approach. You are 2 over par. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Hit your 5-iron to the safe part of the fairway. A longer approach from the fairway is better than a short one from trouble.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit your driver but aim way right to avoid the water, even though that means aiming at the trees", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit driver straight at the flag. You need to make up strokes so you have to be aggressive.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Play! Safe in the Fairway!",
+        "explanation": "Your 5-iron lands right in the middle of the fairway, 150 yards from the green. No water, no trees, no trouble. This is course management -- making smart decisions about where to hit the ball instead of always hitting it as far as you can. The best golfers think their way around the course. From the fairway, you have a clean 150-yard shot at the green.",
+        "whatToRemember": "Course management means picking the shot with the best chance of keeping you out of trouble. A safe shot from the fairway beats a risky shot that could end up in the water.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Course Management", "definition": "Making smart decisions about club selection and where to aim based on the layout of the hole. Thinking your way around the course." },
+          { "term": "Laying Back", "definition": "Choosing to hit a shorter shot to avoid hazards instead of going for maximum distance." },
+          { "term": "Position Golf", "definition": "Playing to get your ball in the best possible spot for your next shot, rather than always hitting it as far as you can." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "In the Trees! Tough Next Shot",
+        "explanation": "Aiming right to avoid the water worked -- you did not hit it in the water. But the driver went too far right and you are behind some trees. Now you have to chip out sideways to get back to the fairway. Trading one problem for another is not great course management.",
+        "whatToRemember": "If you have to aim away from trouble with a driver, you might be better off using a shorter club that stays in the fairway. Aiming at one hazard to avoid another is a risky plan.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splash! In the Water!",
+        "explanation": "Going aggressive on a narrow hole with water is a recipe for a big number. Your ball pulled slightly left and splashed into the water. Now you have to take a penalty stroke and drop a new ball. Instead of making up strokes, you just added more. Being aggressive does not mean being reckless.",
+        "whatToRemember": "When there is water or a big hazard, think twice before hitting driver. Making a bogey from the fairway is much better than making a double or triple from the water.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

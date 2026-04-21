@@ -1,0 +1,96 @@
+{
+  "id": "rookie-history-gold-rush",
+  "title": "Gold Rush Choices",
+  "sport": [
+    "history"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "exploration",
+  "tags": [
+    "gold-rush",
+    "california",
+    "economics",
+    "mining",
+    "entrepreneurship"
+  ],
+  "setup": {
+    "era": "1849",
+    "role": "young gold seeker",
+    "location": "Sacramento, California",
+    "stakes": "making your fortune"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have just arrived in California during the Gold Rush! Thousands of people are flooding into Sacramento hoping to strike it rich. You have a small amount of money saved up. Gold miners are everywhere, digging in rivers and hillsides. But you also notice that miners are desperate for supplies -- pickaxes, pans, boots, and food are in short supply and very expensive. How do you try to make your fortune?",
+      "choices": [
+        {
+          "id": "sell-supplies",
+          "text": "Use your savings to buy supplies in town and sell them to miners at the camps. Miners need tools, food, and clothes, and they will pay well for them.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "pan-for-gold",
+          "text": "Buy a gold pan and head to the river to search for gold like everyone else.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "buy-claim",
+          "text": "Spend all your money buying a gold claim from a stranger who says his land is full of gold.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You buy shovels, pans, dried beef, flour, and sturdy boots. Then you load up a cart and head to the mining camps. The miners are thrilled! They have been digging for weeks with broken tools and eating nothing but beans. They happily pay you top dollar for your supplies. You make more money in one week of selling supplies than most miners make in a month of digging. You keep buying and selling, and soon you have a thriving general store.",
+      "outcome": {
+        "result": "great",
+        "headline": "Supply and Demand! Brilliant Business Thinking!",
+        "explanation": "This is exactly what some of the smartest people did during the real Gold Rush. Levi Strauss came to California and sold sturdy pants (which became Levi's jeans!). Sam Brannan bought every shovel and pan in San Francisco and sold them to miners at high prices. The saying 'During a gold rush, sell shovels' comes from this real history. Most gold miners barely found any gold, but the people who sold them supplies made steady money. This is a lesson in supply and demand -- when lots of people need something and there is not much of it, the price goes up.",
+        "keyTerms": [
+          {
+            "term": "Supply and Demand",
+            "definition": "When many people want something (demand) but there is not much of it (supply), the price goes up. This is a basic rule of economics."
+          },
+          {
+            "term": "Gold Rush",
+            "definition": "A period starting in 1848 when hundreds of thousands of people rushed to California after gold was discovered. It changed California and the whole country."
+          },
+          {
+            "term": "Entrepreneur",
+            "definition": "A person who starts a business to solve a problem or fill a need. Many Gold Rush entrepreneurs made more money than the miners."
+          }
+        ],
+        "whatToRemember": "Sometimes the smartest move is not doing what everyone else is doing. Look for what people NEED and find a way to provide it.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You buy a gold pan and wade into the river. You spend hours every day scooping sand and water, looking for gold flakes. After two weeks, you find a few tiny flakes worth a couple of dollars. But your back aches, your boots are worn out, and food costs are eating up what little gold you find. Some lucky miners nearby found a big nugget, but most people are in the same boat as you -- working hard and finding very little.",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Little Gold, But Hard Work for Small Pay!",
+        "explanation": "This was the reality for most forty-niners (the nickname for Gold Rush miners). A few struck it rich, but the vast majority found very little gold. The work was backbreaking -- standing in freezing river water all day, scooping and sifting. Meanwhile, the cost of everything in California was sky-high. A single egg could cost the equivalent of 25 dollars today! Most miners spent more money on supplies than they ever earned from gold.",
+        "whatToRemember": "Following the crowd is not always the best strategy. Most gold miners did not get rich, but the people who thought differently -- selling supplies, starting businesses -- often did much better.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You give all your money to the stranger for his gold claim. He hands you a piece of paper and walks away with a big smile. When you get to the claim site, you find nothing but rocky ground and an empty hole. Other miners tell you that man has sold the same worthless claim to five different people this month! Your money is gone and you have nothing to show for it.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Scammed! Always Do Your Research!",
+        "explanation": "Scams were extremely common during the Gold Rush. Dishonest people sold worthless claims, fake maps to 'secret' gold deposits, and broken equipment. When people are excited and in a hurry to get rich, they often skip doing their homework. Before spending money -- especially ALL your money -- on something, you should always check it out first. Talk to other people, look at the land yourself, and never trust a deal that sounds too good to be true.",
+        "whatToRemember": "If something sounds too good to be true, it probably is. Always do your research before spending your money, especially when someone is rushing you to decide.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

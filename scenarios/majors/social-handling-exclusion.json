@@ -1,0 +1,95 @@
+{
+  "id": "majors-social-handling-exclusion",
+  "title": "The Uninvited",
+  "sport": [
+    "social"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "conflict",
+  "tags": [
+    "exclusion",
+    "resilience",
+    "self-worth",
+    "advanced"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 6,
+    "emotion": "hurt",
+    "context": "finding out you weren't invited to a party"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You walk into class Monday morning and everyone is talking about Bella's birthday party from the weekend. It sounds like it was amazing -- a trampoline park, pizza, and a DJ. You realize you're one of the only kids in your friend group who wasn't invited. Your chest feels tight and your eyes sting a little. Bella is right there laughing about the party with your other friends. What do you do?",
+      "choices": [
+        {
+          "id": "handle-with-grace",
+          "text": "Take a quiet moment to feel the hurt, then talk to a friend you trust later. Say to yourself, 'This stings, but it doesn't define me.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "confront-bella",
+          "text": "Walk up to Bella and say, 'Why wasn't I invited to your party?'",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "start-drama",
+          "text": "Start telling other people that Bella's party was probably lame anyway and she's a bad friend.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You let yourself feel sad for a few minutes. At lunch, you tell your friend Dante, 'Hey, it kind of hurt that I wasn't invited to Bella's party. But I'm okay.' Dante says, 'Yeah, I noticed that too. That wasn't cool. Want to hang out this weekend instead?' You realize not being invited doesn't mean something is wrong with you. Later, Bella actually comes up to you and says, 'Hey, my mom said I could only invite ten people and I felt really bad. I'm sorry.' You say, 'Thanks for telling me. That actually helps.'",
+      "outcome": {
+        "result": "great",
+        "headline": "Handling Hurt With Real Maturity!",
+        "explanation": "Being left out is one of the most painful social experiences. You handled it with incredible maturity by doing three things: letting yourself feel the emotion instead of stuffing it down, talking to a trusted friend about it, and not lashing out at Bella. It turned out there was a reason you weren't invited that had nothing to do with you personally. Even if there wasn't a good reason, your response kept your dignity and your friendships intact.",
+        "keyTerms": [
+          {
+            "term": "Emotional Processing",
+            "definition": "Allowing yourself to feel difficult emotions without acting on them impulsively."
+          },
+          {
+            "term": "Self-Worth",
+            "definition": "Knowing your value as a person doesn't depend on being included in every event or liked by everyone."
+          },
+          {
+            "term": "Resilience",
+            "definition": "The ability to bounce back from hurtful experiences without letting them change who you are."
+          }
+        ],
+        "whatToRemember": "Not every exclusion is personal. Feel the hurt, talk to someone you trust, and remember: one party doesn't define your worth.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Bella looks uncomfortable and says, 'Um, my mom said I could only invite ten people...' She trails off. The conversation is awkward in front of everyone. You got your answer, but now Bella feels put on the spot and a few kids are staring. You feel a little better knowing the reason, but the way you asked made the whole thing public.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fair Question, Wrong Setting",
+        "explanation": "Wanting to know why you weren't included is completely understandable. But asking in front of everyone put Bella in an uncomfortable spot and made a private hurt into a public scene. If you had pulled Bella aside privately or waited until a quieter moment, the conversation would have been easier for both of you. The question was fair -- the timing and audience were the issue.",
+        "whatToRemember": "Hard conversations are better in private. Public confrontations put people on the defensive, even when your feelings are valid.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You start making mean comments about the party and Bella. Word gets back to Bella by the end of the day and she's really upset. She says, 'I was going to apologize for not inviting you, but now I'm glad I didn't.' Your other friends think you're being dramatic. Instead of gaining sympathy, you pushed people further away. The hurt you felt is now doubled.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Hurting Back Only Hurts You",
+        "explanation": "When we're hurt, there's a natural urge to hurt back. But talking behind Bella's back didn't make your pain smaller -- it made the whole situation bigger and worse. Now instead of being someone who was understandably left out, you became the person who talks badly about others. Bella was going to apologize, but your reaction closed that door. Retaliating when you're hurt almost always makes things worse.",
+        "whatToRemember": "Pain doesn't justify cruelty. When you lash out, you lose the moral high ground and usually make things worse for yourself.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

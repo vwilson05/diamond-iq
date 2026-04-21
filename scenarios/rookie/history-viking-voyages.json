@@ -1,0 +1,96 @@
+{
+  "id": "rookie-history-viking-voyages",
+  "title": "Viking Voyage",
+  "sport": [
+    "history"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "exploration",
+  "tags": [
+    "vikings",
+    "navigation",
+    "ocean",
+    "exploration",
+    "norse"
+  ],
+  "setup": {
+    "era": "1000 AD",
+    "role": "young Viking navigator",
+    "location": "the North Atlantic Ocean",
+    "stakes": "discovering new land"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on a Viking longship sailing west from Greenland into unknown waters. Your leader, Leif Erikson, believes there is land across the ocean because other sailors have spotted distant shores. But now thick fog has rolled in, and you cannot see the sun or the stars to navigate. The crew is nervous. As the young navigator, Leif asks for your advice. What do you suggest?",
+      "choices": [
+        {
+          "id": "use-clues",
+          "text": "Watch for natural signs -- birds flying toward land, changes in the waves, and the direction of the wind -- to guide the ship west.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "wait-for-sun",
+          "text": "Drop the anchor and wait for the fog to clear so you can see the sun and stars again.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "turn-back",
+          "text": "Turn the ship around and sail back to Greenland where it is safe.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You study the ocean carefully. You notice seabirds flying in one direction -- toward land! The waves are getting smaller, which means land is blocking the big ocean swells. You point west and say, 'Land is that way.' Leif trusts your reading of the signs and steers the ship. The next morning, the fog lifts and there it is -- a beautiful green coastline with forests and streams! You have reached a new land that Leif names Vinland. You are the first Europeans to set foot in North America!",
+      "outcome": {
+        "result": "great",
+        "headline": "Land Ho! You Found Vinland!",
+        "explanation": "Vikings were incredible navigators. Without compasses or GPS, they used nature to find their way across open ocean. They watched birds (birds fly toward land to rest), studied wave patterns (waves get smaller near land), checked wind direction, and even looked at the color of the water. Leif Erikson and his crew really did reach North America around the year 1000 -- nearly 500 years before Columbus! The remains of their settlement were found in Newfoundland, Canada.",
+        "keyTerms": [
+          {
+            "term": "Navigation",
+            "definition": "Finding your way from one place to another. Vikings navigated using the sun, stars, birds, and waves."
+          },
+          {
+            "term": "Leif Erikson",
+            "definition": "A Viking explorer who led the first known European voyage to North America around the year 1000."
+          },
+          {
+            "term": "Vinland",
+            "definition": "The name Vikings gave to the part of North America they discovered. It means 'land of vines.'"
+          }
+        ],
+        "whatToRemember": "You do not always need fancy tools to solve problems. Vikings crossed oceans by paying close attention to the world around them.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You drop anchor and wait. The fog does not clear for two whole days! The crew gets restless and food supplies run low. Finally the sun breaks through and you can navigate again. You sail west and eventually spot land, but the delay used up precious food and fresh water. The crew is tired and hungry when they finally reach shore.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Found Land, But the Delay Cost You!",
+        "explanation": "Waiting for clear skies is logical, but Viking expeditions carried limited food and water. Every day spent waiting was a day of supplies used up. Real Viking navigators learned to read nature's signs even in bad weather because they could not afford to wait. On the open ocean, time is survival.",
+        "whatToRemember": "Sometimes waiting is safe, but when supplies are limited, you need to use every clue available to keep moving forward.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You turn the ship around and head back to Greenland. The crew is relieved at first, but when you arrive home, everyone is disappointed. Other Viking crews are already talking about trying the voyage. Leif says, 'We were so close. We should have kept going.' Months later, you hear that another crew made it to the new land and found forests full of timber and rivers full of fish.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turned Back Too Soon!",
+        "explanation": "Exploration takes courage. Every great explorer faced moments of fear and uncertainty. The Vikings who discovered new lands were not fearless -- they were brave enough to keep going even when things got scary. If Leif Erikson had turned back every time the weather was bad, the Vikings never would have crossed the Atlantic Ocean.",
+        "whatToRemember": "Exploration means facing the unknown. Being scared is normal, but giving up too soon means you might miss something amazing just over the horizon.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

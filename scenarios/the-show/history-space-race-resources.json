@@ -1,0 +1,96 @@
+{
+  "id": "the-show-history-space-race-resources",
+  "title": "Space Race Resource Allocation",
+  "sport": [
+    "history"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "innovation",
+  "tags": [
+    "space-race",
+    "nasa",
+    "apollo",
+    "resource-management",
+    "strategy"
+  ],
+  "setup": {
+    "era": "1963",
+    "role": "NASA program director",
+    "location": "NASA Headquarters, Washington D.C.",
+    "stakes": "reaching the Moon before the decade is out"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is 1963. President Kennedy has challenged NASA to land a person on the Moon before 1970. The Soviet Union is ahead in the Space Race -- they put the first satellite, the first animal, and the first human in space. Now you are in charge of spending NASA's budget. There are three possible approaches to reaching the Moon, and your engineers are debating fiercely. You can only fully fund one approach. Which mission plan do you choose?",
+      "choices": [
+        {
+          "id": "lunar-orbit",
+          "text": "Lunar Orbit Rendezvous: Send one spacecraft with two parts. One part orbits the Moon while a smaller lander drops to the surface and comes back up. This uses less fuel and a smaller rocket, but requires a tricky rendezvous in lunar orbit.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "direct-ascent",
+          "text": "Direct Ascent: Build one enormous rocket that flies straight to the Moon, lands, and flies straight back. Simple plan, but requires the biggest rocket ever built.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "earth-orbit",
+          "text": "Earth Orbit Rendezvous: Launch multiple smaller rockets and assemble the Moon ship in Earth orbit. Then fly it to the Moon as one piece.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You choose Lunar Orbit Rendezvous (LOR). Your engineers get to work designing two spacecraft: the Command Module (which orbits the Moon) and the Lunar Module (which lands on the surface). Because the lander does not need to carry fuel for the whole return trip, it can be much lighter. The Saturn V rocket is powerful enough to launch the whole system. After years of development, testing, and incredible teamwork, Apollo 11 launches on July 16, 1969. Four days later, Neil Armstrong steps onto the Moon's surface. The United States wins the Space Race with months to spare before Kennedy's deadline.",
+      "outcome": {
+        "result": "great",
+        "headline": "Moon Landing Achieved! The Right Plan Won!",
+        "explanation": "Lunar Orbit Rendezvous is exactly what NASA chose, and it was the key decision that made the Moon landing possible by 1969. The idea was championed by engineer John Houbolt, who fought for it even when most NASA leaders preferred other approaches. LOR was elegant: by splitting the spacecraft into two parts, the lander could be much smaller and lighter, which meant a smaller (and buildable) rocket. The alternatives would have required rockets so enormous they could not have been built in time. Sometimes the cleverest solution is not the most obvious one. Over 400,000 people worked on the Apollo program, and the mission cost about $25 billion (over $150 billion in today's money).",
+        "keyTerms": [
+          {
+            "term": "Lunar Orbit Rendezvous",
+            "definition": "The mission plan NASA used for Apollo. A spacecraft orbits the Moon while a smaller lander goes to the surface and returns. This saved weight and fuel."
+          },
+          {
+            "term": "Space Race",
+            "definition": "The competition between the United States and the Soviet Union from the 1950s to 1960s to achieve milestones in space exploration."
+          },
+          {
+            "term": "Resource Allocation",
+            "definition": "Deciding how to spend limited money, time, and people on different options. Choosing the right plan for NASA's resources was the most important decision of the Space Race."
+          }
+        ],
+        "whatToRemember": "When resources are limited, the cleverest approach often beats the biggest one. Listen to creative ideas even when they come from unexpected places.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You choose Direct Ascent and begin designing the Nova rocket -- a rocket even bigger than the Saturn V. The engineering is staggering. Years pass and the rocket keeps getting more complicated and more expensive. By 1967, you are behind schedule and over budget. The Nova rocket is still not ready for testing. Meanwhile, the Soviets are making progress on their own Moon program. You eventually have to switch to a different plan, but the years spent on Nova are lost. The Moon landing happens, but barely makes the 1970 deadline.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Big! The Giant Rocket Took Too Long!",
+        "explanation": "Direct Ascent was the first plan NASA considered. It was conceptually simple -- one big rocket does everything -- but it required the Nova rocket, which would have been far larger than anything ever built. Engineers estimated it would have taken too long and cost too much. In engineering, simpler is not always better if 'simple' means impossibly large. The smarter approach was to break the problem into smaller, manageable pieces, which is exactly what Lunar Orbit Rendezvous did.",
+        "whatToRemember": "Bigger is not always better. Breaking a huge problem into smaller, smarter pieces is often faster and cheaper than trying to solve it all at once with brute force.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You choose Earth Orbit Rendezvous. Multiple rockets launch carrying pieces of the Moon ship, which must be assembled in Earth orbit before heading to the Moon. But connecting spacecraft in orbit turns out to be extremely difficult and dangerous. One failed docking attempt damages a module. Launches must happen in rapid sequence, and any delay throws off the entire timeline. The complexity proves overwhelming. By 1968, you are years behind schedule. The Soviets announce their own Moon mission. You scramble to simplify the plan, but time has run out.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Complicated! Assembly in Space Was Too Risky!",
+        "explanation": "Earth Orbit Rendezvous required too many things to go right in sequence. Multiple rocket launches, orbital assembly, and precision docking all had to work perfectly. In project management, every additional step adds risk. If any one launch failed or was delayed, the entire mission timeline collapsed. NASA's real engineers rejected this approach because it introduced too many points of failure. The best plans minimize the number of things that can go wrong.",
+        "whatToRemember": "Adding more steps adds more risk. The best plans are as simple as possible while still achieving the goal. Every extra complication is another chance for something to go wrong.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "minors-tennis-shot-selection",
+  "title": "Pick the Right Shot",
+  "sport": ["tennis"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["shot selection", "game IQ", "strategy"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent hits a short ball that bounces near the service line. You have plenty of time to set up. Your opponent is standing on the right side of the baseline. What shot do you hit?",
+      "choices": [
+        { "id": "best", "text": "Hit a firm groundstroke to the open left side of the court, away from your opponent", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit the ball hard right back at your opponent to keep things safe", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try a fancy trick shot between your legs even though a normal shot would work fine", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect shot selection!",
+        "explanation": "You saw the opening and attacked it. By hitting to the open side of the court, your opponent had to sprint the full width of the court and could not reach the ball in time.",
+        "whatToRemember": "When you get a short ball, look where your opponent is standing and hit to the open court. Short balls are your chance to take control of the point.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Open Court", "definition": "The area of the court where your opponent is not standing. Hitting to the open court forces them to run farther and gives you the best chance of winning the point" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe but not smart!",
+        "explanation": "Hitting right back at your opponent was easy for them to handle. They barely had to move and sent the ball right back deep. You wasted a great opportunity to win the point.",
+        "whatToRemember": "When you get a short ball and have time, do not hit it right back to your opponent. Look for the open court.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The trick shot backfired!",
+        "explanation": "A between-the-legs shot is fun to try in practice, but in a match you should go with the highest-percentage play. The ball went into the net and you lost an easy point.",
+        "whatToRemember": "In matches, always pick the smartest shot, not the flashiest one. Save trick shots for practice.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

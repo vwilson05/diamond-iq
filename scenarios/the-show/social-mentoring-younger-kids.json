@@ -1,0 +1,95 @@
+{
+  "id": "the-show-social-mentoring-younger-kids",
+  "title": "The Buddy System",
+  "sport": [
+    "social"
+  ],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "mentoring",
+    "patience",
+    "role-model",
+    "elite"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 4,
+    "emotion": "responsible",
+    "context": "paired with a younger student as a reading buddy"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your school has a reading buddy program where older kids help younger kids practice reading. You're paired with a first-grader named Gabe. He's trying to read a book about dinosaurs but he's really struggling. He gets stuck on the word 'enormous' and tries three times. He slams the book shut and says, 'I'm stupid. I can't read.' His eyes are filling up with tears. What do you do?",
+      "choices": [
+        {
+          "id": "encourage-and-teach",
+          "text": "Say, 'Hey, you're not stupid at all. That's a really hard word! Let me show you a trick -- let's break it into pieces: e-NOR-mous. Now you try.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "read-it-for-him",
+          "text": "Say, 'Don't worry about it' and read the hard words for him so he doesn't get frustrated.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "get-impatient",
+          "text": "Sigh and say, 'It's not that hard. Just sound it out. Come on.'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Gabe wipes his eyes and looks at you. 'E... NOR... mous?' he tries. 'Enormous!' You high-five him. 'You just read a really hard word!' His face transforms from frustrated to proud. He opens the book back up. Every time he gets stuck, you break the word into pieces and he sounds it out. By the end of the session, he's read two whole pages. He says, 'Reading is actually kind of fun with you. Can you be my buddy again next week?' His teacher tells you later, 'Gabe has never finished a full page before. Whatever you did, keep doing it.'",
+      "outcome": {
+        "result": "great",
+        "headline": "Mentor Mode Activated!",
+        "explanation": "You did everything a great mentor does. First, you corrected a harmful belief ('I'm stupid'). Then you taught a skill (breaking words into syllables). Then you celebrated the effort, not just the result. Gabe didn't just learn a word -- he learned that struggling doesn't mean failing. That's because you showed patience and gave him a strategy instead of just an answer. The best mentors don't do the work for someone -- they help them believe they can do it themselves.",
+        "keyTerms": [
+          {
+            "term": "Mentoring",
+            "definition": "Guiding someone less experienced by teaching skills, building confidence, and showing patience."
+          },
+          {
+            "term": "Growth Mindset",
+            "definition": "Believing that abilities can be developed through effort and practice, rather than being fixed."
+          },
+          {
+            "term": "Scaffolding",
+            "definition": "Breaking a hard task into smaller, manageable steps so someone can succeed piece by piece."
+          }
+        ],
+        "whatToRemember": "A great mentor teaches how, not just what. Break things into steps, celebrate effort, and never let someone believe they're stupid.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Gabe relaxes a little because the pressure is off. You read the hard words and he reads the easy ones. He finishes the book, but he didn't really learn anything new. Next week, he gets stuck on the same words again. He's not upset anymore, but he's not growing either. His teacher says, 'Thanks for reading with him, but try to let him work through the hard parts.'",
+      "outcome": {
+        "result": "okay",
+        "headline": "Kind, But Not Helpful Enough",
+        "explanation": "You were gentle and prevented frustration, which is caring. But by reading the hard words for Gabe, you solved the short-term problem while missing the long-term goal. A mentor's job isn't to remove all difficulty -- it's to help someone get through difficulty. Gabe needs to struggle a little bit to grow. The key is supporting him through the struggle, not around it.",
+        "whatToRemember": "Doing the hard part for someone feels kind, but teaching them to do it themselves is kinder in the long run.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Gabe's tears spill over. He pushes the book away and crosses his arms. He doesn't read another word for the rest of the session. He whispers, 'I don't want a buddy anymore.' His teacher has to come comfort him. She says to you privately, 'Gabe already thinks he's bad at reading. He needed encouragement, not impatience.' You feel awful because you know you made it worse.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Impatience Shuts Down Learning",
+        "explanation": "What feels easy to you felt impossible to Gabe. Telling someone 'it's not that hard' when they're struggling doesn't motivate them -- it makes them feel even worse about themselves. Gabe was already calling himself stupid, and your impatience confirmed his worst fear. Younger kids look up to older kids, so your words carry enormous weight. One impatient sigh can undo weeks of confidence-building.",
+        "whatToRemember": "What's easy for you might be really hard for someone else. Patience isn't just a nice thing -- it's essential for helping others learn.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

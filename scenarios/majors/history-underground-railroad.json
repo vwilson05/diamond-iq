@@ -1,0 +1,96 @@
+{
+  "id": "majors-history-underground-railroad",
+  "title": "Underground Railroad Decisions",
+  "sport": [
+    "history"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "underground-railroad",
+    "harriet-tubman",
+    "freedom",
+    "courage",
+    "civil-rights"
+  ],
+  "setup": {
+    "era": "1855",
+    "role": "Underground Railroad conductor",
+    "location": "Maryland, heading north",
+    "stakes": "freedom for escaping families"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a conductor on the Underground Railroad, helping a family of four escape from slavery in Maryland to freedom in the North. It is the middle of the night. You have been traveling through the woods by following the North Star. Suddenly, you hear dogs barking in the distance behind you -- slave catchers are on your trail. You are near a river. On the other side is a safe house where a friendly family will hide you. But the river is wide and the family includes two small children. What do you do?",
+      "choices": [
+        {
+          "id": "wade-river",
+          "text": "Wade across the river carefully, carrying the children. The water will wash away your scent so the dogs cannot track you. Head straight to the safe house on the other side.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "hide-in-woods",
+          "text": "Hide deep in the woods and stay perfectly quiet until the slave catchers pass by.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "split-up",
+          "text": "Split the family up so they are harder to find. Send the parents one way and take the children another way.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You pick up one child and the father picks up the other. Carefully, quietly, you wade into the cold river. The water reaches your waist but you hold the children high. Step by step, you cross to the other side. When the slave catchers reach the river bank with their dogs, the dogs lose the scent -- the river washed it away completely! The catchers search up and down the bank but cannot find your trail. Meanwhile, you reach the safe house. The friendly family hides you in a secret room behind a bookshelf. By morning, the slave catchers have given up. You are safe.",
+      "outcome": {
+        "result": "great",
+        "headline": "River Crossing Saved Everyone! Brilliant Escape!",
+        "explanation": "This is exactly the kind of strategy Harriet Tubman and other Underground Railroad conductors used. Rivers were one of the best ways to lose tracking dogs because water washes away scent. Harriet Tubman made 13 trips back to the South and personally guided about 70 people to freedom. She never lost a single person she was leading. The Underground Railroad was not a real railroad -- it was a secret network of safe houses, hidden paths, and brave people (called conductors and station masters) who risked their own freedom to help others escape slavery. It is one of the greatest stories of courage in American history.",
+        "keyTerms": [
+          {
+            "term": "Underground Railroad",
+            "definition": "A secret network of routes, safe houses, and brave people who helped enslaved African Americans escape to freedom in the North and Canada before the Civil War."
+          },
+          {
+            "term": "Harriet Tubman",
+            "definition": "A formerly enslaved woman who became the most famous conductor on the Underground Railroad. She risked her life 13 times to lead about 70 people to freedom."
+          },
+          {
+            "term": "Conductor",
+            "definition": "A person who guided escaped slaves along the Underground Railroad routes to safety. Conductors were incredibly brave, as they faced severe punishment if caught."
+          }
+        ],
+        "whatToRemember": "Courage means doing what is right even when it is dangerous. The people of the Underground Railroad are heroes because they risked everything to help others be free.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You lead the family deep into the woods and everyone lies flat on the ground, barely breathing. The dogs come closer and closer. One of the children whimpers softly and the mother gently covers their mouth. The slave catchers pass nearby but their dogs pick up a deer trail and follow it instead. You are safe for now, but you have lost hours hiding. You will have to find another route to the safe house because the catchers are now between you and the river.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe for Now, But You Lost Precious Time!",
+        "explanation": "Hiding can work, but it is risky when dogs are tracking your scent. Every hour spent hiding was an hour closer to dawn, when it would be much harder to move unseen. Underground Railroad conductors preferred to keep moving and use rivers, swamps, and other water to throw off dogs. Time was always the enemy -- they needed to reach the next safe house before sunrise.",
+        "whatToRemember": "Hiding buys time, but keeps you in danger. When you have a way to actively escape (like a river crossing), moving forward is usually better than staying still.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You tell the family to split up. The parents go one direction and you take the children another way. But the children are terrified without their parents and start crying. The noise draws the attention of the slave catchers. You manage to quiet the children and hide, but the family is now separated in the dark woods with no way to find each other. It takes two frightening days before everyone is finally reunited at the safe house.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splitting Up Put Everyone at Greater Risk!",
+        "explanation": "Harriet Tubman had a firm rule: the group stays together. Splitting up families, especially with small children, created panic and noise that could give away everyone's position. Children need their parents to stay calm, and parents cannot focus if they are worried about their children. Tubman kept her groups together, kept them quiet, and kept them moving. Unity was one of her most important principles.",
+        "whatToRemember": "In a crisis, keep the group together. Splitting up creates fear, confusion, and more chances for things to go wrong. Strength comes from sticking together.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

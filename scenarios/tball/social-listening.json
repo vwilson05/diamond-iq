@@ -1,0 +1,95 @@
+{
+  "id": "tball-social-listening",
+  "title": "Listen Up!",
+  "sport": [
+    "social"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "communication",
+  "tags": [
+    "listening",
+    "attention",
+    "respect",
+    "basics"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "distracted",
+    "context": "partner activity in class"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teacher pairs you up with a classmate named Aiden for a drawing project. Aiden starts telling you about his idea: 'So I was thinking we could draw a jungle with a big waterfall and--' But you just thought of YOUR awesome idea and you really want to talk about it. What do you do?",
+      "choices": [
+        {
+          "id": "listen-first",
+          "text": "Look at Aiden, nod, and let him finish his whole idea before sharing yours.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "interrupt-politely",
+          "text": "Say, 'Oh wait! I have an idea too!' and start talking about yours.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "zone-out",
+          "text": "Start doodling on your paper and stop paying attention to what Aiden is saying.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You look at Aiden and really listen. He finishes and says, '...and there could be a monkey swinging on vines!' Then you share your idea about drawing a rocket ship. Aiden says, 'What if we put a rocket ship flying OVER the jungle?' You both get excited and combine your ideas into the coolest picture in the class!",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Listening Led to the Best Idea!",
+        "explanation": "When you really listen to someone, amazing things happen. By hearing Aiden's whole idea first, you were able to combine it with yours to make something even better. Listening means looking at the person, letting them finish, and thinking about what they said. It shows respect and often leads to the best teamwork.",
+        "keyTerms": [
+          {
+            "term": "Active Listening",
+            "definition": "Really paying attention to what someone is saying -- looking at them, nodding, and waiting for them to finish."
+          },
+          {
+            "term": "Collaboration",
+            "definition": "Working together to create something better than either person could make alone."
+          },
+          {
+            "term": "Respect",
+            "definition": "Showing someone their words and ideas matter to you."
+          }
+        ],
+        "whatToRemember": "Listen first, talk second. When you really hear someone's idea, you can build something amazing together.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You interrupt Aiden to share your idea. He stops talking and looks a little disappointed. You tell him your rocket ship idea. He says, 'Oh... cool.' You both end up drawing separate things on the same paper. It's fine, but it doesn't really go together. The teacher says, 'Try to combine your ideas next time!'",
+      "outcome": {
+        "result": "okay",
+        "headline": "Two Ideas, But No Teamwork",
+        "explanation": "You were excited about your idea, which is understandable! But by interrupting, Aiden never got to finish his thought. You both ended up doing your own thing instead of working together. When we interrupt, the other person feels like their ideas don't matter. Waiting just a little longer would have made the project much better.",
+        "whatToRemember": "Your idea is important too, but so is theirs. Wait for them to finish, then share yours!",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You start doodling and stop listening to Aiden. He notices and stops talking mid-sentence. 'Are you even listening?' he asks, looking hurt. You shrug and say, 'Sorry, what?' Aiden doesn't want to share his ideas anymore. You both work in silence and the drawing turns out boring. Aiden asks the teacher for a different partner next time.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Not Listening Hurt a Friendship",
+        "explanation": "When you stopped listening and started doodling, Aiden felt like you didn't care about him or his ideas. That really hurts. Listening is one of the most important skills in any friendship. When people feel ignored, they stop wanting to share with you. Aiden didn't just lose interest in the project -- he lost interest in working with you.",
+        "whatToRemember": "Ignoring someone who is talking to you is one of the quickest ways to hurt a friendship. Eyes up, ears open!",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

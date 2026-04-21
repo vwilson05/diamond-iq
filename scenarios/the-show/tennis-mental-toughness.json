@@ -1,0 +1,62 @@
+{
+  "id": "the-show-tennis-mental-toughness",
+  "title": "Come Back From Behind",
+  "sport": ["tennis"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "defense",
+  "tags": ["mental toughness", "elite", "comeback", "resilience"],
+  "setup": {
+    "set": 2,
+    "game": "2-5",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are down 2-5 in the second set after losing the first set. Everything has gone wrong today -- bad bounces, close calls, and your opponent is playing well. You feel like giving up. What do you tell yourself?",
+      "choices": [
+        { "id": "best", "text": "Focus on winning just this one game. Do not think about the whole match -- break it down to one point at a time and give maximum effort on each one", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Tell yourself you will try harder but keep thinking about all the bad things that happened earlier in the match", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Decide the match is already lost and just go through the motions until it is over", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Incredible comeback!",
+        "explanation": "By focusing on one point at a time, the mountain did not seem so big. You won the next game, then another, and suddenly the momentum shifted. Your opponent started feeling the pressure and you fought all the way back to win.",
+        "whatToRemember": "Tennis is one of the only sports where you can never run out of time. No matter the score, you can always come back by winning one point at a time. Stay in the present moment.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "One Point at a Time", "definition": "A mental strategy where you focus only on the current point instead of the overall score. This keeps you calm under pressure and prevents you from feeling overwhelmed by a deficit" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Still stuck in the past!",
+        "explanation": "You tried harder physically but your mind kept replaying earlier mistakes and bad calls. That distraction caused you to lose focus on key points. You held one game but could not sustain the comeback.",
+        "whatToRemember": "Trying harder is good, but you also need to let go of what already happened. You cannot change past points -- only the one you are playing right now.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You quit before it was over!",
+        "explanation": "Going through the motions showed your opponent you had given up. They relaxed and won easily. You will never know if you could have come back because you did not even try.",
+        "whatToRemember": "Never give up in a match. Some of the greatest comebacks in tennis history happened when players were one game from losing. Compete until the final point -- you owe it to yourself.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

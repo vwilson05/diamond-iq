@@ -1,0 +1,67 @@
+{
+  "id": "majors-golf-pin-positions",
+  "title": "Attack the Right Part of the Green",
+  "sport": ["golf"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "approach",
+  "tags": ["pin position", "strategy", "green reading"],
+  "setup": {
+    "hole": 17,
+    "par": 3,
+    "distance": 155,
+    "lie": "tee box",
+    "score": "-2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on a par 3 with the pin tucked in the back-right corner of the green, just 10 feet from a steep drop-off. There is a bunker guarding the right side. The center of the green is wide open and safe. You are 2 under par. Where do you aim?",
+      "choices": [
+        { "id": "best", "text": "Aim for the center of the green. Being 25 feet from the hole on the green is better than being in the bunker or over the drop-off.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Aim right at the flag and try to stick it close for a birdie chance", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Aim right of the flag to give yourself extra room, even though that is toward the drop-off", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Target! Safe on the Green!",
+        "explanation": "Your ball lands in the center of the green, 25 feet from the hole. Not every pin position should be attacked. When the pin is tucked near trouble, the smart play is to aim at the fat part of the green. The difference between a 25-foot putt and a bunker shot or a ball over a drop-off is huge. Good players know that par from the center of the green is better than bogey from trouble.",
+        "whatToRemember": "When the pin is near trouble, aim for the fat part of the green. Not all pins are meant to be attacked. Playing to the safe side protects your score.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Pin Position", "definition": "Where the flagstick is placed on the green. It changes every day and can be tucked near edges or placed in the center." },
+          { "term": "Fat Part of the Green", "definition": "The widest, safest area of the green, usually toward the center. Aiming here gives you the most room for error." },
+          { "term": "Tucked Pin", "definition": "A pin placed near the edge of the green, close to a hazard or slope. These are the hardest pins to attack." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "In the Bunker! Tough Up and Down",
+        "explanation": "Going right at a tucked pin is risky. Your shot was just slightly off line and found the bunker on the right side. Now you need to get up and down from the sand to save par. When a pin is tucked near trouble, even a small miss puts you in a bad spot. The center of the green was only 25 feet away -- an easy two-putt for par.",
+        "whatToRemember": "A slight miss at a tucked pin means trouble. Ask yourself: if I miss this shot by 10 feet, where does the ball end up? If the answer is a hazard, aim somewhere safer.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Over the Drop-Off! Big Trouble!",
+        "explanation": "Aiming right of a right-side pin near a drop-off is the worst possible miss. Your ball went over the edge and down the steep slope. Now you have a very difficult chip back up the hill with almost no green to work with. Always identify the danger side and aim AWAY from it, not toward it.",
+        "whatToRemember": "Never aim toward the danger side of a pin. If the drop-off is right, you must miss LEFT. Always know where the safe miss is before you swing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

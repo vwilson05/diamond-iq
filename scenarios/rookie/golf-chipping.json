@@ -1,0 +1,67 @@
+{
+  "id": "rookie-golf-chipping",
+  "title": "Chip It Close",
+  "sport": ["golf"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "short-game",
+  "tags": ["chipping", "short game", "fundamentals"],
+  "setup": {
+    "hole": 6,
+    "par": 4,
+    "distance": 15,
+    "lie": "fringe",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your ball is sitting on the fringe, just off the green, about 15 yards from the hole. The pin is in the middle of the green with plenty of room to land the ball. You need to chip it close. What club and technique do you use?",
+      "choices": [
+        { "id": "best", "text": "Use a pitching wedge with a short, controlled swing. Land the ball on the green and let it roll to the hole.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Use your putter from the fringe and roll it the whole way", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Take a full swing with your sand wedge to pop it high in the air", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Beautiful Chip! Tap-in Range!",
+        "explanation": "Your short, controlled chip popped the ball onto the green and it rolled right up to the hole, stopping just two feet away. A good chip shot lands on the green and uses the roll to get close. Think of it as a little toss -- you want the ball to land softly and roll like a putt.",
+        "whatToRemember": "For a basic chip, use a short backswing and hit down on the ball. Land it on the green early and let the roll do the work.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Chip Shot", "definition": "A short, low shot played from near the green that pops the ball into the air briefly and then rolls toward the hole." },
+          { "term": "Fringe", "definition": "The strip of slightly longer grass that surrounds the green. Also called the collar or apron." },
+          { "term": "Landing Spot", "definition": "The place on the green where you want your chip to first touch down. Pick a flat spot and let the ball roll from there." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Got There, But Came Up Short",
+        "explanation": "Putting from the fringe can work sometimes, but the longer grass slowed the ball down. It stopped about 8 feet short of the hole. When there is fringe between your ball and the green, a chip shot gets the ball over that rough patch and onto the smooth green faster.",
+        "whatToRemember": "The putter works from the fringe only when the grass is very short and flat. A chip is usually a safer choice because it flies over the rough grass.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way Over the Green!",
+        "explanation": "A full swing from 15 yards away sent the ball flying way past the hole and off the other side of the green. Now you have another chip shot coming back! Chipping only needs a small swing. The shorter the distance, the shorter your backswing should be.",
+        "whatToRemember": "Never take a full swing for a chip shot. Match the size of your swing to the distance you need. Short distance means short swing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "the-show-golf-comeback-hole",
+  "title": "Down But Not Out",
+  "sport": ["golf"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "approach",
+  "tags": ["comeback", "resilience", "birdie", "elite"],
+  "setup": {
+    "hole": 15,
+    "par": 5,
+    "distance": 230,
+    "lie": "fairway",
+    "score": "+3"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are 3 over par with 4 holes left in a tournament. The leader is even par. You are on a reachable par 5, lying 2 after a good drive. The green is 230 yards away with water short but the green is deep and open in the back. Making eagle here would get you back to 1 over with 3 holes to play. A birdie still keeps you in the hunt. What is your play?",
+      "choices": [
+        { "id": "best", "text": "Go for the green with your 3-wood. This is a par 5 you can reach, the green is open in the back, and you need to make up ground. Aim for the safe part of the green past the water.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Lay up to 80 yards, hit a wedge close, and try for a birdie the safe way", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to hit a hero shot at the tucked front pin, right over the water with no margin for error", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "On the Green in Two! Eagle Putt!",
+        "explanation": "Your 3-wood clears the water and lands on the back portion of the green, 35 feet from the hole. You have a putt for eagle and a very likely birdie. This was smart aggression -- you went for the green because the situation called for it, but you aimed at the safe part. Being down in a tournament is the right time to take calculated risks on holes that allow it. Par 5s you can reach in two are your best chance to make up ground.",
+        "whatToRemember": "When you are behind in a tournament, look for opportunities to be aggressive on holes that reward it. Par 5s are comeback holes. Go for the green when the risk is manageable, but aim at the safe zone, not the pin.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Calculated Risk", "definition": "Being aggressive when the potential reward outweighs the downside, and you have aimed at a target that gives you margin for error." },
+          { "term": "Eagle", "definition": "A score of two under par on a hole. On a par 5, that means finishing in 3 strokes. Eagles are rare and exciting." },
+          { "term": "Comeback Holes", "definition": "Holes where you have a realistic chance to make birdie or eagle to make up lost ground in a tournament. Usually par 5s or short par 4s." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe Layup, Wedge to 12 Feet",
+        "explanation": "You laid up and hit a decent wedge to 12 feet. That is a birdie chance, but laying up on a reachable par 5 when you are 3 back in a tournament is too conservative. You took the eagle chance off the table. Sometimes the situation calls for aggression, and being 3 shots back with 4 holes to play is one of those times.",
+        "whatToRemember": "Know when the situation calls for aggression. If you are behind with few holes left, you need to create birdie and eagle chances. Laying up on every par 5 will not get you back in the tournament.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splash! In the Water! Now 5 Over!",
+        "explanation": "Aiming at a tucked pin right over water with no margin is reckless, not aggressive. There is a huge difference. You could have aimed at the safe back part of the green and still had a great eagle chance. Instead, you took on the highest-risk target and now you are further behind than before. Smart aggression means aiming at the safe part of the green when going for it, not at the hardest pin.",
+        "whatToRemember": "Aggressive does not mean reckless. When going for a green in two on a par 5, aim at the largest, safest part of the green. An eagle putt from 35 feet is better than a ball in the water.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

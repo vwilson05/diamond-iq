@@ -1,0 +1,96 @@
+{
+  "id": "tball-history-ancient-egypt",
+  "title": "Building the Pyramids",
+  "sport": [
+    "history"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "leadership",
+  "tags": [
+    "ancient-egypt",
+    "pyramids",
+    "teamwork",
+    "building",
+    "planning"
+  ],
+  "setup": {
+    "era": "2500 BC",
+    "role": "young builder's helper",
+    "location": "Giza, Egypt",
+    "stakes": "building a great pyramid"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You live in ancient Egypt, near the great Nile River. The pharaoh has asked thousands of workers to help build an enormous pyramid out of huge stone blocks. You are a helper on the building team. Today, a giant stone block is stuck in the sand and the workers cannot push it to the building site. The team leader asks if anyone has an idea. What do you suggest?",
+      "choices": [
+        {
+          "id": "wet-sand",
+          "text": "Pour water on the sand in front of the block to make it slippery, then have everyone push together!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "more-people",
+          "text": "Ask for more workers to come help push harder.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "go-around",
+          "text": "Leave this block behind and go find a different one that is not stuck.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Workers carry jars of water from the Nile and pour it on the sand in front of the huge stone block. The wet sand becomes firm and slippery! When everyone pushes together, the block slides smoothly across the ground. The team leader smiles and says, 'That is exactly how we move these stones!' Block after block slides into place, and the pyramid grows taller every day.",
+      "outcome": {
+        "result": "great",
+        "headline": "Brilliant! That Is Really How They Did It!",
+        "explanation": "Scientists discovered that ancient Egyptians actually did pour water on sand to move heavy blocks! Wet sand is much easier to slide things across than dry sand. The pyramids were built by thousands of skilled workers who used clever tricks like this. They did not have trucks or cranes -- they used teamwork, ramps, and smart ideas. The Great Pyramid of Giza is still standing today, over 4,500 years later!",
+        "keyTerms": [
+          {
+            "term": "Pyramid",
+            "definition": "A huge stone building with a square base and triangular sides. Egyptian pharaohs were buried inside them."
+          },
+          {
+            "term": "Pharaoh",
+            "definition": "The king or queen of ancient Egypt. Pharaohs ruled over all of Egypt."
+          },
+          {
+            "term": "Innovation",
+            "definition": "A new and clever way to solve a problem. Wetting the sand was an ancient Egyptian innovation."
+          }
+        ],
+        "whatToRemember": "Sometimes the smartest solution is not about working harder -- it is about working smarter. The ancient Egyptians were incredible problem solvers.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "More workers arrive and everyone pushes as hard as they can. Slowly, very slowly, the block inches forward through the dry sand. It takes a long time and everyone is exhausted by the end of the day. The block finally reaches the building site, but the workers are too tired to move another one today.",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Worked, But There Is a Better Way!",
+        "explanation": "More people can help move heavy things, but pushing a huge stone through dry sand is very hard work. The ancient Egyptians figured out that wetting the sand made it much easier. Working smarter saves energy so the team can keep going day after day. Building a pyramid took many years, so finding easier ways to work was very important.",
+        "whatToRemember": "More muscle power can help, but finding a smarter way to do things is even better. Think before you push!",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You leave the stuck block behind and go looking for another one. But the new blocks are even farther away! By the end of the day, your team has fallen behind. The team leader says, 'We cannot just skip the hard problems. We need every block to build this pyramid. Let us figure out how to move the stuck one.'",
+      "outcome": {
+        "result": "bad",
+        "headline": "Skipping Problems Does Not Solve Them!",
+        "explanation": "Avoiding a problem usually makes things worse. The pyramid needed every single block, so skipping one just meant more work later. The ancient Egyptians built the pyramids by facing challenges head-on and finding clever solutions. When something is hard, the best thing to do is stop, think, and figure out a better way.",
+        "whatToRemember": "Do not run away from hard problems. Stop, think, and find a creative solution. That is what the great builders of Egypt did.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

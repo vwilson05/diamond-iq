@@ -1,0 +1,96 @@
+{
+  "id": "majors-history-moon-landing",
+  "title": "Moon Landing Mission Control",
+  "sport": [
+    "history"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "innovation",
+  "tags": [
+    "space",
+    "apollo-11",
+    "nasa",
+    "teamwork",
+    "problem-solving"
+  ],
+  "setup": {
+    "era": "1969",
+    "role": "mission control flight director",
+    "location": "Houston, Texas (NASA Mission Control)",
+    "stakes": "landing humans on the Moon"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is July 20, 1969. You are the flight director at NASA Mission Control in Houston. Apollo 11 astronauts Neil Armstrong and Buzz Aldrin are in the Lunar Module, descending toward the Moon's surface. Suddenly, alarms start blaring! The onboard computer is overloading with too many tasks. The number '1202' flashes on the screen -- a program alarm. Armstrong radios, 'Give us a reading on the 1202.' Your team has seconds to decide. Do you tell the astronauts to abort the landing or keep going?",
+      "choices": [
+        {
+          "id": "trust-team-continue",
+          "text": "Quickly check with your computer expert. If the computer is still doing its most important job (guiding the landing), tell the astronauts the alarm is safe to ignore and continue the descent.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "abort-mission",
+          "text": "Play it safe and tell the astronauts to abort the landing. An alarm could mean something is seriously wrong.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-alarm",
+          "text": "Ignore the alarm completely without checking with anyone. Just tell the astronauts everything is fine.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You turn to your 26-year-old computer expert, Jack Garman, and ask, 'What is a 1202?' He checks his handwritten list of alarm codes and says, 'It means the computer has too many tasks, but it is handling it by dropping the less important ones. The guidance system is still working. We are GO.' You radio Armstrong: 'We got you, we are GO on that alarm.' Armstrong keeps descending. Minutes later, he sees the planned landing site is full of boulders! He takes manual control and flies the Lunar Module to a safe spot. With just 25 seconds of fuel left, he lands. 'Houston, Tranquility Base here. The Eagle has landed.' Mission Control erupts in cheers.",
+      "outcome": {
+        "result": "great",
+        "headline": "One Small Step! You Helped Land on the Moon!",
+        "explanation": "This is exactly what happened during the real Apollo 11 landing. Flight Director Gene Kranz and computer expert Jack Garman made a split-second decision to continue despite the alarms. The 1202 alarm meant the computer was overloaded, but it was designed to keep running its most critical tasks and drop the rest. Jack Garman, just 24 at the time, had studied every possible alarm code and knew 1202 was safe. This moment shows the power of preparation, teamwork, and trusting your experts. Over 400,000 people worked on the Apollo program, and it took all of them working together to land two humans on the Moon.",
+        "keyTerms": [
+          {
+            "term": "Apollo 11",
+            "definition": "The NASA mission that landed the first humans on the Moon on July 20, 1969. Astronauts Neil Armstrong and Buzz Aldrin walked on the Moon while Michael Collins orbited above."
+          },
+          {
+            "term": "Mission Control",
+            "definition": "The team on the ground in Houston, Texas, that monitored every part of a space mission and made critical decisions to keep astronauts safe."
+          },
+          {
+            "term": "Teamwork Under Pressure",
+            "definition": "When a team works together to make fast, smart decisions in a high-stress situation. The Apollo 11 landing is one of the greatest examples in history."
+          }
+        ],
+        "whatToRemember": "In a crisis, stay calm, consult your experts, and make a decision based on the best information you have. Preparation and teamwork make the difference between success and failure.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You call for an abort. Armstrong fires the ascent engine and the Lunar Module climbs back up to orbit. Everyone is safe. But when your team reviews the data, they discover the 1202 alarm was not dangerous -- the computer was handling it perfectly. You were just minutes away from the Moon's surface. The whole world was watching, and you have to explain that you called off the landing over a manageable alarm. NASA will have to try again on another mission, costing months and millions of dollars.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe, But So Close! The Alarm Was Manageable!",
+        "explanation": "Playing it safe kept the astronauts alive, which is always the top priority. But the abort was unnecessary because the alarm, while scary, was something the computer was designed to handle. In real life, Gene Kranz's team did not abort because they had prepared for exactly this situation. They had studied every alarm code and knew which ones were dangerous and which ones were not. Preparation turned a scary moment into a manageable one.",
+        "whatToRemember": "Caution can save lives, but over-caution can cost opportunities. The best leaders prepare so thoroughly that they can tell the difference between a real emergency and a manageable problem.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You wave off the alarm without checking with your team. 'It is fine, keep going,' you tell Armstrong. But what if the alarm HAD been serious? Your computer experts are alarmed that you did not consult them. If the next alarm is a real problem, the astronauts could be in grave danger because you have set a pattern of ignoring warnings. Fortunately, the landing succeeds this time, but your team has lost trust in your decision-making.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Never Ignore Alarms Without Checking!",
+        "explanation": "Ignoring a warning without understanding it is extremely dangerous, especially when lives are at stake. The real Mission Control team never ignored an alarm -- they checked every single one against their prepared lists and consulted their experts. In a later mission, Apollo 13, an alarm indicated a real emergency (an oxygen tank explosion), and the team's careful response saved three astronauts' lives. The lesson is clear: always take warnings seriously and check with your experts.",
+        "whatToRemember": "Never ignore a warning without understanding what it means. Check with your team, use your preparation, and make informed decisions. Lives may depend on it.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

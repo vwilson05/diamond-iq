@@ -1,0 +1,95 @@
+{
+  "id": "minors-social-standing-up-for-others",
+  "title": "The Bystander Choice",
+  "sport": [
+    "social"
+  ],
+  "tier": "minors",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "standing-up",
+    "bystander",
+    "courage",
+    "social-iq"
+  ],
+  "setup": {
+    "situation": "hallway",
+    "people": 5,
+    "emotion": "tense",
+    "context": "seeing a classmate being teased"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're walking through the hallway and see two kids making fun of Mateo's new glasses. One of them says, 'Nice goggles, four-eyes!' and they both laugh. Mateo looks down at the floor and doesn't say anything. You can see his hands shaking a little. A few other kids are watching but nobody is doing anything. What do you do?",
+      "choices": [
+        {
+          "id": "stand-up",
+          "text": "Walk over to Mateo and say, 'Hey Mateo, those glasses are cool. Want to walk to class together?' Then turn to the others and say, 'That's not funny.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "tell-teacher",
+          "text": "Don't say anything to the kids but go find a teacher to tell them what's happening.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "do-nothing",
+          "text": "Keep walking and pretend you didn't see it. You don't want to get involved.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "The two kids teasing Mateo go quiet. They weren't expecting anyone to say something. One of them mumbles, 'We were just joking,' and they walk away. Mateo looks up at you with relief and says, 'Thanks. I didn't know what to say.' You walk to class together and he tells you the glasses are brand new and he was already nervous about wearing them. 'You made me feel a lot better,' he says. Other kids who were watching give you nods of respect.",
+      "outcome": {
+        "result": "great",
+        "headline": "Upstander, Not Bystander!",
+        "explanation": "Standing up for someone who is being teased is one of the bravest things you can do. Notice that you didn't start a fight or yell -- you just calmly supported Mateo and let the other kids know their behavior wasn't okay. Most teasing stops when just ONE person speaks up. By being an upstander instead of a bystander, you changed the whole situation. Mateo will remember what you did for a long time.",
+        "keyTerms": [
+          {
+            "term": "Upstander",
+            "definition": "Someone who speaks up or takes action when they see someone being treated unfairly."
+          },
+          {
+            "term": "Bystander",
+            "definition": "Someone who sees something wrong happening but doesn't do anything about it."
+          },
+          {
+            "term": "Ally",
+            "definition": "A person who supports and stands up for someone else, especially when it's hard to do so."
+          }
+        ],
+        "whatToRemember": "It only takes one person to stop teasing. Be the one who speaks up. Your courage gives others courage too.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You find a teacher and tell them what's happening. The teacher goes to the hallway and talks to the kids who were teasing Mateo. They get a warning. Mateo is grateful to the teacher but he's still standing alone in the hallway. He doesn't know you were the one who helped. The teasing stopped, but Mateo still feels alone.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got Help, But Mateo Still Felt Alone",
+        "explanation": "Getting a teacher involved was a responsible choice, and it stopped the teasing. But Mateo didn't just need the teasing to stop -- he needed to know that someone his own age cared enough to stand with him. If you had also said something directly to Mateo, he would have felt supported AND protected. Sometimes the best approach is both: support the person AND get adult help.",
+        "whatToRemember": "Telling a teacher is good, but also let the person know you're on their side. They need a friend, not just a referee.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You walk past without saying anything. The teasing continues. Mateo finally walks away by himself, wiping his eyes. Later in class, you see him sitting quietly with his new glasses on, and he keeps pushing them up nervously. You feel a heaviness in your chest because you know you could have helped. At lunch, Mateo sits alone.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Silence Helps the Bully, Not the Victim",
+        "explanation": "When people see something wrong and do nothing, it sends a message to the person being teased: nobody cares. And it sends a message to the people doing the teasing: this is okay. Staying silent might feel safe for you, but it leaves the other person completely alone. You don't have to be a superhero -- just one kind word or standing next to someone can change everything.",
+        "whatToRemember": "Doing nothing is still a choice. When you stay silent, you're choosing the side of the person doing the teasing.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

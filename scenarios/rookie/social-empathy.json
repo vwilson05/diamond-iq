@@ -1,0 +1,95 @@
+{
+  "id": "rookie-social-empathy",
+  "title": "Walking in Their Shoes",
+  "sport": [
+    "social"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "friendship",
+  "tags": [
+    "empathy",
+    "feelings",
+    "caring",
+    "fundamentals"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "concerned",
+    "context": "classmate is visibly upset"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You walk into class after lunch and see your friend Nadia sitting at her desk with her head down. She looks like she's been crying. Other kids walk past her without stopping. You heard that her dog has been sick. You're about to go play a card game with your other friends, but Nadia is right there looking really sad. What do you do?",
+      "choices": [
+        {
+          "id": "check-on-her",
+          "text": "Sit down next to Nadia and quietly say, 'Hey, are you okay? I heard about your dog. I'm really sorry.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "tell-teacher",
+          "text": "Go tell the teacher that Nadia is crying and let them handle it.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "ignore-it",
+          "text": "Walk past her and go play cards. It's not really your problem.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Nadia looks up and her eyes are red. 'My dog Biscuit has to stay at the animal hospital,' she says quietly. You say, 'That sounds really scary. Biscuit is lucky to have you worrying about him.' She gives a small smile. 'Thanks for sitting with me,' she says. 'Everyone else just walked by.' You sit together for a few minutes and she starts to feel a little better. She says you're a really good friend.",
+      "outcome": {
+        "result": "great",
+        "headline": "Empathy in Action -- You Really Cared!",
+        "explanation": "Empathy means understanding how someone else feels and showing them you care. You didn't try to fix the problem or tell Nadia to cheer up. You just sat with her and listened. Sometimes that's exactly what someone needs. Nadia will remember that you were the one person who stopped and cared. That's what real friendship looks like.",
+        "keyTerms": [
+          {
+            "term": "Empathy",
+            "definition": "Understanding how someone else feels by imagining yourself in their situation."
+          },
+          {
+            "term": "Compassion",
+            "definition": "Feeling concern for someone who is hurting and wanting to help them feel better."
+          },
+          {
+            "term": "Being Present",
+            "definition": "Just being there for someone, even if you can't fix their problem. Sometimes that's enough."
+          }
+        ],
+        "whatToRemember": "You don't need to fix someone's problem. Just showing you care can make a huge difference.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "The teacher goes over to check on Nadia. That's helpful. But Nadia watches you walk away to play cards and looks a little hurt that her friend didn't come to her directly. The teacher is kind, but Nadia really wanted a friend, not just an adult.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Help From a Distance",
+        "explanation": "Telling the teacher wasn't wrong -- adults can definitely help. But when a friend is hurting, they usually want another friend to care, not just a grown-up to handle things. You could have checked on Nadia yourself AND told the teacher if she needed more help. Sometimes being a friend means being the first one to show up.",
+        "whatToRemember": "Adults can help, but friends need friends. Be the one who shows up, not just the one who tells someone else to.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You walk right past Nadia and go play cards with your friends. From across the room, you can see Nadia watching everyone else have fun while she sits alone and sad. When she comes back the next day, she's friendly with everyone except you. She overheard you laughing while she was crying and it really stung.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Friend Needed You and You Weren't There",
+        "explanation": "Walking past a friend who is hurting sends a clear message: 'I don't care.' Even if that's not what you meant, that's how it feels. Nadia needed someone to notice her and you chose a card game instead. Friends don't have to fix everything, but they do have to show up. When someone is sad, even just sitting next to them for a minute can mean the world.",
+        "whatToRemember": "A card game will always be there. A friend who needs you right now won't wait. Show up when it counts.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

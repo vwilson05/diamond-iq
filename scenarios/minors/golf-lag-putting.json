@@ -1,0 +1,67 @@
+{
+  "id": "minors-golf-lag-putting",
+  "title": "Get It Close on Long Putts",
+  "sport": ["golf"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "putting",
+  "tags": ["lag putting", "distance control", "strategy"],
+  "setup": {
+    "hole": 18,
+    "par": 4,
+    "distance": 45,
+    "lie": "green",
+    "score": "+2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the 18th green with a long 45-foot putt. Making this putt would be amazing, but it is very far away. Three-putting from here would add another stroke to your score. What is your putting strategy?",
+      "choices": [
+        { "id": "best", "text": "Focus on distance control. Try to roll the ball within a 3-foot circle around the hole so your next putt is a tap-in.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Aim right at the hole and try to make it. Go big or go home!", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Just hit it toward the hole without really thinking about how hard to hit it", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Lag! Easy Two-Putt!",
+        "explanation": "By focusing on distance control, you rolled the ball to within 2 feet of the hole. That is an easy tap-in for a two-putt. On long putts, the goal is not to make it -- it is to get it close enough that your next putt is a sure thing. This is called lag putting. The best putters in the world only make about 10 percent of 45-foot putts, but they almost never three-putt because their distance control is so good.",
+        "whatToRemember": "On long putts, speed is more important than line. Focus on rolling the ball the right distance. Getting it within three feet is a win on any putt over 30 feet.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Lag Putt", "definition": "A long putt where the goal is to get the ball close to the hole for an easy next putt, rather than trying to make it." },
+          { "term": "Three-Putt", "definition": "Taking three putts to get the ball in the hole. Avoiding three-putts is one of the fastest ways to lower your scores." },
+          { "term": "Distance Control", "definition": "The ability to roll the ball the right distance. On long putts, controlling distance is more important than aiming perfectly." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Try, But 8 Feet Past",
+        "explanation": "You charged the putt at the hole and it missed, rolling 8 feet past. Now you have a tricky 8-footer coming back. Trying to make everything is fun, but on long putts it often leads to three-putts because the ball rolls too far past when it misses.",
+        "whatToRemember": "It is great to be aggressive on short putts, but on long putts, getting too aggressive leads to long comeback putts and three-putts.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Three-Putt! 15 Feet Short!",
+        "explanation": "Without a plan for how hard to hit it, you left the ball 15 feet short. That is still a tough putt, and you ended up three-putting the hole. Long putts require you to think about speed before anything else. Practice by imagining you are rolling the ball underhand to a target -- how hard would you toss it?",
+        "whatToRemember": "Always have a plan for speed on long putts. Before you putt, imagine rolling the ball with your hand. How hard would you toss it to get it to the hole? That is the speed you want.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

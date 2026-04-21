@@ -1,0 +1,96 @@
+{
+  "id": "majors-history-invention-race",
+  "title": "The Invention Race",
+  "sport": [
+    "history"
+  ],
+  "tier": "majors",
+  "impact": 4,
+  "role": "innovation",
+  "tags": [
+    "edison",
+    "tesla",
+    "electricity",
+    "invention",
+    "persistence"
+  ],
+  "setup": {
+    "era": "1882",
+    "role": "young inventor",
+    "location": "New York City",
+    "stakes": "bringing electricity to the world"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a young inventor working on bringing electric light to homes and businesses in New York City. Thomas Edison has just opened the first power station on Pearl Street, using his direct current (DC) system. But a brilliant inventor named Nikola Tesla has a different idea: alternating current (AC), which can travel much farther over wires. Edison says DC is safer. Tesla says AC is more practical. The city wants to wire more buildings for electric light. You have to choose which system to invest your time and money in. What do you do?",
+      "choices": [
+        {
+          "id": "study-both",
+          "text": "Study both systems carefully. Test them, compare the facts, and choose the one that works better for sending electricity over long distances to the most people.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "follow-edison",
+          "text": "Go with Edison's DC system because Edison is more famous and already has a working power station.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "give-up",
+          "text": "The debate is too confusing. Give up on electricity and invest in something simpler, like gas lamps.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You study both systems. Edison's DC works well for short distances, but the electricity gets weaker over long wires. You would need a power station on every block! Tesla's AC can travel hundreds of miles without losing power. After careful testing, you invest in AC. Within a few years, Tesla's AC system (backed by businessman George Westinghouse) wins out. AC powers the 1893 World's Fair in Chicago, lighting up the entire exhibition. Your bet on science over fame paid off. Today, AC is what powers almost every home in the world.",
+      "outcome": {
+        "result": "great",
+        "headline": "You Chose Science Over Fame! AC Powers the World!",
+        "explanation": "The 'War of Currents' between Edison (DC) and Tesla (AC) is one of the great rivalries in invention history. Edison was more famous, but Tesla's AC system was scientifically better for sending power over long distances. Edison even ran a negative campaign against AC, but the facts won out. Tesla's AC system powered the 1893 World's Fair and the Niagara Falls hydroelectric plant, proving it could work at scale. The lesson is powerful: when making important decisions, study the evidence instead of just following the most popular person.",
+        "keyTerms": [
+          {
+            "term": "Alternating Current (AC)",
+            "definition": "A type of electricity that changes direction many times per second. It can travel long distances over wires efficiently. Tesla championed AC, and it powers most homes today."
+          },
+          {
+            "term": "Direct Current (DC)",
+            "definition": "A type of electricity that flows in one direction. Edison's system used DC, which works well for short distances but loses power over long wires."
+          },
+          {
+            "term": "Evidence-Based Thinking",
+            "definition": "Making decisions based on facts, experiments, and data instead of just following the most popular opinion."
+          }
+        ],
+        "whatToRemember": "Do not just follow the most famous person. Study the evidence, test your ideas, and let the facts guide your decisions. That is how real science works.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You go with Edison because he is famous and already has a working station. At first, things go well -- you help wire buildings near the power station. But soon you realize the DC power cannot reach buildings more than a mile away. You need more and more power stations, which is very expensive. Meanwhile, Tesla's AC system starts winning contracts because it can power entire cities from a single station far away. You eventually have to switch to AC anyway, but you have lost time and money.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Following Fame Instead of Facts Cost You!",
+        "explanation": "Edison was a brilliant inventor with over 1,000 patents, but being famous does not mean you are always right. In the case of electricity, Tesla's system was simply better for large-scale power delivery. Many people followed Edison because of his reputation, only to switch to AC later. The War of Currents teaches us that popularity and truth are not the same thing.",
+        "whatToRemember": "Popularity does not equal being right. Always look at the evidence, even if it means disagreeing with someone famous or powerful.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You give up on electricity and invest in gas lamps. For a few years, gas lamps still sell. But electricity spreads fast. Within a decade, electric lights are everywhere -- they are safer, brighter, and cheaper than gas. Your gas lamp business dries up completely. You missed out on one of the biggest changes in human history because you gave up when things got complicated.",
+      "outcome": {
+        "result": "bad",
+        "headline": "You Missed the Future!",
+        "explanation": "Electricity was one of the most transformative inventions in history. People who gave up on it because it was new and confusing missed an enormous opportunity. New technologies are often messy and debated at first -- that is normal. The people who succeed are the ones who push through the confusion, study the facts, and make informed bets on the future.",
+        "whatToRemember": "Do not give up on something just because it is new or confusing. Big changes are often messy at first. The people who study and adapt are the ones who shape the future.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

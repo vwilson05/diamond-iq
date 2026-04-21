@@ -1,0 +1,62 @@
+{
+  "id": "majors-tennis-serve-and-volley",
+  "title": "Rush the Net After Your Serve",
+  "sport": ["tennis"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "serve",
+  "tags": ["serve and volley", "advanced", "net play"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are serving at 30-15. Your opponent has been struggling to return serves to your backhand side. You want to try a serve-and-volley play. How do you execute it?",
+      "choices": [
+        { "id": "best", "text": "Hit a strong serve out wide, take three quick steps toward the net, split step as your opponent hits, then volley to the open court", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit a hard serve down the middle and sprint all the way to the net without pausing", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit a soft serve and walk slowly toward the net while watching what happens", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Serve and volley winner!",
+        "explanation": "The wide serve pulled your opponent off the court. Your split step let you read their return and react quickly. You punched a volley into the open court for an easy winner.",
+        "whatToRemember": "Serve and volley works best when your serve moves your opponent wide. Always split step before the return so you can change direction. The split step is the key to the whole play.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Serve and Volley", "definition": "A strategy where you serve and immediately move forward to the net, looking to end the point with a volley. The split step before the return is critical for reacting in time" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "No split step -- caught moving!",
+        "explanation": "You got to the net fast but without a split step you were still running when the return came. The ball went right at your feet and you could not get your racket on it cleanly.",
+        "whatToRemember": "Never skip the split step. Even if you want to get to the net quickly, you must pause and get balanced right before your opponent hits.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy passing shot for your opponent!",
+        "explanation": "A soft serve gave your opponent a strong return and walking forward left you stranded in no-man's-land. They ripped a forehand right past you while you were still at the service line.",
+        "whatToRemember": "Serve and volley only works if your serve puts pressure on the returner. A weak serve plus slow movement is a recipe for getting passed.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

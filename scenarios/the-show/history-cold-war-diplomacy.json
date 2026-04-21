@@ -1,0 +1,96 @@
+{
+  "id": "the-show-history-cold-war-diplomacy",
+  "title": "Cold War Diplomacy",
+  "sport": [
+    "history"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "diplomacy",
+  "tags": [
+    "cold-war",
+    "cuban-missile-crisis",
+    "diplomacy",
+    "negotiation",
+    "nuclear"
+  ],
+  "setup": {
+    "era": "1962",
+    "role": "presidential advisor",
+    "location": "the White House, Washington D.C.",
+    "stakes": "preventing nuclear war"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is October 1962. You are an advisor to President Kennedy. Spy planes have just photographed Soviet nuclear missiles being set up in Cuba, only 90 miles from Florida. These missiles could reach American cities in minutes. The president's military advisors want to bomb the missile sites immediately. The Soviet ambassador says the missiles are only for defense. The world has never been closer to nuclear war. President Kennedy asks his team for options. What do you recommend?",
+      "choices": [
+        {
+          "id": "naval-blockade",
+          "text": "Set up a naval blockade around Cuba to stop any more missiles from arriving. This shows strength without firing the first shot. At the same time, open secret negotiations with the Soviets to find a peaceful way to remove the missiles.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "bomb-sites",
+          "text": "Launch an immediate air strike to destroy the missile sites before they become operational.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "do-nothing",
+          "text": "Do nothing and accept the missiles in Cuba. It is not worth the risk of starting a war.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "President Kennedy announces a naval blockade -- he calls it a 'quarantine' -- around Cuba. American warships form a line in the ocean. The world holds its breath. Soviet ships carrying more missiles approach the blockade line... and then stop. They turn around. Behind the scenes, American and Soviet negotiators talk day and night. After 13 terrifying days, the Soviets agree to remove the missiles from Cuba. In exchange, the U.S. promises not to invade Cuba and secretly agrees to remove some of its own missiles from Turkey. The crisis ends without a single shot fired.",
+      "outcome": {
+        "result": "great",
+        "headline": "Diplomacy Won! Nuclear War Avoided!",
+        "explanation": "This is exactly what happened during the Cuban Missile Crisis, the closest the world has ever come to nuclear war. President Kennedy chose the naval blockade over a military strike, giving both sides time to negotiate. The key insight was that both the U.S. and the Soviet Union wanted to avoid nuclear war, but neither could appear weak. The blockade was firm enough to show strength but left room for diplomacy. Secret back-channel negotiations, including a deal about U.S. missiles in Turkey, gave the Soviet leader Khrushchev a way to back down without losing face. After the crisis, both nations set up a direct phone line (the 'hotline') so they could communicate instantly in future crises.",
+        "keyTerms": [
+          {
+            "term": "Cuban Missile Crisis",
+            "definition": "A 13-day confrontation in October 1962 between the United States and the Soviet Union over nuclear missiles in Cuba. It was the closest the world has come to nuclear war."
+          },
+          {
+            "term": "Diplomacy",
+            "definition": "Solving disagreements through talking and negotiation instead of fighting. Diplomacy ended the Cuban Missile Crisis peacefully."
+          },
+          {
+            "term": "Blockade",
+            "definition": "Using ships to prevent other ships from entering or leaving a port. Kennedy's naval blockade stopped more Soviet missiles from reaching Cuba."
+          }
+        ],
+        "whatToRemember": "The strongest response is not always the most aggressive one. Showing strength while leaving room for negotiation can solve even the most dangerous crises without violence.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "American planes bomb the missile sites in Cuba. The missiles are destroyed, but Soviet soldiers are killed in the strikes. The Soviet leader, Khrushchev, is furious. The Soviet Union puts its military on high alert around the world. For several terrifying days, both nations prepare for the worst. Thankfully, cooler heads eventually prevail and a ceasefire is reached, but the relationship between the two nations is badly damaged and the arms race accelerates. The world came dangerously close to a catastrophe that could have ended civilization.",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Missiles Are Gone, But the World Nearly Ended!",
+        "explanation": "A military strike would have destroyed the missiles but killed Soviet soldiers, which could have triggered a chain of escalation leading to nuclear war. Kennedy's military advisors seriously considered this option, but Kennedy rejected it because the risk of escalation was too high. In the real crisis, it was later discovered that Soviet commanders in Cuba had tactical nuclear weapons and might have used them if attacked. An air strike could have started the very war it was trying to prevent.",
+        "whatToRemember": "Striking first might solve the immediate problem, but it can create a much bigger one. In conflicts between powerful opponents, escalation is the greatest danger.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You recommend accepting the missiles. But doing nothing sends a message that the Soviet Union can put nuclear weapons anywhere it wants without consequences. Other nations lose confidence in American leadership. The Soviets grow bolder and place missiles in other locations around the world. The balance of power shifts dramatically, and the world becomes a much more dangerous place. Within a year, several more crises erupt because the Soviets believe America will always back down.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Doing Nothing Invited More Danger!",
+        "explanation": "In diplomacy, doing nothing is itself a decision with consequences. Accepting Soviet missiles 90 miles from Florida would have shifted the global balance of power and encouraged further aggressive moves. President Kennedy understood that while war had to be avoided, so did appearing weak. The challenge of diplomacy is finding the path between aggression and passivity -- being firm enough to be respected, but flexible enough to find peaceful solutions.",
+        "whatToRemember": "Ignoring a threat does not make it go away. In diplomacy, doing nothing can be just as dangerous as overreacting. The key is finding a firm but peaceful middle ground.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

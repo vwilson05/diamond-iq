@@ -1,0 +1,62 @@
+{
+  "id": "rookie-tennis-serving",
+  "title": "Start the Point Right",
+  "sport": ["tennis"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "serve",
+  "tags": ["serve", "fundamentals", "technique"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is your turn to serve. You are standing behind the baseline on the right side. You need to hit the ball into the service box diagonally across from you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Toss the ball up in front of you, reach up high, and swing forward to hit it into the diagonal service box", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Toss the ball up and hit it hard, aiming straight ahead instead of diagonally", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit the ball underhand as hard as you can over the net", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great serve!",
+        "explanation": "A good toss sets up everything. By reaching up high and swinging forward into the correct service box, you started the point with an advantage. Your opponent had to scramble to return it.",
+        "whatToRemember": "The toss is the most important part of the serve. Toss it in front of you and slightly to your hitting side, then reach up and swing through.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Service Box", "definition": "The smaller rectangle on each side of the net where the serve must land. You always serve diagonally into the opposite service box" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fault! Wrong box!",
+        "explanation": "Your serve had good form but went straight ahead instead of diagonally. The ball landed outside the correct service box. That is a fault, and you get one more try.",
+        "whatToRemember": "Always aim diagonally when serving. From the right side, aim to the left service box. From the left side, aim to the right service box.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That serve had no chance!",
+        "explanation": "An underhand hit barely cleared the net and bounced softly. While underhand serves are allowed, smacking it without aiming made it easy for your opponent to slam it back for a winner.",
+        "whatToRemember": "Learn the proper overhand serve technique. It gives you power, spin, and control to start each point strong.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

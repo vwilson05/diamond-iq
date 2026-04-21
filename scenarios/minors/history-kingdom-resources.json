@@ -1,0 +1,96 @@
+{
+  "id": "minors-history-kingdom-resources",
+  "title": "Managing a Kingdom's Resources",
+  "sport": [
+    "history"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "medieval",
+    "economics",
+    "resource-management",
+    "farming",
+    "leadership"
+  ],
+  "setup": {
+    "era": "1300",
+    "role": "young kingdom advisor",
+    "location": "the Kingdom of Mali, West Africa",
+    "stakes": "the kingdom's prosperity"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are an advisor to the great Mansa (king) of the Kingdom of Mali in West Africa. Mali is rich in gold and sits at the crossroads of important trade routes across the Sahara Desert. The Mansa has a big decision to make this year. The kingdom has extra gold from the mines. He asks you: what should we spend it on?",
+      "choices": [
+        {
+          "id": "invest-broadly",
+          "text": "Invest in three things: build a university in Timbuktu for scholars, improve roads for traders, and store grain for emergencies. Spread the gold across things that help the whole kingdom grow.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "military",
+          "text": "Spend all the gold on a bigger army to expand the kingdom's borders and protect the trade routes.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "give-away",
+          "text": "Give all the extra gold away to the people right now to make everyone happy.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "The Mansa follows your advice. Scholars from across Africa and the Arab world come to study at the new university in Timbuktu. Better roads bring more traders, which brings more wealth. The stored grain saves the kingdom when a drought hits the following year. The Kingdom of Mali becomes famous as a center of learning, trade, and wise leadership. The Mansa tells you, 'You helped me invest in our people's future.'",
+      "outcome": {
+        "result": "great",
+        "headline": "Brilliant! You Built a Golden Age!",
+        "explanation": "This is very close to what really happened under Mansa Musa, the most famous ruler of Mali. He built the University of Sankore in Timbuktu, which became one of the great centers of learning in the world, with libraries holding thousands of books. Mali controlled gold and salt trade routes and became fabulously wealthy. Mansa Musa is often called the richest person in history. But what made Mali truly great was not just gold -- it was investing in education, trade, and planning for the future. Spreading resources across multiple needs is called diversification.",
+        "keyTerms": [
+          {
+            "term": "Kingdom of Mali",
+            "definition": "A powerful West African kingdom from the 1200s to 1400s that controlled gold and salt trade routes. Its capital, Timbuktu, was a world-famous center of learning."
+          },
+          {
+            "term": "Mansa Musa",
+            "definition": "The king of Mali who ruled from 1312 to 1337. He is often called the richest person in history and was famous for building universities and mosques."
+          },
+          {
+            "term": "Diversification",
+            "definition": "Spreading your resources across different things instead of putting everything into one thing. This reduces risk and builds long-term strength."
+          }
+        ],
+        "whatToRemember": "The smartest leaders invest in education, trade, and emergency preparation. Spreading resources across many needs builds a stronger kingdom than spending everything on one thing.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "The Mansa builds a massive army. The soldiers protect the trade routes and the kingdom's borders are secure. But without better roads, trade slows down. Without a university, young scholars leave to study elsewhere. And when a drought hits, there is no stored grain and people go hungry. The kingdom is safe but not growing or thriving.",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Strong Army, But the Kingdom Stopped Growing!",
+        "explanation": "Military strength is important, but a kingdom that only invests in its army neglects everything else. In real history, kingdoms that spent everything on military power often weakened over time because they did not invest in education, trade, or their people's wellbeing. The most successful empires in history balanced military defense with investment in learning, roads, and food security.",
+        "whatToRemember": "A strong army protects what you have, but education, trade, and planning are what help a kingdom grow. You need both defense and investment.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "The Mansa gives all the extra gold to the people. Everyone is happy for a few weeks! But the gold is quickly spent on everyday things. When the gold is gone, nothing has changed -- the roads are still bad, there is still no university, and there are no grain reserves. Worse, so much gold flooding the market at once makes gold less valuable. Prices go up and people end up poorer than before.",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Gold Disappeared and Prices Went Up!",
+        "explanation": "This is based on a real event. When Mansa Musa traveled through Egypt on his famous pilgrimage to Mecca, he gave away so much gold that he actually crashed the gold market in Cairo. Gold became less valuable because there was suddenly too much of it. This is called inflation. Giving resources away feels good in the moment, but investing them in things that help EVERYONE for a LONG TIME is much smarter.",
+        "whatToRemember": "Giving everything away right now feels generous, but investing in the future helps everyone more in the long run. Wise leaders think long-term.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

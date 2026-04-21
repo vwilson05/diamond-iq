@@ -1,0 +1,67 @@
+{
+  "id": "minors-golf-wind-reading",
+  "title": "Play the Wind",
+  "sport": ["golf"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "approach",
+  "tags": ["wind", "club selection", "conditions"],
+  "setup": {
+    "hole": 11,
+    "par": 3,
+    "distance": 150,
+    "lie": "tee box",
+    "score": "E"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on a 150-yard par 3. The flag is blowing strongly toward you, which means the wind is blowing right into your face. Normally you hit your 7-iron 150 yards. The wind is strong enough to knock about 15 yards off your shot. What club do you choose?",
+      "choices": [
+        { "id": "best", "text": "Club up to a 6-iron. The headwind will take distance off, so you need a bigger club to get there.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stick with your 7-iron but swing extra hard to fight through the wind", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Use your 8-iron because the wind might help carry the ball farther", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Right Club! The Ball Holds Its Line!",
+        "explanation": "The 6-iron was the perfect choice. You made a smooth, full swing and the ball fought through the wind and landed on the green. When the wind is in your face, it slows the ball down and takes distance off your shot. The solution is simple: take more club and make the same smooth swing. Do not try to swing harder -- that usually makes things worse.",
+        "whatToRemember": "Into the wind, club up. Downwind, club down. A smooth swing with the right club beats a hard swing with the wrong club every time.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Headwind", "definition": "Wind blowing into your face, from the target back toward you. It makes the ball fly shorter." },
+          { "term": "Club Up", "definition": "Choosing a club with more distance, like going from a 7-iron to a 6-iron. You club up when hitting into wind or uphill." },
+          { "term": "Knockdown Shot", "definition": "A low, controlled shot that stays under the wind. Advanced players use this to handle strong winds." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short of the Green",
+        "explanation": "Swinging harder with the 7-iron sent the ball higher, which actually made the wind push it even MORE. The ball landed 10 yards short of the green. When you swing harder, the ball usually goes higher, and a headwind affects high shots more than low ones. It is better to take more club and swing normally.",
+        "whatToRemember": "Swinging harder in the wind often backfires because the ball goes higher and the wind pushes it more. Take an extra club and make your normal smooth swing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way Short! Wind Ate It Up!",
+        "explanation": "The 8-iron only goes about 135 yards with no wind, and the headwind knocked another 15 yards off. The ball landed 30 yards short of the green. A headwind does not help your ball go farther -- it does the opposite. Wind in your face slows the ball down. Wind at your back pushes it forward.",
+        "whatToRemember": "Headwind equals shorter shots. You need MORE club, not less. Think of it like running into the wind versus running with the wind at your back.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

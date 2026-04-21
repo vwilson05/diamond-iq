@@ -173,6 +173,8 @@ const SPORT_CATEGORIES = [
       { id: 'football', name: 'Football', desc: 'Play calling, reads, strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="28" ry="18" stroke="currentColor" stroke-width="3" fill="none"/><path d="M18 32h28M32 18v28" stroke="currentColor" stroke-width="2"/></svg>' },
       { id: 'soccer', name: 'Soccer', desc: 'Through balls, formations, game sense', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 4l6 10h12l-4 12 8 10-10 4-6 10-6-10-10-4 8-10-4-12h12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>' },
       { id: 'hockey', name: 'Hockey', desc: 'Power plays, breakaways, ice strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M16 48l16-32 16 32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="20" r="6" stroke="currentColor" stroke-width="3" fill="none"/><line x1="8" y1="52" x2="56" y2="52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
+      { id: 'tennis', name: 'Tennis', desc: 'Shot selection, serving, match strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M8 20c12 0 20 8 20 20M36 12c0 12 8 20 20 20" stroke="currentColor" stroke-width="2.5"/></svg>' },
+      { id: 'golf', name: 'Golf', desc: 'Club selection, course management, putting', icon: '<svg viewBox="0 0 64 64" fill="none"><line x1="32" y1="8" x2="32" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 8l16 10-16 10z" stroke="currentColor" stroke-width="2.5" fill="none"/><ellipse cx="32" cy="52" rx="12" ry="4" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>' },
     ],
   },
   {
@@ -192,6 +194,15 @@ const SPORT_CATEGORIES = [
       { id: 'money', name: 'Money Smarts', desc: 'Saving, spending, budgeting, investing', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 16v32M24 22c0-4 4-6 8-6s8 2 8 6-4 6-8 8-8 4-8 8 4 6 8 6 8-2 8-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
       { id: 'coding', name: 'Coding', desc: 'Logic, debugging, problem solving', icon: '<svg viewBox="0 0 64 64" fill="none"><rect x="8" y="12" width="48" height="36" rx="4" stroke="currentColor" stroke-width="3" fill="none"/><path d="M22 26l-8 6 8 6M42 26l8 6-8 6M36 22l-8 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
       { id: 'survival', name: 'Survival Skills', desc: 'Safety, outdoors, first aid, emergencies', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 4l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/><circle cx="32" cy="48" r="8" stroke="currentColor" stroke-width="3" fill="none"/></svg>' },
+      { id: 'social', name: 'Social Skills', desc: 'Friendship, conflict resolution, empathy', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="24" r="10" stroke="currentColor" stroke-width="3" fill="none"/><circle cx="42" cy="24" r="10" stroke="currentColor" stroke-width="3" fill="none"/><path d="M12 52c0-8 6-14 14-14h12c8 0 14 6 14 14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>' },
+    ],
+  },
+  {
+    id: 'history',
+    name: 'History',
+    icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 12v20l14 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    sports: [
+      { id: 'history', name: 'History Choices', desc: 'Lead civilizations, explore, make history', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 12v20l14 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
     ],
   },
   {
@@ -273,6 +284,10 @@ const DEFAULT_TEAMS = {
   science: { id: 901, name: 'Labs', city: 'Discovery', primary: '#06D6A0', secondary: '#1B1B3A', abbr: 'LAB' },
   detective: { id: 1001, name: 'Sleuths', city: 'Mystery', primary: '#6D4C41', secondary: '#FFD54F', abbr: 'DET' },
   survival: { id: 1101, name: 'Rangers', city: 'Wild', primary: '#4A7C59', secondary: '#F4A460', abbr: 'WLD' },
+  tennis: { id: 1201, name: 'Aces', city: 'Court', primary: '#1B5E20', secondary: '#FFEB3B', abbr: 'ACE' },
+  golf: { id: 1301, name: 'Eagles', city: 'Links', primary: '#1B5E20', secondary: '#FFFFFF', abbr: 'EGL' },
+  social: { id: 1401, name: 'Friends', city: 'Community', primary: '#E91E63', secondary: '#FCE4EC', abbr: 'FRD' },
+  history: { id: 1501, name: 'Explorers', city: 'Time', primary: '#795548', secondary: '#D7CCC8', abbr: 'HIS' },
 };
 
 function selectSport(sport) {
@@ -382,6 +397,38 @@ const SURVIVAL_TIERS = [
   { id: 'the-show', name: 'Survivor', num: '5', desc: 'Elite — multi-day scenarios, rationing, rescue, leadership' },
 ];
 
+const TENNIS_TIERS = [
+  { id: 'tball', name: 'Rally', num: '1', desc: 'Basics — grip, ready position, forehand, keeping score' },
+  { id: 'rookie', name: 'Club', num: '2', desc: 'Fundamentals — backhand, serving, volleys, court positioning' },
+  { id: 'minors', name: 'Junior', num: '3', desc: 'Game IQ — shot selection, net approach, lobs, spin' },
+  { id: 'majors', name: 'Challenger', num: '4', desc: 'Advanced — serve and volley, constructing points, tiebreaks' },
+  { id: 'the-show', name: 'Grand Slam', num: '5', desc: 'Elite — match point pressure, mid-match adjustments, mental game' },
+];
+
+const GOLF_TIERS = [
+  { id: 'tball', name: 'First Tee', num: '1', desc: 'Basics — grip, stance, putting, etiquette, keeping score' },
+  { id: 'rookie', name: 'Junior', num: '2', desc: 'Fundamentals — chipping, full swing, club selection, bunkers' },
+  { id: 'minors', name: 'Club', num: '3', desc: 'Course management — risk/reward, wind, uphill/downhill, lag putts' },
+  { id: 'majors', name: 'Amateur', num: '4', desc: 'Advanced — shot shaping, pin positions, trouble shots, mental game' },
+  { id: 'the-show', name: 'Tour Pro', num: '5', desc: 'Elite — tournament pressure, comebacks, match play, closing rounds' },
+];
+
+const SOCIAL_TIERS = [
+  { id: 'tball', name: 'Friend', num: '1', desc: 'Basics — sharing, taking turns, please/thank you, listening' },
+  { id: 'rookie', name: 'Buddy', num: '2', desc: 'Fundamentals — making friends, joining groups, being a good sport' },
+  { id: 'minors', name: 'Team Player', num: '3', desc: 'Social IQ — peer pressure, standing up for others, teamwork' },
+  { id: 'majors', name: 'Leader', num: '4', desc: 'Advanced — conflict resolution, leadership, digital citizenship' },
+  { id: 'the-show', name: 'Mentor', num: '5', desc: 'Elite — public speaking, mediating, cultural sensitivity' },
+];
+
+const HISTORY_TIERS = [
+  { id: 'tball', name: 'Time Traveler', num: '1', desc: 'Basics — caveman choices, ancient Egypt, maps, trading' },
+  { id: 'rookie', name: 'Explorer', num: '2', desc: 'Exploration — Viking voyages, trade routes, pioneer trails' },
+  { id: 'minors', name: 'Governor', num: '3', desc: 'Leadership — founding colonies, writing rules, managing kingdoms' },
+  { id: 'majors', name: 'Changemaker', num: '4', desc: 'History — independence, civil rights, inventions, moon landing' },
+  { id: 'the-show', name: 'World Shaper', num: '5', desc: 'Elite — D-Day, diplomacy, space race, building nations' },
+];
+
 const SPORT_TIERS = {
   baseball: BASEBALL_TIERS,
   softball: BASEBALL_TIERS,
@@ -395,6 +442,10 @@ const SPORT_TIERS = {
   science: SCIENCE_TIERS,
   detective: DETECTIVE_TIERS,
   survival: SURVIVAL_TIERS,
+  tennis: TENNIS_TIERS,
+  golf: GOLF_TIERS,
+  social: SOCIAL_TIERS,
+  history: HISTORY_TIERS,
 };
 
 function getTiers() {

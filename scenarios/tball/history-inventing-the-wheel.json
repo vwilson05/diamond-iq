@@ -1,0 +1,96 @@
+{
+  "id": "tball-history-inventing-the-wheel",
+  "title": "Inventing the Wheel",
+  "sport": [
+    "history"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "innovation",
+  "tags": [
+    "invention",
+    "wheel",
+    "ancient-world",
+    "problem-solving",
+    "transportation"
+  ],
+  "setup": {
+    "era": "3500 BC",
+    "role": "young helper",
+    "location": "ancient Sumeria",
+    "stakes": "moving heavy supplies"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your village needs to move a huge pile of heavy clay bricks to a building site across town. Workers have been carrying the bricks on their backs, one at a time, and it is taking forever. Everyone is tired and sore. You notice some round logs lying near the river. You also see a flat wooden board and some rope. What is your idea?",
+      "choices": [
+        {
+          "id": "rollers",
+          "text": "Put the round logs under the flat board, stack bricks on top, and roll the whole thing to the building site!",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "sled",
+          "text": "Put bricks on the flat board and drag it along the ground with the rope.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "carry-more",
+          "text": "Just carry more bricks at once on your back.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You place the round logs on the ground and put the flat board on top. Then you stack a big pile of bricks on the board. When you push, the whole thing rolls forward on the logs! It is so much easier than carrying! You move ten times as many bricks in one trip. The other workers watch in amazement and start doing the same thing. The building gets finished in record time!",
+      "outcome": {
+        "result": "great",
+        "headline": "You Discovered Rolling! Amazing!",
+        "explanation": "You just figured out the idea behind one of the greatest inventions in human history -- the wheel! Ancient people in Sumeria (modern-day Iraq) discovered that round things roll, and rolling is much easier than dragging or carrying. First they used logs as rollers, and then someone got the idea to cut round discs and attach them to carts. The wheel changed everything: farming, building, travel, and trade all became much easier. We still use wheels everywhere today -- on cars, bikes, skateboards, and even inside machines!",
+        "keyTerms": [
+          {
+            "term": "Wheel",
+            "definition": "A round disc that turns on an axle. One of the most important inventions in all of human history."
+          },
+          {
+            "term": "Invention",
+            "definition": "Something new that someone creates to solve a problem. The wheel was invented to make moving heavy things easier."
+          },
+          {
+            "term": "Sumeria",
+            "definition": "One of the first civilizations, located in modern-day Iraq. The Sumerians invented writing, the wheel, and many other things."
+          }
+        ],
+        "whatToRemember": "The best inventions come from noticing a problem and finding a clever way to solve it. The wheel started as a simple idea -- round things roll -- and changed the entire world.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You pile bricks on the flat board and pull it with the rope. It works a little better than carrying, but dragging is still really hard! The board scrapes along the ground and gets stuck in bumps and mud. You get the bricks there eventually, but your arms are very tired. A nearby worker says, 'What if we put something round underneath to make it roll?'",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Sled Helps, But Rolling Is Better!",
+        "explanation": "Sleds and drag platforms were used before the wheel was invented. They helped, but dragging creates a lot of friction -- the ground pushes back against the board and makes it hard to pull. When you add something round underneath, the friction almost disappears and everything rolls smoothly. That jump from dragging to rolling was one of the biggest leaps in human thinking.",
+        "whatToRemember": "Dragging is better than carrying, but rolling is best! Every big invention builds on smaller ideas that came before it.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You stack extra bricks on your back and start walking. The load is so heavy that your legs wobble and your back aches. After just a few steps, some bricks fall and one cracks in half. You sit down, exhausted. There has to be a better way to do this!",
+      "outcome": {
+        "result": "bad",
+        "headline": "Ouch! Harder Is Not Smarter!",
+        "explanation": "Working harder does not always solve the problem. Sometimes you need to work SMARTER. The greatest inventors in history did not just try harder -- they looked around, noticed things (like how round objects roll), and came up with new ideas. That creative thinking is what led to the wheel, and eventually to carts, wagons, bicycles, and cars.",
+        "whatToRemember": "When something is really hard, do not just try harder. Stop and think: is there a smarter way? That is how inventions are born.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

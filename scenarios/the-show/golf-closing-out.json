@@ -1,0 +1,67 @@
+{
+  "id": "the-show-golf-closing-out",
+  "title": "Close It Out Like a Champion",
+  "sport": ["golf"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "putting",
+  "tags": ["closing", "tournament", "clutch", "elite"],
+  "setup": {
+    "hole": 18,
+    "par": 4,
+    "distance": 4,
+    "lie": "green",
+    "score": "-1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the 18th green, 4 feet from the hole, 1 under par. Make this putt and you win the tournament by one stroke. Miss it and you go to a playoff. The putt is straight with a slight downhill slope. Your hands are shaking a little. The gallery is silent. This is the biggest putt of your life. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Go through your full putting routine. Read the line one more time, take one practice stroke to feel the speed, step up, and commit to rolling it firmly into the center of the cup. No tentative strokes.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to just barely trickle the ball to the hole so it does not go far past if you miss", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Skip your routine and hit it quickly before the nerves get worse", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Champion! The Ball Finds the Center of the Cup!",
+        "explanation": "By going through your routine and committing to a firm stroke, you rolled the ball right into the heart of the hole. It never had a chance to break or lip out because you hit it with conviction. Closing out a tournament requires the same routine you use on the practice green. The best closers in golf do not change anything under pressure -- they trust the process that got them there. A firm putt that hits the center of the cup takes the break out of play.",
+        "whatToRemember": "On pressure putts, commit to a firm stroke into the center of the cup. A firm putt that hits the middle will go in even if you misread the break slightly. Never get tentative on a short putt to win.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Closing Out", "definition": "Finishing a tournament or match when you have the lead. The ability to perform under pressure on the final holes." },
+          { "term": "Firm Putt", "definition": "A putt hit with enough speed to hold its line and hit the back of the cup. Firm putts are less affected by break and imperfections in the green." },
+          { "term": "Center of the Cup", "definition": "Aiming for the dead center of the hole rather than trying to play break on a short putt. On putts under 5 feet, a firm stroke at the center is the highest-percentage play." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Lipped Out! Playoff Time",
+        "explanation": "The tentative, dying putt caught the left lip of the cup and spun out. When you try to barely get the ball to the hole, every tiny imperfection in the green can knock it off line. A ball rolling slowly is at the mercy of the slope and any bumps in the green. On a 4-footer, a firm putt into the center takes all of that out of play.",
+        "whatToRemember": "Short putts that are hit too softly lip out more often because the ball is moving slowly enough for the break to pull it off line. Be firm and take the break out of the equation.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Pulled It! A Foot Left of the Hole!",
+        "explanation": "Rushing the putt to escape the pressure backfired. Without your routine, you were not properly aimed, your body was tense, and you pulled the putt left. Your routine exists for moments exactly like this one. It calms your body, confirms your aim, and gives your brain a familiar process to follow. Skipping it removed your safety net and left you with nothing but nerves.",
+        "whatToRemember": "Your routine is most important when the pressure is highest. It is your anchor. Never skip it, no matter how nervous you are. The routine calms you down and gives your body something familiar to do.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "the-show-tennis-wind-sun-adjustments",
+  "title": "Play the Conditions",
+  "sport": ["tennis"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "serve",
+  "tags": ["conditions", "elite", "wind", "sun", "adaptation"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are serving into a strong wind that is blowing straight into your face, and the afternoon sun is right above the court on your side. Your ball toss keeps getting pushed around and the sun is in your eyes. How do you adjust?",
+      "choices": [
+        { "id": "best", "text": "Toss the ball lower to reduce wind effect, aim your toss slightly to avoid the sun, and add extra power since the wind will slow the ball down", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Keep tossing the ball the same height and hope the wind dies down between serves", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Complain about the conditions and rush through your serves to get them over with", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Conditions mastered!",
+        "explanation": "A lower toss kept the ball out of the strongest gusts and away from the sun. Adding extra pace meant the wind did not slow your serve as much. You adapted while your opponent struggled on their serve into the wind.",
+        "whatToRemember": "Wind and sun affect everyone, but smart players adjust. Into the wind: toss lower and hit harder. With the wind: hit with more spin so the ball does not sail long. Move your toss to dodge the sun.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Conditions Play", "definition": "Adjusting your technique and strategy based on weather, wind, sun position, and court surface. Elite players use tough conditions as an advantage by adapting faster than their opponent" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Inconsistent serves!",
+        "explanation": "Without adjusting your toss, the wind pushed the ball around unpredictably. Some serves went in, but your toss was different every time and you double faulted twice in the set.",
+        "whatToRemember": "Do not wait for conditions to improve. Adjust your game to match what the weather gives you. The wind is not going to stop just because you want it to.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You let the conditions beat you!",
+        "explanation": "Rushing and complaining made everything worse. Your focus was on the wind instead of the ball, and you made error after error. Meanwhile, your opponent calmly adjusted and took control.",
+        "whatToRemember": "Conditions are the same for both players. The one who adjusts first gets the advantage. Stay calm, figure out what needs to change, and execute.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

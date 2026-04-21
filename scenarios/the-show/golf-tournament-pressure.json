@@ -1,0 +1,67 @@
+{
+  "id": "the-show-golf-tournament-pressure",
+  "title": "Final Hole, All Eyes on You",
+  "sport": ["golf"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "tee-shot",
+  "tags": ["tournament", "pressure", "clutch", "elite"],
+  "setup": {
+    "hole": 18,
+    "par": 4,
+    "distance": 400,
+    "lie": "tee box",
+    "score": "-1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the last hole of the junior tournament. You are 1 under par and tied for the lead. A par wins you a share of first place. A birdie wins it outright. A bogey drops you to third. There is water down the left side and bunkers on the right. The fairway is generous in the middle. A crowd of parents and other players is watching from behind the tee. Your heart is pounding. What is your plan?",
+      "choices": [
+        { "id": "best", "text": "Stick to your routine. Take a deep breath, pick a specific target in the middle of the fairway, and hit your normal tee shot. Trust your swing.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to bomb your driver as far as possible to leave a short approach and go for birdie to win outright", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Steer the ball by making a careful, tentative swing to make sure you do not hit it in the water", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clutch! Right Down the Middle!",
+        "explanation": "By sticking to your routine and trusting your swing, you blocked out the pressure and hit it pure. The ball lands in the center of the fairway with a clear approach to the green. Under pressure, your routine is your anchor. It gives your body something familiar to do instead of focusing on the nerves. The best tournament players do not try to do anything special on pressure shots -- they do exactly what they have practiced a thousand times.",
+        "whatToRemember": "Under pressure, trust your routine and your swing. Do not try to do more or less than normal. Your routine is your anchor when nerves are high. Breathe, commit, execute.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Process Over Outcome", "definition": "Focusing on executing your routine and swing rather than thinking about the result. Control what you can control." },
+          { "term": "Commitment", "definition": "Fully deciding on your target and club before you swing, with no second-guessing. Indecision under pressure leads to bad swings." },
+          { "term": "Clutch", "definition": "Performing your best when the pressure is highest. Clutch players trust their preparation and stay in the moment." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Big Drive, But in the Bunker",
+        "explanation": "The adrenaline from trying to crush it sent the ball farther than normal, but you lost accuracy. The ball found the right-side bunker. You still have a chance at par from there, but the bunker shot adds risk. Under pressure, trying to hit the ball harder than normal is a common mistake. Adrenaline already adds distance naturally -- you do not need to swing harder.",
+        "whatToRemember": "Pressure and adrenaline add distance naturally. Swing at your normal tempo and the ball will go farther than usual. Trying to swing harder under pressure leads to wild shots.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Steered It Right Into the Water!",
+        "explanation": "Trying to steer the ball is the opposite of trusting your swing. When you make a tentative, guiding swing, your body tenses up and the club decelerates through impact. Ironically, the thing you were afraid of -- hitting it in the water -- is exactly what happened because you did not commit to a full swing. A committed swing to a safe target is the best pressure play in golf.",
+        "whatToRemember": "Never steer the ball. A tentative swing under pressure almost always produces the miss you were trying to avoid. Commit fully to your target and make an aggressive, confident swing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

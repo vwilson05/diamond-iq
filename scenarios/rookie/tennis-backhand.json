@@ -1,0 +1,62 @@
+{
+  "id": "rookie-tennis-backhand",
+  "title": "The Other Side",
+  "sport": ["tennis"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["backhand", "fundamentals", "groundstroke"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The ball is coming to your non-dominant side. You need to hit a backhand. How do you handle it?",
+      "choices": [
+        { "id": "best", "text": "Turn your body so your back shoulder faces the net, put both hands on the racket, and swing across your body", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Reach across your body with one hand and try to flip the ball back over the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Run around the ball so you can hit a forehand instead, even though you are running out of time", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Solid two-handed backhand!",
+        "explanation": "Using two hands on the racket gives you extra strength and control on the backhand side. Turning your body loaded up your swing and sent the ball deep into the court.",
+        "whatToRemember": "For a two-handed backhand, your non-dominant hand does most of the work. Turn your shoulders and swing through the ball.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Two-Handed Backhand", "definition": "A backhand shot where both hands grip the racket for extra power and control, used by most young players and many pros" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The ball went back, but barely!",
+        "explanation": "One-handed flicks can work in emergencies, but they give you very little power or direction. The ball floated weakly to your opponent who smashed it for a winner.",
+        "whatToRemember": "When the ball comes to your backhand side, commit to a full backhand swing instead of flipping at it.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You ran out of time!",
+        "explanation": "Trying to run around every backhand wastes energy and leaves one side of the court wide open. You did not reach the ball in time and it bounced twice.",
+        "whatToRemember": "You cannot always run around your backhand. Practice hitting it so you have a weapon on both sides.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

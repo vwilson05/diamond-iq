@@ -1,0 +1,62 @@
+{
+  "id": "minors-tennis-passing-shots",
+  "title": "Get It Past the Net Player",
+  "sport": ["tennis"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["passing shot", "game IQ", "defense"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent hit an approach shot and is now standing at the net. You have the ball on your forehand side. How do you try to get the ball past them?",
+      "choices": [
+        { "id": "best", "text": "Hit a low, firm shot aimed at their feet or to the open side of the court, keeping the ball below the net", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Blast the ball as hard as you can right at your opponent", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit a soft, high ball right to the middle of the court", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great passing shot!",
+        "explanation": "By keeping the ball low and aiming to the open side, you made it nearly impossible for your opponent to volley. The ball zipped past them and hit the corner for a winner.",
+        "whatToRemember": "Against a net player, hit low and away from them. A ball at their feet is very hard to volley, and aiming wide makes them lunge.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Passing Shot", "definition": "A groundstroke hit past an opponent who is at the net, either down the line or crosscourt, aimed low to make their volley difficult" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Right at them -- easy volley!",
+        "explanation": "Hitting hard right at the net player just gives them a ball they can block back. They stuck their racket out and your pace did the work for them, sending the ball into the open court.",
+        "whatToRemember": "Power alone does not beat a net player. Aim away from them or at their feet, not right at their racket.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy putaway for your opponent!",
+        "explanation": "A high, soft ball to the middle of the court is a gift to a net player. They smashed it down for an easy winner. You need to make them work for the volley.",
+        "whatToRemember": "Never hit high and soft to someone at the net. Keep the ball low and make them bend down to reach it.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

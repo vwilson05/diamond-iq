@@ -1,0 +1,62 @@
+{
+  "id": "minors-tennis-lobs",
+  "title": "Go Over Their Head",
+  "sport": ["tennis"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["lob", "game IQ", "defense"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent is standing very close to the net after a volley. They are leaning forward expecting you to hit another low ball. You have time to set up. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Hit a high, deep lob over their head to the back of the court, making them turn and chase it", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try another low passing shot, even though they are right on top of the net", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit the ball as high in the air as you can without worrying about depth", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect lob!",
+        "explanation": "Your opponent was too close to the net and leaning forward. The lob sailed over their racket and landed deep near the baseline. They had to turn and sprint back, giving you control of the point.",
+        "whatToRemember": "When your opponent crowds the net, a lob is a great option. Aim it deep so it lands near the baseline. A short lob will get smashed back at you.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Lob", "definition": "A high arching shot hit over the head of a net player, designed to land deep near the baseline and force them to retreat" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too close to get it past them!",
+        "explanation": "With your opponent right on top of the net, there was almost no space to hit a passing shot through. They reached out and picked off your low ball with a volley winner.",
+        "whatToRemember": "If your opponent is very close to the net, a passing shot is tough. Switch it up with a lob to push them back.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Short lob -- smashed!",
+        "explanation": "Hitting the ball high without aiming deep gave your opponent a slow ball right in their hitting zone. They jumped up and crushed an overhead smash for a winner.",
+        "whatToRemember": "A lob must be deep to work. A short, high ball is the easiest shot in tennis for a net player to put away.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

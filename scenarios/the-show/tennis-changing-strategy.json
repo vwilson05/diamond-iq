@@ -1,0 +1,62 @@
+{
+  "id": "the-show-tennis-changing-strategy",
+  "title": "Switch Up Your Game Plan",
+  "sport": ["tennis"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["strategy change", "elite", "adaptation"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have been hitting hard from the baseline all match but your opponent is handling everything and has won the last four games. Your power game is not working today. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Change your strategy -- mix in slices, drop shots, and come to the net to disrupt their rhythm and give them a different look", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Keep doing the same thing but try to hit even harder, hoping to overpower them eventually", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Get frustrated and stop trying, just pushing the ball back weakly because nothing is working", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "The adjustment worked!",
+        "explanation": "Your opponent had figured out your power game, but the new variety threw them off completely. The slices kept the ball low, the drop shots brought them to the net where they were uncomfortable, and you started winning games again.",
+        "whatToRemember": "The best players can adjust mid-match. If Plan A is not working, have a Plan B ready. Changing pace, spin, and patterns can completely disrupt an opponent who had you figured out.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Tactical Adjustment", "definition": "Changing your game plan during a match when your current strategy is not working. Great players recognize what is failing and switch to a different approach to throw off their opponent" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "More of the same -- more losses!",
+        "explanation": "Hitting harder did not solve the problem. Your opponent was already comfortable with your power and the extra force led to more errors. You lost two more games before finally mixing things up.",
+        "whatToRemember": "If your opponent has adapted to your game, doing the same thing louder will not help. Smart changes beat stubborn power.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You gave up mentally!",
+        "explanation": "Pushing the ball back weakly was worse than your power game. Your opponent attacked every short ball and the match was over quickly. Frustration turned into surrender.",
+        "whatToRemember": "Never stop competing. Even when things are going badly, stay focused and try to find solutions. The match is not over until the last point is played.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

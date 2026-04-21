@@ -1,0 +1,95 @@
+{
+  "id": "majors-social-leadership",
+  "title": "The Captain's Call",
+  "sport": [
+    "social"
+  ],
+  "tier": "majors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "leadership",
+    "inclusion",
+    "decision-making",
+    "advanced"
+  ],
+  "setup": {
+    "situation": "gymnasium",
+    "people": 8,
+    "emotion": "responsible",
+    "context": "picking teams for PE basketball"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The PE teacher picks you as team captain for basketball. You get to pick your team. Your best friend Jordan is an amazing player and is looking at you expectantly. But you also see Marcus, who always gets picked last and is standing at the back looking nervous. You have two picks left and there are three kids waiting: Jordan, Marcus, and Ava, who's pretty good. What do you do?",
+      "choices": [
+        {
+          "id": "pick-marcus-first",
+          "text": "Pick Marcus next, then Jordan. Say to Marcus, 'You're with me' and to Jordan, 'I know you'll get picked -- I wanted to make sure Marcus had a spot.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "pick-best-players",
+          "text": "Pick Jordan and Ava to build the strongest team possible.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "make-a-joke",
+          "text": "Make a joke like, 'Well, SOMEBODY has to take Marcus' and pick him while laughing.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Marcus's face lights up -- he can't believe he wasn't picked last. He plays with so much energy and heart that he actually makes a great play during the game. Jordan gets picked by the other team and gives you a nod -- he understands. After class, your PE teacher says, 'That showed real leadership. I'm proud of you.' Marcus comes up to you and says, 'Nobody ever picks me early. That meant a lot.' Jordan tells you later, 'That was cool what you did.'",
+      "outcome": {
+        "result": "great",
+        "headline": "A Leader Lifts Everyone Up!",
+        "explanation": "Real leadership isn't about building the most powerful team. It's about using your position to make things better for everyone. By picking Marcus, you used your power as captain to include someone who usually feels left out. And you did it with kindness, not pity. Jordan understood because real friends get it. Leaders are remembered not for winning -- they're remembered for how they treat people.",
+        "keyTerms": [
+          {
+            "term": "Inclusive Leadership",
+            "definition": "Using your position to make sure everyone feels valued and included, not just the most skilled or popular people."
+          },
+          {
+            "term": "Empowerment",
+            "definition": "Giving someone confidence and a sense of belonging by showing them they matter."
+          },
+          {
+            "term": "Servant Leadership",
+            "definition": "Leading by putting others' needs first, rather than just focusing on winning or personal gain."
+          }
+        ],
+        "whatToRemember": "When you have power -- even small power like being team captain -- use it to lift others up. That's what real leaders do.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You build a strong team with Jordan and Ava. You win the game easily. Marcus is on the other team and barely touches the ball. He walks out of the gym with his head down, just like every other PE class. You played well, but something doesn't feel quite right when you see Marcus leaving alone.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Won the Game But Missed the Moment",
+        "explanation": "There's nothing wrong with wanting to win, and you played a fair game. But being captain gave you a chance to do something bigger than win a PE basketball game. Marcus goes through this every time -- being picked last, barely playing, leaving alone. You had the power to change that for him and you chose winning instead. Sometimes the biggest wins aren't on the scoreboard.",
+        "whatToRemember": "Winning is fun, but using your position to include others creates something more lasting than a PE victory.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "A few kids laugh at your joke, but Marcus hears every word. His face turns red and he looks at the floor. During the game, Marcus doesn't try at all -- he just stands in the corner. After class, the PE teacher pulls you aside and says, 'Being captain means building people up, not tearing them down. That joke was hurtful.' You notice Marcus avoids you for the rest of the week.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A 'Joke' That Hurt",
+        "explanation": "What sounded like a harmless joke to you was humiliation for Marcus. He heard: 'Nobody actually wants you on their team.' When you have a leadership role, your words carry extra weight. A joke from the team captain hits differently than a joke from anyone else. Marcus didn't just feel bad for a moment -- he stopped trying during the entire game. Words from leaders can build people up or shut them down. You chose the wrong direction.",
+        "whatToRemember": "Leaders' words carry extra weight. A joke at someone's expense isn't leadership -- it's cruelty with a smile.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

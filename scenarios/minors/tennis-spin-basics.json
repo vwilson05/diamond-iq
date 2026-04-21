@@ -1,0 +1,62 @@
+{
+  "id": "minors-tennis-spin-basics",
+  "title": "Make the Ball Curve",
+  "sport": ["tennis"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["topspin", "spin", "game IQ"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your coach is teaching you about spin. You want to hit the ball so it dips down into the court after crossing the net. How do you swing your racket?",
+      "choices": [
+        { "id": "best", "text": "Swing from low to high, brushing up the back of the ball to make it spin forward and dip down", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Swing straight through the ball flat, making solid contact but no spin", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Swing from high to low, chopping down on the ball", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You created topspin!",
+        "explanation": "By swinging low to high and brushing up the ball, you made it rotate forward. This topspin causes the ball to dip down quickly after it crosses the net, keeping it in the court even when you swing hard.",
+        "whatToRemember": "Topspin is created by swinging from low to high. The faster you brush up, the more the ball will dip. Topspin lets you hit hard and still keep the ball in.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Topspin", "definition": "Forward rotation on the ball created by brushing up on it. Topspin makes the ball dip down into the court and bounce high, helping you hit harder while keeping shots in play" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Flat but risky!",
+        "explanation": "A flat hit has power but no dip. The ball traveled in a straight line and just barely stayed inside the baseline. Without spin, it is harder to keep hard shots in the court.",
+        "whatToRemember": "Flat shots are fine sometimes, but adding topspin gives you more room for error. The ball dips down so you can aim higher over the net safely.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong direction -- into the net!",
+        "explanation": "Chopping down on the ball creates backspin, which makes it float. From the baseline, a downward swing usually sends the ball right into the net because it does not have enough lift.",
+        "whatToRemember": "To create topspin, swing up, not down. Swinging down creates a different type of spin called backspin, which is used for different shots like slices and drop shots.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

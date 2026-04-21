@@ -1,0 +1,67 @@
+{
+  "id": "tball-golf-grip",
+  "title": "Hold the Club Right",
+  "sport": ["golf"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "tee-shot",
+  "tags": ["grip", "basics", "fundamentals"],
+  "setup": {
+    "hole": 3,
+    "par": 4,
+    "distance": 250,
+    "lie": "tee box",
+    "score": "E"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You step up to the tee box on hole 3. Your coach has been teaching you how to hold the golf club. You pick up your driver and get ready to swing. How do you grip the club?",
+      "choices": [
+        { "id": "best", "text": "Place both hands together on the club with your thumbs pointing down the shaft, holding it firmly but not too tight", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Grab the club with both hands but leave a big gap between them", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Squeeze the club as tight as you can like a baseball bat", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Grip!",
+        "explanation": "With your hands together and a nice relaxed grip, the club swings smoothly and the ball flies straight down the fairway. A good grip is the first step to every good golf shot. Your hands work together as a team when they are close together on the club.",
+        "whatToRemember": "Keep your hands together on the club with your thumbs pointing down. Hold it like you are holding a bird -- firm enough that it will not fly away, but gentle enough that you will not hurt it.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Grip", "definition": "The way you hold the golf club with your hands. A good grip helps you hit straight shots." },
+          { "term": "Shaft", "definition": "The long, thin part of the golf club that connects the handle to the clubhead." },
+          { "term": "Grip Pressure", "definition": "How tight or loose you hold the club. Medium pressure works best -- not too tight, not too loose." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Ball Goes, But Not Straight",
+        "explanation": "With a gap between your hands, the club wobbles a little during the swing. The ball goes forward but curves off to the side. Your hands need to be together so they work as a team.",
+        "whatToRemember": "Keep your hands close together on the club with no gap. When your hands are apart, the club can twist during your swing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Ouch! Too Tight!",
+        "explanation": "Squeezing the club super tight makes your arms stiff and your swing jerky. The ball dribbles off the tee and only goes a few yards. In golf, a relaxed grip lets the club do the work. Tight muscles make slow swings.",
+        "whatToRemember": "Relax your hands! Squeezing too tight slows down your swing and makes it hard to hit the ball far.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

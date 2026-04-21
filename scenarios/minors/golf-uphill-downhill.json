@@ -1,0 +1,67 @@
+{
+  "id": "minors-golf-uphill-downhill",
+  "title": "Reading the Slope",
+  "sport": ["golf"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "approach",
+  "tags": ["slopes", "lies", "elevation"],
+  "setup": {
+    "hole": 16,
+    "par": 4,
+    "distance": 140,
+    "lie": "fairway",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are 140 yards from the green, but the green is sitting up on a hill about 30 feet above you. It is a steep uphill shot. Normally your 8-iron goes 140 yards on flat ground. How do you adjust?",
+      "choices": [
+        { "id": "best", "text": "Club up to a 7-iron. The uphill slope means the ball has to travel extra distance to reach the elevated green.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stick with the 8-iron and try to hit it extra hard to get up the hill", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Club down to a 9-iron because the ball will be going uphill and rolling more when it lands", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Adjustment! Pin High!",
+        "explanation": "The 7-iron was the right call. Even though the distance on the ground is 140 yards, the ball has to climb 30 feet in the air to reach the green. That uses up energy and makes the ball fly shorter than it would on flat ground. By taking one more club, you gave the ball enough power to climb the hill and land on the green.",
+        "whatToRemember": "Uphill shots play longer than the yardage says. Club up one club for every 30 feet of elevation change. Downhill shots play shorter, so club down.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Elevation Change", "definition": "The difference in height between where you are standing and where the green is. Uphill means the green is higher, downhill means it is lower." },
+          { "term": "Plays Longer", "definition": "When a shot needs more club than the distance alone suggests, usually because the target is uphill." },
+          { "term": "Pin High", "definition": "When your ball lands even with the flagstick, not short or long. The ideal distance on an approach shot." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Just Short of the Green",
+        "explanation": "The 8-iron with extra effort got close, but the ball landed on the front slope just below the green and rolled back down a few yards. Swinging harder adds a little distance but not enough to overcome a big elevation change. It is easier and more reliable to take more club and swing normally.",
+        "whatToRemember": "Do not rely on swinging harder to make up for elevation. Take the right club and make your normal swing for the most consistent results.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way Short! The Hill Won!",
+        "explanation": "The 9-iron only goes about 125 yards on flat ground, and the uphill slope made it play even shorter. The ball landed 30 yards short of the green at the bottom of the hill. Uphill shots need MORE club, not less. The ball has to fight gravity to get up to the green.",
+        "whatToRemember": "Uphill means take more club. Downhill means take less club. Never use less club going uphill -- gravity is working against you.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

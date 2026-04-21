@@ -1,0 +1,96 @@
+{
+  "id": "tball-history-trading-goods",
+  "title": "Trading Goods",
+  "sport": [
+    "history"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "diplomacy",
+  "tags": [
+    "trade",
+    "barter",
+    "ancient-world",
+    "cooperation",
+    "economics"
+  ],
+  "setup": {
+    "era": "5000 BC",
+    "role": "young farmer",
+    "location": "a river valley village",
+    "stakes": "feeding your family"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your family grows wheat, and you have lots of it! But you really need fish to eat, and you do not know how to catch fish. A family from the village by the river catches lots of fish but does not have any wheat for making bread. They come to your village to talk. What do you do?",
+      "choices": [
+        {
+          "id": "fair-trade",
+          "text": "Offer to trade some of your wheat for some of their fish, so both families have what they need.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "give-away",
+          "text": "Give them all your extra wheat for free and hope they give you fish back someday.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "refuse",
+          "text": "Keep all your wheat and try to catch fish by yourself.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You say, 'How about we give you a big basket of wheat, and you give us a big basket of fish?' The fishing family thinks that sounds fair. You shake hands and make the trade! Now your family has fish for dinner, and their family has wheat to make bread. Both families are happy, and you agree to trade again next week.",
+      "outcome": {
+        "result": "great",
+        "headline": "A Fair Trade! Both Families Win!",
+        "explanation": "What you just did is called bartering -- trading one thing for another. This is one of the oldest ideas in human history! Thousands of years ago, before money was invented, people traded goods with each other. A farmer might trade wheat for fish, or a potter might trade clay bowls for wool. Fair trades make everyone better off because each person gets something they need. Trading is how the very first villages grew into towns and cities.",
+        "keyTerms": [
+          {
+            "term": "Bartering",
+            "definition": "Trading one thing for another without using money. This is how people bought and sold things for thousands of years."
+          },
+          {
+            "term": "Trade",
+            "definition": "When two people or groups exchange things they have for things they need. Trade helps everyone get what they want."
+          },
+          {
+            "term": "Fair Exchange",
+            "definition": "A trade where both sides feel good about what they gave and what they got."
+          }
+        ],
+        "whatToRemember": "Trading helps everyone! When you have something someone else needs, and they have something you need, a fair trade makes both sides happy.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You give the fishing family all your extra wheat. They are very happy and thank you. But days go by and they do not bring any fish. They are busy and forgot! Your family is still hungry for fish. Next time, you realize it would be smarter to agree on a trade at the same time so both families get what they need right away.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Generous, But No Fish for You!",
+        "explanation": "Being generous is wonderful, but when you give something away without an agreement, you might not get anything back. That is why people invented trading -- both sides agree on a fair exchange at the same time. This way, nobody forgets and nobody is left without what they need. A clear agreement helps everyone.",
+        "whatToRemember": "Sharing is great, but a clear trade agreement makes sure both sides get what they need. That is why bartering was so important in the ancient world.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You decide to keep all your wheat and try to catch fish by yourself. You spend the whole day at the river but do not catch a single fish! Fishing is much harder than it looks. Meanwhile, the fishing family goes home without any wheat. Now both families are missing something they need, and nobody is happy.",
+      "outcome": {
+        "result": "bad",
+        "headline": "No Trade, No Fish!",
+        "explanation": "Trying to do everything yourself is very hard. The fishing family spent years learning how to catch fish, just like your family spent years learning how to grow wheat. When people specialize -- getting really good at one thing -- and then trade with each other, everyone ends up with more. That is one of the biggest lessons in all of human history.",
+        "whatToRemember": "You do not have to do everything yourself. People are better off when they get good at something and trade with others who are good at something different.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

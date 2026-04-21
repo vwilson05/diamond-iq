@@ -1,0 +1,96 @@
+{
+  "id": "tball-history-caveman-decisions",
+  "title": "Caveman Campfire",
+  "sport": [
+    "history"
+  ],
+  "tier": "tball",
+  "impact": 1,
+  "role": "exploration",
+  "tags": [
+    "prehistoric",
+    "survival",
+    "fire",
+    "shelter",
+    "basics"
+  ],
+  "setup": {
+    "era": "50000 BC",
+    "role": "cave dweller",
+    "location": "a valley near a river",
+    "stakes": "survival"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a kid living with your family in a cave a long, long time ago -- before there were any houses or stores! A big storm is coming. Dark clouds are rolling in and the wind is getting cold. Your family's campfire just went out, and everyone is hungry and shivering. You need to help your family. What do you do first?",
+      "choices": [
+        {
+          "id": "restart-fire",
+          "text": "Gather dry sticks and leaves from inside the cave and try to restart the fire before the rain comes.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "find-food",
+          "text": "Run outside to look for berries and nuts before the storm hits.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "do-nothing",
+          "text": "Sit down and wait for the storm to pass.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You grab dry sticks and leaves from the back of the cave and carefully pile them up. Using two rocks, you strike them together -- SPARK! The fire catches and starts to glow. Soon the cave is warm and bright. Your family gathers around the fire, dries off, and stays cozy through the whole storm. When the rain stops, everyone goes out together to find food. Great thinking!",
+      "outcome": {
+        "result": "great",
+        "headline": "Fire First! Smart Thinking!",
+        "explanation": "Early humans learned that fire was the most important thing for survival. Fire keeps you warm, scares away dangerous animals, lights up the dark, and helps cook food. By restarting the fire FIRST, you kept your family safe and warm. Once the storm passed, you could find food together. Prioritizing -- doing the most important thing first -- is a skill humans have used for thousands of years.",
+        "keyTerms": [
+          {
+            "term": "Prioritizing",
+            "definition": "Figuring out what is most important to do first. Early humans had to prioritize every day to survive."
+          },
+          {
+            "term": "Shelter",
+            "definition": "A safe place to stay, like a cave. Caves were some of the first shelters humans ever used."
+          },
+          {
+            "term": "Fire",
+            "definition": "One of the most important discoveries in human history. Fire gave early humans warmth, light, protection, and cooked food."
+          }
+        ],
+        "whatToRemember": "When you have lots of problems at once, figure out which one is most important and solve that one first. Early humans survived by prioritizing.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You dash outside and quickly find some berries and nuts near the river. But the storm rolls in fast! Rain pours down and you get soaked running back to the cave. You have food, but the cave is dark and cold without a fire. Your family eats the berries, but everyone shivers through the night.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Food Helps, But You Needed Fire First!",
+        "explanation": "Finding food was a good idea, but going out right before a storm was risky. Without fire, your family was cold all night. Early humans learned that warmth and shelter come first. You can always look for food after the storm passes. Knowing when to go out and when to stay safe is an important survival skill.",
+        "whatToRemember": "Food is important, but warmth and safety come first. Early humans survived storms by staying in shelter and keeping their fire going.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You sit down and wait. The storm hits hard -- rain pours, wind howls, and the cave gets very cold and dark. Without fire, your family shivers all night. By morning everyone is tired, cold, and very hungry. It takes a long time to recover. Your family wishes someone had restarted the fire before the storm.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Doing Nothing Made Things Worse!",
+        "explanation": "Waiting and doing nothing meant your family had no fire, no warmth, and no food. Early humans survived because they took action, even when things were hard. Every person in the group had a job to do. Even kids helped gather firewood and find food. Taking action -- even a small action -- is almost always better than doing nothing.",
+        "whatToRemember": "When there is a problem, take action! Early humans survived by working together and never giving up, even in tough times.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

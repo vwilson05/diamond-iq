@@ -1,0 +1,96 @@
+{
+  "id": "minors-history-defending-a-castle",
+  "title": "Defending a Castle",
+  "sport": [
+    "history"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "medieval",
+    "castle",
+    "strategy",
+    "defense",
+    "problem-solving"
+  ],
+  "setup": {
+    "era": "1200",
+    "role": "young castle commander",
+    "location": "a stone castle in England",
+    "stakes": "protecting the people inside"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are in charge of a medieval castle while the lord is away. Scouts report that a rival lord's army is marching toward your castle. They will arrive in three days. Your castle has strong stone walls, a moat, and a drawbridge. Inside are 200 villagers who depend on you for safety, plus 50 guards. You have some time to prepare. What is your plan?",
+      "choices": [
+        {
+          "id": "prepare-defenses",
+          "text": "Use the three days wisely: store extra food and water inside the castle, raise the drawbridge, send a messenger to ask for help from a friendly lord, and position your guards along the walls.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "charge-out",
+          "text": "March your 50 guards out to meet the army in the open field before they reach the castle.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "hide-and-hope",
+          "text": "Close the gates, tell everyone to hide, and hope the army passes by without attacking.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You spring into action. Farmers bring their grain and livestock inside the castle walls. Workers fill every barrel with fresh water from the well. You send your fastest rider to a friendly lord asking for help. The drawbridge goes up and the moat is full. When the enemy army arrives, they see a castle that is ready. They cannot cross the moat or climb the walls. Your guards stand firm. After five days, the friendly lord arrives with reinforcements, and the enemy army retreats without anyone getting hurt.",
+      "outcome": {
+        "result": "great",
+        "headline": "Brilliant Castle Defense! No One Was Hurt!",
+        "explanation": "This is exactly how medieval castles were meant to work. A well-prepared castle could hold out against a much larger army for weeks or even months. The key was preparation: stockpiling food and water, securing the walls, and calling for reinforcements. Real medieval castles had thick stone walls, moats, drawbridges, and towers specifically designed to protect the people inside. Many sieges in history ended without a real battle because the attacking army ran out of supplies before the castle defenders did.",
+        "keyTerms": [
+          {
+            "term": "Siege",
+            "definition": "When an army surrounds a castle or city and tries to force the people inside to surrender by cutting off their supplies."
+          },
+          {
+            "term": "Reinforcements",
+            "definition": "Extra soldiers sent to help. Calling for reinforcements was a smart strategy used throughout history."
+          },
+          {
+            "term": "Fortification",
+            "definition": "Walls, moats, and other structures built to defend a place. Medieval castles were some of the strongest fortifications ever built."
+          }
+        ],
+        "whatToRemember": "Good preparation is the best defense. Use the time you have to get ready, call for help, and protect your people. A prepared defender has a huge advantage.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You march your 50 guards out to meet the enemy. Your guards are brave, but the enemy army has 300 soldiers. You are outnumbered six to one in the open field with no walls to protect you. Your guards fight hard but are pushed back. You retreat to the castle, but several guards are injured and you have lost precious time. The castle defenses are not fully prepared. You hold out, but it is a much harder fight than it needed to be.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Brave But Outnumbered! The Castle Was Your Advantage!",
+        "explanation": "Fighting in an open field gave up the castle's biggest advantage: its walls. Behind walls, 50 defenders can hold off a much larger force. In the open field, numbers matter much more. Real medieval commanders knew this -- they only left the castle walls if they had enough soldiers to fight in the open OR if they were trying to surprise the enemy. Using your strengths and avoiding your weaknesses is a key part of strategy.",
+        "whatToRemember": "Use your advantages. If you have strong walls, stay behind them. Do not fight on your enemy's terms when you can fight on your own.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You close the gates and tell everyone to be quiet. But you did not store extra food or water, you did not send for help, and your guards are not in position. The enemy army arrives and surrounds the castle. After just a few days, the well starts running low and food is scarce. With no reinforcements coming and supplies dwindling, you are forced to negotiate from a very weak position. The enemy demands heavy payment to leave.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Hiding Is Not a Strategy!",
+        "explanation": "Just closing the gates without preparing is not a real defense plan. A castle needs stored food, water, guards on the walls, and a call for help sent out. Hoping the problem goes away is never a good strategy. In real history, castles that were caught unprepared often fell quickly. The time before a siege was the most important time -- every hour spent preparing made the castle stronger.",
+        "whatToRemember": "Ignoring a problem does not make it go away. When a challenge is coming, use every moment to prepare. Hope is not a plan.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

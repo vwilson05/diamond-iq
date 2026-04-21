@@ -1,0 +1,62 @@
+{
+  "id": "majors-tennis-tiebreaks",
+  "title": "Win the Tiebreak",
+  "sport": ["tennis"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "serve",
+  "tags": ["tiebreak", "advanced", "pressure"],
+  "setup": {
+    "set": 2,
+    "game": "6-6",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The set is tied 6-6 and you are in a tiebreak. You are serving at 5-4, which means you only need two more points to win the set. Your opponent is nervous. What is your approach?",
+      "choices": [
+        { "id": "best", "text": "Stay aggressive on your serve, aim for the corners, and play high-percentage tennis on the return points -- no unnecessary risks", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Play it safe on every point -- just get the ball in and hope your opponent makes mistakes", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to end every point as fast as possible by going for huge shots because you are nervous too", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Tiebreak champion!",
+        "explanation": "By being aggressive on your serve and smart on the return points, you won 7-4. You did not give away free points but you also did not let your opponent off the hook.",
+        "whatToRemember": "In tiebreaks, be aggressive on your serve points but disciplined on return points. Every point matters more than in a regular game, so pick your spots wisely.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Tiebreak", "definition": "A special game played when the set reaches 6-6. Players alternate serves every two points and the first to reach 7 points with a 2-point lead wins the set" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too passive -- lost momentum!",
+        "explanation": "Playing safe let your opponent gain confidence. They started hitting bigger shots and you had no answer because you were just pushing the ball back. The tiebreak slipped away 7-5.",
+        "whatToRemember": "Being safe is not the same as being smart. You still need to put pressure on your opponent, especially on your serve points.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Errors everywhere!",
+        "explanation": "Swinging for the fences on every point led to three straight unforced errors. Your 5-4 lead turned into a 5-7 loss. Tiebreaks reward discipline, not desperation.",
+        "whatToRemember": "Nerves make you want to end points quickly, but that leads to errors. Take a deep breath, stick to your game plan, and make your opponent earn every point.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

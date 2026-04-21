@@ -1,0 +1,62 @@
+{
+  "id": "minors-tennis-approaching-net",
+  "title": "Move Forward With a Plan",
+  "sport": ["tennis"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["approach shot", "net play", "game IQ"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You hit a deep shot and your opponent sends back a weak, short ball. This is your chance to come to the net. How do you approach?",
+      "choices": [
+        { "id": "best", "text": "Hit a firm approach shot down the line, then follow it forward to the net and get in ready position", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit the ball crosscourt and then rush to the net as fast as you can", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit the ball softly and then stand still at the service line instead of moving all the way to the net", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Textbook approach!",
+        "explanation": "Hitting down the line limits your opponent's angles and gives you a straight path to the net. By following your shot in, you were perfectly positioned to put away the volley.",
+        "whatToRemember": "Approach shots should go down the line most of the time. Then move forward and split step before your opponent hits, so you are balanced and ready.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Approach Shot", "definition": "A shot hit while moving toward the net, designed to put your opponent on defense so you can finish the point with a volley" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You gave your opponent too much angle!",
+        "explanation": "A crosscourt approach gives your opponent the whole court to pass you. They hit a sharp angle past you because you left too much open space on the other side.",
+        "whatToRemember": "Hit approach shots down the line to cut off your opponent's passing angles. Crosscourt approaches leave you exposed.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stuck in no-man's-land!",
+        "explanation": "A soft approach shot gave your opponent plenty of time, and stopping at the service line left you in the worst spot on the court. The ball landed at your feet and you could not handle it.",
+        "whatToRemember": "If you come to the net, commit to it. Hit a firm approach and keep moving forward. The service line is the danger zone -- do not stop there.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

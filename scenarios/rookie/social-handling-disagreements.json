@@ -1,0 +1,95 @@
+{
+  "id": "rookie-social-handling-disagreements",
+  "title": "The Rule Debate",
+  "sport": [
+    "social"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "conflict",
+  "tags": [
+    "disagreements",
+    "fairness",
+    "compromise",
+    "fundamentals"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 4,
+    "emotion": "frustrated",
+    "context": "argument about game rules"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You and your friends are playing tag at recess. You tag your friend Zoe and yell, 'You're it!' But Zoe says, 'No way, you didn't touch me! I felt the wind but you missed!' You are SURE you tagged her. Your other friends aren't sure who's right. Zoe crosses her arms and looks upset. What do you do?",
+      "choices": [
+        {
+          "id": "compromise",
+          "text": "Say, 'Okay, how about a do-over? I'll try to tag you again and we'll make it really clear this time.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "insist",
+          "text": "Keep insisting, 'I DID tag you! You're it and that's final!'",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "get-angry",
+          "text": "Get mad and say, 'Fine! If you're going to cheat, I'm not playing anymore!' and storm off.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Zoe uncrosses her arms and smiles. 'Okay, that's fair!' she says. You chase her again and this time you clearly tag her shoulder. 'Got me!' she laughs. Everyone keeps playing and the argument is forgotten in seconds. Your friend whispers, 'Nice save. That could have ruined the whole game.'",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Compromise! Game Saved!",
+        "explanation": "When two people disagree, a do-over or compromise is often the smartest move. You didn't have to prove you were right. Instead, you found a solution that made everyone happy and kept the game going. Disagreements don't have to turn into fights. When you focus on finding a solution instead of winning the argument, everybody wins.",
+        "keyTerms": [
+          {
+            "term": "Compromise",
+            "definition": "Finding a middle ground where both people feel the solution is fair."
+          },
+          {
+            "term": "Do-Over",
+            "definition": "Starting that part again so both sides feel it's fair. A simple fix for a lot of playground arguments."
+          },
+          {
+            "term": "Problem-Solving",
+            "definition": "Looking for a way to fix a situation instead of just arguing about it."
+          }
+        ],
+        "whatToRemember": "Being right isn't as important as keeping the game fun. A compromise gets everyone back to playing.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You keep arguing and so does Zoe. Your other friends start looking bored. After two minutes of going back and forth, Zoe finally says, 'FINE, I'm it!' but she's clearly annoyed. The game continues but it's not as fun. Zoe tags you extra hard and doesn't look like she's having a good time anymore.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Won the Argument But Lost the Fun",
+        "explanation": "You might have been right about the tag, but insisting until the other person gives in doesn't feel good for anyone. Zoe went along with it, but she was upset and the game stopped being fun. Sometimes being right is less important than keeping everyone happy. A quick compromise would have gotten everyone back to laughing much faster.",
+        "whatToRemember": "Winning an argument isn't worth it if it ruins the fun for everyone. Look for solutions, not victories.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You yell 'cheater' and walk away. The other kids look at each other awkwardly. Zoe says, 'I wasn't cheating!' and looks like she might cry. Your friends keep playing without you. You sit on the bench alone, still angry, watching everyone else have fun. Nobody comes to get you.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Storming Off Helps Nobody",
+        "explanation": "Calling someone a cheater and walking away is hurtful and doesn't solve anything. You didn't get to play, Zoe felt accused of something she didn't do, and your friends felt uncomfortable. Disagreements are normal in any game, but walking away in anger means you lose the game AND the fun. Learning to work through disagreements is a skill that will help you your whole life.",
+        "whatToRemember": "Walking away angry doesn't make you right -- it just makes you alone. Stay and work it out.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

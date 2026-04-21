@@ -1,0 +1,96 @@
+{
+  "id": "the-show-history-environmental-policy",
+  "title": "Environmental Policy Tradeoffs",
+  "sport": [
+    "history"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "environment",
+    "policy",
+    "epa",
+    "clean-air",
+    "tradeoffs"
+  ],
+  "setup": {
+    "era": "1970",
+    "role": "environmental policy advisor",
+    "location": "Washington D.C.",
+    "stakes": "clean air and water for future generations"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is 1970. Rivers in America are so polluted that one of them -- the Cuyahoga River in Ohio -- actually caught fire. Smog is so thick in Los Angeles that children cannot play outside on some days. Factories dump waste into lakes and streams. Millions of Americans are demanding action. President Nixon has asked you to help create America's environmental plan. Factory owners warn that strict rules will close their businesses and cost thousands of jobs. Environmental scientists say without action, the damage could be permanent. How do you recommend balancing these concerns?",
+      "choices": [
+        {
+          "id": "phased-regulations",
+          "text": "Create strong environmental rules, but phase them in over several years. Give factories time to develop cleaner technology, provide government support for the transition, and set up a new agency (the EPA) to enforce the rules fairly. Both the environment and workers matter.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "immediate-shutdown",
+          "text": "Shut down the worst-polluting factories immediately. The environment cannot wait.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "voluntary-only",
+          "text": "Ask factories to voluntarily reduce pollution. No rules, no enforcement -- just trust them to do the right thing.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Congress passes the Clean Air Act and the Clean Water Act. A new agency -- the Environmental Protection Agency (EPA) -- is created to set and enforce pollution standards. Factories are given deadlines to reduce pollution, with government help to develop cleaner technology. Some factory owners complain, but most find ways to comply. Within a decade, rivers are getting cleaner, smog is decreasing, and new 'clean technology' businesses are creating new jobs. The Cuyahoga River, which once caught fire, eventually becomes clean enough for fish to return.",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Policy Cleaned Up America!",
+        "explanation": "This is very close to what actually happened. The EPA was created in 1970, and the Clean Air Act and Clean Water Act became law in the early 1970s. These laws required factories to reduce pollution over time, not overnight. This balanced approach worked: air pollution in the U.S. dropped by over 70% in the following decades, while the economy continued to grow. The Cuyahoga River, which caught fire in 1969, eventually recovered. Importantly, environmental regulations also spurred innovation -- companies developed cleaner technologies, creating entirely new industries and jobs. Good policy considers BOTH sides of a tradeoff and finds a path that addresses both.",
+        "keyTerms": [
+          {
+            "term": "Environmental Protection Agency (EPA)",
+            "definition": "A U.S. government agency created in 1970 to protect human health and the environment by setting and enforcing pollution standards."
+          },
+          {
+            "term": "Policy Tradeoff",
+            "definition": "When solving a problem requires balancing competing needs. Environmental policy must balance protecting nature with protecting jobs and the economy."
+          },
+          {
+            "term": "Phased Implementation",
+            "definition": "Rolling out new rules gradually over time, giving people and businesses time to adjust. This makes big changes more manageable."
+          }
+        ],
+        "whatToRemember": "The best policies consider all sides of a problem and phase in changes over time. Protecting the environment and supporting workers are not opposites -- smart policy can do both.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You shut down the worst polluters immediately. The rivers and air start getting cleaner fast, which is great. But thousands of workers lose their jobs overnight with no plan for what comes next. Entire towns that depended on those factories are devastated. The workers who lost their jobs become angry and turn against environmental protection. They demand that the factories reopen. Political support for environmental rules collapses, and future efforts to protect the environment become much harder.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Cleaner Environment, But Workers Paid the Price!",
+        "explanation": "Acting fast on pollution is important, but ignoring the impact on workers and communities creates a backlash that can undo the progress. In real history, environmental regulations that did not include worker transition plans faced strong opposition. The most successful environmental policies, like the Clean Air Act, included timelines and support systems that gave communities time to adapt. Caring about the environment and caring about workers are both important values.",
+        "whatToRemember": "When making big changes, consider the people who will be affected. A plan that helps everyone transition is more likely to succeed and last than one that helps one group at the expense of another.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You ask factories to voluntarily clean up their pollution. A few responsible companies make changes, but most do nothing. Why spend money on pollution controls when your competitors do not? Without enforcement, the worst polluters keep polluting. Rivers stay dirty, smog keeps choking cities, and children keep getting sick. Years pass with no real improvement. The American people grow more frustrated, and the environmental damage continues to get worse.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Voluntary Rules Did Not Work!",
+        "explanation": "History has shown that voluntary environmental programs rarely work on their own. When there is no enforcement, companies that spend money on pollution controls are at a disadvantage against competitors who do not. This is called the 'free rider problem' -- everyone benefits from a clean environment, but without rules, individual companies have an incentive to let others pay the cost. That is why enforceable regulations were necessary. Before the EPA and Clean Air Act, voluntary programs had been tried and failed for decades.",
+        "whatToRemember": "Some problems are too big to solve with voluntary action alone. When individual incentives conflict with the common good, fair and enforceable rules are necessary.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

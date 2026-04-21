@@ -1,0 +1,96 @@
+{
+  "id": "majors-history-civil-rights-sit-in",
+  "title": "Civil Rights Sit-In Strategy",
+  "sport": [
+    "history"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "civil-rights",
+    "nonviolence",
+    "sit-in",
+    "courage",
+    "equality"
+  ],
+  "setup": {
+    "era": "1960",
+    "role": "student organizer",
+    "location": "Greensboro, North Carolina",
+    "stakes": "fighting for equal rights"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is February 1960 in Greensboro, North Carolina. You are a college student who believes that segregation -- laws that separate Black and white people in restaurants, schools, and public places -- is wrong. A group of four of your classmates sat down at a whites-only lunch counter at Woolworth's department store yesterday and politely asked to be served. They were refused, but they stayed seated all day without leaving. Today, more students want to join. You are helping plan the next steps. How should the protest be organized?",
+      "choices": [
+        {
+          "id": "nonviolent-organized",
+          "text": "Train all volunteers in nonviolent protest. Everyone must dress neatly, be polite, and stay calm no matter what happens. Have a plan for shifts so the sit-in can continue for days. Alert the media so the whole country can see what is happening.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-show-up",
+          "text": "Tell as many people as possible to just show up and sit down. The more people, the better.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "angry-protest",
+          "text": "Organize a loud, angry protest outside the store. Shout at customers and try to block the entrance.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You hold training sessions where volunteers practice staying calm even when people yell at them or pour drinks on them. Everyone dresses in their Sunday best. When the group enters Woolworth's, they sit quietly, open their textbooks, and study while waiting to be served. News reporters photograph them. The pictures go across the country -- polite, well-dressed students being treated unfairly for the color of their skin. The nation is moved. Within weeks, sit-ins spread to 55 cities. Within six months, Woolworth's and many other businesses end segregation at their lunch counters.",
+      "outcome": {
+        "result": "great",
+        "headline": "Nonviolent Courage Changed the Nation!",
+        "explanation": "This is exactly how the real Greensboro sit-ins happened. Four students -- Ezell Blair Jr., David Richmond, Franklin McCain, and Joseph McNeil -- sat down at the Woolworth's lunch counter on February 1, 1960. They were trained in nonviolent protest, inspired by Dr. Martin Luther King Jr. and Mahatma Gandhi. Their calm dignity in the face of unfairness was powerful. The images shocked people across America and helped turn public opinion against segregation. Nonviolent protest works because it shows the unfairness clearly -- the protesters are peaceful, and the injustice becomes impossible to ignore.",
+        "keyTerms": [
+          {
+            "term": "Sit-In",
+            "definition": "A form of nonviolent protest where people sit in a place and refuse to leave until they are treated fairly. The Greensboro sit-ins were a turning point in the Civil Rights Movement."
+          },
+          {
+            "term": "Nonviolent Protest",
+            "definition": "Fighting for change without using violence. Dr. Martin Luther King Jr. taught that nonviolence is the most powerful weapon against injustice."
+          },
+          {
+            "term": "Segregation",
+            "definition": "Laws and rules that unfairly separated people by race. Segregation in the American South meant Black people could not eat, learn, or sit in the same places as white people."
+          }
+        ],
+        "whatToRemember": "Nonviolent protest is one of the most powerful forces for change in history. Staying calm, dignified, and organized makes injustice impossible to ignore.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "A big crowd of students shows up at the lunch counter. It is exciting, but nobody is quite sure what to do. Some sit quietly, others talk loudly, and a few argue with customers. Without training or a plan, the protest is messy and disorganized. The media covers it, but the story is about the chaos rather than the unfairness. The sit-in continues, but it takes much longer to gain public support because the message is unclear.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Numbers Helped, But Organization Would Have Been Better!",
+        "explanation": "Showing up matters, but without training and organization, a protest can send mixed messages. The real sit-in movement was so effective because it was carefully planned. Volunteers practiced being insulted and harassed without reacting. They had shifts so the sit-in never stopped. They dressed neatly to show dignity. Organization turned a simple act of sitting down into a movement that changed the country.",
+        "whatToRemember": "Numbers alone are not enough. A well-organized, disciplined group with a clear message is much more powerful than a large, disorganized crowd.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You organize an angry protest outside the store. People shout and block the entrance. The police arrive quickly and arrest several protesters. The media covers the story, but the headline is about the disruption, not about the unfair segregation. Many people who might have supported your cause now see the protesters as troublemakers. The cause of justice gets lost in the noise.",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Message Was Lost in the Anger!",
+        "explanation": "Dr. Martin Luther King Jr. taught that the goal of nonviolent protest is to expose injustice so clearly that people cannot look away. When protesters are loud and aggressive, the focus shifts from the unfairness they are fighting to the disruption they are causing. The power of the sit-ins was that the students were completely peaceful while being treated badly. That contrast is what changed hearts and minds. Dr. King said, 'Darkness cannot drive out darkness; only light can do that.'",
+        "whatToRemember": "When fighting for what is right, how you protest matters as much as why you protest. Nonviolent, dignified action lets the injustice speak for itself.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

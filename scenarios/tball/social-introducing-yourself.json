@@ -1,0 +1,95 @@
+{
+  "id": "tball-social-introducing-yourself",
+  "title": "The New Kid Says Hi",
+  "sport": [
+    "social"
+  ],
+  "tier": "tball",
+  "impact": 2,
+  "role": "friendship",
+  "tags": [
+    "introductions",
+    "new-kid",
+    "bravery",
+    "basics"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 4,
+    "emotion": "nervous",
+    "context": "first day at new school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's your very first day at a brand new school. You don't know anybody yet. At recess, you see a group of three kids playing with a soccer ball on the field. They look like they're having fun. You wish you had someone to play with. Your stomach feels a little fluttery with nerves. What do you do?",
+      "choices": [
+        {
+          "id": "introduce-yourself",
+          "text": "Walk up, smile, and say, 'Hi! I'm new here. My name is -- can I play with you?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "stand-nearby",
+          "text": "Walk over and stand near them, hoping they'll notice you and invite you in.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "stay-alone",
+          "text": "Sit on the bench by yourself and wait for recess to end.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You take a deep breath, walk over, and introduce yourself. The kids smile! One of them says, 'Cool! I'm Marcus, and this is Lily and Sam. You can be on my team!' You join the game and score a goal. At the end of recess, Marcus says, 'Want to play again tomorrow?' Your nervous feeling is completely gone!",
+      "outcome": {
+        "result": "great",
+        "headline": "Brave Introduction! New Friends!",
+        "explanation": "Introducing yourself can feel scary, but it's the fastest way to make new friends. When you walked up, said your name, and asked to play, you made it easy for the other kids to include you. Most kids are happy to have someone new join in -- they just need you to take the first step. Being brave for ten seconds can change your whole day!",
+        "keyTerms": [
+          {
+            "term": "Introduction",
+            "definition": "Telling someone your name and something about yourself when you first meet them."
+          },
+          {
+            "term": "Courage",
+            "definition": "Doing something even though it feels a little scary. It gets easier every time!"
+          },
+          {
+            "term": "First Step",
+            "definition": "Being the one to start a conversation or ask to join. Someone has to go first!"
+          }
+        ],
+        "whatToRemember": "A smile and your name -- that's all you need to start. Most kids are happy to make a new friend!",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You walk over and stand near the group. After a while, one of the kids notices you and says, 'Hey, do you want to play?' You nod and join in. It takes a few minutes to feel comfortable, but by the end of recess you're having fun. It worked out, but you spent a lot of recess just standing there waiting.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Joined In... Eventually!",
+        "explanation": "Standing nearby worked this time because one of the kids noticed you. But sometimes people are so focused on their game that they don't see someone waiting. Introducing yourself is faster and shows confidence. You don't have to wait for someone else to make the first move -- you can do it yourself!",
+        "whatToRemember": "Standing nearby might work, but introducing yourself gets you into the fun much faster.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You sit on the bench alone for all of recess. You watch the other kids playing and laughing. When the bell rings, you go back to class feeling sad and lonely. Nobody talked to you because nobody knew you were hoping to play. Tomorrow feels like it will be the same.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Lonely Recess",
+        "explanation": "Sitting alone might feel safe, but it means you miss out on all the fun. The other kids weren't trying to leave you out -- they just didn't know you wanted to play! When you don't let people know who you are, they can't include you. Being new is hard, but the only way to stop being 'the new kid' is to say hello.",
+        "whatToRemember": "Nobody can include you if they don't know you're there. Say hi -- it's the first step to not being alone.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "rookie-golf-club-selection",
+  "title": "Pick the Right Club",
+  "sport": ["golf"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "approach",
+  "tags": ["club selection", "distance", "fundamentals"],
+  "setup": {
+    "hole": 12,
+    "par": 4,
+    "distance": 100,
+    "lie": "fairway",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your ball is in the fairway, 100 yards from the green. You need to pick a club for your approach shot. You know your pitching wedge goes about 100 yards, your 9-iron goes about 120 yards, and your 7-iron goes about 150 yards. Which club do you grab?",
+      "choices": [
+        { "id": "best", "text": "Pitching wedge -- it is your 100-yard club, which matches the distance perfectly", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "9-iron -- it goes a little farther than you need but you can swing easy", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "7-iron -- grab a bigger club so you can really go after the green", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Club Choice! On the Green!",
+        "explanation": "Your pitching wedge was the right club for 100 yards. You made a full, confident swing and the ball landed on the green, rolling to about 15 feet from the pin. Knowing how far each club goes is one of the most important skills in golf. When the distance matches your club, you can take a full swing with confidence.",
+        "whatToRemember": "Learn how far you hit each club. When the distance matches, pick that club and make a full, confident swing. This is called knowing your distances.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Club Selection", "definition": "Choosing the right club based on how far you need to hit the ball. Each club goes a different distance." },
+          { "term": "Approach Shot", "definition": "A shot played from the fairway toward the green, usually your second or third shot on a hole." },
+          { "term": "Pitching Wedge", "definition": "A high-lofted club used for shorter approach shots, usually between 80 and 110 yards." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Little Long, But On the Green",
+        "explanation": "The 9-iron was a little too much club. You tried to swing easy, but controlling a partial swing is tricky. The ball landed on the back of the green, 40 feet from the hole. It is better to take the club that matches and make a full swing than to take too much club and try to swing easy.",
+        "whatToRemember": "Pick the club that matches the distance and make a full swing. Trying to swing easy with too much club usually leads to inconsistent shots.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way Over the Green!",
+        "explanation": "The 7-iron goes 150 yards, but you only needed 100! The ball flew over the green and into trouble on the other side. Using a club that goes way too far means you have to try to make a weird half-swing, and even then you will probably overshoot it.",
+        "whatToRemember": "More club does not mean a better shot. Always match the club to the distance. A 7-iron from 100 yards is going to fly way past your target.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

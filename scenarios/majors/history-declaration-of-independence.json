@@ -1,0 +1,96 @@
+{
+  "id": "majors-history-declaration-of-independence",
+  "title": "Declaration of Independence Choices",
+  "sport": [
+    "history"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "american-revolution",
+    "declaration",
+    "freedom",
+    "founding-fathers",
+    "debate"
+  ],
+  "setup": {
+    "era": "1776",
+    "role": "colonial delegate",
+    "location": "Philadelphia, Pennsylvania",
+    "stakes": "independence from Britain"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the summer of 1776 in Philadelphia. You are a delegate at the Continental Congress. The colonies have been fighting with Britain for over a year. Thomas Jefferson has written a draft of the Declaration of Independence -- a document that would officially announce that the colonies are breaking away from the King of England. But not everyone agrees. Some delegates say it is too dangerous -- Britain has the most powerful army in the world. Others say freedom is worth any risk. Your colony has not decided yet. The final vote is coming. What do you argue for?",
+      "choices": [
+        {
+          "id": "vote-independence",
+          "text": "Vote for independence. Argue that all people deserve to govern themselves and that the colonies have tried every peaceful option. Freedom is worth the risk.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "vote-delay",
+          "text": "Ask to delay the vote for six months to try one more time to negotiate with the King.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "vote-against",
+          "text": "Vote against independence. Argue that staying with Britain is safer, even if the taxes are unfair.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You stand up in the hot, crowded room and say, 'We have petitioned the King. We have asked for fairness. We have tried everything. The time has come to declare that we are a free people, with the right to govern ourselves.' Other delegates nod. On July 4, 1776, the Congress votes to adopt the Declaration of Independence. The document declares that all men are created equal and have rights to life, liberty, and the pursuit of happiness. It is a bold and dangerous move, but it inspires thousands of people to join the fight for freedom.",
+      "outcome": {
+        "result": "great",
+        "headline": "Independence Declared! A Nation Is Born!",
+        "explanation": "The Declaration of Independence is one of the most important documents in history. Written mostly by Thomas Jefferson, it explained why the colonies had the right to be free. The key idea -- that all people are created equal with certain unalienable rights -- was revolutionary. It inspired not just Americans, but people around the world fighting for freedom. However, it is important to know that these ideals were not fully lived up to at the time. Enslaved people, women, and Native Americans were not included in 'all men are created equal.' The work of making those words true for everyone continued for centuries and still continues today.",
+        "keyTerms": [
+          {
+            "term": "Declaration of Independence",
+            "definition": "The document adopted on July 4, 1776, announcing that the American colonies were free from British rule and explaining why."
+          },
+          {
+            "term": "Unalienable Rights",
+            "definition": "Rights that cannot be taken away. The Declaration says these include life, liberty, and the pursuit of happiness."
+          },
+          {
+            "term": "Self-Governance",
+            "definition": "The right of people to make their own laws and choose their own leaders instead of being ruled by a distant king."
+          }
+        ],
+        "whatToRemember": "Standing up for what is right takes courage, especially when the outcome is uncertain. The founders risked everything because they believed in the idea of freedom and equality.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You ask the Congress to wait six more months and try to negotiate with King George III one more time. Some delegates agree, but others are frustrated. 'We have been petitioning the King for years and he ignores us every time,' says John Adams. The delay causes confusion. Soldiers fighting in the field wonder if the Congress even supports them. Six months later, nothing has changed with the King, and you vote for independence anyway -- but the delay cost valuable time and morale.",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Delay Cost You Time and Morale!",
+        "explanation": "In reality, the colonies HAD already tried to negotiate. They sent the Olive Branch Petition to King George III in 1775, and he refused to even read it. He declared the colonies to be in rebellion. By 1776, many delegates felt they had exhausted every peaceful option. Sometimes careful deliberation is wise, but when every option has been tried, delaying further can weaken your position and discourage your supporters.",
+        "whatToRemember": "Patience and negotiation are good, but when you have tried everything and the other side will not budge, sometimes you have to make a bold decision.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You argue that staying with Britain is safer. 'The British army is too powerful,' you say. 'We should accept the taxes and avoid a war we might lose.' Some delegates agree with you, but most are disappointed. The momentum for independence stalls. Meanwhile, British troops continue enforcing unfair laws, and the colonists' spirit starts to break. Without a clear declaration, there is no rallying cry, and the fight for freedom loses its purpose.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Safety Over Freedom -- But at What Cost?",
+        "explanation": "Choosing safety is understandable, but accepting unfairness because you are afraid of the consequences means giving up your rights. The delegates who signed the Declaration of Independence knew they were putting their lives at risk -- signing that document was an act of treason against the King, punishable by death. Benjamin Franklin reportedly said, 'We must all hang together, or most assuredly we shall all hang separately.' Their courage changed the world. Sometimes the safe choice is not the right choice.",
+        "whatToRemember": "Safety is important, but accepting injustice out of fear means the unfairness never ends. Sometimes standing up for what is right requires courage and risk.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

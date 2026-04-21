@@ -1,0 +1,96 @@
+{
+  "id": "tball-history-what-is-a-map",
+  "title": "What Is a Map?",
+  "sport": [
+    "history"
+  ],
+  "tier": "tball",
+  "impact": 1,
+  "role": "exploration",
+  "tags": [
+    "maps",
+    "navigation",
+    "ancient-world",
+    "geography",
+    "basics"
+  ],
+  "setup": {
+    "era": "3000 BC",
+    "role": "young traveler",
+    "location": "ancient Mesopotamia",
+    "stakes": "finding your way"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You live in a village near a big river. Your family needs clay pots from another village, but that village is far away and you have never been there before. An elder in your village says, 'I can help you find the way.' She scratches lines and shapes into a flat piece of clay. 'This is the river, these are the hills, and HERE is the other village,' she says. She hands you the clay tablet. What do you do?",
+      "choices": [
+        {
+          "id": "follow-map",
+          "text": "Study the clay tablet carefully, match the river and hills to what you see around you, and follow the path she drew.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "ask-people",
+          "text": "Put the clay tablet in your bag and just ask people along the way for directions.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "guess-direction",
+          "text": "Leave the clay tablet behind and just start walking in the direction you think is right.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You study the clay tablet and notice the river bends to the left, just like the elder drew! You follow the river until you see the hills she marked. Then you turn right, just like the map shows, and walk between the hills. Soon you spot the other village! You trade for the clay pots and follow the map back home before dark. The elder says, 'You read the map perfectly!'",
+      "outcome": {
+        "result": "great",
+        "headline": "You Read the Map! Great Navigation!",
+        "explanation": "You just used one of the oldest tools in human history -- a map! The very first maps were scratched into clay tablets in Mesopotamia, thousands of years ago. A map is a picture of a place, drawn from above, that shows you where things are. By matching what you see in real life to what is drawn on the map, you can find your way anywhere. Maps changed the world because people could finally share directions and explore new places.",
+        "keyTerms": [
+          {
+            "term": "Map",
+            "definition": "A drawing that shows what a place looks like from above, with landmarks like rivers, hills, and roads to help you find your way."
+          },
+          {
+            "term": "Navigation",
+            "definition": "The skill of finding your way from one place to another. Maps are one of the best tools for navigation."
+          },
+          {
+            "term": "Mesopotamia",
+            "definition": "An ancient land between two rivers (in modern-day Iraq) where some of the first cities, writing, and maps were created."
+          }
+        ],
+        "whatToRemember": "A map is a picture of a place that helps you find your way. People have been making maps for thousands of years to explore the world.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You put the clay tablet in your bag and walk toward the river. You ask a farmer which way to go, and he points down the road. You ask a shepherd too, and she says to turn at the big hill. You eventually find the village, but it takes a very long time because you had to keep stopping to ask. On the way back, there is nobody on the road to ask, so you pull out the clay tablet and wish you had studied it first.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Made It, But the Map Would Have Been Faster!",
+        "explanation": "Asking for directions works, but only when there are people around to ask. A map works all the time, even when you are alone. That is why maps were such an important invention -- they let people travel to places they had never been before, without needing a guide. Learning to read a map is a skill that helps you wherever you go.",
+        "whatToRemember": "People can help you find your way, but a map works even when nobody is around. Learning to read maps is a super useful skill.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You leave the clay tablet behind and start walking. After a while, everything looks the same -- grass, dirt, and sky. You are not sure which way to go. You walk for hours but cannot find the other village. As the sun starts to set, you turn around and barely make it home before dark. You did not get the clay pots, and your family is worried.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost Without a Map!",
+        "explanation": "Without a map or directions, it is very easy to get lost, especially in places you have never been. That is exactly why ancient people invented maps! A map gives you a plan before you start walking. It is much better to study where you are going before you leave than to wander around hoping you will find it.",
+        "whatToRemember": "Always have a plan before you set out on a journey. Maps were invented because people kept getting lost without them!",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

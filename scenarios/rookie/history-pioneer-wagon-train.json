@@ -1,0 +1,96 @@
+{
+  "id": "rookie-history-pioneer-wagon-train",
+  "title": "Pioneer Wagon Train",
+  "sport": [
+    "history"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "exploration",
+  "tags": [
+    "pioneers",
+    "oregon-trail",
+    "westward-expansion",
+    "survival",
+    "decisions"
+  ],
+  "setup": {
+    "era": "1848",
+    "role": "wagon train scout",
+    "location": "the Oregon Trail, near the Rocky Mountains",
+    "stakes": "getting your wagon train safely to Oregon"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are the scout for a wagon train of twenty families heading west on the Oregon Trail. It is late September and your wagon train has reached a wide, fast-moving river at the base of the Rocky Mountains. Winter snow could arrive in just a few weeks. The wagon master asks you to decide: how should the wagon train cross this river and get through the mountains before winter?",
+      "choices": [
+        {
+          "id": "find-shallow-crossing",
+          "text": "Ride ahead along the river to find a shallow spot where the water is calm. Scout the mountain pass too, and come back with a safe plan for both.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "cross-here",
+          "text": "Cross the river right here where you are. The water looks deep, but you do not want to waste time looking for a better spot.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "wait-for-spring",
+          "text": "Set up camp and wait until spring when the river might be lower and the snow will melt.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You ride your horse along the river for half a day and find a wide, shallow spot where the water barely reaches the wagon wheels. You also find a mountain pass with a gentle slope that the oxen can pull the wagons through. You ride back and lead the wagon train to the crossing. Everyone makes it across safely! The mountain pass is tough but manageable. Three weeks later, your wagon train rolls into the green Willamette Valley of Oregon, just before the first snow falls.",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Scouting! Safe Passage for Everyone!",
+        "explanation": "Scouting ahead was exactly what real wagon train scouts did on the Oregon Trail. Their job was to ride ahead of the group, find safe river crossings, check mountain passes, and look for good campsites. A good scout saved the whole wagon train from danger. The Oregon Trail was about 2,000 miles long and took four to six months to travel. Over 400,000 people made this journey between the 1840s and 1860s, seeking new land and opportunities in the West. It is important to remember that Native American tribes already called these lands home.",
+        "keyTerms": [
+          {
+            "term": "Oregon Trail",
+            "definition": "A 2,000-mile path from Missouri to Oregon that hundreds of thousands of pioneers traveled in the mid-1800s."
+          },
+          {
+            "term": "Scout",
+            "definition": "A person who rides ahead of a group to find safe routes, water, and campsites. Scouts were essential on the Oregon Trail."
+          },
+          {
+            "term": "Pioneer",
+            "definition": "A person who travels to a new, unfamiliar area to settle there. American pioneers moved west seeking land and new opportunities."
+          }
+        ],
+        "whatToRemember": "Good planning and scouting ahead saves time and keeps people safe. Spending a little time preparing can prevent big problems later.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You lead the wagons into the river right where you are. The water is deeper than it looked! Some wagons make it across fine, but two wagons tip over in the current. Families scramble to save their belongings from floating downstream. Nobody is hurt, but you lose flour, blankets, and one wagon's worth of supplies. The rest of the journey is harder with fewer supplies.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Crossed, But Lost Supplies!",
+        "explanation": "River crossings were one of the most dangerous parts of the Oregon Trail. Many pioneers lost wagons, supplies, and even lives trying to cross without scouting first. Rivers that looked calm on the surface could have deep holes or strong currents underneath. Experienced wagon masters always sent scouts to find the safest crossing spot before committing the whole train.",
+        "whatToRemember": "Do not rush into danger just because you are in a hurry. Taking time to scout and plan a safe path is almost always worth it.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You set up camp by the river to wait for spring. But winter comes fast in the mountains. Within two weeks, heavy snow blankets the ground. The river does not get lower -- it gets higher from snowmelt! Your families are stuck in a freezing camp with dwindling food for months. By the time spring arrives, everyone is weak and exhausted. Some families give up and turn back east.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Trapped by Winter! A Terrible Wait!",
+        "explanation": "On the real Oregon Trail, timing was everything. Wagon trains had to leave Missouri in April or May and reach Oregon before October. Groups that started too late or delayed too long got trapped in the mountains by winter snow. The Donner Party of 1846 is the most famous example -- they were trapped by snow in the Sierra Nevada mountains and faced terrible hardship. Time pressure was a real and serious part of pioneer life.",
+        "whatToRemember": "Sometimes waiting is the WRONG choice. When you have a deadline like winter coming, you need to find a way forward, not sit still.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

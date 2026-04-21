@@ -1,0 +1,96 @@
+{
+  "id": "minors-history-building-a-town",
+  "title": "Building a Town",
+  "sport": [
+    "history"
+  ],
+  "tier": "minors",
+  "impact": 3,
+  "role": "leadership",
+  "tags": [
+    "frontier",
+    "town-planning",
+    "infrastructure",
+    "community",
+    "american-west"
+  ],
+  "setup": {
+    "era": "1870",
+    "role": "town founder",
+    "location": "the Kansas prairie",
+    "stakes": "building a thriving community"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are leading a group of families who want to build a new town on the Kansas prairie. The railroad is being built nearby, and a station is going in just a mile away. You have enough money and workers to start building, but you can only focus on one major project first. The group is debating what to build. What do you choose to build first?",
+      "choices": [
+        {
+          "id": "water-school",
+          "text": "Dig a well for clean water and build a schoolhouse. Families with children will want to move to a town that has water and a school.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "saloon-hotel",
+          "text": "Build a hotel and general store near the railroad station to attract travelers and businessmen.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "big-house",
+          "text": "Build yourself the biggest, fanciest house in town to show everyone how successful the town will be.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your workers dig a deep well that hits clean, fresh water. Then you build a one-room schoolhouse and hire a teacher. Word spreads fast: 'There is a new town on the railroad with clean water and a school!' Families start arriving with their children. A doctor moves in. A shopkeeper opens a general store. A blacksmith sets up a forge. Within a year, your town has fifty families, a church, and a post office. The town is growing because you gave people what they needed most.",
+      "outcome": {
+        "result": "great",
+        "headline": "Water and Schools Built a Thriving Town!",
+        "explanation": "On the real American frontier, the towns that grew fastest were the ones that offered what families needed: clean water, schools, and safety. Nicodemus, Kansas, was one such town -- founded in 1877 by formerly enslaved African Americans who built a school and a church as their first public buildings. Towns without water dried up and disappeared (literally called 'ghost towns'). Clean water meant survival, and a school meant families would put down roots and stay. The smartest town founders knew that investing in the community attracted more people.",
+        "keyTerms": [
+          {
+            "term": "Infrastructure",
+            "definition": "The basic things a community needs to function: water, roads, schools, and buildings. Strong infrastructure attracts people and growth."
+          },
+          {
+            "term": "Frontier Town",
+            "definition": "A new settlement on the edge of explored territory. Hundreds of frontier towns were founded in the American West during the 1800s."
+          },
+          {
+            "term": "Community Investment",
+            "definition": "Spending money and effort on things that help everyone in the group, like schools, wells, and roads."
+          }
+        ],
+        "whatToRemember": "Build what the community needs, not what looks impressive. Clean water and good schools attract families, and families build lasting towns.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You build a nice hotel and general store near the railroad station. Travelers stop by and spend money, which is good. But families with children pass through and keep going because there is no school and no reliable water supply. Your town has visitors but very few permanent residents. Without families putting down roots, the town stays small.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good for Business, But Families Kept Moving!",
+        "explanation": "A hotel and store bring in money from travelers, but a town needs permanent residents to truly grow. In the real West, towns that catered only to passing travelers often became ghost towns once the travelers stopped coming. The towns that lasted were the ones that invested in what families needed to stay: water, schools, churches, and safety.",
+        "whatToRemember": "Visitors bring short-term money, but permanent residents build a lasting community. Think about what makes people want to STAY.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You build yourself a huge house with a fancy porch. It looks great! But the other families are frustrated. They do not have clean water, there is no school for their children, and the town's leader seems to only care about himself. One by one, families pack up and leave for other towns. Soon your fancy house sits alone on an empty prairie. A fancy house does not make a town.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Big House, But an Empty Town!",
+        "explanation": "A leader who puts themselves first loses the trust and support of the people. In frontier history, towns that were run by selfish leaders failed. People would simply leave and move to a town with better leadership. A true leader invests in the group first. The best frontier towns were built by people who cared more about the community than about themselves.",
+        "whatToRemember": "Leadership means putting the group's needs before your own. A leader who builds themselves up while the community suffers will end up leading nobody.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

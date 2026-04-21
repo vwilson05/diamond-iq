@@ -1,0 +1,96 @@
+{
+  "id": "the-show-history-new-nation-constitution",
+  "title": "Building a New Nation's Constitution",
+  "sport": [
+    "history"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "diplomacy",
+  "tags": [
+    "constitution",
+    "government",
+    "democracy",
+    "compromise",
+    "founding"
+  ],
+  "setup": {
+    "era": "1787",
+    "role": "Constitutional Convention delegate",
+    "location": "Philadelphia, Pennsylvania",
+    "stakes": "designing a government for a new nation"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the summer of 1787. Delegates from all thirteen states have gathered in Philadelphia to write a new Constitution for the United States. The current government (under the Articles of Confederation) is too weak -- it cannot collect taxes, regulate trade, or settle disputes between states. But the delegates disagree on almost everything. Big states want representation based on population (more people means more votes in Congress). Small states want equal representation (every state gets the same number of votes). Southern states want enslaved people counted as population for representation but not for taxation. The convention is about to collapse. What approach do you take?",
+      "choices": [
+        {
+          "id": "great-compromise",
+          "text": "Propose a compromise: create TWO chambers of Congress. The House of Representatives gives more seats to states with more people. The Senate gives every state exactly two seats, regardless of size. This way, both big and small states have a voice.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "big-state-plan",
+          "text": "Push for the big-state plan only. More people should mean more power. Small states should just accept it.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "walk-out",
+          "text": "The disagreements are too deep. Walk out of the convention and let each state govern itself.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "The delegates debate your proposal for days. Big-state delegates are not happy about giving small states equal power in the Senate. Small-state delegates are not happy about the population-based House. But both sides realize this is the only way to keep the union together. The vote passes, barely. The convention continues, and over the next few months, the delegates write the rest of the Constitution, including a system of checks and balances where no single branch of government has too much power. It is not perfect -- the compromise on slavery is a deep moral failing that will take a civil war to begin to address -- but the framework of government they create will last over 230 years.",
+      "outcome": {
+        "result": "great",
+        "headline": "The Great Compromise Saved the Constitution!",
+        "explanation": "This is exactly what happened at the Constitutional Convention. The 'Great Compromise' (also called the Connecticut Compromise) created the two-chamber Congress we still have today. Roger Sherman and Oliver Ellsworth of Connecticut proposed it. The key lesson is that compromise does not mean everyone gets exactly what they want -- it means everyone gives up something so the group can move forward. The Constitution was full of compromises, some good and some deeply flawed. The Three-Fifths Compromise, which counted enslaved people as three-fifths of a person for representation purposes, was a moral failure that entrenched slavery into the new government. The Constitution created a framework that could be amended over time, and the long struggle to live up to the promise of 'We the People' for ALL people continues to this day.",
+        "keyTerms": [
+          {
+            "term": "The Great Compromise",
+            "definition": "The agreement at the Constitutional Convention that created two chambers of Congress: the House (based on population) and the Senate (equal representation for every state)."
+          },
+          {
+            "term": "Constitution",
+            "definition": "The supreme law of a country that establishes how the government works, what powers it has, and what rights the people have."
+          },
+          {
+            "term": "Checks and Balances",
+            "definition": "A system where different branches of government (executive, legislative, judicial) limit each other's power so no one branch becomes too powerful."
+          }
+        ],
+        "whatToRemember": "Compromise is essential when building something that must work for everyone. Nobody gets everything they want, but the group moves forward together. A good framework can also be improved over time.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push hard for the big-state plan. Virginia and Pennsylvania support you, but the small states are furious. Delaware's delegate threatens to walk out and seek an alliance with a foreign nation. New Jersey and Connecticut refuse to sign. Without the small states, the new Constitution would only cover part of the country. A divided America would be weak and vulnerable. The convention stalls for weeks until someone finally proposes a compromise that you should have supported from the start.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pushing Too Hard Almost Broke the Convention!",
+        "explanation": "At the real convention, the Virginia Plan (big-state) and New Jersey Plan (small-state) nearly tore the delegates apart. Some small states genuinely threatened to leave and seek alliances with Britain or Spain. A nation of only the large states would have been much weaker and might not have survived. The founders learned that in a diverse group, insisting on getting everything your way is a path to failure. Listening to opposing views and finding middle ground is what saved the convention.",
+        "whatToRemember": "Insisting on winning everything often means losing everything. When building something that involves many different groups, finding common ground is more important than getting your way.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You walk out, and several other frustrated delegates follow. The convention falls apart. Without a new Constitution, the thirteen states remain under the weak Articles of Confederation. States argue with each other over trade and borders. Some states print their own money, causing economic chaos. Foreign nations see the divided states as easy targets. Within a few years, the American experiment in self-government is in serious danger of failing completely.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Walking Away Put the Whole Nation at Risk!",
+        "explanation": "The Articles of Confederation were failing. States were taxing each other's goods, printing worthless money, and refusing to cooperate. Without a stronger Constitution, many historians believe the United States would have broken apart into separate nations or been swallowed up by European powers. The founders stayed in that hot room in Philadelphia through a long summer because they understood that walking away from disagreement is not the same as solving it. Benjamin Franklin famously said at the signing, 'I agree to this Constitution with all its faults, because I think a general government necessary.'",
+        "whatToRemember": "Walking away from a hard problem does not solve it. Staying at the table, even when disagreements are deep, is the only way to find a solution that works for everyone.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

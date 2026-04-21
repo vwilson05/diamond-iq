@@ -1,0 +1,62 @@
+{
+  "id": "tball-tennis-grip",
+  "title": "Hold It Right",
+  "sport": ["tennis"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["grip", "basics", "technique"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are about to hit the ball, but first you need to hold your racket. Your coach asks you to show your grip. How do you hold it?",
+      "choices": [
+        { "id": "best", "text": "Shake hands with the racket handle like you are greeting a friend, then wrap your fingers around it", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Grab the racket tightly in the middle of the handle with your whole fist", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hold the racket up near the head where the strings are", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect handshake grip!",
+        "explanation": "The handshake grip is how most beginners learn to hold a tennis racket. It gives you good control and lets you hit the ball straight over the net.",
+        "whatToRemember": "Think of shaking hands with your racket. Your hand should be relaxed but firm on the handle, not too tight.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Eastern Grip", "definition": "A basic tennis grip where you hold the racket like you are shaking hands with it, great for hitting forehands" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, but loosen up!",
+        "explanation": "Grabbing the handle is the right area, but squeezing too hard makes your arm stiff. You will not be able to swing smoothly if your grip is too tight.",
+        "whatToRemember": "Hold the racket firmly but not too tight. Imagine holding a bird -- tight enough it will not fly away, but gentle enough you will not hurt it.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong spot on the racket!",
+        "explanation": "Holding the racket near the strings means you have no control over your swing. The handle is where your hand belongs so you can guide the racket properly.",
+        "whatToRemember": "Always hold the racket by the handle at the bottom. That is where your hand has the most control.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

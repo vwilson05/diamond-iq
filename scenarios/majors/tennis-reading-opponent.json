@@ -1,0 +1,62 @@
+{
+  "id": "majors-tennis-reading-opponent",
+  "title": "Read Their Body Language",
+  "sport": ["tennis"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["reading opponent", "advanced", "anticipation"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent is setting up for a forehand. You notice their shoulders are turned way open toward the right side of your court and their racket is pulling back on that side. Where do you move?",
+      "choices": [
+        { "id": "best", "text": "Start moving to your right side because their body position shows they are hitting crosscourt in that direction", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stay in the middle of the court and wait until the ball is hit before you move", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Move to your left side because you think they will try to fool you", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You read it perfectly!",
+        "explanation": "By watching your opponent's shoulders and racket position, you knew where the ball was going before they even hit it. You were already in position and hit a strong return.",
+        "whatToRemember": "Watch your opponent's body, not just the ball. Open shoulders and racket position usually tell you where the shot is going. Getting a half-step head start makes a huge difference.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Anticipation", "definition": "Reading clues from your opponent's body position, racket angle, and movement patterns to predict where they will hit the ball before they make contact" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Late reaction!",
+        "explanation": "Staying in the middle is safe but you reacted after the ball was already on its way. You had to lunge to reach it and your return was weak, giving your opponent an easy next shot.",
+        "whatToRemember": "Use body clues to get a head start. You do not have to commit fully, but leaning the right direction saves you a crucial step.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Guessed wrong!",
+        "explanation": "Instead of reading the clues, you just guessed the opposite direction. The ball went exactly where your opponent's body said it would, and you were moving the wrong way entirely.",
+        "whatToRemember": "Do not overthink it. Most players hit where their body is aimed. Trust the clues instead of trying to outsmart them.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

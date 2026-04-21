@@ -1,0 +1,67 @@
+{
+  "id": "majors-golf-trouble-shots",
+  "title": "Escape From the Trees",
+  "sport": ["golf"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "approach",
+  "tags": ["trouble shots", "recovery", "decision making"],
+  "setup": {
+    "hole": 7,
+    "par": 5,
+    "distance": 200,
+    "lie": "rough",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your tee shot went right and you are in the trees. You have a small opening back toward the fairway about 30 yards ahead. Through a narrow gap in the branches, you can see the green 200 yards away. It would take a miracle shot to thread the ball through that gap. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Chip out sideways to the fairway through the big opening. Accept the lost stroke and give yourself a clean shot at the green from there.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to hit a low punch shot through the narrow gap in the trees toward the green", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to hit a high lob shot over the top of the trees to reach the green", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Recovery! Back in Play!",
+        "explanation": "You chipped out to the fairway and now have 170 yards to the green with a clean lie. The best recovery from trouble is the one that gets you back in play with certainty. Taking your medicine and chipping out costs you one stroke, but it avoids the possibility of hitting more trees and losing two or three strokes. The goal from trouble is to make your NEXT shot a good one.",
+        "whatToRemember": "When you are in trouble, the priority is getting back in play. Take your medicine, chip out to the fairway, and make a great next shot. One lost stroke beats three or four.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Taking Your Medicine", "definition": "Accepting a bad situation and playing a safe recovery shot instead of attempting a risky hero shot." },
+          { "term": "Recovery Shot", "definition": "A shot played from trouble back to a safe position. The goal is to get back in play, not to reach the green." },
+          { "term": "Punch Out", "definition": "A low, controlled shot played sideways or forward to escape trees or other trouble and get back to the fairway." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Hit a Branch! Still in the Trees",
+        "explanation": "The gap looked big enough, but your ball clipped a branch and dropped down 50 yards ahead, still in the rough but at least closer to the hole. You got a little lucky that it did not ricochet deeper into the trees. That narrow gap was only about a 20 percent chance of getting through clean.",
+        "whatToRemember": "Narrow gaps between trees are deceiving. If the chance of success is below 50 percent, the safe play is almost always better. Ask yourself: what happens if I miss?",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Ball Hits the Trees and Goes Backwards!",
+        "explanation": "The trees were too tall to go over. Your lob shot hit a thick branch and the ball ricocheted backwards, ending up even further from the hole than where you started. Now you are deeper in trouble and have wasted a stroke. Trying a hero shot from trouble almost always makes things worse.",
+        "whatToRemember": "Never try to go over trees that are too tall. If you cannot see clear sky above the trees, you cannot get over them. Always check your escape route before choosing a shot.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

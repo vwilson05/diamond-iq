@@ -1,0 +1,95 @@
+{
+  "id": "rookie-social-being-a-good-sport",
+  "title": "Win or Lose, Keep Your Cool",
+  "sport": [
+    "social"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "communication",
+  "tags": [
+    "sportsmanship",
+    "losing-gracefully",
+    "character",
+    "fundamentals"
+  ],
+  "setup": {
+    "situation": "gymnasium",
+    "people": 6,
+    "emotion": "disappointed",
+    "context": "class relay race"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's field day at school and your team just lost the relay race by ONE second. You ran as fast as you could but the other team was just a tiny bit faster. Your teammates look upset. The winning team is celebrating and cheering loudly right next to you. You feel hot and frustrated inside. What do you do?",
+      "choices": [
+        {
+          "id": "congratulate",
+          "text": "Take a deep breath, walk over to the other team, and say, 'Good race! You guys were fast!'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "stay-quiet",
+          "text": "Stay quiet and walk to the back of the line. Don't say anything to anyone.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "blame-teammate",
+          "text": "Turn to a teammate and say, 'We would have won if you ran faster!'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You walk over and high-five the other team. They look surprised and impressed. One of them says, 'You guys were really fast too! That was so close!' Your teacher says to the whole class, 'THAT is what good sportsmanship looks like.' Your own teammates start feeling better and one of them says, 'We'll get them in the next race!' You feel proud of how you handled it.",
+      "outcome": {
+        "result": "great",
+        "headline": "True Champion Attitude!",
+        "explanation": "Congratulating the other team when you just lost is one of the hardest things in sports -- and one of the most respected. It shows that you care about more than just winning. Your teacher noticed, the other team respected you, and your own teammates felt inspired instead of defeated. Being a good sport means your character wins even when your team doesn't.",
+        "keyTerms": [
+          {
+            "term": "Sportsmanship",
+            "definition": "Being respectful and fair whether you win or lose. It's about how you play, not just whether you win."
+          },
+          {
+            "term": "Grace in Defeat",
+            "definition": "Handling a loss with dignity and respect, without blaming others or making excuses."
+          },
+          {
+            "term": "Character",
+            "definition": "Who you are when things don't go your way. That's when your true self shows."
+          }
+        ],
+        "whatToRemember": "How you handle losing says more about you than how you handle winning. Be the person everyone respects.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You don't say anything mean, but you also don't say anything nice. You just walk away quietly. Nobody's feelings are hurt, but the other team thinks you might be a sore loser. Your teacher says, 'Remember, a handshake after the game is important.' You realize staying quiet felt safer but wasn't the full picture.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not Bad, But Not Great Either",
+        "explanation": "Staying quiet is better than being mean, so that's something. But not acknowledging the other team can come across as a poor attitude. Good sportsmanship is an active thing -- it means actually congratulating the winner, not just not being rude. It's hard, but a quick 'good game' goes a long way.",
+        "whatToRemember": "Silence is better than being mean, but a 'good game' is better than silence.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Your teammate's face falls. 'I tried my best,' they say quietly, looking at the ground. The rest of the team looks uncomfortable. Your teacher pulls you aside and says, 'Blaming your teammate is not okay. Everyone tried their hardest.' You realize you made your teammate feel terrible, and the loss feels even worse now.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Blaming Others Makes Everyone Feel Bad",
+        "explanation": "When you blame a teammate for losing, you're not being honest -- the whole team lost together, just like the whole team would have won together. Your teammate already felt bad about the loss, and your words made it much worse. Nobody wants to be on a team with someone who blames others. Great teammates lift each other up, especially after a tough loss.",
+        "whatToRemember": "You win as a team and lose as a team. Blaming one person is never fair and always hurtful.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

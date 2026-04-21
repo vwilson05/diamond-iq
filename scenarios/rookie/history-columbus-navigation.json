@@ -1,0 +1,96 @@
+{
+  "id": "rookie-history-columbus-navigation",
+  "title": "Columbus Navigation",
+  "sport": [
+    "history"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "exploration",
+  "tags": [
+    "columbus",
+    "navigation",
+    "ocean",
+    "exploration",
+    "crew-management"
+  ],
+  "setup": {
+    "era": "1492",
+    "role": "ship's first mate",
+    "location": "the Atlantic Ocean",
+    "stakes": "crew morale and finding land"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are the first mate on the Santa Maria, sailing west across the Atlantic Ocean with Christopher Columbus. It has been four weeks since you left Spain and there is no land in sight. The crew is scared and angry. Some sailors are whispering about turning the ship around. Columbus still believes land is close. This morning, a sailor found a carved stick floating in the water and you spotted a land bird flying overhead. The crew is demanding answers. What do you tell them?",
+      "choices": [
+        {
+          "id": "show-evidence",
+          "text": "Show the crew the carved stick and point out the land bird. Explain that these are signs that land is very close, and ask them to keep going just a few more days.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "promise-reward",
+          "text": "Promise the crew extra pay and gold if they keep sailing without explaining the signs you found.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "agree-turn-back",
+          "text": "Agree with the scared sailors and tell Columbus it is time to turn back to Spain.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You hold up the carved stick and say, 'Look -- someone carved this! That means people live nearby, and people live on LAND.' You point to the bird in the sky. 'Land birds do not fly far from shore. We are close!' The crew calms down. They agree to sail on for three more days. Just two days later, a lookout shouts, 'LAND! LAND!' Everyone rushes to the deck and sees an island on the horizon. The crew cheers!",
+      "outcome": {
+        "result": "great",
+        "headline": "Evidence and Calm Leadership Saved the Voyage!",
+        "explanation": "This is very close to what really happened. Columbus's crew was genuinely scared and close to mutiny after weeks at sea. But signs like floating branches, land birds, and carved objects told experienced sailors that land was near. A good leader shares evidence and reasons with their team instead of just giving orders. Columbus's voyage did reach the Caribbean islands in October 1492. It is important to know that people already lived on these islands -- the Taino people had been there for centuries. Columbus's arrival began a complicated and often painful chapter in history for native peoples.",
+        "keyTerms": [
+          {
+            "term": "Navigation",
+            "definition": "Finding your way across the ocean. In 1492, sailors used the sun, stars, compasses, and natural signs like birds and floating objects."
+          },
+          {
+            "term": "Mutiny",
+            "definition": "When a ship's crew refuses to follow the captain's orders. Columbus's crew came very close to mutiny."
+          },
+          {
+            "term": "Indigenous Peoples",
+            "definition": "The people who already lived in the Americas for thousands of years before European explorers arrived. The Taino people were the first to meet Columbus."
+          }
+        ],
+        "whatToRemember": "Good leaders share evidence and explain their reasoning. When people understand WHY, they are more willing to keep going through hard times.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You promise the crew extra pay if they keep sailing. Some sailors grumble but agree. However, they are still nervous because they do not know WHY you believe land is close. The next day, more sailors threaten to turn back. You have to keep making bigger promises. Eventually you spot land, but the crew is still unhappy because they felt tricked instead of informed.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Bribes Work for a While, But Trust Works Better!",
+        "explanation": "Promising rewards can motivate people short-term, but if they do not understand the reason behind a decision, they stay scared and distrustful. The best leaders explain their thinking and share evidence. When people understand the plan, they buy in and work harder. Columbus actually offered a reward for the first person to spot land, but he also shared navigation clues with his officers.",
+        "whatToRemember": "Rewards help, but explaining your reasoning builds real trust. People follow leaders they understand, not just leaders who pay them.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You tell Columbus the crew is right -- it is time to turn back. The ships start heading east toward Spain. Two days later, another ship heading west reports finding beautiful islands full of fruit trees and fresh water -- exactly where you would have been if you had kept going! You were only two days from the greatest discovery of the age. Columbus is heartbroken.",
+      "outcome": {
+        "result": "bad",
+        "headline": "So Close! You Gave Up Too Soon!",
+        "explanation": "If Columbus had turned back, one of the most significant voyages in history never would have happened. Sometimes the hardest part of any journey is the very end, when you are tired and scared and it feels like you will never get there. The signs were all there -- the carved stick, the land birds -- but fear won out. Of course, it is also important to remember that the lands Columbus reached were already home to millions of people with their own rich histories and cultures.",
+        "whatToRemember": "Pay attention to the evidence around you. When the signs say you are close, do not let fear make you give up right before the finish line.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

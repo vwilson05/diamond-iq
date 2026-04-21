@@ -1,0 +1,67 @@
+{
+  "id": "majors-golf-pace-of-play",
+  "title": "Keep the Game Moving",
+  "sport": ["golf"],
+  "tier": "majors",
+  "impact": 2,
+  "role": "approach",
+  "tags": ["pace of play", "etiquette", "readiness"],
+  "setup": {
+    "hole": 10,
+    "par": 4,
+    "distance": 145,
+    "lie": "fairway",
+    "score": "E"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has been slow today and the group behind you is waiting on every shot. You are in the fairway, 145 yards out. It is your turn to hit, but you have not decided on a club yet and you still need to check the yardage. The group behind is standing on the previous tee, watching you. How do you handle this?",
+      "choices": [
+        { "id": "best", "text": "You should have been planning your shot while others were hitting. Quickly confirm the yardage, pick your club, take one practice swing, and go. Be ready when it is your turn.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Walk to the ball, check the yardage book, take several practice swings, and then go through your full routine before hitting", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Rush the shot without checking the yardage or taking any practice swings just to make the group behind happy", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Ready Golf! Quick and Confident!",
+        "explanation": "Because you planned ahead while others were hitting, you were ready to go when it was your turn. One look at the distance, grab the club, one practice swing, and a confident strike right at the green. Good pace of play does not mean rushing -- it means being prepared. The best players in the world plan their shots while walking to the ball so they are ready when it is their turn.",
+        "whatToRemember": "Ready golf means planning your shot BEFORE it is your turn. Check distances, pick your club, and visualize the shot while others are playing. When it is your turn, you should be ready to go.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Ready Golf", "definition": "Playing your shot as soon as you are ready, rather than strictly waiting for the farthest player. Also means preparing while others are hitting." },
+          { "term": "Pace of Play", "definition": "How fast or slow a group plays. Good pace keeps up with the group ahead and does not make the group behind wait." },
+          { "term": "Pre-Shot Routine", "definition": "The steps you go through before every shot -- checking distance, picking a club, aiming, and taking a practice swing. Keep it short and consistent." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Shot, But the Wait Frustrated Everyone",
+        "explanation": "You hit a nice shot, but it took a long time to get there. The group behind you is frustrated and a marshal might come talk to your group about slow play. Having a pre-shot routine is important, but it should be short and efficient. Multiple practice swings and a long routine add up over 18 holes.",
+        "whatToRemember": "Keep your routine to under 30 seconds once you are standing over the ball. One practice swing is enough. Do your thinking BEFORE you step up to the ball, not after.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Rushed Shot! In the Bunker!",
+        "explanation": "There is a difference between being quick and being rushed. You grabbed the wrong club, skipped your routine entirely, and hit a bad shot into the bunker. Good pace of play is about being PREPARED, not panicked. If you plan ahead while others are hitting, you can play quickly AND confidently.",
+        "whatToRemember": "Do not skip your routine -- shorten it. Being fast does not mean being careless. Plan ahead so you can be quick and confident at the same time.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

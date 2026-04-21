@@ -1,0 +1,96 @@
+{
+  "id": "rookie-history-marco-polo-trade",
+  "title": "Marco Polo's Trade Route",
+  "sport": [
+    "history"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "exploration",
+  "tags": [
+    "marco-polo",
+    "silk-road",
+    "trade",
+    "asia",
+    "culture"
+  ],
+  "setup": {
+    "era": "1271",
+    "role": "young merchant traveler",
+    "location": "the Silk Road, Central Asia",
+    "stakes": "reaching China safely"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are traveling with Marco Polo along the Silk Road toward China. Your caravan reaches a crossroads in the desert. Ahead is the shorter route through a dangerous mountain pass. To the south is a longer route that goes through a friendly trading city where you can resupply. Some traders in your caravan say they have heard bandits are in the mountains. What do you advise Marco Polo?",
+      "choices": [
+        {
+          "id": "trading-city",
+          "text": "Take the longer southern route through the trading city. You can resupply, gather information about the road ahead, and avoid the bandits.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "mountain-pass",
+          "text": "Take the shorter mountain route and travel quickly to get through before bandits notice you.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "split-up",
+          "text": "Split the caravan in two -- half goes through the mountains and half goes south.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You take the southern route to the trading city. When you arrive, the markets are incredible! Merchants from Persia, India, and Arabia are all trading silk, spices, jewels, and stories. You buy fresh water, food, and new camels. A local merchant tells you about a safe path through the eastern desert. Marco Polo writes everything he sees in his journal. Weeks later, you arrive in China safely, loaded with new goods and knowledge.",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Route! Safe Travels and Great Discoveries!",
+        "explanation": "Marco Polo's real journey took over three years! He traveled the Silk Road, the ancient trade route connecting Europe and Asia. Along the way, the smartest travelers stopped in trading cities to rest, resupply, and learn. These cities were melting pots where people from many different cultures shared goods, ideas, languages, and inventions. Paper, gunpowder, silk, and spices all traveled along the Silk Road. Marco Polo wrote a famous book about everything he saw, and it inspired explorers for centuries.",
+        "keyTerms": [
+          {
+            "term": "Silk Road",
+            "definition": "An ancient network of trade routes connecting Europe and Asia. Traders carried silk, spices, ideas, and inventions along these paths for over 1,500 years."
+          },
+          {
+            "term": "Marco Polo",
+            "definition": "An Italian merchant and explorer who traveled to China in the 1270s. His book about the journey inspired future explorers, including Columbus."
+          },
+          {
+            "term": "Caravan",
+            "definition": "A group of travelers and pack animals journeying together for safety. Silk Road caravans used camels to carry goods across deserts."
+          }
+        ],
+        "whatToRemember": "The safest path is not always the fastest. Stopping to gather information and supplies can save you from danger and lead to amazing discoveries.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You push through the mountain pass as fast as possible. The path is narrow and icy, and two of your camels slip and lose their packs. You make it through without meeting any bandits, but you lost valuable supplies. The rest of the journey is harder because you are low on food and water. You eventually reach China, but everyone is exhausted.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Made It, But At a Cost!",
+        "explanation": "Speed can be useful, but rushing through dangerous terrain cost you supplies. Silk Road travelers who tried to take shortcuts often ran into problems -- harsh weather, broken equipment, or running out of water. The most successful merchants planned carefully and chose routes that balanced speed with safety.",
+        "whatToRemember": "Taking a shortcut might seem faster, but if you lose supplies or get into trouble, it can end up costing you more time in the end.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You split the caravan in half. The mountain group runs into bandits who take some of their goods. The southern group makes it to the trading city safely but has to wait weeks for the other group to catch up. When the two groups finally reunite, the caravan is weaker, has lost goods, and everyone has been worrying about each other. Marco Polo says, 'A caravan's strength is in its numbers. We should never have split up.'",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splitting Up Weakened Everyone!",
+        "explanation": "Caravans traveled in large groups for a reason -- safety in numbers. A big group scares off bandits and can help each other through tough terrain. Splitting up made both groups weaker and more vulnerable. On the Silk Road, sticking together was one of the most important rules of survival.",
+        "whatToRemember": "There is strength in numbers. Splitting up a team to cover more ground can make everyone weaker and less safe.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

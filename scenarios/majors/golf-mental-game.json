@@ -1,0 +1,67 @@
+{
+  "id": "majors-golf-mental-game",
+  "title": "Shake Off the Bad Hole",
+  "sport": ["golf"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "tee-shot",
+  "tags": ["mental game", "focus", "resilience"],
+  "setup": {
+    "hole": 14,
+    "par": 4,
+    "distance": 380,
+    "lie": "tee box",
+    "score": "+3"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just made a triple bogey on hole 13 after hitting two balls in the water. You are frustrated and angry. You walk to the tee box on hole 14 feeling terrible. There are still 5 holes left. How do you handle this mentally?",
+      "choices": [
+        { "id": "best", "text": "Take a deep breath, remind yourself that the last hole is over and you cannot change it. Focus only on THIS shot. Play one shot at a time.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Tell yourself you need to play the last 5 holes in 3 under par to make up for that disaster", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stay angry and swing as hard as you can on the tee shot to get it out of your system", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Reset! Clean Swing Down the Middle!",
+        "explanation": "By taking a breath and letting go of the last hole, you cleared your mind and hit a great tee shot. The best golfers in the world have short memories. They feel the frustration, acknowledge it, and then let it go before the next shot. You cannot change what already happened, but you CAN control your attitude and focus right now. Playing one shot at a time is the most important mental skill in golf.",
+        "whatToRemember": "Golf is played one shot at a time. After a bad hole, take a deep breath, let it go, and focus 100 percent on the next shot. You cannot change the past, but you can control right now.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Mental Game", "definition": "The ability to stay focused, calm, and positive on the golf course, especially after mistakes. Golf is as much mental as it is physical." },
+          { "term": "One Shot at a Time", "definition": "The mindset of focusing only on the shot in front of you, not thinking about past mistakes or future holes." },
+          { "term": "Reset", "definition": "The mental process of letting go of a bad shot or bad hole so it does not affect your next one. Deep breathing and positive self-talk help you reset." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Decent Shot, But Your Mind Is Somewhere Else",
+        "explanation": "Thinking about needing to make up strokes puts pressure on every shot for the rest of the round. You hit a decent tee shot but you are already thinking about the next four holes instead of this one. Trying to make up for past mistakes leads to pressing, which means trying too hard and forcing shots. Play each hole on its own -- do not add the weight of previous holes to it.",
+        "whatToRemember": "Do not try to make up for a bad hole all at once. Just play each shot as well as you can. Good shots add up on their own when you are not pressing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wild Swing! In the Trees!",
+        "explanation": "Swinging angry is one of the worst things you can do in golf. Your muscles tighten up, your tempo goes haywire, and you lose control. The ball flies deep into the trees and now you might have another bad hole. Anger from the last hole just infected this one. One bad hole can turn into three or four bad holes when you let your emotions take over.",
+        "whatToRemember": "Never swing angry. Frustration tightens your muscles and ruins your swing. If you are upset, step back, take three deep breaths, and do not swing until you feel calm.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

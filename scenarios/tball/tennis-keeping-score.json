@@ -1,0 +1,62 @@
+{
+  "id": "tball-tennis-keeping-score",
+  "title": "What Is the Score?",
+  "sport": ["tennis"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "serve",
+  "tags": ["scoring", "basics", "rules"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just won the first two points of a game. Your friend asks what the score is. You are serving. What do you call out?",
+      "choices": [
+        { "id": "best", "text": "30-love! In tennis, the first point is 15, the second is 30, and love means zero", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "2-0, I am winning by two points", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "I have no idea, I just keep hitting the ball", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You know your tennis scoring!",
+        "explanation": "Tennis uses a special scoring system: love, 15, 30, 40, game. The server always says their score first. You are ahead 30-love, which means you only need two more points to win this game.",
+        "whatToRemember": "Tennis points go love, 15, 30, 40, game. The server always announces their score first.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Love", "definition": "The tennis word for zero. When someone has not scored any points yet, their score is called love" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Right idea, wrong words!",
+        "explanation": "You know you are ahead, but tennis does not use regular numbers. Instead of 1, 2, 3 it goes 15, 30, 40. Learning the lingo is part of the game.",
+        "whatToRemember": "Tennis has its own special scoring words. Practice saying them: love, 15, 30, 40, deuce, advantage, game.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You need to track the score!",
+        "explanation": "In tennis, players are responsible for knowing the score, especially when serving. If nobody keeps score, you will not know who won the game.",
+        "whatToRemember": "Always keep track of the score and call it out loud before each serve. It keeps the match fair and organized.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

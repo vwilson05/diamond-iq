@@ -1,0 +1,67 @@
+{
+  "id": "tball-golf-stance",
+  "title": "Stand Tall and Balanced",
+  "sport": ["golf"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "tee-shot",
+  "tags": ["stance", "setup", "basics"],
+  "setup": {
+    "hole": 5,
+    "par": 3,
+    "distance": 120,
+    "lie": "tee box",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You walk up to a short par 3 hole. The green is right in front of you, about 120 yards away. You pick your club and get ready to hit. How do you set up your feet before you swing?",
+      "choices": [
+        { "id": "best", "text": "Stand with your feet about shoulder-width apart, knees slightly bent, and lean forward a little from your hips", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand with your feet close together and your legs straight", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand with your feet really far apart and lean way back", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Solid Stance! Great Contact!",
+        "explanation": "With your feet shoulder-width apart and your knees bent, you have a strong, balanced base. You swing the club and make clean contact with the ball. It flies right at the green! A balanced stance helps you stay steady through your whole swing.",
+        "whatToRemember": "Feet shoulder-width apart, bend your knees a little, and tilt forward from your hips. Balance is the key to a good golf swing.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Stance", "definition": "The way you stand and position your feet when you set up to hit a golf ball." },
+          { "term": "Athletic Position", "definition": "Knees bent, feet apart, leaning slightly forward -- the same position used in many sports to stay balanced and ready." },
+          { "term": "Setup", "definition": "Everything you do before you swing -- your grip, your stance, and how you aim at your target." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Little Wobbly",
+        "explanation": "With your feet close together and your legs straight, you lose your balance during the swing. The ball goes forward but not very far. You need a wider, more athletic stance to stay stable.",
+        "whatToRemember": "Spread your feet apart to shoulder width and bend your knees. This gives you a strong base so you do not wobble during the swing.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Whiff! Off Balance!",
+        "explanation": "With your feet too far apart and your weight leaning back, you swing and miss the ball completely. Leaning back makes you swing up instead of through the ball. Your weight needs to be centered and slightly forward.",
+        "whatToRemember": "Do not lean back! Keep your weight centered over the ball and stand in a comfortable, balanced position.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

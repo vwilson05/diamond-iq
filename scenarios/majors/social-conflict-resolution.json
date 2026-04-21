@@ -1,0 +1,95 @@
+{
+  "id": "majors-social-conflict-resolution",
+  "title": "The Locker Showdown",
+  "sport": [
+    "social"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "conflict",
+  "tags": [
+    "conflict-resolution",
+    "de-escalation",
+    "communication",
+    "advanced"
+  ],
+  "setup": {
+    "situation": "hallway",
+    "people": 3,
+    "emotion": "angry",
+    "context": "argument escalating between you and a classmate"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You open your locker and your project folder falls out, scattering papers everywhere. Carlos, who has the locker next to yours, accidentally steps on one of your papers and rips it. You say, 'Hey, watch it!' Carlos snaps back, 'It's not my fault your stuff is everywhere!' You're both getting louder. Other kids are stopping to watch. You can feel your face getting hot. What do you do?",
+      "choices": [
+        {
+          "id": "de-escalate",
+          "text": "Take a deep breath and lower your voice. Say, 'Okay, hold on. I shouldn't have snapped at you. It was an accident. Can you help me pick these up?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "walk-away-silent",
+          "text": "Stop talking, pick up your papers by yourself, and walk away without saying anything else.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "escalate",
+          "text": "Get louder and say, 'You ruined my paper! You need to fix this!'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your lower voice changes the whole energy. Carlos's shoulders relax and he says, 'Yeah, sorry I stepped on it. I didn't see it.' He bends down and helps you pick up your papers. You both calm down. He looks at the torn paper and says, 'I can help you tape that if you want.' The other kids watching lose interest and walk away. Crisis over. You and Carlos are fine.",
+      "outcome": {
+        "result": "great",
+        "headline": "De-Escalation Master!",
+        "explanation": "You did something incredibly mature: you stopped the conflict from growing by lowering your own energy first. When you took a breath, admitted you snapped, and asked for help instead of demanding it, you gave Carlos a way to calm down too. Most conflicts between people aren't actually about the thing they're arguing about -- they're about feeling disrespected. By dropping your guard first, you showed Carlos respect, and he returned it.",
+        "keyTerms": [
+          {
+            "term": "De-Escalation",
+            "definition": "Actively making a tense situation calmer instead of letting it get worse. It starts with controlling your own reaction."
+          },
+          {
+            "term": "Conflict Resolution",
+            "definition": "Finding a peaceful solution to a disagreement where both people feel heard and respected."
+          },
+          {
+            "term": "Emotional Regulation",
+            "definition": "Managing your own feelings -- like anger -- so they don't control your actions."
+          }
+        ],
+        "whatToRemember": "The person who calms down first controls the situation. Lower your voice, own your part, and give the other person a way out.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You silently pick up your papers and leave. The argument stops, which is good. But Carlos is left standing there feeling awkward. For the next few days, things are tense between you at the lockers. Neither of you talks to the other. The situation didn't get worse, but it didn't get better either. There's an unspoken wall between you now.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Conflict Paused, Not Resolved",
+        "explanation": "Walking away stopped things from getting worse, which shows self-control. But silence leaves things unresolved. Carlos might think you're still angry, and you might still feel frustrated. Real conflict resolution means actually addressing the situation, not just freezing it. A quick conversation -- even later that day -- would clear the air completely.",
+        "whatToRemember": "Walking away can be a good first step, but come back and talk it out. Unresolved tension doesn't go away on its own.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You get louder and so does Carlos. Now you're both yelling. A teacher hears the commotion and separates you. You both get sent to the office and have to explain what happened. The teacher says, 'This was over a dropped paper. You two could have solved this in ten seconds.' You both miss part of class and get a note sent home. The torn paper could have been fixed with tape.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Small Problem Became a Big One",
+        "explanation": "When two people keep escalating, a tiny problem becomes a huge deal. A stepped-on paper turned into a yelling match, an office visit, and a note home. All because neither person was willing to calm down first. Arguments are like fires -- they need fuel to keep burning. Every angry word you add is more fuel. The person who stops adding fuel is the one who actually wins.",
+        "whatToRemember": "Don't add fuel to a fire. The louder things get, the worse the outcome. Be the one who brings the temperature down.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

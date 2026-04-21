@@ -1,0 +1,67 @@
+{
+  "id": "minors-golf-risk-reward",
+  "title": "Go for the Green or Play Safe?",
+  "sport": ["golf"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "approach",
+  "tags": ["risk reward", "strategy", "decision making"],
+  "setup": {
+    "hole": 15,
+    "par": 5,
+    "distance": 220,
+    "lie": "fairway",
+    "score": "+1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on a par 5, lying 2 after a great drive. The green is 220 yards away. There is a big pond right in front of the green. You CAN reach the green with your 3-wood, but if you hit it a little short the ball goes in the water. You could also lay up to 80 yards and hit a wedge in. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Lay up to 80 yards with an iron, then hit a wedge close and try for birdie with a short putt", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Go for the green with your 3-wood since you are having a good day and feeling confident", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to go for it but use a club that barely reaches, hoping for the best", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Layup! Wedge to 5 Feet!",
+        "explanation": "You laid up to 80 yards, then stuck your wedge shot to 5 feet from the hole. That is a great birdie chance with no risk of going in the water! Risk-reward thinking means asking yourself: what is the worst thing that can happen? If the worst outcome is a penalty stroke in the water, and the best is saving one shot, the math says lay up. You can still make birdie from 80 yards.",
+        "whatToRemember": "When water or a big hazard guards the green, laying up to your favorite wedge distance is often the smartest play. You can still make birdie without the risk.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Risk-Reward", "definition": "Weighing the possible good outcome against the possible bad outcome before choosing a shot. Smart golfers take risks only when the reward is worth it." },
+          { "term": "Laying Up", "definition": "Deliberately hitting a shorter shot to avoid a hazard, leaving yourself a comfortable distance for your next shot." },
+          { "term": "Birdie", "definition": "A score of one under par on a hole. On a par 5, that means finishing the hole in 4 strokes." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Made It! But Barely",
+        "explanation": "Your 3-wood barely cleared the pond and rolled onto the front of the green, 50 feet from the hole. You are on the green in 2, which is great, but that was a very risky shot. If the ball had been one yard shorter, it would be in the water. Sometimes going for it works out, but over time, the safe play gives you better scores.",
+        "whatToRemember": "Just because a risky shot worked once does not mean it was the right play. Think about what happens if you hit it 10 times -- how many times would it end up in the water?",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Splash! Right in the Pond!",
+        "explanation": "Using a club that barely reaches means the ball HAS to be perfect to clear the water, and it was not. The ball splashed into the pond. Now you have a penalty stroke and are hitting your fourth shot. Instead of having a chance at birdie, you are fighting to save bogey. When a hazard is in play and the club barely reaches, the risk is almost never worth it.",
+        "whatToRemember": "Never go for a shot where you need a perfect strike just to clear the hazard. If the club barely reaches on your best swing, the smart play is to lay up.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

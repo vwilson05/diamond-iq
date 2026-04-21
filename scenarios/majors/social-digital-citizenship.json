@@ -1,0 +1,95 @@
+{
+  "id": "majors-social-digital-citizenship",
+  "title": "The Group Chat Dilemma",
+  "sport": [
+    "social"
+  ],
+  "tier": "majors",
+  "impact": 5,
+  "role": "communication",
+  "tags": [
+    "digital-citizenship",
+    "online-behavior",
+    "screenshots",
+    "advanced"
+  ],
+  "setup": {
+    "situation": "home",
+    "people": 6,
+    "emotion": "conflicted",
+    "context": "group chat situation after school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're in a group chat with five classmates. Someone shares a really embarrassing photo of a kid named Owen who fell in the mud at recess today. Everyone in the chat is adding laughing comments and memes. Owen is NOT in this group chat and doesn't know the photo is being shared. You know Owen would be devastated if he saw this. The photo is funny, but you feel uneasy. What do you do?",
+      "choices": [
+        {
+          "id": "speak-up",
+          "text": "Type: 'Hey, this isn't cool. Owen would feel terrible if he knew we were sharing this. Can we delete it?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "stay-silent",
+          "text": "Don't add any laughing emojis but don't say anything either. Just close the app.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "share-more",
+          "text": "Screenshot the photo and share it to another group chat with even more kids.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "There's a pause in the chat. Then one friend says, 'Yeah, you're right. That's messed up.' Another says, 'I'll delete it.' The photo gets removed. The next day at school, Owen is acting normal -- he never found out. Your friend pulls you aside and says, 'Good call on the group chat. I would've felt terrible if Owen saw that.' You feel good knowing you did the right thing, even when it wasn't easy.",
+      "outcome": {
+        "result": "great",
+        "headline": "Digital Courage! You Protected Someone!",
+        "explanation": "Speaking up in a group chat takes guts because everyone can see your message and might disagree. But you reminded people to think about how Owen would feel. Online, it's easy to forget there's a real person behind the screen who gets hurt by what we share. The rule is simple: if you wouldn't say it or show it with that person standing right next to you, don't post it. You were Owen's ally even when he didn't know he needed one.",
+        "keyTerms": [
+          {
+            "term": "Digital Citizenship",
+            "definition": "Being responsible, respectful, and kind online, just like you would be in person."
+          },
+          {
+            "term": "Digital Footprint",
+            "definition": "Everything you post, share, or comment online. Once something is shared, it can spread beyond your control."
+          },
+          {
+            "term": "Online Empathy",
+            "definition": "Remembering that real people with real feelings are on the other end of every message, photo, and comment."
+          }
+        ],
+        "whatToRemember": "Before you share something online, ask: would the person in this photo be okay with it? If not, don't share it and speak up.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You close the app and try to forget about it. The next day, Owen somehow sees the photo because someone else shared it further. He comes to school looking miserable. You feel guilty because you knew it was wrong and didn't say anything. You didn't make it worse, but you didn't try to stop it either.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Silence Is Better Than Joining In, But...",
+        "explanation": "Not adding to the pile-on shows some restraint. But staying silent when something wrong is happening means the wrong thing keeps happening. Online, silence can feel like agreement to the people posting. If even one person had spoken up, the photo might have been deleted before it spread. In digital spaces, silence isn't neutral -- it lets harmful things continue.",
+        "whatToRemember": "Not participating is a start, but speaking up is what actually makes a difference. Online silence often equals approval.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You screenshot and share the photo to another chat. It spreads to even more people. By the next morning, it feels like the whole school has seen it. Owen comes to school fighting back tears. A teacher finds out and traces the spread back to you. You get called to the office and your parents are contacted. Owen's parents are furious. You realize that sharing someone's embarrassing moment made you the one who should be embarrassed.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Sharing Made It Viral -- And Made You Responsible",
+        "explanation": "Every time you share something hurtful, you become part of the problem. It doesn't matter that you didn't take the original photo -- you chose to spread it. Online, things move fast and can't be taken back. Owen's bad moment went from five people to the whole school because of decisions like yours. When you share something that hurts someone, you own that harm just as much as the person who created it.",
+        "whatToRemember": "Sharing something hurtful makes you responsible for the hurt. Once you hit send, you can't unsend the damage.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

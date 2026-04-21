@@ -1,0 +1,67 @@
+{
+  "id": "rookie-golf-bunker-basics",
+  "title": "Escape the Sand Trap!",
+  "sport": ["golf"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "short-game",
+  "tags": ["bunker", "sand", "fundamentals"],
+  "setup": {
+    "hole": 8,
+    "par": 4,
+    "distance": 20,
+    "lie": "bunker",
+    "score": "+2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your ball landed in a sand bunker right next to the green. The hole is about 20 yards away. The lip of the bunker is a little wall of sand in front of you that you need to get over. How do you play this shot?",
+      "choices": [
+        { "id": "best", "text": "Open the face of your sand wedge, aim a couple inches behind the ball, and swing through the sand to splash the ball out", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Use your pitching wedge and try to pick the ball clean off the sand without touching the sand", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Use your putter and roll the ball along the sand toward the hole", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Beautiful Bunker Shot! Out in One!",
+        "explanation": "Your sand wedge splashed through the sand and the ball floated up over the lip and landed softly on the green. The secret to bunker shots is that you do not actually hit the ball -- you hit the sand BEHIND the ball. The explosion of sand lifts the ball up and out. That is why it is called a splash shot or explosion shot.",
+        "whatToRemember": "In a bunker, hit the sand behind the ball, not the ball itself. Open the clubface, swing through the sand, and let the sand push the ball out.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Bunker", "definition": "A hole filled with sand on the golf course, also called a sand trap. There are rules about what you can and cannot do in a bunker." },
+          { "term": "Sand Wedge", "definition": "A club designed especially for hitting out of bunkers. It has a wide bottom that slides through sand instead of digging in." },
+          { "term": "Splash Shot", "definition": "A bunker technique where you hit the sand behind the ball and the explosion of sand lifts the ball out." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Out, But It Flew Too Far",
+        "explanation": "Picking the ball clean off sand is very difficult. You managed to get it out, but you hit the ball too directly and it flew over the green. In a bunker, it is much easier and safer to hit the sand behind the ball and let the sand do the work.",
+        "whatToRemember": "Do not try to pick the ball clean out of a bunker. Use the sand to your advantage by hitting behind the ball and letting the sand splash it out.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Still in the Bunker!",
+        "explanation": "A putter cannot get the ball up and over the lip of the bunker. The ball rolled through the sand and hit the front wall, rolling right back to your feet. You need a club with enough loft to pop the ball up into the air and over the edge of the bunker.",
+        "whatToRemember": "You need loft to get out of a bunker. A sand wedge is the best club for the job because it pops the ball high into the air.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

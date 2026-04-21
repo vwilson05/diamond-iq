@@ -15,7 +15,7 @@
   "nodes": {
     "root": {
       "type": "decision",
-      "narration": "Your bag of trail mix disappeared from your cubby during after-school care! You know three things: 1) The trail mix had peanuts in it. 2) Carlos is allergic to peanuts and always stays away from them. 3) Sophie has chocolate on her fingers, but your trail mix did not have chocolate. 4) Emma has crumbs on her shirt that look like crushed pretzels and raisins -- the same things in your trail mix! Who took your snack?",
+      "narration": "Your bag of trail mix disappeared from your cubby during after-school care! You know four things: 1) The trail mix had peanuts in it. 2) Carlos is allergic to peanuts and always stays away from them. 3) Sophie has chocolate on her fingers, but your trail mix did not have chocolate. 4) Emma has crumbs on her shirt that look like crushed pretzels and raisins -- the same things in your trail mix! Who took your snack?",
       "choices": [
         { "id": "deduce-emma", "text": "Emma! She has pretzel and raisin crumbs, which match what is in your trail mix. The other two do not fit.", "nextNode": "outcome-great" },
         { "id": "blame-sophie", "text": "Sophie, because she has food on her fingers so she must have been eating something!", "nextNode": "outcome-okay" },

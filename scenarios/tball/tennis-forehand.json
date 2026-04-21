@@ -1,0 +1,62 @@
+{
+  "id": "tball-tennis-forehand",
+  "title": "Swing With Your Strong Hand",
+  "sport": ["tennis"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["forehand", "basics", "groundstroke"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The ball is bouncing toward your strong-hand side. You have time to set up for a forehand. How do you swing?",
+      "choices": [
+        { "id": "best", "text": "Turn sideways, pull your racket back, step forward, and swing through the ball finishing with your racket up high", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Face the net and swing your arm at the ball without turning your body", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand still and just stick your racket out hoping the ball hits it", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Beautiful forehand!",
+        "explanation": "By turning sideways and stepping into the ball, you used your whole body to create power. Finishing with the racket high sent the ball over the net with control.",
+        "whatToRemember": "A good forehand starts with turning your body sideways. Step into the ball and follow through high over your opposite shoulder.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Follow Through", "definition": "Continuing your swing after you hit the ball, finishing with the racket up high over your opposite shoulder for control and power" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got the ball back, but without power!",
+        "explanation": "Facing the net and swinging only with your arm means the ball goes back softly. Your opponent will have an easy time hitting a strong return.",
+        "whatToRemember": "Turn your body sideways before you swing. Your legs and hips give you way more power than just your arm.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The ball bounced right past you!",
+        "explanation": "Just sticking your racket out without swinging gives you no control. The ball hits the frame and flies off in a random direction, landing out of bounds.",
+        "whatToRemember": "Always swing through the ball. Standing still and reaching is not a real shot -- move your feet and swing with purpose.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

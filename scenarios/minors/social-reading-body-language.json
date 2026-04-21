@@ -1,0 +1,95 @@
+{
+  "id": "minors-social-reading-body-language",
+  "title": "What They're Really Saying",
+  "sport": [
+    "social"
+  ],
+  "tier": "minors",
+  "impact": 3,
+  "role": "communication",
+  "tags": [
+    "body-language",
+    "nonverbal",
+    "awareness",
+    "social-iq"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "observant",
+    "context": "group conversation at lunch table"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're at the lunch table telling a really long story about your weekend. You're excited and keep talking. You notice that your friend Sam is looking at his phone under the table. Mia keeps glancing at the clock. Leo is tapping his fingers and looking around the cafeteria. Only Ruby seems to be listening. Nobody has interrupted you, but something feels off. What do you do?",
+      "choices": [
+        {
+          "id": "read-the-signals",
+          "text": "Stop and say, 'Wait, am I talking too much? What are you guys up to -- anything fun going on?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "keep-going",
+          "text": "Keep telling the story. They haven't said they're bored so they're probably still listening.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "get-offended",
+          "text": "Stop and say, 'Wow, thanks for paying attention. I guess nobody cares about my weekend.'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Your friends look relieved. Sam laughs and says, 'Sorry, I got distracted! What were you saying about the roller coaster?' Mia says, 'I was just checking the time because I have a test next period -- but finish the good part!' By acknowledging what you noticed, everyone feels comfortable being honest. Leo says, 'Actually, I wanted to tell you guys something too.' The conversation opens up and everyone gets to share. It's way more fun when it's a real conversation.",
+      "outcome": {
+        "result": "great",
+        "headline": "You Read the Room Perfectly!",
+        "explanation": "People communicate with more than just words. When someone is looking at their phone, checking the clock, or fidgeting, they're telling you something even if they're not saying it out loud. By noticing these signals and adjusting, you showed real social awareness. You didn't take it personally -- you just made space for everyone. That's a skill that makes people want to be around you.",
+        "keyTerms": [
+          {
+            "term": "Body Language",
+            "definition": "The way people communicate without words -- through posture, eye contact, gestures, and facial expressions."
+          },
+          {
+            "term": "Social Awareness",
+            "definition": "The ability to notice how other people are feeling based on their behavior and body language."
+          },
+          {
+            "term": "Reading the Room",
+            "definition": "Picking up on the mood and energy of the people around you and adjusting how you act."
+          }
+        ],
+        "whatToRemember": "Watch for signals: eye contact, fidgeting, looking away. People tell you how they feel even when they don't say a word.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You keep going for another five minutes. By the time you finish, Sam has completely zoned out, Mia is packing up to leave, and Leo is having a separate conversation with someone at the next table. Only Ruby heard the ending. You feel weird that nobody reacted to the best part of your story. The group drifts apart without anyone saying much.",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Story Went On Too Long",
+        "explanation": "Your friends weren't trying to be rude -- their body language was telling you they needed a break or a chance to talk too. A conversation is like a game of catch: if one person holds the ball the whole time, it stops being fun for everyone else. Checking in with your audience makes your stories land better because people are actually engaged.",
+        "whatToRemember": "A conversation is a two-way street. If people seem distracted, pause and check in. Better to stop early than lose your audience.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Everyone gets uncomfortable. Ruby says, 'We do care! We're just...' but she trails off. Sam puts his phone away looking guilty, but also annoyed. Mia says, 'You don't have to be like that.' The mood at the table goes cold. Your friends finish lunch quietly and leave without the usual goodbyes. You were right that they weren't listening, but the way you called it out made everything worse.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Calling People Out Killed the Vibe",
+        "explanation": "You correctly noticed that people weren't paying attention, but the way you responded made it about you being the victim instead of adjusting to the group. Making people feel guilty for their body language puts them on the defensive. A better approach is to check in casually and give the conversation some air. People respect someone who reads the room -- they avoid someone who guilt-trips them about it.",
+        "whatToRemember": "Notice body language but don't weaponize it. Adjust with kindness, not with guilt trips.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

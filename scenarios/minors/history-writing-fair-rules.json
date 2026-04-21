@@ -1,0 +1,96 @@
+{
+  "id": "minors-history-writing-fair-rules",
+  "title": "Writing Fair Rules",
+  "sport": [
+    "history"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "mayflower-compact",
+    "democracy",
+    "fairness",
+    "rules",
+    "self-government"
+  ],
+  "setup": {
+    "era": "1620",
+    "role": "Pilgrim leader",
+    "location": "aboard the Mayflower, off the coast of Massachusetts",
+    "stakes": "creating a fair government for the colony"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the Mayflower ship with 102 passengers. You have just spotted land after 66 days at sea, but there is a big problem. The ship landed in the wrong place -- you are in Massachusetts, not Virginia where you had permission to settle. That means the old rules do not apply here. Some passengers say, 'Since there are no rules, I can do whatever I want!' Arguments are breaking out. The group needs a plan before anyone goes ashore. What do you propose?",
+      "choices": [
+        {
+          "id": "write-compact",
+          "text": "Propose that everyone sit down together and write a set of fair rules that everyone agrees to follow. Each person gets a voice, and the group votes on the rules.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "one-leader",
+          "text": "Pick the strongest person as the leader and let them make all the rules for everyone.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "no-rules",
+          "text": "Let everyone go ashore without rules and figure things out as problems come up.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Everyone gathers in the ship's cabin. You say, 'We are all in this together. Let us write rules that are fair for everyone, and we will all agree to follow them.' People share ideas. You vote on each rule. The final agreement says that the group will make laws together for the good of everyone, and everyone promises to obey those laws. Forty-one men sign the document (sadly, women were not allowed to sign at that time). With these rules in place, the group goes ashore united and ready to work together.",
+      "outcome": {
+        "result": "great",
+        "headline": "You Created Self-Government! Just Like the Real Mayflower Compact!",
+        "explanation": "This is exactly what the Pilgrims did! On November 11, 1620, they wrote and signed the Mayflower Compact -- one of the first documents of self-government in American history. The key idea was that the people themselves would create their own rules and agree to follow them. This was revolutionary because in most of the world, kings and queens made all the rules and nobody got to vote. The Mayflower Compact inspired the ideas that later became part of the Declaration of Independence and the U.S. Constitution.",
+        "keyTerms": [
+          {
+            "term": "Mayflower Compact",
+            "definition": "An agreement signed by the Pilgrims in 1620 to govern themselves with fair rules that everyone agreed to follow. One of the first documents of self-government in America."
+          },
+          {
+            "term": "Self-Government",
+            "definition": "When a group of people create their own rules and choose their own leaders, instead of being ruled by a king or someone far away."
+          },
+          {
+            "term": "Consent of the Governed",
+            "definition": "The idea that a government is only fair if the people it governs agree to the rules. This idea started with documents like the Mayflower Compact."
+          }
+        ],
+        "whatToRemember": "The fairest rules are the ones that everyone helps create. When people have a say in the rules, they are more likely to follow them.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "The group picks a strong, respected man as the single leader. He makes rules that he thinks are fair. At first, things go smoothly. But soon, some people complain that the rules favor certain families. Others feel left out of decisions. Arguments break out again. The leader tries his best, but it is impossible for one person to make everyone happy when they have no say.",
+      "outcome": {
+        "result": "okay",
+        "headline": "One Leader Cannot Please Everyone!",
+        "explanation": "Having a leader is important, but when one person makes ALL the rules without input from others, people feel powerless and unhappy. Throughout history, governments where one person holds all the power (called autocracies or monarchies) often led to unfairness. The Pilgrims understood that giving everyone a voice would create a stronger, more united community.",
+        "whatToRemember": "A good leader listens to the people and includes them in making decisions. Rules work best when everyone has a voice.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Everyone rushes ashore with no rules and no plan. Within days, arguments explode. People fight over the best land, the best food, and who has to do the hard work. Some people take more than their share. Others refuse to help build shelters. Without rules, the strong bully the weak and nothing gets done. The colony is in chaos before it even begins.",
+      "outcome": {
+        "result": "bad",
+        "headline": "No Rules, No Order! Chaos!",
+        "explanation": "Without agreed-upon rules, groups fall apart. This is true for classrooms, sports teams, and entire countries. Rules are not meant to take away freedom -- they are meant to make sure everyone is treated fairly and the group can work together. The Pilgrims knew that without rules, their colony would fail. That is why they sat down and wrote the Mayflower Compact before anyone left the ship.",
+        "whatToRemember": "Every group needs fair rules to work together. Without rules, the strongest take advantage and the group falls apart.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

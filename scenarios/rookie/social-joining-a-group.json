@@ -1,0 +1,95 @@
+{
+  "id": "rookie-social-joining-a-group",
+  "title": "Can I Play Too?",
+  "sport": [
+    "social"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "friendship",
+  "tags": [
+    "joining-in",
+    "groups",
+    "confidence",
+    "fundamentals"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 6,
+    "emotion": "hopeful",
+    "context": "recess kickball game"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "At recess, a group of kids are playing kickball and it looks like a blast. You really want to join but the game already started. You know a couple of the kids but not all of them. They seem like they're having a great time. What do you do?",
+      "choices": [
+        {
+          "id": "ask-to-join",
+          "text": "Wait for a break in the action, then walk up and say, 'Hey, that looks fun! Can I join the next round?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-join",
+          "text": "Run onto the field and start playing without asking anyone.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "give-up",
+          "text": "Watch from the sideline the whole recess, wishing you were playing.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You wait for the right moment and ask to join. One of the kids you know says, 'Yeah! We need another player on our team!' The other kids welcome you in. You kick a double on your first turn and everyone cheers. By the end of recess, the kids you didn't know before are high-fiving you and saying, 'You should play with us every day!'",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Timing and Great Manners!",
+        "explanation": "You did two things really well: you waited for a good moment to ask, and you asked politely instead of just barging in. When you respect the game that's already happening, people are much more likely to welcome you. Timing matters -- waiting for a natural pause shows you understand and respect what's going on.",
+        "keyTerms": [
+          {
+            "term": "Reading the Room",
+            "definition": "Paying attention to what's happening around you and picking the right moment to act."
+          },
+          {
+            "term": "Asking Permission",
+            "definition": "Checking with the group before joining in. It shows respect for the game and the players."
+          },
+          {
+            "term": "Social Timing",
+            "definition": "Knowing when the right moment is to speak up or join in."
+          }
+        ],
+        "whatToRemember": "Wait for the right moment, then ask politely. People love including someone who respects the game.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You run onto the field in the middle of the action. A couple of kids look confused. One says, 'Uh, we didn't know you were playing.' It's a little awkward but they let you stay. Things feel tense for a few minutes until you finally relax into the game. You're in, but it took a while to feel welcome.",
+      "outcome": {
+        "result": "okay",
+        "headline": "In the Game, But Off to a Rocky Start",
+        "explanation": "Jumping in without asking put the other kids in an awkward spot. They didn't want to be mean, but they also didn't get a choice about including you. When you ask first, people feel respected and they're much more likely to genuinely welcome you. A quick 'can I play?' would have made this way smoother.",
+        "whatToRemember": "Don't just jump in -- ask first. It's a small step that makes a big difference in how welcome you feel.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You stand on the sideline for all of recess, watching and wishing. The kids having fun don't even know you wanted to play. When the bell rings, you walk back to class feeling disappointed. Your friend says, 'Why didn't you just come play?' You realize they would have said yes if you had only asked.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Watching From the Sideline",
+        "explanation": "Not asking means the answer is always no. The other kids weren't trying to leave you out -- they didn't even know you wanted to play! Fear of being told no kept you from having fun. The truth is, most kids will say yes when you ask to join. And even if they say the teams are full, they'll usually add you next round.",
+        "whatToRemember": "You miss every chance you don't take. Asking might feel scary, but watching from the sideline feels worse.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "tball-golf-keeping-score",
+  "title": "Count Every Swing",
+  "sport": ["golf"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "putting",
+  "tags": ["scoring", "honesty", "basics"],
+  "setup": {
+    "hole": 4,
+    "par": 3,
+    "distance": 2,
+    "lie": "green",
+    "score": "+3"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just finished hole 4, a par 3. You hit your tee shot, then chipped onto the green, then putted twice to get the ball in the hole. That is 4 swings total. Par is 3. Your friend asks, 'What did you get on that hole?' What do you say?",
+      "choices": [
+        { "id": "best", "text": "I got a 4! That is one over par -- called a bogey.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "I think I got a 3? I lost count of my swings.", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "I got a 2! I want a better score so I will not count all my swings.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Honest Golfer! Great Score Keeping!",
+        "explanation": "You counted every swing honestly. In golf, every swing counts -- even the ones that do not go very far. A 4 on a par 3 is called a bogey, and that is totally fine! Golf is one of the only sports where YOU keep your own score. Honesty is the most important rule in golf.",
+        "whatToRemember": "Count every single swing, even the bad ones. A bogey is one over par. Being honest about your score is what makes golf special.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Par", "definition": "The number of swings a good golfer is expected to need on a hole. A par 3 means three swings is the target." },
+          { "term": "Bogey", "definition": "A score of one over par on a hole. If par is 3 and you take 4 swings, that is a bogey." },
+          { "term": "Stroke", "definition": "Another word for a swing in golf. Every time you swing at the ball, it counts as one stroke." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Oops! Lost Count",
+        "explanation": "It is easy to lose count, especially when you are learning. But in golf, it is important to count every swing. A good trick is to count your swings out loud or on your fingers as you go. Try saying the number after each shot: one, two, three, four.",
+        "whatToRemember": "Count your swings as you play each hole. Say the number after each shot so you do not forget. It gets easier with practice.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "That Is Not Honest!",
+        "explanation": "Saying you got a 2 when you really got a 4 is cheating. Golf is built on honesty because there are no referees watching every shot. You keep your own score, and other golfers trust you to be truthful. A high score is ALWAYS better than a fake low score.",
+        "whatToRemember": "Never lie about your score. Golf is a game of honor. It does not matter if you shoot high -- what matters is that you are honest.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "rookie-golf-reading-greens",
+  "title": "Which Way Will It Break?",
+  "sport": ["golf"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "putting",
+  "tags": ["reading greens", "putting", "slope"],
+  "setup": {
+    "hole": 14,
+    "par": 4,
+    "distance": 12,
+    "lie": "green",
+    "score": "E"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your ball is 12 feet from the hole on the green. You can see the green slopes from left to right -- the left side is higher than the right side. This means gravity will pull your ball to the right as it rolls. Where do you aim your putt?",
+      "choices": [
+        { "id": "best", "text": "Aim a little to the left of the hole so the slope will curve the ball back toward the cup", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Aim straight at the hole and hit it really hard so the slope does not matter", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Aim to the right of the hole because you like to aim where you want the ball to go", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Read! The Ball Curves Right In!",
+        "explanation": "You aimed left and made a smooth stroke. The ball started left of the hole, then gravity pulled it to the right as it rolled, and it curved perfectly into the cup! That is called reading the green. You looked at the slope, figured out which way the ball would curve, and aimed to the high side. Smart golf!",
+        "whatToRemember": "Always look at the slope of the green before you putt. Aim to the high side and let gravity curve the ball toward the hole. This is called playing the break.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Break", "definition": "The curve a putt takes because of the slope in the green. If the green tilts left to right, the ball will break to the right." },
+          { "term": "Reading the Green", "definition": "Looking at the slope and tilt of the green to figure out which way your putt will curve." },
+          { "term": "High Side", "definition": "The uphill side of the hole. Aiming to the high side lets gravity bring your ball back toward the cup." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close! It Lipped Out",
+        "explanation": "Hitting the ball really hard can reduce the break, but the ball caught the left edge of the cup and spun out. When you hit a putt too hard, the ball does not have time to fall into the hole even if it hits the edge. A softer putt with the right aim would have dropped in.",
+        "whatToRemember": "Speed and line work together. Hitting harder makes the ball break less, but it also means the ball can lip out of the hole instead of dropping in.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Way! The Ball Rolled Far Past",
+        "explanation": "Aiming to the right on a left-to-right slope means you aimed downhill. The ball curved even MORE to the right and ended up far from the hole. When the green slopes one direction, you need to aim the opposite way to let the ball curve back. Think of it like rolling a ball across a tilted table.",
+        "whatToRemember": "Aim OPPOSITE the slope, not with it. If the green tilts right, aim left. If it tilts left, aim right. Let the hill bring the ball back to the hole.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "rookie-golf-full-swing",
+  "title": "Swing Through the Ball",
+  "sport": ["golf"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "tee-shot",
+  "tags": ["full swing", "tempo", "fundamentals"],
+  "setup": {
+    "hole": 10,
+    "par": 4,
+    "distance": 280,
+    "lie": "tee box",
+    "score": "E"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the tee box of a long par 4. The fairway is wide and straight ahead. You want to hit your driver as far as you can. What is the best way to swing?",
+      "choices": [
+        { "id": "best", "text": "Take a smooth, full backswing and swing through the ball at an even tempo, finishing with your belt buckle facing the target", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Swing as hard and fast as you possibly can to hit it far", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stop your swing right after you hit the ball to make sure you hit it straight", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Pure Strike! Right Down the Middle!",
+        "explanation": "A smooth, full swing with good tempo sends the ball soaring down the middle of the fairway. The secret to distance is not swinging harder -- it is swinging smoother. When you finish your swing with your body facing the target, it means you swung all the way through the ball instead of stopping.",
+        "whatToRemember": "Smooth is far! A controlled full swing with a balanced finish will hit the ball farther and straighter than a wild, hard swing.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Tempo", "definition": "The speed and rhythm of your golf swing. Good tempo means a smooth, even pace from start to finish." },
+          { "term": "Follow-Through", "definition": "The part of the swing after you hit the ball. A full follow-through means you swung all the way through, not just at, the ball." },
+          { "term": "Fairway", "definition": "The short, well-kept grass between the tee box and the green. Landing in the fairway gives you the best next shot." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Long, But Crooked!",
+        "explanation": "Swinging super hard gave you some extra power, but you lost control. The ball went far but sliced way off to the right into the rough. When you swing too hard, your body gets ahead of your arms and the clubface opens up. A smooth swing gives you distance AND accuracy.",
+        "whatToRemember": "Swinging harder does not always mean hitting farther. Control your tempo and let the club do the work. Accuracy matters more than power.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Thud! The Ball Goes Nowhere",
+        "explanation": "Stopping your swing right at the ball is called decelerating, and it takes all the power out of your shot. The ball barely gets off the ground and rolls only about 50 yards. Your swing needs to go THROUGH the ball, not stop AT the ball. Think of it like throwing a ball -- you do not stop your arm the moment it leaves your hand.",
+        "whatToRemember": "Always swing through the ball, not at it. Your club should keep moving long after the ball is gone. Stopping at impact kills your distance.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

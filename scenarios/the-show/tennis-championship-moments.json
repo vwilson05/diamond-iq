@@ -1,0 +1,62 @@
+{
+  "id": "the-show-tennis-championship-moments",
+  "title": "The Final Point",
+  "sport": ["tennis"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["championship", "elite", "clutch", "composure"],
+  "setup": {
+    "set": 3,
+    "game": "6-5",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Championship match, final set. You are up 6-5 and serving at 40-30. The crowd is going wild. Your opponent has saved three match points already and the pressure is enormous. You are in a rally and see a short ball. This could be the last shot of the match. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Stay composed, move forward to the short ball, and hit a confident approach shot to the open court -- play the shot, not the moment", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Slam the ball as hard as you possibly can from wherever you are standing, hoping sheer power ends it", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hesitate because you are scared of missing such an important shot, and end up hitting a soft ball right back to your opponent", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Champion! You won the title!",
+        "explanation": "By treating it like any other short ball, you moved forward calmly and hit a clean approach to the open side. Your opponent lunged but could not reach it. The crowd erupts. You are the champion.",
+        "whatToRemember": "Champions play the shot, not the scoreboard. The biggest moments require the calmest minds. Trust your training, execute your plan, and let the result take care of itself.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Composure", "definition": "The ability to stay calm, focused, and execute your skills under extreme pressure. Composure is what separates great players from good ones in championship moments" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Wild swing, just caught the line!",
+        "explanation": "Your massive swing barely caught the back line. It could have easily gone out. You won, but it was more luck than skill. In other matches, that shot misses nine times out of ten.",
+        "whatToRemember": "You cannot count on luck in big moments. A controlled, smart shot beats a wild swing every time. Save the celebrations for after the shot lands in.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Fear cost you the point!",
+        "explanation": "Hesitation turned an attackable short ball into a gift for your opponent. They pounced on your weak reply and ripped a winner. Now it is deuce again and they have all the belief. Fear of missing is worse than actually missing.",
+        "whatToRemember": "On big points, commit fully to your shot. Hesitation is the enemy. It is better to miss going for the right shot than to give a free point because you were afraid.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

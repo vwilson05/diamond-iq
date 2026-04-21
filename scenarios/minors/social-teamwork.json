@@ -1,0 +1,95 @@
+{
+  "id": "minors-social-teamwork",
+  "title": "The Group Project",
+  "sport": [
+    "social"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "leadership",
+  "tags": [
+    "teamwork",
+    "collaboration",
+    "roles",
+    "social-iq"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "stressed",
+    "context": "group science project due Friday"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your group has a science project due Friday and it's already Wednesday. You have four people in your group: you, Kai, Priya, and Josh. Kai has been doing most of the work. Priya keeps saying she'll do her part but hasn't started. Josh is confused about what he's supposed to do. Kai looks exhausted and frustrated. The project is only half done. What do you do?",
+      "choices": [
+        {
+          "id": "organize-the-team",
+          "text": "Call a quick team meeting and say, 'Okay, let's figure this out together. Kai, what still needs to be done? Let's split it up so nobody is carrying the whole thing.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "do-your-part-only",
+          "text": "Just focus on finishing your own section really well. It's not your job to manage everyone else.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "complain-about-priya",
+          "text": "Tell the teacher that Priya isn't doing her part and ask for a different group.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You pull the group together and make a quick list of everything left to do. Kai looks relieved that someone else stepped up. You help Josh understand his part, and you directly ask Priya, 'Can you do the poster board section tonight? We're counting on you.' Priya nods and says, 'Okay, I'll get it done.' By Friday, every section is done and the project looks great. Your teacher says, 'This group clearly worked well together!' Kai gives you a grateful fist bump.",
+      "outcome": {
+        "result": "great",
+        "headline": "Team Leader Steps Up!",
+        "explanation": "You didn't wait for someone else to fix the problem. You organized the team, made sure everyone knew their role, and held people accountable in a respectful way. Real teamwork isn't about everyone doing their own thing separately -- it's about communicating, checking in, and helping each other succeed. Great teams need someone willing to step up and organize when things get off track.",
+        "keyTerms": [
+          {
+            "term": "Teamwork",
+            "definition": "Working together toward a shared goal, with everyone doing their part and helping each other."
+          },
+          {
+            "term": "Accountability",
+            "definition": "Making sure everyone follows through on what they promised to do."
+          },
+          {
+            "term": "Delegation",
+            "definition": "Dividing up tasks so the work is spread fairly and everyone has a clear job."
+          }
+        ],
+        "whatToRemember": "When a team is struggling, be the person who steps up to organize. Clear roles and communication fix most team problems.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Your section is great, but the rest of the project is uneven. Kai's part is good but rushed because he did too much. Josh's part doesn't quite fit because nobody helped him. Priya's section is done last minute and it shows. Your teacher gives the group a B-minus and says, 'The quality is inconsistent. It looks like you didn't work together.' Everyone is a little disappointed.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Your Part Was Good, But Teams Rise and Fall Together",
+        "explanation": "In a group project, your individual grade depends on the whole group. Doing your own part well is important, but ignoring the team's struggles means the final result suffers. It would have taken just a few minutes to help organize the group, and the whole project would have been better. In teams, helping others succeed helps you succeed.",
+        "whatToRemember": "A team is only as strong as its weakest link. Helping your teammates helps the whole team, including you.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "The teacher says you can't switch groups this late. Priya overhears that you complained about her and says, 'I was going to do my part! You could have just talked to me!' Now Priya is upset, the group mood is terrible, and nobody wants to work together. The project barely gets finished and the quality shows it. Your teacher says, 'This group needed better communication, not complaints.'",
+      "outcome": {
+        "result": "bad",
+        "headline": "Going Over Someone's Head Made It Worse",
+        "explanation": "Instead of talking to Priya directly, you went to the teacher, which felt like tattling. This made Priya defensive and hurt the team's trust. Most team problems can be solved by honest, direct communication first. If Priya still didn't do her part after a direct conversation, then involving the teacher would make more sense. Always try to solve it within the team first.",
+        "whatToRemember": "Talk to your teammate before talking about them. Direct communication solves most team problems.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

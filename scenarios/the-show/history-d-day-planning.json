@@ -1,0 +1,96 @@
+{
+  "id": "the-show-history-d-day-planning",
+  "title": "D-Day Invasion Planning",
+  "sport": [
+    "history"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "world-war-2",
+    "d-day",
+    "strategy",
+    "planning",
+    "leadership"
+  ],
+  "setup": {
+    "era": "1944",
+    "role": "Allied planning officer",
+    "location": "London, England",
+    "stakes": "liberating Europe"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is June 1944. You are on General Eisenhower's planning team for Operation Overlord -- the Allied invasion of Nazi-occupied France across the English Channel. This will be the largest sea invasion in history. The plan calls for landing thousands of troops on the beaches of Normandy. But a major storm is blowing through the Channel. The invasion was supposed to happen today, June 5th, but the weather is terrible. Your weather expert says there might be a brief window of better weather on June 6th, but it is not certain. If you wait past June 6th, the tides will not be right for two more weeks, and keeping the invasion secret for that long is nearly impossible. What do you recommend to General Eisenhower?",
+      "choices": [
+        {
+          "id": "go-june-6",
+          "text": "Recommend going on June 6th during the weather window. The risk is real, but the tides are right, the troops are ready, and any more delay risks losing the element of surprise.",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "wait-two-weeks",
+          "text": "Recommend waiting two weeks for the next favorable tide. Better weather will mean a safer landing.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "different-beach",
+          "text": "Recommend changing the entire plan and attacking at a completely different location where the weather might be better.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "General Eisenhower listens carefully and says the words that will change history: 'OK, let's go.' On the morning of June 6, 1944, the weather clears just enough. Over 156,000 Allied troops from America, Britain, Canada, and other nations storm five beaches in Normandy. The enemy is caught off guard partly because they thought the storm made an invasion impossible. It is a terrible, costly day -- many brave soldiers do not survive the beaches. But by nightfall, the Allies have a foothold in France. This is the beginning of the end of the war in Europe. Within a year, the war is over.",
+      "outcome": {
+        "result": "great",
+        "headline": "D-Day: The Decision That Changed the World!",
+        "explanation": "This is exactly what happened. General Dwight D. Eisenhower made one of the most consequential decisions in history when he said 'OK, let's go' on the night of June 5, 1944. The brief weather window his meteorologist predicted turned out to be real. The Germans did not expect an invasion in bad weather, which helped the Allies achieve surprise. D-Day was the largest seaborne invasion ever, involving over 5,000 ships and 11,000 aircraft. The bravery of the soldiers who landed on those beaches -- from many different countries -- helped free Europe from Nazi control. It is important to honor their sacrifice and remember that war brings terrible suffering, even in a just cause.",
+        "keyTerms": [
+          {
+            "term": "D-Day",
+            "definition": "June 6, 1944 -- the day Allied forces invaded Nazi-occupied France at Normandy. It was the turning point of World War II in Europe."
+          },
+          {
+            "term": "Operation Overlord",
+            "definition": "The code name for the Allied invasion of Normandy. It was the largest sea invasion in human history, requiring years of planning."
+          },
+          {
+            "term": "Calculated Risk",
+            "definition": "A decision where you accept some danger because the potential reward is worth it and you have done everything possible to prepare."
+          }
+        ],
+        "whatToRemember": "Great leaders gather the best information they can, weigh the risks, and then make a decision even when the outcome is uncertain. Waiting for perfect conditions sometimes means waiting forever.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You recommend waiting. The troops stand down and return to their camps. But keeping 156,000 soldiers hidden and the invasion plans secret for two more weeks proves nearly impossible. German spies pick up hints that something big is coming. When the invasion finally happens two weeks later, the Germans have reinforced their defenses at Normandy. The landing is much harder and costlier than it would have been on June 6th. The Allies eventually succeed, but the delay cost many additional lives.",
+      "outcome": {
+        "result": "okay",
+        "headline": "The Delay Cost the Element of Surprise!",
+        "explanation": "In real life, Eisenhower knew that delay was almost as dangerous as bad weather. The longer the invasion was postponed, the greater the chance that the secret would leak. Hundreds of thousands of troops were packed into southern England, and it was incredibly difficult to keep that hidden. The element of surprise was one of the Allies' greatest advantages. The real German commander, Field Marshal Rommel, actually went home on leave on June 5th because he thought the bad weather made an invasion impossible. Surprise was a weapon as powerful as any tank or plane.",
+        "whatToRemember": "In strategy, timing is everything. A good plan executed at the right time beats a perfect plan executed too late. Delay has its own risks.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You suggest attacking at a completely different location. But the entire plan -- years of intelligence gathering, supply buildup, troop positioning, deception operations, and specialized equipment -- was designed specifically for Normandy. Changing everything now would take months of replanning. Meanwhile, the troops grow restless, secrecy crumbles, and the window of opportunity closes. The invasion is delayed indefinitely, giving the enemy more time to strengthen their defenses all along the coast.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Scrapping the Plan Was a Disaster!",
+        "explanation": "Operation Overlord took over a year to plan. The Allies built specialized landing craft, trained troops for specific beaches, created elaborate deception plans (including a fake army led by General Patton to fool the Germans), and gathered intelligence on every detail of the Normandy defenses. Throwing all of that away to start over would have been catastrophic. This is why planning and commitment matter -- once a massive operation is set in motion, you work with the plan you have and adapt along the way rather than starting from scratch.",
+        "whatToRemember": "When you have invested heavily in a plan, adapt it rather than abandon it. Starting over from scratch in a crisis wastes everything you have already built.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

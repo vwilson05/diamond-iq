@@ -1,0 +1,62 @@
+{
+  "id": "rookie-tennis-court-positioning",
+  "title": "Recover to the Middle",
+  "sport": ["tennis"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "defense",
+  "tags": ["positioning", "fundamentals", "footwork"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just hit a forehand from the right side of the court. Your opponent is about to hit the ball back. Where should you move after your shot?",
+      "choices": [
+        { "id": "best", "text": "Shuffle quickly back to the center of the baseline so you can cover both sides of the court", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stay where you are on the right side and wait to see where the ball goes", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Run all the way to the left side of the court because you think the ball will go there", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect recovery!",
+        "explanation": "Moving back to the center after every shot means you can reach balls hit to either side. Your opponent tried to hit to the open left side but you were already there.",
+        "whatToRemember": "After every shot, recover to the center of the baseline. This is called recovering and it keeps you ready for anything.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Recovery", "definition": "Moving back to the center of the court after hitting a shot so you are in the best position to reach your opponent's next shot" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Caught on the wrong side!",
+        "explanation": "By staying on the right side, you left the entire left side of the court open. Your opponent hit an easy crosscourt shot that you had to sprint for and barely reached.",
+        "whatToRemember": "Never stand still after a shot. Always start moving back toward the center right away.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You guessed wrong!",
+        "explanation": "Running to one side before seeing where the ball is going is just guessing. Your opponent hit it right back to the spot you just left, and you were way out of position.",
+        "whatToRemember": "Do not guess where the ball will go. Recover to the middle and react to the actual shot.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

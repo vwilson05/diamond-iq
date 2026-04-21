@@ -1,0 +1,95 @@
+{
+  "id": "the-show-social-mediating-between-friends",
+  "title": "Caught in the Middle",
+  "sport": [
+    "social"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "conflict",
+  "tags": [
+    "mediation",
+    "neutrality",
+    "conflict",
+    "elite"
+  ],
+  "setup": {
+    "situation": "playground",
+    "people": 3,
+    "emotion": "torn",
+    "context": "two best friends are fighting and both want you to pick a side"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your two best friends, Ava and Sophia, had a huge fight yesterday. Ava says Sophia told her secret to the whole class. Sophia says it slipped out by accident and Ava is overreacting. Now they're both coming to you separately, saying, 'You're my friend -- you have to be on MY side.' Ava is at one end of the playground. Sophia is at the other. They both want an answer right now. What do you do?",
+      "choices": [
+        {
+          "id": "mediate",
+          "text": "Say to both: 'I'm friends with both of you and I'm not picking sides. But I'll help you talk it out if you want. Can we all sit down together?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "pick-a-side",
+          "text": "Decide who you think is right and tell the other person they should apologize.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "avoid-both",
+          "text": "Tell them both, 'Leave me out of it. This isn't my problem,' and go play somewhere else.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Both friends are reluctant, but they agree to sit down together because they trust you. You let Ava go first: 'Tell Sophia how you felt.' Ava says, 'It was my private thing and now everyone knows. I feel embarrassed.' Then Sophia says, 'I'm so sorry. It came out when I was talking about something else and I couldn't stop it. I feel awful.' They look at each other. Ava says quietly, 'Just please don't do it again.' Sophia nods. 'I promise.' They hug. You didn't fix it -- you just created the space for THEM to fix it. Both say thank you.",
+      "outcome": {
+        "result": "great",
+        "headline": "Master Mediator! Friendship Saved!",
+        "explanation": "Mediation is one of the most advanced social skills there is. You did three critical things: refused to take sides, brought both people together, and let them each share their feelings. Notice you didn't tell anyone what to do or who was right. You just created a safe space for honest conversation. Real mediators know that people can usually solve their own problems if someone just helps them communicate. You were that bridge.",
+        "keyTerms": [
+          {
+            "term": "Mediation",
+            "definition": "Helping two people in conflict talk through their issue without taking sides or judging."
+          },
+          {
+            "term": "Neutrality",
+            "definition": "Not favoring one side over the other. A mediator's power comes from being trusted by BOTH people."
+          },
+          {
+            "term": "Active Facilitation",
+            "definition": "Guiding a conversation by letting each person speak, making sure they feel heard, and keeping things respectful."
+          }
+        ],
+        "whatToRemember": "Don't pick sides. Bring people together, let each person speak, and trust that they can work it out with a little help.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You tell Sophia she should apologize because sharing secrets is wrong. Sophia does apologize, but she also feels like you ganged up on her with Ava. She's quieter around you for a while. Ava feels validated, but the friendship between all three of you has a weird energy now. Sophia starts hanging out with other people more.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Picked a Side, and It Cost Something",
+        "explanation": "Even if you thought one person was more wrong, picking a side in a friend fight creates winners and losers. Sophia felt judged and outnumbered, which pushed her away. In most conflicts between friends, both people have a point and both people are hurting. A mediator helps both people see each other's perspective instead of declaring a winner.",
+        "whatToRemember": "Friend fights rarely have a clear right and wrong. Picking sides might solve today's problem but create tomorrow's.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Both Ava and Sophia feel abandoned by you. Ava says, 'I thought you were my friend.' Sophia says the same thing. Their fight gets worse because neither of them has anyone to talk to. By the end of the week, the friend group has split apart. You weren't the cause of the fight, but by refusing to help when your friends needed you, you let it destroy the group.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Staying Out of It Let It Fall Apart",
+        "explanation": "It's understandable to not want to be in the middle of drama. But when two people you care about are hurting and asking for your help, 'it's not my problem' feels like 'I don't care about either of you.' You didn't have to pick a side -- you could have helped them talk. Being a good friend sometimes means being uncomfortable so your friends can heal. Your role wasn't to be a judge. It was to be a bridge.",
+        "whatToRemember": "You don't have to pick a side to help. But walking away from friends in pain is a choice that has consequences.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

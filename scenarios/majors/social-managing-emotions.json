@@ -1,0 +1,95 @@
+{
+  "id": "majors-social-managing-emotions",
+  "title": "The Frustration Valve",
+  "sport": [
+    "social"
+  ],
+  "tier": "majors",
+  "impact": 4,
+  "role": "communication",
+  "tags": [
+    "emotions",
+    "self-regulation",
+    "anger-management",
+    "advanced"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "furious",
+    "context": "unfair situation in class"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You studied really hard for a math test and you know you got the right answers. But the teacher marked three of your answers wrong. When you look closely, you realize SHE made the grading mistake -- your answers match the answer key exactly. You raise your hand to tell her, but she says, 'I'll look at it later, I'm busy right now.' You feel your blood boiling. This is NOT fair and your grade is wrong RIGHT NOW. What do you do?",
+      "choices": [
+        {
+          "id": "manage-the-feeling",
+          "text": "Take three slow breaths. Write a polite note explaining the errors and put it on her desk. Tell yourself, 'She said she'll look at it later. I can wait.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "keep-pushing",
+          "text": "Raise your hand again and say firmly, 'But this is really important and my grade is wrong.'",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "blow-up",
+          "text": "Stand up and say loudly, 'This isn't fair! You graded it wrong and you won't even look at it!'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "You take your breaths and write a clear, calm note: 'Hi, I think questions 4, 7, and 12 might have grading errors. My answers match the answer key. Can you please re-check? Thank you.' After class, the teacher reads your note, checks the test, and says, 'You're absolutely right. I'm sorry about that. I'm fixing your grade right now.' She adds, 'Thank you for handling that so maturely. A lot of kids would have made a scene.' Your grade gets fixed AND your teacher respects you more.",
+      "outcome": {
+        "result": "great",
+        "headline": "Calm and Effective -- The Best Combination!",
+        "explanation": "Your anger was completely justified. The grade was wrong and that matters. But HOW you handle justified anger determines the outcome. By managing your frustration and communicating clearly, you got exactly what you wanted: a fixed grade. And you earned your teacher's respect in the process. Managing emotions doesn't mean not feeling them -- it means choosing how to express them so they work FOR you instead of against you.",
+        "keyTerms": [
+          {
+            "term": "Emotional Regulation",
+            "definition": "The ability to manage strong feelings so you can respond thoughtfully instead of reacting impulsively."
+          },
+          {
+            "term": "Assertive Communication",
+            "definition": "Expressing your needs clearly and firmly while still being respectful."
+          },
+          {
+            "term": "Self-Advocacy",
+            "definition": "Standing up for yourself in a calm, effective way when something isn't right."
+          }
+        ],
+        "whatToRemember": "You can be upset AND calm at the same time. Managing your emotions doesn't mean ignoring them -- it means channeling them effectively.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "The teacher sighs and says, 'I said I'll look at it later. Please be patient.' You sit down, still frustrated. She does fix it at the end of the day, but she seemed annoyed. The grade gets corrected, but the interaction left a slightly sour feeling between you and the teacher.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Persistent, But Pushing the Line",
+        "explanation": "Your frustration was valid and you weren't rude. But pushing when someone has already said 'later' can come across as not respecting their time. The teacher was in the middle of class with other students. Sometimes the best thing you can do is accept the timing, even when the situation feels urgent. Your grade would have been fixed either way -- the written note approach would have been smoother.",
+        "whatToRemember": "Being right doesn't mean right now. Sometimes waiting for the right moment gets you a better result.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "The whole class goes quiet. The teacher's expression hardens. 'Sit down. We'll discuss this AND your behavior after class.' You're sent to the hallway. Later, the teacher does fix your grade -- but she also calls your parents about the outburst. You were right about the grade but wrong about how you handled it. Being right didn't protect you from the consequences of blowing up.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Right About the Grade, Wrong About the Approach",
+        "explanation": "This is one of the hardest lessons: you can be 100% right about the facts and still make things worse by how you react. Your grade was wrong. That's a fact. But standing up and yelling in class turned a grading error into a behavior problem. Now instead of just getting your grade fixed, you also have to deal with a parent call and a damaged relationship with your teacher. The truth doesn't change based on how loud you say it.",
+        "whatToRemember": "Being right and being effective are two different things. Blowing up turns people against your message, even when the message is correct.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

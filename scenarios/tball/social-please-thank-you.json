@@ -1,0 +1,95 @@
+{
+  "id": "tball-social-please-thank-you",
+  "title": "The Magic Words",
+  "sport": [
+    "social"
+  ],
+  "tier": "tball",
+  "impact": 1,
+  "role": "communication",
+  "tags": [
+    "manners",
+    "please",
+    "thank-you",
+    "basics"
+  ],
+  "setup": {
+    "situation": "cafeteria",
+    "people": 3,
+    "emotion": "hungry",
+    "context": "lunchtime at school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's lunchtime and you are super hungry! You sit down at the table with your friend Jayden. You open your lunchbox and realize you forgot a spoon for your yogurt. Jayden has an extra spoon in his lunchbox. You really need that spoon! What do you say?",
+      "choices": [
+        {
+          "id": "ask-politely",
+          "text": "Say, 'Jayden, could I please borrow your extra spoon? That would be really nice of you!'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "ask-plain",
+          "text": "Say, 'Jayden, can I have that spoon?'",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "just-grab",
+          "text": "Reach over and grab the spoon from his lunchbox without asking.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Jayden smiles and hands you the spoon right away. 'Sure, here you go!' he says. You say, 'Thank you so much!' as you take it. Jayden looks happy that you asked so nicely. You both eat lunch together and have a great time talking about your favorite cartoons. Jayden says, 'You can sit with me anytime!'",
+      "outcome": {
+        "result": "great",
+        "headline": "Magic Words Work Like Magic!",
+        "explanation": "Saying 'please' when you ask for something and 'thank you' when you get it are called magic words because they really do work like magic. When you use them, people feel respected and happy to help you. Jayden was glad to share because you asked in a kind way. Good manners make everyone feel good.",
+        "keyTerms": [
+          {
+            "term": "Please",
+            "definition": "A polite word you say when you are asking for something. It shows you are asking, not demanding."
+          },
+          {
+            "term": "Thank You",
+            "definition": "Words you say when someone does something nice for you. It shows you appreciate their help."
+          },
+          {
+            "term": "Manners",
+            "definition": "The polite ways we talk to and treat other people."
+          }
+        ],
+        "whatToRemember": "Please and thank you are small words that make a big difference. They show people you respect them.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Jayden pauses for a second, then says, 'Uh, sure.' He hands you the spoon. You take it and start eating your yogurt. It works out, but Jayden seems a little bothered that you didn't ask more nicely. He's quieter than usual during lunch.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got the Spoon, But It Felt Flat",
+        "explanation": "You did ask instead of just grabbing, which is good. But without saying 'please,' it sounded more like a demand than a request. And without saying 'thank you,' Jayden might feel like you didn't appreciate his help. Adding those magic words turns a plain request into a kind one.",
+        "whatToRemember": "Asking is good, but 'please' and 'thank you' turn a regular ask into a kind ask.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You reach into Jayden's lunchbox and grab the spoon. Jayden pulls his lunchbox away and says, 'Hey! That's mine! You didn't even ask!' He looks upset and moves to a different seat. Now you have a spoon but you lost your lunch buddy. The table feels empty and quiet.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Grabbed Without Asking -- Not Cool!",
+        "explanation": "Taking something without asking is not respectful, even if the other person has extra. Jayden felt like you didn't care about his things or his feelings. Everyone likes to be asked before someone takes their stuff. A simple 'please' and 'thank you' would have kept your friendship happy and your lunch fun.",
+        "whatToRemember": "Always ask before taking. Nobody likes having their things grabbed without permission.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "the-show-social-cultural-sensitivity",
+  "title": "Different Isn't Wrong",
+  "sport": [
+    "social"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "communication",
+  "tags": [
+    "cultural-sensitivity",
+    "diversity",
+    "respect",
+    "elite"
+  ],
+  "setup": {
+    "situation": "cafeteria",
+    "people": 5,
+    "emotion": "curious",
+    "context": "new student from another country at lunch"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A new student named Amara just moved from Ethiopia and joined your class. At lunch, she opens her container and the food looks and smells different from what most kids are eating. A kid at the next table wrinkles his nose and says loudly, 'Ew, what IS that?' Amara's face falls and she starts to close her container. You can see she's about to stop eating. What do you do?",
+      "choices": [
+        {
+          "id": "show-interest",
+          "text": "Sit next to Amara and say, 'Hey, that looks interesting! What is it? I've never tried Ethiopian food before.' Then tell the other kid, 'Don't be rude.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "defend-quietly",
+          "text": "Tell the kid to stop being mean, but don't sit with Amara.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "laugh-along",
+          "text": "Laugh at the comment. The food does look weird to you.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Amara looks relieved and opens her container back up. 'It's called injera with doro wot. It's like a spongy bread and you use it to scoop up the chicken stew. My mom makes it from scratch.' You say, 'That's awesome. My family just does sandwiches.' She laughs. She tears off a piece and offers you a taste. It's actually delicious -- warm and spicy. Other kids notice and start asking about it too. The kid who made the comment looks embarrassed. Amara says, 'This is the first time anyone asked about my food. Thank you.'",
+      "outcome": {
+        "result": "great",
+        "headline": "Curiosity and Courage -- A Powerful Combo!",
+        "explanation": "You did two things beautifully: you stood up against the rude comment AND you showed genuine interest in Amara's culture. Asking about someone's food, traditions, or background with real curiosity is one of the best ways to make them feel welcome. Different doesn't mean weird -- it means there's something new to learn. By sitting with Amara and treating her culture with respect, you made her feel like she belonged. That's cultural sensitivity in action.",
+        "keyTerms": [
+          {
+            "term": "Cultural Sensitivity",
+            "definition": "Being aware and respectful of cultural differences, and treating traditions different from yours with curiosity instead of judgment."
+          },
+          {
+            "term": "Inclusion",
+            "definition": "Actively making someone feel welcome and valued, especially when they might feel like an outsider."
+          },
+          {
+            "term": "Cultural Curiosity",
+            "definition": "Wanting to learn about other people's backgrounds, traditions, and experiences instead of judging what's unfamiliar."
+          }
+        ],
+        "whatToRemember": "When something is different from what you know, get curious, not judgmental. Every culture has something amazing to share.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You tell the kid to cut it out, which stops the comments. Amara gives you a grateful look. But you go back to your own table and she eats alone. The rude comments stopped, but Amara is still sitting by herself with food that everyone thinks is strange. She closes her container halfway through lunch and throws the rest away.",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Stopped the Harm But Didn't Build the Bridge",
+        "explanation": "Telling the kid to stop was the right call and it took courage. But Amara needed more than just the absence of meanness -- she needed the presence of kindness. Defending someone from a distance is good. Sitting WITH them is great. Amara throwing away her food means she still felt ashamed of something that should make her proud. One more step from you could have changed that.",
+        "whatToRemember": "Stopping cruelty is step one. Making someone feel welcomed and celebrated is the full journey.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "You laugh along, and Amara closes her container completely. She doesn't eat lunch. The next day, she brings a plain sandwich instead. She never brings her mom's cooking again. Weeks later, you overhear Amara tell another student, 'I used to love my mom's food but now I'm embarrassed by it.' Your laugh was one moment for you. For Amara, it changed how she feels about her own culture.",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Laugh That Cut Deep",
+        "explanation": "Laughing at someone's food is laughing at their family, their culture, and their identity. Amara didn't just lose her appetite that day -- she lost pride in who she is. When kids from different backgrounds see their culture mocked, they often start hiding the things that make them unique. Your laugh told Amara that being herself wasn't safe here. That's a heavy thing to carry, and it started with something you probably forgot about five minutes later.",
+        "whatToRemember": "Food, language, clothing, and traditions are part of who someone IS. Mocking them doesn't just hurt feelings -- it attacks identity.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

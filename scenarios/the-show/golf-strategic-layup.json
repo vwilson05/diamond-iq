@@ -1,0 +1,67 @@
+{
+  "id": "the-show-golf-strategic-layup",
+  "title": "The Thinking Player's Par",
+  "sport": ["golf"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "approach",
+  "tags": ["layup", "strategy", "course management", "elite"],
+  "setup": {
+    "hole": 16,
+    "par": 4,
+    "distance": 185,
+    "lie": "rough",
+    "score": "-2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are 2 under in a tournament, tied for the lead with 3 holes to play. Your approach on 16 missed the fairway and you are in the rough, 185 yards from a green guarded by water on the left and a deep bunker right. The rough is thick and you know long iron shots from the rough are unpredictable. The pin is back left, near the water. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Lay up to 80 yards with a wedge to the fairway. From thick rough at 185 yards, the chance of reaching the green cleanly is low. A controlled wedge from 80 gives you a realistic par.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Hit a 5-iron and try to reach the green, aiming at the center to avoid the water and bunker", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit a 5-iron right at the back-left pin to try to get close for birdie and pull ahead", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Layup! Wedge to 8 Feet!",
+        "explanation": "You wedged it to the fairway at 80 yards, then stuck your approach to 8 feet. That is a great par chance and a possible birdie. This is elite-level thinking. From thick rough, long irons are unreliable -- the grass gets between the clubface and ball, killing spin and control. By laying up to your favorite distance, you turned a dangerous 185-yard shot into a comfortable 80-yard shot. Protecting your lead means avoiding big numbers, not chasing birdies from bad positions.",
+        "whatToRemember": "When protecting a lead, avoid high-risk shots from bad lies. Laying up from thick rough to your best wedge distance gives you more control and protects against a blowup hole.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Flyer Lie", "definition": "When grass gets between the ball and clubface in the rough, reducing spin and making distance unpredictable. Long irons from flyer lies are very hard to control." },
+          { "term": "Favorite Distance", "definition": "The yardage you are most confident from, usually a full wedge distance like 80 or 100 yards. Smart layups target your favorite distance." },
+          { "term": "Protecting a Lead", "definition": "Playing strategically to avoid big mistakes when you are ahead in a tournament. Making pars from safe positions instead of chasing birdies from risky ones." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Came Up Short, But Safe",
+        "explanation": "The thick rough grabbed the club and the ball came out low and short, landing 30 yards shy of the green. You avoided the water, but now you have an awkward chip to a tough pin. From the rough at that distance, the result was unpredictable. You got an okay outcome, but it could easily have been in the water or bunker.",
+        "whatToRemember": "Long shots from thick rough are gambles. Even aiming at the center of the green, the result is hard to control. Recognize when the lie takes certain shots off the table.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "In the Water! Lead Gone!",
+        "explanation": "From thick rough, aiming at a pin guarded by water is an enormous risk. The ball came out hot with no spin, flew the green, and rolled into the water on the left. A penalty stroke later, you are scrambling to save double bogey. Your 2-shot lead evaporated on one reckless decision. The lie was bad, the target was dangerous, and the reward was not worth the risk.",
+        "whatToRemember": "Never aim at a water-side pin from the rough. Thick rough kills spin, which means you cannot stop the ball. When the lie is bad and the target is dangerous, lay up every single time.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

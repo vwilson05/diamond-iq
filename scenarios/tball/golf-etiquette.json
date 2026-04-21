@@ -1,0 +1,67 @@
+{
+  "id": "tball-golf-etiquette",
+  "title": "Be a Good Golf Buddy",
+  "sport": ["golf"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "putting",
+  "tags": ["etiquette", "sportsmanship", "basics"],
+  "setup": {
+    "hole": 7,
+    "par": 4,
+    "distance": 10,
+    "lie": "green",
+    "score": "+2"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the green and your friend is about to putt. They are trying really hard to make this one. You are standing nearby waiting for your turn. What should you do?",
+      "choices": [
+        { "id": "best", "text": "Stand still and stay quiet while your friend putts. Do not stand in the line between their ball and the hole.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand still but talk to another friend while the putt happens", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Walk around on the green right next to your friend while they are putting", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Golf Manners!",
+        "explanation": "You stood perfectly still and quiet while your friend putted. They made it! Good golf etiquette means being respectful when other players are hitting. In golf, everyone takes turns and we stay quiet and still during each other's shots. Your friend thanks you for being so respectful.",
+        "whatToRemember": "When someone else is hitting, stand still, stay quiet, and do not stand between their ball and the hole. This is called golf etiquette.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Etiquette", "definition": "The rules of good behavior on the golf course. Being quiet and still when others are hitting is the most important one." },
+          { "term": "Putting Line", "definition": "The invisible line between a player's ball and the hole. Never stand on or walk across someone's putting line." },
+          { "term": "Respect", "definition": "Treating other players the way you want to be treated. Golf is a game of honesty and respect." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Shh! Almost Right",
+        "explanation": "You stood still, which was good, but your talking distracted your friend. They missed the putt by just a little. Golf is different from most sports -- it is quiet when someone is hitting. Save the chatting for between shots.",
+        "whatToRemember": "Be quiet AND still when someone is putting. Talking can break a player's focus even if you are not moving.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Your Friend Missed Because of the Distraction",
+        "explanation": "Walking around on the green while someone is putting is a big no-no in golf. Your footsteps can make noise, your movement catches their eye, and you might even step on the line their ball needs to roll on. Your friend missed the putt and feels frustrated.",
+        "whatToRemember": "Never walk around on the green when someone is putting. Stand still, be quiet, and wait for your turn.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

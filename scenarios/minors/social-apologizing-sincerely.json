@@ -1,0 +1,95 @@
+{
+  "id": "minors-social-apologizing-sincerely",
+  "title": "More Than Just Sorry",
+  "sport": [
+    "social"
+  ],
+  "tier": "minors",
+  "impact": 4,
+  "role": "conflict",
+  "tags": [
+    "apology",
+    "accountability",
+    "sincerity",
+    "social-iq"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 3,
+    "emotion": "guilty",
+    "context": "you accidentally ruined a friend's art project"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You were goofing around in art class and accidentally knocked over a cup of paint water all over Elena's painting. She worked on it for THREE class periods and it was really good. Now the colors are all smeared and running together. Elena looks at her ruined painting and her eyes fill with tears. The whole table is staring at you. What do you do?",
+      "choices": [
+        {
+          "id": "sincere-apology",
+          "text": "Say, 'Elena, I am so sorry. That was my fault for messing around. Your painting was amazing and I feel terrible. Can I stay after class and help you start a new one?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "quick-sorry",
+          "text": "Say, 'Sorry!' and quickly sit back down, hoping she'll get over it.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "make-excuses",
+          "text": "Say, 'It was an accident! It's not a big deal, you can just paint another one.'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Elena is still upset, but she looks at you and says, 'Thank you for saying that. It really was my best work.' You stay after class and help her set up a new canvas. The art teacher gives you extra time to help her. While you work together, Elena says, 'I can tell you really meant that apology. We're okay.' She starts painting again and you hand her the colors she needs. Your friendship is actually stronger now than before.",
+      "outcome": {
+        "result": "great",
+        "headline": "A Real Apology Changes Everything!",
+        "explanation": "A sincere apology has four parts: saying what you did wrong, taking responsibility, showing you understand how the other person feels, and offering to make it right. You did all four. Elena was hurt, but your real apology showed her that you cared about her feelings, not just about getting out of trouble. The best apologies don't just use words -- they include actions too.",
+        "keyTerms": [
+          {
+            "term": "Sincere Apology",
+            "definition": "Saying sorry and really meaning it -- admitting what you did, understanding how it affected the other person, and trying to fix it."
+          },
+          {
+            "term": "Accountability",
+            "definition": "Owning up to your mistakes instead of blaming someone or something else."
+          },
+          {
+            "term": "Making Amends",
+            "definition": "Doing something to help fix or make up for the mistake you made."
+          }
+        ],
+        "whatToRemember": "A real apology has four parts: what you did, that it was your fault, that you understand their feelings, and how you'll help fix it.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Elena hears your quick 'sorry' but you've already turned away. She wipes her eyes and starts trying to salvage her painting alone. At lunch, she sits at a different table. When you wave at her, she gives a small wave back but doesn't smile. The trust between you is a little cracked. She forgives you eventually, but it takes longer than it needed to.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Sorry Isn't Enough By Itself",
+        "explanation": "A quick 'sorry' is better than nothing, but it can feel hollow when someone is really hurt. Elena spent three class periods on that painting, and a one-second apology didn't match the size of what happened. When you turn away quickly after apologizing, it looks like you're trying to escape the situation rather than own it. Taking a moment to really acknowledge her feelings would have meant so much more.",
+        "whatToRemember": "The size of your apology should match the size of the hurt. A quick 'sorry' only works for small things.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Elena stares at you in disbelief. 'Not a big deal? I worked on this for three classes!' She gets up and moves to another table. Your other classmates shake their heads. The art teacher says, 'You should think about how that felt from Elena's perspective.' For the rest of the week, Elena avoids you completely. You lost a friend over something that a real apology could have fixed.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Excuses Made Everything Worse",
+        "explanation": "Telling someone their feelings aren't a big deal is one of the worst things you can do after making a mistake. It says, 'I don't care how you feel.' Calling it 'just an accident' doesn't help either -- accidents still hurt, and the person who caused them is still responsible. Elena didn't need a perfect painting back. She needed to know that you cared about what happened to her.",
+        "whatToRemember": "Never tell someone their feelings are 'not a big deal.' An accident is still your responsibility. Own it fully.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

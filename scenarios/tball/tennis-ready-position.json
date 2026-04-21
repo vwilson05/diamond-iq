@@ -1,0 +1,62 @@
+{
+  "id": "tball-tennis-ready-position",
+  "title": "Get Ready to Move",
+  "sport": ["tennis"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "defense",
+  "tags": ["ready position", "basics", "footwork"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your opponent is about to hit the ball back to you. You are standing on your side of the court waiting. How should you stand to be ready?",
+      "choices": [
+        { "id": "best", "text": "Bend your knees, stay on the balls of your feet, and hold your racket out in front of you with both hands", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand up straight with your racket at your side and watch the ball", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Lean back on your heels and rest your racket on your shoulder", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect ready position!",
+        "explanation": "With your knees bent and weight on the balls of your feet, you can move quickly in any direction. Holding the racket in front lets you swing to either side fast.",
+        "whatToRemember": "Always get into ready position between every shot. Knees bent, racket out front, eyes on the ball.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Ready Position", "definition": "The stance you take between shots with knees bent, feet apart, and racket held in front so you can move quickly in any direction" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You saw the ball but reacted late!",
+        "explanation": "Standing straight means you have to bend down before you can move. That extra split second means you reach the ball a little late and your shot is weak.",
+        "whatToRemember": "Stay low and bouncy so you are ready to sprint to the ball the moment it is hit.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Caught flat-footed!",
+        "explanation": "Leaning back on your heels with the racket on your shoulder means you cannot react in time. The ball zooms past you before you even start to move.",
+        "whatToRemember": "Never rest on your heels during a point. Stay light on your feet and keep your racket ready.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

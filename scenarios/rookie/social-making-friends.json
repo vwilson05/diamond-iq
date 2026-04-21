@@ -1,0 +1,95 @@
+{
+  "id": "rookie-social-making-friends",
+  "title": "The Friendship Playbook",
+  "sport": [
+    "social"
+  ],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "friendship",
+  "tags": [
+    "making-friends",
+    "connection",
+    "interests",
+    "fundamentals"
+  ],
+  "setup": {
+    "situation": "cafeteria",
+    "people": 4,
+    "emotion": "hopeful",
+    "context": "new school year starting"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's the second week of school and you notice a kid named Devon sitting alone at lunch every day. Today you see he's reading a comic book that you also love -- Captain Cosmos! You want to be friends with him but you're not sure how to start. What do you do?",
+      "choices": [
+        {
+          "id": "common-interest",
+          "text": "Walk over and say, 'Hey, is that Captain Cosmos? I love that series! Which issue are you on? Mind if I sit here?'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "wave-from-distance",
+          "text": "Wave at Devon from your table and give him a thumbs up about the comic.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "talk-about-him",
+          "text": "Tell your other friends, 'That kid always sits alone. That's kind of weird, right?'",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Devon's eyes light up! 'You read Captain Cosmos too? I'm on issue 14, where he goes to the Nebula Zone!' You sit down and start talking about your favorite characters. Before you know it, lunch is over and you've been laughing the whole time. Devon says, 'This is the best lunch I've had all year. Same spot tomorrow?' You just made a real friend!",
+      "outcome": {
+        "result": "great",
+        "headline": "Shared Interests Build Strong Friendships!",
+        "explanation": "Finding something you have in common with someone is one of the best ways to start a friendship. When you walked over and mentioned Captain Cosmos, you gave Devon an easy way to connect with you. You also showed courage by sitting with someone new. The best friendships often start with one person being brave enough to say, 'Hey, me too!'",
+        "keyTerms": [
+          {
+            "term": "Common Interest",
+            "definition": "Something you both like or enjoy. It gives you something to talk about and bond over."
+          },
+          {
+            "term": "Initiative",
+            "definition": "Being the first person to do something, like starting a conversation or sitting with someone new."
+          },
+          {
+            "term": "Connection",
+            "definition": "The feeling of being understood by someone else. It's what turns strangers into friends."
+          }
+        ],
+        "whatToRemember": "Look for what you have in common with others. Shared interests are the building blocks of friendship.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "Devon sees your wave and gives a small smile. He goes back to reading. The next day, he waves at you too, but neither of you actually talks to the other. A friendly wave is nice, but after two weeks, you still don't really know each other.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Friendly, But Still Strangers",
+        "explanation": "Waving was a nice gesture, and it showed Devon you noticed him. But waves don't build friendships -- conversations do. To really connect with someone, you need to take that next step and actually talk. It might feel awkward for the first minute, but that's how every friendship starts.",
+        "whatToRemember": "A wave is a good start, but talking is what turns a wave into a friendship.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "Your friends laugh, but one of them says, 'That's not very nice.' Devon overhears and looks down at his comic, his face turning red. He starts eating lunch in the library instead of the cafeteria. You feel a knot in your stomach when you see his empty seat the next day.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Words Hurt -- Even From Far Away",
+        "explanation": "Talking about someone instead of talking TO them is hurtful. Devon was already having a hard time being alone, and hearing you call him weird made it worse. Instead of making fun of someone for being different, try being the person who reaches out. Everyone wants a friend -- some people just need someone to make the first move.",
+        "whatToRemember": "Never talk about someone behind their back. Talk TO them instead. You might be the friend they've been waiting for.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

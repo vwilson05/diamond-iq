@@ -1,0 +1,95 @@
+{
+  "id": "the-show-social-making-hard-choices",
+  "title": "The Honest Path",
+  "sport": [
+    "social"
+  ],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "leadership",
+  "tags": [
+    "integrity",
+    "hard-choices",
+    "honesty",
+    "elite"
+  ],
+  "setup": {
+    "situation": "classroom",
+    "people": 4,
+    "emotion": "conflicted",
+    "context": "finding out a friend cheated on a test"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your close friend Riley sits next to you during the big science test. You notice Riley looking at your paper and copying several answers. Riley gets an A on the test. You also got an A -- but you studied for two weeks. The teacher is really impressed with Riley's score and says, 'Great improvement, Riley!' in front of the class. Riley looks at you with a nervous smile. After class, Riley says, 'Please don't say anything. I'll actually study next time, I promise.' What do you do?",
+      "choices": [
+        {
+          "id": "honest-conversation",
+          "text": "Say privately to Riley, 'I'm not going to tell on you, but this isn't okay. You copied MY work and you need to tell the teacher yourself. I'll go with you if you want.'",
+          "nextNode": "outcome-great"
+        },
+        {
+          "id": "just-let-it-go",
+          "text": "Don't say anything and hope Riley really does study next time.",
+          "nextNode": "outcome-okay"
+        },
+        {
+          "id": "tell-teacher-immediately",
+          "text": "Go straight to the teacher and report that Riley cheated off your test.",
+          "nextNode": "outcome-bad"
+        }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "narration": "Riley's face goes pale, then serious. 'You're right. That wasn't fair to you.' The next day, Riley goes to the teacher -- alone, because your encouragement gave the courage needed. The teacher appreciates the honesty, gives Riley a zero on that test but a chance to retake it. Riley studies hard and gets a B on the retake. Riley tells you, 'I'm glad you pushed me to do the right thing. I would've kept doing it otherwise.' Your friendship is stronger because it's built on honesty now.",
+      "outcome": {
+        "result": "great",
+        "headline": "Integrity That Strengthened a Friendship!",
+        "explanation": "This is one of the hardest social situations: a friend does something wrong that affects you, and you have to decide what to do about it. You chose the path that was honest, kind, and fair all at once. You didn't threaten Riley. You didn't ignore it. You gave your friend the chance to do the right thing while making clear that what happened wasn't acceptable. That's integrity -- doing the right thing even when it's uncomfortable, and helping others do the same.",
+        "keyTerms": [
+          {
+            "term": "Integrity",
+            "definition": "Doing what's right even when it's hard, and even when nobody is watching."
+          },
+          {
+            "term": "Accountability Partner",
+            "definition": "Someone who cares enough to tell you the truth and help you be your best self."
+          },
+          {
+            "term": "Moral Courage",
+            "definition": "The bravery to stand up for what's right, especially when it involves people you care about."
+          }
+        ],
+        "whatToRemember": "The hardest choices are the ones that involve people you care about. True friends help each other do the right thing, not the easy thing.",
+        "iqPoints": 10,
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "narration": "You let it go. Riley doesn't study next time either. And copies again. And again. By the fourth test, the teacher notices the pattern -- your answers and Riley's are always identical, including the same wrong answers. The teacher calls you BOTH in and asks if cheating is happening. Now you're in trouble too, because it looks like you were helping Riley cheat. Your silence became involvement.",
+      "outcome": {
+        "result": "okay",
+        "headline": "Silence Made You Part of the Problem",
+        "explanation": "You wanted to be a loyal friend, but loyalty doesn't mean ignoring when a friend is doing something wrong. By staying quiet, you enabled Riley to keep cheating, and eventually you got caught up in the consequences too. When someone copies your work, your silence can be seen as participation. Addressing it early -- even privately -- would have protected both of you.",
+        "whatToRemember": "Staying quiet about cheating doesn't make you loyal -- it makes you complicit. Address it early before it snowballs.",
+        "iqPoints": 4,
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "narration": "The teacher confronts Riley, who gets a zero and a detention. Riley finds out you told and is devastated. 'You didn't even talk to me first? I thought we were friends.' Other kids hear about it and some think you did the right thing, but others call you a snitch. You feel conflicted because Riley DID cheat, but the way you handled it destroyed the friendship and you never gave Riley a chance to make it right.",
+      "outcome": {
+        "result": "bad",
+        "headline": "Right Instinct, Wrong Approach",
+        "explanation": "Cheating is wrong and you were right to feel that it needed to be addressed. But going straight to the teacher without talking to Riley first skipped an important step. Friendships require direct communication. Riley deserved the chance to hear from you and to make it right on their own. When we skip the human conversation and go straight to authority, it can feel like betrayal even when the cause is just.",
+        "whatToRemember": "Talk to the person first, always. Give friends the chance to do the right thing before you involve others.",
+        "iqPoints": 1,
+        "next": "end"
+      }
+    }
+  }
+}

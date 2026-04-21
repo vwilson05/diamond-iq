@@ -1,0 +1,62 @@
+{
+  "id": "tball-tennis-court-areas",
+  "title": "Know Your Court",
+  "sport": ["tennis"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["court areas", "basics", "rules"],
+  "setup": {
+    "set": 2,
+    "game": "4-3",
+    "serving": "you",
+    "surface": "hard"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your coach points to different parts of the tennis court and asks you where you should stand during a rally. Where do you go?",
+      "choices": [
+        { "id": "best", "text": "Stand behind the baseline in the middle of the court so you can reach balls hit to either side", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stand near the net in the middle of the court", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand way behind the court near the back fence", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great court positioning!",
+        "explanation": "Standing behind the baseline in the center gives you the best chance to reach any ball. You are close enough to hit strong shots but far enough back to have time to react.",
+        "whatToRemember": "The baseline is your home base during a rally. Stay centered behind it so you can cover the whole court.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Baseline", "definition": "The line at the back of the tennis court. During rallies, most players stand just behind this line to hit their shots" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too close to the net for now!",
+        "explanation": "Standing near the net can work for certain shots, but during a rally the ball usually bounces deep. Being too close means balls will fly over your head.",
+        "whatToRemember": "The net area is for special shots called volleys. During regular rallies, stay back behind the baseline.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Way too far back!",
+        "explanation": "Standing near the fence means every ball that comes to you has already bounced and lost its energy. You will have to run much farther to get to short balls and your shots will be weak.",
+        "whatToRemember": "Stay close to the baseline, not the fence. You want to be in a position where you can hit the ball early and with power.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

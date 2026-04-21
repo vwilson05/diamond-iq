@@ -1,0 +1,67 @@
+{
+  "id": "majors-golf-shot-shaping",
+  "title": "Curve It Around the Trees",
+  "sport": ["golf"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "approach",
+  "tags": ["shot shaping", "draw", "fade", "advanced"],
+  "setup": {
+    "hole": 13,
+    "par": 4,
+    "distance": 165,
+    "lie": "fairway",
+    "score": "-1"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are 165 yards from the green, but there is a large tree directly between you and the flag. The green is open to the left side. You need to curve the ball around the tree. You know how to hit a draw (curves right to left) and a fade (curves left to right). What shot do you play?",
+      "choices": [
+        { "id": "best", "text": "Hit a draw that starts right of the tree and curves left around it toward the green. Aim right, close the clubface slightly, and swing along your body line.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Punch a low shot under the tree branches to keep it out of trouble", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hit a fade that starts left, which would curve the ball further right toward the tree", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Beautiful Draw! Right Around the Tree!",
+        "explanation": "The ball started to the right of the tree and curved beautifully to the left, landing on the green 20 feet from the pin. Shot shaping is the ability to intentionally curve the ball left or right. A draw curves right to left for a right-handed golfer, and a fade curves left to right. To hit a draw, you aim your body to the right, close the clubface slightly relative to your swing path, and swing along your body line. The clubface angle relative to the path creates the spin that curves the ball.",
+        "whatToRemember": "A draw curves right to left. Aim your body where you want the ball to start and close the face slightly to where you want it to finish. The relationship between face angle and swing path creates curve.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Draw", "definition": "A shot that curves from right to left for a right-handed golfer. Created by a clubface that is slightly closed to the swing path." },
+          { "term": "Fade", "definition": "A shot that curves from left to right for a right-handed golfer. Created by a clubface that is slightly open to the swing path." },
+          { "term": "Shot Shaping", "definition": "The skill of intentionally curving the ball left or right to navigate obstacles or attack pin positions." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Under the Tree, But Short of the Green",
+        "explanation": "The low punch shot stayed under the branches and avoided the tree, but the low trajectory meant the ball only traveled about 130 yards. You are 35 yards short of the green with a chip ahead. A punch shot is a safe option, but learning to shape the ball gives you the ability to get all the way to the green in these situations.",
+        "whatToRemember": "A low punch shot is a safe escape, but it sacrifices distance. When you can shape the ball around an obstacle, you keep full distance and have a better chance at the green.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Right Into the Tree!",
+        "explanation": "A fade curves left to right, but the green is open to the LEFT. Hitting a fade would send the ball even further toward the tree, not away from it. Before choosing a shot shape, look at where the opening is. If the opening is to the left, you need a draw (right to left curve). If the opening is to the right, you need a fade.",
+        "whatToRemember": "Always identify where the opening is before choosing your shot shape. Draw goes right to left, fade goes left to right. Match the curve to the opening.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}
