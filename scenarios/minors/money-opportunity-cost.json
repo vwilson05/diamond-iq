@@ -1,0 +1,62 @@
+{
+  "id": "minors-money-opportunity-cost",
+  "title": "You Can Only Pick One",
+  "sport": ["money"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "spending",
+  "tags": ["opportunity cost", "tradeoffs", "decisions", "smart spending"],
+  "setup": {
+    "situation": "birthday-money-choice",
+    "money": 25.00,
+    "goal": "make the best choice with limited money",
+    "context": "You have birthday money and two things you want but can only afford one"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have twenty-five dollars from your birthday. You want a new video game for twenty-five dollars that you will play for months. You also want to go to the water park with friends this weekend for twenty-five dollars. You can only afford one. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Think about which one gives you more fun over time, then choose the video game since you will enjoy it for months", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pick the water park because your friends are going and you do not want to miss out", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try to do both by borrowing money from your sister", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart thinking about value!",
+        "explanation": "You thought about which choice gives you more enjoyment over a longer time. The video game will entertain you for months, while the water park is one afternoon. You made a choice based on value, not just excitement.",
+        "whatToRemember": "Every time you spend money on one thing, you give up the chance to spend it on something else. This is called opportunity cost. Think about which choice gives you the most value over time.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Opportunity Cost", "definition": "What you give up when you choose one thing over another. If you buy A, the opportunity cost is B, the thing you could not buy." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fun day, but the game will have to wait",
+        "explanation": "The water park was a blast with your friends. But now the video game has to wait until you save up again. There is no wrong answer here, just a tradeoff. You chose the experience with friends.",
+        "whatToRemember": "Both choices can be valid. The important thing is to think about what you are giving up before you decide, not after.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Now you owe money!",
+        "explanation": "Borrowing to avoid choosing means you got both, but now you owe your sister twenty-five dollars. You will spend weeks paying her back with your allowance. You did not avoid the cost, you just delayed it.",
+        "whatToRemember": "Borrowing money does not make things free. It just means you pay later, and sometimes with extra stress. It is better to make a choice and live with it.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

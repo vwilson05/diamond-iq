@@ -1,0 +1,62 @@
+{
+  "id": "rookie-money-comparing-prices",
+  "title": "Price Detective",
+  "sport": ["money"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "spending",
+  "tags": ["comparing", "prices", "shopping", "fundamentals"],
+  "setup": {
+    "situation": "buying-school-supplies",
+    "money": 5.00,
+    "goal": "get the best deal on a notebook",
+    "context": "At the store looking at notebooks for school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You need a notebook for school. You see three options: a plain one for two dollars, a fancy one with a cool cover for five dollars, and the same plain notebook in a two-pack for three dollars. They all have the same pages inside. What do you choose?",
+      "choices": [
+        { "id": "best", "text": "Buy the two-pack for three dollars because you get two notebooks for less money each", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Buy the single plain notebook for two dollars since it is the cheapest", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Buy the fancy five dollar one because it looks the coolest", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great deal spotted!",
+        "explanation": "Two notebooks for three dollars means each one costs a dollar fifty. That is cheaper than buying them one at a time for two dollars each. You saved money AND have an extra notebook for later.",
+        "whatToRemember": "Always compare prices before you buy. Sometimes buying more at once costs less per item. Look at the price for each single item to find the best deal.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Comparing Prices", "definition": "Looking at the cost of similar items to figure out which one gives you the most for your money." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not bad, but you missed a better deal",
+        "explanation": "The two dollar notebook works fine for school. But the two-pack would have given you an extra notebook for just one dollar more. Always check if bundles save you money.",
+        "whatToRemember": "The cheapest single item is not always the best deal. Compare the price per item when you see packs or bundles.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "All your money gone for a pretty cover!",
+        "explanation": "You spent your entire five dollars on one notebook just because the cover looked cool. The pages inside are exactly the same as the cheap one. Now you have no money left for anything else.",
+        "whatToRemember": "Do not pay extra just for looks when the thing inside is the same. Think about what you are really paying for.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

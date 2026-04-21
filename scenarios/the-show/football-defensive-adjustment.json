@@ -1,0 +1,73 @@
+{
+  "id": "the-show-football-defensive-adjustment",
+  "title": "Adjust the Defense!",
+  "sport": ["football"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["adjustments", "halftime", "game-plan", "elite"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "12:00",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 30,
+    "score": { "home": 7, "away": 21 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's halftime and you're the defensive captain. You're losing 21-7 because the other team's quarterback keeps throwing short quick passes to the same receiver over and over. He has 9 catches already! Your cornerback is playing 8 yards off him every play, giving him easy catches underneath. You need to adjust for the second half. What do you tell your team?",
+      "choices": [
+        { "id": "press-bracket", "text": "Tell the corner to play press coverage -- get right up in the receiver's face at the line! And have a linebacker help bracket him underneath. Take away those easy short catches!", "nextNode": "outcome-great" },
+        { "id": "same-plan", "text": "Keep the same plan. Maybe the corner will play better in the second half.", "nextNode": "outcome-bad" },
+        { "id": "blitz-every-play", "text": "Blitz the quarterback every single play so he doesn't have time to throw!", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Adjustment Works! They Can't Complete Anything!",
+        "explanation": "This is a perfect halftime adjustment! The problem was clear: the corner was giving too much cushion, letting the receiver catch easy short passes. The solution: press coverage takes away the quick game by disrupting the receiver at the line. He can't run a clean route if you're in his face! Adding a bracket (extra defender helping) makes it even harder. You identified the problem, figured out WHY it was happening, and changed the scheme to fix it. That's elite defensive thinking!",
+        "whatToRemember": "Great adjustments: identify WHAT is hurting you, understand WHY (too much cushion), and change your scheme to fix it (press + bracket). Adjust to what the offense shows you!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Press Coverage", "definition": "The corner lines up right at the line of scrimmage and jams the receiver to disrupt his route. Takes away quick passes!" },
+          { "term": "Bracket Coverage", "definition": "Two defenders covering one receiver -- one underneath, one over top. Used against the other team's best player." },
+          { "term": "Halftime Adjustment", "definition": "Changing your game plan at halftime based on what worked and what didn't in the first half." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Sacks Help, But They Adjust Too!",
+        "explanation": "Blitzing every play creates pressure and might get some sacks. But a smart quarterback adjusts! He'll start throwing even QUICKER -- hot routes that beat the blitz. With quick short throws, the ball is out before your blitzers arrive. Plus, blitzing every play means fewer defenders in coverage, so if they DO complete a pass, it could go for a big gain. Targeted adjustments (like pressing that one receiver) are better than brute-force blitzing.",
+        "whatToRemember": "All-out blitzing can backfire against quick passes! Target your adjustment to the specific problem instead of just sending everyone.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Hot Route", "definition": "A quick route a receiver runs when they see a blitz coming. Gets the ball out before the pressure arrives." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Same Result! 12 More Catches!",
+        "explanation": "Doing the same thing and expecting different results never works! If a receiver caught 9 passes in the first half, he'll catch 9 more in the second half if you don't change anything. The corner isn't suddenly going to play better without a scheme change. Great teams make halftime adjustments based on what they learned in the first half. You have to be willing to change your plan when something isn't working!",
+        "whatToRemember": "If something isn't working, CHANGE IT! Doing the same thing and hoping for better results is not a plan. Adjust!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Insanity Definition", "definition": "Doing the same thing over and over and expecting different results. In football, always adjust when your plan isn't working!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

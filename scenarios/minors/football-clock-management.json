@@ -1,0 +1,73 @@
+{
+  "id": "minors-football-clock-management",
+  "title": "Manage the Clock!",
+  "sport": ["football"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["clock-management", "game-management", "strategy", "game-iq"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "3:30",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 35,
+    "score": { "home": 24, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning 24-21 in the 4th quarter with 3:30 left! You have the ball. If you can keep running the clock down, the other team won't have time to come back and score. What kind of plays should you call?",
+      "choices": [
+        { "id": "run-clock", "text": "Run the ball and stay in bounds! Running plays keep the clock going and use up time the other team needs.", "nextNode": "outcome-great" },
+        { "id": "throw-deep", "text": "Throw a deep pass for a touchdown to put the game away!", "nextNode": "outcome-bad" },
+        { "id": "short-passes", "text": "Throw short passes to the middle of the field where receivers can stay in bounds.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clock Keeps Ticking! Time Running Out for Them!",
+        "explanation": "Running the ball is perfect when you're winning late! Here's why: the clock keeps running after a run play as long as the runner stays in bounds. Each play uses about 40 seconds off the play clock PLUS however long the actual play takes. So three or four run plays can burn 2-3 minutes! The other team is watching helplessly as their time disappears. This is called 'running out the clock' or 'milking the clock.'",
+        "whatToRemember": "When winning late: RUN the ball, stay IN BOUNDS, and let the clock drain. Every second that ticks is a second the other team can't use!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Clock Management", "definition": "Using or saving time on the game clock on purpose by choosing certain types of plays." },
+          { "term": "Running Out the Clock", "definition": "Using run plays and staying in bounds to keep the clock running when you have the lead." },
+          { "term": "Play Clock", "definition": "The 40-second timer between plays. It runs even when the game clock is stopped, and you must snap before it hits zero." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "First Down, But Clock Stops Sometimes!",
+        "explanation": "Short passes to the middle can work because if the receiver stays in bounds, the clock keeps running. And first downs keep your drive alive! But passing is riskier than running in this situation. An incomplete pass STOPS the clock and gives the other team free time. An interception gives them the ball! Running is safer because it almost always keeps the clock moving.",
+        "whatToRemember": "Passes are riskier when protecting a lead -- incompletions stop the clock! Run first, pass only if you need to.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Clock Stoppage", "definition": "The game clock stops on incomplete passes, out of bounds plays, penalties, and timeouts." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! They Have the Ball!",
+        "explanation": "Throwing deep when you're winning is way too risky! Deep passes have a higher chance of being incomplete (which stops the clock and gives time back) or intercepted (which gives the other team the ball!). You don't NEED a touchdown -- you're already winning! The goal right now is to keep the ball and use up time. A boring 3-yard run is worth way more than a risky 40-yard pass when you're protecting a lead.",
+        "whatToRemember": "Don't get greedy when winning late! You don't need more points, you need to USE TIME. Safe plays, clock running, game over!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Interception", "definition": "When a defender catches a pass meant for the offense. Turnover! The other team gets the ball." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

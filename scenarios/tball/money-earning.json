@@ -1,0 +1,62 @@
+{
+  "id": "tball-money-earning",
+  "title": "Earning Your Own Money",
+  "sport": ["money"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "earning",
+  "tags": ["earning", "chores", "work", "basics"],
+  "setup": {
+    "situation": "chore-chart",
+    "money": 0.00,
+    "goal": "earn money for a new book",
+    "context": "Mom put up a chore chart on the fridge"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want a new book that costs three dollars. Mom says you can earn money by doing chores: one dollar for feeding the dog, one dollar for picking up your toys, and one dollar for helping set the table. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Do all three chores today so you earn three dollars and can buy the book", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Do one chore today and plan to do the others tomorrow", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Ask Mom to just give you the money without doing any chores", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You earned it yourself!",
+        "explanation": "You worked hard and did all three chores. Mom handed you three dollars and you felt so proud buying that book with money you earned. The book feels extra special because you worked for it.",
+        "whatToRemember": "When you earn money by working, the things you buy feel extra special. You can always find ways to earn money by helping out.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Earning", "definition": "Getting money by doing work or a job. You trade your time and effort for money." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One dollar down, two to go",
+        "explanation": "You earned one dollar today. That is a good start! If you keep going tomorrow, you will have your book money by the end of the week.",
+        "whatToRemember": "Starting is great! Just make sure you follow through and finish so you reach your goal.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Mom said no!",
+        "explanation": "Mom explained that money has to be earned. Just asking for it without working does not teach you anything. You still have zero dollars and no book.",
+        "whatToRemember": "Money does not appear by magic. People earn money by working. The chore chart is your first job!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

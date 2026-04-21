@@ -1,0 +1,63 @@
+{
+  "id": "rookie-basketball-fast-break",
+  "title": "Run the Floor",
+  "sport": ["basketball"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "transition",
+  "tags": ["fast break", "transition", "speed"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "6:30",
+    "score": { "home": 34, "away": 36 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teammate just grabbed a rebound! You see that only one defender is back and your team has three players sprinting down the court. Your teammate passes you the ball at half court. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Push the ball quickly and pass to the teammate with the best angle to the basket", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Dribble fast and try to score yourself even though teammates are open", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Slow down and wait for everyone to get set up on offense", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Fast break bucket!",
+        "explanation": "You pushed the ball quickly and found your open teammate for an easy layup. When you outnumber the defense, the key is to move fast and find the player with the easiest shot.",
+        "whatToRemember": "On a fast break, speed and passing are your best weapons. Look for the teammate closest to the basket with the fewest defenders near them.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Fast Break", "definition": "When your team pushes the ball up the court quickly before the defense can get back, creating an outnumbered advantage near the basket" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You scored, but it was harder than it needed to be",
+        "explanation": "You drove to the basket and made a tough layup, but the lone defender almost blocked it. Your teammate was wide open on the other side of the court with nobody near them.",
+        "whatToRemember": "On fast breaks, the easy pass usually leads to the easy basket. Do not force a tough shot when a teammate has an easier one.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You let the defense get back!",
+        "explanation": "By slowing down, you gave all five defenders time to sprint back and set up. Your three-on-one advantage disappeared and now you are facing a full defense.",
+        "whatToRemember": "Never slow down a fast break! The whole point is to score before the defense gets set. Push the ball and make quick decisions.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

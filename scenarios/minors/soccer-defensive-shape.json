@@ -1,0 +1,63 @@
+{
+  "id": "minors-soccer-defensive-shape",
+  "title": "Keep Your Defensive Shape!",
+  "sport": ["soccer"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["defensive-shape", "positioning", "game-iq"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "10:00",
+    "score": { "home": 2, "away": 1 },
+    "possession": "away",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a center-back and the other team is attacking. Their player with the ball is dribbling toward you, but they also have a teammate making a run to your left. Your defensive partner is covering the right side. What do you do?",
+      "choices": [
+        { "id": "hold-position", "text": "Stay in your position, keep your shape, and watch both the ball and the runner. Do not commit yet!", "nextNode": "outcome-great" },
+        { "id": "chase-ball", "text": "Run at the player with the ball and try to tackle them!", "nextNode": "outcome-okay" },
+        { "id": "cover-runner", "text": "Run toward the player making the run and leave the ball-carrier alone!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Defensive Discipline!",
+        "explanation": "By holding your position, you kept the defensive shape intact. You could see both threats -- the ball and the runner. The attacker could not pass because you were blocking the lane, and they could not dribble past you because you stayed patient. This is called maintaining your shape. Only commit to a tackle when you are sure you will win it!",
+        "whatToRemember": "As a defender, stay patient and hold your position. Do not rush out unless you are sure you can win the ball. Staying in shape covers more threats!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Defensive Shape", "definition": "When all defenders stay in their correct positions, forming a line or block that is hard to break through." }, { "term": "Holding Position", "definition": "Staying where you should be instead of running toward the ball. This keeps the team organized." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "They Passed Around You!",
+        "explanation": "You rushed at the ball carrier, but they saw you coming and slipped the ball to their teammate who was running into the space you just left. Now there is a big gap in your defense. Rushing at the ball feels aggressive, but if you miss the tackle, you leave your team exposed.",
+        "whatToRemember": "Do not rush at attackers unless you KNOW you can win the ball. If you miss, you leave a hole in the defense!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Dribbled Right Through!",
+        "explanation": "You left the ball carrier completely free to run at your goal! The runner was just a decoy to pull you out of position, and it worked perfectly. The player with the ball dribbled into the huge space you left and scored. As a center-back, the ball carrier is your primary responsibility if they are coming at you.",
+        "whatToRemember": "Never leave the ball carrier free to run at your goal. The runner might just be a decoy! Stay with the biggest threat.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

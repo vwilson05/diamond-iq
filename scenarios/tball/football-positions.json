@@ -1,0 +1,73 @@
+{
+  "id": "tball-football-positions",
+  "title": "Who Lines Up Where?",
+  "sport": ["football"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["positions", "basics", "lineup", "formation"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "10:00",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 30,
+    "score": { "home": 0, "away": 0 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is about to start a play! The coach says, 'Okay, everybody line up!' You are a wide receiver. The quarterback is behind the center in the middle. The running back is behind the quarterback. Where do you line up?",
+      "choices": [
+        { "id": "wide", "text": "Line up out wide, near the sideline, so you have room to run and catch passes!", "nextNode": "outcome-great" },
+        { "id": "behind-qb", "text": "Line up right behind the quarterback, next to the running back.", "nextNode": "outcome-bad" },
+        { "id": "next-to-center", "text": "Line up right next to the center on the line.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Spot! You're Ready to Fly!",
+        "explanation": "Wide receivers line up out wide, near the sideline. That's why they're called WIDE receivers -- they spread out wide! This gives them lots of room to run fast down the field and catch the ball away from all the big players in the middle. When you're out wide, the defense has to spread out too, which makes it harder for them to stop your team.",
+        "whatToRemember": "Wide receivers go wide near the sideline. Quarterbacks go behind the center. Running backs go behind the quarterback. Every position has its own spot!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Wide Receiver", "definition": "A player who lines up out wide near the sideline and runs fast to catch passes from the quarterback." },
+          { "term": "Formation", "definition": "The way all the players line up before the play starts. Every player has a special spot!" },
+          { "term": "Line of Scrimmage", "definition": "The invisible line where the ball starts each play. Players line up on both sides of it." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But Not Quite Your Spot!",
+        "explanation": "Lining up on the line of scrimmage is something players do, but that spot is for the offensive linemen -- the big guys who block! They stand shoulder to shoulder to protect the quarterback. As a wide receiver, you need to be out WIDE near the sideline so you have room to run your routes and get open for a pass.",
+        "whatToRemember": "The offensive line stands in the middle, shoulder to shoulder. Wide receivers split out wide near the sideline!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Offensive Line", "definition": "The big players who stand in the middle and block to protect the quarterback. Usually five of them!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Spot! That's the Running Back's Place!",
+        "explanation": "Behind the quarterback is where the running back stands! The running back needs to be close to the quarterback so they can take a handoff and run with the ball. If you stand there as a wide receiver, there's nobody out wide to catch passes, and you're just in the running back's way. Every position has its own special spot on the field for a reason!",
+        "whatToRemember": "Don't crowd the backfield! Wide receivers go wide, running backs go behind the QB, and linemen stay in the middle.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Backfield", "definition": "The area behind the offensive line where the quarterback and running back stand." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

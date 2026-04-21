@@ -1,0 +1,62 @@
+{
+  "id": "rookie-coding-input-output",
+  "title": "What Goes In, What Comes Out",
+  "sport": ["coding"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "building",
+  "tags": ["input", "output", "data-flow", "fundamentals"],
+  "setup": {
+    "language": "blocks",
+    "concept": "input/output",
+    "difficulty": "beginner",
+    "context": "A magic machine that transforms things"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have a magic doubling machine! Whatever number you put IN, it gives you back DOUBLE that number. You put in the number 4. The machine works like this: take what comes in, multiply by 2, and show the answer. What will the machine give you back?",
+      "choices": [
+        { "id": "correct-8", "text": "8 -- because 4 times 2 equals 8.", "nextNode": "outcome-great" },
+        { "id": "wrong-6", "text": "6 -- because you add 2 to 4.", "nextNode": "outcome-okay" },
+        { "id": "wrong-4", "text": "4 -- the same number you put in.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Correct! Input 4, Output 8!",
+        "explanation": "The INPUT is what goes into the machine (the number 4). The machine does something to it (multiplies by 2). The OUTPUT is what comes out (the number 8). All programs work this way: they take input, do something with it, and produce output. A calculator takes numbers in and gives answers out!",
+        "whatToRemember": "Programs have INPUT (what goes in), PROCESSING (what happens to it), and OUTPUT (what comes out).",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Input", "definition": "Information that goes INTO a program, like typing on a keyboard or clicking a button."}, {"term": "Output", "definition": "Information that comes OUT of a program, like text on a screen or a sound."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close! But the Machine DOUBLES, Not Adds 2!",
+        "explanation": "You knew the machine changes the input -- good! But you used the wrong operation. The machine DOUBLES (multiplies by 2), it does not add 2. With input 4: doubling gives 8, but adding 2 gives 6. When you read code, pay attention to exactly what it does to the input!",
+        "whatToRemember": "Read carefully what the code does to the input. Multiply and add are different operations with different results!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Machine Does Something! It Does Not Just Pass Through!",
+        "explanation": "If the machine just gave back the same number, what would be the point? The machine CHANGES the input! It takes 4 and doubles it to make 8. The output is different from the input because the machine did work on it. That is the whole point of a program -- it transforms input into something new!",
+        "whatToRemember": "Programs change their input into something new. The output should be different because the program did work!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

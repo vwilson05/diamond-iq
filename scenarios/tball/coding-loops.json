@@ -1,0 +1,62 @@
+{
+  "id": "tball-coding-loops",
+  "title": "Repeat After Me!",
+  "sport": ["coding"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "building",
+  "tags": ["loops", "repeat", "basics"],
+  "setup": {
+    "language": "blocks",
+    "concept": "simple loops",
+    "difficulty": "beginner",
+    "context": "Teaching a dog to do tricks"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a robot dog to do a trick show! The robot dog needs to spin in a circle 3 times. You could write 'spin' three separate times, OR you could use a shortcut. Which set of instructions is the BEST way to make the dog spin 3 times?",
+      "choices": [
+        { "id": "use-loop", "text": "Repeat 3 times: spin in a circle.", "nextNode": "outcome-great" },
+        { "id": "write-three", "text": "Spin. Spin. Spin. (Write it out three times.)", "nextNode": "outcome-okay" },
+        { "id": "spin-forever", "text": "Repeat forever: spin in a circle.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Loop Master! Short and Smart!",
+        "explanation": "You used a LOOP! A loop says 'do this thing' and 'how many times to do it.' Instead of writing the same instruction over and over, you just say 'repeat 3 times.' This is like telling someone 'clap your hands 5 times' instead of saying 'clap, clap, clap, clap, clap.'",
+        "whatToRemember": "A loop repeats an action a certain number of times. It saves you from writing the same thing over and over!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Loop", "definition": "An instruction that tells the computer to repeat something a certain number of times."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Works! But There is a Better Way!",
+        "explanation": "Writing 'spin' three times does work -- the dog spins 3 times! But what if you wanted the dog to spin 100 times? You would have to write 'spin' 100 times! A loop lets you just say 'repeat 100 times: spin.' Much easier!",
+        "whatToRemember": "When you need to do the same thing many times, use a loop instead of writing it out over and over.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Dizzy Dog! It Will Not Stop!",
+        "explanation": "You told the dog to spin FOREVER! It will never stop spinning! That is called an infinite loop -- it goes on and on with no end. You always need to tell a loop WHEN to stop. The dog is so dizzy now!",
+        "whatToRemember": "Always give your loop a number so it knows when to stop. 'Repeat forever' means it will NEVER end!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

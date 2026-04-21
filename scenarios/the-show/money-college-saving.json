@@ -1,0 +1,62 @@
+{
+  "id": "the-show-money-college-saving",
+  "title": "Saving for the Big Goal",
+  "sport": ["money"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "saving",
+  "tags": ["college", "long-term", "planning", "real world"],
+  "setup": {
+    "situation": "starting-a-college-fund",
+    "money": 50.00,
+    "goal": "understand saving for something years away",
+    "context": "Parents opened a college savings account and put in fifty dollars to start"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your parents opened a college savings account with fifty dollars. College costs a lot of money, but it is about ten years away. They ask if you want to add some of your birthday money each year. You get about one hundred dollars in birthday money each year. What do you choose?",
+      "choices": [
+        { "id": "best", "text": "Add twenty dollars each birthday because in ten years that is two hundred fifty dollars total (including growth) and you still keep eighty dollars for fun", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Add ten dollars each birthday because it is something, even if it is small", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Add nothing because college is so far away it does not feel real", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Future you says thank you!",
+        "explanation": "Twenty dollars a year for ten years is two hundred dollars you put in. But with compound growth, it becomes even more. Combined with what your parents add, you will have a real head start on college costs. And you barely noticed the twenty dollars each year because you still had eighty dollars for fun.",
+        "whatToRemember": "Saving for big goals far in the future works best when you start early and contribute regularly. You do not need to save a lot at once. Small, steady amounts over many years add up to huge amounts.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Long-term Saving", "definition": "Putting aside money for a goal that is many years away, like college. Starting early means you need to save less each time because your money has more time to grow." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Every bit helps, but more would be better",
+        "explanation": "Ten dollars a year adds up to about one hundred twenty dollars over ten years with some growth. It is not nothing, but doubling it would make a much bigger difference and you would barely feel the extra ten dollars per year.",
+        "whatToRemember": "Something is always better than nothing for long-term goals. But if you can add a little more without it hurting, your future self will be very grateful.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Ten years went by fast!",
+        "explanation": "It feels like college is forever away, but time moves faster than you think. The kids who started saving early have thousands of dollars ready. You have only the fifty dollars your parents put in at the start. Now catching up feels impossible.",
+        "whatToRemember": "Far away goals sneak up on you. The earlier you start saving, the easier it is. Waiting because something feels far away is one of the biggest money mistakes people make.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

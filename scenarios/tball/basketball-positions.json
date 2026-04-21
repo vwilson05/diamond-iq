@@ -1,0 +1,63 @@
+{
+  "id": "tball-basketball-positions",
+  "title": "Know Your Spot",
+  "sport": ["basketball"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["positions", "point guard", "basics"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "7:30",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The game just started! Your coach told you that you are the point guard. Your team gets the ball first. The point guard's job is to bring the ball up the court and get the offense started. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Dribble the ball up the court and call out the play your coach taught you", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pass the ball to a teammate and run down to stand under the basket", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand still and wait for someone else to come get the ball", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You are running the show!",
+        "explanation": "The point guard is like the team's leader on the court. You brought the ball up, called the play, and got everyone in the right spot. Your team ran a great play!",
+        "whatToRemember": "The point guard brings the ball up the court and tells teammates where to go. Think of them as the quarterback of basketball.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Point Guard", "definition": "The player who dribbles the ball up the court, calls plays, and makes sure the team runs its offense. Usually wears number 1." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Someone else had to take over",
+        "explanation": "Your teammate caught the pass and brought the ball up, but they were confused because that is supposed to be your job. The play started late and the team looked a little lost.",
+        "whatToRemember": "Every position has a job. When you know your role, the whole team works better together.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Five-second violation!",
+        "explanation": "You stood still too long! In basketball, you only have five seconds to pass the ball in from out of bounds. The referee blew the whistle and gave the ball to the other team.",
+        "whatToRemember": "In basketball, you always need to be moving and making decisions quickly. Standing still with the ball gets your team in trouble.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

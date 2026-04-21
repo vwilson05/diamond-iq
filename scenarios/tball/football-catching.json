@@ -1,0 +1,73 @@
+{
+  "id": "tball-football-catching",
+  "title": "Catch the Pass!",
+  "sport": ["football"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["catching", "receiving", "hands", "basics"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "6:00",
+    "down": 2,
+    "distance": 8,
+    "yardLine": 40,
+    "score": { "home": 7, "away": 7 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're running down the field and the quarterback throws the ball right to you! It's a nice spiral coming toward your chest. How do you catch it?",
+      "choices": [
+        { "id": "hands-catch", "text": "Put your hands out in front of you with your fingers spread and catch it with your hands, then pull it into your chest!", "nextNode": "outcome-great" },
+        { "id": "body-catch", "text": "Let it hit your chest and try to trap it with your arms.", "nextNode": "outcome-okay" },
+        { "id": "one-hand", "text": "Stick one hand out and try to grab it like a cool one-handed catch!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Hands! Caught It Clean!",
+        "explanation": "Catching with your hands is the best way! When you put your hands out with fingers spread, you create a big soft target. Your fingers can grip the ball and squeeze it tight. Then you pull it into your chest to secure it. This is called 'catching with soft hands' because your hands absorb the ball instead of letting it bounce off. Hands first, then tuck!",
+        "whatToRemember": "Always catch with your hands first, fingers spread wide. Then tuck the ball into your body. Hands catch, body secures!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Soft Hands", "definition": "Catching the ball by letting your hands give a little bit, like a cushion, so it doesn't bounce away." },
+          { "term": "Reception", "definition": "A completed catch! When a receiver successfully catches a pass from the quarterback." },
+          { "term": "Tuck", "definition": "Pulling the ball tight against your body after you catch it so you don't drop it while running." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Body Catch! A Bit Risky!",
+        "explanation": "Letting the ball hit your chest can work sometimes, but it's risky. The football might bounce off your chest pads and fly away! Your chest is hard, so the ball can ricochet. It's always better to catch with your hands first because your fingers can grip and squeeze the ball. Use your body as a backup, not the main catcher!",
+        "whatToRemember": "Your hands should catch first, not your chest. Your body is the backup plan, not the main plan!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Body Catch", "definition": "Trapping the ball against your chest. It works sometimes but the ball can bounce off!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Dropped! One Hand Wasn't Enough!",
+        "explanation": "One-handed catches look awesome on TV, but they're super hard and even pros drop them a lot! A football is big and pointy and it's spinning fast. One hand just isn't big enough to grab it safely most of the time. Use BOTH hands every time to give yourself the best chance. Save the one-handers for the highlight reels when you're a pro!",
+        "whatToRemember": "Two hands are way better than one for catching. Be safe and sure -- use both hands every time!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Incomplete Pass", "definition": "When a thrown ball hits the ground without being caught. The play is dead and you have to try again." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

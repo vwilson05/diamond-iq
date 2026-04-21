@@ -1,0 +1,63 @@
+{
+  "id": "the-show-soccer-penalty-shootout",
+  "title": "Penalty Shootout Strategy!",
+  "sport": ["soccer"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["penalty", "shootout", "elite", "pressure"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "0:00",
+    "score": { "home": 2, "away": 2 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is a penalty shootout in the championship final! The score is tied after overtime. You are the fifth (and last) kicker for your team. If you score, your team wins the whole tournament. The goalkeeper is bouncing on the line, trying to intimidate you. You notice the keeper has dived to the LEFT on the last three penalties. What is your approach?",
+      "choices": [
+        { "id": "pick-spot-commit", "text": "Decide on the RIGHT side before you walk up. Trust your decision and strike with confidence -- do not change your mind!", "nextNode": "outcome-great" },
+        { "id": "wait-and-react", "text": "Wait to see which way the goalkeeper moves and then try to shoot the other way.", "nextNode": "outcome-okay" },
+        { "id": "smash-middle", "text": "Just blast it as hard as you can down the middle and hope for the best!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "GOAL! Champions!",
+        "explanation": "You picked your spot (the right side, since the keeper keeps diving left), committed to it completely, and struck the ball cleanly. The keeper dived left AGAIN and your ball nestled into the right corner. The key to penalties is: pick your spot BEFORE you walk up and never change your mind. Hesitation and second-guessing cause more misses than anything else.",
+        "whatToRemember": "On penalties: decide where you are shooting BEFORE you step up. Commit fully and strike with confidence. Never change your mind mid-run-up!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Penalty Shootout", "definition": "When a knockout game ends tied, each team takes five penalty kicks to decide the winner." }, { "term": "Committing to Your Spot", "definition": "Deciding exactly where you will shoot before stepping up, and not changing your mind regardless of what the goalkeeper does." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Saved! Keeper Guessed Right!",
+        "explanation": "Waiting to see the keeper move sounds smart, but it usually backfires. By the time you react to their movement, you have to rush your shot and often hit it weakly or off-target. The goalkeeper actually faked one way and moved back to save your shot. The best penalty takers in the world pick their spot in advance and commit. Reacting leads to weaker, less accurate strikes.",
+        "whatToRemember": "Do not try to react to the goalkeeper. By the time you see them move, your shot will be weak and rushed. Pick your spot and commit!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Saved! Right at the Keeper!",
+        "explanation": "Blasting it down the middle is one of the riskiest choices. If the keeper does not dive, you have just kicked the ball straight at them. It works occasionally when keepers commit early to a side, but without picking a specific target, you are relying on luck. The best approach is to study the keeper, pick the best corner, and place your shot with accuracy AND power.",
+        "whatToRemember": "Power without aim is just a hard pass to the goalkeeper. Pick a specific corner and hit it there with enough pace that they cannot reach it even if they guess right.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

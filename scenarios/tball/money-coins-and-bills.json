@@ -1,0 +1,62 @@
+{
+  "id": "tball-money-coins-and-bills",
+  "title": "Counting Your Coins",
+  "sport": ["money"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "spending",
+  "tags": ["coins", "bills", "counting", "basics"],
+  "setup": {
+    "situation": "buying-a-snack",
+    "money": 1.00,
+    "goal": "buy a juice box",
+    "context": "At the school snack table with your coins"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want to buy a juice box that costs one dollar. You have a bunch of coins in your pocket: four quarters, some dimes, and some nickels. The snack helper is waiting. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Count out four quarters because you know four quarters equal one dollar", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Dump all your coins on the table and ask the helper to pick out the right amount", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hand over one nickel because it is the biggest coin you have", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect payment!",
+        "explanation": "You knew that four quarters make one dollar, so you counted them out and paid the exact amount. The helper smiled and handed you your juice box right away.",
+        "whatToRemember": "Four quarters make one dollar. Ten dimes also make one dollar. Learning how coins add up helps you pay for things all by yourself.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Quarter", "definition": "A coin worth 25 cents. Four quarters equal one dollar." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got your juice, but needed help",
+        "explanation": "The helper picked out the right coins for you and you got your juice box. But next time you might not have someone to help you count.",
+        "whatToRemember": "Practice counting coins at home so you can pay for things on your own. It feels great to do it yourself!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Not enough money!",
+        "explanation": "A nickel is only worth five cents, not one dollar. Even though it is a big coin, it is not worth as much as a quarter. You did not have enough to buy the juice box.",
+        "whatToRemember": "The size of a coin does not tell you how much it is worth. A nickel is bigger than a dime, but a dime is worth more. Learn what each coin is worth!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

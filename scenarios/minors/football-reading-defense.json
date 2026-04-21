@@ -1,0 +1,73 @@
+{
+  "id": "minors-football-reading-defense",
+  "title": "Read the Defense!",
+  "sport": ["football"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["pre-snap-read", "defense-recognition", "quarterback", "game-iq"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "5:45",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 40,
+    "score": { "home": 14, "away": 10 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the quarterback and you walk up to the line. Before you snap the ball, you look at the defense. You see 8 defenders crowded near the line of scrimmage -- that's more than normal! They look like they're all about to rush forward. Your coach told you that when you see 8 in the box, the defense is expecting a run. What do you do?",
+      "choices": [
+        { "id": "check-to-pass", "text": "Change the play to a pass! With so many defenders up close, your receivers should be wide open deep.", "nextNode": "outcome-great" },
+        { "id": "keep-run", "text": "Keep the run play. Your running back is good enough to find a hole.", "nextNode": "outcome-bad" },
+        { "id": "quick-pass", "text": "Check to a quick slant pass to your receiver for a safe short gain.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Read! Wide Open Downfield!",
+        "explanation": "When you see 8 defenders in the box, that means they pulled a safety or linebacker down to stop the run. But that means there are FEWER defenders deep! Your wide receivers only have one or two defenders back there to beat instead of the normal three. By changing to a deep pass, you take advantage of exactly what the defense is giving you. This is what 'reading the defense' is all about -- seeing what they're doing and attacking their weakness!",
+        "whatToRemember": "When the defense loads up the box to stop the run, they're weak against the pass. Throw it over their heads!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Eight in the Box", "definition": "When the defense has 8 players near the line of scrimmage. They're selling out to stop the run." },
+          { "term": "Safety", "definition": "A defender who usually plays deep to help stop long passes. If they come up to the box, deep coverage is weaker." },
+          { "term": "Pre-Snap Read", "definition": "Looking at how the defense lines up BEFORE the snap to figure out what they're planning to do." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short Gain. Safe But Not Explosive!",
+        "explanation": "A quick slant is a safe choice -- you'll probably get 5-6 yards because the defenders are focused on the run. But you missed a bigger opportunity! With 8 in the box, the deep part of the field was wide open. A deep pass could have gone for a big gain or even a touchdown. The slant is like taking a single when you could have hit a home run. Sometimes you gotta take the big shot!",
+        "whatToRemember": "Quick passes are safe, but when the defense shows you a weakness deep, don't be afraid to attack it for a big play!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Slant", "definition": "A quick pass route where the receiver runs a few steps forward then cuts diagonally across the middle." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stuffed! No Room to Run!",
+        "explanation": "Running into 8 defenders is like trying to run through a brick wall! They had more guys than you had blockers, so there was nowhere for the running back to go. When the defense loads up the box, they're BEGGING you to run so they can stop you. The smart move is to make them pay by throwing the ball over their heads to your open receivers. Always take what the defense gives you!",
+        "whatToRemember": "Don't run into a loaded box! If you see more defenders than you have blockers, change the play to a pass.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Stuffed", "definition": "When a run play gets stopped for no gain or a loss because too many defenders were there." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

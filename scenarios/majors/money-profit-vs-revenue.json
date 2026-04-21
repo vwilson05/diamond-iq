@@ -1,0 +1,62 @@
+{
+  "id": "majors-money-profit-vs-revenue",
+  "title": "Revenue Is Not Profit",
+  "sport": ["money"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "earning",
+  "tags": ["profit", "revenue", "costs", "entrepreneur"],
+  "setup": {
+    "situation": "bake-sale-results",
+    "money": 50.00,
+    "goal": "understand the difference between revenue and profit",
+    "context": "You and your friend both ran bake sales and are comparing results"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You and your friend both had bake sales. Your friend says she made fifty dollars in sales. You made thirty dollars in sales. She says she won because fifty is more than thirty. But you spent five dollars on ingredients and she spent forty dollars on fancy ingredients. Who actually made more money?",
+      "choices": [
+        { "id": "best", "text": "You made more profit! You kept twenty-five dollars (thirty minus five) while she only kept ten dollars (fifty minus forty)", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "She made more because fifty dollars is bigger than thirty dollars", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "You both made the same because you both worked the same amount of time", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You understand profit!",
+        "explanation": "Revenue is the total money that comes in, but profit is what you keep after paying your costs. Your profit was twenty-five dollars. Her profit was only ten dollars. You made more than double what she made, even though her sales number looked bigger.",
+        "whatToRemember": "Revenue (total sales) is not the same as profit (what you keep). A business that sells a lot but spends a lot might make less money than one that sells less but keeps costs low.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Revenue vs Profit", "definition": "Revenue is all the money that comes in from sales. Profit is what is left after you subtract your costs. Profit equals revenue minus costs." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You confused revenue with profit!",
+        "explanation": "Fifty dollars sounds like more, but that is just revenue (total sales). After subtracting her forty dollar ingredient cost, she only kept ten dollars. You need to look at what is left over, not what came in.",
+        "whatToRemember": "Always subtract costs from sales to find out how much money you actually made. Big sales numbers can be misleading if costs are also big.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Time worked does not equal money earned!",
+        "explanation": "How long you work does not determine your profit. What matters is how much money comes in minus how much goes out. You made twenty-five dollars profit and she made ten dollars profit, regardless of time spent.",
+        "whatToRemember": "Profit is about dollars in minus dollars out. Time spent matters for understanding your hourly rate, but profit is always revenue minus costs.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

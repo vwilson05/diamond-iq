@@ -1,0 +1,73 @@
+{
+  "id": "the-show-football-onside-kick",
+  "title": "The Onside Kick Decision!",
+  "sport": ["football"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "special-teams",
+  "tags": ["onside-kick", "comeback", "decision-making", "elite"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "4:30",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 35,
+    "score": { "home": 14, "away": 28 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team just scored to make it 28-14, but you're still down by 14 with 4:30 left. You need TWO more touchdowns to tie. After you kick off, the other team will try to run out the clock. You have 2 timeouts left. Do you try an onside kick to get the ball right back, or kick it deep?",
+      "choices": [
+        { "id": "kick-deep", "text": "Kick it deep! Use your 2 timeouts and force them to punt. You'll get the ball back with about 3 minutes left -- enough for two drives if you score fast on the first one.", "nextNode": "outcome-great" },
+        { "id": "onside-now", "text": "Onside kick right now! You need the ball back immediately!", "nextNode": "outcome-okay" },
+        { "id": "squib-kick", "text": "Kick it short but not an onside kick, trying to pin them at the 30.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Plan! Defense Delivers!",
+        "explanation": "This is elite game management! Here's the math: you need 2 touchdowns. With 4:30 left and 2 timeouts, you can kick deep, use your timeouts to stop the clock on their drive, force a punt, and get the ball around 3:00. Score quickly, THEN try the onside kick when you only need ONE more score. Onside kicks only work about 10% of the time, so you want to save that desperation play for when you ABSOLUTELY need it. Getting one score first through normal means gives you a much better chance!",
+        "whatToRemember": "When down 2 scores: don't onside kick right away if you have timeouts! Force a punt, score, THEN onside kick when you only need 1 more TD. Maximize your chances!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Onside Kick", "definition": "A short kickoff the kicking team tries to recover. Only works about 10% of the time but necessary when you can't get the ball back otherwise." },
+          { "term": "Timeout Management", "definition": "Saving and using timeouts strategically to stop the clock when the other team is trying to run it out." },
+          { "term": "Comeback Math", "definition": "Calculating how many possessions you need and how much time each one requires. Plan backward from what you need!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Surprise! You Recovered It!",
+        "explanation": "You got lucky! Onside kicks only work about 10% of the time, and with 4:30 left you didn't NEED to gamble yet. You still had 2 timeouts, which means you could force a three-and-out and get the ball back normally. If the onside kick had failed (90% chance!), the other team would have the ball at midfield and the game would be over. Save the onside kick for when there's NO other way to get the ball back, like under 2 minutes with no timeouts.",
+        "whatToRemember": "Don't onside kick too early! If you have timeouts and enough time, you can get the ball back through defense. Save onside kicks for true desperation.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Probability", "definition": "How likely something is to happen. An onside kick only works 10% of the time -- 90% of the time it fails!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Free Field Position! They're at Midfield!",
+        "explanation": "A squib kick is the worst of both worlds! It doesn't go deep enough to pin them back, and it's not an onside kick that you can recover. Now they have great field position around midfield. They can easily get a first down or two and run out most of the clock. You gave them the advantage without getting anything in return. Either kick it deep to make them drive the whole field, or onside kick it to try to get the ball back. The in-between helps nobody but the other team!",
+        "whatToRemember": "Don't do things halfway! Either kick deep for field position or onside kick for possession. A squib gives the opponent good position with no benefit to you.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Squib Kick", "definition": "A low, bouncing kickoff that doesn't reach the end zone. Avoids a return but gives up field position." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

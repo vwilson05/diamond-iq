@@ -1,0 +1,62 @@
+{
+  "id": "the-show-coding-data-structures",
+  "title": "Choosing the Right Container!",
+  "sport": ["coding"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "design",
+  "tags": ["data-structures", "dictionary", "organization", "advanced"],
+  "setup": {
+    "language": "python",
+    "concept": "data structures",
+    "difficulty": "advanced",
+    "context": "Building a contacts app that stores names and phone numbers"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building a contacts app! You need to store people's names AND their phone numbers, so when someone searches for 'Mom' the app shows her phone number. A regular list just stores items in numbered spots. You need something that connects a NAME to a PHONE NUMBER. What data structure should you use?",
+      "choices": [
+        { "id": "dictionary", "text": "A dictionary! It stores pairs: each name (the key) is connected to a phone number (the value). Look up 'Mom' and get her number instantly.", "nextNode": "outcome-great" },
+        { "id": "two-lists", "text": "Two separate lists: one for names and one for phone numbers. Hope they stay lined up.", "nextNode": "outcome-okay" },
+        { "id": "one-list", "text": "One big list with names and numbers all mixed together.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Dictionary! Keys and Values Paired Together!",
+        "explanation": "A DICTIONARY (also called a map or hash map) stores KEY-VALUE pairs! The key is what you look up ('Mom') and the value is what you get back ('555-1234'). It works just like a real dictionary: you look up a WORD (key) and find its DEFINITION (value). This is perfect for contacts because you always search by name to find a number. Instant lookup!",
+        "whatToRemember": "A dictionary stores key-value pairs. Use it when you need to look something up by name and get associated information back.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Dictionary/Map", "definition": "A data structure that stores pairs of keys and values. Look up the key to get the value, like looking up a word to find its definition."}, {"term": "Key-Value Pair", "definition": "Two connected pieces of information: the key is what you search for, the value is what you find."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fragile! What If They Get Out of Sync?",
+        "explanation": "Two lists could work IF 'Mom' is in spot 3 of the names list AND her number is in spot 3 of the numbers list. But what if you delete a name and forget to delete the matching number? Everything shifts and now names point to wrong numbers! A dictionary keeps each name permanently glued to its number -- they can never get separated.",
+        "whatToRemember": "Keeping related data in separate lists is risky -- they can get out of sync. Dictionaries keep paired data together safely.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Which Number Belongs to Which Person?",
+        "explanation": "If names and numbers are all mixed in one list like ['Mom', '555-1234', 'Dad', '555-5678'], how does the computer know which number belongs to which person? It cannot tell! Is '555-1234' a name or a number? Choosing the right data structure means picking the container that keeps your data organized in a way that makes sense for how you will use it.",
+        "whatToRemember": "Choose data structures that match how you will USE the data. Contacts need name-to-number lookup, so use a dictionary!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

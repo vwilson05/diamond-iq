@@ -1,0 +1,73 @@
+{
+  "id": "tball-football-which-way-to-run",
+  "title": "Which End Zone Is Yours?",
+  "sport": ["football"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["direction", "end-zone", "scoring", "basics"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "9:00",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 45,
+    "score": { "home": 14, "away": 14 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just caught the ball in the middle of the field! You're at midfield and there's an end zone on BOTH sides. Your team's bench and cheerleaders are on the right sideline, and you started the game going toward the end zone on the LEFT side of the field. But now it's the second half and the teams switched sides! Which way do you run?",
+      "choices": [
+        { "id": "correct-endzone", "text": "Run toward the RIGHT end zone because you switched sides at halftime -- that's your team's end zone now!", "nextNode": "outcome-great" },
+        { "id": "wrong-endzone", "text": "Run toward the LEFT end zone because that's the one you scored in during the first half.", "nextNode": "outcome-bad" },
+        { "id": "look-around", "text": "Stop and look around to figure out which way your teammates are pointing.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Right Direction! Touchdown!",
+        "explanation": "You remembered that teams switch end zones at halftime! In the first half, you attack one end zone. At halftime, you switch -- so in the second half, you attack the OTHER end zone. This is really important to remember so you don't accidentally score for the other team! A good trick is to look at which way your teammates are facing when they line up.",
+        "whatToRemember": "Teams switch end zones at halftime! Always know which end zone is yours. Look at which way your teammates are facing.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "End Zone", "definition": "The big area at each end of the field. You score a touchdown by getting the ball into the other team's end zone!" },
+          { "term": "Halftime", "definition": "The break in the middle of the game. After halftime, the teams switch which direction they're going!" },
+          { "term": "Touchdown", "definition": "When you carry or catch the ball in the other team's end zone. Worth 6 points!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Smart to Check, But You Lost Yards!",
+        "explanation": "It's good that you didn't run the wrong way! But stopping in the middle of the field means defenders are going to catch you. Before the play starts, always know which way you're going. Look at how your team lines up -- the offense always faces TOWARD the end zone they want to score in. If you know before the snap, you won't have to stop and think!",
+        "whatToRemember": "Before the play starts, always check which end zone you're heading toward. Your team faces that direction when they line up!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Awareness", "definition": "Knowing what's happening around you on the field -- where the end zone is, where defenders are, and where your teammates are." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Way! Safety for the Other Team!",
+        "explanation": "Running the wrong way is one of the worst things that can happen in football! If you run into YOUR OWN end zone, the other team gets 2 points called a 'safety.' It's also really embarrassing! Remember: teams switch sides at halftime. The end zone you scored in during the first half becomes the one you DEFEND in the second half. Always know which direction to go!",
+        "whatToRemember": "Teams switch end zones at halftime! Never run toward your own end zone or the other team gets points. Always know your direction!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Safety", "definition": "When you get tackled or run out in your own end zone. The other team gets 2 points AND gets the ball! Very bad!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

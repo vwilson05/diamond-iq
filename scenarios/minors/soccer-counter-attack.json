@@ -1,0 +1,63 @@
+{
+  "id": "minors-soccer-counter-attack",
+  "title": "Counter Attack Speed!",
+  "sport": ["soccer"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["counter-attack", "transition", "game-iq"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "5:00",
+    "score": { "home": 1, "away": 2 },
+    "possession": "home",
+    "fieldZone": "defensive-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team just won the ball back! The other team had everyone pushed forward trying to score. Now they have only two defenders back and your team has three attackers sprinting up the field. You are the one with the ball at midfield. What do you do?",
+      "choices": [
+        { "id": "quick-forward", "text": "Push the ball forward fast and play a quick pass to your fastest teammate who is sprinting ahead!", "nextNode": "outcome-great" },
+        { "id": "slow-down", "text": "Slow down, control the ball, and wait for the rest of your team to come up.", "nextNode": "outcome-okay" },
+        { "id": "dribble-alone", "text": "Try to dribble past both defenders by yourself!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Lightning Counter Attack! GOAL!",
+        "explanation": "You played the ball quickly to your sprinting teammate before the other team could recover. It was 3 versus 2 in your favor, and the speed of your attack meant the defenders could not get organized. Your teammate scored! Counter attacks work because you move the ball forward FAST while the other team is out of position.",
+        "whatToRemember": "On a counter attack, SPEED is everything! Move the ball forward quickly before the other team gets back into their defensive positions.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Counter Attack", "definition": "A fast attack right after your team wins the ball back, while the other team is still out of position." }, { "term": "Transition", "definition": "The moment when the ball switches from one team to the other. Fast transitions create counter attacks!" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Slow! Chance Lost!",
+        "explanation": "By slowing down, you let the other team sprint back and get into their defensive shape. What was a 3-versus-2 advantage turned into a 3-versus-7 disadvantage. When you have more players ahead than the other team has defenders, you need to GO! Speed turns turnovers into goals.",
+        "whatToRemember": "Do not slow down on a counter attack! The advantage only lasts a few seconds before the other team recovers.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Tackled! Wasted the Counter!",
+        "explanation": "You had two teammates open ahead of you, making it 3 versus 2 in your favor. But you tried to beat both defenders alone and they took the ball. On a counter attack, you use your number advantage by passing! One-on-one dribbles are for when you have no options, not when teammates are wide open.",
+        "whatToRemember": "On a counter attack, use your teammates! Pass to the open player instead of trying to do it all yourself.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

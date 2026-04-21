@@ -1,0 +1,62 @@
+{
+  "id": "minors-money-quality-vs-cheap",
+  "title": "Cheap Now or Good Forever?",
+  "sport": ["money"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "spending",
+  "tags": ["quality", "value", "durability", "smart spending"],
+  "setup": {
+    "situation": "buying-headphones",
+    "money": 30.00,
+    "goal": "get headphones that last",
+    "context": "Shopping for headphones to use at school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You need headphones for school. There are cheap ones for five dollars that break in about a month, and good ones for twenty-five dollars that last over a year. You have thirty dollars. Your friend says just get the cheap ones so you have money left over. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Buy the twenty-five dollar headphones because they will last a whole year and cost less over time", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Buy the cheap ones now and save the rest in case they break", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Buy the cheap ones and spend the other twenty-five dollars on snacks", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Quality wins in the long run!",
+        "explanation": "Your good headphones lasted the entire school year. If you had bought the cheap ones, you would need twelve pairs at five dollars each, which is sixty dollars total. You actually saved thirty-five dollars by spending more upfront.",
+        "whatToRemember": "Sometimes spending more now saves money later. Cheap things that break fast can cost more over time than good things that last. Think about the total cost, not just today's price.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Quality vs Price", "definition": "A higher price sometimes means something lasts longer. Calculate the cost over time, not just the price today, to find the real value." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Smart backup plan, but more hassle",
+        "explanation": "The cheap headphones broke in three weeks. Good thing you saved the extra money! But now you have to go buy another pair. Over the year, you will spend more time and money replacing them.",
+        "whatToRemember": "Having a backup plan is smart, but buying quality from the start is even smarter when you can afford it.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Broken headphones and no money left!",
+        "explanation": "The cheap headphones broke in a month and you already spent the rest on snacks. Now you need headphones for school but have no money to buy new ones. You have to ask your parents for help.",
+        "whatToRemember": "Think before spending leftover money on things that disappear, like snacks. You might need that money when the cheap thing breaks.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

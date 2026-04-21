@@ -1,0 +1,73 @@
+{
+  "id": "rookie-football-blitz-pickup",
+  "title": "Block the Blitz!",
+  "sport": ["football"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["blitz", "blocking", "protection", "fundamentals"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "8:00",
+    "down": 3,
+    "distance": 5,
+    "yardLine": 38,
+    "score": { "home": 10, "away": 14 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the running back. It's a passing play, and your job is to help block if someone blitzes. Right after the snap, you see a linebacker sprinting toward your quarterback from the right side! The offensive linemen didn't see him. What do you do?",
+      "choices": [
+        { "id": "block-blitzer", "text": "Step up and block the blitzing linebacker! Get in his way so he can't reach the quarterback!", "nextNode": "outcome-great" },
+        { "id": "run-route", "text": "Ignore the blitzer and run your pass route -- maybe the QB will throw to you.", "nextNode": "outcome-bad" },
+        { "id": "yell", "text": "Yell to warn the quarterback so he can throw the ball faster.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Blitz Picked Up! Quarterback Is Safe!",
+        "explanation": "Great job! When a linebacker blitzes and nobody else sees him, the running back is the last line of defense for the quarterback. By stepping up and blocking him, you gave your QB time to find an open receiver and throw the ball. This is called 'picking up the blitz.' It might not be glamorous, but blocking a blitzer is one of the most important things a running back does!",
+        "whatToRemember": "Running backs must pick up blitzers! If you see someone rushing free at the QB, get in their way. Protect your quarterback!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Blitz", "definition": "When a linebacker or defensive back rushes the quarterback instead of covering a receiver. Extra pass rushers!" },
+          { "term": "Pick Up the Blitz", "definition": "When a running back or tight end blocks a blitzing defender to protect the quarterback." },
+          { "term": "Pass Protection", "definition": "Blocking to give the quarterback time to throw. The linemen and sometimes running backs all help." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Quick Release! But Close Call!",
+        "explanation": "Yelling a warning helps! The quarterback might hear you and throw the ball faster. But it's risky because the blitzer is already running full speed. Even if the QB hurries, he might have to throw to someone who isn't open yet. The BEST option is always to block the blitzer yourself. That gives the quarterback plenty of time instead of making him rush.",
+        "whatToRemember": "Warning the QB is okay, but BLOCKING the blitzer is better. You give the whole play time to develop!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Hot Route", "definition": "A quick, short throw the QB makes when he sees a blitz coming and needs to get rid of the ball fast." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Sack! Quarterback Gets Crushed!",
+        "explanation": "Running your route might get you open, but it doesn't matter if the quarterback gets sacked before he can throw! When you see a free blitzer, your FIRST job is to block. No block means the QB gets hit, the ball goes flying, and bad things happen. An open receiver means nothing if the quarterback is lying on the ground. Protection first!",
+        "whatToRemember": "If you see a free blitzer rushing the QB, blocking is your TOP priority. No pass can happen if the QB gets sacked!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Sack", "definition": "When the quarterback gets tackled behind the line before he can throw. Loses yards and really hurts!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

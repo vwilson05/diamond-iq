@@ -1,0 +1,63 @@
+{
+  "id": "majors-soccer-tactical-fouls",
+  "title": "The Tactical Foul!",
+  "sport": ["soccer"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["tactical-foul", "game-management", "advanced"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "5:00",
+    "score": { "home": 2, "away": 1 },
+    "possession": "away",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning 2-1 with five minutes left. The other team just played a ball forward and their fastest player is about to break away on a counter attack at midfield. Your defense is completely out of position. You are the closest player to them. If they get past you, it is a one-on-one with your keeper. What do you do?",
+      "choices": [
+        { "id": "tactical-foul", "text": "Step in and foul them at midfield to stop the break. Take the yellow card -- it is worth it to stop the counter!", "nextNode": "outcome-great" },
+        { "id": "try-tackle", "text": "Try to make a clean tackle and win the ball.", "nextNode": "outcome-okay" },
+        { "id": "let-them-go", "text": "Do not foul and just chase them, hoping they miss the shot!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Foul! Counter Stopped!",
+        "explanation": "You took a foul at midfield and earned a yellow card, but you stopped a dangerous counter attack. A free kick from midfield is much less dangerous than a one-on-one with your goalkeeper. Your defense can now get organized for the free kick. This is called a tactical foul -- you sacrifice a free kick in a safe area to prevent a much more dangerous attack.",
+        "whatToRemember": "A tactical foul in midfield stops a counter attack. A yellow card is a small price to pay to prevent a goal. Just make sure it is not in the penalty area!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Tactical Foul", "definition": "A deliberate foul committed in a safe area of the field to stop a dangerous attack. Usually results in a yellow card but prevents a goal-scoring chance." }, { "term": "Professional Foul", "definition": "Another name for a tactical foul. Professional players use them as a last resort to stop counters." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Missed the Tackle! They Got Past!",
+        "explanation": "You tried a clean tackle but their player was too quick and skipped past you. Now no one is between them and the goalkeeper. A clean tackle is ideal, but in this situation the risk was too high. If you miss, it is a guaranteed scoring chance. A tactical foul guarantees you stop the play, even if it costs a yellow card.",
+        "whatToRemember": "If you are the last line and the stakes are high, a guaranteed stop (even a foul) is safer than a risky tackle you might miss.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "They Scored! Game Tied!",
+        "explanation": "You let them go through and they scored to make it 2-2. Your team was winning with five minutes left and now you might lose the game! Sometimes you HAVE to foul to protect a lead. A free kick from midfield is way less dangerous than a breakaway. Being too nice cost your team the lead.",
+        "whatToRemember": "When you are the last defender and your team is winning late, stop the counter by any means necessary! A foul at midfield is better than a goal against.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

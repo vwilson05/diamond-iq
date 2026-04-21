@@ -1,0 +1,63 @@
+{
+  "id": "minors-basketball-shot-clock",
+  "title": "Beat the Shot Clock",
+  "sport": ["basketball"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["shot clock", "awareness", "decision making"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "3:30",
+    "score": { "home": 50, "away": 52 },
+    "possession": "home",
+    "shotClock": 5
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The shot clock is down to five seconds! Your team has been passing the ball around but nobody has gotten a great look at the basket. You have the ball near the three-point line. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Attack the basket quickly and put up a shot that at least hits the rim to reset the shot clock or score", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Throw up a deep three-pointer even though you are not set", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Keep passing and looking for the perfect shot", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart shot clock management!",
+        "explanation": "You drove to the basket and put up a good shot. Even though it did not go in, it hit the rim, which means your team can grab the rebound and the shot clock resets to 14 seconds. You kept your team alive!",
+        "whatToRemember": "When the shot clock is low, you MUST get a shot up that at least hits the rim. A bad shot is better than a shot clock violation because at least you have a chance at a rebound.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Shot Clock", "definition": "A timer that counts down from 24 seconds. Your team must attempt a shot that hits the rim before it reaches zero, or the other team gets the ball." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got a shot off, but barely",
+        "explanation": "The deep three-pointer was off balance and missed everything, including the rim. The other team gets the ball because the shot has to hit the rim. At least you tried, but a closer shot would have been better.",
+        "whatToRemember": "When the shot clock is winding down, get closer to the basket if possible. A shot near the rim is more likely to hit the rim and keep the ball alive.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Shot clock violation!",
+        "explanation": "The buzzer went off before anyone took a shot. That is a shot clock violation and the other team gets the ball. You were waiting for a perfect shot that was never going to come.",
+        "whatToRemember": "Always know where the shot clock is. When it gets below seven seconds, someone needs to be attacking the basket. A contested shot is always better than no shot at all.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

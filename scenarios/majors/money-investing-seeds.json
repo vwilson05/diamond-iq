@@ -1,0 +1,62 @@
+{
+  "id": "majors-money-investing-seeds",
+  "title": "Planting Money Seeds",
+  "sport": ["money"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "investing",
+  "tags": ["investing", "growth", "patience", "entrepreneur"],
+  "setup": {
+    "situation": "choosing-how-to-use-earnings",
+    "money": 20.00,
+    "goal": "grow your money over time",
+    "context": "You earned twenty dollars and want to make it grow"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You earned twenty dollars from chores. Your mom says you have three choices: spend it now on a toy, put it in a jar in your room, or put it in a savings account at the bank where it grows a little each month like planting a seed. What do you choose?",
+      "choices": [
+        { "id": "best", "text": "Put it in the savings account so it grows over time like a seed growing into a plant", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Put it in the jar so you can see it and add more later", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Spend it all on a toy right now", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Your money is growing!",
+        "explanation": "The bank pays you a little extra money each month just for keeping your money there. It is like planting a seed: you put in twenty dollars, and after a year you have more than twenty dollars without doing any extra work. The longer you leave it, the bigger it grows.",
+        "whatToRemember": "Investing means putting your money somewhere it can grow. Like a seed needs time to become a tree, money needs time to grow. The earlier you start, the more it grows.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Investing", "definition": "Putting your money to work so it grows over time. Just like planting a seed and waiting for it to become a big plant, invested money gets bigger the longer you leave it." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Safe but not growing",
+        "explanation": "Your money is safe in the jar and you can watch it pile up as you add more. But it will not grow on its own. A year from now it will still be exactly twenty dollars, not a penny more.",
+        "whatToRemember": "Saving in a jar protects your money, but it does not help it grow. A savings account or investment makes your money work for you even while you sleep.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Gone in one afternoon!",
+        "explanation": "The toy was fun for a few days, but now it sits in your closet. If you had invested that twenty dollars and added a little each month, by the time you are older it could have grown into much more.",
+        "whatToRemember": "Spending everything means your money stops working. Investing even small amounts when you are young gives your money the most time to grow.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

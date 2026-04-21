@@ -1,0 +1,63 @@
+{
+  "id": "majors-soccer-formations",
+  "title": "Pick the Right Formation!",
+  "sport": ["soccer"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["formations", "tactics", "advanced"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "25:00",
+    "score": { "home": 0, "away": 1 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is down 0-1 early in the game. The coach asks for your input: the other team is parking a lot of players in their defensive third and playing on the counter. Your team keeps getting stuck with no space in the middle. What formation adjustment would you suggest?",
+      "choices": [
+        { "id": "wide-formation", "text": "Push the outside backs higher and go wider to stretch their packed defense. Use a 3-4-3 to overload the attack!", "nextNode": "outcome-great" },
+        { "id": "extra-striker", "text": "Add another striker up top and just lump long balls forward!", "nextNode": "outcome-okay" },
+        { "id": "stay-same", "text": "Keep the same formation and just try harder in the middle.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Stretched Them Out! Goal!",
+        "explanation": "By going wider and pushing your outside backs forward, you forced the other team to spread out and cover more of the field. When a team packs the middle, width is the answer! A 3-4-3 gives you more attackers and wingbacks who stretch the defense from sideline to sideline. Once they spread out, gaps appear in the middle.",
+        "whatToRemember": "When the other team packs the middle, use WIDTH to stretch them. Push outside players higher and force them to cover the whole field!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Formation", "definition": "How your team lines up on the field (like 4-3-3 or 3-4-3). The numbers tell you how many defenders, midfielders, and forwards you have." }, { "term": "Width", "definition": "Using the full sideline-to-sideline space to stretch a compact defense." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Long Balls Are Easy to Defend!",
+        "explanation": "Adding another striker sounds aggressive, but if you just kick long balls at a packed defense, their tall center-backs will win every header. More strikers only help if you can get them the ball in space. You need width and movement to open up a packed defense, not just extra bodies in a crowded area.",
+        "whatToRemember": "Adding attackers does not help if the ball cannot reach them in space. Create space FIRST with width and passing!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Same Problems, Same Results!",
+        "explanation": "Doing the same thing and hoping for a different result will not work. If the middle is packed, you need to change your approach. Tactics and formations exist to solve problems! When something is not working, a smart team adjusts their shape to exploit the other team's weaknesses.",
+        "whatToRemember": "If your current approach is not working, change your formation or tactics! Smart teams adjust based on what the opponent is doing.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

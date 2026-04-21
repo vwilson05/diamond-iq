@@ -1,0 +1,62 @@
+{
+  "id": "majors-coding-efficiency",
+  "title": "Two Ways to Solve It -- Which Is Faster?",
+  "sport": ["coding"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "logic",
+  "tags": ["efficiency", "optimization", "comparison", "logic"],
+  "setup": {
+    "language": "blocks",
+    "concept": "efficiency",
+    "difficulty": "advanced",
+    "context": "Finding a word in a dictionary"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You need to find the word 'penguin' in a dictionary that has 1000 pages. The words are in alphabetical order. You have two methods: Method A) Start at page 1 and flip through every single page until you find 'penguin.' Method B) Open to the middle. Is 'penguin' before or after? Go to the middle of the correct half. Repeat until you find it. Which is faster?",
+      "choices": [
+        { "id": "method-b", "text": "Method B! Splitting in half each time is WAY faster. You eliminate half the pages each time!", "nextNode": "outcome-great" },
+        { "id": "method-a", "text": "Method A! Checking every page makes sure you do not miss it.", "nextNode": "outcome-okay" },
+        { "id": "same-speed", "text": "They are the same speed since you find the word either way.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Efficient! Binary Search Wins!",
+        "explanation": "Method B is called BINARY SEARCH and it is incredibly fast! With 1000 pages, Method A might need to check all 1000 pages (if 'penguin' is near the end). Method B only needs about 10 checks! Each split cuts the problem in half: 1000 becomes 500, then 250, then 125, then 63, then 32, then 16, then 8, then 4, then 2, then 1. That is just 10 steps instead of 1000!",
+        "whatToRemember": "Efficiency means solving problems with fewer steps. Cutting in half each time (binary search) is much faster than checking one by one!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Efficiency", "definition": "How fast or how few steps a solution takes. More efficient means less work to get the answer."}, {"term": "Binary Search", "definition": "A fast way to find something in a sorted list by cutting it in half each time."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Works... But SO Slow!",
+        "explanation": "Method A does work -- you WILL find the word eventually. But it could take up to 1000 page flips! Method B only takes about 10. Both methods are correct, but one is much more EFFICIENT. In coding, we care about finding answers that are not just correct, but also fast. Imagine waiting 1000 seconds vs 10 seconds for a search result!",
+        "whatToRemember": "Being correct is important, but being fast matters too! There are often faster ways to solve the same problem.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Speed Matters! 10 Steps vs 1000 Steps!",
+        "explanation": "They both find the word, but they are NOT the same speed! Method A could take 1000 steps. Method B takes about 10. If you were searching a dictionary with a million words, Method A could take a million steps while Method B takes only 20! In programming, the difference between a slow solution and a fast one is huge.",
+        "whatToRemember": "Just because two methods give the same answer does not mean they are equally good. Speed and efficiency matter!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

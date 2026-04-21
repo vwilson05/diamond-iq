@@ -1,0 +1,62 @@
+{
+  "id": "minors-money-value-of-time",
+  "title": "Is It Worth Your Time?",
+  "sport": ["money"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "earning",
+  "tags": ["time", "value", "earning", "smart spending"],
+  "setup": {
+    "situation": "two-job-offers",
+    "money": 0.00,
+    "goal": "pick the job that values your time more",
+    "context": "Two neighbors want to hire you for yard work this Saturday"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Two neighbors want help this Saturday. Mr. Chen will pay you ten dollars to rake his whole yard, which takes about two hours. Mrs. Lopez will pay you eight dollars to water her garden, which takes about thirty minutes. You only have time for one job. Which do you pick?",
+      "choices": [
+        { "id": "best", "text": "Choose Mrs. Lopez because eight dollars for thirty minutes is more money per hour than Mr. Chen's offer", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Choose Mr. Chen because ten dollars is more total money", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Turn both down and play video games instead since neither pays that much", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Your time is valuable!",
+        "explanation": "Mrs. Lopez pays sixteen dollars per hour (eight dollars divided by half an hour). Mr. Chen pays five dollars per hour (ten divided by two). By choosing Mrs. Lopez, you earn more per hour AND have time left to do another job or have fun.",
+        "whatToRemember": "Do not just look at the total dollars. Divide the pay by the hours to find out how much you earn per hour. Your time has value too!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Value of Time", "definition": "How much money you earn for each hour you work. Higher pay per hour means your time is worth more." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "More money but less free time",
+        "explanation": "You earned ten dollars, which is two more than the other job. But it took you four times as long. If you had done Mrs. Lopez's job, you could have used the extra ninety minutes to earn even more money or enjoy your Saturday.",
+        "whatToRemember": "A bigger number is not always the better deal. Think about how much time something takes compared to what you earn.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Zero dollars earned!",
+        "explanation": "You turned down both jobs and earned nothing. Even the lower-paying job would have given you ten dollars more than you have now. Some money is always better than no money when you have free time anyway.",
+        "whatToRemember": "Your free time is valuable, but so is earning money. Do not turn down good opportunities just because the pay is not perfect.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

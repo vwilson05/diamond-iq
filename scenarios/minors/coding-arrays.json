@@ -1,0 +1,62 @@
+{
+  "id": "minors-coding-arrays",
+  "title": "Lists That Hold Many Things!",
+  "sport": ["coding"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "building",
+  "tags": ["arrays", "lists", "collections", "problem-solving"],
+  "setup": {
+    "language": "blocks",
+    "concept": "arrays/lists",
+    "difficulty": "intermediate",
+    "context": "A sports team roster"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building an app that stores a basketball team roster. The team has 5 players: Mia, James, Sofia, Kai, and Zoe. You need to store ALL their names so you can display the roster. A single variable only holds one thing. What is the best way to store 5 names?",
+      "choices": [
+        { "id": "use-list", "text": "Create a LIST called 'players' that holds all 5 names in order: [Mia, James, Sofia, Kai, Zoe].", "nextNode": "outcome-great" },
+        { "id": "five-variables", "text": "Create 5 separate variables: player1 = Mia, player2 = James, player3 = Sofia, and so on.", "nextNode": "outcome-okay" },
+        { "id": "one-variable", "text": "Put all the names in one variable as one long word: MiaJamesSofiaKaiZoe.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect! A List Keeps Them All Together!",
+        "explanation": "A LIST (also called an array) is like a numbered shelf. Spot 1 has Mia, spot 2 has James, spot 3 has Sofia, and so on. You can ask for any player by their number: 'Who is player number 3?' Answer: Sofia! You can also easily add or remove players, loop through all of them, or count how many there are.",
+        "whatToRemember": "A list (array) holds many items in numbered spots. Use a list when you need to store a collection of similar things!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Array/List", "definition": "A collection that holds many items in order, each in a numbered spot. Like a numbered shelf where you can store and find things."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Works, But It Gets Messy Fast!",
+        "explanation": "Five separate variables does store the names. But what if the team grows to 15 players? You would need 15 variables! And if you want to loop through all players (like printing the whole roster), you cannot easily loop through separate variables. A list makes it easy: just loop from spot 1 to the last spot.",
+        "whatToRemember": "When you have many similar items, a list is better than many separate variables. Lists are easy to loop through and grow.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Computer Cannot Tell the Names Apart!",
+        "explanation": "Smashing all the names into one word makes it impossible to work with them! How would the computer know where 'Mia' ends and 'James' begins? You could not ask 'who is player 3?' or remove a player from the team. Each name needs to be its own separate item, stored in a list.",
+        "whatToRemember": "Keep items separate so the computer can work with each one. A list stores them separately but keeps them organized together.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "tball-coding-sequences",
+  "title": "Steps in the Right Order",
+  "sport": ["coding"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "building",
+  "tags": ["sequences", "order", "steps", "basics"],
+  "setup": {
+    "language": "blocks",
+    "concept": "sequences",
+    "difficulty": "beginner",
+    "context": "Making a peanut butter and jelly sandwich"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a robot to make a peanut butter and jelly sandwich! The robot does EXACTLY what you tell it, step by step. But someone mixed up the instructions. The steps are: 1) Get two slices of bread. 2) Spread peanut butter on one slice. 3) Spread jelly on the other slice. 4) Put the slices together. Which order should the robot follow?",
+      "choices": [
+        { "id": "correct-order", "text": "Bread first, then peanut butter, then jelly, then put together.", "nextNode": "outcome-great" },
+        { "id": "skip-step", "text": "Peanut butter first, then jelly, then put together.", "nextNode": "outcome-okay" },
+        { "id": "backwards", "text": "Put together first, then spread peanut butter, then get bread.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Sequence! Sandwich Complete!",
+        "explanation": "You got the steps in the right order! A computer follows instructions one at a time, from top to bottom. Just like making a sandwich, you have to do things in the right order. You cannot spread peanut butter if you have not gotten the bread yet!",
+        "whatToRemember": "A sequence is a list of steps that happen in order, one after another. Computers always follow steps from first to last.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Sequence", "definition": "A set of steps that happen in a specific order, one after another."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Almost! But You Forgot a Step!",
+        "explanation": "You got most of the order right, but you skipped getting the bread! The robot would try to spread peanut butter on... nothing! Computers do not skip steps or figure things out on their own. Every step must be listed.",
+        "whatToRemember": "When writing a sequence, make sure every single step is included. Computers cannot guess what you meant to do.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Uh Oh! The Robot Made a Mess!",
+        "explanation": "The robot tried to put slices together before it even had bread! Then it tried to spread peanut butter on a finished sandwich! When steps are in the wrong order, everything goes wrong. Imagine putting your shoes on before your socks.",
+        "whatToRemember": "Order matters! A sequence must go in the right order from start to finish, or the whole thing breaks.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

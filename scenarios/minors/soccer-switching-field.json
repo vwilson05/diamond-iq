@@ -1,0 +1,63 @@
+{
+  "id": "minors-soccer-switching-field",
+  "title": "Switch the Field!",
+  "sport": ["soccer"],
+  "tier": "minors",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["switching-play", "width", "game-iq"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "20:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the left side of the field with the ball. Three defenders have shifted over to your side, crowding the space. But you notice your teammate on the far RIGHT side is completely alone with tons of space. What do you do?",
+      "choices": [
+        { "id": "switch-field", "text": "Play a long pass all the way across the field to your wide-open teammate on the right side!", "nextNode": "outcome-great" },
+        { "id": "keep-left", "text": "Try to dribble through the three defenders on your side.", "nextNode": "outcome-okay" },
+        { "id": "pass-back", "text": "Pass backward to your goalkeeper.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Brilliant Switch of Play!",
+        "explanation": "You sent the ball from left to right across the entire field! By the time the defenders shift over to that side, your teammate has the ball in acres of space. This is called switching the field or changing the point of attack. When one side is crowded, the other side is usually wide open!",
+        "whatToRemember": "When defenders crowd one side of the field, switch the ball to the opposite side where your teammate has open space!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Switching the Field", "definition": "A long pass from one side of the field to the other, moving the ball away from a crowded area to an open one." }, { "term": "Width", "definition": "Having teammates spread out wide on both sides of the field. This stretches the defense and creates space." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Crowded! Lost the Ball!",
+        "explanation": "Three defenders against one attacker is not good odds. They closed in on you and knocked the ball away. When multiple defenders are on your side, the smart play is to move the ball to where they are NOT. Your teammate on the right was wide open with no one around!",
+        "whatToRemember": "Do not dribble into a crowd of defenders. If one side is packed, switch the ball to the open side!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Backwards? No Danger Created!",
+        "explanation": "Passing back to your keeper is safe, but you completely wasted the chance to attack. Your teammate was wide open on the right side with space to run. Going backward when there is a great forward option means the other team just resets their defense and the opportunity is gone.",
+        "whatToRemember": "Always look for the dangerous forward pass first! Only go backward when there are truly no good options ahead.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

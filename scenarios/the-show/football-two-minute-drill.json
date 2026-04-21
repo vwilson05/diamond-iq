@@ -1,0 +1,74 @@
+{
+  "id": "the-show-football-two-minute-drill",
+  "title": "The Two-Minute Drill!",
+  "sport": ["football"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["two-minute-drill", "clock-management", "urgency", "elite"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "1:55",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 25,
+    "score": { "home": 17, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're down 21-17 with 1:55 left and one timeout. You just got the ball at your own 25-yard line -- you need to go 75 yards for a touchdown to win! The clock is ticking. You need to move fast but also smart. How do you manage this two-minute drill?",
+      "choices": [
+        { "id": "sideline-passes", "text": "Throw quick passes to the sideline so receivers can get out of bounds and stop the clock! Mix in a few middle passes but get out of bounds whenever possible. Save the timeout for an emergency.", "nextNode": "outcome-great" },
+        { "id": "deep-shots", "text": "Throw it deep every play! You need a big play to get down there fast before time runs out!", "nextNode": "outcome-bad" },
+        { "id": "run-hurry", "text": "Run the ball in the hurry-up offense. Running is safer than passing and you won't turn it over.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Driving! Clock Under Control!",
+        "explanation": "Sideline passes are the two-minute drill's best friend! Here's why: when a receiver catches the ball and runs out of bounds, the clock STOPS. This means you get yards without losing time. You can also spike the ball (throw it at the ground) to stop the clock if needed, which costs one down. The key is BALANCE -- mostly sideline throws to save time, but mix in some middle routes when the defense overplays the sideline. Save that timeout for when you REALLY need it, like inside the 5-yard line.",
+        "whatToRemember": "Two-minute drill: sideline passes stop the clock, spike the ball if needed, save your timeout for crunch time, and stay calm under pressure!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Two-Minute Drill", "definition": "A fast-paced offensive drive at the end of a half where every second counts. Requires smart clock management." },
+          { "term": "Spike", "definition": "The quarterback throws the ball at the ground immediately after the snap to stop the clock. Uses one down but saves time." },
+          { "term": "Out of Bounds", "definition": "When a player steps outside the white sideline. The clock stops in the final 2 minutes of each half." },
+          { "term": "Hurry-Up Offense", "definition": "Snapping the ball quickly without huddling to save time. Everyone must know the play from hand signals!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Time Running Out! Only at Midfield!",
+        "explanation": "Running the ball is usually safe, but in a two-minute drill it's your ENEMY! Run plays keep the clock running because the runner usually stays in bounds. Each run play burns 30-40 seconds off the clock. With only 1:55 to go 75 yards, you can't afford to lose that much time per play! You need plays that STOP the clock -- sideline passes, spikes, and your one timeout. Running the ball when you're trailing with 2 minutes left is almost never the answer.",
+        "whatToRemember": "Don't run in a two-minute drill! The clock keeps ticking. Pass to the sideline and get out of bounds to stop time!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Clock Burn", "definition": "When the game clock keeps running, eating up precious seconds. Runs and in-bounds catches burn clock." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Three Straight Incompletions! 4th Down!",
+        "explanation": "Throwing deep every play is too risky in a two-minute drill! Deep passes have a low completion rate -- even great QBs only complete them about 35% of the time. Three incompletions and suddenly it's 4th down! Yes, incomplete passes stop the clock (which is good), but you're using up DOWNS without getting any yards. The two-minute drill is about steady progress with clock-stopping plays, not home-run swings. Move the chains with sideline routes, then take your shot when you're closer.",
+        "whatToRemember": "Don't go all-or-nothing in a two-minute drill! Steady progress with sideline passes moves you downfield without wasting downs on low-percentage deep balls.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Moving the Chains", "definition": "Getting first downs to keep your drive alive. Named after the chain the officials use to measure 10 yards." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

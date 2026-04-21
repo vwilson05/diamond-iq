@@ -1,0 +1,73 @@
+{
+  "id": "majors-football-rpo-read",
+  "title": "Run, Pass, or Option?",
+  "sport": ["football"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["rpo", "option", "read", "advanced"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "9:15",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 35,
+    "score": { "home": 0, "away": 0 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The coach called an RPO -- Run-Pass Option. After the snap, you read the outside linebacker. If he crashes down to stop the run, you pull the ball and throw a quick pass to the receiver behind him. If he stays back in coverage, you hand the ball off for a run. You snap the ball and see the linebacker charge forward toward the running back. What do you do?",
+      "choices": [
+        { "id": "pull-throw", "text": "Pull the ball back from the running back and throw the quick pass! The linebacker vacated his coverage area to stop the run!", "nextNode": "outcome-great" },
+        { "id": "hand-off", "text": "Hand it off to the running back anyway. He's a good runner!", "nextNode": "outcome-bad" },
+        { "id": "keep-it", "text": "Pull the ball and run it yourself instead of throwing.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect RPO Read! Easy Completion!",
+        "explanation": "That's a textbook RPO read! The outside linebacker's job was to cover that area where your receiver is. But he got fooled by the run action and charged forward. When he left his zone, he created an open window for a pass. By pulling the ball and throwing it quickly, you hit the receiver right where the linebacker USED to be standing. The RPO makes the defense wrong no matter what -- if they stop the run, you pass. If they cover the pass, you run!",
+        "whatToRemember": "RPO: Read one defender. If he bites on the run, PULL and throw. If he stays in coverage, hand off the run. Make HIM be wrong!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "RPO (Run-Pass Option)", "definition": "A play where the QB reads one defender after the snap and decides whether to hand off (run) or pull back and throw (pass)." },
+          { "term": "Read Key", "definition": "The specific defender the QB watches to make his decision. That defender tells you what to do!" },
+          { "term": "Pull the Ball", "definition": "When the QB takes the ball back from the running back instead of completing the handoff." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Scramble for a Few Yards!",
+        "explanation": "You made the right read by pulling the ball, but the RPO is designed for a quick THROW, not a QB run! When the linebacker crashes, the passing window opens for just a moment. If you take off running instead, you're slower to get upfield and other defenders can adjust. Plus, the receiver was wide open! The RPO is about making a quick decision and an accurate throw, not about running.",
+        "whatToRemember": "When the RPO tells you to pull the ball, throw it to the open receiver! Don't turn a passing opportunity into a scramble.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Scramble", "definition": "When the quarterback runs with the ball instead of throwing. Sometimes necessary, but not the RPO goal." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stuffed! The Linebacker Made the Play!",
+        "explanation": "The linebacker charged forward to stop the run, and then you handed off right into him! The whole point of the RPO is to punish the defender for guessing wrong. He guessed run and committed to it -- your job was to make him pay by pulling the ball and throwing the pass. Instead, you handed off right into the teeth of the defense. You have to trust your read!",
+        "whatToRemember": "Trust your RPO read! If the defender crashes on the run, do NOT hand it off. Pull the ball and throw. Make him wrong!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Trusting Your Read", "definition": "Making the decision that your pre-snap or post-snap read tells you to make, even if it's scary." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "rookie-football-play-action",
+  "title": "Fake the Handoff!",
+  "sport": ["football"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["play-action", "deception", "passing", "fundamentals"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "7:20",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 35,
+    "score": { "home": 7, "away": 3 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the quarterback and your team has been running the ball a lot today. The defense keeps creeping up close to stop the run. Your coach calls a play-action pass. The running back runs toward you like it's a handoff. What do you do?",
+      "choices": [
+        { "id": "fake-look-deep", "text": "Fake the handoff to the running back, then look downfield for a wide receiver who got behind the defense!", "nextNode": "outcome-great" },
+        { "id": "actually-hand-off", "text": "Just hand the ball off for real since the running game has been working.", "nextNode": "outcome-okay" },
+        { "id": "fake-then-run", "text": "Fake it but then just run forward yourself right away.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "The Defense Bit! Big Play Downfield!",
+        "explanation": "Play-action is all about tricking the defense! Because you've been running the ball all game, the defenders expect another run. When you fake the handoff, they rush forward to stop the run. But SURPRISE -- you still have the ball and your wide receiver is running free behind them! The fake made the defense come up, and now there's a big open space behind them for a pass.",
+        "whatToRemember": "Play-action works best when you've been running well. Fake the run to make defenders bite, then throw deep behind them!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Play-Action", "definition": "A passing play that starts with a fake handoff to trick the defense into thinking it's a run." },
+          { "term": "Sell the Fake", "definition": "Making the fake handoff look so real that the defenders believe it and rush up to stop the run." },
+          { "term": "Bite", "definition": "When a defender falls for a fake and goes the wrong way. They took the bait!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short Gain, But You Missed a Chance!",
+        "explanation": "Handing off isn't a bad idea since the run game was working. You probably got a few yards. But the coach called play-action for a reason! The defense was cheating up to stop the run, which means there was a HUGE open space behind them. A fake handoff and a deep throw could have been a touchdown! Sometimes you need to take what the defense gives you, and they were giving you the deep pass.",
+        "whatToRemember": "When the coach calls play-action, trust the plan! The fake is designed to create a big play downfield.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Cheating Up", "definition": "When defenders move closer to the line before the snap because they think a run is coming." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Tackled Behind the Line!",
+        "explanation": "Running forward yourself right after the fake is risky! The defensive linemen are still right there in front of you, and they're big and fast. Play-action is designed for a PASS, not a QB run. The whole point of the fake is to get the linebackers and safeties to come forward so your receivers get open behind them. Running into traffic wastes all that trickery!",
+        "whatToRemember": "Play-action is a passing play. Fake the run, then THROW the ball to a receiver who got open because of your fake!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Tackled for a Loss", "definition": "When the ball carrier gets tackled behind where the play started. You lost yards!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

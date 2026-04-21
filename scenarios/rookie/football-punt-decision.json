@@ -1,0 +1,73 @@
+{
+  "id": "rookie-football-punt-decision",
+  "title": "Punt or Go For It?",
+  "sport": ["football"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "special-teams",
+  "tags": ["punt", "field-position", "decision-making", "fundamentals"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "4:30",
+    "down": 4,
+    "distance": 8,
+    "yardLine": 30,
+    "score": { "home": 7, "away": 7 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's 4th down and you need 8 yards for a first down. You're on your own 30-yard line (that means you're pretty far from the other team's end zone). The game is tied. The coach asks you what you think the team should do.",
+      "choices": [
+        { "id": "punt", "text": "Punt the ball! Kick it far down the field so the other team starts really far from our end zone.", "nextNode": "outcome-great" },
+        { "id": "go-for-it", "text": "Go for it! Try to get those 8 yards. We can do it!", "nextNode": "outcome-bad" },
+        { "id": "field-goal", "text": "Try a field goal -- kick it through the uprights for 3 points!", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Punt! Pinned Them Deep!",
+        "explanation": "Punting was the smart choice! You're on your own 30-yard line, which means if you fail to get the first down, the other team gets the ball very close to YOUR end zone. That's dangerous! By punting, you kick the ball 40 or 50 yards down the field. Now the other team has to go almost the whole field to score. This is called 'winning the field position battle.'",
+        "whatToRemember": "When you're deep in your own territory on 4th down, PUNT! Don't give the other team a short field to score on.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Punt", "definition": "A kick on 4th down that sends the ball far downfield so the other team starts their drive far from your end zone." },
+          { "term": "Field Position", "definition": "Where on the field the ball is. Having good field position means you're close to the other team's end zone!" },
+          { "term": "Pin Them Deep", "definition": "Punting the ball so it stops close to the other team's end zone, making them go far to score." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Way Too Far for a Field Goal!",
+        "explanation": "A field goal from the 30-yard line would be about a 47-yard kick. That's REALLY far -- even pro kickers miss from there a lot! And if you miss, the other team gets the ball right where you kicked from. The punt is a much better choice here because it pushes the other team way back. Save field goals for when you're closer, like inside the 35-yard line of the OTHER team.",
+        "whatToRemember": "Field goals are for when you're close to the other team's end zone. From your own 30, that's way too far -- just punt!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Field Goal", "definition": "A kick through the uprights that's worth 3 points. Usually attempted from within 40 yards of the end zone." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover on Downs! They Have Great Position!",
+        "explanation": "Going for it on 4th and 8 from your own 30 is too risky! Eight yards is a LOT to gain, and if you don't make it, the other team gets the ball on YOUR 30-yard line. That means they only need 30 yards to score a touchdown! That's basically giving them a free gift. The game is tied, so there's no need to take such a big risk. Play it safe and punt!",
+        "whatToRemember": "Don't go for it on 4th down deep in your own territory unless you're desperate. The risk of giving the other team a short field is too big!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Turnover on Downs", "definition": "When a team fails to get a first down on 4th down, so the other team gets the ball right there." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

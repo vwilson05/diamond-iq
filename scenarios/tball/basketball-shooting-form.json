@@ -1,0 +1,63 @@
+{
+  "id": "tball-basketball-shooting-form",
+  "title": "Ready to Shoot",
+  "sport": ["basketball"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["shooting", "form", "basics"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "5:00",
+    "score": { "home": 18, "away": 20 },
+    "possession": "home",
+    "shotClock": 15
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You catch the ball near the basket and you are wide open. Nobody is guarding you! You have time to take a good shot. How do you shoot?",
+      "choices": [
+        { "id": "best", "text": "Square your feet to the basket, bend your knees, and shoot with one hand guiding and one hand supporting", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Quickly throw the ball up at the rim before anyone can get to you", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Heave the ball with both hands from your waist like a soccer throw-in", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Swish! Nothing but net!",
+        "explanation": "Good shooting form means your feet are shoulder-width apart, knees bent, and you use your shooting hand to push the ball up while your other hand keeps it steady. This gives you the best chance to make the shot.",
+        "whatToRemember": "B-E-E-F: Balance your feet, Eyes on the rim, Elbow straight, Follow through with your wrist.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Shooting Form", "definition": "The correct body position for shooting: balanced feet, bent knees, elbow under the ball, eyes on the target, and a smooth follow-through" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It bounced around and went in!",
+        "explanation": "You made the shot, but rushing means you did not use good form. The ball bounced off the rim three times before falling in. You were lucky this time.",
+        "whatToRemember": "Even when you are open, take a breath and use proper form. You were not in a rush, so there was no reason to hurry the shot.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Airball!",
+        "explanation": "Shooting from your waist with two hands like a throw-in does not give the ball enough arc or spin. It hit the bottom of the rim and bounced away.",
+        "whatToRemember": "Always shoot from above your head, not your waist. The ball needs to go up in an arc to have a chance of going in the basket.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

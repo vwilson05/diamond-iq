@@ -1,0 +1,63 @@
+{
+  "id": "tball-soccer-dribbling",
+  "title": "Keep the Ball Close!",
+  "sport": ["soccer"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["dribbling", "basics", "ball-control"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "18:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have the ball and there is open space ahead of you. No defenders are close yet but they are jogging back. You want to dribble up the field. How do you move with the ball?",
+      "choices": [
+        { "id": "small-touches", "text": "Take small, gentle taps with the inside of your foot to keep the ball right next to you as you run!", "nextNode": "outcome-great" },
+        { "id": "big-kick-chase", "text": "Kick the ball far ahead and then sprint after it!", "nextNode": "outcome-okay" },
+        { "id": "carry-hands", "text": "Pick up the ball and run with it in your hands!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smooth Dribbling!",
+        "explanation": "Taking small taps keeps the ball glued to your feet. When the ball stays close, you can change direction, pass, or shoot at any moment. This is what real soccer stars do -- they touch the ball every few steps to keep it under control.",
+        "whatToRemember": "Dribble with small, soft touches to keep the ball close to your feet. Touch it every two or three steps!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Dribbling", "definition": "Moving the ball with your feet by taking small taps. Keep it close so no one can steal it!" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Too Far Ahead!",
+        "explanation": "You kicked it far and had to sprint to get it back. This can work if you are really fast and no one else is near the ball. But a defender might get there first! Keeping the ball close with small touches is safer because you stay in control.",
+        "whatToRemember": "Big kicks ahead are risky. A defender might beat you to the ball. Small touches keep you in control!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Handball! That is Not Allowed!",
+        "explanation": "In soccer, you cannot touch the ball with your hands or arms (unless you are the goalkeeper inside their box). If you use your hands, the referee blows the whistle and gives the ball to the other team. Only use your feet, legs, chest, and head!",
+        "whatToRemember": "No hands in soccer! Only the goalkeeper can use their hands, and only inside the big box near the goal.",
+        "iqPoints": 1,
+        "keyTerms": [{ "term": "Handball", "definition": "A foul that happens when a player (who is not the goalkeeper) touches the ball with their hand or arm." }],
+        "next": "end"
+      }
+    }
+  }
+}

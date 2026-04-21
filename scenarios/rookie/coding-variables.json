@@ -1,0 +1,62 @@
+{
+  "id": "rookie-coding-variables",
+  "title": "Boxes That Hold Things",
+  "sport": ["coding"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "building",
+  "tags": ["variables", "storage", "naming", "fundamentals"],
+  "setup": {
+    "language": "blocks",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "context": "Organizing a toy shelf with labeled boxes"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building a game where a player has a score that goes up when they collect stars. Right now the player has 5 stars. You need somewhere to STORE that number so the game remembers it. Think of it like a labeled box -- you put the number inside, and the label tells you what is in the box. How would you set this up?",
+      "choices": [
+        { "id": "named-variable", "text": "Create a box labeled 'score' and put the number 5 inside it.", "nextNode": "outcome-great" },
+        { "id": "no-label", "text": "Just put the number 5 somewhere without a label.", "nextNode": "outcome-okay" },
+        { "id": "no-storage", "text": "Do not store it anywhere. The computer will remember it.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect! You Made a Variable!",
+        "explanation": "You just created a VARIABLE! A variable is like a labeled box. The label is 'score' and inside the box is the number 5. Later, when the player collects another star, you can open the box, take out the 5, add 1, and put 6 back in. The label helps you find the right box when you need it!",
+        "whatToRemember": "A variable is a labeled box that holds information. Give it a clear name so you can find it later!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Variable", "definition": "A named container that stores a value. Like a labeled box that holds a number, word, or other information."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Stored, But Hard to Find!",
+        "explanation": "You stored the number, which is good! But without a label, how will you find it later? Imagine a room full of boxes with no labels. Which one has the score in it? Variables need clear names so you (and the computer) know exactly what is inside each one.",
+        "whatToRemember": "Always give your variables clear names. A box without a label is hard to find in a room full of boxes!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Oops! The Computer Forgot the Score!",
+        "explanation": "Computers do NOT remember things on their own! They only remember what you tell them to store. Without a variable, the score disappears the moment you move on. It is like writing a number on a whiteboard and then immediately erasing it -- gone forever!",
+        "whatToRemember": "Computers only remember things you store in variables. If you do not save it, it is gone!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "rookie-soccer-goal-kicks",
+  "title": "Taking a Goal Kick!",
+  "sport": ["soccer"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "goalkeeper",
+  "tags": ["goal-kick", "restart", "fundamentals"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "22:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "defensive-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team kicked the ball over your goal line (but it did not go in). The referee points for a goal kick. You place the ball inside the goal area box. Where should you kick it?",
+      "choices": [
+        { "id": "pass-defender", "text": "Kick it to one of your defenders who is standing open on the side of the field!", "nextNode": "outcome-great" },
+        { "id": "boot-far", "text": "Kick it as far as you can up the field and hope someone gets it!", "nextNode": "outcome-okay" },
+        { "id": "short-middle", "text": "Tap it short right up the middle where lots of players are standing!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Goal Kick!",
+        "explanation": "Your defender on the side of the field had plenty of room. Kicking it to them keeps the ball with your team and gives you time to build an attack. Passing to an open teammate on a goal kick is the safest choice because it keeps possession on your side!",
+        "whatToRemember": "On a goal kick, look for an open teammate on the side of the field. Keeping the ball is better than just booting it!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Goal Kick", "definition": "A restart taken from inside the goal area box when the attacking team kicks the ball over the goal line without scoring." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Big Kick! 50-50 Ball!",
+        "explanation": "You kicked it far, which gets it away from your goal. But it is a coin flip -- your team or the other team might get it. If you can find an open teammate nearby, passing to them is safer because you KNOW your team keeps the ball.",
+        "whatToRemember": "Booting it far is safe but you might give it away. If a teammate is open, pass to them to keep possession!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Uh Oh! Too Crowded!",
+        "explanation": "The middle of the field had tons of players from both teams. Your short pass got intercepted and now the other team has the ball right near your goal! That is dangerous. On goal kicks, avoid the crowded middle. Look for open space on the sides or kick it further away.",
+        "whatToRemember": "Never play a goal kick into a crowded area near your own goal. Find the open space on the sides!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

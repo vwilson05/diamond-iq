@@ -1,0 +1,63 @@
+{
+  "id": "rookie-basketball-boxing-out",
+  "title": "Box Out for the Rebound",
+  "sport": ["basketball"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "defense",
+  "tags": ["rebounding", "boxing out", "positioning"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "3:45",
+    "score": { "home": 30, "away": 28 },
+    "possession": "away",
+    "shotClock": 5
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team's player just shot the ball and it is flying toward the rim. It looks like it might miss! Your player is behind you trying to get to the basket for the rebound. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Turn and put your body between your player and the basket, spread your arms wide, and hold your ground", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Jump up as high as you can right away to try to grab the ball", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Watch the ball fly through the air and see where it goes", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great box out!",
+        "explanation": "By putting your body between the opponent and the basket, you kept them away from the rebound. The ball bounced off the rim and you or your teammate grabbed it easily because nobody from the other team could get close.",
+        "whatToRemember": "Boxing out means turning to face your opponent, making contact, and holding your position between them and the basket. Position beats jumping!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Boxing Out", "definition": "Putting your body between an opponent and the basket after a shot goes up, using your back and arms to keep them away from the rebound" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You jumped too early!",
+        "explanation": "You went up before the ball came down, so you were already on your way back down when the ball bounced off the rim. The opponent snuck around you while you were in the air.",
+        "whatToRemember": "Box out first, then jump for the rebound. If you jump too early, you give up your position.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "They got the rebound!",
+        "explanation": "While you were standing there watching the ball, the other team's player ran right past you, grabbed the rebound, and scored an easy put-back basket.",
+        "whatToRemember": "When a shot goes up, find your player immediately and box them out. Never just stand and watch!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "rookie-soccer-first-touch",
+  "title": "Control It with Your First Touch!",
+  "sport": ["soccer"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["first-touch", "ball-control", "fundamentals"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "15:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teammate kicks the ball to you and it is bouncing along the ground. A defender is about five steps away and closing in. You need to control the ball quickly. What do you do with your first touch?",
+      "choices": [
+        { "id": "cushion-touch", "text": "Cushion the ball softly with the inside of your foot so it stops right next to you!", "nextNode": "outcome-great" },
+        { "id": "let-bounce", "text": "Let the ball bounce off your foot and then chase after it!", "nextNode": "outcome-okay" },
+        { "id": "step-on-ball", "text": "Step on top of the ball to stop it dead!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Silky Smooth First Touch!",
+        "explanation": "You relaxed your foot and let the ball sink into it like a cushion. The ball stayed right at your feet and now you have time to look up, dribble, or pass before the defender arrives. A great first touch sets up everything that comes next!",
+        "whatToRemember": "Cushion the ball by relaxing your foot when it arrives. A soft first touch keeps the ball close and gives you more time!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "First Touch", "definition": "The very first time you touch the ball when it comes to you. A good first touch keeps it close and under control." }, { "term": "Cushion", "definition": "Pulling your foot back slightly when the ball arrives so it does not bounce far away." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Bounced Away a Little!",
+        "explanation": "The ball hit your foot and rolled a couple of steps ahead. You still got it back, but you lost a second chasing it. That extra second might let the defender catch up. If you relax your foot like a pillow, the ball will stay right at your feet instead of bouncing off.",
+        "whatToRemember": "Do not let the ball bounce off a stiff foot. Relax and cushion it so it sticks to you!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Ball Rolled Under Your Foot!",
+        "explanation": "Stepping on a bouncing ball is tricky -- it can roll right under your foot and you might trip or lose your balance. Stepping on the ball works if it is already still, but when it is moving toward you, use the inside of your foot to cushion it instead.",
+        "whatToRemember": "Do not stomp on a moving ball. Use the inside of your foot to cushion it gently to a stop!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

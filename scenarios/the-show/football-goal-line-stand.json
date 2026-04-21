@@ -1,0 +1,73 @@
+{
+  "id": "the-show-football-goal-line-stand",
+  "title": "Goal Line Stand!",
+  "sport": ["football"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "defense",
+  "tags": ["goal-line", "run-defense", "critical-moment", "elite"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "0:45",
+    "down": 3,
+    "distance": 1,
+    "yardLine": 1,
+    "score": { "home": 21, "away": 17 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team has the ball at YOUR 1-yard line. They're down 21-17 and need a touchdown to win! It's 3rd down and they only need 1 yard. There are 45 seconds left. They've been running the ball up the middle all drive with their big power back. As the defensive captain, how do you line up your defense for this critical play?",
+      "choices": [
+        { "id": "goal-line-stack", "text": "Goal line defense! Put ALL your big linemen and linebackers in tight, right at the line of scrimmage. Stack the middle and low. Take away the inside run, but have ONE safety watching for a play-action pass to the corner of the end zone!", "nextNode": "outcome-great" },
+        { "id": "all-in-middle", "text": "Put EVERYONE in the middle to stuff the run. All 11 defenders within 5 yards of the ball. They're definitely running!", "nextNode": "outcome-okay" },
+        { "id": "spread-out", "text": "Spread your defenders out across the field in case they throw a trick play pass.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "GOAL LINE STAND! They Didn't Score!",
+        "explanation": "Elite defensive thinking! You loaded up to stop the run (which they've been doing all drive), but you left ONE defender watching for the play-action pass. This is crucial on the goal line! Smart offenses will sometimes fake the run and throw a quick pass to the back corner of the end zone, which is almost impossible to defend if nobody is there. By having ONE safety reading the quarterback's eyes, you stopped BOTH options. The run was stuffed at the line, and even if they'd faked it, you were ready!",
+        "whatToRemember": "On goal line stands: load up to stop what they've been doing, but always keep one defender honest for the counter play. Don't go 100% all-in on one thing!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Goal Line Stand", "definition": "When the defense stops the offense from scoring at the 1-2 yard line. One of the most exciting plays in football!" },
+          { "term": "Goal Line Defense", "definition": "A special defensive formation with extra big players packed in tight to stop short-yardage runs." },
+          { "term": "Play-Action on the Goal Line", "definition": "Faking a run at the goal line and throwing to the corner of the end zone. Deadly if the defense puts everyone in the box!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Run Stuffed! But It's 4th Down and They Might Go for It!",
+        "explanation": "You stopped the run, which is good! With everyone in the middle, there was no room for their running back. But you got lucky -- if they had called a play-action pass to the corner of the end zone, there would have been ZERO defenders back there and it would have been an easy touchdown. Always keep at least one defender watching for the pass, even when you're stacking against the run. Smart offenses will eventually exploit an over-committed defense.",
+        "whatToRemember": "Even on the goal line, don't put ALL 11 in the box. Keep at least one defender honest for the play-action pass to the corner!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Over-Commit", "definition": "Putting so many defenders against one thing that you're completely exposed to something else." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Walked In! Easy Touchdown!",
+        "explanation": "Spreading your defense out on 3rd and 1 from the 1-yard line is a disaster! The offense only needs ONE YARD. Their big running back just needs a tiny crease to fall forward into the end zone. By spreading out, you left huge gaps in the middle of the line. He walked right in untouched! When the offense needs only 1 yard and has been running all drive, you MUST pack the middle first. Yes, be aware of tricks, but stopping the most likely play (the run) has to be the priority!",
+        "whatToRemember": "On the goal line, stop the most likely play FIRST (usually the run). Don't spread out and give them easy running lanes in the middle!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Gap Integrity", "definition": "Every defender is responsible for a specific gap between offensive linemen. If you leave yours, the runner goes through it!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

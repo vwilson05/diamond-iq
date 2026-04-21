@@ -1,0 +1,62 @@
+{
+  "id": "tball-money-piggy-bank",
+  "title": "Feed the Piggy Bank",
+  "sport": ["money"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "saving",
+  "tags": ["saving", "piggy bank", "patience", "basics"],
+  "setup": {
+    "situation": "birthday-money",
+    "money": 10.00,
+    "goal": "save for a big toy",
+    "context": "Just got birthday money from Grandma"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Grandma gave you ten dollars for your birthday! You have been saving up for a twenty dollar toy robot. You already have eight dollars in your piggy bank. What do you do with your birthday money?",
+      "choices": [
+        { "id": "best", "text": "Put the ten dollars in your piggy bank because now you will have enough for the robot", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Put five dollars in the piggy bank and spend five dollars on candy", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Spend all ten dollars on small toys at the dollar store", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You reached your goal!",
+        "explanation": "Eight dollars plus ten dollars equals eighteen dollars. That is almost enough for the robot! One more week of saving and you will have it. Your piggy bank is working hard for you.",
+        "whatToRemember": "A piggy bank helps you save money over time. Small amounts add up to big amounts if you keep putting money in.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Saving", "definition": "Keeping your money safe so it adds up over time and you can buy something bigger later." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Some saved, some spent",
+        "explanation": "You now have thirteen dollars in your piggy bank. The candy was tasty, but you still need seven more dollars for the robot. It will take longer to reach your goal.",
+        "whatToRemember": "Splitting your money between saving and spending is okay, but it means waiting longer for your big goal.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The small toys broke by bedtime!",
+        "explanation": "You spent all ten dollars on cheap little toys, and most of them broke the same day. Your piggy bank still only has eight dollars and the robot feels far away.",
+        "whatToRemember": "Spending everything right away on small stuff means you never save enough for the big things you really want.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

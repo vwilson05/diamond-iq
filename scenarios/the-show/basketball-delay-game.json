@@ -1,0 +1,63 @@
+{
+  "id": "the-show-basketball-delay-game",
+  "title": "Protect the Lead",
+  "sport": ["basketball"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["delay game", "clock management", "game IQ"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "1:20",
+    "score": { "home": 60, "away": 57 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning by three points with a minute and twenty seconds left. You have the ball after a made free throw. The other team needs a three-pointer to tie. How do you manage this possession?",
+      "choices": [
+        { "id": "best", "text": "Run as much time off the shot clock as possible with controlled passing and dribbling, only shoot if you get a wide-open layup, and force them to foul you", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Take the first open shot you see to try to extend the lead", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Just hold the ball in one spot and run away from defenders until they foul", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect clock management!",
+        "explanation": "You ran twenty seconds off the shot clock with controlled ball movement. The other team got impatient and fouled you, sending you to the free throw line. You made both, pushing the lead to five. Now they need even more time to come back!",
+        "whatToRemember": "When protecting a lead late in the game, your goal is to eat clock while keeping a high-percentage offense. Force the other team to foul. Every second you run off is one less second they have to come back.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Delay Game", "definition": "A strategy used when protecting a lead where the offense uses as much shot clock as possible on each possession, limiting the opponent's chances to score and come back." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Quick shot, quick miss",
+        "explanation": "You shot early in the shot clock and missed. Now the other team has the ball with over a minute left, plenty of time to come back. You did not use any clock and gave them extra possessions.",
+        "whatToRemember": "When you are winning late, every second matters. A quick miss gives the other team time AND the ball. Use the shot clock to your advantage -- time is your friend when you are ahead.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stolen! Tied game!",
+        "explanation": "Standing in one spot made you an easy target. A defender poked the ball away and the other team scored a fast-break three-pointer to tie the game. Delay offense still requires movement and passing, not just standing around.",
+        "whatToRemember": "Delay game does not mean standing still or being passive. You still need to move, pass, and make the defense work. Just do it slowly and under control while eating clock.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "majors-basketball-pick-and-pop",
+  "title": "The Pick and Pop",
+  "sport": ["basketball"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["pick and pop", "shooting", "reads"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "3:00",
+    "score": { "home": 28, "away": 30 },
+    "possession": "home",
+    "shotClock": 15
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teammate who is a great shooter sets a screen for you. After the screen, instead of rolling to the basket like usual, they pop out to the three-point line. The defender who was guarding the screener followed you, leaving the screener wide open behind the arc. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Pass the ball back to your teammate who popped out for the wide-open three-pointer", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Drive to the basket yourself since the screen got you free", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Pick up your dribble and look for someone closer to the basket", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Splash! Three pointer from the pop!",
+        "explanation": "The pick and pop is deadly when the screener can shoot. The defense expected a roll to the basket, but your teammate popped to the three-point line instead. Since the defender followed you, your teammate was wide open for three!",
+        "whatToRemember": "The pick and pop works differently than the pick and roll. After screening, the player steps OUT to shoot instead of rolling IN to the basket. Read whether the screener's defender stays or follows you.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Pick and Pop", "definition": "Like a pick and roll, but instead of rolling to the basket, the screener pops out to the three-point line for an open jump shot. Works best when the screener is a good shooter." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You scored, but missed the easier shot",
+        "explanation": "You drove and made a tough layup over a helping defender. It worked this time, but your teammate was standing all alone at the three-point line. A wide-open three is a much better shot than a contested layup.",
+        "whatToRemember": "Always look back at the screener after using a pick. If they popped out and are wide open, that pass is usually the best play.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Opportunity wasted!",
+        "explanation": "You picked up your dribble and got trapped. By the time you found someone to pass to, the defense recovered and your teammate at the three-point line was no longer open. The shot clock forced a bad possession.",
+        "whatToRemember": "Keep your dribble alive when coming off screens so you have options. And always be aware of where the screener goes after setting the pick.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

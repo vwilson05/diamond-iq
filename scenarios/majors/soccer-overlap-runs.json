@@ -1,0 +1,63 @@
+{
+  "id": "majors-soccer-overlap-runs",
+  "title": "The Overlap Run!",
+  "sport": ["soccer"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["overlap", "wing-play", "advanced"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "18:00",
+    "score": { "home": 1, "away": 1 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a winger with the ball near the sideline. The opposing fullback is right in front of you, blocking your path to the goal line. You hear your fullback teammate shouting and sprinting up the outside past you. The opponent does not see them coming. What do you do?",
+      "choices": [
+        { "id": "play-overlap", "text": "Slip the ball into the space ahead of your overlapping fullback so they can get behind the defender!", "nextNode": "outcome-great" },
+        { "id": "cut-inside", "text": "Use the overlap as a decoy -- cut inside while the defender watches the runner!", "nextNode": "outcome-okay" },
+        { "id": "ignore-run", "text": "Ignore the overlapping run and try to beat the defender one-on-one.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Overlap! Cross Comes In!",
+        "explanation": "Your fullback sprinted past you on the outside, and you slipped the ball into the space ahead of them. The opposing fullback was caught in no-man's land -- they could not track the runner AND stay with you. Your fullback got to the byline and whipped a cross into the box! Overlaps create 2-versus-1 situations on the wing.",
+        "whatToRemember": "When a teammate makes an overlap run, play the ball into the space AHEAD of them. The opponent cannot cover both of you!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Overlap Run", "definition": "When a teammate sprints past you on the outside, giving you a 2-versus-1 advantage against the defender." }, { "term": "Byline", "definition": "The goal line at the end of the field. Getting to the byline means you are deep enough to cross the ball across the goal." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Cut Inside! Decent Shot!",
+        "explanation": "Using the overlap as a decoy is clever. The defender glanced at the runner and you cut inside for a shot. But the angle was tight and the keeper saved it. This can work, but the highest-percentage play was to use the actual overlap -- your fullback was completely free and would have had a better angle to cross.",
+        "whatToRemember": "Using an overlap as a decoy is smart, but actually playing the ball to the free runner is usually the better option!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Tackled! Wasted the Overlap!",
+        "explanation": "Your fullback made a lung-busting sprint to create a 2-versus-1, and you completely ignored them. The defender only had to worry about you and won the ball easily. Overlaps are one of the most powerful attacking weapons in soccer because they outnumber the defender. When a teammate overlaps, USE them!",
+        "whatToRemember": "When a teammate makes an overlap run, they created a 2v1 for you. Use it! Do not waste their energy by ignoring them.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "minors-coding-nested-loops",
+  "title": "Loops Inside Loops!",
+  "sport": ["coding"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "logic",
+  "tags": ["nested-loops", "repetition", "patterns", "problem-solving"],
+  "setup": {
+    "language": "blocks",
+    "concept": "nested loops",
+    "difficulty": "intermediate",
+    "context": "Setting up chairs in rows for a school assembly"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You need to set up chairs for a school assembly: 4 rows with 5 chairs in each row. That is 20 chairs total! You want to write code that sets up all the chairs. The outer loop handles the rows, and the inner loop handles the chairs in each row. How would you write this?",
+      "choices": [
+        { "id": "nested-correct", "text": "Repeat 4 times (for each row): repeat 5 times (place a chair). Then move to the next row.", "nextNode": "outcome-great" },
+        { "id": "single-loop", "text": "Repeat 20 times: place a chair.", "nextNode": "outcome-okay" },
+        { "id": "two-separate", "text": "Repeat 4 times: start a new row. Then repeat 5 times: place a chair.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Nested Loops! Rows and Columns!",
+        "explanation": "You used a loop INSIDE another loop! The outer loop runs 4 times (once for each row). Each time the outer loop runs, the inner loop runs 5 times (placing 5 chairs in that row). So you get: Row 1 with 5 chairs, Row 2 with 5 chairs, Row 3 with 5 chairs, Row 4 with 5 chairs. That is a NESTED loop -- one loop nested inside another, like a small box inside a bigger box!",
+        "whatToRemember": "A nested loop is a loop inside another loop. The inner loop runs completely every time the outer loop takes one step.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Nested Loop", "definition": "A loop inside another loop. The inner loop runs all its repetitions for EACH repetition of the outer loop."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Right Number, But No Organization!",
+        "explanation": "You would place 20 chairs, which is the right total! But they would all be in one long line with no rows. You need the nested loop to organize them: the outer loop creates rows, and the inner loop fills each row with chairs. Without nesting, you lose the structure.",
+        "whatToRemember": "When you need to organize things in rows and columns (like a grid), you need nested loops -- one for rows and one for columns.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Only 5 Chairs! The Loops Are Not Connected!",
+        "explanation": "When the loops are separate (not nested), the first loop runs 4 times starting rows, and THEN the second loop runs 5 times placing chairs. But the chair-placing only happens ONCE, not for each row! You end up with 4 empty rows and then 5 chairs dumped at the end. The chair loop needs to be INSIDE the row loop.",
+        "whatToRemember": "Separate loops run one after the other. Nested loops run one INSIDE the other. Nesting means 'do this inner thing every time the outer thing happens.'",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

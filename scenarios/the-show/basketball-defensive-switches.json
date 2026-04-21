@@ -1,0 +1,63 @@
+{
+  "id": "the-show-basketball-defensive-switches",
+  "title": "Switch or Stay?",
+  "sport": ["basketball"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["switching", "communication", "matchups"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "3:00",
+    "score": { "home": 52, "away": 54 },
+    "possession": "away",
+    "shotClock": 18
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team runs a screen play. Their big player screens for their quick point guard. You are guarding the big player and your shorter teammate is guarding the point guard. Your teammate gets stuck on the screen. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Call out 'Switch!' loudly, step up to guard the point guard, and tell your teammate to take the big player. Then use your footwork to stay in front of the quicker player.", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Let your teammate fight through the screen on their own while you stay with the big player", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Both of you run at the point guard, leaving the big player wide open rolling to the basket", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect switch!",
+        "explanation": "By calling the switch early and loud, everyone knew their new assignment instantly. You used good positioning to contain the quick guard, and your teammate picked up the big player. No confusion, no easy baskets.",
+        "whatToRemember": "Switching means trading defensive assignments when a screen causes problems. The key is communication -- yell 'Switch!' early so both defenders know. After switching, use positioning to handle the mismatch.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Defensive Switch", "definition": "When two defenders trade the players they are guarding during a screen, instead of fighting through it. Requires loud, early communication between teammates." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Your teammate recovered, but it was close",
+        "explanation": "Your teammate got stuck on the screen for a moment, giving the point guard a step. They managed to recover, but the other team nearly got an open shot. Without communication, you both were guessing.",
+        "whatToRemember": "When your teammate gets screened, you need to make a quick decision: switch or help until they recover. Do not just watch -- communicate what you are going to do.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy alley-oop!",
+        "explanation": "Both of you chased the point guard, which left the big player completely alone rolling to the basket. The point guard lobbed it up for an easy alley-oop dunk. You doubled the ball handler but forgot about the screener.",
+        "whatToRemember": "Never have two defenders chase one player unless it is a designed trap. One player guards the ball handler, one guards the screener. Communicate so you do not both go to the same place.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

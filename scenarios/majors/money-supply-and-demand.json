@@ -1,0 +1,62 @@
+{
+  "id": "majors-money-supply-and-demand",
+  "title": "Why Prices Change",
+  "sport": ["money"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "earning",
+  "tags": ["supply", "demand", "pricing", "entrepreneur"],
+  "setup": {
+    "situation": "selling-friendship-bracelets",
+    "money": 5.00,
+    "goal": "understand why your price should change",
+    "context": "You make friendship bracelets and sell them at school"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You sell friendship bracelets at school for two dollars each. Suddenly everyone wants one because a popular kid wore yours. You have five bracelets left but twenty kids want to buy one. Each bracelet takes you thirty minutes to make. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Raise the price to four dollars since way more people want them than you have to sell", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Keep the price at two dollars and sell to the first five kids who ask", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Lower the price to one dollar so even more kids will want one", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Supply and demand at work!",
+        "explanation": "When many people want something but there is not much of it, the price goes up. You sold all five bracelets for four dollars each, making twenty dollars instead of ten. Kids were happy to pay more because the bracelets were hard to get.",
+        "whatToRemember": "When demand is high and supply is low, prices go up. When you have something lots of people want but few can get, it becomes more valuable.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Supply and Demand", "definition": "Supply is how much of something is available. Demand is how many people want it. When demand is higher than supply, the price goes up." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fair, but you left money on the table",
+        "explanation": "You were fair to the first five kids, but fifteen others were willing to pay more and you missed out. You made ten dollars when you could have made twenty. Being fair is nice, but understanding value helps you earn more.",
+        "whatToRemember": "When lots of people want what you are selling, the market is telling you your price might be too low. It is not greedy to charge what something is worth.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Huge line, tiny profit!",
+        "explanation": "Lowering the price made even MORE kids want bracelets, but you still only have five. You made five dollars total and now thirty kids are upset they cannot get one. You worked against yourself by making the problem worse.",
+        "whatToRemember": "Lowering prices when you already cannot keep up with demand makes no sense. You sell the same amount but earn less. Match your price to the demand.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

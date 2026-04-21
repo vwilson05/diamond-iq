@@ -1,0 +1,62 @@
+{
+  "id": "minors-money-sales-and-discounts",
+  "title": "Sale or Trap?",
+  "sport": ["money"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "spending",
+  "tags": ["sales", "discounts", "smart spending", "percentages"],
+  "setup": {
+    "situation": "back-to-school-sale",
+    "money": 20.00,
+    "goal": "get a good deal without overspending",
+    "context": "Big sale at the mall with signs everywhere saying 50% off"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The store has a huge 50 percent off sale. A backpack that was forty dollars is now twenty dollars. You have exactly twenty dollars. You did not come here planning to buy a backpack and your current one works fine. But the deal looks amazing. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Skip it because you do not need a new backpack, even at half price", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Buy it because half off is a great deal and your old one is getting worn", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Buy it plus some other sale items and ask Mom to cover what you cannot afford", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You did not fall for the sale trap!",
+        "explanation": "A discount on something you do not need is not really saving money. You still have your twenty dollars for something you actually want or need. Walking away from a sale takes discipline.",
+        "whatToRemember": "A sale only saves you money if you were already planning to buy that thing. Buying stuff just because it is on sale is actually spending more, not less.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Discount", "definition": "A lower price on an item. But a discount only saves you money if you truly need the item. Otherwise you are spending money you would have kept." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good deal, but was it necessary?",
+        "explanation": "You saved twenty dollars compared to full price, which sounds great. But you also spent twenty dollars you did not plan to spend on something you did not really need yet. Your old backpack still works.",
+        "whatToRemember": "Before buying on sale, ask: would I buy this at full price? Did I come here planning to get this? If not, the sale might be tricking you into spending.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Sale shopping turned into overspending!",
+        "explanation": "You spent all your money AND asked Mom for more. Sales trick people into buying things they did not plan to buy. You ended up spending more than if there was no sale at all.",
+        "whatToRemember": "Sales are designed to make you spend more money. Stores are not giving you deals to be nice; they want you to buy things you would not normally buy.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

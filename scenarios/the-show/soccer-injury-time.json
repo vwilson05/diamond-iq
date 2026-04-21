@@ -1,0 +1,63 @@
+{
+  "id": "the-show-soccer-injury-time",
+  "title": "Injury Time Decision!",
+  "sport": ["soccer"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["injury-time", "game-management", "elite", "pressure"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "0:30",
+    "score": { "home": 1, "away": 2 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are down 1-2 in the final seconds of injury time. The referee will blow the final whistle any moment. Your team has a throw-in in the attacking half. Your goalkeeper has sprinted up into the other team's box for extra height. This is the LAST play of the game. What do you do?",
+      "choices": [
+        { "id": "long-throw-to-box", "text": "Launch a long throw-in into the box where your goalkeeper and tall defenders are. Get it in there and hope for chaos!", "nextNode": "outcome-great" },
+        { "id": "short-throw-build", "text": "Play a short throw-in and try to work a passing move.", "nextNode": "outcome-okay" },
+        { "id": "throw-backwards", "text": "Throw it back to your half to keep possession and play it safe.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "GOAL! Last-Second Equalizer!",
+        "explanation": "You launched the ball into the danger area and chaos erupted! Your goalkeeper challenged for the header, the ball bounced around, and a teammate smashed it in! When you are losing in the dying seconds, you need to get the ball into the box immediately. There is no time for build-up play. Maximum bodies in the box, maximum urgency, maximum chaos. That is how late equalisers happen.",
+        "whatToRemember": "In injury time when losing: get the ball in the box by any means necessary. Long throw, everyone up, create chaos. There is no second chance!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Injury Time", "definition": "Extra minutes added at the end of each half for time lost to injuries, substitutions, and stoppages. Also called stoppage time or added time." }, { "term": "Goalkeeper Up", "definition": "When the keeper runs to the other end of the field for a set piece in the dying moments, adding an extra attacker for heading the ball." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "No Time! Whistle Blows!",
+        "explanation": "You tried to play a short throw and build up, but the referee blew the final whistle before you could get a shot off. In injury time, there is literally no time for a passing move. The ball needs to go into the box immediately because the whistle could come at any second. Short passes burn precious seconds you do not have.",
+        "whatToRemember": "In the dying seconds, there is NO time for short passing moves. Get the ball in the box directly -- the whistle could blow at any moment!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Game Over! You Lost!",
+        "explanation": "You threw the ball BACKWARD when you needed a goal! The referee blew the final whistle and your team lost. Playing it safe when you are BEHIND makes no sense -- you have nothing to lose! In the dying moments, you need maximum aggression. Every player forward, ball in the box, go for broke. Playing safe when losing is the worst possible strategy.",
+        "whatToRemember": "NEVER play it safe when you are losing in injury time! You have nothing to protect. Maximum attack, everyone forward, ball in the box!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

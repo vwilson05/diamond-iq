@@ -1,0 +1,62 @@
+{
+  "id": "tball-money-sharing",
+  "title": "Sharing With Others",
+  "sport": ["money"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "spending",
+  "tags": ["sharing", "generosity", "kindness", "basics"],
+  "setup": {
+    "situation": "friend-forgot-lunch-money",
+    "money": 4.00,
+    "goal": "help your friend",
+    "context": "Lunchtime at school and your friend forgot her money"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your friend Maya looks sad because she forgot her lunch money today. You have four dollars, which is enough to buy both of you a snack. Lunch costs two dollars each. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Share your money and buy lunch for both of you since you have enough", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Split your snack with Maya so she gets something to eat", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Ignore Maya and buy yourself a big lunch with all four dollars", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "What a great friend!",
+        "explanation": "You shared your money and both of you ate a good lunch. Maya said thank you and promised to help you next time you need it. Sharing when you have enough feels wonderful.",
+        "whatToRemember": "When you have enough to share, helping a friend is one of the best things you can do with money. Kindness comes back to you.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Sharing", "definition": "Giving some of what you have to help someone else. Sharing money or things makes friendships stronger." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Half a snack is better than none",
+        "explanation": "Maya appreciated getting half your food. You were both a little hungry, but at least she was not left out. You still have money left over too.",
+        "whatToRemember": "Even sharing a little bit helps. You do not always have to give everything away to be kind.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Maya went hungry",
+        "explanation": "You ate a big lunch while Maya sat with nothing. She felt sad and alone. Later you felt bad about it too. Having extra food did not feel as good when your friend was hungry.",
+        "whatToRemember": "Being generous when you can makes everyone happier, including you. Ignoring someone in need does not feel good even if you get more for yourself.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

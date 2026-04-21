@@ -1,0 +1,62 @@
+{
+  "id": "rookie-coding-true-false",
+  "title": "True or False? The Computer Decides!",
+  "sport": ["coding"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "logic",
+  "tags": ["boolean", "true-false", "conditions", "fundamentals"],
+  "setup": {
+    "language": "blocks",
+    "concept": "true/false",
+    "difficulty": "beginner",
+    "context": "A theme park ride height checker"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming the height checker for a roller coaster! The rule is: you must be at least 48 inches tall to ride. A kid walks up who is 52 inches tall. The computer checks: 'Is this person at least 48 inches tall?' What does the computer decide?",
+      "choices": [
+        { "id": "true", "text": "TRUE! 52 is more than 48, so the answer is true. Let them ride!", "nextNode": "outcome-great" },
+        { "id": "maybe", "text": "MAYBE. It depends on other things too.", "nextNode": "outcome-okay" },
+        { "id": "false", "text": "FALSE. They cannot ride.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "TRUE! They Can Ride!",
+        "explanation": "Computers answer questions with TRUE or FALSE -- nothing in between! 'Is 52 at least 48?' The answer is TRUE because 52 is bigger than 48. These true/false answers are called BOOLEANS (named after a mathematician named George Boole). Every IF/THEN decision in code uses a boolean: if the answer is TRUE, do one thing. If FALSE, do something else.",
+        "whatToRemember": "Computers answer questions with TRUE or FALSE. These yes-or-no answers are called booleans, and they power every decision in code.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Boolean", "definition": "A value that can only be TRUE or FALSE. Computers use booleans to make decisions."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Computers Do Not Do Maybe!",
+        "explanation": "In real life, things can be 'maybe' or 'it depends.' But computers only understand TRUE or FALSE! There is no maybe. The question is simple: is 52 at least 48? YES (true) or NO (false). Since 52 IS at least 48, the answer is TRUE.",
+        "whatToRemember": "Computers do not have a 'maybe.' Every question gets a TRUE or FALSE answer. That is how they make clear decisions!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Check Again! 52 is More Than 48!",
+        "explanation": "The rule says 'at least 48 inches.' The kid is 52 inches. 52 is MORE than 48, so the answer is TRUE -- they CAN ride! If the kid were 45 inches, THEN the answer would be FALSE. Always compare the numbers carefully when checking true/false.",
+        "whatToRemember": "Read the question carefully and compare the numbers. 'At least 48' means 48 or more. 52 is more than 48, so it is TRUE.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

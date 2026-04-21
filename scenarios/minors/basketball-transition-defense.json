@@ -1,0 +1,63 @@
+{
+  "id": "minors-basketball-transition-defense",
+  "title": "Get Back on Defense",
+  "sport": ["basketball"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["transition defense", "hustle", "communication"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "2:00",
+    "score": { "home": 42, "away": 44 },
+    "possession": "away",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team just missed a shot and the other team grabbed the rebound. They are pushing the ball up the court fast. You are the closest player to your own basket. Three opponents are sprinting toward you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Sprint back to the paint, protect the rim, and slow them down until your teammates can get back", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Run back but try to steal the ball from the player dribbling up court", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Jog back slowly since someone else will probably get there first", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great transition defense!",
+        "explanation": "You sprinted to the paint and protected the basket. The other team had to slow down because you were in their way. By the time they tried to make a play, your teammates caught up and everyone was matched up again.",
+        "whatToRemember": "In transition defense, your first job is to protect the basket. Sprint back to the paint, then find your player. Stopping easy baskets is more important than getting a steal.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Transition Defense", "definition": "Getting back quickly after your team loses the ball to prevent easy fast-break baskets. The priority is protecting the rim first, then matching up with players." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The steal attempt failed",
+        "explanation": "You went for the ball but the dribbler saw you coming and passed ahead to a teammate. Now you are behind the play and the basket is unprotected. Luckily a teammate hustled back to make a contest.",
+        "whatToRemember": "Going for steals in transition is risky. If you miss, it is an even easier basket for the other team. Get back first, then look for steal opportunities.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Easy layup for the other team!",
+        "explanation": "Nobody got back in time because you jogged. The other team scored without anyone contesting the shot. Lazy transition defense gives up the easiest points in basketball.",
+        "whatToRemember": "Never jog back on defense. Always sprint! Every fast-break point you give up is a point your team has to earn back the hard way on offense.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

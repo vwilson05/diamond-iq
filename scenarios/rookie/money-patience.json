@@ -1,0 +1,62 @@
+{
+  "id": "rookie-money-patience",
+  "title": "The Waiting Game",
+  "sport": ["money"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "saving",
+  "tags": ["patience", "delayed gratification", "waiting", "fundamentals"],
+  "setup": {
+    "situation": "toy-on-sale-next-week",
+    "money": 8.00,
+    "goal": "get the best deal by waiting",
+    "context": "At the toy store and a sign says big sale starts next Saturday"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want a building set that costs eight dollars today. But there is a sign on the shelf that says next Saturday everything will be half off. Half of eight is four, so it will cost only four dollars in one week. You have eight dollars right now. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Wait one week and buy it on sale for four dollars, saving the other four", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Buy it today because you really do not want to wait a whole week", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Buy it today AND spend the rest on candy since you have eight dollars", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Patience pays off!",
+        "explanation": "You waited one week and got the exact same toy for half the price. Now you have the building set AND four extra dollars. Waiting was hard, but your wallet thanks you.",
+        "whatToRemember": "Being patient with money saves you money. If something will be cheaper soon, waiting a little bit means you keep more dollars in your pocket.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Patience", "definition": "Waiting for the right time to spend your money so you can get a better deal or save more." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got the toy, but paid full price",
+        "explanation": "The building set is fun and you are happy to have it. But you could have saved four dollars by waiting just seven days. Sometimes waiting is worth it.",
+        "whatToRemember": "Ask yourself if waiting a little longer is worth the savings. Four dollars can buy a lot of other things!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "All your money gone and a tummy ache!",
+        "explanation": "You spent eight dollars on the toy at full price plus candy. If you had waited one week you would still have four dollars AND the toy. Now you have zero dollars and a sugar rush.",
+        "whatToRemember": "Spending everything just because you have it is a trap. Think about tomorrow, not just today.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

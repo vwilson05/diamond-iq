@@ -1,0 +1,73 @@
+{
+  "id": "tball-football-tackling-form",
+  "title": "Tackle the Right Way!",
+  "sport": ["football"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "defense",
+  "tags": ["tackling", "safety", "form", "basics"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "3:45",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 50,
+    "score": { "home": 7, "away": 14 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on defense and the other team's running back is coming right at you with the ball! He's getting closer and closer. How do you tackle him to stop him?",
+      "choices": [
+        { "id": "wrap-up", "text": "Get low, keep your head up, wrap your arms around his waist, and drive your legs to push him down!", "nextNode": "outcome-great" },
+        { "id": "dive-low", "text": "Dive at his feet and hope he trips over you!", "nextNode": "outcome-okay" },
+        { "id": "head-down", "text": "Put your head down and run straight into him as hard as you can!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Textbook Tackle! Runner Down!",
+        "explanation": "That's perfect tackling form! Getting low gives you power. Keeping your head UP is super important for safety -- you can see what you're hitting AND you protect your neck. Wrapping your arms around the runner means he can't escape. And driving your legs finishes the tackle. This is exactly how coaches teach it: head up, wrap up, drive through!",
+        "whatToRemember": "The safe tackling checklist: get low, head UP, eyes on target, wrap your arms, drive your legs. Head up keeps you safe!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Wrap-Up Tackle", "definition": "Wrapping both arms around the ball carrier and squeezing tight so they can't escape." },
+          { "term": "Drive Your Legs", "definition": "Keep pumping your legs after you grab the runner to push them backward and down." },
+          { "term": "Head Up", "definition": "Always keep your head up when tackling so you can see and protect your neck!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "He Tripped! But It Was Risky!",
+        "explanation": "Diving at someone's feet can sometimes trip them, but it's not a great tackle. If you miss, the runner just jumps over you and keeps going! You're also lying on the ground now and can't help anymore. A wrap-up tackle where you grab the runner with both arms is much more reliable. You stay on your feet and in control!",
+        "whatToRemember": "Don't dive and hope -- wrap up and KNOW you'll make the tackle! Stay on your feet as long as you can.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Ankle Tackle", "definition": "Grabbing at a runner's feet or ankles. It can work but is easy to miss." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Ouch! Head Down is Dangerous!",
+        "explanation": "NEVER put your head down when tackling! This is the most important safety rule in football. When your head is down, you can't see what you're hitting, and you put your neck in a really dangerous position. You could also miss the tackle completely because you can't see! Always keep your head UP and your eyes on the runner's belly -- that way you're safe AND you make the tackle.",
+        "whatToRemember": "NEVER tackle with your head down! Head UP, eyes UP, see what you hit. This keeps your neck safe and helps you make the tackle.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Heads-Up Tackling", "definition": "The safe way to tackle -- always keeping your head up and eyes on the runner so your neck stays protected." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

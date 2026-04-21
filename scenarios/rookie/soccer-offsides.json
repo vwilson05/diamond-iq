@@ -1,0 +1,63 @@
+{
+  "id": "rookie-soccer-offsides",
+  "title": "Do Not Get Caught Offside!",
+  "sport": ["soccer"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["offsides", "positioning", "fundamentals"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "5:00",
+    "score": { "home": 1, "away": 1 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is attacking and your teammate has the ball. You want to get open for a pass near the other team's goal. The last defender is standing at the top of their penalty box. Where do you stand?",
+      "choices": [
+        { "id": "stay-even", "text": "Stand even with (or behind) the last defender so you are onside when the pass comes!", "nextNode": "outcome-great" },
+        { "id": "stand-behind-defender", "text": "Stand a few steps behind the last defender, deeper in your own half, to be totally safe!", "nextNode": "outcome-okay" },
+        { "id": "sneak-past", "text": "Sneak past the last defender and wait near the goalkeeper for an easy goal!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Timing! Onside!",
+        "explanation": "You stayed level with the last defender, and the moment your teammate kicked the ball, you sprinted forward. The referee checked and you were ONSIDE! You collected the pass and you are through on goal. Staying even with the last defender and then running when the ball is played is the perfect strategy.",
+        "whatToRemember": "Stay even with or behind the last defender until your teammate kicks the ball. Then sprint forward! That keeps you onside.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Offside", "definition": "If you are past the last defender when the ball is kicked to you, the referee stops play. You must be even with or behind the last defender when the pass is made." }, { "term": "Onside", "definition": "Being level with or behind the last defender at the moment the ball is passed. This means you are in a legal position!" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Onside, But Far from Goal!",
+        "explanation": "You are definitely not offside, which is good! But standing way behind the defender means you are far from goal and have a lot of ground to cover. You are safe but not in a dangerous position. Try to stay EVEN with the last defender -- that way you are as close to the goal as you can legally be.",
+        "whatToRemember": "Being way behind the defender is safe but not helpful. Stay LEVEL with them to be onside AND close to the goal!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Offside! Whistle Blows!",
+        "explanation": "You were past the last defender when your teammate passed the ball. The referee raised their flag and blew the whistle -- OFFSIDE! It does not matter that you were wide open. If you are ahead of the last defender when the pass is made, it is offside and the other team gets the ball.",
+        "whatToRemember": "You CANNOT stand past the last defender waiting for the ball. You must be even or behind them when the pass is kicked!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

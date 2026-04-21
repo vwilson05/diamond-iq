@@ -1,0 +1,63 @@
+{
+  "id": "majors-soccer-pressing-triggers",
+  "title": "When to Press!",
+  "sport": ["soccer"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["pressing", "triggers", "advanced"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "15:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "away",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team is building up from the back. Their center-back just received a pass and their body is facing their own goal -- they took a heavy touch and the ball is slightly behind them. Your forward line is ten yards away. What do you do?",
+      "choices": [
+        { "id": "press-now", "text": "Sprint at them NOW! Their bad touch and closed body position means they cannot play forward. Press as a team!", "nextNode": "outcome-great" },
+        { "id": "wait-and-watch", "text": "Hold your line and wait. Do not press until the ball enters your half.", "nextNode": "outcome-okay" },
+        { "id": "one-player-press", "text": "Send one player to chase the ball while everyone else stays back.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Press! Won the Ball High!",
+        "explanation": "You recognized the pressing trigger -- bad touch, body facing backwards, limited passing options. Your whole team pressed together, cutting off every passing lane. The center-back panicked and gave the ball away right near their own goal! Pressing works when the WHOLE team goes together at the right MOMENT.",
+        "whatToRemember": "Press when you see a trigger: bad touch, backwards body shape, or a pass to a player near the sideline. The whole team must press together!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Pressing Trigger", "definition": "A signal that tells your team NOW is the time to press: a bad touch, a backwards pass, a player facing their own goal, or the ball near the sideline." }, { "term": "High Press", "definition": "When your team presses the opponent in their own defensive third, trying to win the ball close to their goal." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Stayed Organized, But Missed a Chance!",
+        "explanation": "Holding your line keeps your team in shape, which is safe. But you let the center-back recover from their bad touch, turn, and play a comfortable pass forward. You missed the window! The best teams recognize when a pressing trigger appears and pounce on it immediately.",
+        "whatToRemember": "Staying in shape is good as a default, but when a pressing trigger appears, you have to go! The window only lasts a second or two.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Pressed Alone! Easily Beaten!",
+        "explanation": "One player pressing alone just gives the other team an easy way out. The center-back passed around your lone presser and now your team is short one player in midfield. Pressing only works when the WHOLE team does it together, cutting off all the passing options at once. One versus one is not pressing, it is just chasing.",
+        "whatToRemember": "NEVER press alone! Pressing means the whole team pushes up together to cut off all passing lanes. One player chasing is useless.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

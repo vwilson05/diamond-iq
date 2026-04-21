@@ -1,0 +1,63 @@
+{
+  "id": "rookie-basketball-free-throws",
+  "title": "At the Free Throw Line",
+  "sport": ["basketball"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["free throws", "routine", "focus"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "2:00",
+    "score": { "home": 40, "away": 41 },
+    "possession": "home",
+    "shotClock": null
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You got fouled and now you are standing at the free throw line. The game is close and the crowd is loud. You get two free throws. What is the best way to handle this?",
+      "choices": [
+        { "id": "best", "text": "Take a deep breath, follow your shooting routine, focus on the front of the rim, and shoot with good form", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Shoot quickly before you get too nervous", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Listen to the crowd and think about how important the shot is", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Clutch from the line!",
+        "explanation": "Your routine helped you block out the noise. A deep breath calmed your body, and your practice took over. You made both free throws and put your team ahead!",
+        "whatToRemember": "Have a free throw routine you do every single time. The same dribbles, the same breath, the same focus point. Routine beats pressure.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Free Throw Routine", "definition": "A set of steps you do before every free throw to help you focus and stay calm, like dribbling twice, taking a breath, and looking at the rim" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One out of two",
+        "explanation": "You rushed the first shot and it clanked off the rim. Then you slowed down for the second one and made it. The game is now tied. Rushing did not help.",
+        "whatToRemember": "The referee gives you ten seconds to shoot a free throw. Use that time! There is no reason to rush.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed them both!",
+        "explanation": "You let the crowd and the pressure get inside your head. Your hands were shaking, your arms were tense, and both shots were short. The other team grabbed the rebound.",
+        "whatToRemember": "Block out everything except your routine. Do not think about the score or the crowd. Focus only on the rim and your form.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

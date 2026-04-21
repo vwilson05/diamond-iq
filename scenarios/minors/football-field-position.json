@@ -1,0 +1,73 @@
+{
+  "id": "minors-football-field-position",
+  "title": "Win the Field Position Battle!",
+  "sport": ["football"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "special-teams",
+  "tags": ["field-position", "strategy", "punt-return", "game-iq"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "8:00",
+    "down": 4,
+    "distance": 12,
+    "yardLine": 20,
+    "score": { "home": 3, "away": 3 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team is punting and you're the punt returner. The punt is really high and you're standing on your own 10-yard line. The ball is coming down but you see three defenders racing toward you -- they'll be there in about 2 seconds after you catch it. What do you do?",
+      "choices": [
+        { "id": "fair-catch", "text": "Wave your arm for a fair catch! You'll get the ball safely at the 10 without risking a fumble or a big loss.", "nextNode": "outcome-great" },
+        { "id": "try-return", "text": "Catch it and try to run! Maybe you can juke past those three guys.", "nextNode": "outcome-bad" },
+        { "id": "let-bounce", "text": "Let it bounce and hope it goes into the end zone for a touchback at the 25.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Fair Catch! Ball Is Secure!",
+        "explanation": "The fair catch was the smartest play! When you wave your arm, the defenders can't hit you, and you get the ball safely. Yes, starting at the 10-yard line isn't great field position, but it's much better than fumbling (which could give the other team the ball at your 10!) or getting tackled at the 5. A safe catch deep in your own territory is ALWAYS better than risking a turnover.",
+        "whatToRemember": "Use a fair catch when defenders are too close and you're deep in your own territory. A safe catch beats a risky return!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Fair Catch", "definition": "Waving your arm before catching a punt to signal that you won't run. Defenders can't hit you, but you can't advance." },
+          { "term": "Field Position", "definition": "Where the ball is on the field. Starting at your 10 is bad position; starting at your 40 is good position." },
+          { "term": "Touchback", "definition": "When a kick goes into or past the end zone. Your team gets the ball at the 25-yard line." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Bounced at the 5! Worse Position!",
+        "explanation": "Letting it bounce was a gamble and it didn't work! Punts rarely bounce into the end zone -- they usually bounce forward or sideways and stop. This one bounced and a defender downed it at the 5-yard line! Now you're starting even deeper than if you'd caught it at the 10. Punts bounce unpredictably because of their shape. When the ball is coming right to you, catching it with a fair catch is much safer than hoping for a lucky bounce.",
+        "whatToRemember": "Don't gamble on a punt bouncing into the end zone! Footballs bounce crazily. Fair catch it for a sure thing.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Downed", "definition": "When the punting team touches the ball after it bounces, stopping it right there. Your team starts at that spot." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Fumble! They Recover at the 8!",
+        "explanation": "Trying to return a punt with three defenders right on top of you deep in your own territory is a recipe for disaster! They hit you right after the catch and the ball popped out. Now the other team has the ball at YOUR 8-yard line -- practically a guaranteed touchdown for them. Deep in your own territory, the RISK of a fumble is so much worse than any possible reward from a return. Fair catch!",
+        "whatToRemember": "Never risk a return deep in your own territory with defenders closing in! A fumble there basically gives them a touchdown. Fair catch!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Muffed Punt", "definition": "Dropping or fumbling a punt. Either team can recover it -- if the punting team does, they get amazing field position!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

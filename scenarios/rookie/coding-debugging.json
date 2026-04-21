@@ -1,0 +1,62 @@
+{
+  "id": "rookie-coding-debugging",
+  "title": "Find the Mistake!",
+  "sport": ["coding"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "debugging",
+  "tags": ["debugging", "errors", "logic-errors", "fundamentals"],
+  "setup": {
+    "language": "blocks",
+    "concept": "simple debugging",
+    "difficulty": "beginner",
+    "context": "A robot waiter getting orders wrong"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You programmed a robot waiter at a pizza restaurant! The code says: IF customer says 'pepperoni' THEN bring cheese pizza. IF customer says 'cheese' THEN bring pepperoni pizza. A customer just ordered pepperoni and got a cheese pizza instead! They are not happy. What is the bug?",
+      "choices": [
+        { "id": "swapped", "text": "The pizzas are swapped! Pepperoni should bring pepperoni, and cheese should bring cheese.", "nextNode": "outcome-great" },
+        { "id": "missing-pizza", "text": "There is no pepperoni pizza in the kitchen.", "nextNode": "outcome-okay" },
+        { "id": "robot-broken", "text": "The robot is broken and needs new batteries.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Bug Found! The Actions Were Swapped!",
+        "explanation": "You found it! The IF checks the right thing (what the customer said) but the THEN does the wrong action (brings the wrong pizza). This is called a LOGIC BUG -- the code runs fine, but it does the wrong thing. The fix is simple: swap 'cheese pizza' and 'pepperoni pizza' in the THEN parts.",
+        "whatToRemember": "A logic bug means the code runs without crashing but does the wrong thing. Check that each IF is connected to the RIGHT action.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Logic Bug", "definition": "A mistake where the code runs fine but does the wrong thing because the instructions are mixed up."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Thinking, But Look at the Code!",
+        "explanation": "That is a creative guess! But the problem is in the CODE, not in the kitchen. The code clearly says IF pepperoni THEN bring cheese. The instructions are telling the robot to bring the wrong pizza. When debugging, always read the code carefully first before blaming something else.",
+        "whatToRemember": "When something goes wrong, read the code first. The mistake is usually in the instructions, not in the hardware.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Robot is Fine! The Code is Wrong!",
+        "explanation": "The robot is working perfectly -- it is doing EXACTLY what the code tells it to do! The problem is that the code has the wrong instructions. The robot brought cheese pizza because the code said: IF pepperoni THEN bring cheese. The robot followed orders. The orders were just wrong!",
+        "whatToRemember": "Computers do exactly what you tell them. If the result is wrong, the instructions are wrong -- not the computer!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

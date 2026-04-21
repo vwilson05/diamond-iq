@@ -1,0 +1,62 @@
+{
+  "id": "the-show-money-charity",
+  "title": "Giving Back",
+  "sport": ["money"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "spending",
+  "tags": ["charity", "giving", "community", "real world"],
+  "setup": {
+    "situation": "school-fundraiser",
+    "money": 30.00,
+    "goal": "decide how much to give to help others",
+    "context": "School is raising money to buy books for kids who cannot afford them"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your school is collecting money to buy books for kids at another school who do not have any. You have thirty dollars from your birthday. You want to help, but you also want to save for a new basketball. The basketball costs twenty-five dollars and you have no other savings. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Donate five dollars because you can help others while still saving for your goal, and plan to give more next time when you have extra", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Donate fifteen dollars because you want to help a lot, even though it means waiting longer for your basketball", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Donate nothing because you want the basketball and your money is more important", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Generous and responsible!",
+        "explanation": "Five dollars buys one book for a kid who has none. You helped someone AND kept twenty-five dollars for your basketball. You do not have to give everything away to make a difference. Even small amounts help when lots of people give.",
+        "whatToRemember": "You can be generous without hurting your own goals. Giving a small percentage of what you have is sustainable, meaning you can keep giving over time instead of giving once and being broke.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Charity", "definition": "Giving money, time, or things to help other people in need. Even small donations add up and make a big difference when many people participate." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Very generous, but your goal takes a hit",
+        "explanation": "You donated half your money, which helps buy three books. That is amazing generosity! But now you only have fifteen dollars and need ten more for your basketball. It might take a few more weeks of saving.",
+        "whatToRemember": "Being very generous is wonderful, but make sure you are not sacrificing things you truly need. Find a balance between helping others and taking care of yourself.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A missed chance to help",
+        "explanation": "You got your basketball, which is fine. But you missed a chance to help kids who have no books at all. You could have spared just a few dollars without hurting your goal. Helping others is part of being in a community.",
+        "whatToRemember": "You do not have to give everything, but giving nothing when you can afford to share means missing out on the good feeling of helping others. Even one dollar makes a difference.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

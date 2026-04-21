@@ -1,0 +1,63 @@
+{
+  "id": "majors-basketball-press-break",
+  "title": "Breaking the Full-Court Press",
+  "sport": ["basketball"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["press break", "full court press", "composure"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "2:30",
+    "score": { "home": 52, "away": 50 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The other team is trailing by two points and they throw a full-court press at you! Defenders are all over the backcourt, trying to trap you as soon as you get the ball inbounded. What is the best approach?",
+      "choices": [
+        { "id": "best", "text": "Stay calm, get the ball to your point guard in the middle of the court, use quick short passes up the sideline, and look for the player sprinting ahead as an outlet", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Have one player dribble the whole way up court trying to beat the press alone", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Panic and throw a long pass down the full length of the court", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Press broken! Easy basket!",
+        "explanation": "You stayed calm and used quick passes to beat the trap. Once you got past half court, the press was broken and you had numbers advantage. The other team gambled and lost, giving you an easy fast break!",
+        "whatToRemember": "Against a press: stay calm, use short passes, get the ball to the middle of the floor, and always have someone ahead of the ball as an escape valve. Presses feed on panic.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Full-Court Press", "definition": "A defensive strategy where the team defends the full length of the court, trying to force turnovers with traps and pressure. Beaten by staying calm and using quick, smart passes." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got across, but just barely",
+        "explanation": "Your ball handler is talented and managed to dribble through the press, but got trapped near the sideline and barely escaped a ten-second violation. It was stressful and risky when it did not need to be.",
+        "whatToRemember": "One player trying to beat a press alone is very risky. The press is designed to trap the dribbler. Use your teammates and make the defense pay for sending everyone to press.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! Stolen and scored!",
+        "explanation": "The long pass was exactly what the press defense was hoping for. A defender read it the whole way and intercepted it for a layup. Now the game is tied because you panicked.",
+        "whatToRemember": "Long passes against a press are very risky because defenders are stationed to intercept them. Short, controlled passes are much safer. Never let the press make you rush.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rookie-money-making-change",
+  "title": "Count Your Change",
+  "sport": ["money"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "spending",
+  "tags": ["change", "math", "counting", "fundamentals"],
+  "setup": {
+    "situation": "buying-ice-cream",
+    "money": 5.00,
+    "goal": "make sure you get the right change back",
+    "context": "At the ice cream truck with a five dollar bill"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You buy an ice cream bar for three dollars and hand the ice cream man a five dollar bill. He gives you back one dollar. You know five minus three equals two, so you should get two dollars back. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Politely say excuse me, I think I should get two dollars back, not one", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Take the one dollar and walk away because you do not want to cause trouble", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "You are not sure how change works so you just take whatever he gives you", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You caught the mistake!",
+        "explanation": "The ice cream man checked and said oops, you are right! He gave you the extra dollar. Mistakes happen, and knowing your math helped you get the right amount back.",
+        "whatToRemember": "Always count your change. Subtract the price from what you paid to know how much you should get back. It is okay to politely speak up if something is wrong.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Making Change", "definition": "The money you get back when you pay more than something costs. Change equals what you paid minus the price." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You lost a dollar!",
+        "explanation": "You knew something was wrong but did not say anything. That is one less dollar in your pocket. It is always okay to politely ask someone to double check.",
+        "whatToRemember": "Speaking up politely is not rude. If you know the math is wrong, say something! You are protecting your own money.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You got shortchanged!",
+        "explanation": "Because you did not know how to figure out the right change, you lost a dollar and did not even realize it. Learning to subtract prices from payments is an important skill.",
+        "whatToRemember": "Practice subtraction with money. If something costs three dollars and you pay five dollars, you should get five minus three equals two dollars back.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

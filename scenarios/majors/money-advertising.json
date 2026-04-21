@@ -1,0 +1,62 @@
+{
+  "id": "majors-money-advertising",
+  "title": "Getting the Word Out",
+  "sport": ["money"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "earning",
+  "tags": ["advertising", "marketing", "business", "entrepreneur"],
+  "setup": {
+    "situation": "dog-walking-business",
+    "money": 15.00,
+    "goal": "get more customers for your dog walking business",
+    "context": "You started a dog walking business but only have one customer"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You walk your neighbor's dog for five dollars each time, but you want more customers. You have fifteen dollars saved. You could make flyers, put up a poster at the park, or do nothing and hope people find out. How do you get the word out?",
+      "choices": [
+        { "id": "best", "text": "Spend three dollars on flyers to put in mailboxes around the neighborhood because it reaches the most people", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Put up one free poster at the park and hope dog owners see it", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Do not advertise and just wait for people to ask you", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Three new customers this week!",
+        "explanation": "Your flyers reached fifty homes. Three people called and now you walk four dogs total. You spent three dollars on flyers but earn fifteen extra dollars per week from the new customers. That three dollar investment made you way more money.",
+        "whatToRemember": "Advertising costs money upfront but brings in more customers. A small investment in getting the word out can come back many times over in new business.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Advertising", "definition": "Spending money or time to tell people about what you are selling. Good advertising brings in more customers than it costs." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One new customer after two weeks",
+        "explanation": "One person saw your poster at the park and called. That is better than nothing, but the poster only reaches people who visit that exact spot. Spreading the word wider would bring more business faster.",
+        "whatToRemember": "Free advertising is fine but reaches fewer people. The more people who see your message, the more customers you get.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Still just one customer a month later!",
+        "explanation": "Nobody new knows about your dog walking business because you never told them. Even the best business fails if nobody knows it exists. Waiting and hoping is not a strategy.",
+        "whatToRemember": "Customers cannot hire you if they do not know you exist. You have to tell people about your business. Staying quiet means staying small.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

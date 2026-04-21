@@ -1,0 +1,63 @@
+{
+  "id": "tball-soccer-throw-ins",
+  "title": "Throwing It Back In!",
+  "sport": ["soccer"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "set-piece",
+  "tags": ["throw-in", "basics", "restart"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "12:00",
+    "score": { "home": 1, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The ball went out of bounds over the sideline. The referee says it is your team's throw-in! You pick up the ball and stand on the line. How do you throw it?",
+      "choices": [
+        { "id": "two-hands-behind", "text": "Hold the ball with both hands, bring it behind your head, and throw it over your head with both feet on the ground!", "nextNode": "outcome-great" },
+        { "id": "one-hand-throw", "text": "Hold the ball in one hand and throw it like a baseball!", "nextNode": "outcome-okay" },
+        { "id": "kick-it-in", "text": "Drop the ball and kick it back onto the field!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Throw-In!",
+        "explanation": "That is exactly how you do a throw-in! Both hands on the ball, bring it behind your head, throw it forward, and keep both feet touching the ground the whole time. The referee is happy and your teammate gets the ball!",
+        "whatToRemember": "Throw-in rules: two hands, ball goes behind your head, both feet stay on the ground. Do all three and you are good!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Throw-In", "definition": "When the ball goes over the sideline, one player throws it back in using both hands over their head with both feet on the ground." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Foul Throw! Other Team Gets It!",
+        "explanation": "In soccer, a throw-in must use BOTH hands. If you throw it with one hand, the referee calls a foul throw and gives the ball to the other team. It is different from baseball or basketball -- both hands must stay on the ball!",
+        "whatToRemember": "A throw-in needs BOTH hands on the ball. One hand is a foul throw and the other team gets the ball!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wait, You Cannot Kick It In!",
+        "explanation": "A throw-in means you THROW it with your hands. You cannot kick the ball back in from the sideline. The referee blows the whistle and gives the throw-in to the other team instead. Remember: sideline = throw, goal line = kick (goal kick or corner kick).",
+        "whatToRemember": "When the ball goes out over the sideline, you throw it in with your hands. No kicking on a throw-in!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

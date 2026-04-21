@@ -1,0 +1,62 @@
+{
+  "id": "rookie-money-budgeting-allowance",
+  "title": "Budget Your Allowance",
+  "sport": ["money"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "spending",
+  "tags": ["budgeting", "allowance", "planning", "fundamentals"],
+  "setup": {
+    "situation": "weekly-allowance",
+    "money": 10.00,
+    "goal": "make allowance last all week",
+    "context": "Saturday morning, just received weekly allowance"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just got your ten dollar allowance for the week. You know you want to buy a snack at the pool on Wednesday and also save some for a video game. Your friend asks if you want to go to the arcade right now. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Split your money into three groups: save five dollars, keep three dollars for the pool, and spend two dollars at the arcade", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Go to the arcade and spend four dollars, then figure out the rest later", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Spend all ten dollars at the arcade because it is so much fun right now", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Budget master!",
+        "explanation": "By splitting your money into groups, you had fun at the arcade, bought a snack at the pool on Wednesday, and still saved five dollars toward your video game. You planned ahead and it worked perfectly.",
+        "whatToRemember": "A budget means deciding where your money goes BEFORE you spend it. Split it into groups: saving, needs, and fun money.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Budget", "definition": "A plan for how you will split up your money between saving, things you need, and things you want." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fun now, tight later",
+        "explanation": "The arcade was great, but now you only have six dollars left for the whole week. You can still get your pool snack, but your savings will be smaller this week.",
+        "whatToRemember": "Spending without a plan means you might not have enough later. Try deciding how much to spend BEFORE you go somewhere fun.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Broke by Saturday night!",
+        "explanation": "You blew through your whole allowance in one afternoon. On Wednesday at the pool, you had to watch your friends buy snacks while you had nothing. And your video game savings did not grow at all.",
+        "whatToRemember": "If you spend everything at once, you have nothing left for the rest of the week. Always make a plan before spending.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

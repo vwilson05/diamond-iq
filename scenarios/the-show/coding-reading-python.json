@@ -1,0 +1,62 @@
+{
+  "id": "the-show-coding-reading-python",
+  "title": "Reading Real Code!",
+  "sport": ["coding"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "logic",
+  "tags": ["python", "code-reading", "real-code", "advanced"],
+  "setup": {
+    "language": "python",
+    "concept": "simple Python/Scratch reading",
+    "difficulty": "advanced",
+    "context": "Reading a short program that greets people"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Here is a real Python program: name = 'Alex'. greeting = 'Hello, ' + name. print(greeting). This code stores a name, builds a greeting message by combining 'Hello, ' with the name, and then prints (shows) the result. What will appear on the screen when this code runs?",
+      "choices": [
+        { "id": "hello-alex", "text": "Hello, Alex", "nextNode": "outcome-great" },
+        { "id": "just-greeting", "text": "greeting", "nextNode": "outcome-okay" },
+        { "id": "hello-name", "text": "Hello, name", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Read Python! Hello, Alex!",
+        "explanation": "You traced through the code like a real programmer! Step 1: name gets the value 'Alex'. Step 2: greeting gets 'Hello, ' combined with whatever is in name (which is 'Alex'), making 'Hello, Alex'. Step 3: print shows greeting on the screen. The plus sign (+) with text means 'stick these words together.' This is called CONCATENATION!",
+        "whatToRemember": "Read code line by line, keeping track of what each variable holds. The plus sign between text strings sticks them together (concatenation).",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Concatenation", "definition": "Joining two pieces of text together into one. 'Hello, ' + 'Alex' becomes 'Hello, Alex'."}, {"term": "print()", "definition": "A command in Python that shows text on the screen so you can see the result."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close! But print() Shows the VALUE, Not the Name!",
+        "explanation": "When you print a variable, Python shows what is INSIDE the variable, not the variable's name! The variable 'greeting' is like a labeled box. print(greeting) opens the box and shows you what is inside: 'Hello, Alex'. It does not show you the label on the box.",
+        "whatToRemember": "Printing a variable shows its VALUE (what is inside), not its name (the label on the box).",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Not Quite! 'name' is a Variable, Not a Word!",
+        "explanation": "The word 'name' without quotes is a VARIABLE -- it is a box holding the value 'Alex'. When Python sees 'Hello, ' + name, it opens the name box, finds 'Alex' inside, and combines them into 'Hello, Alex'. If you wanted the literal word 'name', you would need quotes around it: 'name'. No quotes means it is a variable!",
+        "whatToRemember": "Words without quotes are variables (boxes holding values). Words WITH quotes are literal text. The computer looks inside variables to get their value!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

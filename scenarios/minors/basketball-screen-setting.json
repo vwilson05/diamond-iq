@@ -1,0 +1,63 @@
+{
+  "id": "minors-basketball-screen-setting",
+  "title": "Setting a Solid Screen",
+  "sport": ["basketball"],
+  "tier": "minors",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["screens", "picks", "technique"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "4:15",
+    "score": { "home": 36, "away": 38 },
+    "possession": "home",
+    "shotClock": 14
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your point guard is being tightly defended and calls for a screen. You run up to set one. How do you set the screen properly?",
+      "choices": [
+        { "id": "best", "text": "Plant both feet wide, stand still with your arms crossed against your chest, and let your teammate dribble right off your shoulder", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Get in position but keep your feet narrow and lean a little toward the defender", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stick your hip or knee out while still moving to trip up the defender", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Brick wall screen!",
+        "explanation": "You set your feet wide, kept your body still, and created a solid wall. The defender ran right into you and got stuck. Your point guard dribbled free for an open shot. That is a textbook legal screen!",
+        "whatToRemember": "A legal screen means: feet planted, body still, arms in tight. You must be set before contact. Think of yourself as a brick wall that cannot move.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Screen (Pick)", "definition": "When an offensive player stands still in the path of a defender to free up a teammate. Your feet must be set and you cannot move into the defender." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The screen kind of worked",
+        "explanation": "Your narrow stance made you easy to push aside, and leaning in almost got you called for a foul. The defender squeezed around you. Your teammate got a little space, but not much.",
+        "whatToRemember": "Wide feet make you harder to move. Stay perfectly still and upright. A strong base is the key to a good screen.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Illegal screen! Offensive foul!",
+        "explanation": "The referee saw you moving and sticking your body out. That is called an illegal screen or a moving pick. The other team gets free throws and the ball.",
+        "whatToRemember": "You MUST be completely still when the defender makes contact. Sticking out hips, knees, or arms while moving is always a foul.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

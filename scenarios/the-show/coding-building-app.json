@@ -1,0 +1,62 @@
+{
+  "id": "the-show-coding-building-app",
+  "title": "Build a Small App!",
+  "sport": ["coding"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "building",
+  "tags": ["app-design", "full-stack", "planning", "advanced"],
+  "setup": {
+    "language": "scratch",
+    "concept": "building a small app",
+    "difficulty": "advanced",
+    "context": "Designing a quiz game from scratch"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want to build a quiz game app! It shows a question, the player picks an answer, and the app says if they got it right or wrong. It also keeps score. You need to plan the main pieces. What does this app need to work?",
+      "choices": [
+        { "id": "full-plan", "text": "Four main pieces: 1) A list of questions and answers (data), 2) A way to show questions on screen (display), 3) A way for the player to pick answers (input), 4) A score variable that goes up for correct answers (logic).", "nextNode": "outcome-great" },
+        { "id": "partial-plan", "text": "Just a list of questions and a way to show them. The rest will work itself out.", "nextNode": "outcome-okay" },
+        { "id": "no-plan", "text": "Start by making the screen look pretty. Figure out the quiz part later.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Full App Architecture! You Think Like a Developer!",
+        "explanation": "You identified all the key parts of an app! DATA (questions and answers stored in a list), DISPLAY (showing things on screen), INPUT (letting the user interact), and LOGIC (checking answers and keeping score). Real apps are built from these same pieces! A music app has: song data, a player display, play/pause buttons (input), and logic to move to the next song. Once you can break any app into these pieces, you can build anything!",
+        "whatToRemember": "Every app has four key pieces: data (what it knows), display (what it shows), input (how users interact), and logic (the rules and decisions).",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "App Architecture", "definition": "The plan for how all the pieces of an app fit together -- data, display, input, and logic."}, {"term": "Data", "definition": "The information your app stores and works with, like questions, scores, or user names."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Start, But Missing Key Pieces!",
+        "explanation": "Questions and display are important, but a quiz without score-keeping is not much of a game! And without input handling, the player cannot pick answers. The 'rest' does NOT work itself out -- you need to plan for how the player interacts and how the app tracks right and wrong. Always identify ALL the pieces before building.",
+        "whatToRemember": "Do not assume things will work themselves out. Plan all the pieces: data, display, input, AND logic.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Pretty Screen That Does Nothing!",
+        "explanation": "Making it look pretty is fun, but a quiz app that cannot actually quiz you is useless! It is like building a beautiful car with no engine. The FUNCTION (what it does) matters more than the FORM (how it looks) when you are starting out. Get the quiz working first -- you can always make it pretty later!",
+        "whatToRemember": "Build the function first, then the form. Get it WORKING before making it PRETTY. A beautiful app that does nothing is not an app!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

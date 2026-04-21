@@ -1,0 +1,62 @@
+{
+  "id": "minors-coding-functions",
+  "title": "Recipes You Can Reuse!",
+  "sport": ["coding"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "building",
+  "tags": ["functions", "reuse", "organization", "problem-solving"],
+  "setup": {
+    "language": "blocks",
+    "concept": "functions",
+    "difficulty": "intermediate",
+    "context": "A robot that makes different smoothies"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a smoothie robot! It needs to make 3 different smoothies, but ALL smoothies share the same first 3 steps: 1) Get a cup, 2) Add ice, 3) Turn on blender. Then each smoothie adds different fruits. You are writing the code and notice you are typing those same 3 steps over and over. How can you make this better?",
+      "choices": [
+        { "id": "make-function", "text": "Create a recipe called 'start-smoothie' with those 3 steps. Then just call 'start-smoothie' each time!", "nextNode": "outcome-great" },
+        { "id": "copy-paste", "text": "Just copy and paste the 3 steps into each smoothie section.", "nextNode": "outcome-okay" },
+        { "id": "skip-steps", "text": "Only write the steps once for the first smoothie. Skip them for the others.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You Made a Function! Reuse the Recipe!",
+        "explanation": "A FUNCTION is like a recipe with a name! You write the steps once, give it a name ('start-smoothie'), and then anytime you need those steps, you just say the name. It is like how a recipe book works: instead of rewriting the instructions for boiling water every time, you just say 'boil water (see page 3).' Functions save time and keep your code organized!",
+        "whatToRemember": "A function is a named recipe you can reuse. Write the steps once, give it a name, and call it whenever you need those steps!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Function", "definition": "A named set of instructions that you can reuse by calling its name, like a recipe you can follow again and again."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Works... But What If You Need to Change It?",
+        "explanation": "Copy and paste does work! But imagine you need to change step 2 from 'add ice' to 'add crushed ice.' Now you have to find and change it in 3 different places! With a function, you change it in ONE place and it updates everywhere. Functions make code easier to fix and update.",
+        "whatToRemember": "Copy-paste works but creates problems later. If you need to change something, you have to find every copy. Functions let you change it in one place!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The Other Smoothies Have No Cup or Ice!",
+        "explanation": "If you skip the setup steps for the other smoothies, the robot will try to blend fruit with no cup and no ice! Every smoothie needs ALL the steps. The computer does not remember what it did for the first smoothie. Each smoothie starts fresh. That is why functions are so helpful -- you call 'start-smoothie' each time and all the steps happen.",
+        "whatToRemember": "The computer does not carry over steps from before. Each section needs all its steps. Functions let you include them without retyping!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

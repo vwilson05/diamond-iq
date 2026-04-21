@@ -1,0 +1,63 @@
+{
+  "id": "the-show-basketball-two-for-one",
+  "title": "The Two-for-One",
+  "sport": ["basketball"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["two-for-one", "clock management", "extra possessions"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "0:35",
+    "score": { "home": 30, "away": 32 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "There are 35 seconds left in the second quarter. Your team just got the ball. If you shoot quickly around the 10-second mark, and the other team scores, you will still have time for one more shot before halftime. What is your strategy?",
+      "choices": [
+        { "id": "best", "text": "Push the pace and take a good shot within the first eight to ten seconds, so your team can get the ball back for one more possession before halftime", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Run a normal possession and use all 24 seconds of shot clock for one great look", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Hold the ball for the last shot with five seconds left on the game clock", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Two-for-one executed!",
+        "explanation": "You took a good shot with 26 seconds still on the game clock. Even though you missed, the other team scored and you got the ball back with seven seconds left -- enough for one more quick shot! Your team got two possessions while the other team only got one. That is a free extra chance to score!",
+        "whatToRemember": "A two-for-one means shooting early enough that even if the other team scores, you still get one more possession. Look for it when there are 33 to 40 seconds left in a quarter.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Two-for-One", "definition": "A strategy where you shoot quickly enough to guarantee your team gets two possessions in the time the other team only gets one. Usually happens with 33 to 40 seconds left in a quarter." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "One good shot, but only one",
+        "explanation": "You ran a full possession and scored. That is good! But the other team will also score on their possession, and you will not have time for another shot. You traded a guaranteed extra possession for one slightly better shot.",
+        "whatToRemember": "Sometimes a quick good shot is worth more than a slow great shot. Getting an extra possession is like getting a free turn in a board game.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wasted opportunity!",
+        "explanation": "By holding for the last shot, you guaranteed only ONE chance to score. The other team did not even have to play offense! You gave away a free possession and all the momentum going into halftime.",
+        "whatToRemember": "Holding for the last shot only makes sense with under ten seconds left. With 35 seconds, you should always go two-for-one and give your team an extra scoring opportunity.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

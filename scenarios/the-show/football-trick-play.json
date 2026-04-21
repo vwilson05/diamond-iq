@@ -1,0 +1,73 @@
+{
+  "id": "the-show-football-trick-play",
+  "title": "Time for a Trick Play!",
+  "sport": ["football"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["trick-play", "misdirection", "situational", "elite"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "2:30",
+    "down": 2,
+    "distance": 7,
+    "yardLine": 55,
+    "score": { "home": 7, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is losing 21-7 and needs a spark! The defense has been aggressively covering your quarterback's passes all game. Your coach calls a flea-flicker -- the QB hands off to the running back, the running back tosses it back to the QB, and the QB throws deep while the defense is fooled by the fake run. But you notice the safety is staying deep and NOT biting on run fakes at all today. Should you run the flea-flicker?",
+      "choices": [
+        { "id": "call-it-off", "text": "Audible out of the trick play! The safety isn't biting on fakes today, so the flea-flicker probably won't fool him. Run a regular play instead.", "nextNode": "outcome-great" },
+        { "id": "run-flea-flicker", "text": "Run the flea-flicker anyway -- trick plays always work because they're unexpected!", "nextNode": "outcome-bad" },
+        { "id": "run-instead", "text": "Since the safety is staying deep, just hand off and run! The box should be light.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Decision! Saved the Play!",
+        "explanation": "This is elite football IQ! Trick plays only work when the defense is susceptible to them. The flea-flicker works by making the defense BITE on the run fake so receivers get open deep. But if the safety is already staying deep and not biting on run fakes, the trick won't fool him! He'll be sitting back there waiting for the deep throw. The smartest players know WHEN to use trick plays and when to audible out of them. Context matters!",
+        "whatToRemember": "Trick plays need the right situation to work! If the defense isn't susceptible to the fake, the trick is just a slower, riskier regular play. Read the situation!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Flea-Flicker", "definition": "A trick play where the QB hands off, the RB pitches it back to the QB, and the QB throws deep while the defense is fooled by the run fake." },
+          { "term": "Situational Awareness", "definition": "Understanding whether the current situation is right for a specific play. Not every play works in every moment!" },
+          { "term": "Tendency", "definition": "What a team or player usually does. Trick plays exploit tendencies -- but only if the defense HAS that tendency!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Solid Run! But You're Still Down Big!",
+        "explanation": "Good thinking -- if the safety is staying deep, there might be fewer defenders in the box for a run play. And you avoided the risky flea-flicker. But you're down 21-7 and need big plays to come back! A run play here is safe but doesn't change the game. The BEST choice was to audible to a different pass play that could work against this coverage. You need points, not just safe yards!",
+        "whatToRemember": "When losing big, you need plays that can create explosive gains. Safe runs don't create comebacks. Find a pass concept that attacks the actual coverage!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Game Script", "definition": "How the score affects play-calling. When trailing big, you need more aggressive plays to catch up." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! Safety Was Waiting!",
+        "explanation": "The flea-flicker failed exactly as the evidence predicted! The safety never moved on the run fake. He stayed deep, read the pitch-back to the QB, and was in perfect position when the deep throw came. Trick plays are NOT magic -- they only work when the defense is set up to be fooled by them. Running a trick play into a defense that won't be tricked is just giving the ball away on a slow-developing play. Always check if the conditions are right!",
+        "whatToRemember": "Trick plays need the right conditions! Check if the defense is actually susceptible. If they're not biting on fakes, the trick won't work!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Fool's Gold", "definition": "A play that looks exciting on paper but won't work in the current situation. Trick plays without the right setup!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "the-show-basketball-end-of-game",
+  "title": "Last Shot to Win",
+  "sport": ["basketball"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["end of game", "clutch", "game management"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "0:08",
+    "score": { "home": 58, "away": 59 },
+    "possession": "home",
+    "shotClock": 8
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is down one point with eight seconds left. You just called timeout and your coach drew up the final play. You will inbound the ball. Your best shooter is on the wing, and your tallest player is near the basket. The coach wants you to look for the shooter first. How do you execute?",
+      "choices": [
+        { "id": "best", "text": "Inbound quickly to your point guard, who reverses it to the shooter coming off a double screen for a catch-and-shoot jumper with two seconds left", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Throw it directly to the shooter even though the defense is expecting it", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Ignore the play and throw a lob to the tall player near the basket", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Game winner at the buzzer!",
+        "explanation": "The play worked perfectly. The double screen freed your shooter, the pass arrived on time, and the shot swished through as the buzzer sounded. Your team wins! Good end-of-game execution means running the designed play with discipline and timing.",
+        "whatToRemember": "In end-of-game situations, trust your coach's play. The play is designed to get your best player the best shot. Use screens, timing, and misdirection to free the shooter.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "End-of-Game Execution", "definition": "Running a designed play in the final seconds to get the highest-percentage shot possible. Requires discipline, timing, and trust in the play call." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Contested shot... it rims out!",
+        "explanation": "The defense knew the ball was going to the shooter and put two defenders on them. The pass got there, but the shot was heavily contested and bounced off the rim. You needed to use the screens to get the shooter open first.",
+        "whatToRemember": "The defense scouts your best players too. You cannot just throw it to your star and hope. The play uses screens and decoys for a reason -- to get your shooter open, not just to get them the ball.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover! Game over!",
+        "explanation": "The lob to the tall player was not part of the play. The defense was not fooled, intercepted the pass, and dribbled out the clock. Your team loses because you did not trust the play your coach designed.",
+        "whatToRemember": "End-of-game situations are not the time to freelance. Your coach spent the timeout designing the perfect play. Trust it and execute it, even under pressure.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

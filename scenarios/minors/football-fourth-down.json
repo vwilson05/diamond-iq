@@ -1,0 +1,73 @@
+{
+  "id": "minors-football-fourth-down",
+  "title": "The Fourth Down Decision!",
+  "sport": ["football"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["fourth-down", "decision-making", "risk-reward", "game-iq"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "6:00",
+    "down": 4,
+    "distance": 1,
+    "yardLine": 62,
+    "score": { "home": 17, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It's 4th down and you only need 1 yard for a first down. You're at the opponent's 38-yard line. You're losing by 4 points with 6 minutes left in the 4th quarter. If you don't get the first down, the other team gets the ball. What do you do?",
+      "choices": [
+        { "id": "go-for-it", "text": "Go for it! You only need 1 yard, you're losing, and you need to keep this drive alive to score a touchdown!", "nextNode": "outcome-great" },
+        { "id": "punt", "text": "Punt it away. It's too risky to go for it on 4th down.", "nextNode": "outcome-bad" },
+        { "id": "field-goal", "text": "Try a 55-yard field goal to cut the lead to 1 point.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "First Down! Drive Stays Alive!",
+        "explanation": "Going for it was the right call! Here's the thinking: you only need 1 yard (very makeable), you're trailing by 4 so you NEED a touchdown (a field goal wouldn't tie the game), you're already in the opponent's territory, and there's time but not tons of time left. All four of those factors say GO FOR IT. One yard is something a good team should get most of the time with a strong run or a QB sneak.",
+        "whatToRemember": "Go for it on 4th and short when: you need a TD (not just a FG), you're in opponent territory, and the distance is 1-2 yards.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Fourth Down Conversion", "definition": "Getting enough yards on 4th down to earn a new first down and keep your drive alive." },
+          { "term": "QB Sneak", "definition": "The quarterback takes the snap and immediately pushes forward behind his center. Great for 4th and 1!" },
+          { "term": "Risk vs Reward", "definition": "Weighing what you could gain against what you could lose. Short yardage + needing a TD = worth the risk!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Miss! 55 Yards Was Too Far!",
+        "explanation": "A 55-yard field goal is incredibly difficult -- even NFL kickers only make those about 50% of the time. Plus, even if you made it, you'd only have 3 points (cutting the lead to 1). You still need a touchdown to WIN. Going for the first down keeps your chance at a touchdown alive, and you only need 1 yard! The math says go for it: high chance of getting 1 yard, and you need 7 points not 3.",
+        "whatToRemember": "If a field goal won't tie or win the game, and you only need 1 yard, go for the first down to keep your TD chance alive!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Field Goal Range", "definition": "The distance from which your kicker can realistically make a field goal. Usually inside 45 yards for most kickers." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Punt? But You're Losing!",
+        "explanation": "Punting when you're losing in the 4th quarter and only need 1 yard is way too conservative! You're giving the ball away when you had a great chance to keep your drive going. Think about it: if you punt, you STILL need to get the ball back AND drive the whole field for a touchdown. That's much harder than just getting 1 yard right here! When you're trailing late, you need to be aggressive on short-yardage 4th downs.",
+        "whatToRemember": "Don't punt when you're losing late in the game and need only 1 yard! Being too careful when trailing can cost you the game.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Playing Not to Lose", "definition": "Being too conservative and careful instead of making aggressive plays to WIN. This often backfires!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

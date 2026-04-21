@@ -1,0 +1,62 @@
+{
+  "id": "the-show-coding-recursion",
+  "title": "Mirrors Facing Each Other!",
+  "sport": ["coding"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "logic",
+  "tags": ["recursion", "self-reference", "base-case", "advanced"],
+  "setup": {
+    "language": "python",
+    "concept": "recursion",
+    "difficulty": "advanced",
+    "context": "Russian nesting dolls that open themselves"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Imagine Russian nesting dolls -- each doll has a smaller doll inside! You write a function called 'open-doll' that does this: Open the doll. IF there is a smaller doll inside, call 'open-doll' again on the smaller one. IF there is no doll inside (the tiniest one), STOP. The function calls ITSELF! What do you need to make sure this works and does not go on forever?",
+      "choices": [
+        { "id": "base-case", "text": "You need a stopping point! The tiniest doll has nothing inside, so the function stops there. Without this 'base case', it would try to open dolls forever.", "nextNode": "outcome-great" },
+        { "id": "no-stop", "text": "It will figure out when to stop on its own.", "nextNode": "outcome-okay" },
+        { "id": "confusing", "text": "A function should never call itself. That does not make sense.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Base Case! The Key to Recursion!",
+        "explanation": "You understand RECURSION! A recursive function calls itself to solve a smaller version of the same problem. Open the big doll, find a smaller one, call open-doll again. Open that one, find an even smaller one, call open-doll again. But you MUST have a BASE CASE -- a condition where it STOPS calling itself (the tiniest doll with nothing inside). Without a base case, it would loop forever, like two mirrors reflecting each other into infinity!",
+        "whatToRemember": "Recursion means a function calling itself on a smaller problem. ALWAYS include a base case (a stopping condition) or it runs forever!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Recursion", "definition": "When a function calls itself to solve a smaller version of the same problem, like opening nesting dolls one at a time."}, {"term": "Base Case", "definition": "The stopping condition in recursion. The point where the function stops calling itself and returns an answer."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It Will NOT Figure It Out! You Need a Stop Sign!",
+        "explanation": "Computers do not figure things out on their own! Without a clear stopping rule (base case), the function will call itself forever and the program will crash. It is like giving directions that say 'turn right at the next street' without ever saying 'you have arrived.' You would drive in circles forever! YOU must tell it when to stop.",
+        "whatToRemember": "Recursive functions need YOU to tell them when to stop. They will never figure it out on their own. Always include a base case!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "It Does Make Sense! Recursion is Powerful!",
+        "explanation": "A function calling itself sounds weird at first, but it is one of the most powerful ideas in programming! The trick is that each time it calls itself, the problem is SMALLER. Open the big doll (big problem), then open the medium doll (medium problem), then open the small doll (small problem), then the tiniest doll has nothing inside (base case -- done!). Each call handles a smaller piece until the problem disappears.",
+        "whatToRemember": "Recursion works because each call handles a SMALLER version of the problem. It is not circular -- it shrinks toward the base case!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

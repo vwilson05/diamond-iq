@@ -1,0 +1,63 @@
+{
+  "id": "majors-basketball-drawing-fouls",
+  "title": "Drawing the Foul",
+  "sport": ["basketball"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["drawing fouls", "free throws", "smart play"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "1:45",
+    "score": { "home": 54, "away": 56 },
+    "possession": "home",
+    "shotClock": 16
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are down two in the fourth quarter and driving to the basket. The defender is reaching in and slapping at the ball. Their best player is already in foul trouble with four fouls. How do you attack?",
+      "choices": [
+        { "id": "best", "text": "Drive strong into their body with the ball protected, go up for the shot through contact, and try to finish while drawing the foul", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Avoid all contact, use a spin move to get around them, and try a finger roll", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Flop and fall down without any real contact to try to trick the referee", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "And one! Foul on number five!",
+        "explanation": "You drove strong and went up for the shot through contact. The referee called a foul, and even better, your layup went in! You get a free throw for a chance at a three-point play. Plus, their best player now has five fouls and is one foul away from fouling out!",
+        "whatToRemember": "Drawing fouls is about going strong to the basket and not avoiding contact. When a defender is reaching and in foul trouble, attack them aggressively. Get to the free throw line.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Drawing a Foul", "definition": "Attacking the basket aggressively so that a defender has to reach or bump you, causing the referee to call a foul. Results in free throws and can put opponents in foul trouble." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Nice move, but you left points on the table",
+        "explanation": "Your spin move was smooth and you scored. But you avoided the contact on purpose, so no foul was called. You could have had free throws AND put their best player closer to fouling out.",
+        "whatToRemember": "When a player is in foul trouble, do not avoid them. Go right at them! The threat of fouling out changes how they play defense.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "No call! And you look silly!",
+        "explanation": "The referee saw right through the flop. No foul was called and you are now on the ground while the other team grabs the ball. Worse, the referee might give you a warning for flopping. Referees can tell the difference between real contact and acting.",
+        "whatToRemember": "Never flop or fake fouls. Earn the foul by going strong and absorbing real contact. Refs respect players who play honestly and play hard.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

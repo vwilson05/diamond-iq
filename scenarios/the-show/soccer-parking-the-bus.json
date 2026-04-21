@@ -1,0 +1,63 @@
+{
+  "id": "the-show-soccer-parking-the-bus",
+  "title": "Parking the Bus!",
+  "sport": ["soccer"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["parking-bus", "defensive-tactics", "elite", "game-management"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "8:00",
+    "score": { "home": 1, "away": 0 },
+    "possession": "away",
+    "fieldZone": "defensive-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is winning 1-0 in a championship semifinal with eight minutes left. The other team has pushed everyone forward and is desperately attacking. Your coach yells to drop back and protect the lead. You are a midfielder. How do you execute the defensive lockdown?",
+      "choices": [
+        { "id": "compact-block", "text": "Drop into a compact two banks of four. Stay narrow, block the middle, force them wide, and clear everything that comes into the box!", "nextNode": "outcome-great" },
+        { "id": "keep-pressing", "text": "Ignore the coach and keep pressing high. Best defense is a good offense!", "nextNode": "outcome-okay" },
+        { "id": "everyone-in-box", "text": "Sprint back and put all ten outfield players inside the penalty area!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Shut Them Out! Clean Sheet!",
+        "explanation": "Two banks of four means four defenders and four midfielders in two tight lines. By staying narrow, you block all the dangerous central areas. Forcing them wide means they can only cross the ball in, and your packed box can head it away. This is called parking the bus -- a disciplined, organized defensive shape that is extremely hard to break down when done right.",
+        "whatToRemember": "To park the bus: two lines of four, stay compact, protect the middle, force them to cross from wide, and clear every ball in the box. Discipline wins!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Parking the Bus", "definition": "A super-defensive strategy where the whole team drops deep and forms a compact block to protect a lead. Named because it is like parking a bus in front of your goal!" }, { "term": "Two Banks of Four", "definition": "A defensive shape with four defenders and four midfielders in two tight, organized lines across the field." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Counter Worked Once, But Risky!",
+        "explanation": "Pressing high when the other team is throwing everyone forward is extremely risky. If they get past your press, there is no one back to defend. It might lead to a counter-attack goal, but if it fails once, you concede. Late in a close game, protecting the lead is usually smarter than gambling for a second goal. Listen to the coach!",
+        "whatToRemember": "When protecting a late lead, do not gamble with a high press. Drop back, stay organized, and make them break you down!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Deep! They Scored from the Edge!",
+        "explanation": "Cramming everyone inside the penalty area gives the other team free space around the box to shoot. They just walked up to the edge of the area and ripped a shot through the crowd of bodies. Parking the bus does NOT mean hiding in the box. It means organized lines at the edge of the box and in front of it, blocking shots and passing lanes BEFORE the ball reaches the danger zone.",
+        "whatToRemember": "Do not retreat into the penalty area. Hold your shape at the EDGE of the box. If you are too deep, opponents get free shots from dangerous positions!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

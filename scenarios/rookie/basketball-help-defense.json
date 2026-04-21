@@ -1,0 +1,63 @@
+{
+  "id": "rookie-basketball-help-defense",
+  "title": "Help Your Teammate on Defense",
+  "sport": ["basketball"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["help defense", "teamwork", "positioning"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "5:15",
+    "score": { "home": 38, "away": 40 },
+    "possession": "away",
+    "shotClock": 12
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "The player your teammate is guarding just blew past them and is driving straight to the basket. You are the closest defender, but your own player is standing in the corner. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Slide over to stop the driving player, then be ready to pass back to your player if they kick it out", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stay glued to your player in the corner and let your teammate try to recover", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Run at the driving player and leave your own player completely unguarded", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Awesome help defense!",
+        "explanation": "You slid over just enough to cut off the driving player. They had to pick up their dribble, and by then your teammate recovered. You stayed in a spot where you could still see your player in the corner. That is smart help defense!",
+        "whatToRemember": "Help defense means sliding over to stop a driving player while still being aware of your own assignment. You want to be in a spot to help AND recover.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Help Defense", "definition": "When a defender leaves their own player temporarily to stop an opponent who has beaten their teammate, then recovers back to their assignment" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Easy layup for the other team",
+        "explanation": "You guarded your own player perfectly, but the driving player scored an easy layup because nobody stopped them. Sometimes you need to leave your player briefly to help a teammate.",
+        "whatToRemember": "Defense is a team effort. If a player is driving to the basket with nobody in front of them, somebody needs to help even if it means briefly leaving their own player.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wide open three pointer!",
+        "explanation": "You sprinted at the driving player but left your corner player completely alone. The driver saw your player wide open and passed it out for an easy three-point shot. You helped too aggressively.",
+        "whatToRemember": "When you help, do not fully commit. Stay in a position where you can recover to your own player. Help and recover, do not help and abandon.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

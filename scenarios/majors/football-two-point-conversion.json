@@ -1,0 +1,73 @@
+{
+  "id": "majors-football-two-point-conversion",
+  "title": "Go For Two!",
+  "sport": ["football"],
+  "tier": "majors",
+  "impact": 5,
+  "role": "offense",
+  "tags": ["two-point-conversion", "decision-making", "math", "advanced"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "1:45",
+    "down": 1,
+    "distance": 0,
+    "yardLine": 98,
+    "score": { "home": 26, "away": 28 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team just scored a touchdown to make it 28-26 with the other team leading! After a touchdown, you normally kick the extra point (1 point, almost always good) to make it 28-27. But you could also go for a two-point conversion (2 points but much harder) to TIE the game 28-28. There's 1:45 left and you have no timeouts. What do you choose?",
+      "choices": [
+        { "id": "go-for-two", "text": "Go for two! If you make it, the game is tied and you could win in overtime. If you only kick the extra point, you're still losing!", "nextNode": "outcome-great" },
+        { "id": "kick-extra", "text": "Kick the extra point to make it 28-27 and hope to get the ball back for a field goal.", "nextNode": "outcome-okay" },
+        { "id": "kick-onside", "text": "Kick the extra point, then try an onside kick to get the ball back.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Two-Point Conversion! Game Tied!",
+        "explanation": "Going for two was the right math! Here's why: if you kick the extra point, you trail 28-27. With 1:45 left and no timeouts, getting the ball back AND driving into field goal range is really hard. But if you convert the two-point attempt, it's 28-28 and you go to overtime with a fresh start! Yes, two-point conversions are harder (about 50% success), but needing a field goal drive in under 2 minutes with no timeouts is even harder. Go for the tie!",
+        "whatToRemember": "Go for 2 when: being down 1 (after the extra point) is almost as bad as being down 2. If getting the ball back for a FG is unlikely, tie it up!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Two-Point Conversion", "definition": "After a touchdown, running one play from the 2-yard line. Score = 2 extra points instead of kicking for 1." },
+          { "term": "Extra Point (PAT)", "definition": "A kick after a touchdown worth 1 point. Made about 94% of the time in the NFL." },
+          { "term": "Expected Value", "definition": "Thinking about what the LIKELY outcome is, not just the best case. Helps you make smarter decisions!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "28-27. Still Losing. Clock Running Out!",
+        "explanation": "The extra point makes it 28-27, but you're STILL losing. Now you need to kick off, stop the other team (using up clock), get the ball back, drive into field goal range, and kick a field goal -- all in under 2 minutes with no timeouts. That's A LOT of things that need to go right. Going for 2 would have given you a simple 50/50 shot at tying the game right there, which is better odds than needing all those things to happen.",
+        "whatToRemember": "Sometimes the 'safe' play (kicking the extra point) is actually riskier because it leaves you needing a miracle comeback!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Win Probability", "definition": "The percentage chance a team has of winning based on the current situation. Math helps you make the best choice!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Onside Kick Failed! Game Over!",
+        "explanation": "An onside kick only works about 10% of the time! So your plan was: kick the extra point, then recover an onside kick (10% chance), then drive for a field goal. That's a LOT of low-probability events chained together. Going for the two-point conversion gives you about a 50% chance of tying the game in ONE play. 50% on one play is way better than 10% on a kick plus more things needed after that!",
+        "whatToRemember": "Don't chain together multiple low-probability plays when one higher-probability play (two-point conversion) could solve the problem!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Onside Kick", "definition": "A short kickoff that the kicking team tries to recover. Very risky -- only works about 10% of the time!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

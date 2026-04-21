@@ -1,0 +1,62 @@
+{
+  "id": "majors-money-lemonade-stand",
+  "title": "Lemonade Stand Math",
+  "sport": ["money"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "earning",
+  "tags": ["entrepreneur", "profit", "costs", "business"],
+  "setup": {
+    "situation": "starting-a-lemonade-stand",
+    "money": 10.00,
+    "goal": "make a profit selling lemonade",
+    "context": "Hot Saturday and you want to set up a lemonade stand in front of your house"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want to start a lemonade stand. Lemons, sugar, and cups cost you six dollars. You have ten dollars. You can make twenty cups of lemonade. How do you price each cup?",
+      "choices": [
+        { "id": "best", "text": "Charge one dollar per cup because your costs are six dollars and twenty cups at one dollar makes twenty dollars total, giving you fourteen dollars profit", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Charge fifty cents per cup to get more customers", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Charge twenty-five cents per cup because you want everyone to buy some", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Nice profit!",
+        "explanation": "You sold fifteen cups at one dollar each, making fifteen dollars. Your supplies cost six dollars, so your profit is nine dollars. You turned ten dollars into nineteen dollars in one afternoon. That is how a business works!",
+        "whatToRemember": "To make a profit, you must charge more per item than it costs you to make. Figure out your total costs first, then set a price that covers costs and leaves you with extra.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Profit", "definition": "The money left over after you subtract your costs from your total sales. Profit equals revenue minus costs." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Busy stand, small profit",
+        "explanation": "You sold all twenty cups at fifty cents each, making ten dollars. But your supplies cost six dollars, so you only profited four dollars. You had lots of customers but not much money to show for it.",
+        "whatToRemember": "Low prices bring more customers, but you need to make sure the price still covers your costs and leaves a worthwhile profit.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You lost money!",
+        "explanation": "Twenty cups at twenty-five cents each equals only five dollars. Your supplies cost six dollars. You actually lost one dollar running your lemonade stand! You worked all day and ended up with less money than you started.",
+        "whatToRemember": "If your price is too low, you can lose money even when you sell everything. Always add up your costs first and make sure your price is higher.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rookie-coding-counting-loops",
+  "title": "Count As You Go!",
+  "sport": ["coding"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "logic",
+  "tags": ["loops", "counting", "variables", "fundamentals"],
+  "setup": {
+    "language": "blocks",
+    "concept": "counting loops",
+    "difficulty": "beginner",
+    "context": "A basketball free-throw shooting machine"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building a basketball shooting game! The player gets to shoot 5 free throws. You need to keep track of how many shots they have taken. You have a variable called 'shots' that starts at 0. Each time the player shoots, what should happen?",
+      "choices": [
+        { "id": "add-one", "text": "After each shot, add 1 to 'shots'. Stop when shots equals 5.", "nextNode": "outcome-great" },
+        { "id": "set-five", "text": "After each shot, set 'shots' to 5.", "nextNode": "outcome-okay" },
+        { "id": "no-count", "text": "Just let them keep shooting without counting.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Counter! 1, 2, 3, 4, 5... Done!",
+        "explanation": "You built a counting loop! Here is what happens: Start with shots = 0. Shoot! Now shots = 1. Shoot! Now shots = 2. And so on until shots = 5, then STOP. The variable goes up by 1 each time, and the loop checks: have we reached 5 yet? This is how computers count!",
+        "whatToRemember": "A counting loop uses a variable that goes up by 1 each time. It stops when the variable reaches the target number.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Counter", "definition": "A variable that goes up by 1 each time something happens. It helps the loop know when to stop."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Hmm... That Skips the Counting!",
+        "explanation": "If you set 'shots' to 5 after the very first shot, the computer thinks 5 shots have already been taken! The game would end after just 1 shot. You need to ADD 1 each time, not jump straight to 5. Counting means going 0, 1, 2, 3, 4, 5 -- one step at a time.",
+        "whatToRemember": "Counting means adding 1 each time, not jumping to the end number. Go step by step!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Infinite Shots! The Game Never Ends!",
+        "explanation": "Without counting, the computer has no way to know when 5 shots have been taken! The player would just keep shooting forever. The loop needs a counter to know when to stop. It is like a referee who counts fouls -- without counting, nobody knows when the limit is reached.",
+        "whatToRemember": "Loops need a counter to know when to stop. Without counting, the computer does not know how many times it has looped!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

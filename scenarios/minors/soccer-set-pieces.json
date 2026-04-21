@@ -1,0 +1,63 @@
+{
+  "id": "minors-soccer-set-pieces",
+  "title": "Free Kick Near the Goal!",
+  "sport": ["soccer"],
+  "tier": "minors",
+  "impact": 4,
+  "role": "set-piece",
+  "tags": ["free-kick", "set-piece", "game-iq"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "3:00",
+    "score": { "home": 1, "away": 1 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team won a free kick just outside the penalty box! The other team has set up a wall of four players to block the shot. The goalkeeper is standing behind the wall, covering one side of the goal. There is open space on the far side of the goal past the wall. What is your plan?",
+      "choices": [
+        { "id": "curve-around-wall", "text": "Curve the ball around the wall and aim for the far side of the goal where the keeper cannot reach!", "nextNode": "outcome-great" },
+        { "id": "pass-to-runner", "text": "Instead of shooting, pass to a teammate running around the side of the wall for a better angle!", "nextNode": "outcome-okay" },
+        { "id": "blast-through-wall", "text": "Kick it as hard as you can straight into the wall of players!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "GOAL! Curled It Around the Wall!",
+        "explanation": "You used the inside of your foot to put spin on the ball, making it curve around the wall. The goalkeeper was stuck behind the wall and by the time they saw the ball, it was already in the net! Curving the ball around the wall is one of the best free kick techniques because the keeper has a blind spot.",
+        "whatToRemember": "On free kicks near the box, try to curve the ball AROUND the wall to the side the goalkeeper cannot see!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Wall", "definition": "A line of defending players who stand shoulder-to-shoulder to block the goal during a free kick." }, { "term": "Curving the Ball", "definition": "Kicking the ball with spin so it bends through the air and goes around obstacles like a wall." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Nice Idea, Shot Saved!",
+        "explanation": "Passing to a teammate around the wall is a smart trick. It changed the angle and surprised the defense! But the goalkeeper was quick enough to save it this time. This is still a good option, especially if the shooting angle is too tight or the wall is very tall.",
+        "whatToRemember": "Passing on a free kick is a great surprise option. It changes the angle and catches defenders off guard!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Blocked! Hit the Wall!",
+        "explanation": "The whole point of the wall is to block straight shots! Kicking the ball into a wall of four players is almost never going to get through. You need to go AROUND the wall (with a curve) or OVER it (with a chip) or use a pass to change the angle. Do not just kick it into the obstacle!",
+        "whatToRemember": "Never shoot directly into the wall. Go around it with curve, over it with a chip, or pass to change the angle!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

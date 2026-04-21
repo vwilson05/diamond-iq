@@ -1,0 +1,63 @@
+{
+  "id": "tball-soccer-which-goal",
+  "title": "Which Goal Is Yours?",
+  "sport": ["soccer"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["basics", "direction", "orientation"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "15:00",
+    "score": { "home": 0, "away": 1 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "It is the second half and your team just switched sides! Before the half, you were shooting at the goal on the right. Your teammate passes you the ball in the middle of the field. Which way do you go?",
+      "choices": [
+        { "id": "correct-goal", "text": "Dribble toward the LEFT goal -- that is the one you are attacking now since you switched sides!", "nextNode": "outcome-great" },
+        { "id": "confused-stop", "text": "Stop and look around to figure out which goal is yours.", "nextNode": "outcome-okay" },
+        { "id": "wrong-goal", "text": "Dribble toward the RIGHT goal -- that is where you scored before!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Right Direction!",
+        "explanation": "You remembered that teams switch sides at halftime! In the first half you attacked the right goal, so in the second half you attack the left goal. A quick trick: look for your goalkeeper. They always stand in the goal you are DEFENDING. Go the other way!",
+        "whatToRemember": "Teams switch ends at halftime. Look at where YOUR goalkeeper is standing -- attack the OPPOSITE goal!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Switching Sides", "definition": "At halftime, both teams swap ends of the field. The goal you defended in the first half is the one you attack in the second half." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Idea to Check!",
+        "explanation": "Stopping to look around is smart if you are confused, but it does slow you down. A faster trick is to glance at your goalkeeper before the play starts. Your keeper is always in the goal you are defending. Attack the other one! That way you never have to stop and think.",
+        "whatToRemember": "If you forget which way to go, look for your goalkeeper. Attack the opposite end from where they are standing!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wrong Way! That is Your Own Goal!",
+        "explanation": "You dribbled toward the goal your own team is defending! If you shoot it in there, it counts as a goal for the OTHER team. That is called an own goal and it is a bummer. Remember: at halftime you switch sides, so the goal you attacked before is now the one you defend.",
+        "whatToRemember": "After halftime, you switch sides! Always check where your goalkeeper is and go the OPPOSITE direction.",
+        "iqPoints": 1,
+        "keyTerms": [{ "term": "Own Goal", "definition": "When a player accidentally puts the ball into their own team's goal. The other team gets the point!" }],
+        "next": "end"
+      }
+    }
+  }
+}

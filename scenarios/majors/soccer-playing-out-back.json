@@ -1,0 +1,63 @@
+{
+  "id": "majors-soccer-playing-out-back",
+  "title": "Playing Out of the Back!",
+  "sport": ["soccer"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["build-up", "possession", "advanced"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "20:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "defensive-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a center-back and the goalkeeper just passed you the ball. The other team is pressing with two forwards. Your midfielders are being marked but your other center-back is open. Your right-back has dropped deep to give you an option wide. How do you play out?",
+      "choices": [
+        { "id": "switch-to-fullback", "text": "Play it wide to your right-back who is open and has space to carry the ball forward!", "nextNode": "outcome-great" },
+        { "id": "pass-partner", "text": "Pass to your center-back partner to shift the pressing forwards and create a new angle.", "nextNode": "outcome-okay" },
+        { "id": "boot-long", "text": "Kick it long up the field to get rid of the pressure!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Played Through the Press!",
+        "explanation": "Your right-back was in space and the press could not reach them. They received the ball, turned forward, and carried it into midfield -- you have bypassed the entire press! Playing wide to a fullback is often the key to beating a high press because the wide areas are usually where the gaps appear.",
+        "whatToRemember": "When being pressed, look for fullbacks in wide positions. The press usually leaves space on the outside! Play wide to escape the pressure.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Playing Out of the Back", "definition": "Building your attack with short passes from the goalkeeper and defenders instead of kicking it long." }, { "term": "Beating the Press", "definition": "Using passing and positioning to get past a team that is pressing you aggressively." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Shifted the Press, But Still Stuck!",
+        "explanation": "Passing to your center-back partner moved the two forwards and bought time. That is a good first step! But the press just shifted with the ball. The key is to use that first pass to create a better angle for the NEXT pass -- ideally to a fullback or a midfielder who drops into space. Two passes beats a press better than one.",
+        "whatToRemember": "Passing across the back line shifts the press and creates new angles. Use it as a stepping stone to find the real escape route!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Long Ball Lost! They Have It Back!",
+        "explanation": "Booting it long gave up possession. The other team's press worked -- they forced you into a panicked long ball. This is exactly what pressing teams WANT you to do. Playing out of the back takes bravery and trust in your teammates. Your right-back was open and ready. Next time, play the calm, short pass to keep the ball.",
+        "whatToRemember": "Do not panic and boot it long when being pressed! Stay calm, trust your teammates, and find the free player. Long balls give the press what it wants.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "minors-basketball-inbounds-play",
+  "title": "The Inbounds Play",
+  "sport": ["basketball"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["inbounds", "plays", "execution"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "0:45",
+    "score": { "home": 48, "away": 46 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is taking the ball out of bounds under the other team's basket. The defense is pressing tight and nobody looks open. You have five seconds to pass the ball in. What is the best approach?",
+      "choices": [
+        { "id": "best", "text": "Use the play your coach designed: signal your teammates to set screens for each other so someone can cut free", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Call timeout before the five seconds run out", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Throw a risky pass through traffic and hope someone catches it", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Executed the play perfectly!",
+        "explanation": "Your teammates set screens and one player cut to the ball at just the right moment. You passed it in cleanly and your team kept possession. Inbounds plays work because the screens confuse the defense.",
+        "whatToRemember": "Inbounds plays use screens and timing to get players open. Everyone needs to know the play and move together. Communication and patience are key.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Inbounds Play", "definition": "A designed play used when your team has to pass the ball in from out of bounds. Players use screens and cuts to get open against tight defense." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Timeout saves the day",
+        "explanation": "Calling timeout was smart because it prevented a turnover. But now you have used one of your timeouts and you might need it later in this close game.",
+        "whatToRemember": "Calling timeout is always better than a five-second violation. But if you practice your inbounds plays, you should not need to waste timeouts.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stolen! The other team scores!",
+        "explanation": "The risky pass went right to a defender who was waiting for it. They caught the steal and scored an easy layup. Now your lead is gone. Forcing passes into traffic on inbounds is one of the most common turnovers.",
+        "whatToRemember": "Never force a pass on an inbounds play. If nobody is open, use a timeout or wait for a teammate to screen. A turnover here can cost you the game.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

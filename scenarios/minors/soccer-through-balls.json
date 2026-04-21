@@ -1,0 +1,63 @@
+{
+  "id": "minors-soccer-through-balls",
+  "title": "The Through Ball!",
+  "sport": ["soccer"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["through-ball", "passing", "game-iq"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "12:00",
+    "score": { "home": 1, "away": 1 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a midfielder with the ball at your feet. Your striker teammate is running forward and there is a gap between the two center-backs. The striker is currently level with the defenders but sprinting into the space behind them. What pass do you play?",
+      "choices": [
+        { "id": "through-ball", "text": "Play the ball into the space BEHIND the defenders for your striker to run onto!", "nextNode": "outcome-great" },
+        { "id": "pass-to-feet", "text": "Pass the ball directly to your striker's feet where they are right now.", "nextNode": "outcome-okay" },
+        { "id": "switch-play", "text": "Ignore the run and pass sideways to a teammate.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Through Ball!",
+        "explanation": "You slid the ball into the gap between the defenders, and your striker ran onto it at full speed. Since they were level with the defenders when you kicked it, they are onside! Now they are one-on-one with the goalkeeper. A through ball is not passed TO a player, it is passed to the SPACE they are running into.",
+        "whatToRemember": "A through ball goes into the space BEHIND defenders, not to a player's feet. Time it when your teammate is level with the last defender and running!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Through Ball", "definition": "A pass played into the space behind the defense for a teammate to run onto. It splits the defensive line." }, { "term": "Running Onto the Ball", "definition": "Receiving a pass while sprinting forward, so you never have to stop." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pass to Feet -- Striker Has to Stop!",
+        "explanation": "Your striker was running at full speed but the ball went to where they WERE, not where they are GOING. They had to slow down, turn back, and now the defenders have caught up. The pass was accurate, but your striker lost their speed advantage. When a teammate is making a run, pass in front of them!",
+        "whatToRemember": "If a teammate is running, do not pass to where they are -- pass to where they WILL BE. Lead them with the ball!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed the Chance!",
+        "explanation": "Your striker made a perfect run, split the defenders, and you ignored it. Those runs only last a second or two before the player is offside or the gap closes. When you see a teammate sprinting into space behind the defense, that is the number one priority pass! Sideways passes are safe but they do not create goals.",
+        "whatToRemember": "When a teammate makes a run behind the defense, play the through ball! Those chances disappear in seconds.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

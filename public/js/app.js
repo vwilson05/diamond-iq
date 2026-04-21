@@ -33,10 +33,10 @@ const TROPHY_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.or
  */
 function calcImpact(setup) {
   if (!setup) return 1;
+  let impact = 1;
 
-  // Chess impact — use phase and advantage
+  // Chess
   if (setup.phase) {
-    let impact = 1;
     if (setup.phase === 'endgame') impact += 2;
     else if (setup.phase === 'middlegame') impact += 1;
     if (setup.advantage === 'losing') impact += 1;
@@ -44,16 +44,42 @@ function calcImpact(setup) {
     return Math.min(Math.round(impact), 5);
   }
 
-  // Baseball/softball impact
-  let impact = 1;
+  // Basketball/Football/Soccer — quarter/half + score
+  if (setup.quarter || setup.half) {
+    const period = setup.quarter || (setup.half === 2 ? 3 : 1);
+    if (period >= 4) impact += 2;
+    else if (period >= 3) impact += 1;
+    if (setup.score) {
+      const diff = Math.abs(setup.score.home - setup.score.away);
+      if (diff <= 3) impact += 1;
+      else if (diff <= 7) impact += 0.5;
+    }
+    if (setup.timeLeft) {
+      const parts = setup.timeLeft.split(':');
+      const secs = parseInt(parts[0]) * 60 + parseInt(parts[1] || 0);
+      if (secs <= 120) impact += 1; // under 2 min
+    }
+    if (setup.down >= 3) impact += 0.5; // 3rd/4th down
+    return Math.min(Math.round(impact), 5);
+  }
+
+  // Money/Coding — use difficulty or money amount
+  if (setup.difficulty || setup.money) {
+    if (setup.difficulty === 'advanced') impact += 2;
+    else if (setup.difficulty === 'intermediate') impact += 1;
+    if (setup.money && setup.money >= 50) impact += 1;
+    return Math.min(Math.round(impact), 5);
+  }
+
+  // Baseball/softball
   const inning = setup.inning || 1;
   if (inning >= 9) impact += 2;
   else if (inning >= 7) impact += 1;
-
-  const scoreDiff = Math.abs((setup.score?.home || 0) - (setup.score?.away || 0));
-  if (scoreDiff <= 1) impact += 1;
-  else if (scoreDiff <= 2) impact += 0.5;
-
+  if (setup.score) {
+    const scoreDiff = Math.abs(setup.score.home - setup.score.away);
+    if (scoreDiff <= 1) impact += 1;
+    else if (scoreDiff <= 2) impact += 0.5;
+  }
   if (setup.runners?.second || setup.runners?.third) impact += 1;
   if (setup.outs === 2) impact += 0.5;
 
@@ -137,16 +163,26 @@ function initSportPicker() {
   });
 }
 
+const NO_TEAM_SPORTS = ['chess', 'money', 'coding'];
+const DEFAULT_TEAMS = {
+  chess: { id: 201, name: 'Knights', city: 'White', primary: '#F0D9B5', secondary: '#B58863', abbr: 'WHT' },
+  basketball: { id: 301, name: 'Ballers', city: 'All-Star', primary: '#E85D04', secondary: '#1a1a2e', abbr: 'ALL' },
+  football: { id: 401, name: 'Legends', city: 'Gridiron', primary: '#2D6A4F', secondary: '#D4A373', abbr: 'GRD' },
+  soccer: { id: 501, name: 'United', city: 'FC', primary: '#1D3557', secondary: '#E63946', abbr: 'FCU' },
+  money: { id: 601, name: 'Savers', city: 'Smart', primary: '#2A9D8F', secondary: '#E9C46A', abbr: 'SMT' },
+  coding: { id: 701, name: 'Devs', city: 'Code', primary: '#7209B7', secondary: '#4CC9F0', abbr: 'DEV' },
+};
+
 function selectSport(sport) {
   game.selectSport(sport);
   localStorage.setItem('diamond_iq_sport', sport);
 
-  if (sport === 'chess') {
-    // Skip team select — set default chess team and go to tiers
-    const defaultChessTeam = { id: 201, name: 'Knights', city: 'White', primary: '#F0D9B5', secondary: '#B58863', abbr: 'WHT' };
-    game.selectTeam(defaultChessTeam);
-    setTeamColors(defaultChessTeam);
-    localStorage.setItem('diamond_iq_team', JSON.stringify(defaultChessTeam));
+  if (NO_TEAM_SPORTS.includes(sport) || !['baseball', 'softball'].includes(sport)) {
+    // Non-team sports — skip team select, go straight to tiers
+    const defaultTeam = DEFAULT_TEAMS[sport] || DEFAULT_TEAMS.chess;
+    game.selectTeam(defaultTeam);
+    setTeamColors(defaultTeam);
+    localStorage.setItem('diamond_iq_team', JSON.stringify(defaultTeam));
     showScreen('difficultySelect');
     renderDifficultyCards();
   } else {
@@ -172,8 +208,59 @@ const CHESS_TIERS = [
   { id: 'the-show', name: 'Queen', num: '5', desc: 'Master — sacrifices, combinations, endgame technique, full plans' },
 ];
 
+const BASKETBALL_TIERS = [
+  { id: 'tball', name: 'Rec League', num: '1', desc: 'Basics — dribbling, passing, shooting form, positions' },
+  { id: 'rookie', name: 'JV', num: '2', desc: 'Fundamentals — pick and roll, fast breaks, boxing out, help defense' },
+  { id: 'minors', name: 'Varsity', num: '3', desc: 'Game IQ — spacing, screens, transition defense, shot clock' },
+  { id: 'majors', name: 'College', num: '4', desc: 'Advanced — zone vs man, pick and pop, press breaks, drawing fouls' },
+  { id: 'the-show', name: 'Pro', num: '5', desc: 'Elite — end of game, defensive switches, 2-for-1, clutch plays' },
+];
+
+const FOOTBALL_TIERS = [
+  { id: 'tball', name: 'Flag', num: '1', desc: 'Basics — positions, catching, handoffs, which way to run' },
+  { id: 'rookie', name: 'Pee Wee', num: '2', desc: 'Fundamentals — play action, zone coverage, punt decisions' },
+  { id: 'minors', name: 'JV', num: '3', desc: 'Game IQ — reading defenses, audibles, clock management, 4th down' },
+  { id: 'majors', name: 'Varsity', num: '4', desc: 'Advanced — route trees, RPO reads, red zone offense, 2-point tries' },
+  { id: 'the-show', name: 'Pro', num: '5', desc: 'Elite — 2-minute drill, trick plays, onside kicks, goal line stands' },
+];
+
+const SOCCER_TIERS = [
+  { id: 'tball', name: 'U6', num: '1', desc: 'Basics — passing, shooting, dribbling, throw-ins' },
+  { id: 'rookie', name: 'U8', num: '2', desc: 'Fundamentals — first touch, give-and-go, corner kicks, offsides' },
+  { id: 'minors', name: 'U10', num: '3', desc: 'Game IQ — through balls, switching field, counter attacks, set pieces' },
+  { id: 'majors', name: 'U12', num: '4', desc: 'Advanced — formations, pressing, overlap runs, tactical fouls' },
+  { id: 'the-show', name: 'Academy', num: '5', desc: 'Elite — penalty shootouts, parking the bus, injury time decisions' },
+];
+
+const MONEY_TIERS = [
+  { id: 'tball', name: 'Piggy Bank', num: '1', desc: 'Basics — coins and bills, needs vs wants, saving, earning' },
+  { id: 'rookie', name: 'Allowance', num: '2', desc: 'Fundamentals — budgeting, comparing prices, saving for a goal' },
+  { id: 'minors', name: 'Smart Shopper', num: '3', desc: 'Smart spending — sales, opportunity cost, quality vs cheap' },
+  { id: 'majors', name: 'Entrepreneur', num: '4', desc: 'Business — lemonade stand math, supply and demand, profit' },
+  { id: 'the-show', name: 'Investor', num: '5', desc: 'Real world — compound interest, credit, giving back, big purchases' },
+];
+
+const CODING_TIERS = [
+  { id: 'tball', name: 'Blocks', num: '1', desc: 'Basics — sequences, simple loops, if/then, what does this code do' },
+  { id: 'rookie', name: 'Scratch', num: '2', desc: 'Fundamentals — variables, debugging, input/output, counting loops' },
+  { id: 'minors', name: 'Builder', num: '3', desc: 'Problem solving — nested loops, functions, lists, patterns' },
+  { id: 'majors', name: 'Hacker', num: '4', desc: 'Logic — AND/OR/NOT, flowcharts, efficiency, algorithms' },
+  { id: 'the-show', name: 'Dev', num: '5', desc: 'Real code — reading Python, APIs, data structures, building apps' },
+];
+
+const SPORT_TIERS = {
+  baseball: BASEBALL_TIERS,
+  softball: BASEBALL_TIERS,
+  chess: CHESS_TIERS,
+  basketball: BASKETBALL_TIERS,
+  football: FOOTBALL_TIERS,
+  soccer: SOCCER_TIERS,
+  money: MONEY_TIERS,
+  coding: CODING_TIERS,
+};
+
 function getTiers() {
-  return game.state.sport === 'chess' ? CHESS_TIERS : BASEBALL_TIERS;
+  return SPORT_TIERS[game.state.sport] || BASEBALL_TIERS;
 }
 
 function renderDifficultyCards() {
@@ -239,16 +326,27 @@ async function startGame(tier) {
   const sbContainer = document.getElementById('scoreboard-container');
 
   const gameBody = document.querySelector('.game-body');
-  if (game.state.sport === 'chess') {
-    // Chess mode — use chess board, hide scoreboard
+  const isBaseball = ['baseball', 'softball'].includes(game.state.sport);
+  const isChess = game.state.sport === 'chess';
+
+  if (isChess) {
+    // Chess mode
     gameBody.classList.add('chess-mode');
     chessBoard = new ChessBoard(canvas);
     chessBoard.setPosition('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
     fieldCanvas = null;
     sbContainer.style.display = 'none';
+  } else if (!isBaseball) {
+    // Non-field sports (basketball, football, soccer, money, coding) — hide field and scoreboard
+    gameBody.classList.add('chess-mode'); // reuse layout (no field panel)
+    fieldCanvas = null;
+    chessBoard = null;
+    sbContainer.style.display = 'none';
+    canvas.style.display = 'none';
   } else {
     // Baseball/softball mode
     gameBody.classList.remove('chess-mode');
+    canvas.style.display = '';
     chessBoard = null;
     sbContainer.style.display = '';
     fieldCanvas = new FieldCanvas(canvas);
@@ -822,7 +920,28 @@ function createSituationBar(setup) {
   const sitBar = document.createElement('div');
   sitBar.className = 'situation-bar';
 
-  if (game.state.sport === 'chess') {
+  const sport = game.state.sport;
+
+  // Generic situation bar for non-field sports
+  if (['basketball', 'football', 'soccer', 'money', 'coding'].includes(sport)) {
+    const items = [];
+    if (setup.quarter) items.push(`Q${setup.quarter}`);
+    if (setup.half) items.push(`Half ${setup.half}`);
+    if (setup.timeLeft) items.push(setup.timeLeft);
+    if (setup.down) items.push(`${setup.down}${['st','nd','rd','th'][Math.min(setup.down-1,3)]} & ${setup.distance}`);
+    if (setup.score) items.push(`${setup.score.home}-${setup.score.away}`);
+    if (setup.shotClock) items.push(`Shot: ${setup.shotClock}s`);
+    if (setup.situation) items.push(setup.situation.replace(/-/g, ' '));
+    if (setup.concept) items.push(setup.concept);
+    if (setup.context) items.push(setup.context);
+
+    sitBar.innerHTML = items.map(item =>
+      `<div class="sit-item"><span class="sit-label">${item}</span></div>`
+    ).join('');
+    return sitBar;
+  }
+
+  if (sport === 'chess') {
     // Chess situation bar
     const chessSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" fill="currentColor" opacity="0.3"/><rect x="9" y="2" width="5" height="5" fill="currentColor" opacity="0.6"/><rect x="2" y="9" width="5" height="5" fill="currentColor" opacity="0.6"/><rect x="9" y="9" width="5" height="5" fill="currentColor" opacity="0.3"/></svg></span>`;
     const colorSvg = `<span class="sit-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="${setup.playerColor === 'white' ? '#fff' : '#333'}"/></svg></span>`;

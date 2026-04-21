@@ -1,0 +1,63 @@
+{
+  "id": "tball-basketball-passing",
+  "title": "The Chest Pass",
+  "sport": ["basketball"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["passing", "chest pass", "basics"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "3:15",
+    "score": { "home": 12, "away": 10 },
+    "possession": "home",
+    "shotClock": 20
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have the ball and your teammate is open about ten feet away. A defender is standing between you, but off to the side. How do you get the ball to your teammate?",
+      "choices": [
+        { "id": "best", "text": "Step toward your teammate and throw a firm chest pass with both hands", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Lob the ball high over the defender's head", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Try a one-handed throw as hard as you can", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect pass!",
+        "explanation": "A chest pass is quick, accurate, and easy for your teammate to catch. By stepping toward your target, the ball zipped right past the defender into your teammate's hands.",
+        "whatToRemember": "The chest pass is your best friend. Push the ball from your chest with both hands, thumbs pointing down on the follow-through.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Chest Pass", "definition": "A two-handed pass thrown from your chest directly to a teammate's chest. It is the most accurate and common pass in basketball." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The ball got there, but just barely",
+        "explanation": "A lob pass is slow and floats in the air. Your teammate caught it, but the defender almost jumped up and intercepted it. Lob passes give defenders extra time to react.",
+        "whatToRemember": "Lob passes should only be used when a teammate is much taller or there is no other option. Quick, direct passes are usually better.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover!",
+        "explanation": "A one-handed throw is hard to control. The ball sailed wide of your teammate and went out of bounds. Now the other team gets the ball.",
+        "whatToRemember": "Use two hands for passes whenever possible. Two hands give you much better control and accuracy.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

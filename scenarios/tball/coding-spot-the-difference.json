@@ -1,0 +1,62 @@
+{
+  "id": "tball-coding-spot-the-difference",
+  "title": "Spot the Mistake!",
+  "sport": ["coding"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "debugging",
+  "tags": ["debugging", "spot-difference", "careful-reading", "basics"],
+  "setup": {
+    "language": "blocks",
+    "concept": "spot the difference",
+    "difficulty": "beginner",
+    "context": "Finding what went wrong with a cake recipe"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A baking robot was supposed to make a chocolate cake, but something tastes WRONG! Here are the instructions it followed: 1) Get a bowl. 2) Add flour. 3) Add salt (1 whole cup). 4) Add chocolate. 5) Mix and bake. The recipe says to add just a TINY PINCH of salt, not a whole cup! What went wrong?",
+      "choices": [
+        { "id": "wrong-amount", "text": "Step 3 has the wrong amount! It should be a tiny pinch, not a whole cup.", "nextNode": "outcome-great" },
+        { "id": "wrong-order", "text": "The steps are in the wrong order.", "nextNode": "outcome-okay" },
+        { "id": "nothing-wrong", "text": "Nothing is wrong. The cake should taste fine.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Bug Found! You Are a Debugger!",
+        "explanation": "You spotted the bug! A 'bug' is a mistake in the instructions. The robot did exactly what it was told -- add 1 cup of salt. But that was WRONG. The person who wrote the instructions made a typo. Finding mistakes like this is called DEBUGGING, and it is one of the most important skills in coding!",
+        "whatToRemember": "A bug is a mistake in the code. Debugging means finding and fixing mistakes. Always check that the details are correct!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Bug", "definition": "A mistake in the instructions that makes the program do something wrong."}, {"term": "Debugging", "definition": "Finding and fixing bugs (mistakes) in code."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Try, But Look More Carefully!",
+        "explanation": "The order is actually fine -- you do need to get a bowl before you put things in it! The real problem is in Step 3: it says 1 cup of salt instead of a tiny pinch. When debugging, look carefully at every detail, not just the order of steps.",
+        "whatToRemember": "When looking for bugs, check the details inside each step, not just the order of the steps.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Yuck! Way Too Salty!",
+        "explanation": "Something IS wrong! A whole cup of salt in a cake would taste terrible! The recipe only calls for a tiny pinch. This is exactly the kind of mistake that happens in real code -- a small typo (like 'cup' instead of 'pinch') can cause big problems.",
+        "whatToRemember": "Small mistakes can cause big problems! Always compare what the code says to what it SHOULD say.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

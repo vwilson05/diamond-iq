@@ -1,0 +1,73 @@
+{
+  "id": "tball-football-handoff",
+  "title": "Take the Handoff!",
+  "sport": ["football"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["handoff", "running", "ball-security", "basics"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "8:15",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 25,
+    "score": { "home": 0, "away": 0 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the running back! The quarterback turns around and holds the ball out for you. You're running toward him to take the handoff. How do you grab the ball?",
+      "choices": [
+        { "id": "pocket", "text": "Make a pocket with your arms -- one arm over, one arm under -- and let the QB put the ball right in your belly!", "nextNode": "outcome-great" },
+        { "id": "one-hand", "text": "Reach out and grab it with one hand like you're picking up a book.", "nextNode": "outcome-bad" },
+        { "id": "both-hands-out", "text": "Stick both hands straight out in front of you and try to catch it.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smooth Handoff! Ball Secure!",
+        "explanation": "Making a pocket with your arms is exactly right! One arm goes over the ball, one arm goes under, and the ball goes right against your belly. This is called 'securing the ball.' When the ball is tucked tight against your body, it's almost impossible for defenders to knock it loose. Then you can take off running without worrying about dropping it!",
+        "whatToRemember": "Make a pocket with your arms for the handoff -- one over, one under, ball against your belly. Tuck it tight and run!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Handoff", "definition": "When the quarterback gives the ball directly to the running back by placing it in their arms." },
+          { "term": "Ball Security", "definition": "Holding the football tight against your body so nobody can knock it loose." },
+          { "term": "The Pocket (for carrying)", "definition": "The safe space you make with your arms to hold the ball tight against your body." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Got It, But Almost Fumbled!",
+        "explanation": "Sticking both hands out can work, but it's not the best way. The ball might bounce off your hands, or a defender could smack it away before you tuck it in. It's much safer to create that arm pocket and let the QB place it right against your belly. That way the ball is safe from the very first moment you have it.",
+        "whatToRemember": "Don't reach out for a handoff -- make a pocket with your arms and let the ball come to your belly!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Fumble", "definition": "When a player drops the ball! Either team can pick it up, so fumbles are really dangerous." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Fumble! The Ball Pops Loose!",
+        "explanation": "One hand is NOT enough to hold a football during a handoff! Footballs are big and slippery, and when you're running fast, it's really easy for the ball to squirt right out of one hand. Plus, a defender can easily knock it away. You need BOTH arms to make a pocket and secure that ball tight against your body. One hand = asking for a fumble!",
+        "whatToRemember": "Never take a handoff with one hand! Always use both arms to create a pocket and hold the ball against your body.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Turnover", "definition": "When your team loses the ball to the other team, like from a fumble. Very bad!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

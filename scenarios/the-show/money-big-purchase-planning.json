@@ -1,0 +1,62 @@
+{
+  "id": "the-show-money-big-purchase-planning",
+  "title": "Planning a Big Buy",
+  "sport": ["money"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "saving",
+  "tags": ["planning", "research", "big purchase", "real world"],
+  "setup": {
+    "situation": "saving-for-a-bike",
+    "money": 75.00,
+    "goal": "plan and save for a two hundred dollar bike",
+    "context": "You want a nice bike that costs two hundred dollars and you have saved seventy-five dollars so far"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want a bike that costs two hundred dollars. You have seventy-five dollars saved and earn fifteen dollars per week from chores and odd jobs. You could buy a cheaper bike now for seventy-five dollars or keep saving. Your friend says the bike shop has a layaway plan where you pay a little each week and pick it up when it is paid off. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Make a plan: save fifteen dollars per week for nine more weeks to reach two hundred dollars, then buy the bike you really want", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Use the layaway plan to pay fifteen dollars per week while the shop holds the bike for you", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Buy the cheap seventy-five dollar bike now because waiting is too hard", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Master planner!",
+        "explanation": "You made a savings plan with a clear timeline: nine weeks at fifteen dollars per week gets you to one hundred thirty-five plus your seventy-five equals two hundred ten dollars. You did the math, set a deadline, and stuck to it. Now you have the exact bike you wanted.",
+        "whatToRemember": "For big purchases, make a plan: figure out how much more you need, divide by how much you can save each week, and that tells you exactly when you can buy it. A plan makes big goals feel achievable.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Purchase Planning", "definition": "Breaking a big money goal into smaller steps by figuring out how much to save each week or month until you reach your target amount." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Layaway works, but check the details",
+        "explanation": "The layaway plan reserves your bike while you pay it off. This can work well, but some stores charge a small fee for holding items. Make sure you read the rules. You get the bike at the same time as saving on your own, but might pay a few extra dollars.",
+        "whatToRemember": "Layaway and payment plans can be useful, but always check if there are extra fees. Sometimes saving on your own and buying outright is cheaper overall.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The cheap bike fell apart in two months!",
+        "explanation": "The seventy-five dollar bike was poorly made. The chain broke, the brakes wore out, and now you need another bike anyway. You wasted seventy-five dollars and have to start saving all over again for the good one. Patience would have saved you money.",
+        "whatToRemember": "Buying something cheaper just because you do not want to wait often costs more in the long run. Plan for the thing you really want instead of settling for something that will not last.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

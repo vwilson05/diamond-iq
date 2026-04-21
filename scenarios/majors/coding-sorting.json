@@ -1,0 +1,62 @@
+{
+  "id": "majors-coding-sorting",
+  "title": "Put Them in Order!",
+  "sport": ["coding"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "logic",
+  "tags": ["sorting", "algorithms", "comparison", "logic"],
+  "setup": {
+    "language": "blocks",
+    "concept": "algorithms (sorting)",
+    "difficulty": "advanced",
+    "context": "Organizing race finish times from fastest to slowest"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Five runners just finished a race! Their times are mixed up: 12 seconds, 8 seconds, 15 seconds, 6 seconds, 10 seconds. You need to sort them from fastest (smallest number) to slowest (biggest number). You are teaching the computer how to sort. What approach should you use?",
+      "choices": [
+        { "id": "compare-swap", "text": "Compare two numbers next to each other. If the left one is bigger, swap them. Keep doing this until no more swaps are needed.", "nextNode": "outcome-great" },
+        { "id": "find-smallest", "text": "Find the smallest number and put it first. Then find the next smallest and put it second. Keep going until done.", "nextNode": "outcome-okay" },
+        { "id": "random-guess", "text": "Shuffle them randomly and check if they are in order. If not, shuffle again.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Bubble Sort! Compare and Swap!",
+        "explanation": "You described BUBBLE SORT! Look at pairs next to each other: is 12 bigger than 8? Yes -- swap! Now check the next pair. Keep going through the list until nothing needs swapping. It is called 'bubble' sort because smaller numbers slowly 'bubble up' to the front, like bubbles rising in water. The list after sorting: 6, 8, 10, 12, 15!",
+        "whatToRemember": "Sorting algorithms put things in order by comparing and rearranging. Bubble sort compares neighbors and swaps them until everything is in order.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Algorithm", "definition": "A step-by-step method for solving a problem. Like a recipe that always works."}, {"term": "Sorting", "definition": "Putting things in order (smallest to biggest, A to Z, etc.) using a specific method."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Selection Sort! Also a Good Algorithm!",
+        "explanation": "You described SELECTION SORT! Find the smallest (6), put it first. Find the next smallest (8), put it second. And so on. This also works great! There are many different sorting algorithms and they all get the right answer. Some are faster than others for different situations. Both bubble sort and selection sort are real algorithms that computers use!",
+        "whatToRemember": "There are many ways to sort! Selection sort finds the smallest each time. Different algorithms have different strengths.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Random Shuffling? That Could Take Forever!",
+        "explanation": "Shuffling randomly and hoping it ends up in order is called BOGOSORT, and it is the worst sorting method ever! With 5 numbers, there are 120 possible arrangements and only 1 is correct. You might shuffle thousands of times before getting lucky! A real algorithm has a clear plan and is GUARANTEED to finish. Randomness is not a plan!",
+        "whatToRemember": "Good algorithms have a clear plan and always finish. Random guessing is not a real solution!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

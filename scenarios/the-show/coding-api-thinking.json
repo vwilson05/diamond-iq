@@ -1,0 +1,62 @@
+{
+  "id": "the-show-coding-api-thinking",
+  "title": "Asking a Service for Help!",
+  "sport": ["coding"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "design",
+  "tags": ["api", "services", "requests", "advanced"],
+  "setup": {
+    "language": "python",
+    "concept": "API thinking",
+    "difficulty": "advanced",
+    "context": "A weather app that gets forecasts from a weather service"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building a weather app! Your app needs to show today's temperature, but your app does not have a thermometer. There is a Weather Service on the internet that knows the temperature for any city. Your app needs to ASK that service for the data. How should your app get the temperature?",
+      "choices": [
+        { "id": "api-request", "text": "Send a request to the Weather Service: 'Hey, what is the temperature in San Diego?' and wait for it to send back the answer.", "nextNode": "outcome-great" },
+        { "id": "guess", "text": "Just guess what the temperature probably is based on the month.", "nextNode": "outcome-okay" },
+        { "id": "hardcode", "text": "Type in a temperature yourself and never update it.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "API Call! Asking a Service for Data!",
+        "explanation": "You just described how an API works! API stands for Application Programming Interface. It is like a restaurant menu for computers. Your app sends a REQUEST ('I want the temperature for San Diego') and the Weather Service sends back a RESPONSE ('72 degrees'). Almost every app uses APIs: maps ask a map service, music apps ask a music service, games ask a score service. Your app does not need to know everything -- it just needs to know who to ask!",
+        "whatToRemember": "An API is how apps talk to services. You send a request (a question) and get back a response (an answer). Apps ask other services for data they do not have!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "API", "definition": "Application Programming Interface -- a way for one program to ask another program for data or to do something. Like ordering from a menu."}, {"term": "Request", "definition": "A message your app sends to a service asking for information or action."}, {"term": "Response", "definition": "The answer a service sends back after getting your request."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "A Guess Is Not Real Data!",
+        "explanation": "Guessing might be close sometimes, but it will often be wrong! What about unusual weather days? A heat wave in winter? A cold snap in summer? Real apps use real data from services that actually measure the temperature. Why guess when you can just ASK a service that knows the real answer?",
+        "whatToRemember": "Real apps get real data from services (APIs). Guessing is unreliable. Ask the source that actually knows!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Frozen Temperature! It Never Updates!",
+        "explanation": "If you type in '72 degrees' and never change it, your app will say 72 degrees even when it is snowing! The temperature changes every hour. You need LIVE data from a service that measures it in real time. That is exactly what APIs provide -- fresh, up-to-date information every time you ask.",
+        "whatToRemember": "Hard-coding data means it never updates. Use APIs to get fresh, real-time information that stays accurate!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

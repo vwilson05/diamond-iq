@@ -1,0 +1,63 @@
+{
+  "id": "tball-soccer-shooting",
+  "title": "Shoot for the Goal!",
+  "sport": ["soccer"],
+  "tier": "tball",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["shooting", "basics", "goal"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "10:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are close to the goal and the goalkeeper is standing right in the middle. There is a big open space to the left side of the net. You want to score! How do you shoot?",
+      "choices": [
+        { "id": "aim-corner", "text": "Use the inside of your foot to aim the ball toward the open left corner of the goal!", "nextNode": "outcome-great" },
+        { "id": "blast-middle", "text": "Kick the ball as hard as you can straight at the middle of the goal!", "nextNode": "outcome-okay" },
+        { "id": "toe-poke", "text": "Kick the ball with your toe and hope it goes somewhere good!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "GOAL! Right in the Corner!",
+        "explanation": "You picked the open spot the goalkeeper was not covering and aimed the ball there. When you shoot, always look for the space where the goalkeeper is NOT standing. Aiming is more important than kicking super hard!",
+        "whatToRemember": "Before you shoot, look at where the goalkeeper is standing. Aim for the open space they are not covering!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Placing Your Shot", "definition": "Aiming the ball at a specific spot in the goal instead of just kicking it as hard as you can." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Saved! Keeper Stops It!",
+        "explanation": "You kicked it hard, but the goalkeeper was standing right there and caught it easily. When you shoot straight at the keeper, you make their job easy. Next time, look for the open side of the net.",
+        "whatToRemember": "A hard shot straight at the keeper is an easy save. Look for the open space first, then shoot!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Toe Poke Goes Wide!",
+        "explanation": "Kicking with your toe is really hard to control. The ball flew way off to the side and missed the goal completely. Use the inside of your foot or your laces to shoot. Your toe is too pointy and small to aim the ball well.",
+        "whatToRemember": "Never shoot with your toe! Use the inside of your foot to aim or the top of your foot (your laces) for power.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

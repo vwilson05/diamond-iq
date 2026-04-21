@@ -1,0 +1,63 @@
+{
+  "id": "rookie-soccer-give-and-go",
+  "title": "Give and Go!",
+  "sport": ["soccer"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["give-and-go", "wall-pass", "combination-play"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "10:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are dribbling toward the goal but one defender is blocking your path. Your teammate is standing just to the side of the defender. What do you do?",
+      "choices": [
+        { "id": "give-and-go", "text": "Pass the ball to your teammate and immediately sprint past the defender to get the ball back!", "nextNode": "outcome-great" },
+        { "id": "pass-and-stop", "text": "Pass the ball to your teammate and stay where you are.", "nextNode": "outcome-okay" },
+        { "id": "dribble-into-defender", "text": "Try to dribble straight through the defender!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Beautiful Give-and-Go!",
+        "explanation": "You passed it and then sprinted into the open space behind the defender. Your teammate tapped it right back to you and now you are through with no one in your way! This is called a give-and-go (or wall pass). Pass, move, receive -- it beats defenders every time!",
+        "whatToRemember": "Give-and-go: pass the ball, then RUN into space to get it back. Do not stand still after you pass!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Give-and-Go", "definition": "Pass the ball to a teammate and immediately run to get it back. Also called a wall pass because your teammate acts like a wall bouncing the ball back to you." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good Pass, But You Stopped!",
+        "explanation": "The pass was nice, but you stayed in the same spot. Your teammate got the ball but now THEY have the defender in front of them and you are stuck behind. If you had sprinted right after passing, you would have been wide open on the other side!",
+        "whatToRemember": "After you pass, keep moving! A pass-and-stand is okay, but a pass-and-sprint creates chances.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Defender Wins the Ball!",
+        "explanation": "The defender was right there waiting for you, and they poked the ball away. When a defender is directly in your path, trying to dribble straight through them is very hard. Using your teammate with a give-and-go would have gotten you past them easily.",
+        "whatToRemember": "Do not dribble into a defender who is set and ready. Use a give-and-go to go around them!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

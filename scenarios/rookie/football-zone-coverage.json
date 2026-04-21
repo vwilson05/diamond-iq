@@ -1,0 +1,73 @@
+{
+  "id": "rookie-football-zone-coverage",
+  "title": "Guard Your Zone!",
+  "sport": ["football"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "defense",
+  "tags": ["zone-coverage", "defense", "pass-coverage", "fundamentals"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "5:00",
+    "down": 2,
+    "distance": 6,
+    "yardLine": 42,
+    "score": { "home": 0, "away": 7 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're a linebacker on defense. The coach says to play zone coverage. That means you need to guard an area of the field, not follow one specific player. The quarterback drops back to pass. A receiver runs INTO your zone, then another receiver runs THROUGH your zone toward the sideline. What do you do?",
+      "choices": [
+        { "id": "stay-in-zone", "text": "Stay in your zone! Guard the receiver who is IN your area and let your teammate handle the one heading toward the sideline.", "nextNode": "outcome-great" },
+        { "id": "chase-runner", "text": "Chase the receiver running toward the sideline since he looks like he's getting open.", "nextNode": "outcome-bad" },
+        { "id": "split-middle", "text": "Try to stand in between both receivers so you can react to either one.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Zone Locked Down! Pass Broken Up!",
+        "explanation": "In zone coverage, your job is to guard your AREA, not chase people around. When a receiver enters your zone, that's your guy until he leaves. The receiver running toward the sideline is somebody else's problem -- your teammate over there will pick him up! If you leave your zone, you create a big open hole in the defense that the quarterback can throw into. Trust your teammates!",
+        "whatToRemember": "In zone: stay in your area! Guard whoever enters your zone. Trust your teammates to handle receivers in their zones.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Zone Coverage", "definition": "Each defender guards an area of the field instead of following one specific player." },
+          { "term": "Zone", "definition": "Your assigned area of the field that you need to protect in zone coverage." },
+          { "term": "Passing Lane", "definition": "The open space where a quarterback can throw the ball. In zone, you want to stand in those lanes!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not Bad, But You're in No-Man's Land!",
+        "explanation": "Standing between two receivers might seem smart, but you end up not being close enough to either one! This is called 'no-man's land' -- you're too far from both to make a play. In zone coverage, focus on the receiver in YOUR zone. The other receiver is leaving your zone and entering a teammate's zone. Trust them to handle it, and you handle yours!",
+        "whatToRemember": "Don't try to cover two receivers at once in zone. Focus on the one in YOUR area and trust teammates for the rest.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "No-Man's Land", "definition": "Being stuck between two receivers where you can't reach either one. Not a good place to be!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wide Open in Your Zone! Easy Catch!",
+        "explanation": "When you chased the receiver out of your zone, you left a HUGE hole in the middle of the field! The first receiver was still standing right there in your zone, and now nobody is covering him. The quarterback saw the open space and threw an easy pass for a big gain. In zone, you NEVER chase -- you stay and guard your area. That's the whole point of zone defense!",
+        "whatToRemember": "Never chase a receiver out of your zone! You'll leave a big hole. Stay home, guard your area, let teammates handle theirs.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Blown Coverage", "definition": "When a defender leaves their assignment and a receiver gets wide open. The quarterback's favorite sight!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

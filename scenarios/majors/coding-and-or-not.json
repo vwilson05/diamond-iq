@@ -1,0 +1,62 @@
+{
+  "id": "majors-coding-and-or-not",
+  "title": "AND, OR, NOT -- Logic Gates!",
+  "sport": ["coding"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "logic",
+  "tags": ["boolean-logic", "and-or-not", "conditions", "logic"],
+  "setup": {
+    "language": "blocks",
+    "concept": "AND/OR/NOT logic",
+    "difficulty": "advanced",
+    "context": "A video game unlock system"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are building a video game! To unlock a secret level, a player needs BOTH 100 coins AND the golden key. A player named Alex has 100 coins but does NOT have the golden key. The code says: IF coins equals 100 AND has golden key THEN unlock secret level. Does Alex get in?",
+      "choices": [
+        { "id": "no-and-needs-both", "text": "No! AND means BOTH must be true. Alex has coins but no key, so it is false.", "nextNode": "outcome-great" },
+        { "id": "yes-has-coins", "text": "Yes! Alex has 100 coins so that is enough.", "nextNode": "outcome-okay" },
+        { "id": "maybe", "text": "Maybe -- it depends on what mood the computer is in.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Correct! AND Means BOTH Must Be True!",
+        "explanation": "AND is strict -- ALL conditions must be true! Think of it like a door with two locks. You need BOTH keys to open it. Alex only has one 'key' (the coins) but not the other (the golden key). With OR, only one needs to be true. With NOT, it flips true to false and false to true. These are the building blocks of computer logic!",
+        "whatToRemember": "AND means ALL must be true. OR means at least ONE must be true. NOT flips true to false.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "AND", "definition": "Both sides must be true for the whole thing to be true. Like needing BOTH a ticket AND an ID to get in."}, {"term": "OR", "definition": "At least one side must be true. Like being allowed in if you have a ticket OR your name is on the list."}, {"term": "NOT", "definition": "Flips the answer. NOT true becomes false. NOT false becomes true."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Nope! AND Is Stricter Than You Think!",
+        "explanation": "If the code said OR, then yes -- having coins OR the key would be enough. But AND means you need BOTH! Think of AND like a checklist where every box must be checked. If even one box is unchecked, the whole thing fails. Alex checked the coins box but not the key box, so AND says: not enough!",
+        "whatToRemember": "AND requires EVERYTHING to be true. If you only need one thing, use OR instead!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Computers Do Not Have Moods!",
+        "explanation": "Computers ALWAYS give the same answer for the same situation. They follow logic rules exactly. AND always means both must be true. There is no randomness or feelings involved. Given the same inputs, a computer will always produce the same output. That is what makes them reliable!",
+        "whatToRemember": "Computers follow logic rules exactly, every single time. Same input always equals same output. No moods, no guessing!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

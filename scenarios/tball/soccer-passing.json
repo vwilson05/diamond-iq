@@ -1,0 +1,63 @@
+{
+  "id": "tball-soccer-passing",
+  "title": "Pass It to a Friend!",
+  "sport": ["soccer"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["passing", "basics", "teamwork"],
+  "setup": {
+    "half": 1,
+    "timeLeft": "20:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have the ball in the middle of the field. Your teammate is wide open to your right, waving their hand. A defender is running straight at you. What do you do?",
+      "choices": [
+        { "id": "pass-teammate", "text": "Kick the ball with the inside of your foot to your open teammate!", "nextNode": "outcome-great" },
+        { "id": "kick-hard-forward", "text": "Blast the ball as hard as you can up the field!", "nextNode": "outcome-okay" },
+        { "id": "keep-dribbling", "text": "Try to dribble past the defender coming right at you!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Pass!",
+        "explanation": "You used the inside of your foot to push the ball right to your teammate. The inside of your foot is flat and wide, so it is the easiest way to aim the ball exactly where you want it. Your teammate got the ball with no defenders near them!",
+        "whatToRemember": "When a teammate is open, pass the ball using the inside of your foot. It is the most accurate way to pass!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Inside-of-the-Foot Pass", "definition": "Kicking the ball with the flat, wide part on the inside of your foot. This gives you the best aim!" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Big Kick, But Where Did It Go?",
+        "explanation": "You kicked the ball really far, but it did not go to anyone on your team. Sometimes the other team picks it up when you just boot it. A pass to your open teammate would have been safer and kept the ball on your side.",
+        "whatToRemember": "Kicking hard is fun, but passing to a teammate is smarter. Look for the open player first!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Uh Oh, They Took the Ball!",
+        "explanation": "The defender was right in front of you and poked the ball away. When a defender is running straight at you and a teammate is wide open, passing is almost always the better choice. Dribbling works when you have space, not when someone is right on top of you.",
+        "whatToRemember": "If a defender is close and a teammate is open, pass the ball! Do not try to dribble through traffic.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

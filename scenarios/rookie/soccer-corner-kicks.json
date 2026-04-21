@@ -1,0 +1,63 @@
+{
+  "id": "rookie-soccer-corner-kicks",
+  "title": "Corner Kick Chance!",
+  "sport": ["soccer"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "set-piece",
+  "tags": ["corner-kick", "set-piece", "fundamentals"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "8:00",
+    "score": { "home": 0, "away": 1 },
+    "possession": "home",
+    "fieldZone": "attacking-third"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team just won a corner kick! You are the one kicking it from the corner flag. Your teammates are in the box near the goal. Where do you kick the ball?",
+      "choices": [
+        { "id": "curve-to-box", "text": "Curve the ball into the area in front of the goal where your tallest teammates are waiting!", "nextNode": "outcome-great" },
+        { "id": "short-corner", "text": "Play it short to a teammate standing near the corner with you!", "nextNode": "outcome-okay" },
+        { "id": "shoot-direct", "text": "Try to kick it directly into the goal from the corner!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great Delivery! Header Goal!",
+        "explanation": "You curved the ball right into the danger area in front of the goal. Your teammate jumped up and headed it in! On corner kicks, the best target is the area between the penalty spot and the near post where your teammates are running toward the ball.",
+        "whatToRemember": "On corner kicks, aim for the area in front of the goal where your teammates are. Give them a ball they can head or kick in!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Corner Kick", "definition": "A restart from the corner flag given to the attacking team when the defending team kicks the ball over their own goal line." }, { "term": "Delivery", "definition": "The kick that sends the ball into the box for your teammates." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short Corner -- Tricky Move!",
+        "explanation": "A short corner can work if your teammate has a plan, but it gives up the advantage of putting the ball right in front of the goal. Your teammates in the box were ready to attack the ball. Usually, sending it into the box is the better choice because it creates more scoring chances.",
+        "whatToRemember": "Short corners can work, but most of the time you want to deliver the ball into the box where your teammates can score!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Missed! Way Too Hard!",
+        "explanation": "Scoring directly from a corner is almost impossible! The angle is way too tight and the goalkeeper is right there. Your teammates were all waiting in the box, ready to score, but the ball sailed over everyone and went out on the other side. Use your teammates!",
+        "whatToRemember": "Do not try to score directly from a corner kick. The angle is too sharp. Deliver the ball to your teammates instead!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

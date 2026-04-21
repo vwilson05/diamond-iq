@@ -1,0 +1,63 @@
+{
+  "id": "tball-basketball-traveling",
+  "title": "Dribble Before You Move",
+  "sport": ["basketball"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["traveling", "rules", "basics"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "1:30",
+    "score": { "home": 14, "away": 16 },
+    "possession": "home",
+    "shotClock": 18
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You just caught a pass from your teammate. You want to get closer to the basket, but a defender is in your way. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Start dribbling the ball before you take any steps", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pivot on one foot and look for someone to pass to", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Run toward the basket while holding the ball with both hands", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Nice moves!",
+        "explanation": "You started your dribble right away, which means you can take as many steps as you want. You dribbled around the defender and drove to the basket for a layup!",
+        "whatToRemember": "You must bounce the ball every time you take a step. If you want to move with the ball, dribble first!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Traveling", "definition": "A rule violation that happens when you take more than two steps without dribbling the ball. The other team gets the ball if you travel." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good thinking, but you are stuck",
+        "explanation": "Pivoting is legal and smart! You kept one foot planted and turned your body to protect the ball. But you did not find an open teammate, and now the defense is closing in.",
+        "whatToRemember": "Pivoting is a great tool when you are trapped. Keep one foot glued to the floor and spin on it to look for options.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Tweet! Traveling!",
+        "explanation": "The referee blew the whistle because you took steps without dribbling. That is called traveling, and it means the other team gets the ball.",
+        "whatToRemember": "Never run with the ball without bouncing it. If you catch a pass and want to move, start your dribble right away.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "the-show-money-credit-cards",
+  "title": "Borrowing From Tomorrow",
+  "sport": ["money"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "spending",
+  "tags": ["credit", "debt", "interest", "real world"],
+  "setup": {
+    "situation": "understanding-credit",
+    "money": 0.00,
+    "goal": "understand how credit cards really work",
+    "context": "Mom is explaining her credit card bill and you are curious"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Mom shows you her credit card statement. She bought a fifty dollar jacket last month. The credit card company says if she does not pay the full fifty dollars by Friday, she owes sixty dollars next month because they add extra charges. It is like borrowing money from the future and paying extra for the privilege. If you could give Mom advice, what would you say?",
+      "choices": [
+        { "id": "best", "text": "Pay the full fifty dollars now so you do not owe the extra ten dollars in charges", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Pay some of it now and the rest next month, knowing you will pay a little extra", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Pay nothing this month because you can worry about it later", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "No extra charges!",
+        "explanation": "By paying the full amount on time, Mom does not owe any extra money. The jacket cost exactly fifty dollars and nothing more. Credit cards are useful if you pay them off completely each month, but expensive if you do not.",
+        "whatToRemember": "A credit card lets you borrow money to buy things now, but if you do not pay it all back quickly, you owe extra money called interest. Always pay the full amount each month if you can.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Credit Card", "definition": "A card that lets you borrow money to buy things now with a promise to pay later. If you do not pay it all back on time, you owe extra money called interest, making things more expensive than their original price." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "The jacket now costs more than fifty dollars",
+        "explanation": "Mom paid part of it but owes extra charges on the rest. The jacket that was fifty dollars will end up costing maybe fifty-five or sixty dollars by the time she finishes paying. That extra money goes straight to the credit card company.",
+        "whatToRemember": "Paying some is better than paying nothing, but any amount left over keeps growing because of interest charges. The longer you wait, the more expensive the original purchase becomes.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "The fifty dollar jacket could cost one hundred dollars!",
+        "explanation": "By not paying anything, interest charges pile up month after month. The fifty dollar jacket gets more expensive every single month. After a year of not paying, Mom could owe way more than the jacket was ever worth.",
+        "whatToRemember": "Ignoring debt makes it grow like a weed. Interest charges keep adding up. What starts as a small amount can become a huge problem if you never pay it back.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "the-show-money-compound-interest",
+  "title": "The Snowball Effect",
+  "sport": ["money"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "investing",
+  "tags": ["compound interest", "growth", "time", "real world"],
+  "setup": {
+    "situation": "grandpa-offers-a-deal",
+    "money": 100.00,
+    "goal": "understand how money grows on its own",
+    "context": "Grandpa offers you a choice for your birthday money"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Grandpa gives you one hundred dollars for your birthday. He offers you a deal: keep the hundred dollars now, OR let him hold it for one year and he will give you back one hundred ten dollars (ten percent more). Then next year he will add ten percent of whatever the total is. Each year it grows more. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Take Grandpa's deal because the money grows bigger each year, and the growth speeds up over time", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Keep fifty dollars now and let Grandpa hold the other fifty for the deal", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Take all one hundred dollars now because you want to spend it", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Your money snowball is rolling!",
+        "explanation": "After year one you have one hundred ten dollars. After year two, ten percent of one hundred ten is eleven dollars, so you have one hundred twenty-one dollars. Each year the growth gets bigger because you earn interest on your interest. In ten years, your one hundred dollars becomes two hundred fifty-nine dollars without you doing anything!",
+        "whatToRemember": "Compound interest means you earn money on your money AND on the growth from previous years. It is like a snowball rolling downhill, getting bigger and faster. Starting early is the biggest advantage.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Compound Interest", "definition": "When your money earns interest, and then that interest also earns interest. Over time, this makes your money grow faster and faster, like a snowball rolling downhill." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Half growing, half gone",
+        "explanation": "Your fifty dollars in Grandpa's deal will still grow with compound interest, but it starts smaller so it grows slower. In ten years it becomes about one hundred thirty dollars. If you had put in the full hundred, it would be two hundred fifty-nine.",
+        "whatToRemember": "The more you invest early, the more compound interest works for you. Even waiting one extra year or investing less makes a big difference over time.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You missed out on free money!",
+        "explanation": "You spent the hundred dollars and it is gone. If you had taken Grandpa's deal, you would have earned one hundred fifty-nine dollars in free money over ten years without lifting a finger. Time was your superpower and you gave it away.",
+        "whatToRemember": "Spending now feels good, but investing early means your money does the hard work for you. The younger you start, the more time compound interest has to work its magic.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

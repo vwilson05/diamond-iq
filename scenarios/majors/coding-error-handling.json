@@ -1,0 +1,62 @@
+{
+  "id": "majors-coding-error-handling",
+  "title": "What If Something Goes Wrong?",
+  "sport": ["coding"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "debugging",
+  "tags": ["error-handling", "edge-cases", "robustness", "logic"],
+  "setup": {
+    "language": "blocks",
+    "concept": "error handling",
+    "difficulty": "advanced",
+    "context": "A vending machine that could run out of snacks"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a vending machine! A customer picks a snack and the machine gives it to them. But what if they pick a snack that is SOLD OUT? Right now your code just says: give them the snack they picked. It does not check if the snack is available. What should you add?",
+      "choices": [
+        { "id": "check-first", "text": "Add a check: IF snack is available THEN give it. ELSE show a message saying 'Sorry, sold out! Pick something else.'", "nextNode": "outcome-great" },
+        { "id": "ignore-it", "text": "Do not worry about it. It probably will not happen very often.", "nextNode": "outcome-okay" },
+        { "id": "shut-down", "text": "If anything goes wrong, shut down the whole machine.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Error Handled! The Machine Stays Friendly!",
+        "explanation": "You added ERROR HANDLING! This means your code thinks about what COULD go wrong and has a plan for it. The IF check looks before it acts: is the snack there? If yes, great -- give it to them. If no, show a helpful message. The customer is not confused, the machine does not break, and they can try a different snack. Good code always has a 'Plan B'!",
+        "whatToRemember": "Always think: what could go wrong? Add checks and helpful messages for those situations. Good code has a Plan B!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Error Handling", "definition": "Code that deals with things going wrong gracefully, instead of crashing or doing something weird."}, {"term": "Edge Case", "definition": "An unusual situation that might break your code if you did not plan for it, like a sold-out item."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "It WILL Happen! And Then What?",
+        "explanation": "Things that 'probably will not happen' ALWAYS happen eventually! Without error handling, the machine might try to give a snack that does not exist. It could freeze, crash, or confuse the customer. Professional programmers always plan for things going wrong because they KNOW it will happen someday.",
+        "whatToRemember": "If something CAN go wrong, it WILL go wrong eventually. Always plan for it!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Shutting Down is Too Extreme!",
+        "explanation": "Shutting down the whole machine because ONE snack is sold out? That is way too harsh! The customer just wants a different snack, not a broken machine. Good error handling fixes the specific problem without breaking everything else. It is like a teacher who helps you fix one wrong answer instead of throwing away your whole test!",
+        "whatToRemember": "Handle errors gently. Fix the specific problem without breaking everything else. Give users a way to continue!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "minors-coding-patterns",
+  "title": "Spot the Pattern!",
+  "sport": ["coding"],
+  "tier": "minors",
+  "impact": 2,
+  "role": "logic",
+  "tags": ["patterns", "prediction", "sequences", "problem-solving"],
+  "setup": {
+    "language": "blocks",
+    "concept": "pattern recognition",
+    "difficulty": "intermediate",
+    "context": "A light show with colored spotlights"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a light show! The lights follow a pattern: Red, Blue, Red, Blue, Red, Blue... The show plays 3 rounds of this pattern, and each round has 6 lights. Someone erased part of the code, and now you can only see: Red, Blue, Red, Blue, ___, ___. What are the missing two lights?",
+      "choices": [
+        { "id": "red-blue", "text": "Red, Blue -- the pattern keeps repeating Red then Blue.", "nextNode": "outcome-great" },
+        { "id": "blue-red", "text": "Blue, Red -- it flips at the end.", "nextNode": "outcome-okay" },
+        { "id": "green-yellow", "text": "Green, Yellow -- new colors at the end.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Pattern Master! Red, Blue Repeats!",
+        "explanation": "You recognized the pattern! The code repeats 'Red, Blue' over and over. Pattern recognition is a superpower in coding. Once you spot a pattern, you can write a simple loop: 'repeat 3 times: show Red, show Blue.' Instead of writing 6 instructions, you write 2 inside a loop! Programmers always look for patterns to make code simpler.",
+        "whatToRemember": "Look for patterns in code and data. When something repeats, you can use a loop to make it simpler!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Pattern Recognition", "definition": "Noticing when something repeats or follows a rule. Helps programmers write shorter, smarter code."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Close, But Patterns Do Not Flip!",
+        "explanation": "You got the right colors but in the wrong order! The pattern is always Red THEN Blue, over and over. It does not flip at the end. When reading a pattern, watch the exact order carefully. Red-Blue-Red-Blue means the next pair is also Red-Blue, not Blue-Red.",
+        "whatToRemember": "Patterns repeat exactly. Pay attention to the exact order -- it stays the same every time!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Where Did Green and Yellow Come From?",
+        "explanation": "There are no green or yellow lights anywhere in the pattern! The whole sequence only uses Red and Blue. A pattern means the SAME thing repeats. It does not suddenly introduce new things at the end. Look at what you already have and keep it going the same way.",
+        "whatToRemember": "A pattern repeats what already exists. It does not introduce new elements. Look at what you have and continue it!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

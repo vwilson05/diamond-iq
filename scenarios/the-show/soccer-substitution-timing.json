@@ -1,0 +1,63 @@
+{
+  "id": "the-show-soccer-substitution-timing",
+  "title": "Substitution Timing!",
+  "sport": ["soccer"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["substitution", "game-management", "elite", "tactics"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "20:00",
+    "score": { "home": 0, "away": 0 },
+    "possession": "home",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are the captain and the coach asks your opinion. It is 0-0 with twenty minutes left. Your team has been dominating possession but cannot score. Your striker looks exhausted and is not making runs anymore. On the bench you have a fresh, speedy forward and a defensive midfielder. What substitution do you recommend?",
+      "choices": [
+        { "id": "fresh-striker", "text": "Bring on the speedy forward for the tired striker. Fresh legs and pace can break the deadlock in the last twenty minutes!", "nextNode": "outcome-great" },
+        { "id": "defensive-mid", "text": "Bring on the defensive midfielder to protect against a counter attack.", "nextNode": "outcome-okay" },
+        { "id": "no-change", "text": "Make no substitution. The tired striker might find one more moment of magic!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Fresh Legs! Goal in the 80th Minute!",
+        "explanation": "Your speedy substitute came on with fresh legs and immediately stretched the tired defense with fast runs. In the 80th minute, they burst through on a through ball and scored! Substitutions are a tactical weapon. When a player is gassed, replacing them with someone fresh (especially someone fast) in the last twenty minutes can be the difference.",
+        "whatToRemember": "Substitute tired attackers around the 65-70 minute mark. Fresh pace against tired defenders in the final twenty minutes is a huge advantage!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Impact Substitute", "definition": "A player brought off the bench who changes the game with fresh energy, pace, or a different skill set." }, { "term": "Game Management", "definition": "Making smart tactical decisions during the match (substitutions, formations, time-wasting) to control the result." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Solid, But Still 0-0!",
+        "explanation": "A defensive midfielder protects against counters, which is smart if you are winning. But you are NOT winning -- it is 0-0 and you need a goal! Adding a defensive player when you need to score is playing for a draw. The situation called for fresh attacking legs to break the deadlock, not extra protection.",
+        "whatToRemember": "Match your substitutions to the game state! Need a goal? Add attacking pace. Protecting a lead? Add defensive strength.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Tired Striker Invisible! 0-0 Draw!",
+        "explanation": "Your striker was running on empty and barely touched the ball for the last twenty minutes. They made zero runs, won zero duels, and gave the defense nothing to worry about. A fresh player with speed would have terrified those tired defenders. Keeping an exhausted player on the pitch is like playing with ten men. Always use your substitutions!",
+        "whatToRemember": "An exhausted player is almost useless. Always use your substitutions -- fresh legs off the bench are one of your biggest advantages in the final twenty minutes!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

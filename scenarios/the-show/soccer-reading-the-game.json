@@ -1,0 +1,63 @@
+{
+  "id": "the-show-soccer-reading-the-game",
+  "title": "Reading the Game!",
+  "sport": ["soccer"],
+  "tier": "the-show",
+  "impact": 4,
+  "role": "defense",
+  "tags": ["anticipation", "reading-play", "elite", "interception"],
+  "setup": {
+    "half": 2,
+    "timeLeft": "12:00",
+    "score": { "home": 1, "away": 1 },
+    "possession": "away",
+    "fieldZone": "midfield"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are a center-back reading the game from deep. The opposing midfielder has the ball and you notice their striker glance over their left shoulder toward the space behind your partner. The midfielder's hips are now pointing toward that same space. You sense a through ball is about to be played. What do you do?",
+      "choices": [
+        { "id": "anticipate-intercept", "text": "Trust your read! Step across early to intercept the through ball before it reaches the striker!", "nextNode": "outcome-great" },
+        { "id": "drop-deep", "text": "Drop a few yards deeper to give yourself more time if the ball goes over the top.", "nextNode": "outcome-okay" },
+        { "id": "stay-put-react", "text": "Wait until the ball is actually played and then react.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Read It Perfectly! Interception!",
+        "explanation": "You read the body language -- the striker's shoulder check, the midfielder's hip direction -- and stepped across before the pass was even made. You intercepted the through ball and immediately started a counter attack! This is elite defending: reading the game means you act BEFORE the play happens, not after. The best defenders in the world are not the fastest, they are the smartest.",
+        "whatToRemember": "Read body language to anticipate passes: where are their hips pointing? Where did the attacker look? Step into passing lanes BEFORE the ball is played!",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Reading the Game", "definition": "Using body language, positioning, and patterns to predict what an opponent will do before they do it." }, { "term": "Interception", "definition": "Stepping into a passing lane to cut off a pass before it reaches the intended target." }, { "term": "Body Language Cues", "definition": "Signals like hip direction, shoulder checks, and eye movement that reveal what a player is about to do." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Deeper Position, Foot Race!",
+        "explanation": "Dropping deeper gave you a cushion, but now the striker received the ball and you are in a foot race. You read the play correctly but did not act on it aggressively. Dropping deep is the safe option, but the ELITE option is to step up and intercept. If you are right (and you were), an interception wins the ball immediately instead of creating a chase.",
+        "whatToRemember": "When you read the play, be brave enough to ACT on it. Stepping up to intercept is better than dropping off and hoping to recover!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too Late! Through on Goal!",
+        "explanation": "By the time you reacted, the ball was already past you and the striker was in behind. Reacting AFTER the pass means you are always a step behind. You SAW the cues -- the shoulder check, the hip direction -- but you did not trust your instincts. Elite defenders act on their reads. If you wait to see the pass, it is already too late to stop it.",
+        "whatToRemember": "Do not wait until the pass is made to react. Trust your read and move BEFORE the ball is played. Reacting is too slow at the highest level!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

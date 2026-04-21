@@ -1,0 +1,73 @@
+{
+  "id": "majors-football-red-zone",
+  "title": "Score in the Red Zone!",
+  "sport": ["football"],
+  "tier": "majors",
+  "impact": 4,
+  "role": "offense",
+  "tags": ["red-zone", "scoring", "tight-windows", "advanced"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "3:00",
+    "down": 2,
+    "distance": 6,
+    "yardLine": 88,
+    "score": { "home": 14, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the quarterback at the 12-yard line -- you're in the red zone! The defense has packed everyone in tight because there's not much field left for them to cover. Deep routes won't work because the end zone is only 12 yards away. Your receivers are having trouble getting open with all the defenders squeezed together. What's your best play?",
+      "choices": [
+        { "id": "quick-slant-fade", "text": "Use quick, sharp routes like a slant to the tight end in the middle or a fade to the corner of the end zone. Beat them with timing and accuracy!", "nextNode": "outcome-great" },
+        { "id": "deep-bomb", "text": "Try to throw a deep pass over everybody into the end zone.", "nextNode": "outcome-bad" },
+        { "id": "run-outside", "text": "Call a run play to the outside to try to get around the packed defense.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Touchdown! Perfect Red Zone Throw!",
+        "explanation": "In the red zone, everything happens in a small space. Deep routes don't work because the end zone acts like an extra defender -- receivers run out of room! The best red zone plays use quick, precise routes. A slant in the middle catches the defense off guard in the chaos. A fade to the corner puts the ball where only YOUR receiver can get it. Red zone offense is about timing, accuracy, and throwing into tight windows!",
+        "whatToRemember": "In the red zone, use quick routes and precise throws. The field is compressed, so timing beats speed. Slants, fades, and back-shoulder throws work best!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Red Zone", "definition": "The area from the 20-yard line to the end zone. The defense compresses and it gets harder to score." },
+          { "term": "Fade Route", "definition": "A receiver runs toward the back corner of the end zone. The QB lobs it high where only the receiver can reach it." },
+          { "term": "Tight Window", "definition": "A small gap between defenders where you have to place the ball perfectly. Red zone throws are often tight-window throws." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short Gain! Closer But No Touchdown!",
+        "explanation": "Running outside can work sometimes in the red zone, but with the defense already packed in and the field so short, they can quickly shift to the outside too. You gained a few yards but didn't score. The better approach in the red zone is usually quick, well-timed passes to create a moment of separation. But hey, you're closer now -- maybe next play!",
+        "whatToRemember": "Outside runs can work in the red zone but the field is so small that defenders close fast. Quick passes to tight windows are usually better!",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Compressed Field", "definition": "When you're close to the end zone, defenders don't have to cover as much ground, so everything is tighter." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted in the End Zone! Touchback!",
+        "explanation": "There's no room for deep passes in the red zone! You're only 12 yards from the end zone. When you try to throw deep, the ball hangs in the air and defenders are RIGHT THERE because the field is so small. The safety grabbed it easily. In the red zone, you need QUICK, SHARP routes with pinpoint throws. Think slants, fades to the corner, and back-shoulder throws -- not deep bombs.",
+        "whatToRemember": "No deep passes in the red zone! The field is too short. Quick routes, precise throws, and timing are how you score down here.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Touchback (Interception)", "definition": "When a defender intercepts the ball in their own end zone. They get it at the 25-yard line." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

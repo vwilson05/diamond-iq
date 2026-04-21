@@ -1,0 +1,63 @@
+{
+  "id": "majors-basketball-zone-vs-man",
+  "title": "Reading the Defense",
+  "sport": ["basketball"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["zone defense", "man defense", "recognition"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "5:00",
+    "score": { "home": 38, "away": 40 },
+    "possession": "home",
+    "shotClock": 20
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You bring the ball up court and notice the defense looks different. Instead of each defender following a specific player, they are spread out in areas of the court and nobody chases when your teammates move. You realize they switched to a zone defense. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Pass the ball quickly around the perimeter to make the zone shift, then attack the gaps between defenders or find the open shooter", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Try to dribble through the zone like you would beat a single defender in man-to-man", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Keep running your regular man-to-man plays with screens for individual players", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "You cracked the zone!",
+        "explanation": "Quick ball movement forces zone defenders to shift and rotate. When the ball moves faster than the defense can slide, gaps open up. You found a teammate in the soft spot of the zone for a wide-open mid-range shot!",
+        "whatToRemember": "Zone defenses are beaten by quick passing, attacking gaps between defenders, and high-low passes to the middle. Make the ball move faster than their feet can slide.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Zone Defense", "definition": "A defense where each player guards an area of the court instead of a specific opponent. Beaten by quick ball movement and finding gaps between defenders." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got stuck in traffic",
+        "explanation": "In a zone, multiple defenders collapse on the ball. When you tried to drive, two defenders met you at the same time. You managed to kick the ball out, but the shot clock is getting low.",
+        "whatToRemember": "Zones are designed to stop dribble penetration. Unlike man-to-man where you just need to beat one player, a zone has multiple bodies waiting in the lane.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Nothing is working!",
+        "explanation": "Setting screens against a zone does not work because defenders are not following players -- they are guarding areas. Your teammates are setting screens on air while the zone stays put. The shot clock ran down and you had to force a bad shot.",
+        "whatToRemember": "Always identify if the defense is in man-to-man or zone. Screens work against man defense. Ball movement and gap attacks work against zones. Different defenses need different strategies.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

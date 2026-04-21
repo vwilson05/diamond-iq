@@ -1,0 +1,62 @@
+{
+  "id": "minors-money-borrowing-from-friend",
+  "title": "Can I Borrow Five Bucks?",
+  "sport": ["money"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "spending",
+  "tags": ["borrowing", "friendship", "trust", "smart spending"],
+  "setup": {
+    "situation": "forgot-money-at-movie",
+    "money": 0.00,
+    "goal": "handle the situation without hurting a friendship",
+    "context": "At the movies with friends but you forgot your wallet"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are at the movies with friends and realize you forgot your wallet at home. Your friend Jake offers to lend you ten dollars for the ticket. The movie starts in five minutes. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Accept the loan, thank Jake, and pay him back tomorrow with a specific plan", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Accept the loan and figure out when to pay him back later", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Borrow the money and hope Jake forgets about it", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Trust earned and kept!",
+        "explanation": "You told Jake you would bring the ten dollars to school tomorrow, and you did. Jake knows he can trust you, and you know he will help you again if you ever need it. Paying back quickly keeps friendships strong.",
+        "whatToRemember": "If you borrow money, always pay it back as soon as possible. Tell the person exactly when you will return it. This builds trust and keeps friendships healthy.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Borrowing", "definition": "Taking money from someone with a promise to give it back. Always have a clear plan for when and how you will repay." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Jake is waiting...",
+        "explanation": "A week goes by and you still have not paid Jake back. It is not that you forgot, you just kept spending your allowance on other things. Jake has not said anything, but he looks a little annoyed.",
+        "whatToRemember": "Vague promises to pay back lead to awkward situations. Always set a specific day to return borrowed money and make it a priority.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You lost a friend over ten dollars!",
+        "explanation": "Jake did not forget. After two weeks he asked for his money and you said you did not have it. Now Jake is upset and does not invite you to hang out anymore. Ten dollars cost you a friendship.",
+        "whatToRemember": "Never borrow money hoping the person will forget. They will remember, and not paying back ruins trust and friendships. If you cannot pay back, do not borrow.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "majors-football-coverage-shells",
+  "title": "Crack the Coverage Shell!",
+  "sport": ["football"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["coverage-shells", "safeties", "pre-snap", "advanced"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "4:20",
+    "down": 1,
+    "distance": 10,
+    "yardLine": 50,
+    "score": { "home": 10, "away": 10 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the quarterback reading the defense before the snap. You look at the safeties -- the two defenders way back deep. You see ONE safety standing right in the middle of the field, deep. That means it's probably Cover 1 or Cover 3, which means one side of the deep field might be weaker. Your best receiver is on the right side. Where do you want to attack?",
+      "choices": [
+        { "id": "attack-boundary", "text": "Throw to the side of the field AWAY from the deep safety. If the safety is in the middle, one of the corners might be alone deep on the outside!", "nextNode": "outcome-great" },
+        { "id": "throw-middle", "text": "Throw right at the safety in the middle of the field.", "nextNode": "outcome-bad" },
+        { "id": "check-down", "text": "Don't worry about the safeties, just throw a quick short pass to whoever is open.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Found the Hole in the Coverage!",
+        "explanation": "With one deep safety in the middle, the outside deep zones only have cornerbacks to cover them. If your receiver can beat the corner, there's no safety help over there! This is called a 'single-high' look -- one safety deep. The smart play is to attack the corners on the outside with deep routes, because if they get beat, the safety can't be in two places at once. He might help one side, but the other is exposed!",
+        "whatToRemember": "One deep safety (single-high) means the outside corners are on their own. Attack them with deep routes and make the safety choose a side!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Coverage Shell", "definition": "The shape the safeties make before the snap. It tells you what kind of coverage the defense is playing." },
+          { "term": "Single-High Safety", "definition": "One safety deep in the middle. Signals Cover 1 or Cover 3. Outside deep zones may be vulnerable." },
+          { "term": "Cover 1", "definition": "One safety deep, everyone else covers a specific player man-to-man. Corners are alone on the outside!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Short Gain. Left Points on the Field!",
+        "explanation": "A quick short pass gets you a few yards, and it's safe. But you're ignoring valuable information! The coverage shell told you exactly where the defense was weak, and you didn't use it. Reading the safeties before the snap is like getting the answer to a test question. If you see single-high, you KNOW the outside deep is vulnerable. Use that information to make big plays instead of settling for small ones!",
+        "whatToRemember": "Don't ignore pre-snap reads! The safeties tell you where to attack. Use that free information to find the weakness.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Pre-Snap Read", "definition": "Looking at the defense's alignment before the ball is snapped to figure out what coverage they're playing." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Intercepted! Threw It Right to the Safety!",
+        "explanation": "Throwing right at the deep safety is exactly what the defense wants! He's sitting back there in the middle WAITING for passes to come his way. The whole point of reading the coverage shell is to throw AWAY from the safety, not into him. A single-high safety owns the middle of the field. You need to attack the outside edges where he can't reach in time.",
+        "whatToRemember": "Never throw right at the deep safety! Read the shell and attack where the safety ISN'T. Throw away from help, not into it.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Throwing Into Coverage", "definition": "Passing the ball toward a defender who is in perfect position. Almost always leads to an interception or breakup." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

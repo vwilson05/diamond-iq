@@ -1,0 +1,63 @@
+{
+  "id": "the-show-basketball-hack-a-player",
+  "title": "The Hack-a-Player Strategy",
+  "sport": ["basketball"],
+  "tier": "the-show",
+  "impact": 5,
+  "role": "defense",
+  "tags": ["hack-a-player", "strategy", "free throws", "game theory"],
+  "setup": {
+    "quarter": 4,
+    "timeLeft": "2:00",
+    "score": { "home": 62, "away": 68 },
+    "possession": "away",
+    "shotClock": 20
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your team is down six with two minutes left. The other team has a player who is an amazing dunker and rebounder but shoots only 40 percent from the free throw line. He misses more free throws than he makes! They are trying to run clock. What strategy do you use?",
+      "choices": [
+        { "id": "best", "text": "Intentionally foul the bad free throw shooter to stop the clock and force him to earn points the hard way from the free throw line", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Play normal defense and hope to get a stop", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Foul their best free throw shooter instead since he has the ball", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "The strategy is working!",
+        "explanation": "You fouled the bad free throw shooter three times. He went 2 for 6 from the line, scoring only 2 points when he could have scored 6. Plus, the clock stopped each time, giving your team more time. A player shooting 40 percent averages less than one point per trip to the line!",
+        "whatToRemember": "Hack-a-player works when you are trailing and the other team has a very poor free throw shooter. It stops the clock, limits their points per possession, and gives your team extra chances. Only use it on players who shoot below 50 percent from the line.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Hack-a-Player", "definition": "A strategy where you intentionally foul a poor free throw shooter to stop the clock and limit their scoring. Works because a bad shooter at the line is less efficient than letting them play normally." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "They ran the clock out",
+        "explanation": "You played solid defense, but the other team just passed the ball around and ate 20 seconds off the shot clock each possession. By the time you got stops, there was not enough time left to complete the comeback.",
+        "whatToRemember": "When trailing late, time is your enemy. Normal defense lets the winning team control the pace. Sometimes you need unconventional strategies to speed the game up.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "He made both! Now you are down eight!",
+        "explanation": "Their best shooter calmly hit both free throws. He shoots 90 percent from the line! Now you are down even more. The hack strategy only works when you foul the WORST free throw shooter, not the best one.",
+        "whatToRemember": "Always identify the weakest free throw shooter on the other team before using this strategy. Fouling a good shooter just gives them easy points.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "minors-football-audible",
+  "title": "Call an Audible!",
+  "sport": ["football"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["audible", "adjustment", "communication", "game-iq"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "6:30",
+    "down": 2,
+    "distance": 5,
+    "yardLine": 48,
+    "score": { "home": 17, "away": 21 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're the quarterback at the line. The coach called a run to the left side. But when you look at the defense, you see THREE defenders stacked on the left side where the run is supposed to go, and only ONE defender on the right side. You know the code word to change the play. What do you do?",
+      "choices": [
+        { "id": "audible-right", "text": "Call an audible! Shout the code word to change the run to go to the RIGHT side where there's only one defender.", "nextNode": "outcome-great" },
+        { "id": "run-left-anyway", "text": "Stick with the coach's play and run it to the left as called.", "nextNode": "outcome-bad" },
+        { "id": "audible-pass", "text": "Call an audible to change it to a pass play instead.", "nextNode": "outcome-okay" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect Audible! Big Run to the Right!",
+        "explanation": "Excellent! You saw that the defense was overloaded to the left, so you changed the run to go right where they were weak. This is exactly what audibles are for! The quarterback is like a general on the field -- you can see what the defense is doing and change the plan to attack their weak spot. Running toward ONE defender instead of THREE is a much better idea!",
+        "whatToRemember": "Audibles let you change the play at the line when you see the defense is set up to stop your original play. Attack the weak side!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Audible", "definition": "Changing the play at the line of scrimmage by calling out a code word that your teammates know." },
+          { "term": "Overloaded", "definition": "When the defense has extra players on one side. The other side will be weak!" },
+          { "term": "Check With Me", "definition": "When the coach gives the QB two plays and lets them pick the right one at the line based on what the defense shows." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Pass Works, But Simpler Was Better!",
+        "explanation": "Changing to a pass isn't terrible -- you might complete it. But there was an easier answer right in front of you! The right side only had one defender, so a simple run to the right would have been a huge gain with less risk. Passes can be incomplete, intercepted, or cause a sack. When the defense gives you an obvious running lane, take the easy yards! Don't overcomplicate things.",
+        "whatToRemember": "Take what the defense gives you! If there's an obvious running lane, use it. Don't make things harder than they need to be.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Take What They Give You", "definition": "Attacking whatever weakness the defense shows you instead of forcing something else." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Stuffed! Ran Right Into a Wall!",
+        "explanation": "Running into three stacked defenders is almost never going to work! The whole reason the quarterback can call audibles is to avoid exactly this situation. The coach can't see what the defense is doing as well as YOU can at the line. When you spot the problem, it's YOUR job to change the play. The coach gave you the audible for a reason -- use it! Trust your eyes!",
+        "whatToRemember": "Don't run into obvious trouble! If you see the defense loaded up to stop your play, call an audible and attack somewhere else.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Running Into a Stacked Box", "definition": "Trying to run where the defense has extra players waiting. Recipe for a loss of yards!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

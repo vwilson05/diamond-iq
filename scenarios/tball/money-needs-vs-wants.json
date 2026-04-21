@@ -1,0 +1,62 @@
+{
+  "id": "tball-money-needs-vs-wants",
+  "title": "Do I Need It or Want It?",
+  "sport": ["money"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "spending",
+  "tags": ["needs", "wants", "decisions", "basics"],
+  "setup": {
+    "situation": "shopping-with-dad",
+    "money": 5.00,
+    "goal": "get what you really need",
+    "context": "At the store with Dad before school starts"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "School starts tomorrow! Dad says you can pick one thing at the store. You need new crayons because yours are all broken, but you also see a cool toy car you want. What do you pick?",
+      "choices": [
+        { "id": "best", "text": "Get the crayons because you need them for school tomorrow", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Ask Dad if you can get both and offer to use your own money for the toy", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Grab the toy car and forget about the crayons", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart choice!",
+        "explanation": "You picked what you needed first. Now you are ready for school with fresh crayons. You can always save up for the toy car another day.",
+        "whatToRemember": "Needs come before wants. Needs are things you must have, like food, clothes, and school supplies. Wants are things that are fun but can wait.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Needs vs Wants", "definition": "Needs are things you must have to live and do your job (like school). Wants are extras that are nice to have but not necessary." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Good thinking, but it costs more",
+        "explanation": "Dad says okay, but now you spent your own money on the toy. You got both things, but your piggy bank is lighter. At least you have your crayons for school!",
+        "whatToRemember": "Getting both a need and a want is fine if you can afford it, but always make sure the need is covered first.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Uh oh, no crayons for school!",
+        "explanation": "The toy car is fun for five minutes, but tomorrow at school you have no crayons for art class. You feel sad watching your friends color while you sit there.",
+        "whatToRemember": "Wants feel exciting right now, but needs are more important. Always take care of what you need before getting what you want.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

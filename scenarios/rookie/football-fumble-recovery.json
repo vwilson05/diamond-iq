@@ -1,0 +1,73 @@
+{
+  "id": "rookie-football-fumble-recovery",
+  "title": "Loose Ball! Fumble!",
+  "sport": ["football"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "defense",
+  "tags": ["fumble", "recovery", "turnover", "fundamentals"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "4:10",
+    "down": 2,
+    "distance": 4,
+    "yardLine": 50,
+    "score": { "home": 10, "away": 17 },
+    "possession": "away"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're on defense and you just tackled the running back! The ball popped out and it's bouncing on the ground right in front of you. Players from both teams are running toward it. The loose ball is right there! What do you do?",
+      "choices": [
+        { "id": "fall-on-it", "text": "Dive on the ball and curl your whole body around it like a turtle shell! Protect it with everything you've got!", "nextNode": "outcome-great" },
+        { "id": "pick-up-run", "text": "Try to pick it up and run for a touchdown!", "nextNode": "outcome-okay" },
+        { "id": "kick-forward", "text": "Kick the ball forward toward the other team's end zone and then chase it!", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Recovered! Your Ball!",
+        "explanation": "Diving on the ball and covering it up is the SAFEST play! When there's a fumble, the most important thing is making sure YOUR team gets it. Footballs bounce in crazy directions and are hard to grab while standing up. By diving on it and curling around it, you make it almost impossible for the other team to rip it away. Your team gets the ball and that's what matters most!",
+        "whatToRemember": "On a fumble, FALL ON IT and cover up! Getting the ball for your team is more important than trying to be a hero.",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Fumble Recovery", "definition": "When a player grabs or falls on a loose ball after a fumble. Whoever recovers it gets possession!" },
+          { "term": "Turnover", "definition": "When the defense gets the ball from the offense, either by a fumble or an interception. Huge play!" },
+          { "term": "Securing the Ball", "definition": "Tucking the ball tight against your body and covering it with both arms so nobody can take it." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Bobbled It, But Got It Back!",
+        "explanation": "Trying to pick up a bouncing football while running is REALLY hard! Footballs are shaped like eggs and they bounce in unpredictable directions. You bobbled it a couple times before finally grabbing it. That extra time gave the other team a chance to get there and almost take it back. It worked out this time, but falling on it is much safer. A bird in the hand is worth two in the bush!",
+        "whatToRemember": "Picking up a fumble is risky -- the ball bounces crazy! Fall on it first to make sure your team gets it.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Scoop and Score", "definition": "Picking up a fumble and running it for a touchdown. Exciting but risky -- falling on it is usually safer!" }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Illegal Kick! Penalty Plus They Keep the Ball!",
+        "explanation": "You are NOT allowed to kick a loose ball on purpose in football! That's a penalty called an illegal kick. The referee will blow the whistle, give your team a 10-yard penalty, and the other team keeps the ball. Plus, kicking a bouncing football is almost impossible to control -- it could go anywhere! When you see a fumble, the ONLY good options are to fall on it or carefully pick it up.",
+        "whatToRemember": "NEVER kick a loose ball! That's a penalty. Fall on it or pick it up -- those are your only options on a fumble.",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Illegal Kick", "definition": "Kicking a loose ball on purpose. It's against the rules and gives the other team a 10-yard penalty!" }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "minors-basketball-spacing",
+  "title": "Give Each Other Room",
+  "sport": ["basketball"],
+  "tier": "minors",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["spacing", "floor balance", "offense"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "5:30",
+    "score": { "home": 24, "away": 22 },
+    "possession": "home",
+    "shotClock": 18
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your teammate has the ball and is trying to drive to the basket. You notice two of your teammates have drifted close to the ball handler, bringing their defenders with them. The lane is clogged with bodies. Where should you go?",
+      "choices": [
+        { "id": "best", "text": "Move to an open spot on the opposite side of the court to spread the defense out and create driving lanes", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stay where you are since you are already in a decent spot", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Run toward the ball handler to try to get a quick pass", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Perfect spacing!",
+        "explanation": "By moving to the open side, you pulled your defender away from the basket. Now the lane is clear for your teammate to drive. If your defender helps, you are wide open for a pass and shot!",
+        "whatToRemember": "Good spacing means staying about 15 feet apart from teammates. When players spread out, it creates lanes to drive and makes it harder for the defense to help.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Spacing", "definition": "Keeping proper distance between offensive players so defenders cannot guard two people at once. Good spacing opens up driving lanes and passing angles." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not bad, but not great",
+        "explanation": "Your spot was alright, but you did not actively create more space. Your teammate managed to find a passing lane, but the defense did not have to work very hard.",
+        "whatToRemember": "Offense is not just about what happens when you have the ball. Moving without the ball to create space is just as important.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Too crowded!",
+        "explanation": "Now three teammates are bunched up together and the defense barely has to move to guard everyone. Your teammate has nowhere to drive and the shot clock is ticking down. Bad spacing makes offense almost impossible.",
+        "whatToRemember": "Never crowd the ball handler. If they are driving, move away to open up space. Think of it like magnets pushing apart.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

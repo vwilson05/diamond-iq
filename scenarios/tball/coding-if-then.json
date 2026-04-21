@@ -1,0 +1,62 @@
+{
+  "id": "tball-coding-if-then",
+  "title": "Making Decisions!",
+  "sport": ["coding"],
+  "tier": "tball",
+  "impact": 2,
+  "role": "logic",
+  "tags": ["conditionals", "if-then", "decisions", "basics"],
+  "setup": {
+    "language": "blocks",
+    "concept": "if/then decisions",
+    "difficulty": "beginner",
+    "context": "Getting dressed for the weather"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are programming a helper robot that picks out your clothes each morning! Today you want the robot to check the weather and decide what you should wear. IF it is raining, THEN grab a raincoat. IF it is sunny, THEN grab sunglasses. How should you write this rule for the robot?",
+      "choices": [
+        { "id": "if-then", "text": "IF raining THEN raincoat. IF sunny THEN sunglasses.", "nextNode": "outcome-great" },
+        { "id": "always-both", "text": "Always grab raincoat AND sunglasses no matter what.", "nextNode": "outcome-okay" },
+        { "id": "no-check", "text": "Just grab whatever is closest. Do not check the weather.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Smart Decision! Perfect Outfit!",
+        "explanation": "You used IF/THEN! This is how computers make decisions. They check if something is true, and THEN they do something based on the answer. IF it is raining THEN wear a raincoat. The computer checks the weather (that is the IF part) and then picks the right clothes (that is the THEN part).",
+        "whatToRemember": "IF/THEN lets a computer make decisions. It checks if something is true, then does something based on the answer.",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "IF/THEN", "definition": "A rule that says: IF something is true, THEN do this action. It helps computers make decisions."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You Will Not Get Wet... But Why the Sunglasses in the Rain?",
+        "explanation": "Grabbing both every day means you are always prepared, but you are carrying extra stuff you do not need! A computer is smarter when it checks what is happening first and THEN decides. That way it only does what is needed.",
+        "whatToRemember": "IF/THEN is better than always doing everything. It lets the computer be smart and only do what makes sense.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Sunglasses in a Thunderstorm!",
+        "explanation": "Without checking the weather, the robot just grabbed sunglasses on a rainy day! You are soaking wet! Computers need rules to make good decisions. Without IF/THEN, they cannot look at what is happening and choose the right action.",
+        "whatToRemember": "Without IF/THEN, a computer cannot make smart choices. It needs to check what is happening before it decides what to do.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

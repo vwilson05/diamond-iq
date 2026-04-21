@@ -1,0 +1,63 @@
+{
+  "id": "rookie-basketball-pick-and-roll",
+  "title": "The Pick and Roll",
+  "sport": ["basketball"],
+  "tier": "rookie",
+  "impact": 2,
+  "role": "offense",
+  "tags": ["pick and roll", "screening", "teamwork"],
+  "setup": {
+    "quarter": 2,
+    "timeLeft": "4:00",
+    "score": { "home": 22, "away": 20 },
+    "possession": "home",
+    "shotClock": 16
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "Your big teammate runs up and sets a screen right next to the defender guarding you. The defender gets stuck behind your teammate and cannot follow you. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Dribble off the screen and look for your teammate rolling to the basket or take the open shot yourself", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Dribble away from the screen in the other direction", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand still and ignore the screen your teammate set for you", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Pick and roll perfection!",
+        "explanation": "You used the screen to get free from your defender. After your teammate set the pick, they rolled toward the basket. You had two great options: shoot the open jumper or pass to your rolling teammate for a layup!",
+        "whatToRemember": "In a pick and roll, the ball handler uses the screen to get free, and the screener rolls to the basket. Read the defense to decide if you should shoot or pass.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Pick and Roll", "definition": "A play where one player sets a screen (the pick) for the ball handler, then cuts toward the basket (the roll) looking for a pass" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You got free, but missed the easier play",
+        "explanation": "Going the other way worked because your defender was still stuck, but your teammate who set the screen is now wide open near the basket with nobody near them. You made it harder on yourself.",
+        "whatToRemember": "When a teammate sets a screen for you, use it! Dribble close to the screener so your defender gets stuck.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Wasted opportunity!",
+        "explanation": "Your teammate worked hard to set that screen, but you ignored it. Your defender never got stuck and kept guarding you tightly. The shot clock is running down and the team is in trouble.",
+        "whatToRemember": "When a teammate sets a screen, always use it. They are trying to help you get open. Dribble right off their shoulder.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

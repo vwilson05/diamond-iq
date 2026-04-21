@@ -1,0 +1,62 @@
+{
+  "id": "rookie-money-saving-for-goal",
+  "title": "Eyes on the Prize",
+  "sport": ["money"],
+  "tier": "rookie",
+  "impact": 3,
+  "role": "saving",
+  "tags": ["saving", "goals", "planning", "fundamentals"],
+  "setup": {
+    "situation": "saving-for-skateboard",
+    "money": 15.00,
+    "goal": "save thirty dollars for a skateboard",
+    "context": "You have saved fifteen dollars so far and get five dollars allowance each week"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You have been saving for three weeks and have fifteen dollars. The skateboard costs thirty dollars, so you need fifteen more. Your allowance is five dollars per week. Your friend invites you to spend ten dollars at the trampoline park this weekend. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Skip the trampoline park and save your next three allowances to reach thirty dollars in three weeks", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Go to the trampoline park but only spend five dollars, keeping your saving goal alive", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Spend ten dollars at the trampoline park because saving is taking too long", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Skateboard is almost yours!",
+        "explanation": "By staying focused, you will have your thirty dollars in just three more weeks. Six weeks of saving total and you will own something awesome that you earned all by yourself.",
+        "whatToRemember": "Setting a savings goal and sticking to it takes patience, but the reward feels amazing. Write down your goal and track your progress each week.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Savings Goal", "definition": "A specific amount of money you want to save up for something you really want. You reach it by saving a little at a time." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Fun and saving, but slower progress",
+        "explanation": "You had fun at the trampoline park and only spent five dollars. But now you need four more weeks of saving instead of three. You delayed your goal by a week.",
+        "whatToRemember": "You can still have fun while saving, but every dollar you spend adds more time before you reach your goal. Balance is key.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Back to square one!",
+        "explanation": "You spent ten dollars and now only have five dollars left. Your skateboard feels further away than ever. At this rate you might give up on your goal completely.",
+        "whatToRemember": "Every time you spend savings money on something else, you push your goal further away. Ask yourself: do I want this small thing now, or do I want my big goal more?",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

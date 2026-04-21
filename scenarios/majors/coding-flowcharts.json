@@ -1,0 +1,62 @@
+{
+  "id": "majors-coding-flowcharts",
+  "title": "Follow the Flowchart!",
+  "sport": ["coding"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "design",
+  "tags": ["flowcharts", "planning", "visual-logic", "logic"],
+  "setup": {
+    "language": "blocks",
+    "concept": "flowcharts",
+    "difficulty": "advanced",
+    "context": "Planning a homework helper app"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are planning a homework helper app before writing any code. The app asks: 'What subject?' If Math, go to the calculator. If Reading, go to the dictionary. If Science, go to the experiment guide. You want to draw a plan showing all the paths a user could take. What is the best tool for this?",
+      "choices": [
+        { "id": "flowchart", "text": "Draw a flowchart! Start with a question diamond, then arrows pointing to each possible answer.", "nextNode": "outcome-great" },
+        { "id": "list", "text": "Write a list of all the screens in any order.", "nextNode": "outcome-okay" },
+        { "id": "just-code", "text": "Skip planning. Just start writing code immediately.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Flowchart Pro! Plan Before You Build!",
+        "explanation": "A flowchart is a visual map of how a program works! Diamonds are decisions (questions with multiple paths). Rectangles are actions (things that happen). Arrows show which way to go. Your flowchart would have: START arrow pointing to a diamond ('What subject?'), then three arrows going to three different rectangles (Calculator, Dictionary, Experiment Guide). Now you can SEE how the app works before writing a single line of code!",
+        "whatToRemember": "A flowchart maps out your program visually. Diamonds are decisions, rectangles are actions, arrows show the flow. Plan before you code!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Flowchart", "definition": "A visual diagram showing how a program flows from start to finish, with shapes for decisions and actions connected by arrows."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "A List Helps, But Misses the Connections!",
+        "explanation": "A list of screens tells you WHAT exists, but not HOW the user gets between them. Does the user go from the subject question to the calculator? Or does the calculator come first? A flowchart shows the connections and paths, not just the pieces. It is like the difference between a list of cities and an actual map with roads.",
+        "whatToRemember": "Lists show WHAT exists. Flowcharts show HOW things connect and which paths are possible.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Lost Without a Map!",
+        "explanation": "Jumping straight into code without a plan is like building a house without a blueprint! You might forget a path (what if someone picks Science but there is no experiment guide?), or you might build things in the wrong order and have to redo them. Planning with a flowchart takes a few minutes but saves hours of confusion later.",
+        "whatToRemember": "Always plan before you code! A few minutes of planning saves hours of confusion and fixing mistakes later.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

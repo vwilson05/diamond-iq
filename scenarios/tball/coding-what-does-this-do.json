@@ -1,0 +1,62 @@
+{
+  "id": "tball-coding-what-does-this-do",
+  "title": "What Will the Robot Do?",
+  "sport": ["coding"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "logic",
+  "tags": ["reading-code", "tracing", "prediction", "basics"],
+  "setup": {
+    "language": "blocks",
+    "concept": "what does this code do",
+    "difficulty": "beginner",
+    "context": "Predicting what a dancing robot will do"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "A dancing robot has these instructions: Step 1) Wave left hand. Step 2) Wave right hand. Step 3) Jump up. Step 4) Bow. If you press the START button, what will the robot do FIRST?",
+      "choices": [
+        { "id": "wave-left", "text": "Wave its left hand.", "nextNode": "outcome-great" },
+        { "id": "jump", "text": "Jump up.", "nextNode": "outcome-okay" },
+        { "id": "all-at-once", "text": "Do everything at the same time.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Correct! Step 1 Goes First!",
+        "explanation": "The robot always starts at Step 1 and goes in order. Wave left hand is Step 1, so that happens first! Reading code is like reading a recipe -- you start at the top and go down, one step at a time.",
+        "whatToRemember": "Computers start at the first instruction and go down the list in order. To figure out what code does, read from the top!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Tracing", "definition": "Reading through code step by step to figure out what it will do, just like following a recipe."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Not Quite! Jump is Step 3!",
+        "explanation": "Jump is in the list, but it is Step 3, not Step 1! The robot has to do Step 1 and Step 2 before it gets to Step 3. Computers always go in order from top to bottom.",
+        "whatToRemember": "Always read from the top. The computer does Step 1 first, then Step 2, then Step 3, and so on.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Nope! One Thing at a Time!",
+        "explanation": "Computers do one step at a time, not everything at once! The robot cannot wave both hands AND jump AND bow all at the same moment. It follows the list: first this, then that, then the next thing.",
+        "whatToRemember": "A computer does ONE step at a time, in order. It does not do everything at once!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

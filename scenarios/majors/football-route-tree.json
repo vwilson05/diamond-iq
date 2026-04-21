@@ -1,0 +1,73 @@
+{
+  "id": "majors-football-route-tree",
+  "title": "Pick the Right Route!",
+  "sport": ["football"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["route-tree", "receiving", "route-running", "advanced"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "7:45",
+    "down": 3,
+    "distance": 12,
+    "yardLine": 45,
+    "score": { "home": 14, "away": 17 },
+    "possession": "home"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You're a wide receiver and it's 3rd and 12 -- you need at least 12 yards for a first down. The cornerback covering you is playing 5 yards off you and backpedaling (moving backward) as soon as the ball is snapped. He seems scared of getting beat deep. The play call gives you a choice of routes. Which do you run?",
+      "choices": [
+        { "id": "comeback", "text": "Run a comeback route -- sprint 14 yards upfield, then turn around and come back toward the quarterback to catch the ball!", "nextNode": "outcome-great" },
+        { "id": "go-route", "text": "Run a go route -- just sprint straight past him as fast as you can!", "nextNode": "outcome-okay" },
+        { "id": "slant", "text": "Run a quick slant -- cut inside after 3 steps for a quick catch.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Comeback! First Down!",
+        "explanation": "The comeback route is perfect here! The cornerback keeps backing up because he's afraid of getting beat deep. When you sprint 14 yards upfield, he keeps backpedaling. Then you suddenly stop and come BACK toward the quarterback! The defender is now 5 yards behind you, too far away to recover. You catch the ball at 14 yards -- that's past the first-down marker! The comeback beats a defender who gives too much cushion.",
+        "whatToRemember": "When a defender gives you a big cushion and keeps backing up, the comeback route punishes them. Sprint upfield, then come back!",
+        "iqPoints": 10,
+        "keyTerms": [
+          { "term": "Comeback Route", "definition": "Running upfield 12-15 yards, then planting your foot and turning back toward the quarterback to catch the ball." },
+          { "term": "Cushion", "definition": "The distance between a receiver and the defender covering them. Big cushion = defender is far off." },
+          { "term": "Route Tree", "definition": "All the different routes a receiver can run, like branches of a tree: slant, out, in, comeback, go, post, corner, and more." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Deep Ball! Barely Overthrown!",
+        "explanation": "A go route can work, but when the defender is already backpedaling and giving you cushion, he has a head start going deep! He's prepared for you to run past him. The go route is hard to complete because the QB has to throw a perfect deep ball, and the defender is stride for stride with you. The comeback would have been easier because the defender's backpedal works AGAINST him when you stop and come back.",
+        "whatToRemember": "A go route is tough when the corner has cushion and is already running backward. He's ready for it! Try a comeback instead.",
+        "iqPoints": 4,
+        "keyTerms": [
+          { "term": "Go Route (Fly Route)", "definition": "Sprinting straight down the field as fast as you can. The simplest route but requires a great deep throw." }
+        ],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Short of the Sticks! 4th Down!",
+        "explanation": "A slant only goes about 3-5 yards -- way short of the 12 you needed! The defender was already playing off you, so he could easily close the gap on a short route. Plus, there are usually linebackers sitting in the middle of the field waiting for slants. On 3rd and 12, you NEED to run a route that gets past the first-down marker. A slant is great on 3rd and short, but not when you need 12 yards.",
+        "whatToRemember": "Match your route to the situation! On 3rd and long, run routes that get past the first-down marker. Short routes don't help!",
+        "iqPoints": 1,
+        "keyTerms": [
+          { "term": "Short of the Sticks", "definition": "Catching the ball before the first-down marker. You didn't get enough yards! 'The sticks' are the first-down markers on the sideline." }
+        ],
+        "next": "end"
+      }
+    }
+  }
+}

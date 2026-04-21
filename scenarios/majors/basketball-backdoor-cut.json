@@ -1,0 +1,63 @@
+{
+  "id": "majors-basketball-backdoor-cut",
+  "title": "The Backdoor Cut",
+  "sport": ["basketball"],
+  "tier": "majors",
+  "impact": 3,
+  "role": "offense",
+  "tags": ["backdoor", "cutting", "off-ball"],
+  "setup": {
+    "quarter": 3,
+    "timeLeft": "6:15",
+    "score": { "home": 44, "away": 42 },
+    "possession": "home",
+    "shotClock": 12
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are on the wing and your defender is overplaying you, standing between you and the ball to deny the pass. They are so focused on taking away the pass that their back is almost completely turned to the basket. What should you do?",
+      "choices": [
+        { "id": "best", "text": "Fake a step toward the ball, then spin and cut hard to the basket behind your defender for a layup pass", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Keep fighting to get open on the perimeter by pushing through the denial", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Stand still and wave for the ball while your defender denies the pass", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Backdoor layup!",
+        "explanation": "Your fake step made the defender lean even harder toward the ball, and then you blew past them to the basket. Your teammate saw you cut and delivered a perfect bounce pass for an easy layup!",
+        "whatToRemember": "When a defender overplays and denies the pass, they are giving you the backdoor. Fake toward the ball to sell it, then cut hard to the basket. Make the defense pay for overplaying.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Backdoor Cut", "definition": "When an offensive player fakes toward the ball then cuts sharply behind their defender toward the basket. Works best when the defender is denying the pass and not watching the basket." }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You finally got the ball, but the clock is low",
+        "explanation": "After a lot of effort, you managed to muscle past the denial and catch the ball. But now the shot clock is under five seconds and the defense is set. All that energy spent just getting the ball could have been an easy layup with a backdoor cut.",
+        "whatToRemember": "If a defender is working very hard to deny you the ball, do not fight them. Use their aggressiveness against them by cutting behind them.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "Turnover! The defender intercepted!",
+        "explanation": "Your teammate tried to force the pass to you, but the overplaying defender was in the perfect position to steal it. Standing still made you an easy target to deny. The other team is off and running the other way.",
+        "whatToRemember": "Never stand still when being denied. A stationary player is the easiest to guard. Either cut backdoor or relocate to a new spot to create a better passing angle.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

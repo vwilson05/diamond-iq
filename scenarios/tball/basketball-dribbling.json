@@ -1,0 +1,63 @@
+{
+  "id": "tball-basketball-dribbling",
+  "title": "Keep Your Eyes Up",
+  "sport": ["basketball"],
+  "tier": "tball",
+  "impact": 1,
+  "role": "offense",
+  "tags": ["dribbling", "ball handling", "basics"],
+  "setup": {
+    "quarter": 1,
+    "timeLeft": "6:00",
+    "score": { "home": 4, "away": 2 },
+    "possession": "home",
+    "shotClock": 24
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You are dribbling the ball up the court. A teammate is wide open near the basket, but you are staring down at the ball while you dribble. What do you do?",
+      "choices": [
+        { "id": "best", "text": "Keep your head up and look around while dribbling so you can see your open teammate", "nextNode": "outcome-great" },
+        { "id": "okay", "text": "Stop dribbling and then look around for someone to pass to", "nextNode": "outcome-okay" },
+        { "id": "bad", "text": "Keep staring at the ball and dribble all the way to the basket yourself", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Great court vision!",
+        "explanation": "By keeping your eyes up while dribbling, you spotted your open teammate and made a perfect pass for an easy basket. Good ball handlers can dribble without looking down.",
+        "whatToRemember": "Practice dribbling without looking at the ball. Your eyes should always be scanning the court for open teammates.",
+        "iqPoints": 10,
+        "keyTerms": [{ "term": "Court Vision", "definition": "The ability to see the whole court and know where all the players are while you handle the ball" }],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "You found the pass, but it took a moment",
+        "explanation": "Stopping your dribble to look around works, but now you cannot dribble again. A defender might have time to close in on your teammate before you pass.",
+        "whatToRemember": "Try to keep your dribble alive while you look around. Once you pick up the ball, your options get smaller.",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "You missed the open player!",
+        "explanation": "Because you were staring at the ball, you never saw your teammate waving for a pass. You dribbled into traffic and a defender stole the ball.",
+        "whatToRemember": "Basketball is a team sport. Keep your head up so you can see the whole court and find open teammates.",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}

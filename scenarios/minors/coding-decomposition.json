@@ -1,0 +1,62 @@
+{
+  "id": "minors-coding-decomposition",
+  "title": "Break It Into Pieces!",
+  "sport": ["coding"],
+  "tier": "minors",
+  "impact": 3,
+  "role": "design",
+  "tags": ["decomposition", "planning", "breaking-down", "problem-solving"],
+  "setup": {
+    "language": "blocks",
+    "concept": "breaking big problems into small ones",
+    "difficulty": "intermediate",
+    "context": "Building a birthday party planner app"
+  },
+  "nodes": {
+    "root": {
+      "type": "decision",
+      "narration": "You want to build an app that plans birthday parties! It needs to handle: invitations, decorations, food, games, and music. That is a LOT of stuff for one program! The problem feels too big. How should you approach building this?",
+      "choices": [
+        { "id": "break-apart", "text": "Break it into 5 smaller pieces: one for invitations, one for decorations, one for food, one for games, and one for music. Build each piece separately.", "nextNode": "outcome-great" },
+        { "id": "do-everything", "text": "Try to build the whole thing all at once.", "nextNode": "outcome-okay" },
+        { "id": "just-one", "text": "Only build the invitations part and forget the rest.", "nextNode": "outcome-bad" }
+      ]
+    },
+    "outcome-great": {
+      "type": "outcome",
+      "outcome": {
+        "result": "great",
+        "headline": "Decomposition! Small Pieces Are Easier!",
+        "explanation": "You used DECOMPOSITION -- breaking a big problem into smaller, easier problems! Building an 'invitations' piece by itself is much simpler than building the whole app at once. You can focus on one thing, get it working, then move to the next piece. It is like eating a pizza one slice at a time instead of trying to stuff the whole thing in your mouth!",
+        "whatToRemember": "When a problem feels too big, break it into smaller pieces. Solve each small piece, then put them together!",
+        "iqPoints": 10,
+        "keyTerms": [{"term": "Decomposition", "definition": "Breaking a big, hard problem into smaller, easier problems that you can solve one at a time."}],
+        "next": "end"
+      }
+    },
+    "outcome-okay": {
+      "type": "outcome",
+      "outcome": {
+        "result": "okay",
+        "headline": "Overwhelmed! Too Many Things at Once!",
+        "explanation": "Trying to build everything at once makes it really hard to know where to start. You might mix up invitation code with food code, and if something breaks, you will not know which part caused the problem. Big problems are much easier to solve when you break them into small pieces first.",
+        "whatToRemember": "Big problems are confusing when you try to solve them all at once. Break them into small pieces first!",
+        "iqPoints": 4,
+        "keyTerms": [],
+        "next": "end"
+      }
+    },
+    "outcome-bad": {
+      "type": "outcome",
+      "outcome": {
+        "result": "bad",
+        "headline": "A Party Needs More Than Invitations!",
+        "explanation": "Only building one part means your app is incomplete! Decomposition does not mean doing LESS work -- it means doing the work in PIECES. You still build all 5 parts, but you do them one at a time. Start with invitations, finish it, then move to decorations, then food, and so on until the whole app is done.",
+        "whatToRemember": "Breaking a problem into pieces does not mean skipping pieces. Build ALL the pieces, just one at a time!",
+        "iqPoints": 1,
+        "keyTerms": [],
+        "next": "end"
+      }
+    }
+  }
+}
