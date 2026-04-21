@@ -1634,24 +1634,35 @@ body {
 
 /* ---- REVIEW BUTTONS ---- */
 .review-buttons {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
   margin-top: 2rem;
-  justify-content: center;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .review-buttons .btn-play-again {
-  flex: 1;
-  max-width: 220px;
+  font-size: 0.85rem;
+  padding: 0.75rem 0.5rem;
 }
 
-.review-buttons .btn-change-level {
+.review-buttons .btn-change-level,
+.review-buttons .btn-new-sport,
+.review-buttons .btn-my-dashboard,
+.review-buttons .btn-profile-sport,
+.review-buttons .btn-profile-back {
   background: transparent;
   border: 2px solid rgba(255,255,255,0.15);
   color: var(--text-secondary);
 }
 
-.review-buttons .btn-change-level:hover {
+.review-buttons .btn-change-level:hover,
+.review-buttons .btn-new-sport:hover,
+.review-buttons .btn-my-dashboard:hover,
+.review-buttons .btn-profile-sport:hover,
+.review-buttons .btn-profile-back:hover {
   border-color: var(--accent);
   color: var(--accent);
 }

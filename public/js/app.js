@@ -1050,6 +1050,8 @@ function showReview() {
     <div class="review-buttons">
       <button class="btn-play-again btn-keep-going">KEEP GOING</button>
       <button class="btn-play-again btn-change-level">CHANGE LEVEL</button>
+      <button class="btn-play-again btn-new-sport">NEW SPORT</button>
+      <button class="btn-play-again btn-my-dashboard">MY DASHBOARD</button>
     </div>
   `;
 
@@ -1098,6 +1100,21 @@ function showReview() {
     }
     showScreen('difficultySelect');
     renderDifficultyCards();
+  });
+
+  // "New Sport" — go back to sport/category picker
+  container.querySelector('.btn-new-sport').addEventListener('click', () => {
+    game.reset(); sessionTokens = 0;
+    localStorage.removeItem('diamond_iq_team');
+    localStorage.removeItem('diamond_iq_tier');
+    localStorage.removeItem('diamond_iq_sport');
+    showScreen('sportSelect');
+  });
+
+  // "My Dashboard" — show player profile
+  container.querySelector('.btn-my-dashboard').addEventListener('click', () => {
+    const player = playerAuth.getPlayer();
+    showPlayerProfile(player);
   });
 }
 
@@ -1428,10 +1445,36 @@ function showPlayerProfile(player) {
       ${renderAwards(awards)}
       <h3 class="profile-section-header">Recent Sessions</h3>
       ${renderSessionHistory(sessions)}
-      <button class="btn-play-again">BACK TO GAME</button>
+      <div class="review-buttons">
+        <button class="btn-play-again btn-profile-play">PLAY NEW SESSION</button>
+        <button class="btn-play-again btn-profile-sport">CHOOSE SPORT</button>
+        <button class="btn-play-again btn-profile-back">BACK TO GAME</button>
+      </div>
     `;
 
-    container.querySelector('.btn-play-again').addEventListener('click', profileBackHandler);
+    container.querySelector('.btn-profile-back').addEventListener('click', profileBackHandler);
+
+    container.querySelector('.btn-profile-play').addEventListener('click', () => {
+      const savedSport = localStorage.getItem('diamond_iq_sport');
+      const savedTeam = localStorage.getItem('diamond_iq_team');
+      game.reset(); sessionTokens = 0;
+      if (savedSport) game.selectSport(savedSport);
+      if (savedTeam) {
+        const team = JSON.parse(savedTeam);
+        game.selectTeam(team);
+        setTeamColors(team);
+      }
+      showScreen('difficultySelect');
+      renderDifficultyCards();
+    });
+
+    container.querySelector('.btn-profile-sport').addEventListener('click', () => {
+      game.reset(); sessionTokens = 0;
+      localStorage.removeItem('diamond_iq_team');
+      localStorage.removeItem('diamond_iq_tier');
+      localStorage.removeItem('diamond_iq_sport');
+      showScreen('sportSelect');
+    });
   }
 
   function profileBackHandler() {
