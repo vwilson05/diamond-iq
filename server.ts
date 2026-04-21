@@ -2,7 +2,13 @@ import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { randomBytes } from "node:crypto";
+import { Resend } from "resend";
 import { sql, migrate, generateJoinCode, checkAwards } from "./db";
+
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 const app = new Hono();
 
@@ -78,17 +84,22 @@ app.post("/api/players", async (c) => {
   if (dbErr) return dbErr;
 
   const body = await c.req.json();
-  const { username, display_name, avatar, team_id, sport } = body;
+  const { username, display_name, avatar, team_id, sport, password, parent_email } = body;
 
   if (!username || !display_name) {
     return c.json({ error: "username and display_name are required" }, 400);
   }
+  if (!password || password.length < 4) {
+    return c.json({ error: "Password must be at least 4 characters" }, 400);
+  }
+
+  const passwordHash = await Bun.password.hash(password);
 
   try {
     const [player] = await sql`
-      INSERT INTO players (username, display_name, avatar, team_id, sport)
-      VALUES (${username.toLowerCase().trim()}, ${display_name.trim()}, ${avatar || "slugger"}, ${team_id || null}, ${sport || "baseball"})
-      RETURNING *
+      INSERT INTO players (username, display_name, avatar, team_id, sport, password_hash, parent_email)
+      VALUES (${username.toLowerCase().trim()}, ${display_name.trim()}, ${avatar || "slugger"}, ${team_id || null}, ${sport || "baseball"}, ${passwordHash}, ${parent_email?.trim() || null})
+      RETURNING id, username, display_name, avatar, team_id, sport, created_at
     `;
     return c.json(player, 201);
   } catch (err: any) {
@@ -99,12 +110,12 @@ app.post("/api/players", async (c) => {
   }
 });
 
-// Login player (username only, no password for kids)
+// Login player
 app.post("/api/players/login", async (c) => {
   const dbErr = requireDB(c);
   if (dbErr) return dbErr;
 
-  const { username } = await c.req.json();
+  const { username, password } = await c.req.json();
   if (!username) return c.json({ error: "username required" }, 400);
 
   const [player] = await sql`
@@ -113,6 +124,13 @@ app.post("/api/players/login", async (c) => {
 
   if (!player) return c.json({ error: "Player not found" }, 404);
 
+  // Verify password (skip for legacy accounts without password_hash)
+  if (player.password_hash) {
+    if (!password) return c.json({ error: "Password required" }, 401);
+    const valid = await Bun.password.verify(password, player.password_hash);
+    if (!valid) return c.json({ error: "Wrong password" }, 401);
+  }
+
   // Get cumulative IQ
   const [iqRow] = await sql`
     SELECT COALESCE(SUM(total_iq), 0)::int as total_iq,
@@ -120,7 +138,92 @@ app.post("/api/players/login", async (c) => {
     FROM sessions WHERE player_id = ${player.id} AND ended_at IS NOT NULL
   `;
 
-  return c.json({ ...player, cumulative_iq: iqRow.total_iq, total_sessions: iqRow.total_sessions });
+  const { password_hash, ...safe } = player;
+  return c.json({ ...safe, cumulative_iq: iqRow.total_iq, total_sessions: iqRow.total_sessions });
+});
+
+// Forgot password — sends reset code to parent email
+app.post("/api/players/forgot-password", async (c) => {
+  const dbErr = requireDB(c);
+  if (dbErr) return dbErr;
+
+  const { username } = await c.req.json();
+  if (!username) return c.json({ error: "username required" }, 400);
+
+  const [player] = await sql`
+    SELECT id, parent_email FROM players WHERE username = ${username.toLowerCase().trim()}
+  `;
+
+  // Always return success to avoid leaking account existence
+  if (!player || !player.parent_email) {
+    return c.json({ message: "If that account exists and has a parent email, a reset code was sent." });
+  }
+
+  // Generate 6-digit code
+  const code = randomBytes(3).toString("hex").slice(0, 6).toUpperCase();
+  const expiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 min
+
+  await sql`
+    INSERT INTO password_reset_tokens (player_id, token, expires_at)
+    VALUES (${player.id}, ${code}, ${expiresAt.toISOString()})
+  `;
+
+  // Send email
+  if (resend) {
+    await resend.emails.send({
+      from: "PlayIQ <noreply@playiqapp.com>",
+      to: player.parent_email,
+      subject: "PlayIQ Password Reset Code",
+      html: `
+        <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
+          <h2 style="color: #1a1a2e;">PlayIQ Password Reset</h2>
+          <p>Someone requested a password reset for the PlayIQ account <strong>${username}</strong>.</p>
+          <p style="font-size: 32px; font-weight: bold; letter-spacing: 4px; text-align: center; color: #f5a623; padding: 16px; background: #1a1a2e; border-radius: 8px;">${code}</p>
+          <p>Enter this code in the app to set a new password. It expires in 15 minutes.</p>
+          <p style="color: #888; font-size: 12px;">If you didn't request this, just ignore this email.</p>
+        </div>
+      `,
+    });
+  }
+
+  return c.json({ message: "If that account exists and has a parent email, a reset code was sent." });
+});
+
+// Reset password with code
+app.post("/api/players/reset-password", async (c) => {
+  const dbErr = requireDB(c);
+  if (dbErr) return dbErr;
+
+  const { username, code, new_password } = await c.req.json();
+  if (!username || !code || !new_password) {
+    return c.json({ error: "username, code, and new_password required" }, 400);
+  }
+  if (new_password.length < 4) {
+    return c.json({ error: "Password must be at least 4 characters" }, 400);
+  }
+
+  const [player] = await sql`
+    SELECT id FROM players WHERE username = ${username.toLowerCase().trim()}
+  `;
+  if (!player) return c.json({ error: "Invalid code" }, 400);
+
+  const [token] = await sql`
+    SELECT id FROM password_reset_tokens
+    WHERE player_id = ${player.id}
+      AND token = ${code.toUpperCase().trim()}
+      AND used = FALSE
+      AND expires_at > NOW()
+    ORDER BY created_at DESC
+    LIMIT 1
+  `;
+  if (!token) return c.json({ error: "Invalid or expired code" }, 400);
+
+  const passwordHash = await Bun.password.hash(new_password);
+
+  await sql`UPDATE players SET password_hash = ${passwordHash} WHERE id = ${player.id}`;
+  await sql`UPDATE password_reset_tokens SET used = TRUE WHERE id = ${token.id}`;
+
+  return c.json({ message: "Password reset successfully. You can now log in." });
 });
 
 // Get player profile with stats (includes per-module and per-category breakdowns)
@@ -208,8 +311,9 @@ app.get("/api/players/:id", async (c) => {
     sportCategories[cat].sessions += row.sessions;
   }
 
+  const { password_hash: _, ...safePlayer } = player;
   return c.json({
-    ...player,
+    ...safePlayer,
     ...stats,
     total_tokens: tokenRow.total_tokens,
     modules,

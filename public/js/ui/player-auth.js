@@ -84,8 +84,13 @@ export class PlayerAuth {
             <label>Username</label>
             <input type="text" id="auth-login-username" placeholder="Enter your username" autocomplete="off" autocapitalize="off" />
           </div>
+          <div class="auth-field">
+            <label>Password</label>
+            <input type="password" id="auth-login-password" placeholder="Enter your password" autocomplete="off" />
+          </div>
           <button class="auth-btn" id="auth-login-btn">Let's Play!</button>
           <div class="auth-error" id="auth-login-error"></div>
+          <button class="auth-link-btn" id="auth-forgot-btn" type="button">Forgot Password?</button>
         </div>
 
         <!-- SIGNUP -->
@@ -99,6 +104,14 @@ export class PlayerAuth {
             <input type="text" id="auth-signup-username" placeholder="Choose a username" autocomplete="off" autocapitalize="off" />
           </div>
           <div class="auth-field">
+            <label>Create a Password</label>
+            <input type="password" id="auth-signup-password" placeholder="At least 4 characters" autocomplete="off" />
+          </div>
+          <div class="auth-field">
+            <label>Parent/Guardian Email <span class="auth-optional">(for password resets)</span></label>
+            <input type="email" id="auth-signup-parent-email" placeholder="parent@example.com" autocomplete="off" />
+          </div>
+          <div class="auth-field">
             <label>Pick Your Avatar</label>
             <div class="avatar-grid" id="auth-avatar-grid"></div>
           </div>
@@ -108,6 +121,32 @@ export class PlayerAuth {
           </div>
           <button class="auth-btn" id="auth-signup-btn">Create Account</button>
           <div class="auth-error" id="auth-signup-error"></div>
+        </div>
+
+        <!-- FORGOT PASSWORD -->
+        <div class="auth-panel" data-panel="forgot">
+          <p class="auth-hint">Enter your username and we'll send a reset code to your parent's email.</p>
+          <div class="auth-field">
+            <label>Username</label>
+            <input type="text" id="auth-forgot-username" placeholder="Your username" autocomplete="off" autocapitalize="off" />
+          </div>
+          <button class="auth-btn" id="auth-forgot-send-btn">Send Reset Code</button>
+          <div class="auth-success" id="auth-forgot-success"></div>
+          <div class="auth-error" id="auth-forgot-error"></div>
+
+          <div id="auth-reset-section" style="display:none;">
+            <div class="auth-field">
+              <label>Reset Code</label>
+              <input type="text" id="auth-reset-code" placeholder="6-character code from email" autocomplete="off" autocapitalize="characters" maxlength="6" />
+            </div>
+            <div class="auth-field">
+              <label>New Password</label>
+              <input type="password" id="auth-reset-new-password" placeholder="At least 4 characters" autocomplete="off" />
+            </div>
+            <button class="auth-btn" id="auth-reset-btn">Reset Password</button>
+            <div class="auth-error" id="auth-reset-error"></div>
+          </div>
+          <button class="auth-link-btn" id="auth-back-login-btn" type="button">Back to Login</button>
         </div>
       </div>
 
@@ -145,12 +184,26 @@ export class PlayerAuth {
 
     // Login
     inner.querySelector('#auth-login-btn').addEventListener('click', () => this._handleLogin(inner));
-    inner.querySelector('#auth-login-username').addEventListener('keydown', (e) => {
+    inner.querySelector('#auth-login-password').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') this._handleLogin(inner);
     });
 
     // Signup
     inner.querySelector('#auth-signup-btn').addEventListener('click', () => this._handleSignup(inner));
+
+    // Forgot password
+    inner.querySelector('#auth-forgot-btn').addEventListener('click', () => {
+      inner.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      inner.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+      inner.querySelector('[data-panel="forgot"]').classList.add('active');
+    });
+    inner.querySelector('#auth-back-login-btn').addEventListener('click', () => {
+      inner.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+      inner.querySelector('[data-panel="login"]').classList.add('active');
+      inner.querySelector('[data-tab="login"]').classList.add('active');
+    });
+    inner.querySelector('#auth-forgot-send-btn').addEventListener('click', () => this._handleForgotPassword(inner));
+    inner.querySelector('#auth-reset-btn').addEventListener('click', () => this._handleResetPassword(inner));
 
     // Guest
     inner.querySelector('#auth-guest-btn').addEventListener('click', () => {
@@ -160,19 +213,18 @@ export class PlayerAuth {
 
   async _handleLogin(inner) {
     const username = inner.querySelector('#auth-login-username').value.trim();
+    const password = inner.querySelector('#auth-login-password').value;
     const errorEl = inner.querySelector('#auth-login-error');
     errorEl.textContent = '';
 
-    if (!username) {
-      errorEl.textContent = 'Enter your username';
-      return;
-    }
+    if (!username) { errorEl.textContent = 'Enter your username'; return; }
+    if (!password) { errorEl.textContent = 'Enter your password'; return; }
 
     try {
       const res = await fetch('/api/players/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!res.ok) {
@@ -192,6 +244,8 @@ export class PlayerAuth {
   async _handleSignup(inner) {
     const display_name = inner.querySelector('#auth-signup-name').value.trim();
     const username = inner.querySelector('#auth-signup-username').value.trim();
+    const password = inner.querySelector('#auth-signup-password').value;
+    const parent_email = inner.querySelector('#auth-signup-parent-email').value.trim();
     const teamCode = inner.querySelector('#auth-signup-teamcode').value.trim();
     const errorEl = inner.querySelector('#auth-signup-error');
     errorEl.textContent = '';
@@ -199,6 +253,7 @@ export class PlayerAuth {
     if (!display_name) { errorEl.textContent = 'Enter your name'; return; }
     if (!username) { errorEl.textContent = 'Pick a username'; return; }
     if (username.length < 3) { errorEl.textContent = 'Username must be at least 3 characters'; return; }
+    if (!password || password.length < 4) { errorEl.textContent = 'Password must be at least 4 characters'; return; }
 
     try {
       const res = await fetch('/api/players', {
@@ -207,6 +262,8 @@ export class PlayerAuth {
         body: JSON.stringify({
           username,
           display_name,
+          password,
+          parent_email: parent_email || undefined,
           avatar: this._selectedAvatar,
         }),
       });
@@ -234,6 +291,68 @@ export class PlayerAuth {
       }
 
       if (this.onComplete) this.onComplete(this.player);
+    } catch {
+      errorEl.textContent = 'Connection error. Try again.';
+    }
+  }
+
+  async _handleForgotPassword(inner) {
+    const username = inner.querySelector('#auth-forgot-username').value.trim();
+    const errorEl = inner.querySelector('#auth-forgot-error');
+    const successEl = inner.querySelector('#auth-forgot-success');
+    errorEl.textContent = '';
+    successEl.textContent = '';
+
+    if (!username) { errorEl.textContent = 'Enter your username'; return; }
+
+    try {
+      const res = await fetch('/api/players/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username }),
+      });
+      const data = await res.json();
+      successEl.textContent = 'If that account has a parent email, a reset code was sent. Check your email!';
+      inner.querySelector('#auth-reset-section').style.display = 'block';
+    } catch {
+      errorEl.textContent = 'Connection error. Try again.';
+    }
+  }
+
+  async _handleResetPassword(inner) {
+    const username = inner.querySelector('#auth-forgot-username').value.trim();
+    const code = inner.querySelector('#auth-reset-code').value.trim();
+    const new_password = inner.querySelector('#auth-reset-new-password').value;
+    const errorEl = inner.querySelector('#auth-reset-error');
+    errorEl.textContent = '';
+
+    if (!code) { errorEl.textContent = 'Enter the reset code'; return; }
+    if (!new_password || new_password.length < 4) { errorEl.textContent = 'Password must be at least 4 characters'; return; }
+
+    try {
+      const res = await fetch('/api/players/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, code, new_password }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        errorEl.textContent = data.error || 'Reset failed';
+        return;
+      }
+
+      // Go back to login
+      inner.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+      inner.querySelector('[data-panel="login"]').classList.add('active');
+      inner.querySelector('[data-tab="login"]').classList.add('active');
+      inner.querySelector('#auth-login-error').textContent = '';
+      inner.querySelector('#auth-login-username').value = username;
+      inner.querySelector('#auth-login-password').value = '';
+      // Show success inline
+      const loginErr = inner.querySelector('#auth-login-error');
+      loginErr.style.color = '#4CAF50';
+      loginErr.textContent = 'Password reset! Log in with your new password.';
     } catch {
       errorEl.textContent = 'Connection error. Try again.';
     }

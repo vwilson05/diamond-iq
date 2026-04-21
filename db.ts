@@ -32,9 +32,15 @@ export async function migrate() {
       avatar TEXT DEFAULT 'slugger',
       team_id TEXT,
       sport TEXT DEFAULT 'baseball',
+      password_hash TEXT,
+      parent_email TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `;
+
+  // Add columns for existing installs (idempotent)
+  await sql`ALTER TABLE players ADD COLUMN IF NOT EXISTS password_hash TEXT`;
+  await sql`ALTER TABLE players ADD COLUMN IF NOT EXISTS parent_email TEXT`;
 
   await sql`
     CREATE TABLE IF NOT EXISTS sessions (
@@ -75,6 +81,17 @@ export async function migrate() {
       description TEXT,
       earned_at TIMESTAMPTZ DEFAULT NOW(),
       UNIQUE(player_id, award_type)
+    )
+  `;
+
+  await sql`
+    CREATE TABLE IF NOT EXISTS password_reset_tokens (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      player_id UUID REFERENCES players(id),
+      token TEXT UNIQUE NOT NULL,
+      expires_at TIMESTAMPTZ NOT NULL,
+      used BOOLEAN DEFAULT FALSE,
+      created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `;
 
