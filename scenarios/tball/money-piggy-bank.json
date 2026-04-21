@@ -17,7 +17,7 @@
       "type": "decision",
       "narration": "Grandma gave you ten dollars for your birthday! You have been saving up for a twenty dollar toy robot. You already have eight dollars in your piggy bank. What do you do with your birthday money?",
       "choices": [
-        { "id": "best", "text": "Put the ten dollars in your piggy bank because now you will have enough for the robot", "nextNode": "outcome-great" },
+        { "id": "best", "text": "Put the ten dollars in your piggy bank because now you will almost have enough for the robot", "nextNode": "outcome-great" },
         { "id": "okay", "text": "Put five dollars in the piggy bank and spend five dollars on candy", "nextNode": "outcome-okay" },
         { "id": "bad", "text": "Spend all ten dollars on small toys at the dollar store", "nextNode": "outcome-bad" }
       ]

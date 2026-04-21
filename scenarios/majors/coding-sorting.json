@@ -27,7 +27,7 @@
       "outcome": {
         "result": "great",
         "headline": "Bubble Sort! Compare and Swap!",
-        "explanation": "You described BUBBLE SORT! Look at pairs next to each other: is 12 bigger than 8? Yes -- swap! Now check the next pair. Keep going through the list until nothing needs swapping. It is called 'bubble' sort because smaller numbers slowly 'bubble up' to the front, like bubbles rising in water. The list after sorting: 6, 8, 10, 12, 15!",
+        "explanation": "You described BUBBLE SORT! Look at pairs next to each other: is 12 bigger than 8? Yes -- swap! Now check the next pair. Keep going through the list until nothing needs swapping. It is called 'bubble' sort because bigger numbers slowly 'bubble' to the end of the list, like bubbles rising to the top of water. The list after sorting: 6, 8, 10, 12, 15!",
         "whatToRemember": "Sorting algorithms put things in order by comparing and rearranging. Bubble sort compares neighbors and swaps them until everything is in order.",
         "iqPoints": 10,
         "keyTerms": [{"term": "Algorithm", "definition": "A step-by-step method for solving a problem. Like a recipe that always works."}, {"term": "Sorting", "definition": "Putting things in order (smallest to biggest, A to Z, etc.) using a specific method."}],

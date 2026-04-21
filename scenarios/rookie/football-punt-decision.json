@@ -46,11 +46,11 @@
       "outcome": {
         "result": "okay",
         "headline": "Way Too Far for a Field Goal!",
-        "explanation": "A field goal from the 30-yard line would be about a 47-yard kick. That's REALLY far -- even pro kickers miss from there a lot! And if you miss, the other team gets the ball right where you kicked from. The punt is a much better choice here because it pushes the other team way back. Save field goals for when you're closer, like inside the 35-yard line of the OTHER team.",
-        "whatToRemember": "Field goals are for when you're close to the other team's end zone. From your own 30, that's way too far -- just punt!",
+        "explanation": "A field goal from your own 30-yard line would be an impossible 87-yard kick! Nobody can kick that far -- not even the strongest pro kickers! The longest field goal in NFL history is only 66 yards. The punt is definitely the right choice here. Save field goals for when you're close to the OTHER team's end zone, like inside their 35-yard line.",
+        "whatToRemember": "Field goals are for when you're close to the other team's end zone, not your own! From your own 30, that's impossibly far -- just punt!",
         "iqPoints": 4,
         "keyTerms": [
-          { "term": "Field Goal", "definition": "A kick through the uprights that's worth 3 points. Usually attempted from within 40 yards of the end zone." }
+          { "term": "Field Goal", "definition": "A kick through the uprights that's worth 3 points. Usually attempted when you're inside the other team's 35-yard line." }
         ],
         "next": "end"
       }

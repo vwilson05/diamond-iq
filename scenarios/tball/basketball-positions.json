@@ -51,9 +51,9 @@
       "type": "outcome",
       "outcome": {
         "result": "bad",
-        "headline": "Five-second violation!",
-        "explanation": "You stood still too long! In basketball, you only have five seconds to pass the ball in from out of bounds. The referee blew the whistle and gave the ball to the other team.",
-        "whatToRemember": "In basketball, you always need to be moving and making decisions quickly. Standing still with the ball gets your team in trouble.",
+        "headline": "The other team stole it!",
+        "explanation": "You stood still too long! A defender ran over and knocked the ball right out of your hands because you were not moving or doing anything with it. The other team grabbed it and scored.",
+        "whatToRemember": "In basketball, you always need to be moving and making decisions quickly. Standing still with the ball makes you an easy target for the defense.",
         "iqPoints": 1,
         "keyTerms": [],
         "next": "end"
