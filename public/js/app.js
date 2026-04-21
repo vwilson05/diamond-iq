@@ -121,6 +121,12 @@ const screens = {
 function showScreen(name) {
   Object.values(screens).forEach(s => s.classList.remove('active'));
   screens[name].classList.add('active');
+  if (name === 'sportSelect') {
+    renderCategoryPicker();
+    // Clean up any stale back buttons
+    const inner = document.querySelector('#screen-sport-select .select-screen-inner');
+    if (inner) inner.querySelectorAll('.back-btn').forEach(b => b.remove());
+  }
 }
 
 function setTeamColors(team) {
@@ -154,13 +160,94 @@ function renderTeamGrid(sport) {
   });
 }
 
-// ---- Sport Picker ----
-function initSportPicker() {
-  document.querySelectorAll('.sport-card').forEach(card => {
-    card.addEventListener('click', () => {
-      selectSport(card.dataset.sport);
-    });
+// ---- Sport Picker (Category → Sport) ----
+const SPORT_CATEGORIES = [
+  {
+    id: 'sports',
+    name: 'Sports',
+    icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M20 20l24 24M44 20l-24 24" stroke="currentColor" stroke-width="2" opacity="0.3"/><circle cx="32" cy="32" r="10" stroke="currentColor" stroke-width="2" fill="none"/></svg>',
+    sports: [
+      { id: 'baseball', name: 'Baseball', desc: '90ft bases, leadoffs, Little League', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M18 8c4 6 4 14 0 20s-4 14 0 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M46 8c-4 6-4 14 0 20s4 14 0 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>' },
+      { id: 'softball', name: 'Softball', desc: '60ft bases, underhand pitching', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="4 4"/><path d="M18 10c3 5 3 12 0 18s-3 13 0 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M46 10c-3 5-3 12 0 18s3 13 0 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>' },
+      { id: 'basketball', name: 'Basketball', desc: 'Fast breaks, pick and roll, defense', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M4 32h56M32 4v56" stroke="currentColor" stroke-width="2"/><path d="M12 8c8 8 12 16 12 24s-4 16-12 24" stroke="currentColor" stroke-width="2"/><path d="M52 8c-8 8-12 16-12 24s4 16 12 24" stroke="currentColor" stroke-width="2"/></svg>' },
+      { id: 'football', name: 'Football', desc: 'Play calling, reads, strategy', icon: '<svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="32" rx="28" ry="18" stroke="currentColor" stroke-width="3" fill="none"/><path d="M18 32h28M32 18v28" stroke="currentColor" stroke-width="2"/></svg>' },
+      { id: 'soccer', name: 'Soccer', desc: 'Through balls, formations, game sense', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 4l6 10h12l-4 12 8 10-10 4-6 10-6-10-10-4 8-10-4-12h12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>' },
+    ],
+  },
+  {
+    id: 'strategy',
+    name: 'Strategy',
+    icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 8l-4 8h-6l2 6-4 6h8v8h-6v4h20v-4h-6v-8h8l-4-6 2-6h-6l-4-8z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><rect x="16" y="44" width="32" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>',
+    sports: [
+      { id: 'chess', name: 'Chess', desc: 'Tactics, checkmate patterns, think ahead', icon: '<svg viewBox="0 0 64 64" fill="none"><path d="M32 8l-4 8h-6l2 6-4 6h8v8h-6v4h20v-4h-6v-8h8l-4-6 2-6h-6l-4-8z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/><rect x="16" y="44" width="32" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/><rect x="12" y="50" width="40" height="6" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>' },
+    ],
+  },
+  {
+    id: 'life-skills',
+    name: 'Life Skills',
+    icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 16v32M24 22c0-4 4-6 8-6s8 2 8 6-4 6-8 8-8 4-8 8 4 6 8 6 8-2 8-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
+    sports: [
+      { id: 'money', name: 'Money Smarts', desc: 'Saving, spending, budgeting, investing', icon: '<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3" fill="none"/><path d="M32 16v32M24 22c0-4 4-6 8-6s8 2 8 6-4 6-8 8-8 4-8 8 4 6 8 6 8-2 8-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>' },
+      { id: 'coding', name: 'Coding', desc: 'Logic, debugging, problem solving', icon: '<svg viewBox="0 0 64 64" fill="none"><rect x="8" y="12" width="48" height="36" rx="4" stroke="currentColor" stroke-width="3" fill="none"/><path d="M22 26l-8 6 8 6M42 26l8 6-8 6M36 22l-8 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+    ],
+  },
+];
+
+function renderCategoryPicker() {
+  const container = document.getElementById('sport-select-content');
+  const heading = document.getElementById('sport-select-heading');
+  heading.textContent = 'Choose a Category';
+  container.innerHTML = '';
+  container.className = 'sport-cards';
+
+  SPORT_CATEGORIES.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'sport-card category-card';
+    btn.innerHTML = `
+      <div class="sport-icon">${cat.icon}</div>
+      <div class="sport-name">${cat.name}</div>
+      <div class="sport-desc">${cat.sports.length} game${cat.sports.length !== 1 ? 's' : ''}</div>
+    `;
+    btn.addEventListener('click', () => renderSportPicker(cat));
+    container.appendChild(btn);
   });
+}
+
+function renderSportPicker(category) {
+  const container = document.getElementById('sport-select-content');
+  const heading = document.getElementById('sport-select-heading');
+  heading.textContent = category.name;
+  container.innerHTML = '';
+  container.className = 'sport-cards';
+
+  // Back button
+  const backBtn = document.createElement('button');
+  backBtn.className = 'back-btn';
+  backBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Categories';
+  backBtn.addEventListener('click', renderCategoryPicker);
+  container.parentElement.insertBefore(backBtn, container);
+  // Remove old back buttons
+  container.parentElement.querySelectorAll('.back-btn').forEach((b, i) => { if (i > 0) b.remove(); });
+
+  category.sports.forEach(sport => {
+    const btn = document.createElement('button');
+    btn.className = 'sport-card';
+    btn.innerHTML = `
+      <div class="sport-icon">${sport.icon}</div>
+      <div class="sport-name">${sport.name}</div>
+      <div class="sport-desc">${sport.desc}</div>
+    `;
+    btn.addEventListener('click', () => {
+      // Remove back button when leaving
+      container.parentElement.querySelectorAll('.back-btn').forEach(b => b.remove());
+      selectSport(sport.id);
+    });
+    container.appendChild(btn);
+  });
+}
+
+function initSportPicker() {
+  renderCategoryPicker();
 }
 
 const NO_TEAM_SPORTS = ['chess', 'money', 'coding'];
