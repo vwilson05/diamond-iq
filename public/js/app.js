@@ -930,6 +930,7 @@ function showReview() {
         total_iq: totalIQ,
         grade,
         scenarios_played: outcomeCount,
+        total_tokens: sessionTokens,
       }),
     })
       .then(r => r.json())
@@ -1359,9 +1360,44 @@ function showPlayerProfile(player) {
     `).join('')}</div>`;
   }
 
+  // Helper: render module cards
+  function renderModuleCards(modules) {
+    if (!modules || Object.keys(modules).length === 0) return '<p style="color:var(--text-muted)">Play different modules to see your progress here!</p>';
+    const MODULE_ICONS = {
+      baseball: '\u26be', softball: '\u{1f94e}', basketball: '\u{1f3c0}', football: '\u{1f3c8}',
+      soccer: '\u26bd', hockey: '\u{1f3d2}', tennis: '\u{1f3be}', golf: '\u26f3',
+      chess: '\u265e', detective: '\u{1f50d}', money: '\ud83d\udcb0', coding: '\ud83d\udcbb',
+      survival: '\u{1f332}', social: '\ud83e\udd1d', science: '\ud83e\uddea', history: '\u{1f30d}',
+    };
+    return `<div class="profile-modules">${Object.entries(modules).map(([sport, m]) => {
+      const icon = MODULE_ICONS[sport] || '\u{1f3ae}';
+      const barColor = m.mastery_pct >= 80 ? 'var(--great)' : m.mastery_pct >= 60 ? 'var(--good)' : m.mastery_pct >= 40 ? 'var(--okay)' : 'var(--bad)';
+      return `<div class="profile-module-card">
+        <div class="profile-module-icon">${icon}</div>
+        <div class="profile-module-name">${sport.charAt(0).toUpperCase() + sport.slice(1)}</div>
+        <div class="profile-module-mastery" style="color:${barColor}">${m.mastery_pct}% mastery</div>
+        <div class="profile-module-bar-track"><div class="profile-module-bar-fill" style="width:${m.mastery_pct}%;background:${barColor}"></div></div>
+        <div class="profile-module-stats">${m.scenarios_played} scenarios &bull; ${m.iq} IQ &bull; ${m.sessions} session${m.sessions !== 1 ? 's' : ''}</div>
+      </div>`;
+    }).join('')}</div>`;
+  }
+
+  // Helper: render sport category summary (Sports, Strategy, Life Skills, etc.)
+  function renderSportCategories(sportCategories) {
+    if (!sportCategories || Object.keys(sportCategories).length === 0) return '';
+    return `<div class="profile-sport-categories">${Object.entries(sportCategories).map(([cat, d]) => `
+      <div class="profile-sport-cat-item">
+        <span class="profile-sport-cat-name">${cat}</span>
+        <span class="profile-sport-cat-iq">${d.iq} IQ</span>
+        <span class="profile-sport-cat-sessions">${d.sessions} session${d.sessions !== 1 ? 's' : ''}</span>
+      </div>
+    `).join('')}</div>`;
+  }
+
   // Helper: render the full profile page
   function renderProfile(data, awards, sessions) {
     const cumIQ = data.cumulative_iq || 0;
+    const totalTokens = data.total_tokens || cumIQ;
     const totalSessions = data.total_sessions || 0;
     const overallGrade = cumIQ > 0 && totalSessions > 0 ? (() => {
       const avg = cumIQ / totalSessions;
@@ -1381,10 +1417,12 @@ function showPlayerProfile(player) {
         <div class="review-grade">${totalSessions} session${totalSessions !== 1 ? 's' : ''} played — Overall: ${overallGrade}</div>
       </div>
       <div class="profile-token-balance">
-        <div class="profile-token-amount"><span class="token-coin">${TOKEN_COIN_SVG}</span> Token Balance: ${cumIQ}</div>
+        <div class="profile-token-amount"><span class="token-coin">${TOKEN_COIN_SVG}</span> Lifetime Tokens: ${totalTokens}</div>
         <div class="profile-token-note">Tokens unlock rewards — coming soon</div>
       </div>
-      <h3 class="profile-section-header">Category Mastery</h3>
+      ${data.sport_categories && Object.keys(data.sport_categories).length > 0 ? `<h3 class="profile-section-header">Categories</h3>${renderSportCategories(data.sport_categories)}` : ''}
+      ${data.modules && Object.keys(data.modules).length > 0 ? `<h3 class="profile-section-header">My Modules</h3>${renderModuleCards(data.modules)}` : ''}
+      <h3 class="profile-section-header">Skill Mastery</h3>
       ${renderMasteryBars(data.categories)}
       <h3 class="profile-section-header">Awards</h3>
       ${renderAwards(awards)}

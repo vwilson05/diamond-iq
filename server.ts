@@ -123,7 +123,7 @@ app.post("/api/players/login", async (c) => {
   return c.json({ ...player, cumulative_iq: iqRow.total_iq, total_sessions: iqRow.total_sessions });
 });
 
-// Get player profile with stats
+// Get player profile with stats (includes per-module and per-category breakdowns)
 app.get("/api/players/:id", async (c) => {
   const dbErr = requireDB(c);
   if (dbErr) return dbErr;
@@ -140,6 +140,45 @@ app.get("/api/players/:id", async (c) => {
     FROM sessions WHERE player_id = ${id} AND ended_at IS NOT NULL
   `;
 
+  // Total tokens = SUM of iq_points from all scenario results (tokens track with IQ for now)
+  const [tokenRow] = await sql`
+    SELECT COALESCE(SUM(iq_points), 0)::int as total_tokens
+    FROM scenario_results WHERE player_id = ${id}
+  `;
+
+  // Per-module stats (grouped by session sport)
+  const moduleRows = await sql`
+    SELECT s.sport,
+           COUNT(DISTINCT s.id)::int as sessions,
+           COALESCE(SUM(s.total_iq), 0)::int as iq,
+           COUNT(sr.id)::int as scenarios_played,
+           COUNT(sr.id) FILTER (WHERE sr.result = 'great')::int as great,
+           COUNT(sr.id) FILTER (WHERE sr.result = 'good')::int as good,
+           COUNT(sr.id) FILTER (WHERE sr.result = 'okay')::int as okay,
+           COUNT(sr.id) FILTER (WHERE sr.result = 'bad')::int as bad
+    FROM sessions s
+    LEFT JOIN scenario_results sr ON sr.session_id = s.id
+    WHERE s.player_id = ${id} AND s.ended_at IS NOT NULL
+    GROUP BY s.sport
+  `;
+
+  const modules: Record<string, any> = {};
+  for (const row of moduleRows) {
+    const total = row.great + row.good + row.okay + row.bad;
+    const masteryPct = total > 0 ? Math.round(((row.great + row.good) / total) * 100) : 0;
+    modules[row.sport] = {
+      sessions: row.sessions,
+      iq: row.iq,
+      scenarios_played: row.scenarios_played,
+      great: row.great,
+      good: row.good,
+      okay: row.okay,
+      bad: row.bad,
+      mastery_pct: masteryPct,
+    };
+  }
+
+  // Category-level stats (scenario_results.category is the in-game category like defense/offense)
   const categoryStats = await sql`
     SELECT category,
            COUNT(*)::int as total,
@@ -152,7 +191,31 @@ app.get("/api/players/:id", async (c) => {
     GROUP BY category
   `;
 
-  return c.json({ ...player, ...stats, categories: categoryStats });
+  // Sport-category aggregation (Sports, Strategy, Life Skills, etc.)
+  const SPORT_CATEGORY_MAP: Record<string, string> = {
+    baseball: "Sports", softball: "Sports", basketball: "Sports", football: "Sports",
+    soccer: "Sports", hockey: "Sports", tennis: "Sports", golf: "Sports",
+    chess: "Strategy", detective: "Strategy",
+    money: "Life Skills", coding: "Life Skills", survival: "Life Skills", social: "Life Skills",
+    science: "Science", history: "History",
+  };
+
+  const sportCategories: Record<string, { iq: number; sessions: number }> = {};
+  for (const row of moduleRows) {
+    const cat = SPORT_CATEGORY_MAP[row.sport] || "Other";
+    if (!sportCategories[cat]) sportCategories[cat] = { iq: 0, sessions: 0 };
+    sportCategories[cat].iq += row.iq;
+    sportCategories[cat].sessions += row.sessions;
+  }
+
+  return c.json({
+    ...player,
+    ...stats,
+    total_tokens: tokenRow.total_tokens,
+    modules,
+    categories: categoryStats,
+    sport_categories: sportCategories,
+  });
 });
 
 // Get player session history
@@ -236,7 +299,7 @@ app.put("/api/sessions/:id", async (c) => {
   if (dbErr) return dbErr;
 
   const id = c.req.param("id");
-  const { total_iq, grade, scenarios_played } = await c.req.json();
+  const { total_iq, grade, scenarios_played, total_tokens } = await c.req.json();
 
   const [session] = await sql`
     UPDATE sessions

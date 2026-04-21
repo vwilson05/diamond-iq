@@ -1726,6 +1726,97 @@ body {
   height: 20px;
 }
 
+/* ---- PROFILE MODULES ---- */
+.profile-modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.profile-module-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.profile-module-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.profile-module-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+}
+
+.profile-module-mastery {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.3rem 0;
+}
+
+.profile-module-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.3rem 0 0.4rem;
+}
+
+.profile-module-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.profile-module-stats {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* ---- PROFILE SPORT CATEGORIES ---- */
+.profile-sport-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.profile-sport-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.profile-sport-cat-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.profile-sport-cat-iq {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.profile-sport-cat-sessions {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
 /* ---- PROFILE MASTERY ---- */
 .profile-mastery {
   display: flex;
