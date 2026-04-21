@@ -138,7 +138,7 @@ app.post("/api/players/login", async (c) => {
     FROM sessions WHERE player_id = ${player.id} AND ended_at IS NOT NULL
   `;
 
-  const { password_hash, ...safe } = player;
+  const { password_hash, parent_email, ...safe } = player;
   return c.json({ ...safe, cumulative_iq: iqRow.total_iq, total_sessions: iqRow.total_sessions });
 });
 
@@ -311,7 +311,7 @@ app.get("/api/players/:id", async (c) => {
     sportCategories[cat].sessions += row.sessions;
   }
 
-  const { password_hash: _, ...safePlayer } = player;
+  const { password_hash: _, parent_email: _pe, ...safePlayer } = player;
   return c.json({
     ...safePlayer,
     ...stats,
