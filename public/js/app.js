@@ -456,9 +456,10 @@ async function startGame(tier) {
   const allScenarios = await loadScenarioList(tier.id);
   const currentSport = game.state.sport || 'baseball';
   scenarioList = allScenarios.filter(s => {
-    if (!s.sport || s.sport.length === 0) return currentSport !== 'chess'; // no sport tag = baseball/softball
+    if (!s.sport || s.sport.length === 0) return ['baseball', 'softball'].includes(currentSport);
     return s.sport.includes(currentSport);
   });
+  console.log(`[PlayIQ] Sport: ${currentSport}, Tier: ${tier.id}, Scenarios: ${allScenarios.length} total, ${scenarioList.length} for this sport`);
 
   // Load first scenario
   await loadNextScenario();
@@ -501,6 +502,8 @@ async function loadNextScenario() {
   // Update board/field with setup
   const setup = scenario.setup;
 
+  const isBaseballSport = ['baseball', 'softball'].includes(game.state.sport);
+
   if (game.state.sport === 'chess') {
     // Chess — update board position
     if (chessBoard && setup.position) {
@@ -509,7 +512,7 @@ async function loadNextScenario() {
         chessBoard.setHighlights([setup.lastMove.slice(0, 2), setup.lastMove.slice(2, 4)]);
       }
     }
-  } else {
+  } else if (isBaseballSport) {
     // Baseball/softball — update scoreboard and field
     const awayInnings = new Array(setup.inning).fill(0);
     const homeInnings = new Array(setup.inning).fill(0);
