@@ -1135,11 +1135,16 @@ function createSituationBar(setup) {
   // Generic situation bar for non-field sports
   if (!['baseball', 'softball', 'chess'].includes(sport)) {
     const items = [];
+    if (setup.hole) items.push(`Hole ${setup.hole}`);
+    if (setup.par) items.push(`Par ${setup.par}`);
+    if (setup.lie) items.push(setup.lie);
+    if (setup.distance && !setup.down) items.push(`${setup.distance} yds`);
     if (setup.quarter) items.push(`Q${setup.quarter}`);
     if (setup.half) items.push(`Half ${setup.half}`);
     if (setup.timeLeft) items.push(setup.timeLeft);
     if (setup.down) items.push(`${setup.down}${['st','nd','rd','th'][Math.min(setup.down-1,3)]} & ${setup.distance}`);
-    if (setup.score) items.push(`${setup.score.home}-${setup.score.away}`);
+    if (setup.score && typeof setup.score === 'object') items.push(`${setup.score.home}-${setup.score.away}`);
+    else if (setup.score) items.push(setup.score);
     if (setup.shotClock) items.push(`Shot: ${setup.shotClock}s`);
     if (setup.situation) items.push(setup.situation.replace(/-/g, ' '));
     if (setup.concept) items.push(setup.concept);
