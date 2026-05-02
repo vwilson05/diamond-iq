@@ -14,8 +14,60 @@ const app = new Hono();
 
 const SCENARIOS_DIR = join(import.meta.dir, "scenarios");
 
-// Run migrations on boot
+// Known sports — every scenario must tag at least one. Keep in sync with public/js/app.js category map.
+const KNOWN_SPORTS = new Set([
+  "baseball", "softball", "basketball", "football", "soccer", "hockey", "tennis", "golf",
+  "chess", "detective",
+  "money", "coding", "survival", "social",
+  "science", "history",
+]);
+
+// Validate every scenario has a non-empty `sport` array of known values. Fails loudly on boot.
+async function validateScenarioTags() {
+  const tiers = await readdir(SCENARIOS_DIR);
+  const problems: string[] = [];
+  for (const tier of tiers) {
+    let files: string[];
+    try {
+      files = await readdir(join(SCENARIOS_DIR, tier));
+    } catch {
+      continue;
+    }
+    for (const file of files) {
+      if (!file.endsWith(".json")) continue;
+      const path = join(SCENARIOS_DIR, tier, file);
+      try {
+        const raw = await readFile(path, "utf-8");
+        const data = JSON.parse(raw);
+        const sport = data.sport;
+        if (!Array.isArray(sport) || sport.length === 0) {
+          problems.push(`${tier}/${file}: missing or empty sport tag`);
+          continue;
+        }
+        for (const s of sport) {
+          if (typeof s !== "string" || !KNOWN_SPORTS.has(s)) {
+            problems.push(`${tier}/${file}: unknown sport "${s}"`);
+          }
+        }
+      } catch (err: any) {
+        problems.push(`${tier}/${file}: parse error — ${err.message}`);
+      }
+    }
+  }
+  if (problems.length > 0) {
+    console.error(`[scenarios] Tag validation failed (${problems.length}):`);
+    for (const p of problems) console.error(`  - ${p}`);
+    throw new Error(`Scenario tag validation failed — fix the ${problems.length} issues above before booting.`);
+  }
+  console.log("[scenarios] Tag validation passed.");
+}
+
+// Run migrations + tag validation on boot
 migrate().catch((err) => console.error("[db] Migration failed:", err));
+validateScenarioTags().catch((err) => {
+  console.error("[scenarios] Boot aborted:", err.message);
+  process.exit(1);
+});
 
 // ---- Helper: check if DB is available ----
 function requireDB(c: any) {
@@ -35,9 +87,10 @@ app.get("/api/teams", async (c) => {
   return c.json(TEAMS);
 });
 
-// --- API: List scenarios for a tier ---
+// --- API: List scenarios for a tier (optionally filtered by ?sport=<id>) ---
 app.get("/api/scenarios/:tier", async (c) => {
   const tier = c.req.param("tier");
+  const sport = c.req.query("sport");
   const tierDir = join(SCENARIOS_DIR, tier);
 
   try {
@@ -55,7 +108,11 @@ app.get("/api/scenarios/:tier", async (c) => {
           };
         })
     );
-    return c.json(scenarios);
+    // Strict tag match — relies on validateScenarioTags() already ensuring every scenario is tagged.
+    const filtered = sport
+      ? scenarios.filter((s) => Array.isArray(s.sport) && s.sport.includes(sport))
+      : scenarios;
+    return c.json(filtered);
   } catch {
     return c.json([]);
   }

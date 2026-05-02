@@ -2,7 +2,8 @@
   "id": "majors-double-cut",
   "title": "Double Cut Relay: Deep in the Corner",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "majors",
   "impact": 2,

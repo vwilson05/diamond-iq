@@ -2,7 +2,8 @@
   "id": "the-show-batting-order-strategy",
   "title": "Building the Lineup: Analytics Meet Strategy",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "the-show",
   "impact": 2,

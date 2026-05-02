@@ -554,14 +554,12 @@ async function startGame(tier) {
     });
   }
 
-  // Load scenarios for this tier, filtered by sport
-  const allScenarios = await loadScenarioList(tier.id);
+  // Load scenarios for this tier, server-side-filtered by sport.
+  // Strict tag match — every scenario must carry an explicit sport tag.
   const currentSport = game.state.sport || 'baseball';
-  scenarioList = allScenarios.filter(s => {
-    if (!s.sport || s.sport.length === 0) return ['baseball', 'softball'].includes(currentSport);
-    return s.sport.includes(currentSport);
-  });
-  console.log(`[PlayIQ] Sport: ${currentSport}, Tier: ${tier.id}, Scenarios: ${allScenarios.length} total, ${scenarioList.length} for this sport`);
+  const allScenarios = await loadScenarioList(tier.id, currentSport);
+  scenarioList = allScenarios.filter(s => Array.isArray(s.sport) && s.sport.includes(currentSport));
+  console.log(`[PlayIQ] Sport: ${currentSport}, Tier: ${tier.id}, Scenarios: ${allScenarios.length} from API, ${scenarioList.length} after client guard`);
 
   // Load first scenario
   await loadNextScenario();

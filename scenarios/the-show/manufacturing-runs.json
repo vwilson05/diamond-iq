@@ -2,7 +2,8 @@
   "id": "the-show-manufacturing-runs",
   "title": "Manufacturing Runs: Bunt, Hit-and-Run, or Swing Away",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "the-show",
   "impact": 2,

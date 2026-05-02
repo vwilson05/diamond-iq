@@ -4,12 +4,14 @@
  */
 
 /**
- * Fetch the list of available scenarios for a given tier.
+ * Fetch the list of available scenarios for a given tier, optionally filtered by sport server-side.
  * @param {string} tier — e.g. "tball", "rookie", "minors", "majors", "the-show"
+ * @param {string} [sport] — optional sport id; when set, server returns only scenarios whose sport array includes it.
  * @returns {Promise<Array<{ id: string, title: string, situation: string }>>}
  */
-export async function loadScenarioList(tier) {
-  const res = await fetch(`/api/scenarios/${encodeURIComponent(tier)}`);
+export async function loadScenarioList(tier, sport) {
+  const qs = sport ? `?sport=${encodeURIComponent(sport)}` : '';
+  const res = await fetch(`/api/scenarios/${encodeURIComponent(tier)}${qs}`);
   if (!res.ok) {
     throw new Error(
       `Failed to load scenario list for tier "${tier}": ${res.status} ${res.statusText}`

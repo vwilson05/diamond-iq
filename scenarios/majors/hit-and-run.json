@@ -2,7 +2,8 @@
   "id": "majors-hit-and-run",
   "title": "The Hit-and-Run: Offense in Motion",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "majors",
   "impact": 2,

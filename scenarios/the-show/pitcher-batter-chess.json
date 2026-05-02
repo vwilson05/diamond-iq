@@ -2,7 +2,8 @@
   "id": "the-show-pitcher-batter-chess",
   "title": "Pitcher vs. Batter: The Chess Match",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "the-show",
   "impact": 3,

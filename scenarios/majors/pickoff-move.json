@@ -2,7 +2,8 @@
   "id": "majors-pickoff-move",
   "title": "The Pickoff: Controlling the Running Game",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "majors",
   "impact": 2,

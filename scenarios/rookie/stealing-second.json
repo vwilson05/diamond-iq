@@ -2,7 +2,8 @@
   "id": "rookie-stealing-second",
   "title": "Stealing Second Base!",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "rookie",
   "impact": 2,

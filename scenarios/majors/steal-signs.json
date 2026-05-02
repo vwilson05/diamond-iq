@@ -2,7 +2,8 @@
   "id": "majors-steal-signs",
   "title": "Reading Signs: Runner on Second",
   "sport": [
-    "baseball"
+    "baseball",
+    "softball"
   ],
   "tier": "majors",
   "impact": 3,
