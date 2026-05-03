@@ -269,6 +269,78 @@ const ok = (msg) => { console.log("  ✓ " + msg); };
   else fail("weekly bars missing");
   await page.screenshot({ path: "/tmp/streak-uat-09-stats.png", fullPage: true });
 
+  // ─── 8e. Past-day edit on heatmap (regression-lock for tap-to-edit) ─
+  // Daily heatmap cells are buttons; tap opens a +/- editor sheet that
+  // POSTs to /api/completions with completedOn for that day. This UAT
+  // adds a +1 to a past-day cell for the daily habit and verifies the
+  // count increments and persists.
+  note("=== 8e. Heatmap past-day edit ===");
+  // Force the dropdown to the target=2 daily habit. Anchored regex avoids
+  // matching "UAT pushups one" (target=1). Swallow ambiguity errors only —
+  // we'll surface real failures via the editable-cell count check below.
+  try {
+    await page.locator("select.select").selectOption({ label: "UAT pushups" });
+  } catch (e) {
+    fail(`could not select "UAT pushups" daily habit: ${e.message}`);
+  }
+  await page.waitForTimeout(500);
+
+  const editableCells = page.locator('[data-testid="heatmap-cell"]:not([disabled])');
+  const editableCount = await editableCells.count();
+  if (editableCount >= 1) {
+    ok(`daily heatmap has ${editableCount} editable cell(s)`);
+    // Pick the LAST editable cell (today is always at the end of the daily fill).
+    // Actually choose the second-to-last so we're editing a "past" day, not today —
+    // if there's only 1 editable cell, fall back to it (a brand new habit).
+    const targetIdx = editableCount >= 2 ? editableCount - 2 : editableCount - 1;
+    const cell = editableCells.nth(targetIdx);
+    const dateAttr = await cell.getAttribute("data-date");
+    const beforeCount = parseInt((await cell.getAttribute("data-count")) ?? "0", 10);
+    await cell.click();
+    await page.waitForTimeout(300);
+    const editor = page.locator('[data-testid="day-editor"]');
+    if ((await editor.count()) >= 1) ok(`day editor opened for ${dateAttr}`);
+    else fail("day editor did not open after tapping cell");
+
+    const countText0 = await page.locator('[data-testid="day-editor-count"]').textContent();
+    const startCount = parseInt((countText0 ?? "0").trim(), 10);
+    if (Number.isFinite(startCount) && startCount === beforeCount) {
+      ok(`editor shows current count (${startCount}) matching cell data`);
+    } else {
+      fail(`editor count mismatch: cell=${beforeCount} editor=${countText0}`);
+    }
+
+    await page.locator('[data-testid="day-editor-plus"]').click();
+    await page.waitForTimeout(800);
+    const countText1 = await page.locator('[data-testid="day-editor-count"]').textContent();
+    const afterCount = parseInt((countText1 ?? "0").trim(), 10);
+    if (afterCount === startCount + 1) ok(`+ button incremented count (${startCount} → ${afterCount})`);
+    else fail(`+ did not increment correctly: ${startCount} → ${countText1}`);
+
+    // Close editor
+    await page.locator(".sheet__close").first().click().catch(() => {});
+    await page.waitForTimeout(300);
+
+    // Reload page to confirm the edit persisted server-side.
+    await page.reload({ waitUntil: "networkidle" });
+    await page.waitForTimeout(500);
+    try {
+      await page.locator("select.select").selectOption({ label: "UAT pushups" });
+    } catch {}
+    await page.waitForTimeout(500);
+    const persistedCell = page.locator(`[data-testid="heatmap-cell"][data-date="${dateAttr}"]`);
+    const persistedCount = parseInt((await persistedCell.getAttribute("data-count")) ?? "0", 10);
+    if (persistedCount === afterCount) ok(`edit persisted across reload (count=${persistedCount})`);
+    else fail(`edit did NOT persist: expected ${afterCount}, got ${persistedCount}`);
+  } else {
+    fail(`expected at least 1 editable heatmap cell, got ${editableCount}`);
+  }
+
+  // Future cells stay disabled.
+  const futureCount = await page.locator('[data-testid="heatmap-cell"][disabled]').count();
+  if (futureCount >= 1) ok(`future heatmap cells remain disabled (${futureCount})`);
+  else note("(no future cells — habit may be too young for any to render)");
+
   // ─── 9. Settings + sign out ─────────────────────────────────────────
   note("=== 9. Settings ===");
   await page.goto(`${WEB}/app/settings`, { waitUntil: "networkidle" });
